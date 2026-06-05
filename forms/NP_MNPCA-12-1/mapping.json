@@ -51,14 +51,18 @@
       "label": "FOURTH: ...continuation line below the purpose statement"
     },
     "filing.seeks_full_authority": {
-      "widget_id": [
-        "Check Box2",
-        "Check Box3"
-      ],
-      "field_type": "checkbox",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes"
+      "label": "FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes",
+      "options": {
+        "True": "Check Box2",
+        "true": "Check Box2",
+        "yes": "Check Box2",
+        "False": "Check Box3",
+        "false": "Check Box3",
+        "no": "Check Box3"
+      }
     },
     "entity.maine_limited_activities.line1": {
       "widget_id": "Text7",

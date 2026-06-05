@@ -1,24 +1,24 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
-Check Box6,0,text,Articles of Nonprofit Conversion (13-C MRSA §933),filing.accompanying_document_type,high,Radio-style checkbox for accompanying-document option 1. Enum: 'articles_of_nonprofit_conversion'.
-Check Box7,0,text,Statement of Conversion (31 MRSA §1645),filing.accompanying_document_type,high,Radio-style checkbox for accompanying-document option 2. Enum: 'statement_of_conversion'.
-Check Box8,0,text,Restated Articles of Incorporation (13-B MRSA §805),filing.accompanying_document_type,high,Radio-style checkbox for accompanying-document option 3. Enum: 'restated_articles_of_incorporation'.
+Check Box6,0,checkbox,Articles of Nonprofit Conversion (13-C MRSA §933),filing.accompanying_document_type,medium,Radio-style checkbox for accompanying-document option 1. Enum: 'articles_of_nonprofit_conversion'.
+Check Box7,0,checkbox,Articles of Nonprofit Conversion (13-C MRSA §933),filing.accompanying_document_type,medium,Radio-style checkbox for accompanying-document option 2. Enum: 'statement_of_conversion'.
+Check Box8,0,checkbox,Articles of Nonprofit Conversion (13-C MRSA §933),filing.accompanying_document_type,medium,Radio-style checkbox for accompanying-document option 3. Enum: 'restated_articles_of_incorporation'.
 Text9,0,text,FIRST: The name of the corporation is,entity.name,high,Nonprofit corporation name.
-Check Box10,0,text,SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Checkbox for SECOND public-benefit option. Enum value: 'public_benefit'. Naming follows NP_MNPCA-6 convention.
-Text30,0,text,(public benefit purposes description),entity.public_benefit_purpose,high,Free-text public-benefit purpose statement (multiline text widget).
-Check Box11,0,text,"SECOND: The corporation is organized as a mutual benefit corporation for all purposes permitted under 13-B MRSA, or, if not for all such purposes, then for the following purpose or purposes",entity.nonprofit_type,high,Checkbox for SECOND mutual-benefit option. Enum value: 'mutual_benefit'.
+Check Box10,0,checkbox,SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Checkbox for SECOND public-benefit option. Enum value: 'public_benefit'. Naming follows NP_MNPCA-6 convention.
+Check Box11,0,checkbox,SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Checkbox for SECOND mutual-benefit option. Enum value: 'mutual_benefit'.
+Check Box12,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,Checkbox for commercial-registered-agent path. Enum: 'commercial'.
+Check Box13,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,Checkbox for noncommercial-registered-agent path. Enum: 'noncommercial'.
 Text19,0,text,(mutual benefit purposes description),entity.mutual_benefit_purpose,high,Free-text mutual-benefit purpose statement (only if not 'all purposes permitted').
-Check Box12,0,text,THIRD: Commercial Registered Agent,registered_agent.type,high,Checkbox for commercial-registered-agent path. Enum: 'commercial'.
-Text22,0,text,CRA Public Number,registered_agent.cra_public_number,high,CRA Public Number (commercial path).
 Text21,0,text,(name of commercial registered agent),registered_agent.name,high,Name (commercial path).
-Check Box13,0,text,THIRD: Noncommercial Registered Agent,registered_agent.type,high,Checkbox for noncommercial-registered-agent path. Enum: 'noncommercial'.
-Text23,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name (noncommercial path).
+Text22,0,text,CRA Public Number,registered_agent.cra_public_number,high,CRA Public Number (commercial path).
+Text23,0,text,(name of commercial registered agent),registered_agent.name,high,Name (noncommercial path).
 Text24,0,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Physical address.
 Text25,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Mailing address (optional).
+Text30,0,text,(public benefit purposes description),entity.public_benefit_purpose,high,Free-text public-benefit purpose statement (multiline text widget).
+Check Box14,1,checkbox,SIXTH: There shall be no members.,entity.has_members,high,"Checkbox for 'no members' option. Boolean false. Naming follows NP_MNPCA-6 (boolean, not enum)."
+Check Box15,1,checkbox,SIXTH: There shall be no members.,entity.has_members,high,Checkbox for 'has members' option. Boolean true.
+Check Box16,1,checkbox,SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ...,entity.no_political_activities_clause,high,Boolean opt-in for SEVENTH (501(c)(3)-style limitation on lobbying and political campaigning). Naming follows NP_MNPCA-6.
+Check Box17,1,checkbox,EIGHTH: (Optional) ... Other provisions ... are set out in Exhibit ___,entity.has_501c_exhibit,high,Boolean opt-in for EIGHTH (other 501(c) or internal-affairs provisions attached as exhibit). Naming follows NP_MNPCA-6.
 Text26,1,text,"FIFTH: ...the initial board of directors of the corporation, if the number has been determined ... is ___",entity.initial_directors_count,high,Initial directors count (used when fixed at filing). Naming follows NP_MNPCA-6.
 Text27,1,text,FIFTH: The minimum number of directors (not less than 3) shall be ___,entity.directors_min_count,high,Minimum directors (range alternative). Right-side widget on the min/max line; mirrors MNPCA-6 Text14 layout.
 Text28,1,text,FIFTH: ...and the maximum number of directors shall be ___,entity.directors_max_count,high,Maximum directors. Left-side widget on the min/max line; mirrors MNPCA-6 Text15 layout (left-of-min visually wraps to next line at form width).
-Check Box14,1,checkbox,SIXTH: There shall be no members.,entity.has_members,high,"Checkbox for 'no members' option. Boolean false. Naming follows NP_MNPCA-6 (boolean, not enum)."
-Check Box15,1,checkbox,SIXTH: There shall be one or more classes of members and the information required by 13-B MRSA §402 is attached.,entity.has_members,high,Checkbox for 'has members' option. Boolean true.
-Check Box16,1,text,SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ...,entity.no_political_activities_clause,high,Boolean opt-in for SEVENTH (501(c)(3)-style limitation on lobbying and political campaigning). Naming follows NP_MNPCA-6.
-Check Box17,1,checkbox,EIGHTH: (Optional) ... Other provisions ... are set out in Exhibit ___,entity.has_501c_exhibit,high,Boolean opt-in for EIGHTH (other 501(c) or internal-affairs provisions attached as exhibit). Naming follows NP_MNPCA-6.
 Text29,1,text,Exhibit ___ attached hereto,entity.501c_exhibit_letter,high,Exhibit letter for 501(c) provisions. Required when has_501c_exhibit is true.

@@ -20,14 +20,18 @@
       "label": "FIRST: The date of filing of the limited partnership's initial certificate is ___ (date)"
     },
     "entity.is_lllp": {
-      "widget_id": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "checkbox",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: The limited partnership is a limited liability limited partnership."
+      "label": "THIRD: The limited partnership is a limited liability limited partnership.",
+      "options": {
+        "True": "Check Box4",
+        "true": "Check Box4",
+        "yes": "Check Box4",
+        "False": "Check Box5",
+        "false": "Check Box5",
+        "no": "Check Box5"
+      }
     },
     "entity.is_professional_lllp": {
       "widget_id": "Check Box6",

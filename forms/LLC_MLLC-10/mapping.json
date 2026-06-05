@@ -80,14 +80,14 @@
       "label": "SECOND: Address of its principal office"
     },
     "merger.third_election": {
-      "widget_id": [
-        "Check Box11",
-        "Check Box12"
-      ],
-      "field_type": "checkbox",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: (Check only one box) The surviving organization is created by this merger. The organizational document that creates this surviving organization is attached."
+      "label": "THIRD: (Check only one box) The surviving organization is created by this merger. The organizational document that creates this surviving organization is attached.",
+      "options": {
+        "created": "Check Box11",
+        "existed_before": "Check Box12"
+      }
     },
     "merger.third_subelection": {
       "widget_id": [

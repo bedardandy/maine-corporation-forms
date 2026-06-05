@@ -43,8 +43,11 @@
           }
         },
         "third_election": {
-          "type": "boolean",
-          "description": "Mutually-exclusive enum for THIRD paragraph on LLC_MLLC-10: 'created_by_merger' (option 1, requires the new survivor's organizational document attached) or 'preexisted' (option 2, requires merger.third_subelection). Parallel to LP_MLPA-10's merger.fifth_election (same enum semantics, different paragraph number on the LLC form)."
+          "type": "string",
+          "enum": [
+            "created",
+            "existed_before"
+          ]
         },
         "third_subelection": {
           "type": "string",

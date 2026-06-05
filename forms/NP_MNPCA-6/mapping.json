@@ -98,31 +98,29 @@
       "label": "and the maximum number of directors shall be ___"
     },
     "entity.has_members": {
-      "widget_id": [
-        "Members  X one box only",
-        "undefined_6",
-        "mem"
-      ],
-      "field_type": "checkbox",
+      "widget_id": "mem",
+      "field_type": "radio",
       "page": 1,
       "confidence": "medium",
-      "label": "SIXTH: [X] There shall be no members"
+      "label": "SIXTH: [X] There shall be no members",
+      "options": {
+        "True": "mem2",
+        "true": "mem2",
+        "yes": "mem2",
+        "False": "Yes",
+        "false": "Yes",
+        "no": "Yes"
+      }
     },
     "entity.no_political_activities_clause": {
-      "widget_id": [
-        "Optional",
-        "Check Box25"
-      ],
+      "widget_id": "Check Box25",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "medium",
       "label": "SEVENTH: (Optional) [X] Check if this article is to apply (no political activities)"
     },
     "entity.has_501c_exhibit": {
-      "widget_id": [
-        "Optional_2",
-        "Check Box26"
-      ],
+      "widget_id": "Check Box26",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "medium",

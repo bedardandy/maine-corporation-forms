@@ -2,17 +2,17 @@
   "form_id": "LP_MLPA-6-1",
   "fields": {
     "filing.accompanying_transaction_type": {
-      "widget_id": [
-        "Check Box19",
-        "Check Box20",
-        "Check Box21",
-        "Check Box22",
-        "Check Box23"
-      ],
-      "field_type": "checkbox",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "Articles of Entity Conversion (13-C MRSA \u00a7955.1)"
+      "label": "Articles of Entity Conversion (13-C MRSA \u00a7955.1)",
+      "options": {
+        "entity_conversion_13c": "Check Box19",
+        "merger_or_share_exchange_13c": "Check Box20",
+        "inter_entity_consolidation_31": "Check Box21",
+        "conversion_31": "Check Box22",
+        "partnership_conversion_31": "Check Box23"
+      }
     },
     "entity.name": {
       "widget_id": "Text1",

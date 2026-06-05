@@ -8,8 +8,14 @@
       "type": "object",
       "properties": {
         "accompanying_transaction_type": {
-          "type": "boolean",
-          "description": "Enum identifying which transaction this Certificate of Limited Partnership accompanies. Values: 'entity_conversion' (13-C MRSA §955.1), 'merger_or_share_exchange' (13-C MRSA §1106 / 31 MRSA §§744, 1436), 'inter_entity_consolidation' (31 MRSA §744), 'articles_or_certificate_of_conversion' (13-C MRSA §746 / 31 MRSA §1432), 'conversion_of_partnership' (31 MRSA §1093). Mapped onto 5 mutually-exclusive checkboxes ('X one box only'). New key family for the bundled '-1' formation sheet pattern; analogous to filing.fict4_accompanies (MLPA-12-1) but with a 5-way enum instead of a single boolean."
+          "type": "string",
+          "enum": [
+            "entity_conversion_13c",
+            "merger_or_share_exchange_13c",
+            "inter_entity_consolidation_31",
+            "conversion_31",
+            "partnership_conversion_31"
+          ]
         }
       }
     },

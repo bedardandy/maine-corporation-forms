@@ -1,38 +1,38 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
-Text20,0,text,FIRST: The name of the corporation is,entity.name,high,Nonprofit corporation name.
-X one box only  Attach additional pages if necessary,0,text,SECOND: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Tiny X-mark text widget functioning as a checkbox (template uses text 'X' marks rather than AcroForm checkboxes for the SECOND radio). Enum value: 'public_benefit'.
+X one box only  Attach additional pages if necessary,0,text,SECOND: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes,,,Tiny X-mark text widget functioning as a checkbox (template uses text 'X' marks rather than AcroForm checkboxes for the SECOND radio). Enum value: 'public_benefit'.
+undefined_2,0,text,"SECOND: [X] The corporation is organized as a mutual benefit corporation for all purposes permitted under Title 13-B or, if not for all such purposes, then for the following purpose or purposes",,,Tiny X-mark text widget for 'mutual_benefit' option.
+The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent,0,text,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,X-mark text widget for THIRD commercial path.
+undefined_3,0,text,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,X-mark text widget for noncommercial path.
+bene,0,checkbox,The corporation is organized as a (check one): public benefit corporation / mutual benefit corporation,entity.nonprofit_type,medium,Page-null checkbox inferred to back the SECOND radio. Enum: 'public_benefit' | 'mutual_benefit'.
 Text6,0,text,(public benefit purposes description),entity.public_benefit_purpose,high,Free-text public-benefit purpose statement.
-undefined_2,0,text,"SECOND: [X] The corporation is organized as a mutual benefit corporation for all purposes permitted under Title 13-B or, if not for all such purposes, then for the following purpose or purposes",entity.nonprofit_type,high,Tiny X-mark text widget for 'mutual_benefit' option.
 Text7,0,text,(mutual benefit purposes description),entity.mutual_benefit_purpose,high,Free-text mutual-benefit purpose statement (only if not 'all purposes permitted').
-bene,,text,SECOND: public_benefit / mutual_benefit (page-null radio),entity.nonprofit_type,medium,Page-null checkbox inferred to back the SECOND radio. Enum: 'public_benefit' | 'mutual_benefit'.
-The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent,0,text,THIRD: [X] Commercial Registered Agent,registered_agent.type,high,X-mark text widget for THIRD commercial path.
 Text8,0,text,CRA Public Number,registered_agent.cra_public_number,high,CRA Public Number.
 Text9,0,text,(name of commercial registered agent),registered_agent.name,high,Name (commercial path).
-undefined_3,0,text,[X] Noncommercial Registered Agent,registered_agent.type,high,X-mark text widget for noncommercial path.
-Text10,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name (noncommercial path).
+Text10,0,text,(name of commercial registered agent),registered_agent.name,high,Name (noncommercial path).
 Text11,0,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Physical address.
 Text12,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Mailing address.
-cra,,text,THIRD: commercial / noncommercial (page-null radio),registered_agent.type,medium,Page-null checkbox inferred to back the THIRD registered-agent radio.
+Text20,0,text,FIRST: The name of the corporation is,entity.name,high,Nonprofit corporation name.
+cra,0,checkbox,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox inferred to back the THIRD registered-agent radio.
+Members  X one box only,1,text,SIXTH: [X] There shall be no members,,,X-mark widget for 'no members' option (boolean false).
+undefined_6,1,text,SIXTH: [X] There shall be no members,,,X-mark for 'has members' option (boolean true).
+Optional,1,text,SEVENTH: (Optional) [X] Check if this article is to apply (no political activities),,,X-mark widget for SEVENTH (501(c)(3) political-activities limitation clause).
+Optional_2,1,text,EIGHTH: (Optional) [X] Check if this article is to apply (other 501(c) provisions in Exhibit),,,X-mark for EIGHTH opt-in.
+501c are set out in Exhibit,1,text,EIGHTH: ...are set out in Exhibit ___ attached hereto and made a part hereof,entity.501c_exhibit_letter,high,Exhibit letter for 501(c) provisions.
 Text13,1,text,"FIFTH: ...the initial board of directors of the corporation, if the number has been determined ... is ___",entity.initial_directors_count,high,Initial directors count (used when fixed at filing).
 Text14,1,text,FIFTH: The minimum number of directors (not less than 3) shall be ___,entity.directors_min_count,high,Minimum directors (range alternative).
 Text15,1,text,and the maximum number of directors shall be ___,entity.directors_max_count,high,Maximum directors.
-Members  X one box only,1,checkbox,SIXTH: [X] There shall be no members,entity.has_members,high,X-mark widget for 'no members' option (boolean false).
-undefined_6,1,checkbox,SIXTH: [X] There shall be one or more classes of members and the information required by 13-B MRSA §402 is attached,entity.has_members,high,X-mark for 'has members' option (boolean true).
-mem,,checkbox,SIXTH: members radio (page-null),entity.has_members,medium,Page-null checkbox backing the SIXTH members radio.
-Optional,1,checkbox,SEVENTH: (Optional) [X] Check if this article is to apply (no political activities),entity.no_political_activities_clause,high,X-mark widget for SEVENTH (501(c)(3) political-activities limitation clause).
-Check Box25,1,checkbox,SEVENTH: parallel checkbox,entity.no_political_activities_clause,medium,Parallel AcroForm checkbox at same y as 'Optional' X-mark; likely the actual radio while 'Optional' is the X-mark visualization. Unclear which one fill logic should write to.
-Optional_2,1,checkbox,EIGHTH: (Optional) [X] Check if this article is to apply (other 501(c) provisions in Exhibit),entity.has_501c_exhibit,high,X-mark for EIGHTH opt-in.
-Check Box26,1,checkbox,EIGHTH: parallel checkbox,entity.has_501c_exhibit,medium,Parallel AcroForm checkbox at same y as 'Optional_2'.
-501c are set out in Exhibit,1,text,EIGHTH: ...are set out in Exhibit ___ attached hereto and made a part hereof,entity.501c_exhibit_letter,high,Exhibit letter for 501(c) provisions.
 Text16,1,text,Dated ___ (top-right of incorporator block),filing.date_signed,high,"Pass-2: widget rect (y=401, right side) confirmed as Dated line at the top of the incorporator block."
 Text17,1,text,Incorporator 1: Street (upper-right of row pair),incorporator_1.address.street,high,"Pass-2: widget rect (y=364, right) confirmed as Inc 1 Street — upper-right slot in Inc 1's row pair (signature on upper-left, Street on upper-right, print_name on lower-left, city/state/zip on lower-right)."
 Text18,1,text,Incorporator 1: (type or print name) (lower-left),incorporator_1.printed_name,high,"Pass-2: widget rect (y=319, left) confirmed."
 Text19,1,text,"Incorporator 1: (city, state and zip code) (lower-right)",incorporator_1.address.city_state_zip,high,"Pass-2 CORRECTION: pass-1 had this as Street; widget rect (y=319, right) is on the SAME row as Text18 (Inc 1 print_name), so this is Inc 1's lower-right city/state/zip — not Street."
+mem,1,checkbox,SIXTH: [X] There shall be no members,entity.has_members,medium,Page-null checkbox backing the SIXTH members radio.
+Check Box25,1,checkbox,SEVENTH: (Optional) [X] Check if this article is to apply (no political activities),entity.no_political_activities_clause,medium,Parallel AcroForm checkbox at same y as 'Optional' X-mark; likely the actual radio while 'Optional' is the X-mark visualization. Unclear which one fill logic should write to.
+Check Box26,1,checkbox,EIGHTH: (Optional) [X] Check if this article is to apply (other 501(c) provisions in Exhibit),entity.has_501c_exhibit,medium,Parallel AcroForm checkbox at same y as 'Optional_2'.
 Text27,1,text,Incorporator 2: Street (upper-right of row pair),incorporator_2.address.street,high,"Pass-2 CORRECTION: pass-1 had this as Inc 1 city/state/zip; widget rect (y=273, right) sits between Inc 1 row (y=319) and Inc 2 row (y=226) — Inc 2 Street position."
 Text28,1,text,Incorporator 2: (type or print name) (lower-left),incorporator_2.printed_name,high,"Pass-2: widget rect (y=226, left) confirmed."
 Text29,1,text,"Incorporator 2: (city, state and zip code) (lower-right)",incorporator_2.address.city_state_zip,high,"Pass-2: widget rect (y=226, right) on same row as Text28."
-Text31,1,text,Incorporator 3: Street (upper-right of row pair),incorporator_3.address.street,high,"Pass-2 CORRECTION: pass-1 had this as Inc 2 Street; widget rect (y=180, right) sits between Inc 2 row (y=226) and Inc 3 row (y=134) — Inc 3 Street position."
 Text30,1,text,Incorporator 3: (type or print name) (lower-left),incorporator_3.printed_name,high,"Pass-2: widget rect (y=134, left) confirmed."
+Text31,1,text,Incorporator 3: Street (upper-right of row pair),incorporator_3.address.street,high,"Pass-2 CORRECTION: pass-1 had this as Inc 2 Street; widget rect (y=180, right) sits between Inc 2 row (y=226) and Inc 3 row (y=134) — Inc 3 Street position."
 Text32,1,text,"Incorporator 3: (city, state and zip code) (lower-right)",incorporator_3.address.city_state_zip,high,"Pass-2: widget rect (y=134, right) on same row as Text30."
 Text33,2,text,Name of Corporate Incorporator (row 1),incorporator_entity_1.name,high,Corporate-incorporator legal name (row 1 on page 2).
 Text34,2,text,(principal business location) — Street (row 1),incorporator_entity_1.principal_business_location.street,high,Corporate incorporator principal business street.
@@ -44,9 +44,9 @@ Text39,2,text,(type or print name and capacity) — row 2,incorporator_entity_2.
 Text40,2,text,"(city, state and zip code) — row 2",incorporator_entity_2.principal_business_location.city_state_zip,high,Row 2 city/state/zip.
 Name of entity,3,text,Name of entity(s) on submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
-Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
-Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,'hold_for_pickup'.
+Check Box15,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,'24h_next_business_day'.
+Check Box16,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,'immediate_same_day'.
 Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
 Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

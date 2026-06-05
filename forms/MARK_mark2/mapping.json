@@ -44,14 +44,18 @@
       "label": "C. TYPE OF MARK:"
     },
     "mark.type_amended": {
-      "widget_id": [
-        "Check Box4",
-        "Check Box6"
-      ],
-      "field_type": "checkbox",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "C: The type of mark indicated represents an amendment from that appearing on the original registration \u2014 yes"
+      "label": "C: The type of mark indicated represents an amendment from that appearing on the original registration \u2014 yes",
+      "options": {
+        "True": "Check Box4",
+        "true": "Check Box4",
+        "yes": "Check Box4",
+        "False": "Check Box6",
+        "false": "Check Box6",
+        "no": "Check Box6"
+      }
     },
     "mark.class_changes[0].class_number": {
       "widget_id": "29",
