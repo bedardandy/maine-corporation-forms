@@ -50,4 +50,14 @@ def test_pdf_manifest_is_fetch_on_demand():
 
 
 def test_no_pdfs_committed():
-    assert list(FORMS.rglob("*.pdf")) == []
+    # Blank PDFs are fetched on demand to disk; what must never happen is a PDF
+    # being *tracked* in git. Check the index, not the working tree.
+    import subprocess
+    try:
+        tracked = subprocess.run(
+            ["git", "ls-files", "*.pdf"], cwd=ROOT,
+            capture_output=True, text=True, check=True).stdout.split()
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        import pytest
+        pytest.skip("git not available")
+    assert tracked == []

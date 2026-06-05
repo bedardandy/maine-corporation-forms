@@ -8,6 +8,7 @@ help:
 	@echo "make coverage                   validate every form; print the review worklist"
 	@echo "make status                     regenerate docs/STATUS.md from the form data"
 	@echo "make sync-schema FORM=..        extend schema.json to cover all mapping keys"
+	@echo "make rebuild-fields FORM=..     refetch the blank + regenerate fields.csv inventory"
 	@echo "make route Q='convert an LLC'   route an intent to candidate forms"
 	@echo "make plan FORM=.. CASE=..       coverage of a case against a form (no PDF)"
 	@echo "make fill FORM=.. CASE=.. OUT=..  fill the blank PDF from a case (needs the PDF)"
@@ -30,6 +31,10 @@ status:
 
 sync-schema:
 	python3 tools/sync_schema.py $(FORM)
+
+rebuild-fields:
+	python3 tools/fetch_pdfs.py --forms $(FORM)
+	python3 tools/rebuild_fields_csv.py $(FORM)
 
 route:
 	python3 -m engine.route "$(Q)"

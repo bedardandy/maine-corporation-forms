@@ -1,31 +1,31 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 1,0,text,(Name of Corporation),entity.name,high,Top-of-form Maine-registered name (domestic nonprofit).
-Check Box4,0,text,"FIRST: This certificate was adopted by a majority of the (""X"" one box only) [ ] members",resumption.adopting_body,high,Mutually-exclusive enum value 'members' for the FIRST adopting-body election.
-Check Box5,0,text,FIRST: ... [ ] directors on,resumption.adopting_body,high,Mutually-exclusive enum value 'directors' for the FIRST adopting-body election.
+Check Box4,0,checkbox,"FIRST: This certificate was adopted by a majority of the (""X"" one box only) [ ] members",resumption.adopting_body,high,Mutually-exclusive enum value 'members' for the FIRST adopting-body election.
+Check Box5,0,checkbox,"FIRST: This certificate was adopted by a majority of the (""X"" one box only) [ ] members",resumption.adopting_body,high,Mutually-exclusive enum value 'directors' for the FIRST adopting-body election.
 4,0,text,FIRST: ... on (date),resumption.adoption_date,high,"Date the certificate was adopted by the chosen body. Same form-scoped key family as MBCA-14A's resumption.meeting_date but generalized — on this nonprofit form, the date applies whether the action was at a meeting OR by written consent (the FIRST 'on (date) at (location)' line is rendered before the meeting/consent radio)."
 5,0,text,FIRST: ... at (location),resumption.adoption_location,high,Location where the adoption occurred. Required when resumption.method='meeting'; conventionally captures the location of execution when resumption.method='written_consent' (some filers leave blank for written consent — see open_questions).
-Check Box6,0,text,"FIRST: (""X"" one box only) [ ] at a meeting legally called and held",resumption.method,high,Mutually-exclusive enum value 'meeting'. Same key family as CORP_MBCA-14A.resumption.method.
-Check Box7,0,text,FIRST: ... [ ] by unanimous written consent,resumption.method,high,Mutually-exclusive enum value 'written_consent'. Same key family as CORP_MBCA-14A.resumption.method.
-Check Box8,0,text,"SECOND: It is hereby certified that a majority of the (""X"" one box only) [ ] members have voted to resume carrying on activities.",resumption.voting_body,high,Mutually-exclusive enum value 'members' for the SECOND voting-body certification. In practice should match resumption.adopting_body (rubric cross-check).
-Check Box9,0,text,SECOND: ... [ ] directors have voted to resume carrying on activities.,resumption.voting_body,high,Mutually-exclusive enum value 'directors'. Should match resumption.adopting_body.
+Check Box6,0,checkbox,"FIRST: (""X"" one box only) [ ] at a meeting legally called and held",resumption.method,high,Mutually-exclusive enum value 'meeting'. Same key family as CORP_MBCA-14A.resumption.method.
+Check Box7,0,checkbox,"FIRST: (""X"" one box only) [ ] at a meeting legally called and held",resumption.method,high,Mutually-exclusive enum value 'written_consent'. Same key family as CORP_MBCA-14A.resumption.method.
+Check Box8,0,checkbox,"SECOND: It is hereby certified that a majority of the (""X"" one box only) [ ] members have voted to resume carrying on activities.",resumption.voting_body,high,Mutually-exclusive enum value 'members' for the SECOND voting-body certification. In practice should match resumption.adopting_body (rubric cross-check).
+Check Box9,0,checkbox,"SECOND: It is hereby certified that a majority of the (""X"" one box only) [ ] members have voted to resume carrying on activities.",resumption.voting_body,high,Mutually-exclusive enum value 'directors'. Should match resumption.adopting_body.
 10,0,text,THIRD: The address of the registered office of the corporation in the State of Maine is ___,registered_office.address.line1,high,"First (inline) line of the registered-office address. Two-widget free-text field follows the MARK1 .line{1,2} convention. Widget rect [414,278..576,294] is the short inline blank to the right of the THIRD recital."
 11,0,text,"THIRD: ___ (street, city, state and zip code)",registered_office.address.line2,high,"Second (continuation) full-width line of the registered-office address. Widget rect [107,252..578,270] spans the full width below line1. The label '(street, city, state and zip code)' is shared between both widgets — treat as a single logical address split across two widgets."
-Check Box10,0,text,"FOURTH: (""X"" one box only) [ ] public benefit corporation",entity.nonprofit_type,high,Mutually-exclusive enum value 'public_benefit'. Same canonical key as NP_MNPCA-6.entity.nonprofit_type — every Maine nonprofit-corporation form classifies under this enum.
-Check Box11,0,text,FOURTH: ... [ ] mutual benefit corporation,entity.nonprofit_type,high,Mutually-exclusive enum value 'mutual_benefit'. Same canonical key as NP_MNPCA-6.entity.nonprofit_type.
+Check Box10,0,checkbox,"FOURTH: (""X"" one box only) [ ] public benefit corporation",entity.nonprofit_type,high,Mutually-exclusive enum value 'public_benefit'. Same canonical key as NP_MNPCA-6.entity.nonprofit_type — every Maine nonprofit-corporation form classifies under this enum.
+Check Box11,0,checkbox,"FOURTH: (""X"" one box only) [ ] public benefit corporation",entity.nonprofit_type,high,Mutually-exclusive enum value 'mutual_benefit'. Same canonical key as NP_MNPCA-6.entity.nonprofit_type.
 14,1,text,DATED ___,filing.date_signed,high,Signature-row date on left of page 1.
 15,1,text,*By ___ (signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Primary signer (Shape D — combined name+capacity). Per page-1 footnote * the document MUST be signed by any authorized officer per 13-B MRSA §104.1.B. The (signature) line above this widget is wet-ink only.
 16,1,text,*By ___ (signature) / (type or print name and capacity) [second block],filing.signer_2.printed_name_and_capacity,medium,"Second signer slot (Shape D). The page lays out two parallel *By blocks. Same convention as NP_MNPCA-6A_0 — when the action was adopted by member vote, the clerk/secretary's attestation in the MUST-BE-COMPLETED-FOR-VOTE-OF-MEMBERS box is satisfied by wet-ink in that box; this Text16 widget is for an additional officer co-signing. May be left empty when only one officer signs."
-Name of entitys on the submitted filings 1,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
-Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-hold,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'. Field-id alias 'hold' rather than 'Check Box14' (same template as MBCA-14A / MLLC-12).
-24h,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'. Field-id alias '24h' on this template (cf. '24' on MBCA-14A).
-imm,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'. Field-id alias 'imm'.
-Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($25 base per page-0 'Filing Fee $25.00' plus expedite premium).
-Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
-Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
-Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
-Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,"Annual-report reminder email — particularly relevant on this form because the page-0 header explicitly states 'After filing this certificate, the corporation is required to file annual reports beginning with the next reporting deadline following resumption.'"
-Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
-Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
-Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+Name of entity,2,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,2,text,filing.entities[1].name,filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,2,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Total fees ($25 base per page-0 'Filing Fee $25.00' plus expedite premium).
+Name of contact person,2,text,filing.contact.name,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,filing.contact.phone,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,filing.contact.email,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,"Annual-report reminder email — particularly relevant on this form because the page-0 header explicitly states 'After filing this certificate, the corporation is required to file annual reports beginning with the next reporting deadline following resumption.'"
+Name of attested copy recipient,2,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

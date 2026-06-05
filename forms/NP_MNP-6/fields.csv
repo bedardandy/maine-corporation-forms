@@ -1,7 +1,7 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,FIRST: The name of the corporation is,entity.name,high,Top-of-form domestic nonprofit corporation name.
-Check Box2,0,text,THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes:,entity.nonprofit_type,high,Mutually exclusive radio option for 'public_benefit'. Reuses NP_MNPCA-6's entity.nonprofit_type enum convention rather than coining a separate entity.benefit_type — same conceptual binary on both forms.
-Check Box3,0,text,THIRD: [X] The corporation is organized as a mutual benefit corporation for the following purpose or purposes:,entity.nonprofit_type,high,Mutually exclusive radio option for 'mutual_benefit'.
+Check Box2,0,checkbox,THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes:,entity.nonprofit_type,high,Mutually exclusive radio option for 'public_benefit'. Reuses NP_MNPCA-6's entity.nonprofit_type enum convention rather than coining a separate entity.benefit_type — same conceptual binary on both forms.
+Check Box3,0,checkbox,THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes:,entity.nonprofit_type,high,Mutually exclusive radio option for 'mutual_benefit'.
 Text4,0,text,THIRD: ...purpose or purposes: (Public Benefit free-text block),entity.public_benefit_purpose,high,"Free-text purpose block — populated only when entity.nonprofit_type='public_benefit'. Reuses NP_MNPCA-6's entity.public_benefit_purpose split rather than a unified entity.purpose_statement, since the form physically separates the two free-text blocks under separate checkboxes."
 Text5,0,text,THIRD: ...purpose or purposes: (Mutual Benefit free-text block),entity.mutual_benefit_purpose,high,Free-text purpose block — populated only when entity.nonprofit_type='mutual_benefit'. Parallel to NP_MNPCA-6's entity.mutual_benefit_purpose.
 Text6,0,text,FOURTH: It is located in ___ (municipality),entity.location.municipality,high,Maine municipality where the corporation is located. New schema-gap key; the modern NP_MNPCA-6 doesn't capture municipality/county directly because it uses the registered-agent address instead. This older form pre-dates the registered-agent regime.
@@ -37,17 +37,17 @@ Text35,1,text,Incorporator 6: Street,incorporator_6.address.street,medium,Street
 Text36,1,text,Incorporator 6: (type or print name),incorporator_6.printed_name,medium,Printed name of incorporator 6.
 Text37,1,text,"Incorporator 6: (city, state and zip code)",incorporator_6.address.city_state_zip,medium,City/state/zip of incorporator 6.
 Text38,1,text,(bottom-right of incorporator block — ambiguous trailing widget),incorporator_7.address.street,low,Trailing widget at the bottom of the incorporator block; provisionally mapped to a 7th incorporator slot's Street. Visual layout suggests only 6 incorporator slots — pass-2 visual-fill testing needed. May be unused or backup overflow widget.
-Name of entitys on the submitted filings 1,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Note this form uses the field id 'Name of entitys on the submitted filings 1' (with explicit '1' suffix) rather than the more common 'Name of entity' — preserved upstream.
-Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-hold,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'. Note short field id 'hold' (vs the more common 'Check Box14') — same template-naming variation as MLLC-12's 'exp24'/'imm'.
-24,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'. Field id '24'.
-imm,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'. Field id 'imm'.
-Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($5 base per page-0 header plus expedite premium).
-Name of contact person,2,text,Name of contact person,filing.contact.name,high,Cover-letter contact name (distinct from entity.contact_person.* on page 1).
-Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
-Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
-Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
-Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
-Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
-Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+Name of entity,2,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,2,text,filing.entities[1].name,filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,2,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Total fees ($5 base per page-0 header plus expedite premium).
+Name of contact person,2,text,filing.contact.name,filing.contact.name,high,Cover-letter contact name (distinct from entity.contact_person.* on page 1).
+Daytime telephone number,2,text,filing.contact.phone,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,filing.contact.email,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

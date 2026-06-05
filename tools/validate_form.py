@@ -124,7 +124,10 @@ def validate_form(form_id):
             wid = spec.get("widget_id")
             widget_refs = list(wid if isinstance(wid, list) else ([wid] if wid else []))
             opts = spec.get("options")
-            if isinstance(opts, dict):
+            # enum_select / enum_text_select bind widgets through the options map
+            # (they carry no widget_id). A radio field carries a widget_id and its
+            # options are /AP on-state names, not widgets, so they are not checked.
+            if isinstance(opts, dict) and not wid:
                 widget_refs.extend(opts.values())
             for w in widget_refs:
                 if w is None or inventory is None:

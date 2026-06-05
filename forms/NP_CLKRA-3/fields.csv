@@ -1,34 +1,34 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text 1,0,text,(Exact Legal Name of Entity on the records of the Secretary of State),entity.name,high,Exact legal name as on SOS record (must match for the change to apply correctly).
-Check Box1,0,text,FIRST: [ ] A new clerk or registered agent,clerk_change.action_type,high,Mutually-exclusive action = 'new_appointment'. Matches CORP_CLKRA-3 convention.
-Check Box2,0,text,FIRST: [ ] A change to the existing clerk or registered agent information,clerk_change.action_type,high,Mutually-exclusive action = 'modify_existing'. Matches CORP_CLKRA-3 convention.
-Check Box3,0,text,FIRST sub: [ ] Change of address,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'address'. Matches CORP_CLKRA-3.
-Check Box5,0,text,FIRST sub: [ ] Change in name of current clerk or registered agent,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'name'. Matches CORP_CLKRA-3.
+Check Box1,0,checkbox,FIRST: [ ] A new clerk or registered agent,clerk_change.action_type,high,Mutually-exclusive action = 'new_appointment'. Matches CORP_CLKRA-3 convention.
+Check Box2,0,checkbox,FIRST: [ ] A new clerk or registered agent,clerk_change.action_type,high,Mutually-exclusive action = 'modify_existing'. Matches CORP_CLKRA-3 convention.
+Check Box3,0,checkbox,FIRST sub: [ ] Change of address,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'address'. Matches CORP_CLKRA-3.
+Check Box5,0,checkbox,FIRST sub: [ ] Change of address,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'name'. Matches CORP_CLKRA-3.
 Text6,0,text,SECOND: (name of current clerk or registered agent),clerk_change.current_clerk_or_agent_name,high,Existing clerk/RA name on record. Matches CORP_CLKRA-3.
 Text7,0,text,THIRD: (name of noncommercial clerk or registered agent),clerk_change.new_noncommercial_name,high,New noncommercial clerk/RA name. Matches CORP_CLKRA-3.
 Text8,0,text,"(physical street address, not P.O. Box - city, state and zip code)",clerk_change.new_noncommercial_physical_address,high,New noncommercial physical address. Matches CORP_CLKRA-3.
 Text20,0,text,(mailing address if different from above),clerk_change.new_noncommercial_mailing_address,high,Optional mailing address. Matches CORP_CLKRA-3.
 Text9,0,text,FOURTH: The new CRA Public number is,clerk_change.new_commercial_cra_public_number,high,CRA Public Number when appointing a commercial registered agent. Matches CORP_CLKRA-3.
 Text10,0,text,FOURTH: The name of the new CRA is,clerk_change.new_commercial_name,high,Name of new commercial registered agent. Matches CORP_CLKRA-3.
-Check Box12,1,text,SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors,clerk_change.bc_authorization,high,"Mutually-exclusive (BC only) = 'board_of_directors'. Matches CORP_CLKRA-3. Despite the NP_ namespace, SIXTH applies only to domestic Business Corporations (per the form's section header) — it has no semantic role on a nonprofit filing."
-Check Box13,1,text,SIXTH: [ ] The change ... was duly authorized by the shareholders,clerk_change.bc_authorization,high,Mutually-exclusive (BC only) = 'shareholders'. Matches CORP_CLKRA-3.
+Check Box12,1,checkbox,SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors,clerk_change.bc_authorization,high,"Mutually-exclusive (BC only) = 'board_of_directors'. Matches CORP_CLKRA-3. Despite the NP_ namespace, SIXTH applies only to domestic Business Corporations (per the form's section header) — it has no semantic role on a nonprofit filing."
+Check Box13,1,checkbox,SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors,clerk_change.bc_authorization,high,Mutually-exclusive (BC only) = 'shareholders'. Matches CORP_CLKRA-3.
 Text14,1,text,SEVENTH (Foreign Entities Only): Jurisdiction of incorporation or organization,entity.home_jurisdiction,high,Foreign entity's home jurisdiction (only when entity is foreign). Matches CORP_CLKRA-3.
 Text15,1,text,Date authorized to transact business in the State of Maine,entity.maine_authorization_date,high,Date the foreign entity was authorized to transact business in Maine. Matches CORP_CLKRA-3.
 Text16,1,text,"EIGHTH (LP/LLP only): If signing partner or general partner is an entity, name of entity",filing.signer_partner_entity_name,high,"When the signing GP is itself an entity, that entity's name (LP/LLP-specific; usually empty on a nonprofit filing). Matches CORP_CLKRA-3."
 Text17,1,text,DATED ___,filing.date_signed,high,Date signed.
 Text18,1,text,(type or print name),filing.signer.printed_name,high,Signer printed name (Shape A — name+title split widgets). Matches CORP_CLKRA-3.
 Text19,1,text,(title of signer),filing.signer.title,high,"Signer title (Shape A). For nonprofits, typical titles are 'President', 'Director', 'Clerk'."
-Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
-Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
-Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
-Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
-Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
-Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
-Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
-Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
-Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
-Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
-Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
-Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+cover1,2,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+cover2,2,text,filing.entities[1].name,filing.entities[1].name,high,Mapped widget (live blank).
+cover3,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+cover4,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+cover,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+cover6,2,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Mapped widget (live blank).
+cover7,2,text,filing.contact.name,filing.contact.name,high,Mapped widget (live blank).
+cover8,2,text,filing.contact.phone,filing.contact.phone,high,Mapped widget (live blank).
+cover9,2,text,filing.contact.email,filing.contact.email,high,Mapped widget (live blank).
+cover10,2,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Mapped widget (live blank).
+cover11,2,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Mapped widget (live blank).
+cover12,2,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Mapped widget (live blank).
+cover13,2,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Mapped widget (live blank).
+cover14,2,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped widget (live blank).

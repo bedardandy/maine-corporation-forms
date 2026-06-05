@@ -8,17 +8,17 @@ Text6,0,text,(type or print name) [General Partner row 2],general_partner_2.prin
 Text7,0,text,(type or print name) [General Partner row 3],general_partner_3.printed_name,high,Printed name of individual GP 3.
 Text8,0,text,Name of Entity [For General Partner(s) which are Entities],general_partner_entity_1.name,high,Name of entity GP — only one inline slot on this form (vs. three on LP_MLPA-6); overflow presumably handled via exhibit if multiple entity GPs exist.
 Text9,0,text,By (type or print name and capacity) [For General Partner(s) which are Entities],general_partner_entity_1.signer_printed_name_and_capacity,high,"Authorized signer for entity GP 1 (printed name + capacity, e.g. 'John Doe, President of XYZ Corp')."
-cover1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
-cover2,1,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
-cover3,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
-cover4,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
-cover,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day' (note: bare 'cover' rather than 'cover5' — same template-naming quirk as LP_MLPA-6).
-cover6,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees enclosed.
-cover7,1,text,(Name of contact person),filing.contact.name,high,Contact name.
-cover8,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
-cover9,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
-cover10,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email — distinct from filing.contact.email.
-cover11,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
-cover12,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
-cover13,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-cover14,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+Name of entity,1,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,1,text,filing.entities[1].name,filing.entities[1].name,high,Mapped widget (live blank).
+Check Box14,1,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,1,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,1,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,1,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Mapped widget (live blank).
+Name of contact person,1,text,filing.contact.name,filing.contact.name,high,Mapped widget (live blank).
+Daytime telephone number,1,text,filing.contact.phone,filing.contact.phone,high,Mapped widget (live blank).
+Contact email address for this filing,1,text,filing.contact.email,filing.contact.email,high,Mapped widget (live blank).
+Email address to use for annual report reminders,1,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Mapped widget (live blank).
+Name of attested copy recipient,1,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Mapped widget (live blank).
+Firm or Company,1,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Mapped widget (live blank).
+Mailing Address,1,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Mapped widget (live blank).
+City State  Zip,1,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped widget (live blank).

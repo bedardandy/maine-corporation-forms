@@ -2,11 +2,11 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,FIRST: The name of the limited partnership is,entity.name,high,"LP legal name; must contain 'Limited Partnership', 'L.P.' or 'LP' (or LLLP variants) per 31 MRSA §1308.1.A."
 Text2,0,text,"SECOND: (physical location - street (not P.O. Box), city, state and zip code) of designated office",entity.designated_office.physical_address,high,Single-line physical address of LP's designated office in Maine.
 Text3,0,text,(mailing address if different from above),entity.designated_office.mailing_address,high,Optional mailing address of designated office.
-Check Box29,0,text,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial'.
+Check Box29,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial'.
 Text4,0,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number.
 Text5,0,text,(name of commercial registered agent),registered_agent.name,high,Name (commercial path).
-Check Box30,0,text,[ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial'.
-Text6,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name (noncommercial path).
+Check Box30,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial'.
+Text6,0,text,(name of commercial registered agent),registered_agent.name,high,Name (noncommercial path).
 Text7,0,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Physical address.
 Text8,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Mailing address.
 Text9,1,text,FIFTH: NAME (row 1),general_partner_1.name,high,GP 1 name.
@@ -15,34 +15,34 @@ Text11,1,text,FIFTH: NAME (row 2),general_partner_2.name,high,GP 2 name.
 Text12,1,text,FIFTH: ADDRESS (row 2),general_partner_2.address,high,GP 2 address.
 Text13,1,text,FIFTH: NAME (row 3),general_partner_3.name,high,GP 3 name.
 Text14,1,text,FIFTH: ADDRESS (row 3),general_partner_3.address,high,GP 3 address.
-Check Box31,1,text,[ ] Names and addresses of additional general partners are attached as Exhibit ___,general_partner.additional_attached,high,Boolean opt-in for additional-GP exhibit.
 Text15,1,text,Exhibit ___,general_partner.additional_exhibit_letter,high,Inline exhibit letter (additional GPs).
-Check Box32,1,checkbox,SIXTH: [ ] The limited partnership is a limited liability limited partnership,entity.is_lllp,high,Boolean elect-in for LLLP status (name must contain 'L.L.L.P.' or 'LLLP').
-Check Box33,1,checkbox,SEVENTH: [ ] This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4,entity.is_professional_lllp,high,Boolean elect-in for professional LLLP/PLLLP status.
 Text16,1,text,(type of professional services) — line 1,entity.professional_services_description,high,Professional services free-text (line 1; concatenate with line 2 in canonical fill).
-Text17,1,text,(type of professional services) — line 2,entity.professional_services_description,high,Professional services free-text (line 2).
+Text17,1,text,(type of professional services) — line 1,entity.professional_services_description,high,Professional services free-text (line 2).
 Text18,1,text,EIGHTH: ...are set forth in the attached Exhibit ___,entity.additional_provisions_exhibit_letter,high,Inline exhibit letter for additional/subchapter-11 provisions.
 Text19,1,text,Dated ___,filing.date_signed,high,Date signed.
 Text20,1,text,General Partner row 1: (type or print name),general_partner_1.printed_name,high,Printed name of GP 1 (individual signer).
 Text21,1,text,General Partner row 2: (type or print name),general_partner_2.printed_name,high,Printed name of GP 2.
 Text22,1,text,General Partner row 3: (type or print name),general_partner_3.printed_name,high,Printed name of GP 3.
+Check Box31,1,checkbox,[ ] Names and addresses of additional general partners are attached as Exhibit ___,general_partner.additional_attached,high,Boolean opt-in for additional-GP exhibit.
+Check Box32,1,checkbox,SIXTH: [ ] The limited partnership is a limited liability limited partnership,entity.is_lllp,high,Boolean elect-in for LLLP status (name must contain 'L.L.L.P.' or 'LLLP').
+Check Box33,1,checkbox,SEVENTH: [ ] This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4,entity.is_professional_lllp,high,Boolean elect-in for professional LLLP/PLLLP status.
 Text23,2,text,For GP entity row 1: Name of Entity ___,general_partner_entity_1.name,high,"When GP 1 is itself an entity, its legal name (separate signature block from individual GPs)."
 Text24,2,text,GP entity row 1: By (type or print name and capacity),general_partner_entity_1.signer_printed_name_and_capacity,high,"Authorized signer for entity GP 1 (e.g., 'John Doe, President of XYZ Corp')."
 Text25,2,text,GP entity row 2: Name of Entity,general_partner_entity_2.name,high,Entity GP 2 name.
 Text26,2,text,GP entity row 2: By (type or print name and capacity),general_partner_entity_2.signer_printed_name_and_capacity,high,Entity GP 2 signer.
 Text27,2,text,GP entity row 3: Name of Entity,general_partner_entity_3.name,high,Entity GP 3 name.
 Text28,2,text,GP entity row 3: By (type or print name and capacity),general_partner_entity_3.signer_printed_name_and_capacity,high,Entity GP 3 signer.
-cover1,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
-cover2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-cover3,3,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
-cover4,3,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
-cover,3,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day' (note: widget is bare 'cover' not 'cover5').
-cover6,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
-cover7,3,text,Name of contact person,filing.contact.name,high,Contact name.
-cover8,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
-cover9,3,text,Contact email address for this filing,filing.contact.email,high,Contact email.
-cover10,3,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report email.
-cover11,3,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
-cover12,3,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
-cover13,3,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-cover14,3,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+Name of entity,3,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,3,text,filing.entities[1].name,filing.entities[1].name,high,Mapped widget (live blank).
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,3,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Mapped widget (live blank).
+Name of contact person,3,text,filing.contact.name,filing.contact.name,high,Mapped widget (live blank).
+Daytime telephone number,3,text,filing.contact.phone,filing.contact.phone,high,Mapped widget (live blank).
+Contact email address for this filing,3,text,filing.contact.email,filing.contact.email,high,Mapped widget (live blank).
+Email address to use for annual report reminders,3,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Mapped widget (live blank).
+Name of attested copy recipient,3,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Mapped widget (live blank).
+Firm or Company,3,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Mapped widget (live blank).
+Mailing Address,3,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Mapped widget (live blank).
+City State  Zip,3,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped widget (live blank).

@@ -15,11 +15,10 @@ writing it. A download whose hash does not match is rejected.
 All 156 blanks are fetched on demand; none is committed to this repository. Where
 the state has revised a form's cover/transmittal block since the original
 capture, the mapping was re-bound to the **current** blank and re-verified
-(every widget reference resolves, no fill failures). For those revised forms the
-flat `fields.csv` inventory can still list the originally-captured widget names —
-`mapping.json` is the authoritative binding, and `tools/validate_form.py` flags
-the lag per form so it is visible, not hidden. Regenerating `fields.csv` from a
-freshly fetched blank closes it.
+(every widget reference resolves, no fill failures), and the flat `fields.csv`
+inventory was regenerated from that live blank (`tools/rebuild_fields_csv.py`)
+so it agrees with the mapping. `tools/validate_form.py` will flag any future
+drift between a mapping and its inventory per form.
 
 ## Field mappings, schemas, and skills
 

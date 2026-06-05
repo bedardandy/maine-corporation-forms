@@ -3,25 +3,28 @@ Text1,0,text,(Name of Limited Partnership as it appears on the record of the Sec
 Text2,0,text,"FIRST: The name of the limited partnership has been changed to (if no change, so indicate):",entity.new_name,high,"New name of the LP after restatement. If no name change, filer writes 'no change' or repeats the current name."
 Text3,0,text,SECOND: The date of filing of the initial certificate of limited partnership was,entity.initial_filing_date,high,Date the original (pre-restatement) certificate of LP was filed with SOS — anchors the restatement to the original filing per §1322.5.
 Text4,0,text,"THIRD: The street and mailing address of the limited partnership's designated office shall be: (physical location – street (not P.O. Box), city, state and zip code)",entity.designated_office.physical_address,high,Physical address of the designated office. NOTE: form visually shows TWO underlines under THIRD (physical + mailing) but widgets.json contains only ONE widget — the mailing-address blank is missing from the AcroForm (template gap; see open_questions).
-Check Box5,0,text,FOURTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial' option for the FOURTH registered-agent type.
-Text11,0,text,FOURTH: Commercial Registered Agent — CRA Public Number:,registered_agent.cra_public_number,high,"Right-aligned narrow field on the Commercial-Registered-Agent row (y=255, x=449-545, width 96pt). Required only when registered_agent.type='commercial'."
+Check Box5,0,checkbox,FOURTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial' option for the FOURTH registered-agent type.
+Check Box6,0,checkbox,FOURTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial' option for the FOURTH registered-agent type.
 Text7,0,text,(name of commercial registered agent),registered_agent.name,high,Full-width name line for the commercial-RA path (y=230). Same canonical key as Text8 (filer uses one based on RA type).
-Check Box6,0,text,FOURTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial' option for the FOURTH registered-agent type.
-Text8,0,text,(name of noncommercial registered agent),registered_agent.name,high,Full-width name line for the noncommercial-RA path (y=170). Same canonical key as Text7.
+Text8,0,text,(name of commercial registered agent),registered_agent.name,high,Full-width name line for the noncommercial-RA path (y=170). Same canonical key as Text7.
 Text9,0,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Single-line concatenated physical address of the registered agent (no P.O. Box). y=134.
 Text10,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional single-line mailing address of the registered agent. y=99 (bottom of page).
+Text11,0,text,FOURTH: Commercial Registered Agent — CRA Public Number:,registered_agent.cra_public_number,high,"Right-aligned narrow field on the Commercial-Registered-Agent row (y=255, x=449-545, width 96pt). Required only when registered_agent.type='commercial'."
 Text12,1,text,SIXTH: Name (row 1),general_partner_1.name,high,Name of the first individual general partner (left column).
 Text13,1,text,SIXTH: Name (row 2),general_partner_2.name,high,Name of the second individual general partner.
 Text14,1,text,SIXTH: Name (row 3),general_partner_3.name,high,Name of the third individual general partner.
 Text15,1,text,SIXTH: Address (row 1),general_partner_1.address,high,Address of the first individual general partner (right column).
 Text16,1,text,SIXTH: Address (row 2),general_partner_2.address,high,Address of the second individual general partner.
 Text17,1,text,SIXTH: Address (row 3),general_partner_3.address,high,Address of the third individual general partner.
-Check Box18,1,text,"[ ] Names and addresses of additional general partners are attached as Exhibit ___, and made a part hereof.",general_partner.additional_attached,high,Boolean opt-in for additional-GP exhibit. The inline 'Exhibit ___' letter blank is visible on the page but missing from the AcroForm (template gap; see open_questions).
+Check Box18,1,checkbox,"[ ] Names and addresses of additional general partners are attached as Exhibit ___, and made a part hereof.",general_partner.additional_attached,high,Boolean opt-in for additional-GP exhibit. The inline 'Exhibit ___' letter blank is visible on the page but missing from the AcroForm (template gap; see open_questions).
 Check Box19,1,checkbox,SEVENTH: Check only if applicable [ ] The limited partnership is a limited liability limited partnership.,entity.is_lllp,high,"Boolean elect-in for LLLP status. If checked, entity.new_name must contain 'L.L.L.P.', 'LLLP', or 'Limited Liability Limited Partnership' and cannot use 'L.P.' or 'LP' (per 31 MRSA §1308.1.A.3)."
 Text20,1,text,EIGHTH: This is a professional limited liability limited partnership* formed pursuant to 31 MRSA §1354.4 to provide the following professional services: (type of professional services) — line 1,entity.professional_services_description,high,"Professional-services description line 1. Full-page-width widget (y=356, x=106-572) parallel to MLPA-6's Text16. Filler concatenates with line 2 (Text21). Drafter mis-mapped this to general_partner.additional_exhibit_letter; correct mapping per critique is the EIGHTH professional-services free-text."
-Text21,1,text,EIGHTH: (type of professional services) — line 2,entity.professional_services_description,high,"Professional-services description line 2 (y=326, full page width). Same canonical key as Text20."
+Text21,1,text,EIGHTH: This is a professional limited liability limited partnership* formed pursuant to 31 MRSA §1354.4 to provide the following professional services: (type of professional services) — line 1,entity.professional_services_description,high,"Professional-services description line 2 (y=326, full page width). Same canonical key as Text20."
+Text22,1,text,Text22,,,Unmapped widget (live blank).
 Text24,1,text,General Partner(s) row 1: (type or print name) — right column,general_partner_1.printed_name,high,"Printed name of GP 1 (right column, y=173). MLPA-6 sibling convention: only the right-column printed-name widgets are mapped; left-column signature widgets (Text22 here) are omitted from field_mappings as wet-ink lines."
+Text25,1,text,Text25,,,Unmapped widget (live blank).
 Text26,1,text,General Partner(s) row 2: (type or print name),general_partner_2.printed_name,high,"Printed name of GP 2 (right column, y=140)."
+Text27,1,text,Text27,,,Unmapped widget (live blank).
 Text28,1,text,General Partner(s) row 3: (type or print name),general_partner_3.printed_name,high,"Printed name of GP 3 (right column, y=106)."
 Text30,1,text,Dated ___,filing.date_signed,medium,"Narrow inline blank (y=235, width 127pt) sitting above the General Partner(s) signature header. Per the critique's resolution: this is the Dated line. The NINTH 'Exhibit ___' inline blank in the 'Other provisions...are set forth in the attached Exhibit ___' paragraph is visible on the page but has no AcroForm widget (template gap; see open_questions)."
 Text31,2,text,For General Partner(s) which are Entities: Name of Entity (row 1),general_partner_entity_1.name,high,Name of the first entity general partner.
@@ -30,17 +33,17 @@ Text33,2,text,Name of Entity (row 2),general_partner_entity_2.name,high,Name of 
 Text34,2,text,(type or print name and capacity) (row 2),general_partner_entity_2.signer_printed_name_and_capacity,high,Authorized signer for entity GP 2.
 Text35,2,text,Name of Entity (row 3),general_partner_entity_3.name,high,Name of the third entity general partner.
 Text36,2,text,(type or print name and capacity) (row 3),general_partner_entity_3.signer_printed_name_and_capacity,high,Authorized signer for entity GP 3.
-cover1,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,First entity name on cover letter.
-cover2,3,text,Name of entity [2],filing.entities[1].name,high,Second entity name on cover letter (multi-form bundle).
-cover3,3,text,"Hold attested copy for pick up at our office in Augusta, Maine",filing.expedited_service,high,Mutually-exclusive expedited-service option = 'hold_for_pickup'.
-cover4,3,text,24-hour expedited filing (next business day) service: $50 additional filing fee per entity,filing.expedited_service,high,Mutually-exclusive expedited-service option = '24h_next_business_day'.
-cover,3,text,Immediate expedited filing (same business day): $100 additional filing fee per entity,filing.expedited_service,high,Mutually-exclusive expedited-service option = 'immediate_same_day' (note: widget is bare 'cover' not 'cover5' — same template-naming variant as MLPA-6).
-cover6,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total filing fee amount enclosed (USD).
-cover7,3,text,(Name of contact person),filing.contact.name,high,Filing-contact name.
-cover8,3,text,(Daytime telephone number),filing.contact.phone,high,Filing-contact phone.
-cover9,3,text,(Contact email address for this filing),filing.contact.email,high,Per-filing contact email.
-cover10,3,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email (distinct from per-filing contact email).
-cover11,3,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name for the returned attested copy.
-cover12,3,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm/company.
-cover13,3,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-cover14,3,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined (single line).
+Name of entity,3,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,3,text,filing.entities[1].name,filing.entities[1].name,high,Mapped widget (live blank).
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,3,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Mapped widget (live blank).
+Name of contact person,3,text,filing.contact.name,filing.contact.name,high,Mapped widget (live blank).
+Daytime telephone number,3,text,filing.contact.phone,filing.contact.phone,high,Mapped widget (live blank).
+Contact email address for this filing,3,text,filing.contact.email,filing.contact.email,high,Mapped widget (live blank).
+Email address to use for annual report reminders,3,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Mapped widget (live blank).
+Name of attested copy recipient,3,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Mapped widget (live blank).
+Firm or Company,3,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Mapped widget (live blank).
+Mailing Address,3,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Mapped widget (live blank).
+City State  Zip,3,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped widget (live blank).

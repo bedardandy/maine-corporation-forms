@@ -15,19 +15,19 @@ The organizing document for the converted resulting organization is attached as 
 Dated,1,text,Dated ___,filing.date_signed,high,Date the articles are signed.
 type or print name and capacity,1,text,(authorized signature) / (type or print name and capacity) — first signature row,general_partner_1.printed_name_and_capacity,high,"First general-partner signer. Per recital, 'must be signed by each general partner listed in the certificate of limited partnership' — so this is a per-GP signature pattern (Shape E's per-officer-signer-pattern variant), not Shape D filing.signer.*. Reuses general_partner_N.* namespace from MLPA-6 (formation), extending it to a non-formation context. Combined name+capacity widget (Shape D primitive applied per-GP)."
 type or print name and capacity_2,1,text,(authorized signature) / (type or print name and capacity) — second signature row,general_partner_2.printed_name_and_capacity,high,"Second general-partner signer. If the LP has more than 2 GPs, additional signatures must go on attached pages (the form has no exhibit-letter widget for additional GPs)."
-Check Box1,1,text,"SEVENTH: [ ] The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof",conversion.result_type,high,Radio option: resulting entity requires SOS filing (organizing document attached). Enum value: 'filing_required'. Mutually exclusive with Check Box2.
-Check Box2,1,text,SEVENTH: [ ] The converted (resulting) is an organization not required to file with the Maine Secretary of State's office,conversion.result_type,high,"Radio option: resulting entity does not require Maine SOS filing (e.g., general partnership, sole prop). Enum value: 'no_filing_required'. Mutually exclusive with Check Box1."
-cover1,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing.
-cover2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (typically the bundled formation form's resulting entity).
-cover3,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
-cover4,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
-cover,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'. Note: widget named 'cover' (not 'cover5') on this template.
-cover6,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($150 base per page-0 header plus expedite premium and bundled formation fee).
-cover7,2,text,(Name of contact person),filing.contact.name,high,Contact name.
-cover8,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
-cover9,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
-cover10,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
-cover11,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
-cover12,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
-cover13,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
-cover14,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.
+Check Box1,1,checkbox,"SEVENTH: [ ] The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof",conversion.result_type,medium,Radio option: resulting entity requires SOS filing (organizing document attached). Enum value: 'filing_required'. Mutually exclusive with Check Box2.
+Check Box2,1,checkbox,"SEVENTH: [ ] The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof",conversion.result_type,medium,"Radio option: resulting entity does not require Maine SOS filing (e.g., general partnership, sole prop). Enum value: 'no_filing_required'. Mutually exclusive with Check Box1."
+Name of entity,2,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
+Name of entitys on the submitted filings 2,2,text,filing.entities[1].name,filing.entities[1].name,high,Mapped widget (live blank).
+Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).
+Check Box15,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Mapped widget (live blank).
+Check Box16,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Mapped widget (live blank).
+Total fees enclosed,2,text,filing.total_fees_dollars,filing.total_fees_dollars,high,Mapped widget (live blank).
+Name of contact person,2,text,filing.contact.name,filing.contact.name,high,Mapped widget (live blank).
+Daytime telephone number,2,text,filing.contact.phone,filing.contact.phone,high,Mapped widget (live blank).
+Contact email address for this filing,2,text,filing.contact.email,filing.contact.email,high,Mapped widget (live blank).
+Email address to use for annual report reminders,2,text,entity.annual_report_reminder_email,entity.annual_report_reminder_email,high,Mapped widget (live blank).
+Name of attested copy recipient,2,text,filing.attested_copy_recipient.name,filing.attested_copy_recipient.name,high,Mapped widget (live blank).
+Firm or Company,2,text,filing.attested_copy_recipient.firm,filing.attested_copy_recipient.firm,high,Mapped widget (live blank).
+Mailing Address,2,text,filing.attested_copy_recipient.mailing_address.street,filing.attested_copy_recipient.mailing_address.street,high,Mapped widget (live blank).
+City State  Zip,2,text,filing.attested_copy_recipient.mailing_address.city_state_zip,filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped widget (live blank).
