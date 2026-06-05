@@ -88,7 +88,7 @@
       "widget_id": "25",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "FOURTH: The address of the registered office of the surviving corporation in the State of Maine is ___ (inline trailing blank)"
     },
     "merger.surviving_corp.registered_office_address_line2": {
@@ -102,7 +102,7 @@
       "widget_id": "27",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "FOURTH: The address of the registered office of the merged corporation in the State of Maine is ___ (inline trailing blank)"
     },
     "merger.merging_corp.registered_office_address_line2": {
@@ -130,7 +130,7 @@
       "widget_id": "31",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "(surviving corporation) \u2014 corp-name underline next to DATED"
     },
     "merger.parties[0].signature_block.signer_1.printed_name_and_capacity": {
@@ -146,34 +146,6 @@
       "page": 1,
       "confidence": "high",
       "label": "*By (signature) ___ / (type or print name and capacity) \u2014 surviving corp signer 2"
-    },
-    "merger.parties[0].clerk_certification.corporation_name": {
-      "widget_id": "34",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (name of corporation)"
-    },
-    "merger.parties[0].clerk_certification.signer_printed_name_and_title": {
-      "widget_id": "35",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (signature of clerk, secretary or asst. secretary)"
-    },
-    "merger.parties[1].signature_block.date_signed": {
-      "widget_id": "36",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "DATED ___ (merged corp signature block)"
-    },
-    "merger.parties[1].signature_block.signer_1.printed_name_and_capacity": {
-      "widget_id": "37",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "*By (signature) ___ / (type or print name and capacity) \u2014 merged corp signer"
     },
     "filing.entities[0].name": {
       "widget_id": "Name of entity",
@@ -272,6 +244,34 @@
       "page": 2,
       "confidence": "high",
       "label": "Immediate expedited filing ($100)"
+    },
+    "merger.parties[1].signature_block.date_signed": {
+      "widget_id": "34",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED (merged corporation signature block)"
+    },
+    "merger.parties[1].signature_block.corporation_name": {
+      "widget_id": "35",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(merged corporation)"
+    },
+    "merger.parties[1].signature_block.signer_1.printed_name_and_capacity": {
+      "widget_id": "36",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "*By (signature) / (type or print name and capacity) - signer 1"
+    },
+    "merger.parties[1].signature_block.signer_2.printed_name_and_capacity": {
+      "widget_id": "37",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "*By (signature) / (type or print name and capacity) - signer 2"
     }
   }
 }
