@@ -90,23 +90,6 @@
       "confidence": "high",
       "label": "D.2: ...and the date of incorporation/organization is"
     },
-    "mark.assignor.printed_name_and_capacity": {
-      "widget_id": [
-        "mark4Nineteen",
-        "mark4Twentytwo"
-      ],
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "D.3: Whereas, I, ___ (Print/Type Name and Capacity), believe to be the owner of the aforesaid mark..."
-    },
-    "mark.assignment.date_of_transfer": {
-      "widget_id": "mark4Twenty",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "D.3: ...sold, assigned and transferred on (date) ___, the entire right, title and interest..."
-    },
     "mark.assignor.date_signed": {
       "widget_id": "Mark4Twentyone",
       "field_type": "text",
@@ -264,6 +247,27 @@
       "confidence": "high",
       "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
       "label": "Immediate expedited filing ($100)"
+    },
+    "mark.assignor.printed_name_and_capacity": {
+      "widget_id": "mark4Nineteen",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "D.3 Whereas, ___ believe (assignor declarant)"
+    },
+    "mark.assignor.owner_name": {
+      "widget_id": "mark4Twenty",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.3 (Myself, Firm, Association or Corporate Name)"
+    },
+    "mark.assignment.date_of_transfer": {
+      "widget_id": "mark4Twentytwo",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.3 Dated ___ (assignor signature date)"
     }
   }
 }

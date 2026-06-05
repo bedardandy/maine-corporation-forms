@@ -109,7 +109,7 @@
       "widget_id": "22",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "FIFTH (domestic): ...is: ___ (inline trailing blank ending the sentence)"
     },
     "consolidation.parties[0].registered_office_address_line2": {
@@ -123,7 +123,7 @@
       "widget_id": "25",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "FIFTH (foreign): ...is:* ___ (inline trailing blank)"
     },
     "consolidation.parties[1].registered_office_address_line2": {

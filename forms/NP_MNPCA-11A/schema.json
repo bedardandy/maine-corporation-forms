@@ -222,6 +222,10 @@
       "properties": {
         "clerk_signature_printed_name": {
           "type": "string"
+        },
+        "clerk_signature": {
+          "type": "string",
+          "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS - (signature of clerk, secretary or asst. secretary)"
         }
       }
     }

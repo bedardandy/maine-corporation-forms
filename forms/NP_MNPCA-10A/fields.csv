@@ -2,42 +2,42 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 1,0,text,(A Maine Corporation) [first participating corporation name line at top of page],consolidation.parties[0].name,high,Top recital line identifying the first existing corporation participating in the consolidation.
 2,0,text,AND / (A Maine Corporation) [second participating corporation name line],consolidation.parties[1].name,high,Top recital line for the second existing corporation.
 3,0,text,FORMING [new corporation name line],entity.name,high,Name of the new corporation resulting from the consolidation. This is the primary entity name for the filing.
-4,0,text,FIRST: The name of the new corporation is,entity.name,high,FIRST recital re-states the new corporation's name; both fields 3 and 4 bind to the same canonical key (form requires the same value in both).
+4,0,text,FORMING [new corporation name line],entity.name,high,FIRST recital re-states the new corporation's name; both fields 3 and 4 bind to the same canonical key (form requires the same value in both).
 5,0,text,SECOND: The plan of consolidation is set forth in Exhibit ___ attached hereto and made a part hereof.,consolidation.plan_exhibit_letter,high,Inline exhibit-letter blank for the plan of consolidation.
-6,0,text,THIRD: Name of Corporation [adoption block 1],consolidation.parties[0].name,high,Per-party adoption block re-states the first corporation's name to scope the voting recital. Same canonical key as field '1'.
-Check Box1,0,text,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,consolidation.parties[0].vote_method,high,Block 1 option 1: enum value 'majority_member_vote'.
+6,0,text,(A Maine Corporation) [first participating corporation name line at top of page],consolidation.parties[0].name,high,Per-party adoption block re-states the first corporation's name to scope the voting recital. Same canonical key as field '1'.
+Check Box1,0,checkbox,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,consolidation.parties[0].vote_method,high,Block 1 option 1: enum value 'majority_member_vote'.
+Check Box2,0,checkbox,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,consolidation.parties[0].vote_method,high,Block 1 option 2: enum value 'supermajority_member_vote'.
+Check Box3,0,checkbox,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,consolidation.parties[0].vote_method,high,Block 1 option 3: enum value 'written_consent_of_members'.
+Check Box5,0,checkbox,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,consolidation.parties[0].vote_method,high,Block 1 option 4: enum value 'board_of_directors_majority_vote' (used when no voting members).
+Check Box6,0,checkbox,Block 2 option 1: By the members at a meeting on (date)...,consolidation.parties[1].vote_method,high,Block 2 option 1: enum value 'majority_member_vote'.
+Check Box7,0,checkbox,Block 2 option 1: By the members at a meeting on (date)...,consolidation.parties[1].vote_method,high,Block 2 option 2: enum value 'supermajority_member_vote'.
+Check Box8,0,checkbox,Block 2 option 1: By the members at a meeting on (date)...,consolidation.parties[1].vote_method,high,Block 2 option 3: enum value 'written_consent_of_members'.
+Check Box9,0,checkbox,Block 2 option 1: By the members at a meeting on (date)...,consolidation.parties[1].vote_method,high,Block 2 option 4: enum value 'board_of_directors_majority_vote'.
 8,0,text,By the members at a meeting on (date) ___ [block 1 option 1 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 1 (majority member vote).
-Check Box2,0,text,"[ ] If the Articles of Incorporation require more than a majority vote, by the members at a meeting on (date) ___ and such plan received at least the percentage of votes of the members required by the Articles of Incorporation.",consolidation.parties[0].vote_method,high,Block 1 option 2: enum value 'supermajority_member_vote'.
-10,0,text,by the members at a meeting on (date) ___ [block 1 option 2 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 2 (supermajority member vote).
-Check Box3,0,text,"[ ] By the written consent of all members entitled to vote with respect thereto, dated ___, without resolution of the board of directors.",consolidation.parties[0].vote_method,high,Block 1 option 3: enum value 'written_consent_of_members'.
-12,0,text,dated ___ without resolution of the board of directors [block 1 option 3 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 3 (written consent).
-Check Box5,0,text,"[ ] There being no members, or in the case of a dissolution, no member entitled to vote thereon, the plan was adopted by a majority vote of the board of directors in office at a meeting held on ___.",consolidation.parties[0].vote_method,high,Block 1 option 4: enum value 'board_of_directors_majority_vote' (used when no voting members).
-14,0,text,at a meeting held on ___ [block 1 option 4 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 4 (board majority vote).
-15,0,text,Name of Corporation [adoption block 2],consolidation.parties[1].name,high,Per-party adoption block re-states the second corporation's name. Same canonical key as field '2'.
-Check Box6,0,text,Block 2 option 1: By the members at a meeting on (date)...,consolidation.parties[1].vote_method,high,Block 2 option 1: enum value 'majority_member_vote'.
+10,0,text,By the members at a meeting on (date) ___ [block 1 option 1 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 2 (supermajority member vote).
+12,0,text,By the members at a meeting on (date) ___ [block 1 option 1 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 3 (written consent).
+14,0,text,By the members at a meeting on (date) ___ [block 1 option 1 date],consolidation.parties[0].vote_method_date,high,Date paired with block 1 option 4 (board majority vote).
+15,0,text,AND / (A Maine Corporation) [second participating corporation name line],consolidation.parties[1].name,high,Per-party adoption block re-states the second corporation's name. Same canonical key as field '2'.
 17,0,text,Block 2 option 1 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 1.
-Check Box7,0,text,Block 2 option 2: supermajority member vote,consolidation.parties[1].vote_method,high,Block 2 option 2: enum value 'supermajority_member_vote'.
-19,0,text,Block 2 option 2 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 2.
-Check Box8,0,text,Block 2 option 3: written consent of members,consolidation.parties[1].vote_method,high,Block 2 option 3: enum value 'written_consent_of_members'.
-21,0,text,Block 2 option 3 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 3.
-Check Box9,0,text,Block 2 option 4: board of directors vote (no members),consolidation.parties[1].vote_method,high,Block 2 option 4: enum value 'board_of_directors_majority_vote'.
-23,0,text,Block 2 option 4 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 4.
-24,1,text,FOURTH: The address of the registered office in the State of Maine of [new corporation name] is ___,entity.name,medium,Inline blank inside FOURTH paragraph re-states the new corporation's name (the entity whose registered office is being established). Binds to the same canonical key as fields 3 and 4.
+19,0,text,Block 2 option 1 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 2.
+21,0,text,Block 2 option 1 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 3.
+23,0,text,Block 2 option 1 date,consolidation.parties[1].vote_method_date,high,Date paired with block 2 option 4.
+24,1,text,FORMING [new corporation name line],entity.name,high,Inline blank inside FOURTH paragraph re-states the new corporation's name (the entity whose registered office is being established). Binds to the same canonical key as fields 3 and 4.
 25,1,text,"(street, city, state and zip code)",entity.registered_office.address,high,"Single-line registered-office address (street, city, state, zip combined) for the new corporation."
 28,1,text,FIFTH: Effective date of the consolidation (if later than date of filing of Articles) is ___ (Not to exceed 60 days from date of filing of the Articles),consolidation.future_effective_date,high,Optional future effective date capped at 60 days post-filing (mirrors merger.future_effective_date on NP_MNPCA-10).
 29,1,text,DATED ___ [first signature block date],consolidation.parties[0].signature_block.date_signed,high,Date the first participating corporation signed.
-30,1,text,(name of corporation) [first signature block],consolidation.parties[0].signature_block.corporation_name,medium,Right-side blank labeled '(name of corporation)' on the DATED row. Re-states the first corporation's name to scope the signature block.
+30,1,text,(name of corporation) [first signature block],consolidation.parties[0].signature_block.corporation_name,high,Right-side blank labeled '(name of corporation)' on the DATED row. Re-states the first corporation's name to scope the signature block.
 31,1,text,"*By (signature) ___ / (type or print name and capacity) [first signature block, signer 1]",consolidation.parties[0].signature_block.signer_1.printed_name_and_capacity,high,"First-party signer 1 (combined name and capacity, Shape D)."
 32,1,text,"*By (signature) ___ / (type or print name and capacity) [first signature block, signer 2]",consolidation.parties[0].signature_block.signer_2.printed_name_and_capacity,high,First-party signer 2. Two signer slots per party because some entity types under 13-B MRSA §904 require two signers (mirrors NP_MNPCA-10 merger pattern).
 33,1,text,DATED ___ [second signature block date],consolidation.parties[1].signature_block.date_signed,high,Date the second participating corporation signed.
-34,1,text,(name of corporation) [second signature block],consolidation.parties[1].signature_block.corporation_name,medium,Right-side blank on the second DATED row. Re-states the second corporation's name.
+34,1,text,(name of corporation) [second signature block],consolidation.parties[1].signature_block.corporation_name,high,Right-side blank on the second DATED row. Re-states the second corporation's name.
 35,1,text,"*By (signature) ___ / (type or print name and capacity) [second signature block, signer 1]",consolidation.parties[1].signature_block.signer_1.printed_name_and_capacity,high,Second-party signer 1.
 36,1,text,"*By (signature) ___ / (type or print name and capacity) [second signature block, signer 2]",consolidation.parties[1].signature_block.signer_2.printed_name_and_capacity,high,Second-party signer 2.
 Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (likely the new corp + one of the two participating corps for a consolidation bundle).
-Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
-Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
-Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Expedite tier 'immediate_same_day'.
 Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($25 minimum per page 0 header) plus expedite premium per entity.
 Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

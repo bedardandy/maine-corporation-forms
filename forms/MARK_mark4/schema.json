@@ -37,6 +37,10 @@
             "date_signed": {
               "type": "string",
               "description": "Date the assignor signed the assignment (distinct from mark.assignment.date_of_transfer, which is the legal effective date)."
+            },
+            "owner_name": {
+              "type": "string",
+              "description": "D.3 (Myself, Firm, Association or Corporate Name)"
             }
           }
         },
