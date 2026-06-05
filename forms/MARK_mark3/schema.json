@@ -12,12 +12,30 @@
           "description": "Maine SOS-assigned registration/charter number of an existing mark, used to identify which registration is being amended/cancelled/assigned. Distinct from filing-level identifiers; lives under mark.* per the MARK-1 namespace."
         },
         "text_elements": {
-          "type": "string",
-          "description": "Recital of the text words protected in an existing mark registration (read-only on amendment forms \u2014 \u00a71525-A prohibits amending the mark itself)."
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string",
+              "description": "1. TEXT - word(s) protected in the original registration (line 1)"
+            },
+            "line2": {
+              "type": "string",
+              "description": "1. TEXT (line 2)"
+            }
+          }
         },
         "design_description": {
-          "type": "string",
-          "description": "Recital of the design features protected in an existing mark registration."
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string",
+              "description": "2. FEATURES - describe the design protected in the original registration (line 1)"
+            },
+            "line2": {
+              "type": "string",
+              "description": "2. FEATURES (line 2)"
+            }
+          }
         },
         "type": {
           "type": "string",

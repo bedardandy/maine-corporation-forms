@@ -18,25 +18,25 @@ Text16,1,text,SEVENTH: Contact person: ___ (name),entity.contact_person.name,hig
 Text17,1,text,SEVENTH: ___ (mailing address),entity.contact_person.mailing_address,high,Entity contact person's mailing address (single combined widget; no street/city split).
 Text18,1,text,SEVENTH: ___ (physical address),entity.contact_person.physical_address,high,Entity contact person's physical address (single combined widget).
 Text19,1,text,Dated ___ (top of incorporator block),filing.date_signed,high,Filing signature date (top of the incorporator-signature block on page 1).
-Text20,1,text,"(top-right of incorporator block, same y as Dated — ambiguous)",incorporator_1.address.street,medium,Tentatively mapped to incorporator 1 Street (right-column Street field paired with Dated's row). Widget-row count (10 rows × 2 widgets = 20) does not cleanly match the 6 visually-rendered incorporator slots × 3 widgets each + Dated = 19 expected widgets. See open_questions for the widget-count mismatch — pass-2 visual-fill testing needed.
-Text21,1,text,Incorporator 1: (type or print name),incorporator_1.printed_name,medium,"Printed name of incorporator 1. Per-officer signer pattern (13-MRSA §901 formation filing — same shape as MBCA-6, NP_MNPCA-6). Pass-2 testing needed to confirm the row pairing of Text20-Text38."
-Text22,1,text,"Incorporator 1: (city, state and zip code)",incorporator_1.address.city_state_zip,medium,City/state/zip of incorporator 1.
-Text23,1,text,Incorporator 2: Street,incorporator_2.address.street,medium,Street of incorporator 2 (alternating-row interpretation: print_name → city/state/zip → Street → ...).
-Text24,1,text,Incorporator 2: (type or print name),incorporator_2.printed_name,medium,Printed name of incorporator 2.
-Text25,1,text,"Incorporator 2: (city, state and zip code)",incorporator_2.address.city_state_zip,medium,City/state/zip of incorporator 2.
-Text26,1,text,Incorporator 3: Street,incorporator_3.address.street,medium,Street of incorporator 3.
-Text27,1,text,Incorporator 3: (type or print name),incorporator_3.printed_name,medium,Printed name of incorporator 3.
-Text28,1,text,"Incorporator 3: (city, state and zip code)",incorporator_3.address.city_state_zip,medium,City/state/zip of incorporator 3.
-Text29,1,text,Incorporator 4: Street,incorporator_4.address.street,medium,Street of incorporator 4.
-Text30,1,text,Incorporator 4: (type or print name),incorporator_4.printed_name,medium,Printed name of incorporator 4.
-Text31,1,text,"Incorporator 4: (city, state and zip code)",incorporator_4.address.city_state_zip,medium,City/state/zip of incorporator 4.
-Text32,1,text,Incorporator 5: Street,incorporator_5.address.street,medium,Street of incorporator 5.
-Text33,1,text,Incorporator 5: (type or print name),incorporator_5.printed_name,medium,Printed name of incorporator 5.
-Text34,1,text,"Incorporator 5: (city, state and zip code)",incorporator_5.address.city_state_zip,medium,City/state/zip of incorporator 5.
-Text35,1,text,Incorporator 6: Street,incorporator_6.address.street,medium,Street of incorporator 6.
-Text36,1,text,Incorporator 6: (type or print name),incorporator_6.printed_name,medium,Printed name of incorporator 6.
-Text37,1,text,"Incorporator 6: (city, state and zip code)",incorporator_6.address.city_state_zip,medium,City/state/zip of incorporator 6.
-Text38,1,text,(bottom-right of incorporator block — ambiguous trailing widget),incorporator_7.address.street,low,Trailing widget at the bottom of the incorporator block; provisionally mapped to a 7th incorporator slot's Street. Visual layout suggests only 6 incorporator slots — pass-2 visual-fill testing needed. May be unused or backup overflow widget.
+Text20,1,text,Incorporator 1 - Street,incorporator_1.address.street,high,Tentatively mapped to incorporator 1 Street (right-column Street field paired with Dated's row). Widget-row count (10 rows × 2 widgets = 20) does not cleanly match the 6 visually-rendered incorporator slots × 3 widgets each + Dated = 19 expected widgets. See open_questions for the widget-count mismatch — pass-2 visual-fill testing needed.
+Text21,1,text,Incorporator 1 - (type or print name),incorporator_1.printed_name,high,"Printed name of incorporator 1. Per-officer signer pattern (13-MRSA §901 formation filing — same shape as MBCA-6, NP_MNPCA-6). Pass-2 testing needed to confirm the row pairing of Text20-Text38."
+Text22,1,text,"Incorporator 1 - (city, state and zip code)",incorporator_1.address.city_state_zip,high,City/state/zip of incorporator 1.
+Text23,1,text,Incorporator 2: Street,,,Street of incorporator 2 (alternating-row interpretation: print_name → city/state/zip → Street → ...).
+Text24,1,text,Incorporator 2 - Street,incorporator_2.address.street,high,Printed name of incorporator 2.
+Text25,1,text,Incorporator 2 - (type or print name),incorporator_2.printed_name,high,City/state/zip of incorporator 2.
+Text26,1,text,"Incorporator 2 - (city, state and zip code)",incorporator_2.address.city_state_zip,high,Street of incorporator 3.
+Text27,1,text,Incorporator 3: (type or print name),,,Printed name of incorporator 3.
+Text28,1,text,Incorporator 3 - Street,incorporator_3.address.street,high,City/state/zip of incorporator 3.
+Text29,1,text,Incorporator 3 - (type or print name),incorporator_3.printed_name,high,Street of incorporator 4.
+Text30,1,text,"Incorporator 3 - (city, state and zip code)",incorporator_3.address.city_state_zip,high,Printed name of incorporator 4.
+Text31,1,text,"Incorporator 4: (city, state and zip code)",,,City/state/zip of incorporator 4.
+Text32,1,text,Incorporator 4 - Street,incorporator_4.address.street,high,Street of incorporator 5.
+Text33,1,text,Incorporator 4 - (type or print name),incorporator_4.printed_name,high,Printed name of incorporator 5.
+Text34,1,text,"Incorporator 4 - (city, state and zip code)",incorporator_4.address.city_state_zip,high,City/state/zip of incorporator 5.
+Text35,1,text,Incorporator 6: Street,,,Street of incorporator 6.
+Text36,1,text,Incorporator 5 - Street,incorporator_5.address.street,high,Printed name of incorporator 6.
+Text37,1,text,Incorporator 5 - (type or print name),incorporator_5.printed_name,high,City/state/zip of incorporator 6.
+Text38,1,text,"Incorporator 5 - (city, state and zip code)",incorporator_5.address.city_state_zip,high,Trailing widget at the bottom of the incorporator block; provisionally mapped to a 7th incorporator slot's Street. Visual layout suggests only 6 incorporator slots — pass-2 visual-fill testing needed. May be unused or backup overflow widget.
 Name of entity,2,text,filing.entities[0].name,filing.entities[0].name,high,Mapped widget (live blank).
 Name of entitys on the submitted filings 2,2,text,filing.entities[1].name,filing.entities[1].name,high,Cover-letter row 2.
 Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Mapped widget (live blank).

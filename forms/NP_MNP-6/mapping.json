@@ -131,139 +131,6 @@
       "confidence": "high",
       "label": "Dated ___ (top of incorporator block)"
     },
-    "incorporator_1.address.street": {
-      "widget_id": "Text20",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "(top-right of incorporator block, same y as Dated \u2014 ambiguous)"
-    },
-    "incorporator_1.printed_name": {
-      "widget_id": "Text21",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 1: (type or print name)"
-    },
-    "incorporator_1.address.city_state_zip": {
-      "widget_id": "Text22",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 1: (city, state and zip code)"
-    },
-    "incorporator_2.address.street": {
-      "widget_id": "Text23",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 2: Street"
-    },
-    "incorporator_2.printed_name": {
-      "widget_id": "Text24",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 2: (type or print name)"
-    },
-    "incorporator_2.address.city_state_zip": {
-      "widget_id": "Text25",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 2: (city, state and zip code)"
-    },
-    "incorporator_3.address.street": {
-      "widget_id": "Text26",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 3: Street"
-    },
-    "incorporator_3.printed_name": {
-      "widget_id": "Text27",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 3: (type or print name)"
-    },
-    "incorporator_3.address.city_state_zip": {
-      "widget_id": "Text28",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 3: (city, state and zip code)"
-    },
-    "incorporator_4.address.street": {
-      "widget_id": "Text29",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 4: Street"
-    },
-    "incorporator_4.printed_name": {
-      "widget_id": "Text30",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 4: (type or print name)"
-    },
-    "incorporator_4.address.city_state_zip": {
-      "widget_id": "Text31",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 4: (city, state and zip code)"
-    },
-    "incorporator_5.address.street": {
-      "widget_id": "Text32",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 5: Street"
-    },
-    "incorporator_5.printed_name": {
-      "widget_id": "Text33",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 5: (type or print name)"
-    },
-    "incorporator_5.address.city_state_zip": {
-      "widget_id": "Text34",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 5: (city, state and zip code)"
-    },
-    "incorporator_6.address.street": {
-      "widget_id": "Text35",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 6: Street"
-    },
-    "incorporator_6.printed_name": {
-      "widget_id": "Text36",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 6: (type or print name)"
-    },
-    "incorporator_6.address.city_state_zip": {
-      "widget_id": "Text37",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "medium",
-      "label": "Incorporator 6: (city, state and zip code)"
-    },
-    "incorporator_7.address.street": {
-      "widget_id": "Text38",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "low",
-      "label": "(bottom-right of incorporator block \u2014 ambiguous trailing widget)"
-    },
     "filing.entities[0].name": {
       "widget_id": "Name of entity",
       "field_type": "text",
@@ -361,6 +228,111 @@
       "page": 2,
       "confidence": "high",
       "label": "Immediate expedited filing ($100)"
+    },
+    "incorporator_1.printed_name": {
+      "widget_id": "Text21",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 1 - (type or print name)"
+    },
+    "incorporator_1.address.street": {
+      "widget_id": "Text20",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 1 - Street"
+    },
+    "incorporator_1.address.city_state_zip": {
+      "widget_id": "Text22",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 1 - (city, state and zip code)"
+    },
+    "incorporator_2.printed_name": {
+      "widget_id": "Text25",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 2 - (type or print name)"
+    },
+    "incorporator_2.address.street": {
+      "widget_id": "Text24",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 2 - Street"
+    },
+    "incorporator_2.address.city_state_zip": {
+      "widget_id": "Text26",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 2 - (city, state and zip code)"
+    },
+    "incorporator_3.printed_name": {
+      "widget_id": "Text29",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 3 - (type or print name)"
+    },
+    "incorporator_3.address.street": {
+      "widget_id": "Text28",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 3 - Street"
+    },
+    "incorporator_3.address.city_state_zip": {
+      "widget_id": "Text30",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 3 - (city, state and zip code)"
+    },
+    "incorporator_4.printed_name": {
+      "widget_id": "Text33",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 4 - (type or print name)"
+    },
+    "incorporator_4.address.street": {
+      "widget_id": "Text32",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 4 - Street"
+    },
+    "incorporator_4.address.city_state_zip": {
+      "widget_id": "Text34",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 4 - (city, state and zip code)"
+    },
+    "incorporator_5.printed_name": {
+      "widget_id": "Text37",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 5 - (type or print name)"
+    },
+    "incorporator_5.address.street": {
+      "widget_id": "Text36",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 5 - Street"
+    },
+    "incorporator_5.address.city_state_zip": {
+      "widget_id": "Text38",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Incorporator 5 - (city, state and zip code)"
     }
   }
 }

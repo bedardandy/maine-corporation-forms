@@ -8,51 +8,6 @@
       "confidence": "high",
       "label": "A. CHARTER NUMBER (if known)"
     },
-    "mark.text_elements": {
-      "widget_id": "mark3Two",
-      "field_type": "text",
-      "page": 0,
-      "confidence": "high",
-      "label": "1. TEXT - list word(s) protected in the original registration, if any"
-    },
-    "mark.design_description": {
-      "widget_id": "mark3Three",
-      "field_type": "text",
-      "page": 0,
-      "confidence": "high",
-      "label": "2. FEATURES - describe in detail the design protected in the original registration, if any"
-    },
-    "mark.type": {
-      "widget_id": "mark3Four",
-      "field_type": "text",
-      "page": 0,
-      "confidence": "high",
-      "label": "C. TYPE OF MARK:"
-    },
-    "mark.original_type_if_changed": {
-      "widget_id": "mark3Five",
-      "field_type": "checkbox",
-      "page": 0,
-      "confidence": "medium",
-      "label": "Original type of mark, if changed (free-text recital line above the yes/no checkboxes)"
-    },
-    "mark.type_change_explanation": {
-      "widget_id": "mark3Six",
-      "field_type": "checkbox",
-      "page": 0,
-      "confidence": "low",
-      "label": "Sub-question text field at y 298-317 between the type-of-mark and the yes/no checkbox row"
-    },
-    "mark.type_changed": {
-      "widget_id": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
-      "page": 0,
-      "confidence": "high",
-      "label": "[ ] yes — The type of mark indicated represents an amendment from that appearing on the original registration"
-    },
     "amendment.class_number": {
       "widget_id": "mark3Nine",
       "field_type": "text",
@@ -87,7 +42,7 @@
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "DESCRIBE manner in which mark is applied to the goods or used to promote their sale and/or the manner in which the mark is used in connection with the service — line 1"
+      "label": "DESCRIBE manner in which mark is applied to the goods or used to promote their sale and/or the manner in which the mark is used in connection with the service \u2014 line 1"
     },
     "amendment.additional_pages_attached": {
       "widget_id": "Check Box8",
@@ -260,6 +215,51 @@
       "confidence": "high",
       "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
       "label": "Immediate expedited filing ($100)"
+    },
+    "mark.text_elements.line1": {
+      "widget_id": "mark3Two",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "1. TEXT - word(s) protected in the original registration (line 1)"
+    },
+    "mark.text_elements.line2": {
+      "widget_id": "mark3Three",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "1. TEXT (line 2)"
+    },
+    "mark.design_description.line1": {
+      "widget_id": "mark3Four",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "2. FEATURES - describe the design protected in the original registration (line 1)"
+    },
+    "mark.design_description.line2": {
+      "widget_id": "mark3Five",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "2. FEATURES (line 2)"
+    },
+    "mark.type": {
+      "widget_id": "mark3Six",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "C. TYPE OF MARK:"
+    },
+    "mark.type_changed": {
+      "field_type": "enum_select",
+      "page": 0,
+      "confidence": "high",
+      "label": "The type of mark indicated represents an amendment from the original registration",
+      "options": {
+        "yes": "Check Box4",
+        "no": "Check Box5"
+      }
     }
   }
 }

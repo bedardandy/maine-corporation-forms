@@ -158,7 +158,7 @@
       "widget_id": "30",
       "field_type": "text",
       "page": 1,
-      "confidence": "low",
+      "confidence": "medium",
       "label": "**By ___ (signature) \u2014 signature block 1"
     },
     "consolidation.parties[0].signature_block.printed_name_and_capacity": {
@@ -186,7 +186,7 @@
       "widget_id": "34",
       "field_type": "text",
       "page": 1,
-      "confidence": "low",
+      "confidence": "medium",
       "label": "**By ___ (signature) \u2014 signature block 2"
     },
     "consolidation.parties[1].signature_block.printed_name_and_capacity": {
