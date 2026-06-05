@@ -159,6 +159,59 @@
               }
             }
           }
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "(A ___ Corporation) \u2014 first participating corp name (top recital)"
+              },
+              "descriptor": {
+                "type": "string",
+                "description": "(A ___ Corporation) \u2014 first participating corp descriptor"
+              },
+              "adoption_method": {
+                "type": "string",
+                "description": "FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+              },
+              "adoption_date": {
+                "type": "string",
+                "description": "FOURTH option 1 date: ...at a meeting on (date) ___"
+              },
+              "registered_office_address_line1": {
+                "type": "string",
+                "description": "FIFTH (domestic): ...is: ___ (inline trailing blank ending the sentence)"
+              },
+              "registered_office_address_line2": {
+                "type": "string",
+                "description": "FIFTH (domestic): ___ (street, city, state and zip code)"
+              },
+              "signature_block": {
+                "type": "object",
+                "properties": {
+                  "date_signed": {
+                    "type": "string",
+                    "description": "DATED ___ (signature block 1, left column)"
+                  },
+                  "corporation_name": {
+                    "type": "string",
+                    "description": "(name of corporation) \u2014 signature block 1, right column"
+                  },
+                  "signature": {
+                    "type": "string",
+                    "description": "**By ___ (signature) \u2014 signature block 1"
+                  },
+                  "printed_name_and_capacity": {
+                    "type": "string",
+                    "description": "(type or print name and capacity) \u2014 signature block 1"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

@@ -135,6 +135,57 @@
               }
             }
           }
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "(A Maine Corporation) [first participating corporation name line at top of page]"
+              },
+              "vote_method": {
+                "type": "string",
+                "description": "[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+              },
+              "vote_method_date": {
+                "type": "string",
+                "description": "By the members at a meeting on (date) ___ [block 1 option 1 date]"
+              },
+              "signature_block": {
+                "type": "object",
+                "properties": {
+                  "date_signed": {
+                    "type": "string",
+                    "description": "DATED ___ [first signature block date]"
+                  },
+                  "corporation_name": {
+                    "type": "string",
+                    "description": "(name of corporation) [first signature block]"
+                  },
+                  "signer_1": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "*By (signature) ___ / (type or print name and capacity) [first signature block, signer 1]"
+                      }
+                    }
+                  },
+                  "signer_2": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "*By (signature) ___ / (type or print name and capacity) [first signature block, signer 2]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

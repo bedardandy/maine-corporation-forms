@@ -1,12 +1,13 @@
 # Maine Corporation Forms — developer entry points.
 # Most targets are PDF-free and offline; `fetch` and `fill` need the blank PDF.
-.PHONY: help test validate coverage status route plan fill fetch mcp serve
+.PHONY: help test validate coverage status sync-schema route plan fill fetch mcp serve
 
 help:
 	@echo "make test                       run the deterministic test suite (the CI gate)"
 	@echo "make validate FORM=CORP_MBCA-6  validate one form folder (omit FORM for --all)"
 	@echo "make coverage                   validate every form; print the review worklist"
 	@echo "make status                     regenerate docs/STATUS.md from the form data"
+	@echo "make sync-schema FORM=..        extend schema.json to cover all mapping keys"
 	@echo "make route Q='convert an LLC'   route an intent to candidate forms"
 	@echo "make plan FORM=.. CASE=..       coverage of a case against a form (no PDF)"
 	@echo "make fill FORM=.. CASE=.. OUT=..  fill the blank PDF from a case (needs the PDF)"
@@ -26,6 +27,9 @@ coverage:
 
 status:
 	python3 tools/gen_status.py
+
+sync-schema:
+	python3 tools/sync_schema.py $(FORM)
 
 route:
 	python3 -m engine.route "$(Q)"

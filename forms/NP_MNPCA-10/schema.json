@@ -163,6 +163,70 @@
         },
         "future_effective_date": {
           "type": "string"
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "THIRD: As to each participating corporation: Name of Corporation (block 1)"
+              },
+              "vote_method": {
+                "type": "string",
+                "description": "[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+              },
+              "vote_method_date": {
+                "type": "string",
+                "description": "By the members at a meeting on (date) ___"
+              },
+              "signature_block": {
+                "type": "object",
+                "properties": {
+                  "date_signed": {
+                    "type": "string",
+                    "description": "DATED ___ (surviving corp signature block)"
+                  },
+                  "corporation_name": {
+                    "type": "string",
+                    "description": "(surviving corporation) \u2014 corp-name underline next to DATED"
+                  },
+                  "signer_1": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "*By (signature) ___ / (type or print name and capacity) \u2014 surviving corp signer 1"
+                      }
+                    }
+                  },
+                  "signer_2": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "*By (signature) ___ / (type or print name and capacity) \u2014 surviving corp signer 2"
+                      }
+                    }
+                  }
+                }
+              },
+              "clerk_certification": {
+                "type": "object",
+                "properties": {
+                  "corporation_name": {
+                    "type": "string",
+                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (name of corporation)"
+                  },
+                  "signer_printed_name_and_title": {
+                    "type": "string",
+                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (signature of clerk, secretary or asst. secretary)"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

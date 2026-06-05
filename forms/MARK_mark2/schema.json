@@ -129,6 +129,35 @@
               "type": "string"
             }
           }
+        },
+        "class_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class_number": {
+                "type": "string",
+                "description": "D. CLASS NUMBER:"
+              },
+              "action": {
+                "type": "string",
+                "description": "D: For each NEW class added"
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "line1": {
+                    "type": "string",
+                    "description": "D: DESCRIBE goods manufactured or sold and/or the service that is provided (line 1)"
+                  },
+                  "line2": {
+                    "type": "string",
+                    "description": "D: DESCRIBE goods/services (line 2)"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

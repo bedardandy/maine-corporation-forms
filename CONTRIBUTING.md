@@ -47,6 +47,8 @@ verified mapping plus a worked example in `examples/` is the gold standard.
   mappings stay portable across forms and adapters.
 - Enum and radio fields bind each value to a widget via an `options` map; keep
   the `options` values in sync with the schema `enum`.
+- After adding a mapping key, run `python3 tools/sync_schema.py <ID>` (or
+  `make sync-schema`) to extend `schema.json` to cover it.
 
 ## Regenerating from source (maintainers)
 

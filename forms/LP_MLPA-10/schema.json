@@ -210,6 +210,49 @@
         },
         "additional_parties_exhibit_letter": {
           "type": "string"
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "recital": {
+                "type": "string",
+                "description": "FIRST: Constituent Organizations \u2014 row 1 (Name | Form of organization | Jurisdiction)"
+              },
+              "signature_block": {
+                "type": "object",
+                "properties": {
+                  "name_and_type": {
+                    "type": "string",
+                    "description": "Must be completed by the First Constituent Organization to the Merger \u2014 (Name and form of participating constituent organization)"
+                  },
+                  "date_signed": {
+                    "type": "string",
+                    "description": "First Constituent: (Date)"
+                  },
+                  "signer_1": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "First Constituent: (Type or print name and capacity) \u2014 signer 1"
+                      }
+                    }
+                  },
+                  "signer_2": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "First Constituent: (Type or print name and capacity) \u2014 signer 2"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

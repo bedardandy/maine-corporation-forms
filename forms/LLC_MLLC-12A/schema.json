@@ -58,6 +58,10 @@
         },
         "mailing_address": {
           "type": "string"
+        },
+        "commercial": {
+          "type": "boolean",
+          "description": "Commercial Registered Agent"
         }
       }
     },
@@ -143,6 +147,10 @@
               }
             }
           }
+        },
+        "fict_form_accompanies": {
+          "type": "boolean",
+          "description": "Form FICT-4 accompanies this application"
         }
       }
     }

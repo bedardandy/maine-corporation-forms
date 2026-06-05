@@ -152,6 +152,22 @@
         },
         "annual_report_reminder_email": {
           "type": "string"
+        },
+        "name_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "THIRD: row 1 \u2014 New Name"
+              },
+              "date": {
+                "type": "string",
+                "description": "THIRD: row 1 \u2014 Date of Change"
+              }
+            }
+          }
         }
       }
     },
