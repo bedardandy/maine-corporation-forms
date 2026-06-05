@@ -54,7 +54,7 @@
       "widget_id": "The date of its organization_2",
       "field_type": "text",
       "page": 0,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "SECOND (continued): The date of its organization:"
     },
     "conversion.new_entity.principal_office_address": {

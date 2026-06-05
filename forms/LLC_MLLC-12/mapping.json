@@ -158,7 +158,7 @@
       "widget_id": "Text24",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "NINTH: ...commenced or expects to commence conducting activities in the State of Maine is ___"
     },
     "entity.is_professional_llc": {

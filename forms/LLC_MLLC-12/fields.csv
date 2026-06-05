@@ -2,27 +2,27 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,(Name of Limited Liability Company in Jurisdiction of Organization),entity.home_jurisdiction_name,high,LLC's legal name in its home (foreign) jurisdiction.
 Text2,0,text,FIRST: ...the proposed name to be used in this State in compliance with this requirement is,entity.maine_assumed_name_for_suffix,high,Alternate name used in Maine when home name lacks an LLC suffix per 31 MRSA §1508.1.
 Text3,0,text,SECOND: ...the fictitious name under which it seeks authority to conduct activities in the State of Maine is,entity.maine_fictitious_name,high,Fictitious name used in Maine when home name is unavailable per 31 MRSA §1508.
-Check Box4,0,text,Form FICT-4 accompanies this application. (See 31 MRSA §1624.1),filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious name) is bundled.
+Check Box4,0,checkbox,Form FICT-4 accompanies this application. (See 31 MRSA §1624.1),filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious name) is bundled.
 Text5,0,text,THIRD: Date of formation,entity.formation_date_in_home_jurisdiction,high,Date the LLC was originally formed in its home jurisdiction.
 Text6,0,text,Jurisdiction where formed,entity.home_jurisdiction,high,Home jurisdiction (state/country) of formation.
 Text7,0,text,"Address of the principal office, wherever located: (physical location - street, city, state, zip and country)",entity.principal_office.physical_address,high,Single-line physical address of the principal office (may be outside Maine).
 Text8,0,text,(mailing address if different from above),entity.principal_office.mailing_address,high,Optional mailing address of the principal office.
 Text9,0,text,FIFTH: The nature of the business or purpose(s) to be conducted or promoted in the State of Maine is,entity.maine_business_purpose,high,Free-text description of activities to be conducted in Maine.
-Check Box15,,text,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred from missing SIXTH commercial radio. Enum value 'commercial'.
-Check Box16,,text,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred 'noncommercial' radio.
-Text14,1,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number (commercial path only).
 Text10,1,text,(name of commercial registered agent),registered_agent.name,high,Name of registered agent (commercial path).
-Text11,1,text,(name of noncommercial registered agent),registered_agent.name,high,Name of registered agent (noncommercial path).
+Text11,1,text,(name of commercial registered agent),registered_agent.name,high,Name of registered agent (noncommercial path).
 Text12,1,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Maine physical address of the registered agent.
 Text13,1,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address.
+Text14,1,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number (commercial path only).
+Check Box15,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred from missing SIXTH commercial radio. Enum value 'commercial'.
+Check Box16,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred 'noncommercial' radio.
 Text17,1,text,EIGHTH: NAME (row 1),manager_1.name,high,First manager name (3-row table). Index suffix supports up to 3 inline managers; further go on Exhibit per Check Box23.
-Text20,1,text,EIGHTH: ADDRESS (row 1),manager_1.address,high,First manager business/residence/mailing address (single line).
 Text18,1,text,EIGHTH: NAME (row 2),manager_2.name,high,Second manager name.
-Text21,1,text,EIGHTH: ADDRESS (row 2),manager_2.address,high,Second manager address.
 Text19,1,text,EIGHTH: NAME (row 3),manager_3.name,high,Third manager name.
+Text20,1,text,EIGHTH: ADDRESS (row 1),manager_1.address,high,First manager business/residence/mailing address (single line).
+Text21,1,text,EIGHTH: ADDRESS (row 2),manager_2.address,high,Second manager address.
 Text22,1,text,EIGHTH: ADDRESS (row 3),manager_3.address,high,Third manager address.
-Check Box23,1,text,"[ ] Names and addresses of additional managers are attached as Exhibit ___, and made a part hereof",manager.additional_attached,high,Boolean opt-in for an additional-managers exhibit.
-Text24,1,text,NINTH: ...commenced or expects to commence conducting activities in the State of Maine is ___,entity.maine_activities_start_date,medium,Inline date blank for NINTH; chosen over EIGHTH-Exhibit interpretation based on y-coordinate gap below the EIGHTH checkbox row. Note: the EIGHTH 'Exhibit ___' widget may be missing.
+Check Box23,1,checkbox,"[ ] Names and addresses of additional managers are attached as Exhibit ___, and made a part hereof",manager.additional_attached,high,Boolean opt-in for an additional-managers exhibit.
+Text24,1,text,NINTH: ...commenced or expects to commence conducting activities in the State of Maine is ___,entity.maine_activities_start_date,high,Inline date blank for NINTH; chosen over EIGHTH-Exhibit interpretation based on y-coordinate gap below the EIGHTH checkbox row. Note: the EIGHTH 'Exhibit ___' widget may be missing.
 Check Box25,1,checkbox,TENTH: [ ] This is a professional limited liability company qualified pursuant to 13 MRSA Chapter 22-A,entity.is_professional_llc,high,Boolean elect-in for foreign professional LLC.
 Text26,1,text,(type of professional services),entity.professional_services_description,high,Free-text professional services list.
 Check Box27,2,checkbox,ELEVENTH: (Check if applicable) [ ] The foreign limited liability company is governed by an agreement that establishes ... designated series ...,entity.is_series_llc,high,"Boolean elect-in for series LLC structure (per 31 MRSA §1622.2,3)."
@@ -31,9 +31,9 @@ Text29,2,text,Dated ___,filing.date_signed,high,Date of signature.
 Text30,2,text,(Authorized Signature**) / (Type or print name and capacity),filing.signer.printed_name_and_capacity,medium,Printed name and capacity of authorized signer.
 Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
-exp24,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day' (renamed widget on this template).
-imm,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day' (renamed widget).
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite tier 'hold_for_pickup'.
+exp24,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Expedite tier '24h_next_business_day' (renamed widget on this template).
+imm,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Expedite tier 'immediate_same_day' (renamed widget).
 Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
 Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

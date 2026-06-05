@@ -96,7 +96,7 @@
       "widget_id": "Text17",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "SEVENTH: ...set forth in the attached Exhibit ___, and made part hereof"
     },
     "filing.date_signed": {
@@ -110,7 +110,7 @@
       "widget_id": "Text19",
       "field_type": "text",
       "page": 1,
-      "confidence": "medium",
+      "confidence": "high",
       "label": "**By ___ (original written signature of authorized person) / (type or print name and title of signer)"
     },
     "filing.entities[0].name": {
