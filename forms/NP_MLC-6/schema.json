@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MLC-6.json",
+  "title": "NP_MLC-6 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "location_city": {
+          "type": "string",
+          "description": "City or town in Maine where the entity is located. Used by 13 MRSA \u00a73021 independent-local-church filings (and possibly other locality-anchored entity types). Distinct from any address.* keys because this is the entity's geographic anchor, not a mailing address."
+        },
+        "trustee_count": {
+          "type": "integer",
+          "description": "Numeric count of trustees governing a nonprofit/church corporation under 13 MRSA \u00a73021. May differ from the count of trustees actually named on the form (overflow trustees may be on attached pages)."
+        },
+        "trustee_names_inline": {
+          "type": "string",
+          "description": "Free-text inline recital of the trustees' names on the THIRD article (3-line spillover widget). Parallel to (not a substitute for) the structured per-trustee blocks (trustee_N.printed_name + trustee_N.address.*); both are populated on the same filing."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "clerk": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of the Clerk of a 13 MRSA \u00a73021 church corporation, signing as a role-bearing officer of the entity being formed (per-officer signer pattern, Shape E variant \u2014 singleton role, no index)."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street address of the Clerk."
+            },
+            "city_state_zip": {
+              "type": "string",
+              "description": "City/state/zip of the Clerk."
+            }
+          }
+        }
+      }
+    },
+    "treasurer": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of the Treasurer of a 13 MRSA \u00a73021 church corporation (Shape E singleton role)."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street address of the Treasurer."
+            },
+            "city_state_zip": {
+              "type": "string",
+              "description": "City/state/zip of the Treasurer."
+            }
+          }
+        }
+      }
+    },
+    "trustee_N": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of a Trustee of a 13 MRSA \u00a73021 church corporation (1-indexed; form provides 5 inline slots, additional via attached pages). Per-officer signer pattern variant \u2014 trustees act as role-bearing executors of the certificate at formation."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street address of a Trustee."
+            },
+            "city_state_zip": {
+              "type": "string",
+              "description": "City/state/zip of a Trustee."
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "trustee_1": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "trustee_2": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "trustee_3": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "trustee_4": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "trustee_5": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk",
+    "entity",
+    "filing",
+    "treasurer"
+  ]
+}

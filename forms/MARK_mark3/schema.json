@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/MARK_mark3.json",
+  "title": "MARK_mark3 fill data",
+  "type": "object",
+  "properties": {
+    "mark": {
+      "type": "object",
+      "properties": {
+        "charter_number": {
+          "type": "integer",
+          "description": "Maine SOS-assigned registration/charter number of an existing mark, used to identify which registration is being amended/cancelled/assigned. Distinct from filing-level identifiers; lives under mark.* per the MARK-1 namespace."
+        },
+        "text_elements": {
+          "type": "string",
+          "description": "Recital of the text words protected in an existing mark registration (read-only on amendment forms \u2014 \u00a71525-A prohibits amending the mark itself)."
+        },
+        "design_description": {
+          "type": "string",
+          "description": "Recital of the design features protected in an existing mark registration."
+        },
+        "type": {
+          "type": "string",
+          "description": "Current type of an existing mark \u2014 values from MARK-1 \u00a7C: 'Trademark' | 'Service Mark' | 'Collective Mark'. On the amendment form this is captured as free text (single widget) rather than the checkbox group used elsewhere."
+        },
+        "type_changed": {
+          "type": "boolean",
+          "description": "Boolean indicating whether the type of mark is being amended (true = yes, the type indicated represents an amendment from that appearing on the original registration; false = no, type unchanged). Mapped onto a yes/no checkbox pair."
+        },
+        "original_type_if_changed": {
+          "type": "string",
+          "description": "Recital of the prior type-of-mark value when mark.type_changed=true. Free-text line above the yes/no checkbox pair."
+        },
+        "type_change_explanation": {
+          "type": "string",
+          "description": "Sub-question text field between the type-of-mark and the yes/no checkbox row (mark3Six widget). Likely a continuation/explanation prompt; tentative \u2014 confidence is low pending visual confirmation."
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "applicant": {
+          "type": "object",
+          "properties": {
+            "entity_name": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            },
+            "entity_type": {
+              "type": "string"
+            },
+            "entity_type_other_explanation": {
+              "type": "string"
+            },
+            "jurisdiction_of_organization": {
+              "type": "string"
+            },
+            "date_of_organization": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "class_number": {
+          "type": "integer",
+          "description": "Single Nice classification class being added or deleted on a MARK-3 amendment."
+        },
+        "class_action": {
+          "type": "string",
+          "description": "Mutually-exclusive enum identifying whether the class is being 'added' or 'deleted'."
+        },
+        "new_class_description": {
+          "type": "string",
+          "description": "Description of goods/services for a newly added class on a MARK-3 amendment (only required when amendment.class_action='added')."
+        },
+        "manner_of_use": {
+          "type": "string",
+          "description": "Description of how the mark is applied to goods or used in connection with services for a newly added class. Three-line widget primitive (Text13/14/15); synth concatenates non-empty lines."
+        },
+        "additional_pages_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in flagging that an additional-pages exhibit is attached (used for multi-class amendments since the form has only one inline class row)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "filing",
+    "mark"
+  ]
+}

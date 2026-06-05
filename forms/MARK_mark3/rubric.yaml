@@ -1,0 +1,70 @@
+checks:
+  - id: applicant-name-required
+    description: "mark.applicant.entity_name is non-empty (mark owner identity, refreshed on amendment)."
+    depends_on_keys:
+      - mark.applicant.entity_name
+    severity: required
+  - id: applicant-mailing-address-required
+    description: mark.applicant.mailing_address is non-empty.
+    depends_on_keys:
+      - mark.applicant.mailing_address
+    severity: required
+  - id: applicant-entity-type-selected
+    description: Exactly one mark.applicant.entity_type option is selected.
+    depends_on_keys:
+      - mark.applicant.entity_type
+    severity: required
+  - id: other-explanation-when-other
+    description: "If mark.applicant.entity_type='other', mark.applicant.entity_type_other_explanation must be non-empty."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.entity_type_other_explanation
+    severity: required
+  - id: jurisdiction-when-entity
+    description: "If mark.applicant.entity_type is one of {'corporation','limited_partnership','general_partnership','association','union'}, mark.applicant.jurisdiction_of_organization and mark.applicant.date_of_organization must be set."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.jurisdiction_of_organization
+      - mark.applicant.date_of_organization
+    severity: required
+  - id: type-changed-yes-no
+    description: Exactly one of mark.type_changed yes/no checkboxes is selected.
+    depends_on_keys:
+      - mark.type_changed
+    severity: required
+  - id: original-type-when-changed
+    description: "If mark.type_changed=true, mark.original_type_if_changed must be non-empty (so the SOS record can show what the type was changed from)."
+    depends_on_keys:
+      - mark.type_changed
+      - mark.original_type_if_changed
+    severity: advisory
+  - id: class-action-selected
+    description: "Exactly one of amendment.class_action 'added'/'deleted' checkboxes is selected (or amendment.additional_pages_attached=true if amending multiple classes via exhibit)."
+    depends_on_keys:
+      - amendment.class_action
+      - amendment.additional_pages_attached
+    severity: required
+  - id: added-class-description-required
+    description: "If amendment.class_action='added', amendment.new_class_description and amendment.manner_of_use must both be non-empty (a class addition must describe the goods/services and manner of use). If 'deleted', both may be empty."
+    depends_on_keys:
+      - amendment.class_action
+      - amendment.new_class_description
+      - amendment.manner_of_use
+    severity: required
+  - id: signer-required
+    description: mark.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - mark.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

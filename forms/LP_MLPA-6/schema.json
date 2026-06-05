@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-6.json",
+  "title": "LP_MLPA-6 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "designated_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string",
+              "description": "Physical address of an LP/LLP/LLLP's designated office in Maine (single-line; not P.O. Box)."
+            },
+            "mailing_address": {
+              "type": "string",
+              "description": "Optional mailing address of the LP's designated office."
+            }
+          }
+        },
+        "is_lllp": {
+          "type": "boolean",
+          "description": "Boolean indicating the limited partnership is also a limited liability limited partnership (LLLP). Triggers naming requirement: must contain 'Limited Liability Limited Partnership', 'L.L.L.P.' or 'LLLP', and cannot use 'L.P.'/'LP'."
+        },
+        "is_professional_lllp": {
+          "type": "boolean",
+          "description": "Boolean indicating the LP is a professional LLLP under 31 MRSA \u00a71354.4 (name must contain 'professional limited liability limited partnership', 'PLLLP', 'P.L.L.L.P.', or 'S.L.L.L.P.')."
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional provisions or subchapter-11-required information for an LP certificate."
+        },
+        "name": {
+          "type": "string"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an individual general partner (indexed list, supports 3 inline + exhibit overflow)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Street/mailing address of an individual general partner."
+        },
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of a general partner who signs on the individual-signature block (page 2)."
+        }
+      }
+    },
+    "general_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional GPs are listed on a separate exhibit."
+        },
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional GPs."
+        }
+      }
+    },
+    "general_partner_entity_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Legal name of a general partner that is itself an entity (signs through an authorized representative)."
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string",
+          "description": "Authorized signer (printed name + capacity) for an entity general partner."
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "general_partner_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "registered_agent"
+  ]
+}

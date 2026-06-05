@@ -1,0 +1,43 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (signer must be a person authorized by the LLC per 31 MRSA §1676.1.B).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty (per cover-letter NOTE: omission causes return)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-at-most-one
+    description: "At most one of the three expedite checkboxes is selected (or zero, defaulting to standard processing)."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-40
+    description: "filing.total_fees_dollars is approximately $40 base (per page 0 'Filing Fee $40.00') plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: annual-report-email-format
+    description: "If entity.annual_report_reminder_email is set, it must look like a valid email address."
+    depends_on_keys:
+      - entity.annual_report_reminder_email
+    severity: optional
+  - id: ceased-business-recital-implicit
+    description: "Filing this form is itself the certification that the LLC has ceased transacting business and owes no annual-report or fee debt to the State; FIRST and SECOND are statutory recitals, not user-input. No rubric value to check."
+    depends_on_keys: []
+    severity: optional

@@ -1,0 +1,45 @@
+checks:
+  - id: pre-conversion-name-required
+    description: entity.name (pre-conversion business-corporation name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-entity-name-required
+    description: conversion.new_entity.name is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: required
+  - id: new-entity-name-13b-compliant
+    description: "conversion.new_entity.name does not include forbidden suffixes for nonprofits (no 'LLC', 'LP', 'Inc.' if 13-B MRSA prohibits it for the chosen nonprofit form). At minimum, the name must comply with 13-B MRSA §301-A."
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: optional
+  - id: provisions-exhibit-required
+    description: conversion.new_entity_provisions_exhibit_letter must be set (Form MNPCA-6-1 must be attached as the public organic document for the new nonprofit).
+    depends_on_keys:
+      - conversion.new_entity_provisions_exhibit_letter
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If conversion.future_effective_date is set, it must be on or after filing.date_signed."
+    depends_on_keys:
+      - conversion.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (signer must be 'an officer or other duly authorized representative' per 13-C MRSA §933.1; cannot be auto-validated from form alone)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-base-145
+    description: filing.total_fees_dollars equals $145 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: contact-info-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

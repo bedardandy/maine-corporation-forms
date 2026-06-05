@@ -1,0 +1,47 @@
+checks:
+  - id: merging-corps-required
+    description: merger.merging_corporations_recital is non-empty.
+    depends_on_keys:
+      - merger.merging_corporations_recital
+    severity: required
+  - id: surviving-corp-name-required
+    description: merger.surviving_corporation_name is non-empty.
+    depends_on_keys:
+      - merger.surviving_corporation_name
+    severity: required
+  - id: third-vote-method-each-party
+    description: "Each populated merger.parties[N] has exactly one vote_method selected. Two parties expected inline (block 1 and block 2 on page 0); additional parties go on attached exhibits."
+    depends_on_keys:
+      - "merger.parties[0].vote_method"
+      - "merger.parties[1].vote_method"
+    severity: required
+  - id: vote-method-date-when-required
+    description: "If merger.parties[N].vote_method is set (any value), merger.parties[N].vote_method_date should be set (each option references a date — meeting/consent/board-meeting)."
+    depends_on_keys:
+      - "merger.parties[0].vote_method"
+      - "merger.parties[0].vote_method_date"
+      - "merger.parties[1].vote_method"
+      - "merger.parties[1].vote_method_date"
+    severity: required
+  - id: fourth-addresses-required
+    description: Both merger.surviving_corp.registered_office_address and merger.merging_corp.registered_office_address are non-empty.
+    depends_on_keys:
+      - merger.surviving_corp.registered_office_address_line2
+      - merger.merging_corp.registered_office_address_line2
+    severity: required
+  - id: future-effective-date-cap
+    description: "If merger.future_effective_date is set, it must be on or after filing.date_signed AND no later than filing.date_signed + 60 days (per 13-B MRSA cap noted on form)."
+    depends_on_keys:
+      - merger.future_effective_date
+    severity: required
+  - id: clerk-cert-when-member-vote
+    description: "If merger.parties[N].vote_method is one of {'majority_member_vote', 'supermajority_member_vote', 'written_consent_of_members'}, the corresponding clerk_certification block must be populated (corporation_name + signer). Not required when vote_method='board_of_directors_majority_vote'."
+    depends_on_keys:
+      - "merger.parties[0].vote_method"
+      - "merger.parties[0].clerk_certification.signer_printed_name_and_title"
+    severity: required
+  - id: fee-min-25
+    description: "filing.total_fees_dollars >= $25 base (per page 0 header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+    severity: optional

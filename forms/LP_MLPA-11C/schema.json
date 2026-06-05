@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-11C.json",
+  "title": "LP_MLPA-11C fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "original_certificate_filing_date": {
+          "type": "string",
+          "description": "Date the original certificate of limited partnership was filed in Maine \u2014 used by termination/dissolution/withdrawal forms to anchor the entity's lifecycle."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "additional_info_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of an exhibit containing additional information determined by the filing's signers (here: GPs of a terminating LP). Present on termination/dissolution forms with a generic 'other information' provision."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_2": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_3": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

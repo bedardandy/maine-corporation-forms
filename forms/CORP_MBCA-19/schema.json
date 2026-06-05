@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-19.json",
+  "title": "CORP_MBCA-19 fill data",
+  "type": "object",
+  "properties": {
+    "domestication": {
+      "type": "object",
+      "properties": {
+        "maine_name": {
+          "type": "string",
+          "description": "Name the foreign corporation proposes to use in Maine upon domestication. Used only if the home-jurisdiction name is unavailable in Maine or the corporation desires to change its name as part of the domestication. Distinct from `entity.name` because the domestication itself is the moment the corporation acquires a Maine domestic identity."
+        },
+        "articles_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the Articles of Incorporation (Form MBCA-6-1) required for the domestication. Required per 13-C MRSA \u00a7923 \u2014 every domestication must attach a complete Articles of Incorporation as if forming a new domestic corporation."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future effective date for the articles of domestication. If blank, the filing date applies. Parallel to `conversion.future_effective_date` and `merger.future_effective_date`."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "domestication",
+    "entity",
+    "filing"
+  ]
+}

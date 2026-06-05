@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-6A.json",
+  "title": "LLC_MLLC-6A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "initial_formation_date": {
+          "type": "string",
+          "description": "Date the LLC's initial (pre-restatement / pre-amendment) certificate of formation was filed in Maine. Required on restated certificates and likely on amendment forms (uninspected) to identify the entity being restated/amended."
+        },
+        "restatement_amendments_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing 'other matters' (ongoing amendments) included in a restated certificate of formation. Distinct from entity.statement_of_authority_exhibit_letter on LLC_MLLC-6 (which captures the optional initial statement of authority on the formation form)."
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_low_profit_llc": {
+          "type": "boolean"
+        },
+        "is_professional_llc": {
+          "type": "boolean"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "authorized_person_N": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Combined printed name and capacity of an authorized person signing an LLC filing that requires multiple signers. Per-officer signer pattern (Shape D variant per filing-signer-shape convention), keyed on authorized_person_N.* (1-indexed). Used by LLC_MLLC-6A which provides 3 parallel signer slots; anticipated for other LLC restatement/conversion forms with multiple signers."
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "authorized_person_1": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "authorized_person_2": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "authorized_person_3": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

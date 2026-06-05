@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-10.json",
+  "title": "CORP_MBCA-10 fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string",
+              "description": "Combined name | type of entity | jurisdiction | effective date for one party to a merger or share exchange (FIRST recital block on MBCA-10). Free-form string \u2014 form does not provide separate column widgets despite the four-column header label."
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string",
+                  "description": "Combined party name + type of entity at the head of a per-party signature block on page 2."
+                },
+                "date_signed": {
+                  "type": "string",
+                  "description": "Date a specific party to the merger signed."
+                },
+                "signer_M": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string",
+                      "description": "Printed name + capacity of one of (typically two) authorized signers for a party. Two signer slots per party because some entity types under 13-C \u00a71106.8 require two officer/manager signatures."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "additional_parties_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional merger parties are attached on an exhibit (used when there are >4 parties)."
+        },
+        "additional_parties_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional-parties recital."
+        },
+        "surviving_entity": {
+          "type": "object",
+          "properties": {
+            "name_and_jurisdiction": {
+              "type": "string",
+              "description": "Name and jurisdiction of incorporation of the surviving/acquiring entity (combined into one widget on this form despite a two-column header label)."
+            },
+            "principal_office": {
+              "type": "object",
+              "properties": {
+                "physical_address": {
+                  "type": "string",
+                  "description": "Address of the surviving entity's principal place of business (where the executed plan of merger is on file). Single-line."
+                },
+                "mailing_address": {
+                  "type": "string",
+                  "description": "Optional mailing address for the surviving entity's principal place of business."
+                }
+              }
+            }
+          }
+        },
+        "fourth_election": {
+          "type": "string",
+          "description": "Mutually-exclusive enum for FOURTH paragraph: 'survivor_originating_doc_amended' (option 1, requires merger.survivor_amendments_exhibit_letter) or 'new_corporation_created' (option 2, requires merger.new_corporation_provisions_exhibit_letter and an attached MBCA-6-1 if domestic)."
+        },
+        "survivor_amendments_exhibit_letter": {
+          "type": "string",
+          "description": "Exhibit letter for amendments to the surviving entity's originating document (FOURTH option 1)."
+        },
+        "new_corporation_provisions_exhibit_letter": {
+          "type": "string",
+          "description": "Exhibit letter for provisions required in a newly-created corporation's public organic document (FOURTH option 2)."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future effective date for the merger or share exchange. If blank, the filing date applies."
+        },
+        "sixth_election": {
+          "type": "string",
+          "description": "Mutually-exclusive enum for SIXTH (shareholder approval): 'shareholder_approval_obtained' (option 1, plan duly approved per Title 13-C and articles) or 'shareholder_approval_not_required' (option 2). Both checkboxes have unnamed /T on this template (filler engine binds by index/rect)."
+        },
+        "seventh_election": {
+          "type": "string",
+          "description": "Mutually-exclusive enum for SEVENTH (foreign-party authorization): 'foreign_corp_authorized' (option 1, organic law of foreign corporation authorizes participation) or 'eligible_entity_authorized' (option 2, organic law of eligible entity authorizes). Set when the merger involves a foreign corporation or eligible entity."
+        },
+        "foreign_survivor": {
+          "type": "object",
+          "properties": {
+            "service_of_process_mailing_address": {
+              "type": "string",
+              "description": "Mailing address to which the Maine Secretary of State may mail process served on the SOS as agent for a foreign-survivor entity (EIGHTH paragraph appointment under \u00a71106)."
+            }
+          }
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[2]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[3]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "merger"
+  ]
+}

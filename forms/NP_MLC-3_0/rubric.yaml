@@ -1,0 +1,62 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-change-type
+    description: "Exactly one of the FIRST checkboxes (A/B/C/D) is selected, populating clerk_change.change_type."
+    depends_on_keys:
+      - clerk_change.change_type
+    severity: required
+  - id: current-clerk-info-required
+    description: clerk_change.current_clerk_or_agent_name and clerk_change.current_clerk_or_agent_address are both non-empty (SECOND mandates a full recital of the existing record).
+    depends_on_keys:
+      - clerk_change.current_clerk_or_agent_name
+      - clerk_change.current_clerk_or_agent_address
+    severity: required
+  - id: new-clerk-name-required-when-clerk-change
+    description: "If clerk_change.change_type ∈ {'clerk', 'clerk_and_address', 'clerk_name'}, clerk_change.new_noncommercial_name must be non-empty (THIRD captures the new name)."
+    depends_on_keys:
+      - clerk_change.change_type
+      - clerk_change.new_noncommercial_name
+    severity: required
+  - id: new-physical-address-required-when-address-change
+    description: "If clerk_change.change_type ∈ {'address', 'clerk_and_address'}, clerk_change.new_noncommercial_physical_address must be non-empty."
+    depends_on_keys:
+      - clerk_change.change_type
+      - clerk_change.new_noncommercial_physical_address
+    severity: required
+  - id: new-physical-not-pobox
+    description: "If clerk_change.new_noncommercial_physical_address is set, it must not be a P.O. Box (per THIRD parenthetical 'physical location, not P.O. Box')."
+    depends_on_keys:
+      - clerk_change.new_noncommercial_physical_address
+    severity: required
+  - id: primary-signer-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (the clerk or another duly authorized officer per the page-1 footnote).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: fee-base-5-plus-expedite
+    description: "filing.total_fees_dollars equals $5 base fee plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup). The $5 base under §3025 is markedly lower than CLKRA-3's $35 — synth must select the right base."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

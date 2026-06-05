@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name (the LLP's real name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: terminated-name-required
+    description: filing.terminated_fictitious_name is non-empty (the SECOND recital identifies which name is being terminated).
+    depends_on_keys:
+      - filing.terminated_fictitious_name
+    severity: required
+  - id: terminated-name-differs-from-real-name
+    description: filing.terminated_fictitious_name is different from entity.name (a fictitious-name termination is meaningless if the names match).
+    depends_on_keys:
+      - filing.terminated_fictitious_name
+      - entity.name
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name_and_capacity (individual partner) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity partner). Both blocks empty or both populated is a fill error."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-block-internally-consistent
+    description: "If filing.signer_entity.name is populated, filing.signer_entity.signer_printed_name_and_capacity must also be populated (and vice versa)."
+    depends_on_keys:
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-20
+    description: filing.total_fees_dollars equals $20 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

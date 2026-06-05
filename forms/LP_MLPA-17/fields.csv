@@ -1,0 +1,26 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Partnership),entity.name,high,"Top-of-form LP name. Form serves both Maine domestic and foreign LPs from a single 'entity.name' widget — no separate entity.home_jurisdiction_name slot is provided here, unlike MLPA-12A/12B. Foreign-LP filers should populate entity.name with the name on file with Maine SOS (which may be the home-jurisdiction name or the Maine fictitious name)."
+Text2,0,text,FIRST: Name of record requiring correction,correction.original_document_name,high,"Title of the original document being corrected (e.g., 'Certificate of Limited Partnership', 'Certificate of Amendment'). Same key as MLLC-17."
+Text3,0,text,SECOND: Date on which the record was filed by Secretary of State,correction.original_filing_date,high,Date the original erroneous record was filed. Same key as MLLC-17.
+Text4,0,text,FOURTH: The incorrect information and the reason it is incorrect or the manner in which the signing was defective is (Attach separate document if more space is needed.),correction.error_description,high,Multiline text widget for describing the error or defective signing. Same key as MLLC-17.
+Text5,0,text,FIFTH: The portion of the said record is corrected to read in its entirety as follows (Attach separate document if more space is needed.),correction.corrected_information,high,Multiline text widget for the corrected content. Same key as MLLC-17.
+Text6,1,text,SEVENTH: (Foreign Limited Partnership Only) Jurisdiction of organization,entity.home_jurisdiction,high,Foreign LP's home jurisdiction (only required when the corrected record belongs to a foreign LP).
+Text7,1,text,SEVENTH: ...and the date on which the limited partnership was authorized to do business in Maine,entity.maine_authorization_date,high,Date of Maine authorization for foreign LPs (paired with entity.home_jurisdiction in the SEVENTH block).
+Text8,1,text,DATED ___,filing.date_signed,high,Date the statement was signed.
+Text9,1,text,General Partner(s)*: (signature) / (type or print name),general_partner_1.printed_name,high,"Printed name of the individual GP signer (per-officer signer pattern; only one inline slot since §1324.1.J requires only one GP signature). Same shape as MLPA-12A, MLPA-12B, MLPA-13A."
+Text10,1,text,For General Partner(s) which are Entities: Name of Entity,general_partner_entity_1.name,high,Name of an entity GP signer (alternative to individual signer).
+Text11,1,text,By (signature) / (type or print name) [entity GP signer],general_partner_entity_1.signer_printed_name_and_capacity,high,Printed name + capacity of authorized signer for the entity GP. Note: the form's column header reads '(type or print name)' rather than '(type or print name and capacity)' as on MLPA-12A/12B — but the underlying canonical primitive (combined name+capacity for an entity-GP signer) is the same per the per-officer-signer convention.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Field-id is the literal label 'Name of entity'.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $50 per page-0 header plus expedite premium).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

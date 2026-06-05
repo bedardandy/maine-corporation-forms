@@ -1,0 +1,54 @@
+checks:
+  - id: reserved-name-required
+    description: entity.name (the name to be reserved) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: reserved-name-nonprofit-suffix-not-required
+    description: entity.name need NOT contain a corporate suffix (Maine 13-B MRSA does not mandate suffixes for nonprofit corporations). Suppress any suffix-validation rule on this form.
+    depends_on_keys:
+      - entity.name
+    severity: optional
+  - id: applicant-name-required
+    description: applicant.name is non-empty.
+    depends_on_keys:
+      - applicant.name
+    severity: required
+  - id: applicant-address-required
+    description: applicant.address is non-empty.
+    depends_on_keys:
+      - applicant.address
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: date-signed-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-entity-name-matches
+    description: "filing.entities[0].name equals entity.name (the name being reserved appears on the cover letter)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5.00 base plus any expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: reservation-not-renewable
+    description: "Form-level note: the reservation is for 120 days and may not be renewed (per page-0 footer). No fillable widget enforces this; it constrains business logic at the SOS layer."
+    depends_on_keys: []
+    severity: optional

@@ -1,0 +1,48 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+LPNAME,0,text,(Name of Limited Partnership in Jurisdiction of Organization),entity.home_jurisdiction_name,high,"Foreign LP's legal name in its home jurisdiction. Same key family as LP_MLPA-12-1, LP_MLPA-12A (foreign-LP), LLC_MLLC-12, FICT-4."
+MELPNAME,0,text,FIRST: The proposed limited partnership name* to be used in this State,entity.maine_assumed_name_for_suffix,high,"Alternate Maine-use name that contains the required statutory suffix (per 31 MRSA §1308.1.A.2 must contain 'Limited Partnership', 'L.P.', or 'LP'). Same key as LP_MLPA-12-1, LP_MLPA-12A."
+FICTNAME,0,text,SECOND: ...the fictitious name under which it proposes to apply for authority,entity.maine_fictitious_name,high,Fictitious Maine name under 31 MRSA §1415.1 when the home name is unavailable in Maine. Same key as LP_MLPA-12-1.
+Check Box4,0,text,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,"Boolean indicating Form FICT-4 (fictitious-name registration) is bundled. Same key as LP_MLPA-12-1, LP_MLPA-9."
+DATEOFORG,0,text,THIRD: Date of organization,entity.formation_date_in_home_jurisdiction,high,"Date the LP was originally organized in its home jurisdiction. Same key as LP_MLPA-12-1, CORP_MBCA-12."
+JURI,0,text,Jurisdiction of organization,entity.home_jurisdiction,high,State or country where the LP was organized.
+POADD,0,text,FOURTH: The street and mailing address of the foreign limited partnership's principal office is: (physical location...),entity.principal_office.physical_address,high,"Physical address of the principal office (single-line: street, city, state, zip)."
+POMAIL,0,text,FOURTH: (mailing address if different from above),entity.principal_office.mailing_address,high,Optional mailing address of the principal office.
+POADD2,0,text,FIFTH: The street and mailing address of the foreign limited partnership's required office is: (physical location...),entity.required_office.physical_address,high,Physical address of the required office in the home jurisdiction (only when home law requires the LP to maintain a required office).
+POADD2CITY,0,text,FIFTH: (mailing address if different from above),entity.required_office.mailing_address,high,"Optional mailing address of the required office. (Field name 'POADD2CITY' is misleading — its rect and position match the FIFTH-block 'mailing address if different' line, not a separate city component.)"
+Check Box29,1,text,SIXTH: Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio for Commercial Registered Agent. Enum value 'commercial'.
+Text10,1,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number; required when registered_agent.type='commercial'.
+Text11,1,text,(name of commercial registered agent),registered_agent.name,high,Name of the commercial registered agent (one of two name slots). Synth fills exactly one of Text11/Text12 based on registered_agent.type.
+Check Box30,1,text,SIXTH: Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio for Noncommercial Registered Agent. Enum value 'noncommercial'.
+Text12,1,text,(name of noncommercial registered agent),registered_agent.name,high,Name of the noncommercial registered agent (alternative slot to Text11).
+Text13,1,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Physical address of the registered agent in Maine (NOT a P.O. Box).
+Text14,1,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address of the registered agent.
+Text15,1,text,EIGHTH: Name (general partner row 1),general_partner_1.name,high,First general partner's name. Per-officer roster for LP general partners.
+Text16,1,text,EIGHTH: Address (general partner row 1),general_partner_1.address,high,First general partner's address (single-line).
+Text17,1,text,EIGHTH: Name (general partner row 2),general_partner_2.name,high,Second general partner's name.
+Text18,1,text,EIGHTH: Address (general partner row 2),general_partner_2.address,high,Second general partner's address.
+Text19,1,text,EIGHTH: Name (general partner row 3),general_partner_3.name,high,Third general partner's name.
+Text20,1,text,EIGHTH: Address (general partner row 3),general_partner_3.address,high,Third general partner's address.
+Check Box31,1,text,Names and addresses of additional general partners are attached as Exhibit ___,general_partner.additional_attached,high,Boolean opt-in for an exhibit listing additional general partners (4+).
+Text21,1,text,Exhibit ___,general_partner.additional_exhibit_letter,high,Letter of the exhibit containing additional general partners.
+Check Box32,1,checkbox,NINTH: The foreign limited partnership is a limited liability limited partnership.,entity.is_lllp,high,"Boolean elect-in for LLLP status. Same key as LP_MLPA-12-1, LP_MLPA-9."
+Check Box33,1,checkbox,TENTH: This is a professional limited liability limited partnership...,entity.is_plllp,high,"Boolean elect-in for PLLLP status. Same key as LP_MLPA-12-1, LP_MLPA-9."
+Text22,1,text,(provide the following professional services: ...) line 1,entity.professional_services_description.line1,high,"First line of the professional-services description (PLLLP only). Multi-line shape primitive matching LP_MLPA-12-1's entity.professional_services_description.line{1,2}."
+Text23,1,text,(provide the following professional services: ...) line 2,entity.professional_services_description.line2,high,Second line of the professional-services description.
+Text24,2,text,Dated ____,filing.date_signed,high,Date the application is signed.
+Text25,2,text,General Partner(s)*** — (signature) / (type or print name),filing.signer.printed_name,high,"Printed name of the signing general partner — Shape B (name only, no capacity widget). Foreign-qualification (existing LP) uses filing.signer.* family rather than per-officer pattern (which is reserved for FORMATION forms like LP_MLPA-6 where there are no pre-existing officers). The (signature) line above is wet-ink only."
+Text26,2,text,For General Partner(s)*** which are Entities — Name of Entity,filing.signer_entity.name,high,"Name of the entity-GP when the signer is an entity rather than a natural person. Same key family as LLP_MLLP-17, GP_MPA-1, LLP_MLLP-17A."
+Text27,2,text,By ____ (authorized signature) / (type or print name and capacity),filing.signer_entity.signer_printed_name_and_capacity,high,Combined name+capacity of the natural person signing on behalf of the entity-GP.
+Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,3,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,3,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,3,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,3,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,3,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,3,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-16.json",
+  "title": "NP_MNPCA-16 fill data",
+  "type": "object",
+  "properties": {
+    "municipality": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the Maine municipality (city, town, plantation, or unorganized territory) that authorized the formation of a Local Development Corporation under 5 MRSA §13120-B.9. New top-level namespace because the municipality is a governmental authorizing body distinct from the LDC entity itself."
+        },
+        "additional_officers_present": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating the municipality has more than 5 voting officers and additional names/capacities/signatures are attached as a labeled exhibit. Naming parallels entity.additional_provisions_present / entity.additional_incorporators_exhibit_letter from MBCA-6."
+        },
+        "additional_officers_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional municipal officer signatures (paired with municipality.additional_officers_present)."
+        }
+      }
+    },
+    "municipal_officer_N": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Indexed roster (1–5 inline) of municipal officers signing the LDC authorization. Each row is a combined name+capacity Shape-D widget. Distinct from officer_N.* (corporate roster), incorporator_N.* (formation originators), and filing.signer.* (single filer) — these are governmental officials voting on behalf of the municipality."
+        }
+      }
+    },
+    "municipal_clerk": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Printed name and capacity of the Municipal Clerk attesting to the duly-called meeting and the recorded vote (e.g., 'Mary Smith, Town Clerk'). Combined Shape-D widget; the Clerk also wet-ink signs above and affixes the municipal seal."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "municipal_officer_1": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "municipal_officer_2": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "municipal_officer_3": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "municipal_officer_4": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "municipal_officer_5": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "municipal_clerk",
+    "municipality"
+  ]
+}

@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of the SURVIVING Foreign Entity in the Jurisdiction of Organization,0,text,FIRST: Name of the SURVIVING Foreign Entity in the Jurisdiction of Organization:,merger.surviving_entity.home_jurisdiction_name,high,Surviving entity's name in its home (non-Maine) jurisdiction. Uses the entity-name-vs-home-jurisdiction convention's home_jurisdiction_name primitive scoped under merger.surviving_entity.
+Jurisdiction where organized,0,text,Jurisdiction where organized:,merger.surviving_entity.home_jurisdiction,high,State or country where the surviving entity is organized.
+If authorized to transact business in Maine the date authorized is,0,text,"If authorized to transact business in Maine, the date authorized is:",merger.surviving_entity.maine_authorization_date,high,"Date the surviving entity was qualified/registered in Maine, if applicable. Blank if survivor was not previously authorized in Maine."
+New name of surviving foreign entity if changed as result of merger,0,text,"New name of surviving foreign entity, if changed as result of merger:",merger.surviving_entity.new_name,high,"Post-merger home name of the surviving entity, if the merger changed it. Blank means name unchanged."
+pages if necessary,0,text,SECOND: Name of the NONSURVIVING Foreign Entity in the Jurisdiction of Organization (attach additional pages if necessary):,merger.nonsurviving_entity.home_jurisdiction_name,high,"Nonsurviving (merged-away) entity's home name. Field-id is the truncated tail of the label ('attach additional pages if necessary'), an artifact of the template's auto-named widget. The 'attach additional pages' language permits multiple nonsurviving entities to be listed via attachments — only one inline slot is bound."
+Jurisdiction where organized_2,0,text,Jurisdiction where organized:,merger.nonsurviving_entity.home_jurisdiction,high,Home jurisdiction of the nonsurviving entity. Field-id is auto-suffixed '_2' to disambiguate from the survivor's identical label.
+Date authorized to transact business in Maine if applicable,0,text,Date authorized to transact business in Maine (if applicable):,merger.nonsurviving_entity.maine_authorization_date,high,"Date the nonsurviving entity was qualified/registered in Maine, if applicable. Blank means it was never authorized in Maine."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

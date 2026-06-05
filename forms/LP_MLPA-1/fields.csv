@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,"(Name to be reserved must contain one of the following: 'Limited Partnership', 'L.P.' or 'LP' unless this name is being reserved for use only as an assumed name)",entity.name,high,Name being reserved. Mapped to entity.name because the cover letter's filing.entities[0].name should match this string and downstream rubrics reference entity.name as the reserved string.
+Text2,0,text,Name of applicant,applicant.name,high,Name of the person or entity applying for the reservation.
+Text3,0,text,Address of applicant,applicant.address,high,Address of the applicant (single combined address line on this form).
+Text4,0,text,DATED ____,filing.date_signed,high,Date the application is signed.
+Text5,0,text,(signature of applicant) / (type or print name and capacity),applicant.printed_name_and_capacity,high,Printed name and capacity of the applicant. Shape D primitive ('printed_name_and_capacity') applied under the applicant.* role prefix instead of filing.signer.* — the form has no separate filing-signer because the applicant is the filer.
+Check Box6,0,checkbox,Check box only if this name is being reserved for use as an assumed name.,reservation.is_assumed_name,high,"Boolean opt-in. When true, the entity-suffix requirement on Text1 is relaxed (the form's parenthetical exception)."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1. Should match entity.name (the reserved string).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,"Annual-report reminder email. Note: a name reservation does not create an entity, so this field is typically blank — included for cover-letter primitive completeness."
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

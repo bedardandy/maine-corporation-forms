@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-1A.json",
+  "title": "LLC_MLLC-1A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "reserved_name": {
+          "type": "string",
+          "description": "A name reserved with the Maine SOS under 31 MRSA \u00a71509.1 (LLC) / equivalent statutes for other entity types. Distinct from entity.name because a reservation precedes formation \u2014 the entity referred to is a candidate, not yet formed."
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "name_reservation": {
+      "type": "object",
+      "properties": {
+        "original_applicant": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the person or entity that holds an active name reservation and is transferring it to a new applicant (the transferor on a Transfer of Reserved Name filing)."
+            }
+          }
+        },
+        "transferee": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the person or entity receiving a transferred name reservation (the transferee)."
+            },
+            "address": {
+              "type": "string",
+              "description": "Mailing address of the transferee. Single combined widget on MLLC-1A (street + city + state + zip in one blank)."
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "name_reservation"
+  ]
+}

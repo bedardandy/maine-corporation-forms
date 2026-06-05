@@ -1,0 +1,34 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text 1,0,text,(Exact Legal Name of Entity on the records of the Secretary of State),entity.name,high,Exact legal name as on SOS record (must match for the change to apply correctly).
+Check Box1,0,text,FIRST: [ ] A new clerk or registered agent,clerk_change.action_type,high,Mutually-exclusive action = 'new_appointment'.
+Check Box2,0,text,FIRST: [ ] A change to the existing clerk or registered agent information,clerk_change.action_type,high,Mutually-exclusive action = 'modify_existing'.
+Check Box3,0,text,FIRST sub: [ ] Change of address,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'address'.
+Check Box5,0,text,FIRST sub: [ ] Change in name of current clerk or registered agent,clerk_change.modify_subtype,high,Sub-option (when modify_existing): 'name'.
+Text6,0,text,SECOND: (name of current clerk or registered agent),clerk_change.current_clerk_or_agent_name,high,Existing clerk/RA name on record.
+Text7,0,text,THIRD: (name of noncommercial clerk or registered agent),clerk_change.new_noncommercial_name,high,New noncommercial clerk/RA name.
+Text8,0,text,"(physical street address, not P.O. Box - city, state and zip code)",clerk_change.new_noncommercial_physical_address,high,New noncommercial physical address.
+Text20,0,text,(mailing address if different from above),clerk_change.new_noncommercial_mailing_address,high,Optional mailing address.
+Text9,0,text,FOURTH: The new CRA's CRA Public number is,clerk_change.new_commercial_cra_public_number,high,CRA Public Number when appointing a commercial registered agent.
+Text10,0,text,(name of new CRA),clerk_change.new_commercial_name,high,Name of new commercial registered agent.
+Check Box12,1,text,SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors of the corporation and the power to appoint ... is not reserved to the shareholders,clerk_change.bc_authorization,high,Mutually-exclusive (BC only) = 'board_of_directors'.
+Check Box13,1,text,SIXTH: [ ] The change ... was duly authorized by the shareholders of the corporation,clerk_change.bc_authorization,high,Mutually-exclusive (BC only) = 'shareholders'.
+Text14,1,text,SEVENTH (Foreign Entities Only): Jurisdiction of incorporation or organization,entity.home_jurisdiction,high,Foreign entity's home jurisdiction (only when entity is foreign).
+Text15,1,text,Date authorized to transact business in the State of Maine,entity.maine_authorization_date,high,Date the foreign entity was authorized to transact business in Maine.
+Text16,1,text,"EIGHTH (LP/LLP only): If signing partner or general partner is an entity, name of entity",filing.signer_partner_entity_name,high,"When the signing GP is itself an entity, that entity's name (LP/LLP-specific)."
+Text17,1,text,DATED ___,filing.date_signed,high,Date signed.
+Text18,1,text,(type or print name),filing.signer.printed_name,high,Signer printed name.
+Text19,1,text,(title of signer),filing.signer.title,high,Signer title.
+cover1,2,text,Name of entity(s) on submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+cover2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+cover3,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
+cover4,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
+cover,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day' (bare 'cover' widget name).
+cover6,2,text,Total fee(s) enclosed,filing.total_fees_dollars,high,Total fees.
+cover7,2,text,Name of contact person,filing.contact.name,high,Contact name.
+cover8,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+cover9,2,text,Contact email address for this filing,filing.contact.email,high,Contact email.
+cover10,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report email.
+cover11,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+cover12,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+cover13,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+cover14,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

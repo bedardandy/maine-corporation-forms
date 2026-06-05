@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-1.json",
+  "title": "LP_MLPA-1 fill data",
+  "type": "object",
+  "properties": {
+    "applicant": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the person or entity applying for a name reservation. Distinct from entity.name (the reserved string) and from filing.contact.name (the cover-letter contact)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Mailing/contact address of the applicant. Single combined-line widget on this form."
+        },
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Printed name and capacity of the applicant signing the reservation application. Reuses the Shape-D primitive (printed_name_and_capacity from 2026-04-30-filing-signer-shape.md) under the applicant.* role prefix because the form has no separate filing-signer block \u2014 the applicant is the filer."
+        }
+      }
+    },
+    "reservation": {
+      "type": "object",
+      "properties": {
+        "is_assumed_name": {
+          "type": "boolean",
+          "description": "Boolean opt-in: true means the name is being reserved for use only as an assumed name (in which case the LP suffix requirement on entity.name is relaxed per the form's parenthetical exception). 31 MRSA \u00a71308 distinguishes assumed/fictitious names."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "applicant",
+    "entity",
+    "filing"
+  ]
+}

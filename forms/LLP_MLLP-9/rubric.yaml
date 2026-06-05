@@ -1,0 +1,56 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name (the LLP's current name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-name-suffix-when-changed
+    description: "If amendment.new_entity_name is populated and not 'no change', it must contain one of 'Limited Liability Partnership', 'L.L.P.', or 'LLP' (per 31 MRSA §803-A)."
+    depends_on_keys:
+      - amendment.new_entity_name
+    severity: required
+  - id: contact-partner-block-internally-consistent
+    description: "If either contact_partner.name or contact_partner.address is populated with a real value (not 'no change'), the block represents an actual update — both should typically be provided together."
+    depends_on_keys:
+      - contact_partner.name
+      - contact_partner.address
+    severity: optional
+  - id: exhibit-letter-format
+    description: "If amendment.other_exhibit_letter is populated, it must be a single uppercase letter A-Z."
+    depends_on_keys:
+      - amendment.other_exhibit_letter
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name_and_capacity (individual partner) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity partner)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: fee-matches-amendment-scope
+    description: "filing.total_fees_dollars equals $20 if SECOND is the only item amended (FIRST and THIRD effectively 'no change'), else $50, plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - amendment.new_entity_name
+      - amendment.other_exhibit_letter
+    severity: optional
+  - id: filing-date-not-future
+    description: filing.date_signed is on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name (or amendment.new_entity_name if changed)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+      - amendment.new_entity_name
+    severity: required

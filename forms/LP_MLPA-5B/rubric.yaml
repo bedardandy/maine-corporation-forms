@@ -1,0 +1,76 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name (the LP's real name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: assumed-name-required
+    description: assumed_name.name (the DBA being modified) is non-empty.
+    depends_on_keys:
+      - assumed_name.name
+    severity: required
+  - id: assumed-name-differs-from-real-name
+    description: assumed_name.name is different from entity.name (an assumed-name modification is meaningless if the names match).
+    depends_on_keys:
+      - assumed_name.name
+      - entity.name
+    severity: required
+  - id: at-least-one-change-action-selected
+    description: "At least one of assumed_name_change.{change_locations, add_locations, delete_locations} is true (form text 'intends to:' implies at least one action)."
+    depends_on_keys:
+      - assumed_name_change.change_locations
+      - assumed_name_change.add_locations
+      - assumed_name_change.delete_locations
+    severity: required
+  - id: change-description-required-when-action-selected
+    description: "If any change action is selected, assumed_name_change.description (after concatenating line1+line2) must be non-empty."
+    depends_on_keys:
+      - assumed_name_change.change_locations
+      - assumed_name_change.add_locations
+      - assumed_name_change.delete_locations
+      - assumed_name_change.description.line1
+      - assumed_name_change.description.line2
+    severity: required
+  - id: exhibit-letter-when-attached
+    description: "If assumed_name_change.additional_locations_attached is true, assumed_name_change.additional_locations_exhibit_letter must be non-empty."
+    depends_on_keys:
+      - assumed_name_change.additional_locations_attached
+      - assumed_name_change.additional_locations_exhibit_letter
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name (individual GP) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity GP). Both blocks empty or both populated is a fill error."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-block-internally-consistent
+    description: "If filing.signer_entity.name is populated, filing.signer_entity.signer_printed_name_and_capacity must also be populated (and vice versa)."
+    depends_on_keys:
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: filing.total_fees_dollars equals $35 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

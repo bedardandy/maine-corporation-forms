@@ -1,0 +1,37 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+1,0,text,(Name of Corporation),entity.name,high,Primary entity name field at top of the form.
+2,0,text,FIRST: officers and directors are: President — Name,officer_1.printed_name,high,"President name (row 1 of officer roster). Capacity is fixed by the row label ('President'), so the widget captures only the name. Roster pattern follows MBCA-12 convention from `2026-04-30-officer-roster-pattern.md`."
+3,0,text,FIRST: officers and directors are: President — Address,officer_1.address,high,"President address (single combined widget, not split into street/city_state_zip on this form)."
+4,0,text,FIRST: officers and directors are: Treasurer — Name,officer_2.printed_name,high,Treasurer name (row 2).
+5,0,text,FIRST: officers and directors are: Treasurer — Address,officer_2.address,high,Treasurer address.
+6,0,text,FIRST: officers and directors are: Secretary — Name,officer_3.printed_name,high,Secretary name (row 3).
+7,0,text,FIRST: officers and directors are: Secretary — Address,officer_3.address,high,Secretary address.
+8,0,text,FIRST: officers and directors are: Clerk — Name,officer_4.printed_name,high,Clerk name (row 4).
+9,0,text,FIRST: officers and directors are: Clerk — Address,officer_4.address,high,Clerk address.
+10,0,text,FIRST: officers and directors are: Directors — Name (row 1),officer_5.printed_name,high,Director #1 name (row 5 — first 'Directors' row). Capacity for rows 5-7 is 'Director'.
+11,0,text,FIRST: officers and directors are: Directors — Address (row 1),officer_5.address,high,Director #1 address.
+12,0,text,FIRST: officers and directors are: Directors — Name (row 2),officer_6.printed_name,high,Director #2 name (row 6).
+13,0,text,FIRST: officers and directors are: Directors — Address (row 2),officer_6.address,high,Director #2 address.
+14,0,text,FIRST: officers and directors are: Directors — Name (row 3),officer_7.printed_name,high,Director #3 name (row 7). Form notes '(List additional directors on reverse side)' for any beyond row 7.
+15,0,text,FIRST: officers and directors are: Directors — Address (row 3),officer_7.address,high,Director #3 address.
+Check Box4,0,text,SECOND: All members of the corporation entitled to vote.,revocation.consent_source,high,Checkbox for members-consent option. Enum: 'members'.
+Check Box5,0,text,"SECOND: All directors of the corporation, there being no members or no members entitled to vote.",revocation.consent_source,high,Checkbox for directors-consent option. Enum: 'directors'.
+18,0,text,THIRD: The address of the registered office of the corporation in the State of Maine is ___,registered_agent.physical_address,medium,Inline blank at end of THIRD sentence ('is ___'). Form uses 'registered office' terminology but Maine law treats this as the registered agent's physical office; mapping to the existing registered_agent namespace for synth/rubric reuse.
+19,0,text,"THIRD: (street, city, state and zip code)",registered_agent.physical_address,medium,"Full-width second line under THIRD for street/city/state/zip. Same canonical key as widget 18; either inline-only or wrapped — synth should write the complete address into the widget that bounds it best (typically widget 19, full-width)."
+20,1,text,DATED ___,filing.date_signed,high,Date of execution (top-left of page 1).
+21,1,text,*By ___ (signature) / (type or print name and capacity) — first signer,filing.signer.printed_name_and_capacity,high,"First *By signer's printed name and capacity (Shape D combined). Right side, upper position."
+22,1,text,*By ___ (signature) / (type or print name and capacity) — second signer,filing.signer_2.printed_name_and_capacity,high,"Second *By signer's printed name and capacity (Shape D combined). Right side, lower position. Form footnote 'MUST be signed by any authorized officer' (singular) — second slot is optional but provided for entities preferring two-signer execution."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

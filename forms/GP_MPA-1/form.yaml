@@ -1,0 +1,12 @@
+form_id: GP_MPA-1
+code: MPA-1
+title: Statement of Dissociation (General Partnership)
+entity_type: General Partnership
+statute: Maine Uniform Partnership Act (31 M.R.S.)
+num_pages: 2
+num_fields: 20
+mapped_fields: 18
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

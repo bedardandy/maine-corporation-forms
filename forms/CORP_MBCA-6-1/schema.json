@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-6-1.json",
+  "title": "CORP_MBCA-6-1 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "accompanying_filing_type": {
+          "type": "string",
+          "description": "Mutually-exclusive enum identifying which principal filing this Articles-of-Incorporation attachment accompanies. Values: 'domestication' (13-C MRSA §953) | 'domestication_conversion' (§942) | 'entity_conversion' (§952.5 or §955.3) | 'merger_or_share_exchange' (§1106 / §1107) | 'partnership_conversion' (31 MRSA §1093) | 'restated_articles' (13-C MRSA §1007). This is the definitional concept that splits MBCA-6-1 from the standalone MBCA-6 articles — it tells SOS what other filing this Articles attachment is bundled with."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "is_professional_corporation": {
+          "type": "boolean",
+          "description": "Boolean indicating professional-corporation status under 13 MRSA Ch 22-A."
+        },
+        "is_benefit_corporation": {
+          "type": "boolean",
+          "description": "Boolean indicating election as a benefit corporation under 13-C MRSA §1803, with minimum-status-vote attestation per §1802.7."
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "share_structure": {
+          "type": "string"
+        },
+        "authorized_shares_total": {
+          "type": "integer"
+        },
+        "share_class_name": {
+          "type": "string"
+        },
+        "multi_class_exhibit_letter": {
+          "type": "string"
+        },
+        "has_board_of_directors": {
+          "type": "boolean"
+        },
+        "directors_count_limited": {
+          "type": "boolean"
+        },
+        "directors_min_count": {
+          "type": "integer"
+        },
+        "directors_max_count": {
+          "type": "integer"
+        },
+        "director_liability_limited": {
+          "type": "boolean"
+        },
+        "mandatory_indemnification": {
+          "type": "string"
+        },
+        "preemptive_rights_elected": {
+          "type": "boolean"
+        },
+        "additional_provisions_present": {
+          "type": "boolean"
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "clerk": {
+      "type": "object",
+      "properties": {
+        "cra_public_number": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk",
+    "entity",
+    "filing"
+  ]
+}

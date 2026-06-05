@@ -1,0 +1,194 @@
+{
+  "form_id": "NP_MNPCA-13A",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Name of Corporation",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Corporation)"
+    },
+    "entity.home_jurisdiction": {
+      "widget_id": "undefined_2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The jurisdiction of its incorporation is ___"
+    },
+    "filing.original_annual_report_date": {
+      "widget_id": "undefined_3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: The date the current year's annual report was filed ___"
+    },
+    "amendment.changes_description.line1": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The information has changed as follows (attach additional pages, if necessary): (line 1)"
+    },
+    "amendment.changes_description.line2": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 2)"
+    },
+    "amendment.changes_description.line3": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 3)"
+    },
+    "amendment.changes_description.line4": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 4)"
+    },
+    "amendment.changes_description.line5": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 5)"
+    },
+    "amendment.changes_description.line6": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 6)"
+    },
+    "amendment.changes_description.line7": {
+      "widget_id": "The information has changed as follows attach additional pages if necessary 7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ... (line 7)"
+    },
+    "amendment.effective_date": {
+      "widget_id": "undefined_4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: This information changed on (date) ___"
+    },
+    "filing.date_signed": {
+      "widget_id": "DATED",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "type or print name and capacity",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "*By ___ (authorized signature) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Contact email address for this filing)"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Email address to use for annual report reminders)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of attested copy recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+checks:
+  - id: reserved-name-nonempty
+    description: entity.name (the LLP name being reserved) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: llp-suffix-unless-assumed
+    description: "If filing.is_assumed_name_reservation is false, entity.name must contain a statutory LLP suffix (case-insensitive substring): 'Limited Liability Partnership', 'L.L.P.', or 'LLP'. If true, no suffix required."
+    depends_on_keys:
+      - entity.name
+      - filing.is_assumed_name_reservation
+    severity: required
+  - id: applicant-name-nonempty
+    description: applicant.name is non-empty.
+    depends_on_keys:
+      - applicant.name
+    severity: required
+  - id: applicant-address-nonempty
+    description: applicant.address is non-empty.
+    depends_on_keys:
+      - applicant.address
+    severity: required
+  - id: signer-nonempty
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: date-signed-nonempty
+    description: filing.date_signed is non-empty and not in the future relative to the submission date.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (per cover-letter NOTE)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-min-20
+    description: "filing.total_fees_dollars >= $20 base plus expedite premium ($0/$50/$100)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

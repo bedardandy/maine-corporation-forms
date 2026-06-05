@@ -1,0 +1,30 @@
+# Blank source PDFs are public records of the Maine Secretary of State, fetched
+# on demand (python3 tools/fetch_pdfs.py) and verified against
+# catalog/pdf_manifest.json. None is re-hosted here: all 156 are fetch-on-demand.
+forms/**/*.pdf
+
+# Filled output and run artifacts — large and reproducible, never committed.
+**/*.filled.pdf
+**/*.flat.pdf
+**/*.out.pdf
+out.pdf
+evaluations/
+intermediate/
+reports/
+
+# Scratch tmp files used during generation/verification.
+catalog/_*_tmp.txt
+
+# Scratch renders / debris dumped at the repo root.
+/_*.png
+/.*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+*.swp

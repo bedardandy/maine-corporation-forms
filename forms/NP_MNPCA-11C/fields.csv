@@ -1,0 +1,37 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+1,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit corporation name at top of form. Same key as sister NP_MNPCA-11 / NP_MNPCA-11A.
+2,0,text,FIRST: President — Name,officer_president.name,high,"Name of the corporation's President in the FIRST roster table (top row, y≈410-427, LEFT name column). Role-keyed officer roster matches sister NP_MNPCA-11. Note: this form's roster has Name in LEFT column and Address in RIGHT column (opposite to MNPCA-11A)."
+3,0,text,FIRST: President — Address,officer_president.address,high,"Address of the President (row 1, y≈410-427, RIGHT address column). Single-line widget combining street/city/state/zip."
+4,0,text,FIRST: Treasurer — Name,officer_treasurer.name,high,"Name of the Treasurer (row 2, y≈386-405)."
+5,0,text,FIRST: Treasurer — Address,officer_treasurer.address,high,Address of the Treasurer.
+6,0,text,FIRST: Secretary — Name,officer_secretary.name,high,"Name of the Secretary (row 3, y≈361-378)."
+7,0,text,FIRST: Secretary — Address,officer_secretary.address,high,Address of the Secretary.
+8,0,text,FIRST: Clerk — Name,officer_clerk.name,high,"Name of the Clerk (row 4, y≈337-354)."
+9,0,text,FIRST: Clerk — Address,officer_clerk.address,high,Address of the Clerk.
+10,0,text,FIRST: Directors — Name (row 1),director_1.name,high,"Name of the first listed director (row 5, y≈314-330). Indexed director_N.* pattern for 3 inline director rows."
+11,0,text,FIRST: Directors — Address (row 1),director_1.address,high,Address of the first listed director.
+12,0,text,FIRST: Directors — Name (row 2),director_2.name,high,"Name of the second listed director (row 6, y≈289-306)."
+13,0,text,FIRST: Directors — Address (row 2),director_2.address,high,Address of the second listed director.
+14,0,text,FIRST: Directors — Name (row 3),director_3.name,high,"Name of the third listed director (row 7, y≈265-281)."
+15,0,text,FIRST: Directors — Address (row 3),director_3.address,high,Address of the third listed director.
+Check Box6,0,text,SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote.,revocation.consent_class,high,Mutually-exclusive checkbox 1 of 2 in SECOND. Enum value 'members'. Mirrors dissolution.consent_class on sister NP_MNPCA-11/NP_MNPCA-11A but in the revocation namespace because this filing reverses an earlier dissolution authorization rather than initiating one.
+Check Box5,0,text,"SECOND: The directors of the corporation, there being no members or no members entitled to vote.",revocation.consent_class,high,Mutually-exclusive checkbox 2 of 2 in SECOND. Enum value 'directors_when_no_voting_members'.
+18,0,text,"THIRD: The address of the registered office of the corporation in the State of Maine is ___ (inline trailing blank, y≈160-177, right side)",registered_office.address_line1,high,"Inline trailing blank ending the THIRD paragraph. Same multi-line registered_office.address_line{1,2} pattern as sister NP_MNPCA-11."
+19,0,text,"THIRD: ___ (street, city, state and zip code) (wide line, y≈135-152)",registered_office.address_line2,high,"Wide labeled line below the THIRD paragraph for the registered office address (street, city, state and zip code)."
+20,1,text,"DATED ___ (top-left, y≈734-752)",filing.date_signed,high,"Date the statement is signed (top-left of page 1, narrow widget)."
+21,1,text,"*By ___ (signature) / (type or print name and capacity) — first signer (top-right, y≈700-716)",filing.signer_1.printed_name_and_capacity,high,"First authorized officer's printed name and capacity. Shape D (combined name+capacity), per filing.signer_N.printed_name_and_capacity primitive established on sister NP_MNPCA-11."
+22,1,text,"*By ___ (signature) / (type or print name and capacity) — second signer (right, y≈634-650)",filing.signer_2.printed_name_and_capacity,high,"Second authorized officer's printed name and capacity. 13-B MRSA §104.1.B requires only one authorized officer to sign, so the second slot is optional."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($5 base per page-0 header).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email — restored after revocation since the corporation is continuing in existence.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

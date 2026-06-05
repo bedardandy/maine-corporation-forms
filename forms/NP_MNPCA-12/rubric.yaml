@@ -1,0 +1,83 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: fictitious-name-and-fict4
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true (Form FICT-4 must accompany the application when a fictitious name is used)."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is not in the future.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: filing-date-on-or-after-formation
+    description: filing.date_signed is on or after entity.formation_date_in_home_jurisdiction (cannot apply for Maine authority before being formed).
+    depends_on_keys:
+      - filing.date_signed
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: purpose-description-required
+    description: At least one of entity.home_purpose_description_line1 or _line2 is non-empty (THIRD recital).
+    depends_on_keys:
+      - entity.home_purpose_description_line1
+      - entity.home_purpose_description_line2
+    severity: required
+  - id: activities-scope-required
+    description: "entity.maine_activities_scope is exactly one of 'all' | 'specific' (FOURTH Yes/No is mutually exclusive)."
+    depends_on_keys:
+      - entity.maine_activities_scope
+    severity: required
+  - id: specific-activities-when-subset
+    description: "If entity.maine_activities_scope='specific', at least one of entity.maine_specific_activities_line1 or _line2 must be non-empty."
+    depends_on_keys:
+      - entity.maine_activities_scope
+      - entity.maine_specific_activities_line1
+      - entity.maine_specific_activities_line2
+    severity: required
+  - id: principal-office-required
+    description: At least one of entity.principal_office.physical_address_line1 or _line2 is non-empty (FIFTH).
+    depends_on_keys:
+      - entity.principal_office.physical_address_line1
+      - entity.principal_office.physical_address_line2
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of SIXTH commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be set."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is not a P.O. Box (per SIXTH parenthetical).
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (must be 'any duly authorized individual' per 13-B MRSA §104.1.B)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: certificate-of-existence-recency
+    description: "EIGHTH paragraph requires that an attached certificate of existence (or document of similar import) is dated no more than 90 days prior to delivery of this application; tracked manually since the COE is a separate attachment, not a form field."
+    depends_on_keys: []
+    severity: required
+  - id: fee-base-45
+    description: filing.total_fees_dollars equals $45 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

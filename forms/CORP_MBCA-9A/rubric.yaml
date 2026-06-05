@@ -1,0 +1,56 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exhibit-letter-required
+    description: amendment.exhibit_letter is non-empty (the text of each amendment must be attached as an exhibit per FIRST).
+    depends_on_keys:
+      - amendment.exhibit_letter
+    severity: required
+  - id: court-order-date-required
+    description: amendment.court_order_date is non-empty and not in the future.
+    depends_on_keys:
+      - amendment.court_order_date
+    severity: required
+  - id: court-order-precedes-filing
+    description: amendment.court_order_date is on or before filing.date_signed (the court order must exist before the filing is executed).
+    depends_on_keys:
+      - amendment.court_order_date
+      - filing.date_signed
+    severity: required
+  - id: proceeding-title-required
+    description: amendment.reorganization_proceeding_title is non-empty.
+    depends_on_keys:
+      - amendment.reorganization_proceeding_title
+    severity: required
+  - id: at-least-one-signer
+    description: At least one of filing.signer.printed_name_and_capacity or filing.signer_2.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: filing-date-signed-present
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

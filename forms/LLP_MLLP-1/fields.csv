@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Check Box4,0,checkbox,Check box only if this name is being reserved for use as an assumed name.,filing.is_assumed_name_reservation,high,Boolean opt-in flagging that the reserved name is for use as an assumed/fictitious name (exempts the name from the statutory LLP suffix requirement).
+one2,0,text,"[full-width line above the '(2003-A.1 - Name to be reserved must contain one of the following: ""Limited Liability Partnership"", ""L.L.P."" or ""LLP"" unless this name is being reserved for use only as an assumed name)' footnote]",entity.name,high,Top wide blank for the LLP name being reserved. The label is not on the same line; the parenthetical footnote immediately below describes the suffix requirement.
+one3,0,text,Name of applicant ___,applicant.name,high,Name of the person or entity applying for the reservation.
+one4,0,text,Address of applicant ___,applicant.address,high,Address of the applicant (single-line; form does not split components).
+one5,0,text,DATED ___,filing.date_signed,high,Date the application is signed.
+one6,0,text,(type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined printed name and capacity of the applicant (Shape D from filing-signer-shape convention).
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total filing fee enclosed (USD).
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

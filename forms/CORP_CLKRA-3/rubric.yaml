@@ -1,0 +1,50 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-action-type
+    description: "Exactly one of FIRST 'new' / 'modify' options is selected."
+    depends_on_keys:
+      - clerk_change.action_type
+    severity: required
+  - id: modify-subtype-when-modifying
+    description: "If clerk_change.action_type = 'modify_existing', exactly one of clerk_change.modify_subtype options is selected."
+    depends_on_keys:
+      - clerk_change.action_type
+      - clerk_change.modify_subtype
+    severity: required
+  - id: current-name-required-when-modifying
+    description: "If clerk_change.action_type = 'modify_existing', clerk_change.current_clerk_or_agent_name must be non-empty."
+    depends_on_keys:
+      - clerk_change.action_type
+      - clerk_change.current_clerk_or_agent_name
+    severity: required
+  - id: new-info-required
+    description: "Either the noncommercial fields (THIRD) or the commercial fields (FOURTH) must be populated, but not both — depending on which type of clerk/RA is being appointed."
+    depends_on_keys:
+      - clerk_change.new_noncommercial_name
+      - clerk_change.new_commercial_name
+    severity: required
+  - id: noncommercial-physical-not-pobox
+    description: "If clerk_change.new_noncommercial_physical_address is set, it must not be a P.O. Box."
+    depends_on_keys:
+      - clerk_change.new_noncommercial_physical_address
+    severity: required
+  - id: bc-authorization-when-bc
+    description: "If the entity type is Maine domestic Business Corporation, exactly one of SIXTH bc_authorization options must be selected. (Determined externally — entity-type isn't on this form.)"
+    depends_on_keys:
+      - clerk_change.bc_authorization
+    severity: required
+  - id: foreign-fields-when-foreign
+    description: "If the entity is foreign, entity.home_jurisdiction and entity.maine_authorization_date must both be populated; if domestic, both should be empty."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-title-required
+    description: "filing.signer.title is non-empty (the form's footnote restricts who may sign per entity type)."
+    depends_on_keys:
+      - filing.signer.title
+    severity: required

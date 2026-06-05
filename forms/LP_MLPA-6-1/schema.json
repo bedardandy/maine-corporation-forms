@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-6-1.json",
+  "title": "LP_MLPA-6-1 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "accompanying_transaction_type": {
+          "type": "boolean",
+          "description": "Enum identifying which transaction this Certificate of Limited Partnership accompanies. Values: 'entity_conversion' (13-C MRSA §955.1), 'merger_or_share_exchange' (13-C MRSA §1106 / 31 MRSA §§744, 1436), 'inter_entity_consolidation' (31 MRSA §744), 'articles_or_certificate_of_conversion' (13-C MRSA §746 / 31 MRSA §1432), 'conversion_of_partnership' (31 MRSA §1093). Mapped onto 5 mutually-exclusive checkboxes ('X one box only'). New key family for the bundled '-1' formation sheet pattern; analogous to filing.fict4_accompanies (MLPA-12-1) but with a 5-way enum instead of a single boolean."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "designated_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "is_lllp": {
+          "type": "boolean"
+        },
+        "is_professional_lllp": {
+          "type": "boolean"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "string"
+        },
+        "additional_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

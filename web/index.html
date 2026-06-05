@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maine Corporation Forms — Enhance</title>
+<style>
+  :root { font-family: system-ui, sans-serif; line-height: 1.45; }
+  body { max-width: 880px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; } h2 { font-size: 1.05rem; margin: 1.4rem 0 .4rem; }
+  .muted { color: #666; font-size: .9rem; }
+  select, input, textarea, button { font: inherit; }
+  select, textarea { width: 100%; padding: .4rem; box-sizing: border-box; }
+  textarea { min-height: 6rem; font-family: ui-monospace, monospace; font-size: .85rem; }
+  .tier { border: 1px solid #ddd; border-radius: 6px; padding: .6rem .8rem; margin: .5rem 0; }
+  .tier h3 { margin: 0 0 .4rem; font-size: .95rem; text-transform: capitalize; }
+  label.step { display: block; margin: .25rem 0; }
+  label.step .d { color: #666; font-size: .85rem; }
+  button { background: #1f5b8f; color: #fff; border: 0; border-radius: 6px;
+           padding: .6rem 1.2rem; cursor: pointer; }
+  button:disabled { background: #aaa; cursor: default; }
+  #status { margin-top: 1rem; padding: .6rem .8rem; border-radius: 6px;
+            background: #f3f3f3; white-space: pre-wrap; font-size: .9rem; }
+  .warn { color: #8a5a00; }
+  a.dl { display:inline-block; margin-top:.6rem; }
+</style>
+</head>
+<body>
+<h1>Maine Corporation Forms — Enhance a filing PDF</h1>
+<p class="muted">
+  Select an official Secretary of State form, choose which enhancements to apply,
+  and download the result. Output is a <strong>draft</strong> — verify it against
+  the official form before filing. Not legal advice.
+</p>
+
+<h2>1. Form</h2>
+<select id="form"><option>loading…</option></select>
+<p class="muted" id="formhint"></p>
+
+<h2>2. Enhancements</h2>
+<div id="steps">loading…</div>
+
+<h2>3. Case data <span class="muted">(optional — required only for “Fill”)</span></h2>
+<textarea id="case" placeholder='{ "entity": { "name": "Example Inc." } }'></textarea>
+<p class="muted">Leave blank to enhance the blank form (e.g. accessibility-only).</p>
+
+<p style="margin-top:1.2rem">
+  <button id="run">Build enhanced PDF</button>
+  <button id="report" style="background:#555">Dry run (report only)</button>
+</p>
+<div id="status" hidden></div>
+
+<script>
+const $ = s => document.querySelector(s);
+let STEPS = [];
+
+async function init() {
+  const [forms, enh] = await Promise.all([
+    fetch('/forms').then(r => r.json()),
+    fetch('/enhancements').then(r => r.json()),
+  ]);
+  const list = Array.isArray(forms) ? forms : (forms.forms || []);
+  const sel = $('#form');
+  sel.innerHTML = '';
+  list.forEach(f => {
+    const id = f.form_id || f.id || f;
+    const title = f.title || '';
+    const o = document.createElement('option');
+    o.value = id; o.textContent = title ? `${id} — ${title}` : id;
+    sel.appendChild(o);
+  });
+  STEPS = enh.steps || [];
+  renderSteps();
+}
+
+function renderSteps() {
+  const tiers = {};
+  STEPS.forEach(s => (tiers[s.tier] ||= []).push(s));
+  const order = ['source', 'form_fields', 'print', 'accessibility'];
+  const box = $('#steps'); box.innerHTML = '';
+  order.filter(t => tiers[t]).forEach(t => {
+    const d = document.createElement('div'); d.className = 'tier';
+    d.innerHTML = `<h3>${t.replace('_',' ')}</h3>`;
+    tiers[t].forEach(s => {
+      const l = document.createElement('label'); l.className = 'step';
+      l.innerHTML =
+        `<input type="checkbox" value="${s.id}" ${s.needs_case ? 'data-needscase="1"' : ''}> ` +
+        `<strong>${s.label}</strong>` +
+        (s.needs_case ? ' <span class="warn">(needs case data)</span>' : '') +
+        `<br><span class="d">${s.description}</span>`;
+      d.appendChild(l);
+    });
+    box.appendChild(d);
+  });
+}
+
+function chosen() {
+  return [...document.querySelectorAll('#steps input:checked')].map(i => i.value);
+}
+function caseObj() {
+  const t = $('#case').value.trim();
+  if (!t) return null;
+  try { return JSON.parse(t); } catch (e) { return undefined; } // undefined = parse error
+}
+
+async function run(reportOnly) {
+  const status = $('#status'); status.hidden = false;
+  const steps = chosen();
+  if (!steps.length) { status.textContent = 'Pick at least one enhancement.'; return; }
+  const c = caseObj();
+  if (c === undefined) { status.textContent = 'Case data is not valid JSON.'; return; }
+  const body = { form: $('#form').value, steps, case: c, report_only: reportOnly };
+  status.textContent = 'Working…';
+  const res = await fetch('/enhance', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (reportOnly || res.headers.get('Content-Type')?.includes('json')) {
+    const j = await res.json();
+    status.textContent = JSON.stringify(j, null, 2);
+    return;
+  }
+  if (!res.ok) { status.textContent = 'Error: ' + (await res.text()); return; }
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const ran = res.headers.get('X-Enhance-Ran') || '';
+  const skipped = res.headers.get('X-Enhance-Skipped') || '';
+  status.innerHTML =
+    `Ran: ${ran}` + (skipped ? `\nSkipped: <span class="warn">${skipped}</span>` : '') +
+    `<br><a class="dl" href="${url}" download="${$('#form').value}_enhanced.pdf">⬇ Download enhanced PDF</a>`;
+}
+
+$('#run').onclick = () => run(false);
+$('#report').onclick = () => run(true);
+init().catch(e => { $('#status').hidden = false; $('#status').textContent = 'Init failed: ' + e; });
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+{
+  "form_id": "LP_MLPA-11C",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Limited Partnership)"
+    },
+    "entity.original_certificate_filing_date": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The date the original certificate of limited partnership was filed"
+    },
+    "filing.additional_info_exhibit_letter": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: \u2026set forth in Exhibit ___ attached hereto"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Dated ___"
+    },
+    "general_partner_1.printed_name": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(type or print name) [General Partner row 1]"
+    },
+    "general_partner_2.printed_name": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(type or print name) [General Partner row 2]"
+    },
+    "general_partner_3.printed_name": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(type or print name) [General Partner row 3]"
+    },
+    "general_partner_entity_1.name": {
+      "widget_id": "Text8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Name of Entity [For General Partner(s) which are Entities]"
+    },
+    "general_partner_entity_1.signer_printed_name_and_capacity": {
+      "widget_id": "Text9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "By (type or print name and capacity) [For General Partner(s) which are Entities]"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[0].name"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[1].name"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.total_fees_dollars"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.name"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.phone"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.email"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "entity.annual_report_reminder_email"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.name"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.firm"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.street"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

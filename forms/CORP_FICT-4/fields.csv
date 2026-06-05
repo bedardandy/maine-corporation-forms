@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Exact Legal Name of Entity on the records of the Secretary of State,0,text,(Exact Legal Name of Entity on the records of the Secretary of State),entity.home_jurisdiction_name,high,Foreign entity's real name in its home jurisdiction (the name that is unavailable in Maine).
+undefined,0,text,FIRST: The entity must transact business under the fictitious name of,entity.maine_fictitious_name,high,The fictitious name to be used in Maine.
+and the date on which,0,text,SECOND: Jurisdiction of incorporation/organization ___ and the date on which,entity.home_jurisdiction,high,"Field NAME is 'and the date on which' (auto-generated from adjacent label text), but the field captures the Jurisdiction value before that text. Holds the entity's home state/country."
+undefined_2,0,text,the entity was authorized to transact business in Maine,entity.maine_authorization_date,high,Date the foreign entity was authorized to transact business in Maine.
+DATED,0,text,DATED ___,filing.date_signed,high,Signing date.
+type or print name,0,text,(type or print name),filing.signer.printed_name,high,Signer printed name.
+title of signer,0,text,(title of signer),filing.signer.title,high,"Signer title (e.g., 'President', 'Manager', 'General Partner')."
+Name of entity,1,text,Name of entity(s) on submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed,filing.total_fees_dollars,high,Total fees.
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report email.
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

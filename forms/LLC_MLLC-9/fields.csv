@@ -1,0 +1,33 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Liability Company),entity.name,high,Top-of-form LLC name (current legal name being amended). Domestic Maine filing — uses entity.name (not entity.home_jurisdiction_name).
+Text2,0,text,"FIRST: The name of the limited liability company has been changed to (if no change, so indicate)",amendment.new_name,high,New LLC name when changing; form footnote permits 'no change' as the value if no rename. Same key family as MBCA-9 / MLLC-9-style amendments.
+Text3,0,text,SECOND: The date of filing of the initial certificate of formation:,entity.initial_filing_date,high,Date the original certificate of formation was filed with SOS. Anchor for the amendment-validity check (initial filing must precede this amendment).
+Check Box4,0,checkbox,THIRD: Designation as a low profit LLC — This is a low-profit limited liability company pursuant to 31 MRSA §1611,entity.is_low_profit_llc,high,Boolean elect-in for low-profit LLC status under 31 MRSA §1611 (the form lists the four §1611 qualification statements A–D inline).
+Check Box5,1,checkbox,FOURTH: Designation as a professional limited liability company — This is a professional limited liability company* formed pursuant to 13 MRSA Chapter 22-A,entity.is_professional_llc,high,"Boolean elect-in for professional LLC status under 13 MRSA Chapter 22-A. When true, entity.professional_services_description.line{1,2} must be populated."
+Text6,1,text,FOURTH: (type of professional services) line 1,entity.professional_services_description.line1,high,"First line of the professional-services description (PLLC only). Multi-line shape primitive — same as LP_MLPA-12-1 entity.professional_services_description.lineN, MLPA-13A amendment.changes_description.lineN."
+Text7,1,text,FOURTH: (type of professional services) line 2,entity.professional_services_description.line2,high,Second line of the professional-services description.
+Check Box8,1,text,FIFTH: Commercial Registered Agent,registered_agent.type,high,"Radio option for Commercial Registered Agent. Enum value 'commercial'. Same key family as MLLC-12, FICT-4, MLPA-12-1."
+Text14,1,text,FIFTH: CRA Public Number (alongside Commercial Registered Agent radio),registered_agent.cra_public_number,high,"CRA Public Number, required when registered_agent.type = 'commercial'. Positioned at y≈458 alongside Check Box8 (commercial radio) — distinct from any noncommercial-side widget."
+Text10,1,text,FIFTH: (Name of commercial registered agent),registered_agent.name,high,Name of the commercial registered agent. Synth fills exactly one of Text10 / Text11 based on registered_agent.type.
+Check Box9,1,text,FIFTH: Noncommercial Registered Agent,registered_agent.type,high,Radio option for Noncommercial Registered Agent. Enum value 'noncommercial'.
+Text11,1,text,FIFTH: (Name of noncommercial registered agent),registered_agent.name,high,Name of the noncommercial registered agent (alternative slot to Text10). Same canonical key — exactly one is filled per registered_agent.type.
+Text12,1,text,"FIFTH: (physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,"Physical address of the registered agent in Maine (single-line: street, city, state, zip; not P.O. Box)."
+Text13,1,text,FIFTH: (mailing address if different from above),registered_agent.mailing_address,high,Mailing address of the registered agent (when different from physical).
+Text15,1,text,SEVENTH: Other changes …are set forth in Exhibit ____ attached and made a part hereof.,amendment.other_changes_exhibit_letter,high,Exhibit letter for other amendments not covered by FIRST–FIFTH (catch-all). Same shape as LP_MLPA-12A filing.other_amendments_exhibit_letter.
+Text16,2,text,Dated,filing.date_signed,high,Date the amendment was signed.
+Text17,2,text,**Authorized person(s) — (Type or print name and capacity) [signer slot 1],authorized_person_1.printed_name_and_capacity,high,Combined name + capacity of the first authorized-person signer (Shape D primitive applied to the authorized_person_N pattern). Same key family as LLC_MLLC-6A authorized_person_N.printed_name_and_capacity.
+Text18,2,text,**Authorized person(s) — (Type or print name and capacity) [signer slot 2],authorized_person_2.printed_name_and_capacity,high,"Combined name + capacity of the second authorized-person signer (optional). The (s) in 'person(s)' indicates one or more — slot 1 is required, slot 2 is optional."
+Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($50 base plus expedite premium).
+Name of contact person,3,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,3,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,3,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,3,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,3,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,3,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,3,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,3,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

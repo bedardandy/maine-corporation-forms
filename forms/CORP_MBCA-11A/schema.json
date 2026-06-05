@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-11A.json",
+  "title": "CORP_MBCA-11A fill data",
+  "type": "object",
+  "properties": {
+    "revocation": {
+      "type": "object",
+      "properties": {
+        "original_dissolution_date": {
+          "type": "string",
+          "description": "Effective date of the dissolution that is being revoked. Distinct from dissolution.effective_date in that this is the historical fact (the date the prior dissolution took effect), not a delayed effective date for the current filing."
+        },
+        "authorization_date": {
+          "type": "string",
+          "description": "Date the revocation of dissolution was internally authorized by the relevant body (incorporators, board, or shareholders). Per 13-C MRSA \u00a71405.1 the revocation must be authorized within 120 days of the effective date of dissolution."
+        },
+        "authority_type": {
+          "type": "string",
+          "description": "Body that authorized the revocation. Enum: 'incorporators' | 'board_of_directors' | 'board_with_shareholder_authorization' | 'shareholders'. The 'board_with_shareholder_authorization' value applies when the original dissolution was approved by shareholders but the corporation's documents permitted the board alone to revoke.",
+          "enum": [
+            "incorporators",
+            "board_of_directors",
+            "board_with_shareholder_authorization",
+            "shareholders"
+          ]
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "revocation"
+  ]
+}

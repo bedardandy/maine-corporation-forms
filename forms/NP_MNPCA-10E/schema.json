@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-10E.json",
+  "title": "NP_MNPCA-10E fill data",
+  "type": "object",
+  "properties": {
+    "consolidation": {
+      "type": "object",
+      "properties": {
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the Nth participating corporation in a nonprofit consolidation. Indexed list \u2014 supports 2+ parties (page 0 shows 2 inline; additional parties go on attached exhibits). Mirrors the merger.parties[N].* pattern from MNPCA-10."
+            },
+            "descriptor": {
+              "type": "string",
+              "description": "Descriptor/type adjective for the Nth participating corp, fills the '(A ___ Corporation)' slot. Examples: 'Maine non-profit', 'Delaware non-profit', 'New Hampshire'. Distinct from .name (which is the legal name) and from .governing_law_state (which applies only to the new entity)."
+            },
+            "adoption_method": {
+              "type": "string",
+              "description": "Mutually-exclusive enum capturing how the Nth participating corp adopted the plan of consolidation: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote'. Per 13-B MRSA \u00a7906 each domestic party adopts separately. Form supports only one inline FOURTH block; additional domestic parties' adoption manners go on attached exhibits."
+            },
+            "adoption_date": {
+              "type": "string",
+              "description": "Date associated with the selected adoption_method (meeting date for options 1/2/4, written-consent date for option 3). Single key \u2014 only the widget paired (by y-proximity) with the selected method's checkbox is filled."
+            },
+            "adoption_percentage": {
+              "type": "string",
+              "description": "Percentage-of-member-votes value for the supermajority adoption_method (option 2). Required when adoption_method='supermajority_member_vote'. NOTE: the AcroForm widget for this value is missing on this template (template gap; see open_questions)."
+            },
+            "registered_office_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line registered office address of the Nth participating corp in Maine (FIFTH section). Foreign parties use principal-place-of-business if they have no Maine registered office (per page-1 footnote)."
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string",
+                  "description": "DATED line for the Nth party's signature block on page 1."
+                },
+                "corporation_name": {
+                  "type": "string",
+                  "description": "Re-statement of the Nth party's name on the DATED row of its signature block (right column)."
+                },
+                "printed_name_and_capacity": {
+                  "type": "string",
+                  "description": "Printed name + capacity of the authorized officer who signs for the Nth party (e.g., 'Jane Smith, President')."
+                }
+              }
+            }
+          }
+        },
+        "new_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the NEW corporation formed by the consolidation. Distinct from merger pattern (where there is a 'surviving' corp) \u2014 consolidation produces a brand-new entity. Multiple widgets bind to this key (page 0 fields 5 and 8)."
+            },
+            "descriptor": {
+              "type": "string",
+              "description": "Descriptor adjective for the new corporation's '(A ___ Corporation)' slot."
+            },
+            "governing_law_state": {
+              "type": "string",
+              "description": "State whose laws govern the new consolidated corporation."
+            },
+            "service_address": {
+              "type": "string",
+              "description": "Address to which SOS shall mail process when the new corp is governed by laws other than Maine."
+            }
+          }
+        },
+        "foreign_jurisdictions": {
+          "type": "string",
+          "description": "State(s) whose laws permit the foreign participating corporation(s) to consolidate (FIRST clause)."
+        },
+        "plan_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the plan of consolidation (THIRD)."
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Optional future effective date of the consolidation (capped at 60 days post-filing per 13-B MRSA \u00a7906)."
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "descriptor": {
+              "type": "string"
+            },
+            "adoption_method": {
+              "type": "string"
+            },
+            "adoption_date": {
+              "type": "string"
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "printed_name_and_capacity": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "descriptor": {
+              "type": "string"
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signature": {
+                  "type": "string"
+                },
+                "printed_name_and_capacity": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "consolidation",
+    "filing"
+  ]
+}

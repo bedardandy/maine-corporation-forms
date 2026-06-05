@@ -1,0 +1,45 @@
+checks:
+  - id: real-name-nonempty
+    description: entity.name (real name of corporation) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: fictitious-name-nonempty
+    description: entity.assumed_or_fictitious_name is non-empty (SECOND identifies which assumed/fictitious name is being terminated).
+    depends_on_keys:
+      - entity.assumed_or_fictitious_name
+    severity: required
+  - id: fictitious-name-distinct-from-real
+    description: entity.assumed_or_fictitious_name differs from entity.name (case-insensitive); a corporation cannot terminate its own legal name as a fictitious name.
+    depends_on_keys:
+      - entity.name
+      - entity.assumed_or_fictitious_name
+    severity: required
+  - id: signer-nonempty
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: date-signed-nonempty
+    description: filing.date_signed is non-empty and not in the future relative to the submission date.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (per cover-letter NOTE)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-min-20
+    description: "filing.total_fees_dollars >= $20 base (per page 0 header) plus expedite premium ($0/$50/$100)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: signer-capacity-includes-officer-or-clerk
+    description: "filing.signer.printed_name_and_capacity should reference an authorized-officer capacity OR 'clerk' (per §121.5 footnote). Soft check — accept any non-empty capacity but flag obvious mismatches."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: optional

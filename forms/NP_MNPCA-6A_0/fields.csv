@@ -1,0 +1,33 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation as it appears on the records of the Secretary of State),entity.name,high,Top-of-form: corporation's Maine-registered name (domestic-entity convention).
+Text2,0,text,FIRST: All restated statements required to be set forth in Articles of Incorporation (*MNPCA-6-1) are attached as Exhibit ___,restatement.text_exhibit_letter,high,"Inline blank for the exhibit letter that holds the full restated articles. Reuses CORP_MBCA-6A's restatement.text_exhibit_letter (same form pattern, 13-B nonprofit analogue of 13-C §1007)."
+Text3,0,text,This restatement was adopted on (date),restatement.adoption_date,high,Date the restatement was adopted by the corporation. Form-scoped to restatement.* (parallel to amendment.adoption_date on MBCA-9).
+Check Box4,0,text,By the members at a meeting at which a quorum was present and the restatement received at least a majority of the votes which members were entitled to cast.,restatement.adoption_method,high,Mutually-exclusive enum value 'members_majority_at_meeting'.
+Check Box5,0,text,(If the Articles require more than a majority vote.) By the members at a meeting at which the restatement received at least the percentage of votes required by the Articles of Incorporation.,restatement.adoption_method,high,Mutually-exclusive enum value 'members_supermajority_at_meeting' (when entity's articles require more than a majority).
+Check Box6,0,text,By the written consent of all members entitled to vote with respect thereto.,restatement.adoption_method,high,Mutually-exclusive enum value 'members_written_consent'.
+Check Box8,0,text,SECOND: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive enum value 'commercial'. Pairs with Text7 (CRA Public Number) and Text11 (CRA name).
+Text7,0,text,SECOND: CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number; required when registered_agent.type='commercial'. Note widget rect y=227 places it visually adjacent to the Noncommercial radio rather than the Commercial radio (template layout quirk) — semantically belongs to commercial path per label.
+Check Box9,0,text,SECOND: [ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive enum value 'noncommercial'. Pairs with Text12 (NCRA name).
+Text11,0,text,(name of commercial registered agent),registered_agent.name,high,Name of registered agent (commercial path). Filler uses the same registered_agent.name regardless of path.
+Check Box10,0,text,"(If no members, or none entitled to vote thereon.) By majority vote of the board of directors.",restatement.adoption_method,high,Mutually-exclusive enum value 'board_majority' (only available when the corporation has no members or no members entitled to vote on the restatement). Visually appears below the registered-agent block on this template — see open_questions.
+Text12,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name of registered agent (noncommercial path).
+Text13,0,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Maine physical address of the registered agent (single-line widget).
+Text14,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address of the registered agent.
+Text15,1,text,Dated,filing.date_signed,high,Signature-row date on left of page 2.
+Text16,1,text,**By ___ (signature) / type or print name and capacity),filing.signer.printed_name_and_capacity,high,Shape D — combined name+capacity. Per footnote ** the form 'MUST be signed by any duly authorized officer' (13-B MRSA §104.1.B).
+Text17,1,text,**By ___ (signature) / type or print name and capacity),filing.signer_2.printed_name_and_capacity,medium,"Second signer slot (Shape D). The page lays out two parallel **By blocks. Likely intended for a second authorized officer, OR for the clerk/secretary co-signing alongside the primary officer when a member vote was used. The MUST-BE-COMPLETED-FOR-VOTE-OF-MEMBERS box on the same page contains a SEPARATE wet-ink signature line for the clerk/secretary attesting custody of minutes — see open_questions."
+C1,2,text,Name of Entity (s) [line 1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing. C-prefix widget naming is specific to the alternate 'Filer Contact Cover Letter' template.
+C2,2,text,Name of Entity (s) [line 2],filing.entities[1].name,high,Cover-letter row 2 (used when one cover letter accompanies multiple filings).
+C3,2,text,"List type of filing(s) enclosed (i.e. Articles of Incorporation, Articles of Merger, ...) [line 1]",filing.enclosed_filing_types.line1,high,"First line of the free-text 'list type of filings enclosed' block. This block is unique to the alternate cover-letter template — the standard cover-letter primitive does not include it. Two-line widget uses .line{1,2} per MARK1 convention."
+C4,2,text,List type of filing(s) enclosed [line 2],filing.enclosed_filing_types.line2,high,Second (continuation) line of the enclosed-filings block.
+Check Box20,2,text,Hold for pick up,filing.expedited_service,high,Expedite tier = 'hold_for_pickup'.
+Check Box21,2,text,Expedited filing - 24 hour service,filing.expedited_service,high,Expedite tier = '24h_next_business_day'.
+Check Box22,2,text,Expedited filing - Immediate service,filing.expedited_service,high,Expedite tier = 'immediate_same_day'.
+C5,2,text,Total filing fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees enclosed (base $40 per Maine SOS fee schedule for nonprofit restatement, plus expedite premium)."
+C6,2,text,(Name of contact person),filing.contact.name,high,Filing-question contact name.
+C7,2,text,(Daytime telephone number),filing.contact.phone,high,Daytime telephone for contact.
+C8,2,text,(Email address),filing.contact.email,high,Per-filing contact email. Note: this alternate cover-letter template has no separate annual-report-reminder-email widget.
+C9,2,text,(Name of attested recipient),filing.attested_copy_recipient.name,high,Attested-copy recipient name.
+C10,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm/company.
+C11,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street/PO box.
+C12,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

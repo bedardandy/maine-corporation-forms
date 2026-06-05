@@ -1,0 +1,45 @@
+checks:
+  - id: entity-name-matches-records
+    description: "entity.name on the form matches the corporation's existing name of record at the SOS (case-insensitive trim)."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: adoption-date-not-future
+    description: amendment.adoption_date is not in the future relative to filing.date_signed.
+    depends_on_keys:
+      - amendment.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: amendment-text-source-present
+    description: Either amendment.text_exhibit_letter is set OR an inline text-of-amendment exhibit reference is present (form requires one).
+    depends_on_keys:
+      - amendment.text_exhibit_letter
+    severity: required
+  - id: exactly-one-approval-method
+    description: Exactly one of the FIRST options is selected.
+    depends_on_keys:
+      - amendment.approval_method
+    severity: required
+  - id: benefit-corp-exhibit-when-modifying
+    description: "If amendment.benefit_corp_change = 'modify_public_benefit', amendment.benefit_corp_public_benefit_exhibit_letter must be set."
+    depends_on_keys:
+      - amendment.benefit_corp_change
+      - amendment.benefit_corp_public_benefit_exhibit_letter
+    severity: required
+  - id: share-exchange-exclusivity
+    description: amendment.share_exchange_exhibit_letter and amendment.share_exchange_inline_text are not both populated.
+    depends_on_keys:
+      - amendment.share_exchange_exhibit_letter
+      - amendment.share_exchange_inline_text
+    severity: optional
+  - id: effective-date-not-before-adoption
+    description: "If amendment.effective_date is set, it is on or after amendment.adoption_date."
+    depends_on_keys:
+      - amendment.effective_date
+      - amendment.adoption_date
+    severity: required
+  - id: signer-must-be-authorized-officer
+    description: "filing.signer.printed_name is non-empty (note: signer must be a duly authorized officer per 13-C MRSA §1011 — cannot be auto-validated from form alone)."
+    depends_on_keys:
+      - filing.signer.printed_name
+    severity: required

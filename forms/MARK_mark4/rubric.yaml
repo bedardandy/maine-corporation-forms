@@ -1,0 +1,81 @@
+checks:
+  - id: mark-identifier-present
+    description: "At least one of mark.charter_number, mark.text_words.line1, or mark.design_features.line1 is non-empty (the assigned mark must be identifiable). Mirrors MARK_mark6's mark-identifier check."
+    depends_on_keys:
+      - mark.charter_number
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: required
+  - id: mark-type-required
+    description: mark.type is non-empty (TYPE recited from the original registration; amendments not permitted on assignment).
+    depends_on_keys:
+      - mark.type
+    severity: required
+  - id: assignor-name-address-required
+    description: mark.assignor.name_and_address is non-empty.
+    depends_on_keys:
+      - mark.assignor.name_and_address
+    severity: required
+  - id: assignor-entity-type-exactly-one
+    description: Exactly one mark.assignor.entity_type option is selected.
+    depends_on_keys:
+      - mark.assignor.entity_type
+    severity: required
+  - id: assignor-other-explanation-when-other
+    description: "If mark.assignor.entity_type='other', mark.assignor.entity_type_other_explanation must be non-empty."
+    depends_on_keys:
+      - mark.assignor.entity_type
+      - mark.assignor.entity_type_other_explanation
+    severity: required
+  - id: assignor-jurisdiction-when-entity
+    description: "If mark.assignor.entity_type is one of {corporation, limited_partnership, general_partnership, association, union} (or 'other' resolving to a registered entity), mark.assignor.jurisdiction_of_organization and mark.assignor.date_of_organization must be set."
+    depends_on_keys:
+      - mark.assignor.entity_type
+      - mark.assignor.jurisdiction_of_organization
+      - mark.assignor.date_of_organization
+    severity: required
+  - id: assignor-printed-name-capacity-required
+    description: mark.assignor.printed_name_and_capacity is non-empty (binds to both the Whereas recital and the Signature-line widgets).
+    depends_on_keys:
+      - mark.assignor.printed_name_and_capacity
+    severity: required
+  - id: assignor-date-signed-required
+    description: mark.assignor.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - mark.assignor.date_signed
+    severity: required
+  - id: assignment-date-of-transfer-required
+    description: mark.assignment.date_of_transfer is non-empty and not after mark.assignor.date_signed (the assignment cannot be effective after the assignor signed).
+    depends_on_keys:
+      - mark.assignment.date_of_transfer
+      - mark.assignor.date_signed
+    severity: required
+  - id: assignee-name-address-required
+    description: mark.assignee.name_and_address is non-empty.
+    depends_on_keys:
+      - mark.assignee.name_and_address
+    severity: required
+  - id: assignee-entity-type-exactly-one
+    description: Exactly one mark.assignee.entity_type option is selected.
+    depends_on_keys:
+      - mark.assignee.entity_type
+    severity: required
+  - id: assignee-jurisdiction-when-entity
+    description: "If mark.assignee.entity_type implies a registered entity, mark.assignee.jurisdiction_of_organization and mark.assignee.date_of_organization must be set."
+    depends_on_keys:
+      - mark.assignee.entity_type
+      - mark.assignee.jurisdiction_of_organization
+      - mark.assignee.date_of_organization
+    severity: required
+  - id: assignee-date-signed-required
+    description: mark.assignee.date_signed is non-empty and on or after mark.assignment.date_of_transfer.
+    depends_on_keys:
+      - mark.assignee.date_signed
+      - mark.assignment.date_of_transfer
+    severity: required
+  - id: fee-base-40
+    description: "filing.total_fees_dollars equals $40 base (per page-0 'Filing Fee $40.00' header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

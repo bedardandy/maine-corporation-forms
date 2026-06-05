@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+151,0,text,(Name of Corporation Allowing Indistinguishable Name),entity.name,high,Top-of-form widget for the consenting corporation's current Maine name (the entity holding rights to the name being shared).
+152,0,text,FIRST: The above-named corporation hereby consents to the use of the following indistinguishable name:,indistinguishable_name.proposed_name,high,The specific indistinguishable name the consenting corporation authorizes another entity to use.
+153,0,text,FIRST: to ___ (requestor of indistinguishable name),indistinguishable_name.requestor_name,high,Name of the applicant entity that wishes to use the indistinguishable name.
+154,0,text,THIRD: The entity in possession of the name must change its name to:*,entity.new_distinguishable_name,high,"The new distinguishable name the consenting corporation undertakes to adopt to resolve the indistinguishability. Per the page-0 footnote, this application must be accompanied by the applicable form to make this name change effective."
+155,0,text,DATED,filing.date_signed,high,Date the application was signed by the consenting corporation's authorized officer.
+156,0,text,*By ___ (signature of any duly authorized officer) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity of the signer. Shape D per schema-gaps/2026-04-30-filing-signer-shape.md (single widget asking for printed name and capacity together; capacity is broader than title, e.g., 'President', 'Authorized Officer')."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Should mirror entity.name.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (note: typo 'entitys' preserved upstream). Used when this consent is filed alongside the accompanying name-change form (MBCA-9) — this slot would carry the second filing's entity name.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($20 base per page-0 fee header, plus expedite premium and any accompanying-form fees)."
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

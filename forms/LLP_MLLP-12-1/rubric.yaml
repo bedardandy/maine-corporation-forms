@@ -1,0 +1,68 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required-and-non-maine
+    description: "entity.home_jurisdiction is non-empty and not 'Maine'/'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_llp is true, entity.professional_services_description must be non-empty AND entity.professional_partners_licensed_statement should be non-empty."
+    depends_on_keys:
+      - entity.is_professional_llp
+      - entity.professional_services_description
+      - entity.professional_partners_licensed_statement
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true (a fictitious-name election requires a bundled FICT-4)."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is on or before today.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: formation-before-maine-start
+    description: entity.formation_date_in_home_jurisdiction is on or before entity.maine_activities_start_date (cannot conduct Maine activities before existing).
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - entity.maine_activities_start_date
+    severity: required
+  - id: principal-office-address-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of SEVENTH commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: registered-agent-cra-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number is non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-when-noncommercial
+    description: "If registered_agent.type='noncommercial', registered_agent.physical_address is non-empty and not a P.O. Box."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.physical_address
+    severity: required
+  - id: contact-partner-required
+    description: contact_partner.name and contact_partner.address are non-empty.
+    depends_on_keys:
+      - contact_partner.name
+      - contact_partner.address
+    severity: required
+  - id: maine-business-purpose-required
+    description: entity.maine_business_purpose is non-empty.
+    depends_on_keys:
+      - entity.maine_business_purpose
+    severity: required

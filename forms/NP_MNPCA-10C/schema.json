@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-10C.json",
+  "title": "NP_MNPCA-10C fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "merging_corp": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the corporation that is merging into the surviving corporation (the disappearing party). For a domestic-foreign nonprofit merger this may be either the Maine corp or the foreign corp depending on which side survives. Same conceptual key as merger.merging_corp.* on NP_MNPCA-10."
+            },
+            "home_jurisdiction": {
+              "type": "string",
+              "description": "Home jurisdiction (state or country) of the merging (disappearing) corporation. New on NP_MNPCA-10C \u2014 the prior NP_MNPCA-10 (Maine/Maine merger) doesn't need this because both parties are Maine."
+            },
+            "registered_office_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line registered-office address of the merging corporation in Maine (SIXTH paragraph 2). Same Maine-or-elsewhere caveat applies."
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "surviving_corp": {
+          "type": "object",
+          "properties": {
+            "home_jurisdiction": {
+              "type": "string",
+              "description": "Home jurisdiction of the surviving corporation. May be Maine or a foreign jurisdiction. Restated as the 'governing law' in the THIRD paragraph (field 9). New on NP_MNPCA-10C for the same reason as merging_corp.home_jurisdiction."
+            },
+            "benefit_type": {
+              "type": "string",
+              "description": "Mutually-exclusive enum: 'public_benefit' | 'mutual_benefit'. Conditional \u2014 only filled when the surviving corp is a Maine nonprofit (per FIRST). 13-B MRSA \u00a7202 classifies all Maine nonprofits as one of these two types."
+            },
+            "service_of_process_address": {
+              "type": "string",
+              "description": "Address to which the Maine Secretary of State will mail copies of any process directed to the surviving corp. Only required when the surviving corp is foreign (the corp irrevocably appoints the Maine SOS as agent for service per the THIRD paragraph). Single-line combined address."
+            },
+            "registered_office_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line registered-office address of the surviving corporation in Maine (SIXTH paragraph 1). Mirrors NP_MNPCA-10. Note: only required when the surviving corp HAS a Maine registered office; if foreign, the page-1 footnote indicates the address blank may stay empty (per the asterisked note: 'Must provide address of registered office in Maine. If the corporation does not have a registered office in Maine, the address given should be the principal or registered office of the corporation wherever located.')."
+            },
+            "name": {
+              "type": "string"
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "foreign_corp_states": {
+          "type": "string",
+          "description": "Free-text list of state(s) whose laws permit the merger for foreign corporation(s) involved (SECOND paragraph). On a single-foreign-party merger this restates the foreign side's home_jurisdiction; multi-foreign-party mergers list multiple states."
+        },
+        "domestic_corp": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the domestic (Maine) corporation in a domestic-foreign merger \u2014 restated in FIFTH to scope the adoption recital. Same value as whichever of merger.surviving_corp.name or merger.merging_corp.name has home_jurisdiction='Maine'."
+            },
+            "vote_method": {
+              "type": "string",
+              "description": "Mutually-exclusive enum capturing how the domestic (Maine) corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote'. Mirrors NP_MNPCA-10's merger.parties[N].vote_method but scoped to the single domestic party (foreign party's adoption is governed by foreign law, not recorded here)."
+            },
+            "vote_method_date": {
+              "type": "string",
+              "description": "Date associated with the selected vote_method (meeting date, written consent date, or board meeting date). All four FIFTH date widgets bind to this one canonical key \u2014 only the date for the selected option is filled."
+            }
+          }
+        },
+        "{surviving_corp,merging_corp}": {
+          "type": "object",
+          "properties": {
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "{date_signed,corporation_name,signer_{1,2}": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity}": {
+                      "type": "string",
+                      "description": "Per-corporation signature block. Each block has: a DATED widget (date_signed), a corp-name underline ((surviving corporation)/(merged corporation) labels, restating the corp name), and two signer slots (Shape D \u2014 printed name + capacity combined). Exactly mirrors NP_MNPCA-10's signature_block shape."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "plan_exhibit_letter": {
+          "type": "string"
+        },
+        "future_effective_date": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "merger"
+  ]
+}

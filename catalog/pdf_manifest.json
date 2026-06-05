@@ -1,0 +1,1564 @@
+{
+  "pdfs": [
+    {
+      "form_id": "CORP_ASUM-5",
+      "filename": "CORP_ASUM-5.pdf",
+      "sha256": "054697efb0847e5b6a386d70703e526072d82b741e67b619e06e80602dfc53ca",
+      "bytes": 930318,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/ASUM%205.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_CLKRA-3",
+      "filename": "CORP_CLKRA-3.pdf",
+      "sha256": "3a8ce5a60e0b10aa93431d861beedf64f87af27f79a32418f5969f49289c18a0",
+      "bytes": 282882,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/CLKRA3.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_FICT-4",
+      "filename": "CORP_FICT-4.pdf",
+      "sha256": "b66ddfef3759079f80bd4a6c849a877995c28b2dd2b90cf14ab98504f3f53cc5",
+      "bytes": 234411,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/FICT%204.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_HO-E911",
+      "filename": "CORP_HO-E911.pdf",
+      "sha256": "908bddffac64b8f02e2aa4f6ec9367e2e85634ed3b8258a26eabe06369325b1d",
+      "bytes": 446099,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/ho-e911.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-1",
+      "filename": "CORP_MBCA-1.pdf",
+      "sha256": "fa4a28e9c1a3ee6d518eb6a3ea44946285177ff5860c7a2ed17fec5abe4c0df3",
+      "bytes": 351003,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-10",
+      "filename": "CORP_MBCA-10.pdf",
+      "sha256": "a1c49ea79004b5ed43ee60e783ba2e9d5fb482109bdc36c39b22c529d02f692c",
+      "bytes": 217112,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca10.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-10A",
+      "filename": "CORP_MBCA-10A.pdf",
+      "sha256": "67ffd9597badb9e339aef582cdb8366d911648ca95ea18906badeabaf327228c",
+      "bytes": 318180,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca10a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-11",
+      "filename": "CORP_MBCA-11.pdf",
+      "sha256": "e3f92594a550eeb82ab3d3ec888b82fe7e5697be9390a49b66301d4e9701135f",
+      "bytes": 443147,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca11.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-11A",
+      "filename": "CORP_MBCA-11A.pdf",
+      "sha256": "dfb7e00343ecfd991156c5cb7fd98e9a28edde8fcf920a45ffdb7110b659922c",
+      "bytes": 284471,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca11a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-11I",
+      "filename": "CORP_MBCA-11I.pdf",
+      "sha256": "57ec9779110d0ac69c911f47950f5cb6c713b35c021ef115566f1a25fbb563dd",
+      "bytes": 286398,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca11i.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-12",
+      "filename": "CORP_MBCA-12.pdf",
+      "sha256": "994618517fddca52080902081697145c8bebaa67fcb44e9a4d338f3106ffad99",
+      "bytes": 998502,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca12.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-12A",
+      "filename": "CORP_MBCA-12A.pdf",
+      "sha256": "41fa001c11aac518e65ae715c880776a88847131794a8892aa1c35a994c6832e",
+      "bytes": 238410,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca12a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-12B",
+      "filename": "CORP_MBCA-12B.pdf",
+      "sha256": "0e34c32b4bfdcb7e1c4164c4196ec4b4e6eaa1ee9c620ccea7b6f2163661d607",
+      "bytes": 279481,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca12b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-12C",
+      "filename": "CORP_MBCA-12C.pdf",
+      "sha256": "32d3034aa5d1c219cea2881c1adb7e74af60191b00b8f880fea1030917ac77fc",
+      "bytes": 208754,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca12c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-12E-NCRA",
+      "filename": "CORP_MBCA-12E-NCRA.pdf",
+      "sha256": "d32bc2fb10957a68df3cb6ceee2a1543f73da968ef079eada0cfb358e6832e31",
+      "bytes": 680446,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca12e-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-13A",
+      "filename": "CORP_MBCA-13A.pdf",
+      "sha256": "3f6ddc194a2f9566fe057d9fb190fd9ec613472c9389d51c6b24e5da254c728b",
+      "bytes": 255023,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca13a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-14",
+      "filename": "CORP_MBCA-14.pdf",
+      "sha256": "abde52a99e5c523b46f423f14eb17e08048bcf42ed7b1e8084ea325be3f05dad",
+      "bytes": 291270,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca14.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-14A",
+      "filename": "CORP_MBCA-14A.pdf",
+      "sha256": "33785f8b807e79a6282d33c209b155922e6edc90f33633fe89aed5cd54cf7208",
+      "bytes": 285561,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca14a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-15",
+      "filename": "CORP_MBCA-15.pdf",
+      "sha256": "51b2f81ada075f408019098205cd5a5024efcc71c49a030010f5d65045e01502",
+      "bytes": 277686,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca15.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-17",
+      "filename": "CORP_MBCA-17.pdf",
+      "sha256": "ba20a9e504bf800b33fe8c4df7a6fcc28f52032143de117a9a2d491867a5af10",
+      "bytes": 448912,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca17.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-19",
+      "filename": "CORP_MBCA-19.pdf",
+      "sha256": "20fbd79ce2fec403074a632afdeb97f328745446a21cce019189a03547debc8e",
+      "bytes": 278924,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca19.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-19A",
+      "filename": "CORP_MBCA-19A.pdf",
+      "sha256": "0d1ba92ffae823259d8cc334c844d9a031559e2c3e9d2e8177029737a77c2762",
+      "bytes": 279008,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca19a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-19B",
+      "filename": "CORP_MBCA-19B.pdf",
+      "sha256": "7069092776c139b7889dad31bd6ce48611d0d30227198c5bfb395a223b1a40ee",
+      "bytes": 321362,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca19b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-1A",
+      "filename": "CORP_MBCA-1A.pdf",
+      "sha256": "c3d059d5ff991f8c28821799467c56403f9c8ef9c23767543b7572095a1b9b64",
+      "bytes": 315330,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-2",
+      "filename": "CORP_MBCA-2.pdf",
+      "sha256": "b60a46ba2a160f17b471384b7cbe2336e7c48bdc2e5336b85c915d0e1368fe09",
+      "bytes": 337651,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-20",
+      "filename": "CORP_MBCA-20.pdf",
+      "sha256": "906fe142b69eaef25ca28c690d37f3a259d21dabb931f5e5c3a9aec7f0488e46",
+      "bytes": 278527,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca20.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-20A",
+      "filename": "CORP_MBCA-20A.pdf",
+      "sha256": "ac3bc6d78eda491df7f79f5de930176c207036a39e2c39e6e868bf1606fa648b",
+      "bytes": 278820,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca20a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-20B",
+      "filename": "CORP_MBCA-20B.pdf",
+      "sha256": "597f00954363f8b96140199c34f953b73a7c5cc9d99c149dfb708561475b83a9",
+      "bytes": 316049,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca20b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-21",
+      "filename": "CORP_MBCA-21.pdf",
+      "sha256": "1111ede6b5da8de6911f0157534b259faf62a1ccabfa6b7ca4b43387736bd941",
+      "bytes": 241673,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca21.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-21A",
+      "filename": "CORP_MBCA-21A.pdf",
+      "sha256": "311e6cccf5c9bddb50263c20da12029b50635ce2597d6052bce7dc33e3f2ef88",
+      "bytes": 284561,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca21a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-21B",
+      "filename": "CORP_MBCA-21B.pdf",
+      "sha256": "1e175e9fba04055fa005e90ac4a307f1c8a2e52ac2a0424d5abb90d277618167",
+      "bytes": 279248,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca21b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-21C",
+      "filename": "CORP_MBCA-21C.pdf",
+      "sha256": "a5c007ad7e735245cbf3fafdc1ea247a276251276548ba014ca108df6bf726fe",
+      "bytes": 316734,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca21c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-2A",
+      "filename": "CORP_MBCA-2A.pdf",
+      "sha256": "d55c0d28dc43f51131c0dfad58690e708487651bd34925db59c6840b1bf326ff",
+      "bytes": 499289,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca2a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-3A-NCRA",
+      "filename": "CORP_MBCA-3A-NCRA.pdf",
+      "sha256": "32a597fff89535050d63c42be97b09609391e674172eeba8960918ee74a543cd",
+      "bytes": 680171,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca3a-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-5A",
+      "filename": "CORP_MBCA-5A.pdf",
+      "sha256": "0aa6ed6c6ef457bb7322471023048b9300a12819577d42623ccebd934d98ba0b",
+      "bytes": 293121,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca5a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-6",
+      "filename": "CORP_MBCA-6.pdf",
+      "sha256": "1f46985c33044cc873ecdaad5a90788367ff1946e20a18ae68ffe953ed133e29",
+      "bytes": 957556,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-6-1",
+      "filename": "CORP_MBCA-6-1.pdf",
+      "sha256": "3119b2811ec1cf983e5f9bf1d3c218f7fc939c2c83f1ac98072506c9094a80c3",
+      "bytes": 76764,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca6-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-6A",
+      "filename": "CORP_MBCA-6A.pdf",
+      "sha256": "7644cd946c2fcd2b67ac3b605761bf845eff42f064d93dd7b5a3f74984281e48",
+      "bytes": 490464,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca6a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-9",
+      "filename": "CORP_MBCA-9.pdf",
+      "sha256": "f483c820f10d228a2667ec56f7452fb660675831d474223474a713ad98e2d159",
+      "bytes": 229283,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca9.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MBCA-9A",
+      "filename": "CORP_MBCA-9A.pdf",
+      "sha256": "556dd460566157757a96947b5250d129e5d353487b3bddef4733f10474d9a2e3",
+      "bytes": 278624,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mbca9a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_MERGFOR",
+      "filename": "CORP_MERGFOR.pdf",
+      "sha256": "843edb0db51e94c679ba0651b95a7d83746b5182a2af4844deca6d57191c9625",
+      "bytes": 313132,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/mergfor.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_REVIVAL",
+      "filename": "CORP_REVIVAL.pdf",
+      "sha256": "d131fb4ee51c03fc921fc57902e00184f77ddb69d2e0d3c92eddc2fdbbef1397",
+      "bytes": 451728,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/revival.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_RO-E911",
+      "filename": "CORP_RO-E911.pdf",
+      "sha256": "48dbc7c8a66911b9054d2188c4bea0cc79bb8b97ded82bd6e3f338a6a5f582e0",
+      "bytes": 503420,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/ro-e911.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "CORP_SOPAPPT",
+      "filename": "CORP_SOPAPPT.pdf",
+      "sha256": "c71ed07d088ad9b74aea25464fe79ba767b21e8759376e36416f7c74c5cfc9b5",
+      "bytes": 446176,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/sopappt.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "GP_CONV-PARTNER",
+      "filename": "GP_CONV-PARTNER.pdf",
+      "sha256": "24d9de41953b0049ce1a5edab82d3b52ec624b8f8871a771421d0f66da3cc01c",
+      "bytes": 326401,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/conv-partner.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "GP_MPA-1",
+      "filename": "GP_MPA-1.pdf",
+      "sha256": "746068861fefbcfa57adfa84dcbd5fac3690b5be82a5bb0cb5a0cb3e4b461ab1",
+      "bytes": 290093,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mpa1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "GP_MPA-2",
+      "filename": "GP_MPA-2.pdf",
+      "sha256": "12ef7acc8e1bab7df93be966bbfe34e6e3542462f1825d87367993d65cf3871e",
+      "bytes": 530788,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mpa2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MERGFOR",
+      "filename": "LLC_MERGFOR.pdf",
+      "sha256": "843edb0db51e94c679ba0651b95a7d83746b5182a2af4844deca6d57191c9625",
+      "bytes": 313132,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/mergfor.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-1",
+      "filename": "LLC_MLLC-1.pdf",
+      "sha256": "d5dd74eb48215f182d00e30de8f4c4382fc3011634059871e781c92d86b3e2c2",
+      "bytes": 205010,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-10",
+      "filename": "LLC_MLLC-10.pdf",
+      "sha256": "53f76b61bf02e8188626da138602fd29381701e8830f6dbb14568025e9f1d3d3",
+      "bytes": 459296,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc10.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-11C",
+      "filename": "LLC_MLLC-11C.pdf",
+      "sha256": "138b8082de1ccb338f19bbc98218af38066e4682d8e2adec61afa0759d4a6ee2",
+      "bytes": 712144,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc11c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-12",
+      "filename": "LLC_MLLC-12.pdf",
+      "sha256": "9334eadc6e294d6887be3930a1ab1f634c80eaf51c2a51faf9286535dec9466f",
+      "bytes": 550010,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc12.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-12A",
+      "filename": "LLC_MLLC-12A.pdf",
+      "sha256": "c8e756486a37f81361b1a3a5e3ab9cd044fcfd7391c8c8cfb983556febb5961e",
+      "bytes": 493766,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc12a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-12B",
+      "filename": "LLC_MLLC-12B.pdf",
+      "sha256": "8c590e6eb6a334fc731dc44aac95ef23e12930ec0af34f8f645e576824496525",
+      "bytes": 446294,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc12b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-13A",
+      "filename": "LLC_MLLC-13A.pdf",
+      "sha256": "9ada8eda205c047dc7eabcdd9ce99453ae92b06234a60f6cfcbc02048d5a6783",
+      "bytes": 260638,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc13a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-14",
+      "filename": "LLC_MLLC-14.pdf",
+      "sha256": "746308320f41fd1cc1b68cf3046fbc5cfbfdfc361874ab38e1e5de2451f32bc9",
+      "bytes": 443314,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc14.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-14A",
+      "filename": "LLC_MLLC-14A.pdf",
+      "sha256": "02aa32e4bb3dcb67b914f8901af5c15108681367bac01a43d2411760b86f796c",
+      "bytes": 443278,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc14a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-15",
+      "filename": "LLC_MLLC-15.pdf",
+      "sha256": "bb5af1bc3f66bde6c94c07a122de0268e736f1f463f4492ec5b4183c71befba8",
+      "bytes": 443640,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc15.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-17",
+      "filename": "LLC_MLLC-17.pdf",
+      "sha256": "222bff494e503038fd885b05277e53410132dad4699ed8a438026e879ba3b142",
+      "bytes": 446154,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc17.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-1A",
+      "filename": "LLC_MLLC-1A.pdf",
+      "sha256": "23bd9ee7b3cde3cfc57d662eab687f2969fd8a1b203c6417def3e8035c5e8bb4",
+      "bytes": 447674,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-2",
+      "filename": "LLC_MLLC-2.pdf",
+      "sha256": "1370f30fbb9f932cb5f81bcde0dcb37098d206a589cc2e322b697ed11429433a",
+      "bytes": 450180,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-3A-NCRA",
+      "filename": "LLC_MLLC-3A-NCRA.pdf",
+      "sha256": "feefcde8df5f3055f04f73fd93ecaee7fb8e0fd6a4aedeccb1666a7fc716c620",
+      "bytes": 443295,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc3a-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-5A",
+      "filename": "LLC_MLLC-5A.pdf",
+      "sha256": "0c16f7d6c38d9a4bc11b47f8e5301602cd3ca593df816a42935b9d83f072be61",
+      "bytes": 443261,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc5a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-6",
+      "filename": "LLC_MLLC-6.pdf",
+      "sha256": "31d44de4be5df9b16b6d35c0fad9361d1c0fefd5ccf170bf8bb55a4e4959893d",
+      "bytes": 922760,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-6A",
+      "filename": "LLC_MLLC-6A.pdf",
+      "sha256": "a23061e68e015d55eccbf6dfabf65b9d81c8d979924d4182bb9461146c7e418c",
+      "bytes": 455991,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLC-9",
+      "filename": "LLC_MLLC-9.pdf",
+      "sha256": "de36c0a00b77cdace803ebbabcde2dd17211a09d2dd8c2e05ad0da1ad47736f1",
+      "bytes": 456612,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc9.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLCACSOA",
+      "filename": "LLC_MLLCACSOA.pdf",
+      "sha256": "2c8061aba1ce2675c06074f950605d4990d78a853d53fabadf79aef6642be4d2",
+      "bytes": 459559,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllcacsoa.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLCCONV",
+      "filename": "LLC_MLLCCONV.pdf",
+      "sha256": "f5eddd08fbf89a9d33ae0c56833729f2a1a6142221244e8793fa0e85147ed65b",
+      "bytes": 224292,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllcconv.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLCDENIAL",
+      "filename": "LLC_MLLCDENIAL.pdf",
+      "sha256": "e52d26f54efafb608a19ed0d6640571b906c6ba9782f3650722db024522f1b8b",
+      "bytes": 443446,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllcdenial.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLC_MLLCSOA",
+      "filename": "LLC_MLLCSOA.pdf",
+      "sha256": "c6eea63059463b80f8b27e18468aa62910df2573423c7cfc1d5327916300f21b",
+      "bytes": 445509,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllcsoa.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-1",
+      "filename": "LLP_MLLP-1.pdf",
+      "sha256": "22a5562b8cff093941fa137769f228eae792ab6cf8a6a05d588819436abb86e6",
+      "bytes": 352736,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-11R",
+      "filename": "LLP_MLLP-11R.pdf",
+      "sha256": "b08c2667ba380f073f97b5bf8ef00e1f4d753b8a94681cadbfad24a722019d09",
+      "bytes": 299143,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp11r.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-12",
+      "filename": "LLP_MLLP-12.pdf",
+      "sha256": "56c2b404ae120dcf9f8afdc6e26be4f6cd464d504004a5a498a935940fa52713",
+      "bytes": 529453,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp12.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-12-1",
+      "filename": "LLP_MLLP-12-1.pdf",
+      "sha256": "5f33cab207e0dc9d804b4eb0538b237cc5d81a1398ab3de60cc4dd9a204625ec",
+      "bytes": 477283,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp12-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-12A",
+      "filename": "LLP_MLLP-12A.pdf",
+      "sha256": "26a595632deeeaf48f10f24cbac987a09ec02c74b8731af5c4da6fd24dad6bd7",
+      "bytes": 307685,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp12a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-12B",
+      "filename": "LLP_MLLP-12B.pdf",
+      "sha256": "fe3023c642912b69d46d4cd1382693b33d2d070c793369a8d5e7756755cdeece",
+      "bytes": 293698,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp12b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-13A",
+      "filename": "LLP_MLLP-13A.pdf",
+      "sha256": "be4560ac34a662355c8dfb11ce6cf1f6dbd505016e2839868ac205afd7891775",
+      "bytes": 260791,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp13a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-15",
+      "filename": "LLP_MLLP-15.pdf",
+      "sha256": "8d728d5fbd3c70c834843dd98b9293e5cf2969e36064ca0d4adf6ffcd8f1de21",
+      "bytes": 285405,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp15.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-17",
+      "filename": "LLP_MLLP-17.pdf",
+      "sha256": "1a43870c84e4af1820d5ec7d753c3a939bf2033f8292fe279f1a4135cf6e5387",
+      "bytes": 203370,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp17.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-17A",
+      "filename": "LLP_MLLP-17A.pdf",
+      "sha256": "7d5067f9ec66c6cf05976a53d2744ca13257b668325be879e3dda9784fdf7317",
+      "bytes": 204114,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp17a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-1A",
+      "filename": "LLP_MLLP-1A.pdf",
+      "sha256": "7236a3f35ce6dc022c56672984bfc5dc3de6d89e98d4b4b1efd4cdb4871c3825",
+      "bytes": 321312,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-2",
+      "filename": "LLP_MLLP-2.pdf",
+      "sha256": "b99d7d3e2eb43c8c530b325879aa53e222c112dc802f22a7d175516dcc7f226c",
+      "bytes": 510017,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-3A-NCRA",
+      "filename": "LLP_MLLP-3A-NCRA.pdf",
+      "sha256": "3ef549369392a15f900944c3b872fdef7e32a7c5fa31ad0f27f80295172c709a",
+      "bytes": 444171,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp3a-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-5A",
+      "filename": "LLP_MLLP-5A.pdf",
+      "sha256": "b2282448d4b8c6e897f3590d57a8c6f4adc42d7f92792a69643f8ff8ae63f3aa",
+      "bytes": 325855,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp5a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-6",
+      "filename": "LLP_MLLP-6.pdf",
+      "sha256": "64b61aa77f072af6b7749927786faa6e29c0aa496743626a48589d8d7af47bd6",
+      "bytes": 739132,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-6-1",
+      "filename": "LLP_MLLP-6-1.pdf",
+      "sha256": "6927640e24c09b5c3a82530be54ca7351b35269d86d8fd08e3a8a912cbfd238a",
+      "bytes": 345294,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp6-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-6A",
+      "filename": "LLP_MLLP-6A.pdf",
+      "sha256": "5f500977a1f69495ed0904deda4cfa4b8b89461a48ff225210db4f008206996f",
+      "bytes": 507075,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp6a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LLP_MLLP-9",
+      "filename": "LLP_MLLP-9.pdf",
+      "sha256": "4597322e3093ce3fec6da49d7c6246fbf3d533e2f34fe49f6611b1cfc7948051",
+      "bytes": 293876,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllp9.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-1",
+      "filename": "LP_MLPA-1.pdf",
+      "sha256": "b4b33d18e1e35444be47da075932537485dd9577ce5dfc65716fef1d6185d135",
+      "bytes": 205363,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-10",
+      "filename": "LP_MLPA-10.pdf",
+      "sha256": "3db938ae0b3ec0c2b4619225051b49e823e7a55b9762ae50428fcc702baace7b",
+      "bytes": 532389,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa10.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-11C",
+      "filename": "LP_MLPA-11C.pdf",
+      "sha256": "d5e8dfb11a19a843b52f2d8fef32085e41b69ecc9f83b23ef00cfc3085a00653",
+      "bytes": 206764,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa11c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-12",
+      "filename": "LP_MLPA-12.pdf",
+      "sha256": "76cec23749d0a7ab9bbec24201038aabbd7bbe963f51bfd55c603caab5ffc24e",
+      "bytes": 558759,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa12.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-12-1",
+      "filename": "LP_MLPA-12-1.pdf",
+      "sha256": "fff0e57184a233f5ecbca666b47b03006074a44c00dc48aa017750ec35aab4ac",
+      "bytes": 562523,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa12-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-12A",
+      "filename": "LP_MLPA-12A.pdf",
+      "sha256": "4a8ccceda16911eb05c41bb73e6c425c57847b970c1ca8c46be4460bc8578277",
+      "bytes": 260843,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa12a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-12B",
+      "filename": "LP_MLPA-12B.pdf",
+      "sha256": "6ae933e08ab97a4760bd7100324ced06ad131d04dad6348c6e4939100e63733c",
+      "bytes": 209951,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa12b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-13A",
+      "filename": "LP_MLPA-13A.pdf",
+      "sha256": "be5530354a577d945bc951d62bcc49f489fd4a4a39be7aeef9fe85442e4f82b7",
+      "bytes": 259933,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa13a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-15",
+      "filename": "LP_MLPA-15.pdf",
+      "sha256": "1d112142eb09da41e1eb4f2088083ea30d764c2938f711b828c1c5dfeab66787",
+      "bytes": 205737,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa15.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-17",
+      "filename": "LP_MLPA-17.pdf",
+      "sha256": "8604e3b8abb5a4e40fe7838fc94700877241b5a700b5b3c7ade93f0fc59b6cb2",
+      "bytes": 448447,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa17.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-1A",
+      "filename": "LP_MLPA-1A.pdf",
+      "sha256": "cf7cbcf7140b054d591fd78d70e2e4b8723abe026b314b54df4827dd3082e3ff",
+      "bytes": 213700,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-2",
+      "filename": "LP_MLPA-2.pdf",
+      "sha256": "92029be6b1e09bad207b0b135beaf62a126d8c12e85c81ea935edd16bbdd9b7f",
+      "bytes": 212752,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-3A-NCRA",
+      "filename": "LP_MLPA-3A-NCRA.pdf",
+      "sha256": "ac15dcd000e4fa6ec932ea03367072c12bdad248bc61a3f9ea23e7b219db1a39",
+      "bytes": 510905,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa3a-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-5A",
+      "filename": "LP_MLPA-5A.pdf",
+      "sha256": "4271c1c0d9bfcf49c354774b6d403bdbf029425d848c80307199e65a919b01e8",
+      "bytes": 207135,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa5a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-5B",
+      "filename": "LP_MLPA-5B.pdf",
+      "sha256": "01c5c7f06df207bf7d47f514c3492b8313a08af1d9bdffc09e8fdae2ee854e8e",
+      "bytes": 212263,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa5b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-6",
+      "filename": "LP_MLPA-6.pdf",
+      "sha256": "6bb5591c12f8e473a9f9c32b3761b8d59da7cc1dc9e82d5026b086f07a299c1c",
+      "bytes": 724552,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-6-1",
+      "filename": "LP_MLPA-6-1.pdf",
+      "sha256": "54bd8e26e4f4aed7d31170cb92571fb5bc707db5b599b2eae4214529990eef41",
+      "bytes": 280844,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa6-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-6A",
+      "filename": "LP_MLPA-6A.pdf",
+      "sha256": "818a88a4507c071131b25392ef395cd657ae7b85b79ccfd0afeddeb6fc3d40ff",
+      "bytes": 219140,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa6a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-9",
+      "filename": "LP_MLPA-9.pdf",
+      "sha256": "a56de399f505dad9b8bd9978287d1ac023843a727b0f8ec487766f04653373cc",
+      "bytes": 232874,
+      "num_pages": 5,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa9.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-9A",
+      "filename": "LP_MLPA-9A.pdf",
+      "sha256": "4a01bfce5c5903fd76e500dac8b199ee2e4eec0cafaec946ae49d10db62ce90f",
+      "bytes": 205726,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa9a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPA-9B",
+      "filename": "LP_MLPA-9B.pdf",
+      "sha256": "e42c737fc42a5dbdeccb235b06903ae01876f8d6875223e7f38fdd44f9fb226c",
+      "bytes": 205493,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpa9b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "LP_MLPACONV",
+      "filename": "LP_MLPACONV.pdf",
+      "sha256": "a34deab9c1a43189f978b6b89273de3e83af6f15b0d2c7e3a45d47248e1addcd",
+      "bytes": 211937,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlpaconv.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark1",
+      "filename": "MARK_mark1.pdf",
+      "sha256": "16975b16dd7dc8e94d6c4c51475b77d28bbea87ed37222fa3210fe57782cf7c7",
+      "bytes": 252490,
+      "num_pages": 7,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark1a",
+      "filename": "MARK_mark1a.pdf",
+      "sha256": "53573783cb218cf2911da1e7496888fd61fb5966a0e0ed9f8906fcfc7cd993a2",
+      "bytes": 307431,
+      "num_pages": 1,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark2",
+      "filename": "MARK_mark2.pdf",
+      "sha256": "c90e27316091d2722841b2be1072a2573af67ca2b10805de3643e4ca73202f45",
+      "bytes": 1653773,
+      "num_pages": 5,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark3",
+      "filename": "MARK_mark3.pdf",
+      "sha256": "7587b78a5ba942bc159741904234fa5ec06d987ad4faf55b3208c2059dfdcb15",
+      "bytes": 278778,
+      "num_pages": 5,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark3.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark4",
+      "filename": "MARK_mark4.pdf",
+      "sha256": "130df4f677aeebc1f471f34fc4a72f10a4102c7017bd7800eaa6cc6d570b0a28",
+      "bytes": 281456,
+      "num_pages": 5,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark4.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark5",
+      "filename": "MARK_mark5.pdf",
+      "sha256": "6eeda1c04ac1e628745b4d5f62af6bc8cf2712dc8dd7cc6b51c3db97517bab90",
+      "bytes": 71596,
+      "num_pages": 3,
+      "has_acroform": false,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark5.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "MARK_mark6",
+      "filename": "MARK_mark6.pdf",
+      "sha256": "d0157abe954a20720912e0ead40ab6cd9b6a08b79f8ae69fbc4307f9e2debe92",
+      "bytes": 444210,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mark6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_CLKRA-3",
+      "filename": "NP_CLKRA-3.pdf",
+      "sha256": "3a8ce5a60e0b10aa93431d861beedf64f87af27f79a32418f5969f49289c18a0",
+      "bytes": 282882,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/CLKRA3.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_FICT-4",
+      "filename": "NP_FICT-4.pdf",
+      "sha256": "b66ddfef3759079f80bd4a6c849a877995c28b2dd2b90cf14ab98504f3f53cc5",
+      "bytes": 234411,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/FICT%204.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MLC-3_0",
+      "filename": "NP_MLC-3_0.pdf",
+      "sha256": "d849f9cf0733c694d806693bdc4a5e2b9aca0a4343ad7f5398ab4f67fc166a90",
+      "bytes": 763024,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlc3_0.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MLC-6",
+      "filename": "NP_MLC-6.pdf",
+      "sha256": "c84f3da50205a99a7a9e618a240a07c449aa9fa761d75751c6350d73903555c0",
+      "bytes": 311232,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mlc6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNP-3",
+      "filename": "NP_MNP-3.pdf",
+      "sha256": "79c4f2a00d8424c17aa5cf9745e63ad27e37ac6aa89130e01494fcd766503293",
+      "bytes": 221192,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnp3.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNP-6",
+      "filename": "NP_MNP-6.pdf",
+      "sha256": "d537725801487061124c21be3aa84f4e3f9bacf5597959ad6fe71367477cb0f2",
+      "bytes": 209160,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnp6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNP-9",
+      "filename": "NP_MNP-9.pdf",
+      "sha256": "ab86e294f5181b04b1aab9d71372ffa9f97b5c44045fbd4c4c99e9e1af67e45f",
+      "bytes": 205315,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnp9.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNP-981A",
+      "filename": "NP_MNP-981A.pdf",
+      "sha256": "54083477d779a89f0a5ad94b117d86e481f40659da7df30df42970864ce16c86",
+      "bytes": 311290,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnp981a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-1",
+      "filename": "NP_MNPCA-1.pdf",
+      "sha256": "ad61cd6ce113f96d357b929c93dc399cf06eb2a6cfde1ce90f659faa8ae9bd6a",
+      "bytes": 356245,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-10",
+      "filename": "NP_MNPCA-10.pdf",
+      "sha256": "bbbb0c0f03d243d4c8d65ed29c0dbb4427adfc53b016a6a88398c3631d59d258",
+      "bytes": 422121,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca10.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-10A",
+      "filename": "NP_MNPCA-10A.pdf",
+      "sha256": "214dd11a864eb00d1bb76a3b744d5dd7bfc65f9572853f6e9f4828ddcea4f607",
+      "bytes": 428981,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca10a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-10C",
+      "filename": "NP_MNPCA-10C.pdf",
+      "sha256": "e026ae41304fbce404959169bfd84eb7a0c1fa2f4f403b99b2aef363a45839e9",
+      "bytes": 495104,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca10c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-10E",
+      "filename": "NP_MNPCA-10E.pdf",
+      "sha256": "d7191265daf95f49878bb9a591a53cefae5a7a75d5f1a199f2af51f2bd1ea31d",
+      "bytes": 504285,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca10e.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11",
+      "filename": "NP_MNPCA-11.pdf",
+      "sha256": "4648f18d01c692c420b9189794182d8c38d7d732f4af02e64ce351b9df79dc02",
+      "bytes": 215618,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11A",
+      "filename": "NP_MNPCA-11A.pdf",
+      "sha256": "3a345f3b45c3ea6d6c6af37b215e9c92638f7034608770f6cf30a8a7f4d5c8df",
+      "bytes": 216285,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11B",
+      "filename": "NP_MNPCA-11B.pdf",
+      "sha256": "e1fbe57f37cf98e30638853f129cf37848f6b6496192247663c508d2a425bff7",
+      "bytes": 453030,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11C",
+      "filename": "NP_MNPCA-11C.pdf",
+      "sha256": "3686538e4029033ec62b7e71a59c1f5144e1c8accd6b8439f34375eaadf902ca",
+      "bytes": 453000,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11c.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11D",
+      "filename": "NP_MNPCA-11D.pdf",
+      "sha256": "5a8d1ba350fbfc718484f58051e409fad67b8045623d05a5ea427993809b2049",
+      "bytes": 359811,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11d.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-11E",
+      "filename": "NP_MNPCA-11E.pdf",
+      "sha256": "a345305fb5282b5b0c7945e122ba53330ddc5bbb2d656d9800c18075809164a2",
+      "bytes": 290994,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca11e.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-12",
+      "filename": "NP_MNPCA-12.pdf",
+      "sha256": "a64954fcb489fc736f3bc4ea44939d1c5e8efd5ab7faf20d4511738cfb0c0eb5",
+      "bytes": 539661,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca12.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-12-1",
+      "filename": "NP_MNPCA-12-1.pdf",
+      "sha256": "738a0ac9f4354962c3b4361d8a73ec332306c02d590e5ab19c8345db9bd57462",
+      "bytes": 312604,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca12-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-12A",
+      "filename": "NP_MNPCA-12A.pdf",
+      "sha256": "501f2fb21aa8ae6fcff6141b86ea9afab5fb9cb5dad7927fb90ff111e38d8f98",
+      "bytes": 305878,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca12a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-12B",
+      "filename": "NP_MNPCA-12B.pdf",
+      "sha256": "54f0d11dc055bf697451d40525ab510ca0933e94d35153226e45ed1ea6b23ce6",
+      "bytes": 473579,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca12b.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-13A",
+      "filename": "NP_MNPCA-13A.pdf",
+      "sha256": "bf2ebe257fcc59eac344e2aa470be45bc8ce7b8f3564f6307e1d96575cbdc163",
+      "bytes": 937917,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca13a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-14",
+      "filename": "NP_MNPCA-14.pdf",
+      "sha256": "9d71f62f10fc1644ec26276c248316078bb99ecd476ff3056a3adc8d50857f66",
+      "bytes": 202864,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca14.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-14A",
+      "filename": "NP_MNPCA-14A.pdf",
+      "sha256": "553b7a62500859ce8f1932e113a03745f3ceaf2ab8351fc2faffc64e6d14c105",
+      "bytes": 454930,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca14a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-15",
+      "filename": "NP_MNPCA-15.pdf",
+      "sha256": "5368e8d61f8f8056aa6ff8abee93e3dbd8d6604c95dad5ed8dd54fa6928ef777",
+      "bytes": 359559,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca15.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-16",
+      "filename": "NP_MNPCA-16.pdf",
+      "sha256": "c47804936605479b24d08df875d86f35faa229e1216e2d8cb628a471e706365b",
+      "bytes": 270302,
+      "num_pages": 1,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca16.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-17",
+      "filename": "NP_MNPCA-17.pdf",
+      "sha256": "050603c42e52df9daa9b169d678fe01111920fd4808837de166199edfc4a70c0",
+      "bytes": 448424,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca17.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-19",
+      "filename": "NP_MNPCA-19.pdf",
+      "sha256": "4b92307c42c77e54e96503f85596a57517f0acb072ad23d724f88a86118c0c07",
+      "bytes": 326778,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca19.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-19A",
+      "filename": "NP_MNPCA-19A.pdf",
+      "sha256": "41ace3e0737a51f4cfd302f19946b067d9354f86a8e904fcf69bd527163ff3aa",
+      "bytes": 323395,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca19a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-1A",
+      "filename": "NP_MNPCA-1A.pdf",
+      "sha256": "ce79a2b493f8ef7b401624b8f4185c8ba5a04845c08634214256e838ce1f50e7",
+      "bytes": 322693,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca1a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-2",
+      "filename": "NP_MNPCA-2.pdf",
+      "sha256": "f7646eca60c32030b4b7456ff16a970982bcdbb0b69078e138a0517b47fc01b4",
+      "bytes": 341018,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca2.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-3A-NCRA",
+      "filename": "NP_MNPCA-3A-NCRA.pdf",
+      "sha256": "5f3394aa7d05e94e34634736a030d77696ad11be622b4ffd7669fe3a11ba1079",
+      "bytes": 453076,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca3a-ncra.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-5A",
+      "filename": "NP_MNPCA-5A.pdf",
+      "sha256": "87b2e7d340771ca9e47eb3ed18e77c42551b610b3438fa2b2f03c29a3f08d589",
+      "bytes": 357977,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca5a.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-6",
+      "filename": "NP_MNPCA-6.pdf",
+      "sha256": "1eb5bc186684cb52a1d2bb9a8ed123b7329144f4a15f393b00bc65d9c3f207ea",
+      "bytes": 261098,
+      "num_pages": 4,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca6.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-6-1",
+      "filename": "NP_MNPCA-6-1.pdf",
+      "sha256": "ee5df549f309196406d0186227e97d06e34020d1a05ad310334863ad2e76712b",
+      "bytes": 37682,
+      "num_pages": 2,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca6-1.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-6A_0",
+      "filename": "NP_MNPCA-6A_0.pdf",
+      "sha256": "60279e9b2c3ca64bc3c8c581ef334913a5f3d4fd1f04e1b8435fe7e2505fb9ba",
+      "bytes": 70465,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca6a_0.pdf",
+      "fetch": true
+    },
+    {
+      "form_id": "NP_MNPCA-9",
+      "filename": "NP_MNPCA-9.pdf",
+      "sha256": "a081400d7b9b9b9a16846f0592bc1c99c34f81b188813756ceca308c8e5593ef",
+      "bytes": 451428,
+      "num_pages": 3,
+      "has_acroform": true,
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mnpca9.pdf",
+      "fetch": true
+    }
+  ]
+}

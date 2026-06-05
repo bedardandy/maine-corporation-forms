@@ -1,0 +1,69 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-document-name-required
+    description: correction.original_document_name is non-empty.
+    depends_on_keys:
+      - correction.original_document_name
+    severity: required
+  - id: original-filing-date-required-and-past
+    description: correction.original_filing_date is non-empty and on or before filing.date_signed (cannot correct a future record).
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: error-description-required
+    description: correction.error_description is non-empty.
+    depends_on_keys:
+      - correction.error_description
+    severity: required
+  - id: corrected-information-required
+    description: correction.corrected_information is non-empty.
+    depends_on_keys:
+      - correction.corrected_information
+    severity: required
+  - id: foreign-block-paired
+    description: "If either entity.home_jurisdiction or entity.maine_authorization_date is set, both must be set (SEVENTH applies to foreign LPs only and the two fields must travel together)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-required
+    description: "At least one signer present: general_partner_1.printed_name OR (general_partner_entity_1.name + general_partner_entity_1.signer_printed_name_and_capacity). §1324.1.J only requires one GP signature."
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-gp-consistency
+    description: "If general_partner_entity_1.name is set, general_partner_entity_1.signer_printed_name_and_capacity must also be set."
+    depends_on_keys:
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required

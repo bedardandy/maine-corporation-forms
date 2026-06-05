@@ -1,0 +1,202 @@
+{
+  "form_id": "LP_MLPA-5B",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Real Name of Limited Partnership)"
+    },
+    "assumed_name.name": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The assumed name of the limited partnership affected by this change"
+    },
+    "assumed_name.current_location": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: The location where the assumed name is currently being used, if any"
+    },
+    "assumed_name_change.change_locations": {
+      "widget_id": "Check Box4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: Change location(s)"
+    },
+    "assumed_name_change.add_locations": {
+      "widget_id": "Check Box5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: Add additional location(s)"
+    },
+    "assumed_name_change.delete_locations": {
+      "widget_id": "Check Box6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: Delete location(s)"
+    },
+    "assumed_name_change.description.line1": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: (provide description of change/addition/deletion in the space provide below) \u2014 line 1"
+    },
+    "assumed_name_change.description.line2": {
+      "widget_id": "Text8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: change description \u2014 line 2"
+    },
+    "assumed_name_change.additional_locations_attached": {
+      "widget_id": "Check Box9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Additional locations are attached as Exhibit ___, and made a part hereof"
+    },
+    "assumed_name_change.additional_locations_exhibit_letter": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Exhibit ___ [additional locations]",
+      "when": "assumed_name_change.additional_locations_attached == true"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text11",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___"
+    },
+    "filing.signer.printed_name": {
+      "widget_id": "Text12",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "GENERAL PARTNER(S)* \u2014 (type or print name)"
+    },
+    "filing.signer_entity.name": {
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "For General Partner(s) which are Entities \u2014 Name of Entity"
+    },
+    "filing.signer_entity.signer_printed_name_and_capacity": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "For General Partner(s) which are Entities \u2014 By ___ (authorized signature) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Contact email address for this filing)"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Email address to use for annual report reminders)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of attested copy recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

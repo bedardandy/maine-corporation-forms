@@ -1,0 +1,298 @@
+{
+  "form_id": "NP_MNPCA-10E",
+  "fields": {
+    "consolidation.parties[0].name": {
+      "widget_id": [
+        "1",
+        "12",
+        "21"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) \u2014 first participating corp name (top recital)"
+    },
+    "consolidation.parties[0].descriptor": {
+      "widget_id": "2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) \u2014 first participating corp descriptor"
+    },
+    "consolidation.parties[1].name": {
+      "widget_id": [
+        "3",
+        "24"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) \u2014 second participating corp name"
+    },
+    "consolidation.parties[1].descriptor": {
+      "widget_id": "4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) \u2014 second participating corp descriptor"
+    },
+    "consolidation.new_entity.name": {
+      "widget_id": [
+        "5",
+        "8"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) FORMING \u2014 new consolidated corp name"
+    },
+    "consolidation.new_entity.descriptor": {
+      "widget_id": "6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(A ___ Corporation) FORMING \u2014 new corp descriptor"
+    },
+    "consolidation.foreign_jurisdictions": {
+      "widget_id": "7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The laws of the State(s) of ___, under which the foreign corporation(s) is (are) organized, permit said corporation(s) and the domestic corporation(s) to consolidate."
+    },
+    "consolidation.new_entity.governing_law_state": {
+      "widget_id": "9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: ...and it is to be governed by the laws of the State of ___"
+    },
+    "consolidation.new_entity.service_address": {
+      "widget_id": "10",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: ...the address to which the Secretary of State shall mail a copy of any process in such proceeding is ___"
+    },
+    "consolidation.plan_exhibit_letter": {
+      "widget_id": "11",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The plan of consolidation is set forth in Exhibit ___ attached hereto and made a part hereof."
+    },
+    "consolidation.parties[0].adoption_method": {
+      "widget_id": [
+        "Check Box8",
+        "Check Box9",
+        "Check Box11",
+        "Check Box13"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+    },
+    "consolidation.parties[0].adoption_date": {
+      "widget_id": [
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH option 1 date: ...at a meeting on (date) ___"
+    },
+    "consolidation.parties[0].registered_office_address_line1": {
+      "widget_id": "22",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "FIFTH (domestic): ...is: ___ (inline trailing blank ending the sentence)"
+    },
+    "consolidation.parties[0].registered_office_address_line2": {
+      "widget_id": "23",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH (domestic): ___ (street, city, state and zip code)"
+    },
+    "consolidation.parties[1].registered_office_address_line1": {
+      "widget_id": "25",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "FIFTH (foreign): ...is:* ___ (inline trailing blank)"
+    },
+    "consolidation.parties[1].registered_office_address_line2": {
+      "widget_id": "26",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH (foreign): ___ (street, city, state and zip code)"
+    },
+    "consolidation.effective_date": {
+      "widget_id": "27",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Effective date of the consolidation (if later than date of filing of Articles) is ___ (Not to exceed 60 days from date of filing of the Articles)"
+    },
+    "consolidation.parties[0].signature_block.date_signed": {
+      "widget_id": "28",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___ (signature block 1, left column)"
+    },
+    "consolidation.parties[0].signature_block.corporation_name": {
+      "widget_id": "29",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(name of corporation) \u2014 signature block 1, right column"
+    },
+    "consolidation.parties[0].signature_block.signature": {
+      "widget_id": "30",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "low",
+      "label": "**By ___ (signature) \u2014 signature block 1"
+    },
+    "consolidation.parties[0].signature_block.printed_name_and_capacity": {
+      "widget_id": "31",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(type or print name and capacity) \u2014 signature block 1"
+    },
+    "consolidation.parties[1].signature_block.date_signed": {
+      "widget_id": "32",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___ (signature block 2, left column)"
+    },
+    "consolidation.parties[1].signature_block.corporation_name": {
+      "widget_id": "33",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(name of corporation) \u2014 signature block 2, right column"
+    },
+    "consolidation.parties[1].signature_block.signature": {
+      "widget_id": "34",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "low",
+      "label": "**By ___ (signature) \u2014 signature block 2"
+    },
+    "consolidation.parties[1].signature_block.printed_name_and_capacity": {
+      "widget_id": "35",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(type or print name and capacity) \u2014 signature block 2"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.entities[0].name"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.entities[1].name"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.total_fees_dollars"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.contact.name"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.contact.phone"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.contact.email"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "entity.annual_report_reminder_email"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.name"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.firm"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.street"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

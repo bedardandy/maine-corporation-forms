@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-articles-filing-date-required
+    description: entity.original_articles_filing_date is non-empty and is on or before filing.date_signed.
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - filing.date_signed
+    severity: required
+  - id: registered-office-required
+    description: registered_office.address_line2 (the wide labeled street/city/state/zip line) is non-empty.
+    depends_on_keys:
+      - registered_office.address_line2
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: majority-incorporators-signed
+    description: "At least one incorporator slot is signed; rubric cannot strictly verify 'majority' without knowing the total count of incorporators (which is not on this form). Page-1 footnote requires majority signatures — synth must populate at least the first slot, and ideally all three with consistent capacities."
+    depends_on_keys:
+      - incorporator_1.printed_name_and_capacity
+      - incorporator_2.printed_name_and_capacity
+      - incorporator_3.printed_name_and_capacity
+    severity: required
+  - id: incorporator-1-required
+    description: "incorporator_1.printed_name_and_capacity is non-empty (at minimum, slot 1 must be filled)."
+    depends_on_keys:
+      - incorporator_1.printed_name_and_capacity
+    severity: required
+  - id: incorporator-capacity-contains-incorporator
+    description: "Each non-empty incorporator_N.printed_name_and_capacity contains the word 'Incorporator' (or equivalent capacity language) — the form's caption '(incorporator)' establishes the role, but the widget collects 'name and capacity' so the capacity should typically be typed."
+    depends_on_keys:
+      - incorporator_1.printed_name_and_capacity
+      - incorporator_2.printed_name_and_capacity
+      - incorporator_3.printed_name_and_capacity
+    severity: optional
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-10
+    description: filing.total_fees_dollars equals $10 base (per page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,12 @@
+form_id: CORP_MBCA-12
+code: MBCA-12
+title: Application for Authority to do Business (Foreign Business Corporation)
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 3
+num_fields: 39
+mapped_fields: 35
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

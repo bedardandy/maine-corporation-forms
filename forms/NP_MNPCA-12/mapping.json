@@ -1,0 +1,247 @@
+{
+  "form_id": "NP_MNPCA-12",
+  "fields": {
+    "entity.home_jurisdiction_name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Corporation in Jurisdiction of Incorporation)"
+    },
+    "entity.maine_fictitious_name": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...the fictitious name under which it proposes to apply for authority to carry on activities in the State of Maine is ___"
+    },
+    "filing.fict4_accompanies": {
+      "widget_id": "Check Box17",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "[ ] Form FICT-4 accompanies this application"
+    },
+    "entity.home_jurisdiction": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: Its jurisdiction of incorporation is ___ and the date of incorporation is"
+    },
+    "entity.formation_date_in_home_jurisdiction": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: ...and the date of incorporation is ___"
+    },
+    "entity.home_purpose_description_line1": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: Purpose(s) it is authorized to do under the laws of its jurisdiction of incorporation: ___ (line 1)"
+    },
+    "entity.home_purpose_description_line2": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: ___ (line 2)"
+    },
+    "entity.maine_activities_scope": {
+      "field_type": "enum_select",
+      "page": 0,
+      "confidence": "medium",
+      "label": "FOURTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? [X] Yes",
+      "options": {
+        "all": "Check Box18",
+        "specific": "Check Box19"
+      },
+      "binding_source": "geometry_verified + opus_vision_alignment (high)"
+    },
+    "entity.maine_specific_activities_line1": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: If no, specify activity (activities) for which authority is sought. ___ (inline trailing blank, line 1)"
+    },
+    "entity.maine_specific_activities_line2": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: ___ (line 2 \u2014 wide)"
+    },
+    "entity.principal_office.physical_address_line1": {
+      "widget_id": "Text8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: Address of the registered or principal office, wherever located, is ___ (inline trailing blank, line 1)"
+    },
+    "entity.principal_office.physical_address_line2": {
+      "widget_id": "Text9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: ___ (street, city, state and zip code) \u2014 wide labeled line"
+    },
+    "registered_agent.type": {
+      "widget_id": [
+        "Check Box20",
+        "Check Box21"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: [ ] Commercial Registered Agent"
+    },
+    "registered_agent.cra_public_number": {
+      "widget_id": "Text10",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: CRA Public Number ___",
+      "when": "registered_agent.type == 'commercial'"
+    },
+    "registered_agent.name": {
+      "widget_id": [
+        "Text11",
+        "Text12"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: ___ (name of commercial registered agent)"
+    },
+    "registered_agent.physical_address": {
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: (physical location, not P.O. Box \u2013 street, city, state and zip code) ___"
+    },
+    "registered_agent.mailing_address": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: (mailing address if different from above) ___"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Dated ___"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "Text16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "*By ___ (signature of any duly authorized individual) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Contact email address for this filing)"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Email address to use for annual report reminders)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of attested copy recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "form_id": "MARK_mark4",
+  "fields": {
+    "mark.charter_number": {
+      "widget_id": "mark4One",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "A. CHARTER NUMBER (if known)"
+    },
+    "mark.text_words.line1": {
+      "widget_id": "mark4Two",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.1: TEXT - list word(s) protected in the original registration, if any (line 1)"
+    },
+    "mark.text_words.line2": {
+      "widget_id": "mark4Three",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.1: TEXT (line 2)"
+    },
+    "mark.design_features.line1": {
+      "widget_id": "mark4Four",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.2: FEATURES - describe in detail the design protected in the original registration, if any (line 1)"
+    },
+    "mark.design_features.line2": {
+      "widget_id": "mark4Five",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.2: FEATURES (line 2)"
+    },
+    "mark.type": {
+      "widget_id": "mark4Six",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "C. TYPE OF MARK:"
+    },
+    "mark.assignor.name_and_address": {
+      "widget_id": [
+        "mark4Seven",
+        "mark4Eight"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.1: Assignor Name and Address (line 1)"
+    },
+    "mark.assignor.entity_type": {
+      "widget_id": [
+        "Check Box9",
+        "Check Box10",
+        "Check Box4",
+        "Check Box5",
+        "Check Box6",
+        "Check Box7",
+        "Check Box8"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.2: Assignor is a (an): [ ] individual"
+    },
+    "mark.assignor.entity_type_other_explanation": {
+      "widget_id": "mark4Sixteen",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.2: other ___ (Explain)",
+      "when": "mark.assignor.entity_type == 'other'"
+    },
+    "mark.assignor.jurisdiction_of_organization": {
+      "widget_id": "mark4Seventeen",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.2: If a corporation, limited partnership, limited liability company or limited liability partnership the state of incorporation/organization is"
+    },
+    "mark.assignor.date_of_organization": {
+      "widget_id": "mark4Eighteen",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.2: ...and the date of incorporation/organization is"
+    },
+    "mark.assignor.printed_name_and_capacity": {
+      "widget_id": [
+        "mark4Nineteen",
+        "mark4Twentytwo"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "D.3: Whereas, I, ___ (Print/Type Name and Capacity), believe to be the owner of the aforesaid mark..."
+    },
+    "mark.assignment.date_of_transfer": {
+      "widget_id": "mark4Twenty",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "D.3: ...sold, assigned and transferred on (date) ___, the entire right, title and interest..."
+    },
+    "mark.assignor.date_signed": {
+      "widget_id": "Mark4Twentyone",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "D.4: Dated"
+    },
+    "mark.assignee.name_and_address": {
+      "widget_id": [
+        "mark4Twentythree",
+        "mark4Twentyfour"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.1: Assignee Name and Address (line 1)"
+    },
+    "mark.assignee.entity_type": {
+      "widget_id": [
+        "Check Box17",
+        "Check Box11",
+        "Check Box12",
+        "Check Box13"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.2: [ ] general partnership"
+    },
+    "mark.assignee.entity_type_other_explanation": {
+      "widget_id": "mark4Thirtytwo",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.2: other ___ (Explain)"
+    },
+    "mark.assignee.jurisdiction_of_organization": {
+      "widget_id": "mark4Thirtythree",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.2: If a corporation... the state of incorporation/organization is"
+    },
+    "mark.assignee.date_of_organization": {
+      "widget_id": "mark4Thirtyfour",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.2: ...and the date of incorporation/organization is"
+    },
+    "mark.assignee.date_signed": {
+      "widget_id": "mark4Thirtyfive",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "E.3: Dated"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of contact person"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Daytime telephone number"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Contact email address for this filing"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "medium",
+      "label": "Email address to use for annual report reminders"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of attested copy recipient"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Firm or Company"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Mailing Address"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "City, State & Zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14__p2",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box14' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15__p2",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box15' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16__p2",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

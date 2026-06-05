@@ -1,0 +1,64 @@
+checks:
+  - id: exactly-one-transaction-type
+    description: "Exactly one of the five top-of-form transaction-type checkboxes is selected ('X one box only')."
+    depends_on_keys:
+      - filing.accompanying_transaction_type
+    severity: required
+  - id: lp-name-suffix-by-type
+    description: "If entity.is_lllp is false: name contains 'Limited Partnership', 'L.P.', or 'LP'. If entity.is_lllp is true (and is_professional_lllp false): name contains 'L.L.L.P.', 'LLLP', or 'Limited Liability Limited Partnership' (no 'L.P.'/'LP'). If entity.is_professional_lllp is true: name contains 'PLLLP', 'P.L.L.L.P.', or 'S.L.L.L.P.'."
+    depends_on_keys:
+      - entity.name
+      - entity.is_lllp
+      - entity.is_professional_lllp
+    severity: required
+  - id: designated-office-physical-not-pobox
+    description: entity.designated_office.physical_address is non-empty and not a P.O. Box.
+    depends_on_keys:
+      - entity.designated_office.physical_address
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of THIRD commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is non-empty and not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: general-partner-1-required
+    description: general_partner_1.name and general_partner_1.address are both non-empty (FIFTH requires ≥1 inline GP; LP must have ≥1 GP per 31 MRSA §1321).
+    depends_on_keys:
+      - general_partner_1.name
+      - general_partner_1.address
+    severity: required
+  - id: general-partner-list-consistency
+    description: "If general_partner.additional_attached is true, general_partner.additional_exhibit_letter must be non-empty. If false, all populated general_partner_N rows must have both name and address (no half-rows)."
+    depends_on_keys:
+      - general_partner.additional_attached
+      - general_partner.additional_exhibit_letter
+      - general_partner_1.name
+      - general_partner_1.address
+      - general_partner_2.name
+      - general_partner_2.address
+      - general_partner_3.name
+      - general_partner_3.address
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_lllp is true, entity.professional_services_description must be non-empty (after concatenating Text15+Text16)."
+    depends_on_keys:
+      - entity.is_professional_lllp
+      - entity.professional_services_description
+    severity: required
+  - id: lllp-and-professional-implies-lllp
+    description: "If entity.is_professional_lllp is true, entity.is_lllp must also be true (PLLLP is a special case of LLLP)."
+    depends_on_keys:
+      - entity.is_lllp
+      - entity.is_professional_lllp
+    severity: required

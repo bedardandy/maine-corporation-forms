@@ -1,0 +1,33 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+name,0,text,(Name of Limited Liability Company as it appears on the record of the Secretary of State),entity.name,high,"Top blank labeled '(Name of Limited Liability Company as it appears on the record of the Secretary of State)' — the LLC's currently-registered legal name, used by the SOS to look up the existing entity."
+new name,0,text,"FIRST: The name of the limited liability company has been changed to (if no change, so indicate): ___",entity.name,high,"FIRST blank captures the post-restatement name. Filer enters either a new name (if changed) or 'no change' / repeats the existing name (if unchanged). Both 'name' (top) and 'new name' (FIRST) bind to entity.name; for synth-driven fills with no name change, both widgets receive the same value."
+original date,0,text,SECOND: The date of filing of the initial certificate of formation: ___,entity.initial_formation_date,high,Date the original (pre-restatement) certificate of formation was filed; required to identify the LLC being restated.
+Check Box4,0,checkbox,THIRD: Designation as a low profit LLC (Check only if applicable): This is a low-profit limited liability company pursuant to 31 MRSA §1611...,entity.is_low_profit_llc,high,"Boolean elect-in for L3C status under 31 MRSA §1611, with statutory qualifications A–D. Same canonical key as on LLC_MLLC-6 (formation form)."
+Check Box5,0,checkbox,FOURTH: Designation as a professional limited liability company (Check only if applicable): This is a professional limited liability company* formed pursuant to 13 MRSA Chapter 22-A...,entity.is_professional_llc,high,Boolean elect-in for professional-LLC status under 13 MRSA Ch 22-A. Same canonical key as on LLC_MLLC-6.
+professional service,0,text,(Type of professional services),entity.professional_services_description,high,Free-text professional-services list (only when entity.is_professional_llc = true).
+Check Box7,1,text,FIFTH: The Registered Agent is a: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive registered-agent type = 'commercial'.
+Check Box8,1,text,FIFTH: The Registered Agent is a: [ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive registered-agent type = 'noncommercial'.
+cra number,1,text,CRA Public Number: ___,registered_agent.cra_public_number,high,Maine SOS CRA Public Number (required only when registered_agent.type = 'commercial').
+agent,1,text,(name of commercial registered agent),registered_agent.name,high,Name line for commercial registered agent (single canonical key shared with noncommercial path).
+noncommercial agent,1,text,(name of noncommercial registered agent),registered_agent.name,high,Name line for noncommercial registered agent (alternate path; same canonical key as 'agent' — only one row is filled at a time per the FIFTH selection).
+physical,1,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,"Single-line physical address (street, city, state, zip combined). Form explicitly forbids a P.O. Box for this line."
+mailing,1,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional single-line mailing address.
+exhibit,1,text,"SEVENTH: Other matters the members determine to include are set forth in the attached Exhibit ___, and made a part hereof.",entity.restatement_amendments_exhibit_letter,high,"Inline exhibit letter for any additional restatement amendments. Distinct from entity.statement_of_authority_exhibit_letter on LLC_MLLC-6 (formation), because on a restated certificate the SEVENTH paragraph captures 'other matters' = ongoing restatement amendments rather than the initial statement of authority."
+dated,1,text,Dated: ___,filing.date_signed,high,Date the restated certificate is signed by the authorized person(s).
+name and capacity1,1,text,"(type or print name and capacity) [signer slot 1, paired with first signature line]",authorized_person_1.printed_name_and_capacity,high,"First authorized person's combined name and capacity. Per-officer signer pattern (Shape D variant) keyed on authorized_person_N.* — distinct from filing.signer.* because the form provides 3 parallel signer slots, not a single filer."
+name and capacity2,1,text,(type or print name and capacity) [signer slot 2],authorized_person_2.printed_name_and_capacity,high,Second authorized person's combined name and capacity (optional second signer).
+name and capacity 3,1,text,(type or print name and capacity) [signer slot 3],authorized_person_3.printed_name_and_capacity,high,"Third authorized person's combined name and capacity (optional third signer). NOTE: this widget's field-id has a space before the digit ('name and capacity 3') unlike slots 1 and 2 ('name and capacity1', 'name and capacity2') — preserve this exactly when binding."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total filing fee enclosed (USD); base $80 per page 0 header plus expedite premium.
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

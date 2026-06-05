@@ -1,0 +1,67 @@
+{
+  "form_id": "MARK_mark1a",
+  "fields": {
+    "disclaimer.disclaimed_portion_description.line1": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "A. I hereby disclaim the exclusive right to (describe portion of text or feature disclaimed) — line 1"
+    },
+    "disclaimer.disclaimed_portion_description.line2": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "A. (continuation) — line 2"
+    },
+    "mark.text_words.line1": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.1. TEXT - list word(s) to be protected, if any (if none, so indicate) — line 1"
+    },
+    "mark.text_words.line2": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.1. TEXT (continuation) — line 2"
+    },
+    "mark.design_features.line1": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.2. FEATURES - describe in detail the design to be protected, if any (if none, so indicate) — line 1"
+    },
+    "mark.design_features.line2": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "B.2. FEATURES (continuation) — line 2"
+    },
+    "mark.type": {
+      "widget_id": [
+        "Check Box9",
+        "Check Box10",
+        "Check Box11",
+        "Check Box12",
+        "Check Box13"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "C. TYPE OF MARK: Trademark - a mark applied to goods applicant manufactures or sells"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Dated:"
+    }
+  }
+}

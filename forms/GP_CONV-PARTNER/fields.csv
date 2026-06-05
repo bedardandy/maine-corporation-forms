@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,FIRST: The name of the converting partnership immediately before the conversion is,entity.name,high,Pre-conversion partnership name. Matches entity.name convention for domestic filings (the partnership exists in Maine pre-conversion).
+,0,checkbox,SECOND: [ ] Limited Partnership (top-left checkbox at y≈420),conversion.new_entity.type,high,Unnamed /Btn checkbox for resulting-entity-type radio option 'Limited Partnership' (enum value: 'limited_partnership'). Position: top-left of the 2x2 SECOND grid.
+,0,checkbox,SECOND: [ ] Limited Liability Limited Partnership (bottom-left checkbox at y≈396),conversion.new_entity.type,high,Unnamed /Btn checkbox for 'Limited Liability Limited Partnership' (enum value: 'limited_liability_limited_partnership'). Bottom-left of grid.
+,0,checkbox,SECOND: [ ] Corporation (top-right checkbox at y≈419),conversion.new_entity.type,high,Unnamed /Btn checkbox for 'Corporation' (enum value: 'corporation'). Top-right of grid.
+,0,checkbox,SECOND: [ ] Limited Liability Company (bottom-right checkbox at y≈396),conversion.new_entity.type,high,Unnamed /Btn checkbox for 'Limited Liability Company' (enum value: 'limited_liability_company'). Bottom-right of grid. Filler engine must bind by index/rect for these unnamed widgets.
+Text2,0,text,THIRD: The name of the resulting entity is (the name must satisfy the organic law of the surviving entity),conversion.new_entity.name,high,"Post-conversion name of the surviving entity. Must comply with the surviving entity's organic-law naming requirements (e.g., LLC suffix per 31 MRSA §1508; LP suffix per 31 MRSA §1308). Same shape as MBCA-21 / MBCA-20."
+Text3,0,text,FOURTH: The future effective date of the conversion (if other than date of filing of the Articles) is — (Not to exceed 90 days from date of filing of the Articles),conversion.future_effective_date,high,Optional future effective date capped at 90 days post-filing. Matches MBCA-21 / MBCA-20 conversion.future_effective_date convention.
+Text4,0,text,FIFTH: All of the statements required to be set forth in the organizing documents for the resulting entity are attached as Exhibit ___,conversion.new_entity_provisions_exhibit_letter,high,"Inline exhibit letter for the new entity's organizing-document provisions. Form text instructs that the appropriate formation form (MLPA-6-1, MLLC-6, or MBCA-6-1) must be attached. Matches MBCA-21 / MBCA-20."
+Text5,1,text,DATED ___ (top-right of converting-partnership signature block),filing.date_signed,high,Date the Articles of Conversion are signed by the authorized representative.
+Text6,1,text,(authorized signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined name+capacity widget. Shape D (matches MBCA-11 / MLLC-12 / MBCA-21 / MBCA-20). Form's page-1 footnote specifies 'at least one partner OR any duly authorized representative' may sign.
+cover1,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1. Likely populated with the converting partnership's pre-conversion name (entity.name).
+cover2,2,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2. Likely populated with the bundled formation-form's entity (conversion.new_entity.name) for SOS routing — same bundling pattern as MBCA-21 (MLLC-6 / MLPA-6) and MBCA-20 (MNPCA-6-1).
+cover3,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+cover4,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+cover,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'. Bare 'cover' field-id (the '5' suffix is missing — same template anomaly as CORP_CLKRA-3 and GP_MPA-1).
+cover6,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $150 per page-0 header plus expedite premium).
+cover7,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+cover8,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+cover9,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+cover10,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email (applies to surviving entity post-conversion).
+cover11,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+cover12,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+cover13,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+cover14,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

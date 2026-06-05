@@ -1,0 +1,19 @@
+{
+  "entity": {
+    "name": "Downeast Trails Alliance",
+    "nonprofit_type": "public_benefit",
+    "public_benefit_purpose": "To build and maintain public recreational trails in Washington County, Maine, and to promote conservation of trail corridors for community use.",
+    "directors_count": "5",
+    "incorporator_name": "Aroostook Q. Example",
+    "incorporator_address": "3 Example Ridge Rd, Machias, ME 04654"
+  },
+  "registered_agent": {
+    "type": "noncommercial",
+    "name": "Aroostook Q. Example",
+    "physical_address": "3 Example Ridge Rd, Machias, ME 04654",
+    "mailing_address": "PO Box 9, Machias, ME 04654"
+  },
+  "filing": {
+    "date_signed": "2026-03-11"
+  }
+}

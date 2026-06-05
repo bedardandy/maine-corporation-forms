@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-12A.json",
+  "title": "LLC_MLLC-12A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "maine_assumed_name_for_suffix": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "maine_authorization_date": {
+          "type": "string"
+        },
+        "maine_business_purpose": {
+          "type": "string"
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "other_amendments_exhibit_letter": {
+          "type": "string"
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

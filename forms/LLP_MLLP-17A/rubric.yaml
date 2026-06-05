@@ -1,0 +1,62 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: original-filing-date-required
+    description: correction.original_filing_date is non-empty.
+    depends_on_keys:
+      - correction.original_filing_date
+    severity: required
+  - id: original-filing-date-not-future
+    description: "correction.original_filing_date is on or before filing.date_signed (cannot correct a document that hasn't been filed yet)."
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: original-document-type-required
+    description: correction.original_document_type is non-empty.
+    depends_on_keys:
+      - correction.original_document_type
+    severity: required
+  - id: defect-description-required
+    description: correction.defect_description is non-empty.
+    depends_on_keys:
+      - correction.defect_description
+    severity: required
+  - id: corrected-text-required
+    description: correction.corrected_text is non-empty.
+    depends_on_keys:
+      - correction.corrected_text
+    severity: required
+  - id: signer-required-individual-or-entity
+    description: Either filing.signer.printed_name_and_capacity is non-empty (individual-partner signer) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) are both non-empty (entity-partner signer). At least one path must be populated.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-50
+    description: "filing.total_fees_dollars equals base $50 plus expedite premium per filing.expedited_service tier (foreign-LLP correction shares MLLP-17's $50 base)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

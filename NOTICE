@@ -1,0 +1,28 @@
+Maine Corporation Forms — form-by-form automation library
+Copyright 2026 The maine-corporation-forms contributors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+----------------------------------------------------------------------
+Blank filing forms (NOT redistributed)
+----------------------------------------------------------------------
+The blank PDF forms this library maps are public records of the Maine
+Secretary of State, Bureau of Corporations, Elections and Commissions:
+
+    https://www.maine.gov/sos/cec/corp
+
+They are NOT included in or redistributed by this repository. Each form's
+entry in catalog/pdf_manifest.json carries the official source URL, a byte
+size, and a SHA-256, which lets the tooling fetch and verify the official
+blank on demand (see tools/fetch_pdfs.py).
+
+The forms remain public records of the State of Maine; this project claims
+no rights over them. Any built artifact that embeds a blank Maine Secretary
+of State form should carry this attribution.
+
+This repository's own work — code (engine/, tools/) and the structured form
+artifacts (forms/<ID>/ metadata, schemas, mappings, skills, rubrics;
+catalog/; docs/) — is the part licensed under Apache-2.0.
+
+Not legal advice. Filled output is a draft and must be verified against the
+official form, and against current Maine law, before filing.

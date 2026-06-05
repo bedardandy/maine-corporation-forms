@@ -1,0 +1,61 @@
+checks:
+  - id: consenting-entity-name-required
+    description: entity.name (the LLC granting consent) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: indistinguishable-name-required
+    description: name_consent.indistinguishable_name is non-empty.
+    depends_on_keys:
+      - name_consent.indistinguishable_name
+    severity: required
+  - id: requestor-name-required
+    description: name_consent.requestor.name is non-empty.
+    depends_on_keys:
+      - name_consent.requestor.name
+    severity: required
+  - id: indistinguishable-name-distinct-from-entity
+    description: "name_consent.indistinguishable_name differs from entity.name (case-sensitive, since indistinguishable means differing on insubstantial grounds — e.g., punctuation or spacing — but not literally identical)."
+    depends_on_keys:
+      - name_consent.indistinguishable_name
+      - entity.name
+    severity: required
+  - id: replacement-name-required
+    description: name_consent.replacement_name is non-empty (the consenting LLC commits to renaming itself).
+    depends_on_keys:
+      - name_consent.replacement_name
+    severity: required
+  - id: replacement-name-distinguishable
+    description: "name_consent.replacement_name differs from both entity.name (the old name) and name_consent.indistinguishable_name (the granted name) — i.e., the consenting LLC must pick a name truly distinguishable from the requestor's."
+    depends_on_keys:
+      - name_consent.replacement_name
+      - entity.name
+      - name_consent.indistinguishable_name
+    severity: required
+  - id: replacement-name-has-llc-suffix
+    description: "name_consent.replacement_name contains a valid LLC suffix per 31 MRSA §1508 (e.g., 'L.L.C.', 'LLC', 'Limited Liability Company', 'L.C.')."
+    depends_on_keys:
+      - name_consent.replacement_name
+    severity: required
+  - id: primary-signer-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (statute mandates at least one authorized-person signature).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-35
+    description: "filing.total_fees_dollars >= $35 base fee plus any expedite premium ($50 24h, $100 immediate). May be higher if a bundled name-change form's fee is rolled in."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: entities-consistent
+    description: "filing.entities[0].name on the cover letter matches entity.name on the body (the consenting LLC)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: optional

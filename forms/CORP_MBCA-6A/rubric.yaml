@@ -1,0 +1,69 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: text-exhibit-letter-required
+    description: restatement.text_exhibit_letter is non-empty (the full restated text MUST be attached as an exhibit per the form footnote).
+    depends_on_keys:
+      - restatement.text_exhibit_letter
+    severity: required
+  - id: exactly-one-restatement-type
+    description: Exactly one of Check Box8 or Check Box9 is selected (restatement.type set to a single enum value).
+    depends_on_keys:
+      - restatement.type
+    severity: required
+  - id: amendment-fields-when-new-amendment
+    description: "If restatement.type = 'includes_new_amendment', then amendment.adoption_date and amendment.approval_method must both be populated."
+    depends_on_keys:
+      - restatement.type
+      - amendment.adoption_date
+      - amendment.approval_method
+    severity: required
+  - id: approval-method-exclusive
+    description: "When restatement.type = 'includes_new_amendment', exactly one of Check Box10/11/13 is selected."
+    depends_on_keys:
+      - restatement.type
+      - amendment.approval_method
+    severity: required
+  - id: share-exchange-exhibit-conditional
+    description: "amendment.share_exchange_exhibit_letter is only required when the new amendment provides for an exchange, reclassification, or cancellation of issued shares — otherwise the field is left blank."
+    depends_on_keys:
+      - amendment.share_exchange_exhibit_letter
+      - restatement.type
+    severity: optional
+  - id: adoption-date-not-future
+    description: "If amendment.adoption_date is set, it is not in the future relative to filing.date_signed."
+    depends_on_keys:
+      - amendment.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If restatement.future_effective_date is set, it is on or after filing.date_signed."
+    depends_on_keys:
+      - restatement.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-80
+    description: filing.total_fees_dollars equals $80 base plus expedite premium ($50 24h or $100 immediate).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: entities-consistent
+    description: "filing.entities[0].name on cover letter matches entity.name on body."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: optional

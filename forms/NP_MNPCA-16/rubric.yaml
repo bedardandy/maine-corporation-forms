@@ -1,0 +1,50 @@
+checks:
+  - id: municipality-name-required
+    description: municipality.name is non-empty.
+    depends_on_keys:
+      - municipality.name
+    severity: required
+  - id: entity-name-required
+    description: entity.name (the proposed LDC name) is non-empty and matches the entity.name on the accompanying NP_MNPCA-6.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: majority-officers-signed
+    description: "At least one municipal_officer_N.printed_name_and_capacity (N=1..5) is populated. The form recites 'majority vote' but provides no widgets to capture the body's total size, so a single populated row is the floor for syntactic completeness; a true majority check requires out-of-band knowledge of the council/select-board's composition."
+    depends_on_keys:
+      - municipal_officer_1.printed_name_and_capacity
+      - municipal_officer_2.printed_name_and_capacity
+      - municipal_officer_3.printed_name_and_capacity
+      - municipal_officer_4.printed_name_and_capacity
+      - municipal_officer_5.printed_name_and_capacity
+    severity: required
+  - id: additional-exhibit-when-checkbox-set
+    description: "If municipality.additional_officers_present is true, municipality.additional_officers_exhibit_letter must be a non-empty letter (A, B, …)."
+    depends_on_keys:
+      - municipality.additional_officers_present
+      - municipality.additional_officers_exhibit_letter
+    severity: required
+  - id: clerk-attestation-required
+    description: municipal_clerk.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - municipal_clerk.printed_name_and_capacity
+    severity: required
+  - id: date-signed-required
+    description: filing.date_signed is non-empty and on or before the date the bundled NP_MNPCA-6 is filed (the LDC-authorization vote must precede or accompany incorporation).
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: no-fee-required
+    description: "No filing fee is collected on this form (page-0 header: 'No Fee Required'); the bundled NP_MNPCA-6 carries the formation fee. Cover-letter total_fees_dollars (if present on the bundle) should reflect MNPCA-6's fee only."
+    depends_on_keys: []
+    severity: optional
+  - id: five-row-cap
+    description: "If more than 5 municipal officers signed, the additional rows must be on the labeled exhibit; rows 1–5 are the only inline slots."
+    depends_on_keys:
+      - municipal_officer_1.printed_name_and_capacity
+      - municipal_officer_2.printed_name_and_capacity
+      - municipal_officer_3.printed_name_and_capacity
+      - municipal_officer_4.printed_name_and_capacity
+      - municipal_officer_5.printed_name_and_capacity
+      - municipality.additional_officers_present
+    severity: optional

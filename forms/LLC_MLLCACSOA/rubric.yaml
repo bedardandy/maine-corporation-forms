@@ -1,0 +1,70 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-authority-filing-date-required
+    description: "authority.original_filing_date is non-empty and is on or before filing.date_signed (you can't amend a Statement of Authority filed in the future)."
+    depends_on_keys:
+      - authority.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: exactly-one-action-type
+    description: "Exactly one of the SECOND-recital checkboxes is checked, populating filing.action_type with 'amendment' or 'cancellation' (XOR)."
+    depends_on_keys:
+      - filing.action_type
+    severity: required
+  - id: amendment-block-required-when-amendment
+    description: "If filing.action_type='amendment': amendment.affected_person_or_position is non-empty AND at least amendment.description_1 is non-empty. Cancellation.* fields must be empty."
+    depends_on_keys:
+      - filing.action_type
+      - amendment.affected_person_or_position
+      - amendment.description_1
+      - cancellation.affected_person_or_position
+      - cancellation.description_1
+    severity: required
+  - id: cancellation-block-required-when-cancellation
+    description: "If filing.action_type='cancellation': cancellation.affected_person_or_position is non-empty AND at least cancellation.description_1 is non-empty. amendment.* fields must be empty."
+    depends_on_keys:
+      - filing.action_type
+      - cancellation.affected_person_or_position
+      - cancellation.description_1
+      - amendment.affected_person_or_position
+      - amendment.description_1
+    severity: required
+  - id: exhibit-letter-format
+    description: "If filing.additional_information_exhibit_letter is populated, it must be a single uppercase letter A-Z."
+    depends_on_keys:
+      - filing.additional_information_exhibit_letter
+    severity: required
+  - id: at-least-one-signer
+    description: "At least one of {filing.signer_1.printed_name_and_capacity, filing.signer_2.printed_name_and_capacity} is non-empty."
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

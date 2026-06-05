@@ -1,0 +1,28 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Corporation,0,text,(Name of Corporation),entity.name,high,Primary entity name field at the top of the Amended Annual Report. Domestic nonprofit so entity.name (not entity.home_jurisdiction_name).
+undefined_2,0,text,FIRST: The jurisdiction of its incorporation is ___,entity.home_jurisdiction,high,Home jurisdiction recital. For domestic nonprofits this will be 'Maine' (or 'ME'). Same key family as MBCA-12 / MLLC-12 (foreign-qualification) — re-used here for the recital even though the entity is Maine-domestic.
+undefined_3,0,text,SECOND: The date the current year's annual report was filed ___,filing.original_annual_report_date,high,"Date the prior (un-amended) annual report was filed; the amendment must reference and post-date this. New key under filing.* because it is a property of the filing being amended, not of the entity."
+The information has changed as follows attach additional pages if necessary 1,0,text,"THIRD: The information has changed as follows (attach additional pages, if necessary): (line 1)",amendment.changes_description.line1,high,"First inline text line of the THIRD changes-description block. Uses the .line{N} convention established for multi-line text widgets (cf. mark.text_words.line{1,2}, mark.usage_description.line{1,2})."
+The information has changed as follows attach additional pages if necessary 2,0,text,THIRD: ... (line 2),amendment.changes_description.line2,high,Second inline text line.
+The information has changed as follows attach additional pages if necessary 3,0,text,THIRD: ... (line 3),amendment.changes_description.line3,high,Third inline text line.
+The information has changed as follows attach additional pages if necessary 4,0,text,THIRD: ... (line 4),amendment.changes_description.line4,high,Fourth inline text line.
+The information has changed as follows attach additional pages if necessary 5,0,text,THIRD: ... (line 5),amendment.changes_description.line5,high,Fifth inline text line.
+The information has changed as follows attach additional pages if necessary 6,0,text,THIRD: ... (line 6),amendment.changes_description.line6,high,Sixth inline text line.
+The information has changed as follows attach additional pages if necessary 7,0,text,THIRD: ... (line 7),amendment.changes_description.line7,high,"Seventh and last inline text line; the form's 'attach additional pages, if necessary' instruction implies overflow goes to a separate sheet, not a separate widget. No opt-in checkbox or exhibit-letter widget."
+undefined_4,0,text,FOURTH: This information changed on (date) ___,amendment.effective_date,high,"Date on which the reported changes actually took effect (e.g., the date a director resigned or a new address took effect). Distinct from filing.original_annual_report_date (the filing date of the report being amended) and filing.date_signed (when this amendment is signed)."
+DATED,1,text,DATED ___,filing.date_signed,high,Date the amended report was signed by the authorized officer (top-left of page 1).
+type or print name and capacity,1,text,*By ___ (authorized signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget, Shape D (matches MBCA-11, MLLC-12, MBCA-21, MNPCA-12B). The signature line above is wet-ink only with no widget."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (rarely used on a single-form amendment).
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($35 base per page-0 header plus expedite premium).
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

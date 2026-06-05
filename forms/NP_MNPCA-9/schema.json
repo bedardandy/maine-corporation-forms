@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-9.json",
+  "title": "NP_MNPCA-9 fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "adoption_method": {
+          "type": "string",
+          "description": "Method by which a nonprofit-corporation Articles-of-Amendment was adopted on MNPCA-9. Enum: 'member_majority_at_meeting' (members at a meeting with quorum, simple majority) | 'member_supermajority_at_meeting' (members at a meeting with quorum, articles-required percentage) | 'member_written_consent' (written consent of all members entitled to vote) | 'board_of_directors_majority_vote' (no members or none entitled, majority of the board). Extends sister NP_MNP-9's two-value enum (which only exposed member_vote/board_of_directors_majority_vote) with the supermajority and written-consent options that MNPCA-9 enumerates as separate physical checkboxes.",
+          "enum": [
+            "member_majority_at_meeting",
+            "member_supermajority_at_meeting",
+            "member_written_consent",
+            "board_of_directors_majority_vote"
+          ]
+        },
+        "nature_and_text": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "line3": {
+              "type": "string"
+            },
+            "line4": {
+              "type": "string"
+            },
+            "line5": {
+              "type": "string"
+            },
+            "line6": {
+              "type": "string"
+            },
+            "line7": {
+              "type": "string"
+            },
+            "line8": {
+              "type": "string"
+            },
+            "line9": {
+              "type": "string"
+            },
+            "line10": {
+              "type": "string"
+            },
+            "line11": {
+              "type": "string"
+            },
+            "line12": {
+              "type": "string"
+            },
+            "line13": {
+              "type": "string"
+            },
+            "line14": {
+              "type": "string"
+            },
+            "line15": {
+              "type": "string"
+            }
+          }
+        },
+        "adoption_date": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "nonprofit_type": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_office": {
+      "type": "object",
+      "properties": {
+        "address_line1": {
+          "type": "string"
+        },
+        "address_line2": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing",
+    "registered_office"
+  ]
+}

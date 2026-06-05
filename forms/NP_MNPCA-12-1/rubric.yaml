@@ -1,0 +1,62 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: nonprofit-no-suffix-required
+    description: entity.home_jurisdiction_name need NOT contain a corporate suffix (13-B MRSA does not mandate suffixes for nonprofit corporations). Suppress any suffix-validation rule.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: optional
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: formation-date-required
+    description: entity.formation_date_in_home_jurisdiction is non-empty and parses as a date on or before today.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: home-purpose-required
+    description: At least entity.home_purpose.line1 is non-empty.
+    depends_on_keys:
+      - entity.home_purpose.line1
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of SIXTH commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number is non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: limited-activities-when-not-full
+    description: "If filing.seeks_full_authority is false, entity.maine_limited_activities.line1 must be non-empty."
+    depends_on_keys:
+      - filing.seeks_full_authority
+      - entity.maine_limited_activities.line1
+    severity: required
+  - id: certificate-of-existence-external
+    description: "Form-level note: EIGHTH paragraph requires an attached certificate of existence (or equivalent) made within 90 days before delivery. This is a separate attachment, not a form-widget value; tracked at the filing-packet level, not per-widget."
+    depends_on_keys: []
+    severity: optional
+  - id: registered-agent-consent-external
+    description: "Form-level note: SEVENTH paragraph asserts the registered agent has consented to serve per 5 MRSA §108.3. Declarative; no widget. Synth must ensure agent consent is satisfied at the parent-filing level."
+    depends_on_keys: []
+    severity: optional

@@ -1,0 +1,83 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is non-empty, filing.fict4_accompanies must be true (Form FICT-4 must accompany the application)."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is not in the future.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: maine-start-after-formation
+    description: entity.formation_date_in_home_jurisdiction is on or before entity.maine_activities_start_date (cannot start Maine activities before formation).
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - entity.maine_activities_start_date
+    severity: required
+  - id: principal-office-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of SIXTH commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be set."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: contact-partner-required
+    description: contact_partner_1.name and contact_partner_1.address are both non-empty.
+    depends_on_keys:
+      - contact_partner_1.name
+      - contact_partner_1.address
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_llp is true, at least entity.professional_services_description.line1 must be non-empty."
+    depends_on_keys:
+      - entity.is_professional_llp
+      - entity.professional_services_description.line1
+    severity: required
+  - id: signer-required
+    description: "Either (a) filing.signer.printed_name_and_capacity (individual path) is non-empty, or (b) filing.signer.entity_name AND filing.signer.entity_signer_printed_name_and_capacity (entity path) are both non-empty."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer.entity_name
+      - filing.signer.entity_signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: certificate-of-existence-recency
+    description: "ELEVENTH paragraph requires that an attached certificate of existence (or document of similar import) is dated within 90 days before delivery; tracked manually in filing.notes since the COE is a separate attachment, not a form field."
+    depends_on_keys: []
+    severity: required
+  - id: fee-base-250
+    description: "filing.total_fees_dollars equals approximately $250 base (per page-0 'Filing Fee $250.00') plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,76 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty (header recital identifying the foreign LLC by its home-jurisdiction name).
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true (per MLLC-12 convention)."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: registered-agent-type-exclusive
+    description: Exactly one of SIXTH commercial/noncommercial options is selected (when the registered agent is changing).
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-number-when-commercial
+    description: "If registered_agent.type is 'commercial', registered_agent.cra_public_number must be present."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: agent-physical-not-pobox
+    description: registered_agent.physical_address must not be a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: maine-authorization-date-recital-required
+    description: entity.maine_authorization_date is non-empty (THIRD recital is required regardless of which fields are changing — SOS uses it to locate the existing record).
+    depends_on_keys:
+      - entity.maine_authorization_date
+    severity: required
+  - id: maine-authorization-before-signing
+    description: entity.maine_authorization_date is on or before filing.date_signed (a Statement of Change cannot pre-date the original qualification).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name is non-empty (Shape B — name only, no title field)."
+    depends_on_keys:
+      - filing.signer.printed_name
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: certificate-of-existence-recency
+    description: "A certificate of existence (or equivalent) must accompany the filing and must be dated within 90 days of delivery (page-1 SEVENTH recital). Tracked as an attachment, not a form field — rubric flags via filing.notes if the synth scenario does not include it."
+    depends_on_keys: []
+    severity: required
+  - id: fee-base-90-or-35
+    description: "filing.total_fees_dollars equals $90 base (changes other than FIFTH-only) or $35 (changing ONLY FIFTH/principal-office), plus expedite premium per filing.expedited_service tier."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

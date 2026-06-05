@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-12-1.json",
+  "title": "LLP_MLLP-12-1 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "is_professional_llp": {
+          "type": "boolean",
+          "description": "Boolean indicating professional-LLP status under 13 MRSA Chapter 22-A. Parallel to LP_MLPA-9's entity.is_professional_lllp; the distinction is LLP (general partnership w/ liability shield) vs LLLP (limited partnership w/ liability shield)."
+        },
+        "professional_partners_licensed_statement": {
+          "type": "boolean",
+          "description": "Free-text recital confirming all partners are licensed in one or more states to render the LLP's professional services. The form provides a single text widget rather than a boolean — typical filers either enter a confirming statement or leave blank. A future redraft could split this into a boolean entity.professional_partners_all_licensed plus an optional text field for jurisdictions; pass-1 captures it as a single string to match the widget shape."
+        },
+        "maine_business_purpose": {
+          "type": "string",
+          "description": "Free-text description of the nature of the business or purposes the foreign entity intends to conduct or promote in Maine. Distinct from entity.business_purpose (LLP_MLLP-2) which is the entity's general home-jurisdiction business activities; this is Maine-specific scope."
+        },
+        "maine_activities_start_date": {
+          "type": "string",
+          "description": "Date the foreign entity first did or intends to do business in Maine. Required by 31 MRSA §852.3.J on foreign-qualification filings."
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "contact_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the contact partner for a foreign LLP filing. The contact partner is an internal LLP role (a partner designated for SOS communications) — distinct from the registered_agent (external agent for service of process) and from filing.contact (cover-letter primitive)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Business, residence, or mailing address of the contact partner."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "fict4_accompanies": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "registered_agent"
+  ]
+}

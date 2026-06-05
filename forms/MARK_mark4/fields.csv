@@ -1,0 +1,50 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+mark4One,0,text,A. CHARTER NUMBER (if known),mark.charter_number,high,SOS-issued registration number for the original mark being assigned. Optional ('if known') per the form. Same canonical key as MARK_mark2 / MARK_mark6.
+mark4Two,0,text,"B.1: TEXT - list word(s) protected in the original registration, if any (line 1)",mark.text_words.line1,high,First line of the original mark's text. Recital only — TEXT amendments NOT permitted on assignment per the page-0 'B' header. Same key family as MARK_mark1/2/6.
+mark4Three,0,text,B.1: TEXT (line 2),mark.text_words.line2,high,Second line of the original mark's text. Recital only.
+mark4Four,0,text,"B.2: FEATURES - describe in detail the design protected in the original registration, if any (line 1)",mark.design_features.line1,high,First line of the original design-features description. Recital only — FEATURES amendments NOT permitted on assignment.
+mark4Five,0,text,B.2: FEATURES (line 2),mark.design_features.line2,high,Second line of the original design-features description.
+mark4Six,0,text,C. TYPE OF MARK:,mark.type,high,"Free-text type-of-mark string (e.g., 'Trademark', 'Service Mark', 'Collective Mark'). Same key as MARK_mark2; amendments to TYPE must be made on MARK-3 or MARK-2 per the form's C header."
+mark4Seven,1,text,D.1: Assignor Name and Address (line 1),mark.assignor.name_and_address,high,Combined name+address of the assignor (current owner). Two-line widget — both lines bind to the same canonical key (line2 below).
+mark4Eight,1,text,D.1: Assignor Name and Address (line 2),mark.assignor.name_and_address,high,Continuation of assignor name and address (line 2). Same key as line 1; synth produces a single multi-line string that wraps.
+Check Box9,1,text,D.2: Assignor is a (an): [ ] individual,mark.assignor.entity_type,high,Mutually-exclusive 'individual'.
+Check Box10,1,text,D.2: [ ] general partnership,mark.assignor.entity_type,high,Mutually-exclusive 'general_partnership'.
+Check Box4,1,text,D.2: [ ] limited partnership,mark.assignor.entity_type,high,Mutually-exclusive 'limited_partnership'.
+Check Box5,1,text,D.2: [ ] corporation,mark.assignor.entity_type,high,Mutually-exclusive 'corporation'.
+Check Box6,1,text,D.2: [ ] association,mark.assignor.entity_type,high,Mutually-exclusive 'association'.
+Check Box7,1,text,D.2: [ ] union,mark.assignor.entity_type,high,Mutually-exclusive 'union'.
+Check Box8,1,text,D.2: [ ] other ___ (Explain),mark.assignor.entity_type,high,Mutually-exclusive 'other' (requires mark.assignor.entity_type_other_explanation).
+mark4Sixteen,1,text,D.2: other ___ (Explain),mark.assignor.entity_type_other_explanation,high,Free-text explanation when assignor.entity_type='other'.
+mark4Seventeen,1,text,"D.2: If a corporation, limited partnership, limited liability company or limited liability partnership the state of incorporation/organization is",mark.assignor.jurisdiction_of_organization,high,Home jurisdiction of assignor; required when entity_type implies a registered entity. Same key naming as MARK_mark1's mark.applicant.jurisdiction_of_organization.
+mark4Eighteen,1,text,D.2: ...and the date of incorporation/organization is,mark.assignor.date_of_organization,high,Date assignor entity was incorporated/organized in its home jurisdiction.
+mark4Nineteen,1,text,"D.3: Whereas, I, ___ (Print/Type Name and Capacity), believe to be the owner of the aforesaid mark...",mark.assignor.printed_name_and_capacity,high,"Recital widget capturing the assignor signer's printed name and capacity ('I, Jane Doe, President, believe...'). Same widget composition as MARK_mark1's Text13."
+mark4Twenty,1,text,"D.3: ...sold, assigned and transferred on (date) ___, the entire right, title and interest...",mark.assignment.date_of_transfer,medium,"Date the mark was legally sold/assigned/transferred. Widget rect is unusually wide (109.2-574.2pt) for a date — visual review recommended; widget may also overlap a 'Myself, Firm, or Corporate Name' caption visible below the paragraph (see open_questions)."
+Mark4Twentyone,1,text,D.4: Dated,mark.assignor.date_signed,high,"Date the assignor signed the form (distinct from mark.assignment.date_of_transfer, which is the legal effective date of the assignment)."
+mark4Twentytwo,1,text,D.4: Signature ___ (Signature and Capacity),mark.assignor.printed_name_and_capacity,medium,"Signature-line text widget where the assignor types their name and capacity (the form is a fillable PDF). Same canonical key as mark4Nineteen — both widgets bind to the same printed-name-and-capacity value, with mark4Nineteen being the recital occurrence and mark4Twentytwo being the signature-line occurrence."
+mark4Twentythree,1,text,E.1: Assignee Name and Address (line 1),mark.assignee.name_and_address,high,Combined name+address of the assignee (new owner).
+mark4Twentyfour,1,text,E.1: Assignee Name and Address (line 2),mark.assignee.name_and_address,high,Continuation of assignee name and address (line 2). Same key as line 1.
+,1,text,"E.2: Assignee is a (an): [ ] individual (rect at y≈283.8, x≈212)",mark.assignee.entity_type,medium,"Mutually-exclusive 'individual'. Widget is unnamed in the AcroForm; bound by rect (page 1, y≈283.8-300.0, x≈212.2-229.7). Same upstream-naming-issue pattern as MARK_mark2 (some entity-type checkboxes unnamed)."
+Check Box17,1,text,E.2: [ ] general partnership,mark.assignee.entity_type,high,Mutually-exclusive 'general_partnership'.
+Check Box11,1,text,E.2: [ ] limited partnership,mark.assignee.entity_type,high,Mutually-exclusive 'limited_partnership'.
+Check Box12,1,text,E.2: [ ] corporation,mark.assignee.entity_type,high,Mutually-exclusive 'corporation'.
+Check Box13,1,text,E.2: [ ] association,mark.assignee.entity_type,high,Mutually-exclusive 'association'.
+,1,text,"E.2: [ ] union (rect at y≈308.9, x≈499)",mark.assignee.entity_type,medium,"Mutually-exclusive 'union'. Widget is unnamed in the AcroForm; bound by rect (page 1, y≈308.9-325.0, x≈499.4-517.0)."
+,1,text,"E.2: [ ] other ___ (Explain) (rect at y≈284.3, x≈101)",mark.assignee.entity_type,medium,"Mutually-exclusive 'other' (requires mark.assignee.entity_type_other_explanation). Widget is unnamed in the AcroForm; bound by rect (page 1, y≈284.3-300.4, x≈101.9-119.5)."
+mark4Thirtytwo,1,text,E.2: other ___ (Explain),mark.assignee.entity_type_other_explanation,high,Free-text explanation when assignee.entity_type='other'.
+mark4Thirtythree,1,text,E.2: If a corporation... the state of incorporation/organization is,mark.assignee.jurisdiction_of_organization,high,Home jurisdiction of assignee; required when entity_type implies a registered entity.
+mark4Thirtyfour,1,text,E.2: ...and the date of incorporation/organization is,mark.assignee.date_of_organization,high,Date assignee entity was incorporated/organized in its home jurisdiction.
+mark4Thirtyfive,1,text,E.3: Dated,mark.assignee.date_signed,high,Date the assignee signed/accepted the assignment. Note: the corresponding 'Signature' line for the assignee has no AcroForm widget (wet-ink only) — see open_questions.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (note: typo 'entitys' preserved upstream).
+,2,text,Hold attested copy for pick up (rect at y≈630.9),filing.expedited_service,medium,"Expedite tier 'hold_for_pickup'. Widget is unnamed in the AcroForm; bound by rect (page 2, y≈630.9-649.3, x≈68.7-91.4). Equivalent to Check Box14 on most other forms."
+,2,text,24-hour expedited filing (rect at y≈607.2),filing.expedited_service,medium,"Expedite tier '24h_next_business_day'. Widget is unnamed; bound by rect (page 2, y≈607.2-627.8, x≈68.7-90.3). Equivalent to Check Box15 on most other forms."
+,2,text,Immediate expedited filing (rect at y≈585.8),filing.expedited_service,medium,"Expedite tier 'immediate_same_day'. Widget is unnamed; bound by rect (page 2, y≈585.8-606.3, x≈68.7-90.3). Equivalent to Check Box16 on most other forms."
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($40 base for assignment per page-0 fee header, plus expedite premium)."
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,medium,"Annual-report reminder email — note: trademark registrations don't have annual reports, but the cover letter is shared across SOS divisions; field may be left blank for mark filings (same caveat as MARK_mark1/2/6)."
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

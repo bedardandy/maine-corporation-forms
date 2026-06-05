@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Foreign Limited Partnership),entity.home_jurisdiction_name,high,"Legal name of the foreign LP in its home jurisdiction. Per the entity-name-vs-home-jurisdiction convention, foreign-qualification/registration forms use entity.home_jurisdiction_name (matches MBCA-2, MLLC-12, MLLP-2)."
+Check Box2,0,text,FIRST: ('X' one box only.) This application is for a [ ] New,filing.application_type,high,Radio option for 'new' registration. Enum value: 'new'. Mutually exclusive with Check Box3.
+Check Box3,0,text,FIRST: ... OR [ ] Renewal,filing.application_type,high,Radio option for 'renewal'. Enum value: 'renewal'. Mutually exclusive with Check Box2.
+Text4,0,text,SECOND: The state or country under the laws of which it is organized is,entity.home_jurisdiction,high,Home state or country of organization. Same key as MBCA-2's 'state or country under the laws of which it is incorporated' and MLLC-12's 'Jurisdiction where formed'.
+Text5,0,text,SECOND: ...the address of its principal office is located at: (line 1),entity.principal_office.physical_address.street,high,"First line of principal-office address (street). Two-widget split variant — same shape as MBCA-2's 2Five. The '(street, city, state and zip code)' label below the second line confirms the line-1 / line-2 split."
+Text6,0,text,"(street, city, state and zip code)",entity.principal_office.physical_address.city_state_zip,high,"Second line of principal-office address (city/state/zip). The '(street, city, state and zip code)' label appears below this widget — same split convention as MBCA-2's 2Six."
+Text7,0,text,THIRD: The date of its organization is,entity.formation_date_in_home_jurisdiction,high,Date the foreign LP was originally organized in its home jurisdiction. Matches MBCA-2 'date of incorporation' and MLLC-12 'date of formation' — semantically the home-state organization date.
+Text8,0,text,FOURTH: A brief statement of the nature of the limited partnership's business:,entity.business_purpose,high,"Free-text description of the LP's business — UNSCOPED (asks about the partnership's business generally, not Maine activities). The page-1 footer explicitly states 'The filing of this application does not authorize a limited partnership to do business in Maine,' confirming this is the unscoped business_purpose, not the Maine-scoped maine_business_purpose used by MLLC-12. Reuses MBCA-2's entity.business_purpose."
+Text9,1,text,DATED ___,filing.date_signed,high,Date of signature.
+Text10,1,text,*By ___ (signature of a general partner) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined printed-name-and-capacity widget for the signing general partner. Shape D (matches MBCA-2, MBCA-11, MLLC-12, MBCA-12B). The (signature of a general partner) line above is wet-ink only with no AcroForm widget."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Typically populated with entity.home_jurisdiction_name.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($20/month for 'new' prorated through calendar year, or $200 flat for 'renewal' per page-0 header, plus expedite premium)."
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,medium,"Annual-report reminder email — name registration does not create an annual-report obligation, but the cover-letter primitive includes it. Typically left blank."
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

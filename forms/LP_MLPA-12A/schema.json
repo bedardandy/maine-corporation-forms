@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-12A.json",
+  "title": "LP_MLPA-12A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_jurisdiction_name_new": {
+          "type": "string",
+          "description": "Updated legal name of a foreign LP in its home jurisdiction (used by amendment filings when the home-jurisdiction name has changed). entity.home_jurisdiction_name remains the prior/current Maine record value."
+        },
+        "maine_authorization_date": {
+          "type": "string",
+          "description": "Date the foreign LP was originally authorized to transact business in Maine. Anchor for amendment-filing validity (cannot amend before initial authorization)."
+        },
+        "required_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string",
+              "description": "Physical address of the foreign LP's required office in its home jurisdiction (only applicable if the home jurisdiction's laws require maintaining such an office)."
+            },
+            "mailing_address": {
+              "type": "string",
+              "description": "Mailing address of the required office."
+            }
+          }
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "fict4_accompanies": {
+          "type": "boolean",
+          "description": "Boolean indicating that Form FICT-4 (Application for Use of Fictitious Name) is bundled with this amendment."
+        },
+        "other_amendments_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing other amendments not covered by Items SECOND\u2013NINTH."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "new_general_partner_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a newly-admitted general partner being added to the LP via this amendment (1-indexed; 3 inline + exhibit overflow)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of a newly-admitted GP."
+        }
+      }
+    },
+    "new_general_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in for additional new-GP exhibit."
+        },
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional new GPs."
+        }
+      }
+    },
+    "dissociated_general_partner_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a GP who has dissociated from the LP (1-indexed; 3 inline + exhibit overflow)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Last-known address of a dissociated GP."
+        }
+      }
+    },
+    "dissociated_general_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in for additional dissociated-GP exhibit."
+        },
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional dissociated GPs."
+        }
+      }
+    },
+    "general_partner_address_change_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of a current GP whose street/mailing address has changed (1-indexed; 3 inline + exhibit overflow)."
+        },
+        "new_address": {
+          "type": "string",
+          "description": "New address for the GP whose address has changed."
+        }
+      }
+    },
+    "general_partner_address_change": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in for additional address-change exhibit."
+        },
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional GP address changes."
+        }
+      }
+    },
+    "general_partner_name_change_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Prior name of a current GP whose name has changed (1-indexed; 3 inline + exhibit overflow)."
+        },
+        "new_name": {
+          "type": "string",
+          "description": "New name for the GP whose name has changed."
+        }
+      }
+    },
+    "general_partner_name_change": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in for additional name-change exhibit."
+        },
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional GP name changes."
+        }
+      }
+    },
+    "new_general_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "new_general_partner_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "new_general_partner_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "dissociated_general_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "dissociated_general_partner_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "dissociated_general_partner_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_address_change_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_address_change_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_address_change_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_name_change_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_name_change_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_name_change_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "new_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

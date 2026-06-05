@@ -1,0 +1,53 @@
+checks:
+  - id: entity-name-nonempty
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: dissociated-partner-name-nonempty
+    description: dissociated_general_partner.name is non-empty.
+    depends_on_keys:
+      - dissociated_general_partner.name
+    severity: required
+  - id: signer-present
+    description: "Either `general_partner_1.printed_name` (individual GP signer) OR both `general_partner_entity_1.name` and `general_partner_entity_1.signer_printed_name_and_capacity` (entity GP signer) are populated."
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: signer-is-dissociated-partner
+    description: "Per the footnote (31 MRSA §1324.1.G), the signer must be the dissociated GP. If individual, `general_partner_1.printed_name` should equal `dissociated_general_partner.name`. If entity, `general_partner_entity_1.name` should equal `dissociated_general_partner.name`."
+    depends_on_keys:
+      - dissociated_general_partner.name
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+    severity: required
+  - id: filing-date-nonempty
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedite-mutually-exclusive
+    description: "At most one of the three expedite checkboxes (Check Box14/15/16) is set; `filing.expedited_service` resolves to a single enum value."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-35-plus-expedite
+    description: "filing.total_fees_dollars equals $35 base plus $50 if expedited_service='24h_next_business_day' or $100 if 'immediate_same_day'."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

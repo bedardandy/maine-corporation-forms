@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-9A.json",
+  "title": "CORP_MBCA-9A fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "exhibit_letter": {
+          "type": "string",
+          "description": "Single-letter exhibit reference for the text of court-approved amendments attached to MBCA-9A. Mirrors the merger.*_exhibit_letter and conversion.*_exhibit_letter pattern."
+        },
+        "court_order_date": {
+          "type": "string",
+          "description": "Date of the court's order or decree approving the Articles of Amendment under 13-C MRSA \u00a71008 (typically a confirmed Chapter 11 plan)."
+        },
+        "reorganization_proceeding_title": {
+          "type": "string",
+          "description": "Caption/title of the reorganization proceeding in which the order was entered (typically includes case name, case number, and court)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Second-signer slot for forms supporting two parallel signers (e.g., MBCA-9A's two court-designated individuals). Same Shape D as filing.signer.printed_name_and_capacity. Distinct from the merger per-party signer pattern (merger.parties[N].signature_block.signer_{1,2}.printed_name_and_capacity), which lives under each merger party rather than the filing."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing"
+  ]
+}

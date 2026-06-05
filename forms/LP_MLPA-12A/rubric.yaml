@@ -1,0 +1,85 @@
+checks:
+  - id: home-name-required
+    description: "entity.home_jurisdiction_name is non-empty (the LP's existing Maine record)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: maine-auth-date-not-after-filing
+    description: entity.maine_authorization_date is on or before filing.date_signed (cannot amend before initial authorization).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: new-gp-exhibit-when-flagged
+    description: "If new_general_partner.additional_attached is true, new_general_partner.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - new_general_partner.additional_attached
+      - new_general_partner.additional_exhibit_letter
+    severity: required
+  - id: dissociated-gp-exhibit-when-flagged
+    description: "If dissociated_general_partner.additional_attached is true, dissociated_general_partner.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - dissociated_general_partner.additional_attached
+      - dissociated_general_partner.additional_exhibit_letter
+    severity: required
+  - id: address-change-exhibit-when-flagged
+    description: "If general_partner_address_change.additional_attached is true, general_partner_address_change.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - general_partner_address_change.additional_attached
+      - general_partner_address_change.additional_exhibit_letter
+    severity: required
+  - id: name-change-exhibit-when-flagged
+    description: "If general_partner_name_change.additional_attached is true, general_partner_name_change.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - general_partner_name_change.additional_attached
+      - general_partner_name_change.additional_exhibit_letter
+    severity: required
+  - id: principal-office-physical-not-pobox
+    description: "If entity.principal_office.physical_address is set, it is not a P.O. Box."
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: signer-required
+    description: "At least one signer present: general_partner_1.printed_name OR (general_partner_entity_1.name + general_partner_entity_1.signer_printed_name_and_capacity). §1324.1.M only requires one GP signature."
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: at-least-one-amendment-section-populated
+    description: "At least one of SECOND–NINTH is populated: any of entity.home_jurisdiction_name_new, entity.maine_fictitious_name, new_general_partner_1.name, dissociated_general_partner_1.name, general_partner_address_change_1.name, general_partner_name_change_1.name, entity.principal_office.physical_address, entity.required_office.physical_address, or filing.other_amendments_exhibit_letter is non-empty (otherwise the amendment is void of substance)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name_new
+      - entity.maine_fictitious_name
+      - new_general_partner_1.name
+      - dissociated_general_partner_1.name
+      - general_partner_address_change_1.name
+      - general_partner_name_change_1.name
+      - entity.principal_office.physical_address
+      - entity.required_office.physical_address
+      - filing.other_amendments_exhibit_letter
+    severity: advisory
+  - id: fee-base-90-or-35
+    description: "filing.total_fees_dollars equals $90 (full amendment, including any of SECOND–FIFTH) or $35 (amending only SIXTH–NINTH) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

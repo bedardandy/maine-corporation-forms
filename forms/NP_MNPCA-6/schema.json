@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-6.json",
+  "title": "NP_MNPCA-6 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "nonprofit_type": {
+          "type": "string",
+          "description": "Whether the nonprofit is organized as a public-benefit corporation or a mutual-benefit corporation under 13-B MRSA. Enum: 'public_benefit' | 'mutual_benefit'.",
+          "enum": [
+            "public_benefit",
+            "mutual_benefit"
+          ]
+        },
+        "public_benefit_purpose": {
+          "type": "string",
+          "description": "Free-text statement of public-benefit purpose(s) when nonprofit_type = 'public_benefit'."
+        },
+        "mutual_benefit_purpose": {
+          "type": "string",
+          "description": "Free-text statement of mutual-benefit purpose(s); empty if all purposes permitted under Title 13-B."
+        },
+        "initial_directors_count": {
+          "type": "integer",
+          "description": "Number of directors constituting the initial board (only when fixed at filing time; minimum 3)."
+        },
+        "has_members": {
+          "type": "boolean",
+          "description": "Boolean: true = corporation has one or more classes of members (with \u00a7402 information attached); false = no members."
+        },
+        "no_political_activities_clause": {
+          "type": "boolean",
+          "description": "Boolean opt-in for the SEVENTH article (501(c)(3)-style limitation on lobbying and political campaigning)."
+        },
+        "has_501c_exhibit": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating that other articles (including 501(c) provisions) are attached as an exhibit."
+        },
+        "501c_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional 501(c) provisions or internal-affairs articles."
+        },
+        "name": {
+          "type": "string"
+        },
+        "directors_min_count": {
+          "type": "integer"
+        },
+        "directors_max_count": {
+          "type": "integer"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "incorporator_N": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of an individual incorporator on a Maine nonprofit articles filing (indexed list)."
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street address of an individual incorporator."
+            },
+            "city_state_zip": {
+              "type": "string",
+              "description": "Combined city/state/zip of an individual incorporator."
+            }
+          }
+        }
+      }
+    },
+    "incorporator_entity_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Legal name of a corporate incorporator (when incorporator is itself a corporation per 13-B MRSA \u00a7401)."
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string",
+          "description": "Printed name and capacity (officer title) of the natural person signing on behalf of a corporate incorporator."
+        },
+        "principal_business_location": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "Street of the principal business location of a corporate incorporator."
+            },
+            "city_state_zip": {
+              "type": "string",
+              "description": "City/state/zip of the principal business location of a corporate incorporator."
+            }
+          }
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "incorporator_1": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "incorporator_2": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "incorporator_3": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "incorporator_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "principal_business_location": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "incorporator_entity_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "principal_business_location": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city_state_zip": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "incorporator_entity_1",
+    "registered_agent"
+  ]
+}

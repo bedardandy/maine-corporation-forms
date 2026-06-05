@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLCCONV.json",
+  "title": "LLC_MLLCCONV fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "form_type": {
+          "type": "boolean",
+          "description": "Free-text legal form of an entity (e.g., 'Limited Liability Company', 'Limited Partnership', 'Corporation'). Surfaced on conversion forms that capture the converting entity's form as a fillable field. Distinct from per-form-type-specific entity.is_lllp / entity.is_professional_llp boolean flags \u2014 entity.form_type is the human-readable form name as recited on the document."
+        },
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "original_articles_filing_date": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "conversion": {
+      "type": "object",
+      "properties": {
+        "new_entity": {
+          "type": "object",
+          "properties": {
+            "jurisdiction": {
+              "type": "string",
+              "description": "Jurisdiction (state or country) governing the resulting entity's organic statute. Extends the conversion.new_entity.* namespace for forms where the resulting entity may be foreign (cf. MBCA-21 where resulting entity is always Maine and this field doesn't appear)."
+            },
+            "formation_date": {
+              "type": "string",
+              "description": "Date the resulting entity is/will be organized under its governing law. Often coincides with conversion.effective_date (continuity claim) but captured separately because the form provides distinct widgets."
+            },
+            "principal_office_address": {
+              "type": "string",
+              "description": "Principal office address of the resulting entity (single combined widget; not split into street/city components)."
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Date the conversion becomes legally effective under the resulting entity's governing statute. Distinct from conversion.future_effective_date (MBCA-21's optional future-effective election capped at 90 days) \u2014 conversion.effective_date is the actual effectiveness date and is always populated on this form."
+        },
+        "foreign_resulting_entity": {
+          "type": "object",
+          "properties": {
+            "principal_office_address": {
+              "type": "object",
+              "properties": {
+                "line1": {
+                  "type": "string",
+                  "description": "First address line for the foreign resulting entity's principal office, used for \u00a71648.3 service-of-process appointment (Maine SOS becomes agent for service). Required when conversion.new_entity.jurisdiction is non-Maine; left blank otherwise."
+                },
+                "line2": {
+                  "type": "string",
+                  "description": "Second address line for the foreign resulting entity's principal office. Form provides two parallel widgets without enforcing a street/city split \u2014 synth typically writes street to line1 and city/state/zip to line2."
+                }
+              }
+            }
+          }
+        },
+        "organizing_document_disposition": {
+          "type": "string",
+          "description": "Enum identifying the SEVENTH-recital select-one for the resulting entity's organizing document: 'attached_as_exhibit' (Check Box3, paired with conversion.new_entity_provisions_exhibit_letter) | 'not_filing_with_sos' (Check Box5, applies when the resulting entity does not file organic documents with the Maine SOS, e.g., a general partnership or out-of-state entity). Mutually exclusive \u2014 exactly one is selected per the form's 'Select One' instruction."
+        },
+        "signature_block": {
+          "type": "object",
+          "properties": {
+            "converting_entity_name_and_form": {
+              "type": "string",
+              "description": "Combined-recital widget at the signature block that recites the converting entity's name and form together (e.g., 'Acme LLC, a Maine limited liability company'). Synth derives from entity.name + entity.form_type at fill time. Combined-recital pattern parallels merger.surviving_entity.name_and_jurisdiction (MBCA-10) \u2014 single widget for a multi-concept recital."
+            }
+          }
+        },
+        "new_entity_provisions_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "conversion",
+    "entity",
+    "filing"
+  ]
+}

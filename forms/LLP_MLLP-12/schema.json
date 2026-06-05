@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-12.json",
+  "title": "LLP_MLLP-12 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "maine_assumed_name_for_suffix": {
+          "type": "string",
+          "description": "Alternate name used in Maine when the home-jurisdiction name does not contain the required LLP/LLC/Corp suffix per 31 MRSA \u00a7803-A. Distinct from entity.maine_fictitious_name (used when the home name is unavailable in Maine). Same key already used by MLLC-12."
+        },
+        "maine_business_purpose": {
+          "type": "string",
+          "description": "Free-text description of the nature of business or purposes to be conducted/promoted in Maine (FIFTH paragraph on foreign-qualification forms)."
+        },
+        "maine_activities_start_date": {
+          "type": "string",
+          "description": "Date the foreign entity commenced or expects to commence conducting activities in Maine. Same key as MLLC-12 (entity.maine_activities_start_date)."
+        },
+        "is_professional_llp": {
+          "type": "boolean",
+          "description": "Boolean elect-in indicating the foreign LLP is qualified as a professional LLP under 13 MRSA Chapter 22-A. Parallel to MLLC-12's entity.is_professional_llc. NOTE: on this template the corresponding TENTH checkbox is not extracted as an AcroForm widget \u2014 see open_questions."
+        },
+        "professional_services_description": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Two-line free-form description of professional services provided when entity.is_professional_llp=true. Two-line variant of MLLC-12's single-widget entity.professional_services_description; this LLP form has two underlined blanks instead of one, so the canonical key is split into .line1/.line2 to preserve widget fidelity."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "contact_partner_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an LLP contact partner (indexed list \u2014 supports 1 inline row plus overflow on attached exhibit). Distinct from general_partner_N (LP-specific role) and manager_N (LLC-specific role); LLP terminology is 'contact partner'."
+        },
+        "address": {
+          "type": "string",
+          "description": "Combined business/residence/mailing address of an LLP contact partner (single-line on this form)."
+        }
+      }
+    },
+    "contact_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating an exhibit listing additional contact partners beyond the inline row is attached."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer": {
+          "type": "object",
+          "properties": {
+            "entity_name": {
+              "type": "string",
+              "description": "Name of the entity signing on behalf of the filer (parallel to <role>_entity_N.name in the per-officer-signer pattern, applied to the single-filer filing.signer.* family). Used when the LLP is signed for by another entity."
+            },
+            "entity_signer_printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity of the natural person who signs for the entity in filing.signer.entity_name. Parallel to <role>_entity_N.signer_printed_name_and_capacity (per-officer-signer convention)."
+            },
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "fict4_accompanies": {
+          "type": "string"
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "contact_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

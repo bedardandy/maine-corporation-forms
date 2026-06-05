@@ -1,0 +1,54 @@
+checks:
+  - id: new-entity-name-required
+    description: "entity.name (the new corporation resulting from consolidation) is non-empty and matches across fields 3, 4, and 24."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: two-participating-parties-required
+    description: "Both consolidation.parties[0].name and consolidation.parties[1].name are non-empty (the two existing corporations being consolidated)."
+    depends_on_keys:
+      - "consolidation.parties[0].name"
+      - "consolidation.parties[1].name"
+    severity: required
+  - id: plan-exhibit-required
+    description: consolidation.plan_exhibit_letter is non-empty (SECOND requires a plan-of-consolidation exhibit).
+    depends_on_keys:
+      - consolidation.plan_exhibit_letter
+    severity: required
+  - id: third-vote-method-each-party
+    description: "Each consolidation.parties[N] (N=0,1) has exactly one vote_method selected."
+    depends_on_keys:
+      - "consolidation.parties[0].vote_method"
+      - "consolidation.parties[1].vote_method"
+    severity: required
+  - id: vote-method-date-when-set
+    description: "If consolidation.parties[N].vote_method is set, consolidation.parties[N].vote_method_date must also be set (each option references a date)."
+    depends_on_keys:
+      - "consolidation.parties[0].vote_method"
+      - "consolidation.parties[0].vote_method_date"
+      - "consolidation.parties[1].vote_method"
+      - "consolidation.parties[1].vote_method_date"
+    severity: required
+  - id: registered-office-address-required
+    description: entity.registered_office.address is non-empty (FOURTH requires Maine registered-office address for the new corp).
+    depends_on_keys:
+      - entity.registered_office.address
+    severity: required
+  - id: future-effective-date-cap
+    description: "If consolidation.future_effective_date is set, it must be on or after filing.date_signed AND no later than filing.date_signed + 60 days (per 13-B MRSA cap noted on form)."
+    depends_on_keys:
+      - consolidation.future_effective_date
+    severity: required
+  - id: signature-block-each-party
+    description: "Each consolidation.parties[N] has at least signer_1.printed_name_and_capacity and date_signed populated; signer_2 may be empty unless the entity type requires two signers."
+    depends_on_keys:
+      - "consolidation.parties[0].signature_block.signer_1.printed_name_and_capacity"
+      - "consolidation.parties[0].signature_block.date_signed"
+      - "consolidation.parties[1].signature_block.signer_1.printed_name_and_capacity"
+      - "consolidation.parties[1].signature_block.date_signed"
+    severity: required
+  - id: fee-min-25
+    description: "filing.total_fees_dollars >= $25 base (per page 0 header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+    severity: optional

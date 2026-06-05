@@ -1,0 +1,71 @@
+checks:
+  - id: at-least-two-parties
+    description: "merger.parties[] has at least 2 entries (a merger requires at least 2 constituent parties)."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+    severity: required
+  - id: additional-parties-when-overflow
+    description: "If merger.parties[] exceeds 4, merger.additional_parties_attached must be true and merger.additional_parties_exhibit_letter must be set."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+      - "merger.parties[2].recital"
+      - "merger.parties[3].recital"
+      - merger.additional_parties_attached
+      - merger.additional_parties_exhibit_letter
+    severity: required
+  - id: surviving-entity-name-required
+    description: merger.surviving_entity.name_and_jurisdiction is non-empty.
+    depends_on_keys:
+      - merger.surviving_entity.name_and_jurisdiction
+    severity: required
+  - id: principal-office-required
+    description: merger.surviving_entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - merger.surviving_entity.principal_office.physical_address
+    severity: required
+  - id: fourth-election-required
+    description: "Exactly one of merger.fourth_election options is selected (FOURTH says 'X one box only')."
+    depends_on_keys:
+      - merger.fourth_election
+    severity: required
+  - id: fourth-exhibit-letter-when-applicable
+    description: "If merger.fourth_election='survivor_originating_doc_amended', merger.survivor_amendments_exhibit_letter must be set. If merger.fourth_election='new_corporation_created', merger.new_corporation_provisions_exhibit_letter must be set."
+    depends_on_keys:
+      - merger.fourth_election
+      - merger.survivor_amendments_exhibit_letter
+      - merger.new_corporation_provisions_exhibit_letter
+    severity: required
+  - id: sixth-election-required
+    description: Exactly one of merger.sixth_election options is selected.
+    depends_on_keys:
+      - merger.sixth_election
+    severity: required
+  - id: seventh-election-when-foreign
+    description: "If any merger.parties[N].recital indicates a foreign jurisdiction (not Maine/ME), one of merger.seventh_election options must be selected and merger.foreign_survivor.service_of_process_mailing_address must be set when the survivor is foreign."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+      - merger.seventh_election
+      - merger.foreign_survivor.service_of_process_mailing_address
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If merger.future_effective_date is set, it must be on or after filing.date_signed."
+    depends_on_keys:
+      - merger.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: each-party-signed
+    description: "For each populated merger.parties[N].recital with N<3, the corresponding signature block must have name_and_type, date_signed, and at least signer_1 populated."
+    depends_on_keys:
+      - "merger.parties[0].signature_block.name_and_type"
+      - "merger.parties[0].signature_block.date_signed"
+      - "merger.parties[0].signature_block.signer_1.printed_name_and_capacity"
+    severity: required
+  - id: fee-base-100
+    description: filing.total_fees_dollars equals $100 base (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

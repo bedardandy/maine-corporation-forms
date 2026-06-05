@@ -1,0 +1,105 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty (SECOND recital).
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-name-required
+    description: entity.original_name is non-empty (FOURTH recital).
+    depends_on_keys:
+      - entity.original_name
+    severity: required
+  - id: original-organization-place-required
+    description: entity.original_organization_address.street and .city are both non-empty.
+    depends_on_keys:
+      - entity.original_organization_address.street
+      - entity.original_organization_address.city
+    severity: required
+  - id: original-organization-date-complete
+    description: "entity.original_organization_date.{day,month,year} are all non-empty (FIRST recital sentence cannot be completed otherwise)."
+    depends_on_keys:
+      - entity.original_organization_date.day
+      - entity.original_organization_date.month
+      - entity.original_organization_date.year
+    severity: required
+  - id: exactly-one-nonprofit-type
+    description: "entity.nonprofit_type is exactly one of 'public_benefit' or 'mutual_benefit' (SIXTH header reads '\"X\" one box only')."
+    depends_on_keys:
+      - entity.nonprofit_type
+    severity: required
+  - id: purpose-text-when-required
+    description: "If entity.nonprofit_type='public_benefit', entity.public_benefit_purpose must be non-empty. If entity.nonprofit_type='mutual_benefit' and the corporation is NOT organized for all purposes permitted under 13-B, entity.mutual_benefit_purpose must be non-empty (otherwise it may be empty)."
+    depends_on_keys:
+      - entity.nonprofit_type
+      - entity.public_benefit_purpose
+      - entity.mutual_benefit_purpose
+    severity: required
+  - id: exactly-one-management-structure
+    description: "entity.management_structure is exactly one of 'directors' or 'members' (SEVENTH header reads '\"X\" one box only')."
+    depends_on_keys:
+      - entity.management_structure
+    severity: required
+  - id: current-address-complete
+    description: "entity.current_address.{street,city,county} are all non-empty (EIGHTH recital)."
+    depends_on_keys:
+      - entity.current_address.street
+      - entity.current_address.city
+      - entity.current_address.county
+    severity: required
+  - id: officer-count-matches-roster
+    description: "entity.officer_count equals the number of populated officer_<role>.name slots among {president, vice_president, secretary, treasurer}."
+    depends_on_keys:
+      - entity.officer_count
+      - officer_president.name
+      - officer_vice_president.name
+      - officer_secretary.name
+      - officer_treasurer.name
+    severity: required
+  - id: required-officer-roles-present
+    description: officer_president.name and officer_secretary.name are non-empty at minimum (these are also the two signers of the filing per the page-2 signature block).
+    depends_on_keys:
+      - officer_president.name
+      - officer_secretary.name
+    severity: required
+  - id: signers-required
+    description: filing.signer_president.printed_name and filing.signer_secretary.printed_name are both non-empty.
+    depends_on_keys:
+      - filing.signer_president.printed_name
+      - filing.signer_secretary.printed_name
+    severity: required
+  - id: signers-match-roster
+    description: "filing.signer_president.printed_name should equal officer_president.name (the President signs as President), and likewise filing.signer_secretary.printed_name should equal officer_secretary.name. A mismatch suggests a different officer is signing in another's stead."
+    depends_on_keys:
+      - filing.signer_president.printed_name
+      - officer_president.name
+      - filing.signer_secretary.printed_name
+      - officer_secretary.name
+    severity: optional
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: name-history-rows-paired
+    description: "For every populated entity.name_history[N].name there is a corresponding non-empty entity.name_history[N].date (and vice versa)."
+    depends_on_keys:
+      - entity.name_history
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-at-most-one
+    description: "At most one of the three expedite checkboxes is selected (or zero, defaulting to standard processing)."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-5
+    description: "filing.total_fees_dollars is approximately $5 base (per page-0 'Filing Fee $5.00') plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

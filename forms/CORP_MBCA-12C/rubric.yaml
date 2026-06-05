@@ -1,0 +1,56 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-auth-date-required-and-not-after-filing
+    description: entity.maine_authorization_date is non-empty and on or before filing.date_signed (cannot transfer authority before being authorized).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: new-entity-type-exactly-one
+    description: Exactly one of Check Box1/2/3/4 is set; transfer.new_entity_type resolves to exactly one of the four enum values.
+    depends_on_keys:
+      - transfer.new_entity_type
+    severity: required
+  - id: new-governing-jurisdiction-required
+    description: transfer.new_governing_jurisdiction is non-empty.
+    depends_on_keys:
+      - transfer.new_governing_jurisdiction
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-70
+    description: "filing.total_fees_dollars equals the $70 MBCA-12C base (page-0 header) plus the bundled Application for Authority's own filing fee plus expedite premium. Pass-1 records this as advisory; the precise sum depends on the bundled form selected."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - transfer.new_entity_type
+    severity: advisory

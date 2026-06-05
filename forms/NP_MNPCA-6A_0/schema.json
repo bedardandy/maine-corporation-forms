@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-6A_0.json",
+  "title": "NP_MNPCA-6A_0 fill data",
+  "type": "object",
+  "properties": {
+    "restatement": {
+      "type": "object",
+      "properties": {
+        "adoption_method": {
+          "type": "string",
+          "description": "13-B nonprofit-specific enum for how the restated articles were adopted. Values: 'members_majority_at_meeting' | 'members_supermajority_at_meeting' (when articles require more than majority) | 'members_written_consent' | 'board_majority' (only when entity has no members or none entitled to vote). Distinct from amendment.approval_method on MBCA-6A (which uses 13-C corporate values: incorporators / board_of_directors / shareholders)."
+        },
+        "adoption_date": {
+          "type": "string",
+          "description": "Date the restatement was adopted under one of the four restatement.adoption_method options. Form-scoped naming consistent with restatement.text_exhibit_letter."
+        },
+        "text_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Second signer slot for forms that require co-signing by two officers (or by an officer plus a clerk/secretary attesting member vote). Shape D applied to a parallel signer slot. Distinct from filing.signer.printed_name_and_capacity (the primary signer); the second slot is conditionally required depending on which restatement.adoption_method was used."
+            }
+          }
+        },
+        "enclosed_filing_types": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "string"
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent",
+    "restatement"
+  ]
+}

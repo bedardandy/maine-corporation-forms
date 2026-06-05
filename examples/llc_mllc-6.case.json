@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "name": "Casco Bay Ventures, LLC",
+    "formation_effective_date_choice": "on_filing",
+    "is_professional_llc": false
+  },
+  "registered_agent": {
+    "type": "noncommercial",
+    "name": "Penobscot Agent Services",
+    "physical_address": "12 Example Wharf, Portland, ME 04101",
+    "mailing_address": "PO Box 42, Portland, ME 04104"
+  },
+  "filing": {
+    "date_signed": "2026-02-03",
+    "total_fees_dollars": "175",
+    "signer": {
+      "printed_name": "Marguerite Example",
+      "capacity": "Authorized Member"
+    },
+    "entities": [
+      {"name": "Casco Bay Ventures, LLC"}
+    ],
+    "contact": {
+      "name": "Marguerite Example",
+      "phone": "207-555-0148",
+      "email": "filings@example.com"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+checks:
+  - id: underlying-filing-type-required
+    description: Exactly one filing.underlying_filing_type enum value is selected (one of five page-0 checkboxes).
+    depends_on_keys:
+      - filing.underlying_filing_type
+    severity: required
+  - id: entity-name-required-and-suffix
+    description: "entity.name is non-empty and contains 'Limited Liability Partnership', 'L.L.P.', or 'LLP' (per 31 MRSA §803-A)."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: registered-agent-type-exclusive
+    description: Exactly one of registered_agent.type values is selected (commercial XOR noncommercial).
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-number-when-commercial
+    description: "If registered_agent.type = 'commercial', registered_agent.cra_public_number must be non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-name-required
+    description: registered_agent.name is non-empty.
+    depends_on_keys:
+      - registered_agent.name
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is non-empty and not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_llp is true, at least entity.professional_services_description.line1 must be non-empty."
+    depends_on_keys:
+      - entity.is_professional_llp
+      - entity.professional_services_description.line1
+    severity: required
+  - id: contact-partner-block-required
+    description: contact_partner.name and contact_partner.address are both non-empty (FIFTH).
+    depends_on_keys:
+      - contact_partner.name
+      - contact_partner.address
+    severity: required
+  - id: exhibit-letter-format
+    description: "If entity.additional_provisions_exhibit_letter is populated, it must be a single uppercase letter A-Z."
+    depends_on_keys:
+      - entity.additional_provisions_exhibit_letter
+    severity: required

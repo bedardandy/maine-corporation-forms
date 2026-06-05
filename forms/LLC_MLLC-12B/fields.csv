@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Liability Company in Jurisdiction of Organization),entity.home_jurisdiction_name,high,"Home-jurisdiction name of the foreign LLC at the top of the body. Foreign-only filing — uses entity.home_jurisdiction_name (per CLKRA-3, MLLC-12, MBCA-12, FICT-4)."
+Text2,0,text,"FIRST: If different, the fictitious name under which the foreign limited liability company adopted to do business in the State of Maine pursuant to §1510-1.B is:",entity.maine_fictitious_name,high,Fictitious name used in Maine when the home name is unavailable (per 31 MRSA §1510-1.B). Same key family as MLLC-12 / FICT-4. Empty if home name was available in Maine at qualification time.
+Text3,0,text,SECOND: Its jurisdiction of organization is ___ (state or country),entity.home_jurisdiction,high,"State or country where the LLC was originally organized. Same key as CLKRA-3, MLLC-12, FICT-4."
+Text4,0,text,SECOND: ...and the date of organization is ___,entity.formation_date_in_home_jurisdiction,high,Date the LLC was originally organized in its home jurisdiction. Same key as MLLC-12.
+Text5,0,text,THIRD: The date on which the foreign limited liability company was qualified to conduct activities in the State of Maine:,entity.maine_authorization_date,high,"Date the foreign LLC originally obtained authority to conduct activities in Maine. Form text reads 'qualified to conduct activities' but this is semantically the same as the canonical 'authorized to transact business' (CLKRA-3, MLLC-12 use the same key)."
+Text6,0,text,FIFTH: ...the mailing address to which service of process may be mailed pursuant to §1662 is: (Principal office address) [line 1],entity.post_cancellation_service_address.line1,high,First line of the §1662 service-of-process mailing address. Required only when the entity is not maintaining a registered agent in Maine; the FIFTH paragraph is conditional on that fact.
+Text7,0,text,FIFTH: (Principal office address) [line 2],entity.post_cancellation_service_address.line2,high,Second line of the §1662 service-of-process mailing address (typically city/state/zip). Both Text6 and Text7 are individually labeled '(Principal office address)' on the form.
+Text8,0,text,"SIXTH: The street and mailing address of the foreign limited liability company's principal office is: ___ (street, city, state and zip code)",entity.principal_office.physical_address,high,"Single-line combined principal-office address. Same key as MLLC-12 / MBCA-12. Distinct from FIFTH service-of-process address — the principal office may be in any jurisdiction, and SIXTH is unconditional."
+Text9,1,text,DATED ___,filing.date_signed,high,Date the filing was signed.
+Text10,1,text,*Authorized person(s) — (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget. Shape D (matches MLLC-12, MBCA-11). Adjacent (authorized signature) line has no AcroForm widget — wet-ink only."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day' ($50 additional).
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day' ($100 additional).
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total enclosed fees.
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

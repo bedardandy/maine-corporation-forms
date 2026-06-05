@@ -1,0 +1,2108 @@
+{
+  "CORP_ASUM-5": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_ASUM-5",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_CLKRA-3": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_CLKRA-3",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_FICT-4": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_FICT-4",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_HO-E911": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_HO-E911",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-1": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-10": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-10",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-10A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-10A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-11": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-11",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-11A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-11A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-11I": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-11I",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-12": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-12",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-12A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-12A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-12B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-12B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-12C": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-12C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-12E-NCRA": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-12E-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-13A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-13A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-14": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-14",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-14A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-14A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-15": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-15",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-17": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-17",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-19": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-19",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-19A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-19A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-19B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-19B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-1A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-1A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-2": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-20": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-20",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-20A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-20A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-20B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-20B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-21": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-21",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-21A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-21A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-21B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-21B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-21C": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-21C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-2A": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-2A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-3A-NCRA": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-3A-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-5A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-5A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-6": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-6-1": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-6-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-6A": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-6A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-9": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MBCA-9A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MBCA-9A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_MERGFOR": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_MERGFOR",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_REVIVAL": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_REVIVAL",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_RO-E911": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_RO-E911",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "CORP_SOPAPPT": {
+    "allowed_signer_capacities": [
+      "officer",
+      "incorporator",
+      "director",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Business Corporation (13-C M.R.S.)",
+    "entity_class": "CORP",
+    "form_id": "CORP_SOPAPPT",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "GP_CONV-PARTNER": {
+    "allowed_signer_capacities": [
+      "partner"
+    ],
+    "category": null,
+    "entity": "General Partnership (31 M.R.S.)",
+    "entity_class": "GP",
+    "form_id": "GP_CONV-PARTNER",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "GP_MPA-1": {
+    "allowed_signer_capacities": [
+      "partner"
+    ],
+    "category": null,
+    "entity": "General Partnership (31 M.R.S.)",
+    "entity_class": "GP",
+    "form_id": "GP_MPA-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "GP_MPA-2": {
+    "allowed_signer_capacities": [
+      "partner"
+    ],
+    "category": null,
+    "entity": "General Partnership (31 M.R.S.)",
+    "entity_class": "GP",
+    "form_id": "GP_MPA-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MERGFOR": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MERGFOR",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-1": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-10": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-10",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-11C": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-11C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-12": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-12",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-12A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-12A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-12B": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-12B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-13A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-13A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-14": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-14",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-14A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-14A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-15": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-15",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-17": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-17",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-1A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-1A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-2": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-3A-NCRA": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-3A-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-5A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-5A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-6": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-6A": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-6A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLC-9": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLC-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLCACSOA": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLCACSOA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLCCONV": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLCCONV",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLCDENIAL": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLCDENIAL",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLC_MLLCSOA": {
+    "allowed_signer_capacities": [
+      "authorized person",
+      "member",
+      "manager"
+    ],
+    "category": null,
+    "entity": "Limited Liability Company (31 M.R.S.)",
+    "entity_class": "LLC",
+    "form_id": "LLC_MLLCSOA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-1": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-11R": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-11R",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-12": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-12",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-12-1": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-12-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-12A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-12A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-12B": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-12B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-13A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-13A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-15": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-15",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-17": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-17",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-17A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-17A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-1A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-1A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-2": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-3A-NCRA": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-3A-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-5A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-5A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-6": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-6-1": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-6-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-6A": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-6A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LLP_MLLP-9": {
+    "allowed_signer_capacities": [
+      "partner",
+      "authorized partner"
+    ],
+    "category": null,
+    "entity": "Limited Liability Partnership (31 M.R.S.)",
+    "entity_class": "LLP",
+    "form_id": "LLP_MLLP-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-1": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-10": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-10",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-11C": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-11C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-12": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-12",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-12-1": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-12-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-12A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-12A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-12B": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-12B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-13A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-13A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-15": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-15",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-17": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-17",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-1A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-1A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-2": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-3A-NCRA": {
+    "allowed_signer_capacities": [
+      "general partner",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-3A-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-5A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-5A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-5B": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-5B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-6": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-6-1": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-6-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-6A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-6A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-9": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-9A": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-9A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPA-9B": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPA-9B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "LP_MLPACONV": {
+    "allowed_signer_capacities": [
+      "general partner"
+    ],
+    "category": null,
+    "entity": "Limited Partnership (31 M.R.S.)",
+    "entity_class": "LP",
+    "form_id": "LP_MLPACONV",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark1": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark1a": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark1a",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark2": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark3": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark3",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark4": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark4",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark5": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark5",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "MARK_mark6": {
+    "allowed_signer_capacities": [
+      "applicant",
+      "officer",
+      "authorized person"
+    ],
+    "category": null,
+    "entity": "Trademark / Service Mark (10 M.R.S.)",
+    "entity_class": "MARK",
+    "form_id": "MARK_mark6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_CLKRA-3": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_CLKRA-3",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_FICT-4": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_FICT-4",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MLC-3_0": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MLC-3_0",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MLC-6": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MLC-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNP-3": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNP-3",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNP-6": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNP-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNP-9": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNP-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNP-981A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNP-981A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-1": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-10": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-10",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-10A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-10A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-10C": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-10C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-10E": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-10E",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11C": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11C",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11D": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11D",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-11E": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-11E",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-12": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-12",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-12-1": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-12-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-12A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-12A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-12B": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-12B",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-13A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-13A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-14": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-14",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-14A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-14A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-15": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-15",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-16": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-16",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-17": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-17",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-19": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-19",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-19A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-19A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-1A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-1A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-2": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-2",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-3A-NCRA": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator",
+      "registered agent"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-3A-NCRA",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-5A": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-5A",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-6": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-6",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-6-1": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-6-1",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-6A_0": {
+    "allowed_signer_capacities": [
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-6A_0",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  },
+  "NP_MNPCA-9": {
+    "allowed_signer_capacities": [
+      "officer",
+      "director",
+      "incorporator"
+    ],
+    "category": null,
+    "entity": "Nonprofit Corporation (13-B M.R.S.)",
+    "entity_class": "NP",
+    "form_id": "NP_MNPCA-9",
+    "note": "Maine generally requires an original wet-ink signature on paper filings. Verify the form's printed signature block for the authoritative signer.",
+    "signature_mode": "wet_ink",
+    "source": "default"
+  }
+}

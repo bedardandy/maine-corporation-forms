@@ -1,0 +1,67 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty (FIRST).
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: original-report-date-required-and-past
+    description: filing.original_annual_report_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: amendment-window-same-filing-year
+    description: "filing.date_signed is on or before December 31 of the year of filing.original_annual_report_date (per the page-1 footnote: amendment window is from original filing date until Dec 31 of that filing year)."
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: changes-description-nonempty
+    description: At least one of amendment.changes_description.line1–line6 is non-empty.
+    depends_on_keys:
+      - amendment.changes_description.line1
+      - amendment.changes_description.line2
+      - amendment.changes_description.line3
+      - amendment.changes_description.line4
+      - amendment.changes_description.line5
+      - amendment.changes_description.line6
+    severity: required
+  - id: amendment-effective-date-required
+    description: amendment.effective_date is non-empty (FOURTH).
+    depends_on_keys:
+      - amendment.effective_date
+    severity: required
+  - id: primary-signer-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (statute mandates at least one authorized-person signature).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: fees-match-base-and-expedite
+    description: "filing.total_fees_dollars equals the base fee ($85 if entity.home_jurisdiction is Maine/ME, else $150) plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - entity.home_jurisdiction
+    severity: optional

@@ -1,0 +1,43 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+61,0,text,FIRST: The name of the church is,entity.name,high,Primary entity name field at top of body.
+62,0,text,"SECOND: The corporation is an independent local church located in ___, Maine.",entity.location_city,high,"City or town in Maine where the church is located. Implicitly Maine ('___, Maine.' is the form text)."
+63,0,text,THIRD: The number of trustees is ___,entity.trustee_count,high,Numeric count of trustees governing the church.
+64,0,text,and their names are ___ (continuation line 1 of THIRD recital),entity.trustee_names_inline,high,"First line of the THIRD recital naming the trustees inline. Distinct from the structured per-trustee block on page 1 — this is a free-text recital that lists the trustees in prose, while page 1 captures structured per-trustee identity+address. Both must be populated."
+65,0,text,(continuation line 2 of THIRD recital),entity.trustee_names_inline,high,Second line of the same inline recital — overflow when names don't fit on line 1.
+66,0,text,(continuation line 3 of THIRD recital),entity.trustee_names_inline,high,Third line of the inline recital — overflow line.
+67,0,text,Dated ___ (top of officers/trustees signature block),filing.date_signed,high,Date the certificate is signed. Single Dated field shared across all officer/trustee signers.
+68,0,text,(Clerk) / (type or print name) — lower-left of Clerk block,clerk.printed_name,high,"Printed name of the Clerk of the church (Shape E variant — role-keyed officer signer, formation-time)."
+69,0,text,Street ___ (upper-right of Clerk block),clerk.address.street,high,Street address of the Clerk.
+610,0,text,"(city, state and zip code) — lower-right of Clerk block",clerk.address.city_state_zip,high,City/state/zip of the Clerk.
+611,0,text,(Treasurer) / (type or print name) — lower-left of Treasurer block,treasurer.printed_name,high,Printed name of the Treasurer of the church.
+612,0,text,Street ___ (upper-right of Treasurer block),treasurer.address.street,high,Street address of the Treasurer.
+613,0,text,"(city, state and zip code) — lower-right of Treasurer block",treasurer.address.city_state_zip,high,City/state/zip of the Treasurer.
+614,1,text,"(Trustee) / (type or print name) — Trustee 1 print-name slot (left col, middle row)",trustee_1.printed_name,high,Printed name of Trustee 1.
+615,1,text,"Street ___ (Trustee 1 right col, upper row)",trustee_1.address.street,high,Street address of Trustee 1.
+616,1,text,"(city, state and zip code) — Trustee 1 right col, lower row",trustee_1.address.city_state_zip,high,City/state/zip of Trustee 1.
+617,1,text,(Trustee) / (type or print name) — Trustee 2 print-name slot,trustee_2.printed_name,high,Printed name of Trustee 2.
+618,1,text,Street ___ (Trustee 2),trustee_2.address.street,high,Street address of Trustee 2.
+619,1,text,"(city, state and zip code) — Trustee 2",trustee_2.address.city_state_zip,high,City/state/zip of Trustee 2.
+620,1,text,(Trustee) / (type or print name) — Trustee 3 print-name slot,trustee_3.printed_name,high,Printed name of Trustee 3.
+621,1,text,Street ___ (Trustee 3),trustee_3.address.street,high,Street address of Trustee 3.
+622,1,text,"(city, state and zip code) — Trustee 3",trustee_3.address.city_state_zip,high,City/state/zip of Trustee 3.
+623,1,text,(Trustee) / (type or print name) — Trustee 4 print-name slot,trustee_4.printed_name,high,Printed name of Trustee 4.
+624,1,text,Street ___ (Trustee 4),trustee_4.address.street,high,Street address of Trustee 4.
+625,1,text,"(city, state and zip code) — Trustee 4",trustee_4.address.city_state_zip,high,City/state/zip of Trustee 4.
+626,1,text,(Trustee) / (type or print name) — Trustee 5 print-name slot,trustee_5.printed_name,high,Printed name of Trustee 5.
+627,1,text,Street ___ (Trustee 5),trustee_5.address.street,high,Street address of Trustee 5.
+628,1,text,"(city, state and zip code) — Trustee 5",trustee_5.address.city_state_zip,high,City/state/zip of Trustee 5.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $5 per page-0 header plus expedite premium).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

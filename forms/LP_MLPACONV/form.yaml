@@ -1,0 +1,12 @@
+form_id: LP_MLPACONV
+code: MLPACONV
+title: Articles of Conversion (Maine Limited Partnership → Other Type of Organization)
+entity_type: Limited Partnership
+statute: Maine Revised Uniform Limited Partnership Act (31 M.R.S.)
+num_pages: 3
+num_fields: 32
+mapped_fields: 29
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

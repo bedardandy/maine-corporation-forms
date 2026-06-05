@@ -1,0 +1,97 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: maine-name-suffix-required
+    description: "entity.maine_assumed_name_for_suffix is non-empty (FIRST is a required field) and contains one of: 'Limited Partnership', 'L.P.', or 'LP' (per 31 MRSA §1308.1.A.2 footnote on FIRST)."
+    depends_on_keys:
+      - entity.maine_assumed_name_for_suffix
+    severity: required
+  - id: fictitious-name-implies-fict4
+    description: "If entity.maine_fictitious_name is non-empty, filing.fict4_accompanies must be true."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: lllp-name-suffix
+    description: "If entity.is_lllp is true, entity.maine_assumed_name_for_suffix must contain 'LLLP', 'L.L.L.P.', or 'Limited Liability Limited Partnership' (per the NINTH footnote, 31 MRSA §1308.1.A.3)."
+    depends_on_keys:
+      - entity.is_lllp
+      - entity.maine_assumed_name_for_suffix
+    severity: required
+  - id: plllp-name-suffix-and-services
+    description: "If entity.is_plllp is true, entity.maine_assumed_name_for_suffix must contain a professional suffix (e.g., 'chartered', 'professional limited liability limited partnership', 'P.L.L.L.P.', 'PLLLP') AND entity.professional_services_description.line1 must be non-empty."
+    depends_on_keys:
+      - entity.is_plllp
+      - entity.maine_assumed_name_for_suffix
+      - entity.professional_services_description.line1
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is non-empty and on or before today.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: principal-office-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: registered-agent-type-exclusive
+    description: Exactly one of registered_agent.type values is selected (commercial XOR noncommercial).
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is non-empty and not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: general-partner-1-required
+    description: general_partner_1.name and general_partner_1.address are both non-empty (EIGHTH requires at least one inline GP).
+    depends_on_keys:
+      - general_partner_1.name
+      - general_partner_1.address
+    severity: required
+  - id: general-partner-list-consistency
+    description: "If general_partner.additional_attached is true, general_partner.additional_exhibit_letter must be non-empty. If false, all populated general_partner_N rows must have both name and address."
+    depends_on_keys:
+      - general_partner.additional_attached
+      - general_partner.additional_exhibit_letter
+      - general_partner_1.name
+      - general_partner_1.address
+      - general_partner_2.name
+      - general_partner_2.address
+      - general_partner_3.name
+      - general_partner_3.address
+    severity: required
+  - id: signer-required-individual-or-entity
+    description: "Either filing.signer.printed_name (individual GP signer) is non-empty, OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) are both non-empty (entity GP signer)."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: certificate-of-existence-recency
+    description: ELEVENTH paragraph requires that an attached certificate of existence (or document of similar import) be dated within 90 days before delivery; cannot be auto-validated against widget data — track manually in filing.notes.
+    depends_on_keys: []
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

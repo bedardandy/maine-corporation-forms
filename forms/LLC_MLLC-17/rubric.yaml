@@ -1,0 +1,48 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-filing-date-required
+    description: correction.original_filing_date is non-empty and parses as a valid date in the past relative to filing.date_signed.
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: original-document-name-required
+    description: correction.original_document_name is non-empty.
+    depends_on_keys:
+      - correction.original_document_name
+    severity: required
+  - id: error-description-required
+    description: correction.error_description is non-empty.
+    depends_on_keys:
+      - correction.error_description
+    severity: required
+  - id: corrected-information-required
+    description: correction.corrected_information is non-empty.
+    depends_on_keys:
+      - correction.corrected_information
+    severity: required
+  - id: primary-signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (primary authorized signer per 31 MRSA §1676.1B).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: second-signer-optional
+    description: filing.signer_2.printed_name_and_capacity is optional — present only when two authorized persons co-sign.
+    depends_on_keys:
+      - filing.signer_2.printed_name_and_capacity
+    severity: optional
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

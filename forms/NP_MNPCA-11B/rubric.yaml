@@ -1,0 +1,47 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: officer-roster-minimal-coverage
+    description: At least one officer (officer_1) is fully populated. President is the conventional row-1 occupant.
+    depends_on_keys:
+      - officer_1.printed_name
+      - officer_1.address
+    severity: required
+  - id: officer-roster-pairs-aligned
+    description: "For each officer_N row that is populated, both .printed_name and .address are non-empty (no half-filled rows)."
+    depends_on_keys:
+      - officer_1.printed_name
+      - officer_1.address
+      - officer_2.printed_name
+      - officer_2.address
+    severity: required
+  - id: exactly-one-consent-source
+    description: Exactly one of SECOND members/directors checkboxes is selected.
+    depends_on_keys:
+      - revocation.consent_source
+    severity: required
+  - id: registered-office-required
+    description: registered_agent.physical_address is non-empty.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: at-least-one-signer
+    description: "At least one of filing.signer or filing.signer_2 is fully populated. Form footnote requires 'any authorized officer' to sign — singular, so one slot is sufficient."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals the $5.00 base fee (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

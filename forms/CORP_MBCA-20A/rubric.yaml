@@ -1,0 +1,49 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: conversion-effective-date-required
+    description: "conversion.future_effective_date is non-empty (FIRST is mandatory on this form, unlike MBCA-20's optional FOURTH)."
+    depends_on_keys:
+      - conversion.future_effective_date
+    severity: required
+  - id: new-jurisdiction-required
+    description: "conversion.new_jurisdiction is non-empty and is NOT 'Maine' / 'ME' (the form is specifically for outbound conversion to a foreign jurisdiction)."
+    depends_on_keys:
+      - conversion.new_jurisdiction
+    severity: required
+  - id: appraisal-rights-address-required
+    description: filing.appraisal_rights_agent_mailing_address is non-empty (FOURTH mandates it).
+    depends_on_keys:
+      - filing.appraisal_rights_agent_mailing_address
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (Shape D; signer must be 'an officer or other duly authorized representative' per 13-C MRSA §934.1)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: fee-base-90-plus-expedite
+    description: "filing.total_fees_dollars equals $90 base fee plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

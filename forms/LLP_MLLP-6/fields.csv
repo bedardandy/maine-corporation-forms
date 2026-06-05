@@ -1,0 +1,39 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Check Box21,0,checkbox,[ ] Mark box only if applicable. This is a professional limited liability partnership* formed pursuant to 13 MRSA Chapter 22-A,entity.is_professional_llp,high,Boolean elect-in for professional LLP status under 13 MRSA Chapter 22-A. Reuses the existing key family (entity.is_professional_lllp on MLPA-6 / entity.is_professional_llp on this form is the LLP analog).
+Text1,0,text,(type of professional services),entity.professional_services_description,high,Free-text description of professional services. Required when entity.is_professional_llp is true. Reuses the existing key from MLPA-6.
+Text2,0,text,FIRST: The name of the registered limited liability partnership is,entity.name,high,"Domestic-LLP name; must contain 'Limited Liability Partnership', 'L.L.P.', or 'LLP' per 31 MRSA §803-A."
+Text3,0,text,SECOND: ... CRA Public Number:,registered_agent.cra_public_number,high,Maine SOS Commercial Registered Agent (CRA) public number. Used only when registered_agent.type='commercial'.
+Check Box22,0,text,[ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio option for registered_agent.type='commercial'.
+Text4,0,text,(name of commercial registered agent),registered_agent.name,high,Name of the registered agent (commercial path). Filler convention: write registered_agent.name to whichever slot (Text4 or Text5) matches the selected registered_agent.type.
+Text5,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name of the registered agent (noncommercial path).
+Check Box23,0,text,[ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio option for registered_agent.type='noncommercial'.
+Text6,0,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Physical-location address of the registered agent (single combined widget; not split into street/city components).
+Text7,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address of the registered agent.
+Text8,0,text,"FOURTH: The name and business, residence or mailing address of the contact partner is: (inline combined widget)",contact_partner.name_and_address,medium,"Inline combined name+address widget for the FOURTH-recital contact partner (single line). Distinct from the Name/Address split widgets (Text9/Text10) below — the form provides two parallel ways to capture the same information. Combined-recital pattern parallels merger.surviving_entity.name_and_jurisdiction (MBCA-10) — synth derives by concatenating contact_partner.name + ', ' + contact_partner.address at fill time."
+Text9,0,text,FOURTH (split): Name (left column),contact_partner.name,high,Name portion of the contact partner (split-column widget). Reuses the existing key from MLLP-6A.
+Text10,0,text,FOURTH (split): Address (right column),contact_partner.address,high,Address portion of the contact partner. Reuses the existing key from MLLP-6A.
+Text21,1,text,"FIFTH: Other provisions of this certificate, if any, that the partners determine to include are set forth in Exhibit ___ attached hereto and made a part hereof.",entity.additional_provisions_exhibit_letter,high,Inline exhibit-letter for additional provisions of the certificate. Reuses the existing key from MBCA-6 / MLPA-6 / MLLP-6A.
+Text11,1,text,Dated ___,filing.date_signed,high,Signing date of the certificate.
+Text12,1,text,Partner(s)** — slot 1 — (signature) / (type or print name),partner_1.printed_name,high,"Printed name of individual partner signer slot 1 — Shape B (name only, no capacity field) variant of the multi-slot per-officer pattern. Distinct from MLLP-6A's partner_N.printed_name_and_capacity (Shape D) — MLLP-6 uses '(type or print name)' only because the certificate is a §822 formation/qualification filing where the role 'partner' is implicit (not an arbitrary capacity that must be disclosed)."
+Text13,1,text,Partner(s)** — slot 2 — (type or print name),partner_2.printed_name,high,Printed name of individual partner signer slot 2.
+Text14,1,text,Partner(s)** — slot 3 — (type or print name),partner_3.printed_name,high,Printed name of individual partner signer slot 3.
+Text15,1,text,For Partner(s)** which are Entities — slot 1 — Name of Entity,partner_entity_1.name,high,Name of an entity partner (slot 1). Reuses the existing key family from MLLP-6A — partner_entity_N.* parallels MLPA-6's general_partner_entity_N.* but uses 'partner' for LLP terminology.
+Text16,1,text,For Partner(s)** which are Entities — slot 1 — By ___ (authorized signature) / (type or print name and capacity),partner_entity_1.signer_printed_name_and_capacity,high,Combined name+capacity of the natural person signing on behalf of entity-partner slot 1.
+Text17,1,text,For Partner(s)** which are Entities — slot 2 — Name of Entity,partner_entity_2.name,high,Name of entity partner (slot 2).
+Text18,1,text,For Partner(s)** which are Entities — slot 2 — By ___ / (type or print name and capacity),partner_entity_2.signer_printed_name_and_capacity,high,Combined name+capacity of the natural person signing on behalf of entity-partner slot 2.
+Text19,1,text,For Partner(s)** which are Entities — slot 3 — Name of Entity,partner_entity_3.name,high,Name of entity partner (slot 3).
+Text20,1,text,For Partner(s)** which are Entities — slot 3 — By ___ / (type or print name and capacity),partner_entity_3.signer_printed_name_and_capacity,high,Combined name+capacity of the natural person signing on behalf of entity-partner slot 3.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($175 base per page-0 'Filing Fee $175.00' header plus expedite premium).
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Filing-contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Filing-contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

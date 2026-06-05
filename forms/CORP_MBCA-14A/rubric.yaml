@@ -1,0 +1,59 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-resumption-method
+    description: "Exactly one of the FIRST options is selected (resumption.method ∈ {'meeting', 'written_consent'})."
+    depends_on_keys:
+      - resumption.method
+    severity: required
+  - id: meeting-details-when-meeting
+    description: "If resumption.method='meeting', resumption.meeting_date and resumption.meeting_location must both be non-empty."
+    depends_on_keys:
+      - resumption.method
+      - resumption.meeting_date
+      - resumption.meeting_location
+    severity: required
+  - id: no-meeting-details-when-written-consent
+    description: "If resumption.method='written_consent', resumption.meeting_date and resumption.meeting_location should be empty (no meeting was held)."
+    depends_on_keys:
+      - resumption.method
+      - resumption.meeting_date
+      - resumption.meeting_location
+    severity: optional
+  - id: meeting-date-not-future
+    description: "If set, resumption.meeting_date is not in the future."
+    depends_on_keys:
+      - resumption.meeting_date
+    severity: required
+  - id: effective-date-not-before-filing
+    description: "If resumption.effective_date is set, it should be on or after filing.date_signed (the resumption cannot be retroactive)."
+    depends_on_keys:
+      - resumption.effective_date
+      - filing.date_signed
+    severity: optional
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (signer must be a duly authorized officer per 13-C MRSA §121.5; cannot be auto-validated from form alone).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.{name,phone,email} are all non-empty (per cover-letter NOTE)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-100
+    description: "filing.total_fees_dollars is approximately $100 base (per page-0 'Filing Fee $100.00') plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

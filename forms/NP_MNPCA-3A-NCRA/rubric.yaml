@@ -1,0 +1,60 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty (must match SOS record).
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: registered-agent-name-required
+    description: "registered_agent.name is non-empty (the resigning agent's name as on record)."
+    depends_on_keys:
+      - registered_agent.name
+    severity: required
+  - id: registered-agent-physical-address-required
+    description: registered_agent.physical_address is non-empty (must match SOS record verbatim).
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: notice-recipient-name-required
+    description: resignation_notice.recipient_name is non-empty.
+    depends_on_keys:
+      - resignation_notice.recipient_name
+    severity: required
+  - id: notice-recipient-address-required
+    description: resignation_notice.recipient_address is non-empty.
+    depends_on_keys:
+      - resignation_notice.recipient_address
+    severity: required
+  - id: notice-recipient-title-required
+    description: "resignation_notice.recipient_title is non-empty (must be a corporate-officer title — President, Treasurer, Secretary, Clerk, etc.)."
+    depends_on_keys:
+      - resignation_notice.recipient_title
+    severity: required
+  - id: filing-date-required-not-future
+    description: "filing.date_signed is non-empty and not in the future (resignation effective date is filing.date_signed + 31 days, by §111)."
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-name-required
+    description: filing.signer.printed_name is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name
+    severity: required
+  - id: signer-matches-resigning-agent
+    description: "filing.signer.printed_name should match registered_agent.name (the resigning agent is the signer; mismatch indicates either a typo or that someone other than the agent of record is signing, which §111 does not authorize)."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - registered_agent.name
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-plus-expedite
+    description: "filing.total_fees_dollars equals the page-0 base fee plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

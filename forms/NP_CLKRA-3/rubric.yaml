@@ -1,0 +1,58 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-action-type
+    description: "Exactly one of FIRST 'new' / 'modify' options is selected, populating clerk_change.action_type."
+    depends_on_keys:
+      - clerk_change.action_type
+    severity: required
+  - id: modify-subtype-when-modifying
+    description: "If clerk_change.action_type = 'modify_existing', exactly one of clerk_change.modify_subtype options is selected."
+    depends_on_keys:
+      - clerk_change.action_type
+      - clerk_change.modify_subtype
+    severity: required
+  - id: current-name-required-when-modifying
+    description: "If clerk_change.action_type = 'modify_existing', clerk_change.current_clerk_or_agent_name must be non-empty."
+    depends_on_keys:
+      - clerk_change.action_type
+      - clerk_change.current_clerk_or_agent_name
+    severity: required
+  - id: new-info-required
+    description: "Either the noncommercial fields (THIRD: name + physical address) or the commercial fields (FOURTH: CRA Public Number + name) must be populated, but not both — depending on which type of clerk/RA is being appointed."
+    depends_on_keys:
+      - clerk_change.new_noncommercial_name
+      - clerk_change.new_commercial_name
+    severity: required
+  - id: noncommercial-physical-not-pobox
+    description: "If clerk_change.new_noncommercial_physical_address is set, it must not be a P.O. Box (per FOURTH parenthetical)."
+    depends_on_keys:
+      - clerk_change.new_noncommercial_physical_address
+    severity: required
+  - id: bc-authorization-not-required-for-np
+    description: "For NP_ filings, clerk_change.bc_authorization should be empty (SIXTH applies only to domestic business corporations per the section header). If this rubric runs on a multi-entity instance with a BC entity-type input, exactly one option must be selected."
+    depends_on_keys:
+      - clerk_change.bc_authorization
+    severity: optional
+  - id: foreign-fields-when-foreign
+    description: "If the entity is foreign, entity.home_jurisdiction and entity.maine_authorization_date must both be populated; if domestic, both should be empty."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-name-and-title-required
+    description: filing.signer.printed_name and filing.signer.title are both non-empty (Shape A — split name/title widgets).
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer.title
+    severity: required
+  - id: contact-info-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-6A.json",
+  "title": "CORP_MBCA-6A fill data",
+  "type": "object",
+  "properties": {
+    "restatement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of restatement under 13-C \u00a71007. Enum: 'consolidation_only' (Check Box8 \u2014 restated articles consolidate all prior amendments without adding new ones) | 'includes_new_amendment' (Check Box9 \u2014 restatement also adopts a new amendment, requiring adoption date and approval method).",
+          "enum": [
+            "consolidation_only",
+            "includes_new_amendment"
+          ]
+        },
+        "text_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the full restated articles text (typically attached as the contents of Form MBCA-6-1). Distinct from amendment.text_exhibit_letter (MBCA-9) because the exhibit on a restatement holds the entire restated document, not a single amendment text."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future-effective date for the restated articles. Parallel to merger.future_effective_date / conversion.future_effective_date / domestication.future_effective_date \u2014 the form-scoped future-effective-date convention."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "adoption_date": {
+          "type": "string"
+        },
+        "approval_method": {
+          "type": "string"
+        },
+        "share_exchange_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "restatement"
+  ]
+}

@@ -1,0 +1,72 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-adopting-body
+    description: "Exactly one of FIRST [members]/[directors] is selected (resumption.adopting_body set)."
+    depends_on_keys:
+      - resumption.adopting_body
+    severity: required
+  - id: exactly-one-resumption-method
+    description: "Exactly one of FIRST [meeting]/[written consent] is selected (resumption.method set)."
+    depends_on_keys:
+      - resumption.method
+    severity: required
+  - id: exactly-one-voting-body
+    description: "Exactly one of SECOND [members]/[directors] is selected (resumption.voting_body set)."
+    depends_on_keys:
+      - resumption.voting_body
+    severity: required
+  - id: adopting-and-voting-bodies-match
+    description: resumption.adopting_body equals resumption.voting_body (the FIRST adopting body and the SECOND certified voting body should be the same in a coherent filing).
+    depends_on_keys:
+      - resumption.adopting_body
+      - resumption.voting_body
+    severity: advisory
+  - id: adoption-date-required
+    description: resumption.adoption_date is non-empty and parses as a date on or before filing.date_signed.
+    depends_on_keys:
+      - resumption.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: adoption-location-when-meeting
+    description: "If resumption.method='meeting', resumption.adoption_location is non-empty."
+    depends_on_keys:
+      - resumption.method
+      - resumption.adoption_location
+    severity: required
+  - id: registered-office-address-required
+    description: registered_office.address.line2 is non-empty (the full-width continuation line is the canonical address line; line1 may be a leading fragment).
+    depends_on_keys:
+      - registered_office.address.line2
+    severity: required
+  - id: exactly-one-nonprofit-type
+    description: "Exactly one of FOURTH [public benefit]/[mutual benefit] is selected (entity.nonprofit_type set)."
+    depends_on_keys:
+      - entity.nonprofit_type
+    severity: required
+  - id: primary-signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (form footnote * requires signature by any authorized officer per 13-B MRSA §104.1.B)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-25
+    description: "filing.total_fees_dollars equals $25 base (per page-0 'Filing Fee $25.00') plus expedite premium ($0/$50/$100 by tier)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

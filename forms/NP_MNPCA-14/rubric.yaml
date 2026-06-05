@@ -1,0 +1,45 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: signer-name-required
+    description: "filing.signer.printed_name is non-empty (the 'I, ___' widget at the start of the certification paragraph)."
+    depends_on_keys:
+      - filing.signer.printed_name
+    severity: required
+  - id: cessation-date-required
+    description: entity.cessation_date is non-empty (the §1301.5 excuse is unavailable without a stated cessation date).
+    depends_on_keys:
+      - entity.cessation_date
+    severity: required
+  - id: cessation-date-not-after-filing
+    description: entity.cessation_date should be on or before filing.date_signed (the corporation must have already ceased activities).
+    depends_on_keys:
+      - entity.cessation_date
+      - filing.date_signed
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-title-circle-recommended
+    description: "filing.signer.title_circle_choice should be set to one of {'president', 'treasurer', 'clerk_or_secretary'} so that downstream tooling knows which title was indicated. Cannot be auto-validated against the rendered PDF (no widget)."
+    depends_on_keys:
+      - filing.signer.title_circle_choice
+    severity: optional
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

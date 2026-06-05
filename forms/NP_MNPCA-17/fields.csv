@@ -1,0 +1,26 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation),entity.name,high,"Top-of-form entity name. The form is used by both domestic and foreign nonprofits — following the CORP_CLKRA-3 precedent for dual-use forms, this maps to `entity.name`. For foreign nonprofits filing this correction, synth should also populate `entity.home_jurisdiction_name` to match `entity.name` for cover-letter consistency."
+Text2,0,text,"incorporated under the laws of the State of ___, and authorized to carry on activities in Maine",entity.home_jurisdiction,high,Home-jurisdiction state — populated only when the filer is a foreign nonprofit. The form's preamble offers two parallel parentheticals: '(incorporated under the laws of the State of Maine)' for domestic and '(incorporated under the laws of the State of ___)' for foreign; only one applies and the unused parenthetical is struck through or left blank.
+Text3,0,text,FIRST: On ___ (date) the Secretary of State filed a document...,correction.original_filing_date,high,FIRST inline date blank — date the original document was filed.
+Text4,0,text,"FIRST: ...entitled: ___ (i.e. Articles of Incorporation, Articles of Amendment, etc.)",correction.original_document_title,high,FIRST full-width blank — title of the original document being corrected.
+Text5,0,text,THIRD: The inaccuracy or defect to be corrected is described as follows:,correction.error_description,high,THIRD large multi-line text block — free-text description of the error or defect in the original filing.
+Text6,0,text,FOURTH: The portion of the said document to be corrected is corrected to read in its entirety as follows:,correction.corrected_text,high,FOURTH large multi-line text block — the corrected language in its entirety.
+Text7,1,text,"SIXTH: The address of the registered office of the corporation in the State of Maine is ___ (line 1, inline trailing blank)",registered_agent.physical_address,high,"SIXTH inline trailing blank (right side, end of 'is ___'). Maps to existing registered_agent namespace per convention."
+Text8,1,text,"SIXTH: ___ (line 2, full-width continuation; '(street, city, state and zip code)' caption)",registered_agent.physical_address,high,"SIXTH full-width continuation line for the Maine registered office address. Same canonical key as Text7. Filler should write the complete address into Text8 (full-width) and leave Text7 blank, OR a partial leading-text into Text7 and the rest into Text8."
+Text9,1,text,DATED ___,filing.date_signed,high,Date of signature (narrow widget on the left of the signature row).
+Text10,1,text,*By ___ (signature) / ___ (type or print name and capacity) — first signer,filing.signer.printed_name_and_capacity,high,"First *By signer's printed name and capacity (Shape D combined). Right side, upper position."
+Text11,1,text,*By ___ (signature) / ___ (type or print name and capacity) — second signer,filing.signer_2.printed_name_and_capacity,high,"Second *By signer's printed name and capacity (Shape D combined). Right side, lower position. Form footnote 'MUST be signed by any duly authorized officer' (singular) — second slot optional."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

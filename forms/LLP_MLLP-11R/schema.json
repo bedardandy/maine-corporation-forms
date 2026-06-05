@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-11R.json",
+  "title": "LLP_MLLP-11R fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "llp_certificate_filing_date": {
+          "type": "string",
+          "description": "Date the original certificate of limited liability partnership (MLLP-1 registration) was filed with the SOS. Anchor for renunciation timeline; entity-scoped because it identifies the entity's LLP-status registration date."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "renunciation": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "object",
+          "properties": {
+            "line{N}": {
+              "type": "string",
+              "description": "Free-text reason for filing the certificate of renunciation. Multi-line shape (lines 1\u20133 inline on MLLP-11R); same indexed-line primitive as upstream amendment.nature_and_text.lineN."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "line3": {
+              "type": "string"
+            }
+          }
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future effective date or time of renunciation, which must be a date or time certain. If blank, the renunciation is effective upon filing. Same primitive shape as conversion.future_effective_date / consolidation.future_effective_date / domestication.future_effective_date."
+        },
+        "additional_info_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional information that the person filing the certificate of renunciation determines to be necessary (FOURTH)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Combined printed name and capacity of an optional second authorized signer (Shape D). Numbering parallels the merger-form pattern (merger.parties[N].signature_block.signer_1/signer_2) and MLLC-17's filing.signer_2.printed_name_and_capacity."
+            }
+          }
+        },
+        "signer_3": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Combined printed name and capacity of an optional third authorized signer (Shape D). Used when the \u00a7825 authority tier requires multiple signers (e.g., majority-in-interest of partners with three or more partners)."
+            }
+          }
+        },
+        "entity_signer_N": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of an entity acting as an authorized \u00a7825 signer on behalf of the LLP (parallel block to filing.signer_N.* for natural-person signers, indexed 1\u20133). Distinct from filing.entities[N].name (which identifies which entity's filing is being submitted, on the cover letter)."
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity of the natural person signing on behalf of an entity-signer (parallel to general_partner_entity_N.signer_printed_name_and_capacity on LP forms)."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "entity_signer_1": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "entity_signer_2": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "entity_signer_3": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

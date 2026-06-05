@@ -1,0 +1,23 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation as it appears on the records of the Secretary of State),entity.name,high,Domestic business corporation name as it appears on the SOS record. Must match record exactly so SOS can identify the entity whose clerk slot is being vacated.
+Text2,0,text,FIRST: (name of current noncommercial clerk),registered_agent.name,high,"Name of the noncommercial clerk of record (i.e., the resigning party / filer). Reuses the registered_agent.name namespace per MBCA-12E-NCRA / MLLC-3A-NCRA precedent — 'clerk' (13-C MRSA legacy term) and 'registered agent' (5 MRSA §111 term) refer to the same legal role; the resignation context is implicit from form_id and form_name. (Drafter initially proposed resigning_clerk.name; corrected during review.)"
+Text3,0,text,"(physical street address, city, state and zip code – as it appears on the record)",registered_agent.physical_address,high,"Single-line physical address of the noncommercial clerk of record. Form explicitly says 'as it appears on the record' — value must match SOS record verbatim, not the clerk's current preferred address."
+Text4,0,text,SECOND: (insert name) — corporate officer to receive notice,resignation_notice.recipient_name,high,Name of the natural person at the corporation to whom the clerk will deliver the §111-required notice of resignation (mandatory predicate for the resignation to take effect 31 days later). Reuses MBCA-12E-NCRA's resignation_notice.* namespace.
+Text5,0,text,(mailing address including zip code) — for §111 notice,resignation_notice.recipient_address,high,Mailing address (single line incl. ZIP) where the §111 notice of resignation will be sent.
+Text6,0,text,(title of corporate officer),resignation_notice.recipient_title,high,"Title of the corporate officer receiving the §111 notice (e.g., 'President', 'Secretary'). Form caption restricts the recipient to a corporate-officer title (matching MBCA-12E-NCRA), narrower than the LLC variant's '(title of person notified)' which permits Manager/Member as well."
+Text7,0,text,DATED ___,filing.date_signed,high,Date the statement of resignation is signed; resignation takes effect 31 days after this filing is delivered to the corporation.
+Text8,0,text,(type or print name) — below the (signature of noncommercial clerk) caption,filing.signer.printed_name,high,"Signer printed name. Single widget, no separate title field on this form; matches Shape B of filing-signer-shape (name only) per MBCA-12E-NCRA / MLLC-3A-NCRA precedent. Signer is by definition the resigning noncommercial clerk whose name was already entered at Text2; redundant by design (form acts as both attestation and signature)."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($35 base per page-0 header plus expedite premium).
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email (applies to the corporation; resignation does not affect annual-report obligations — only the clerk slot).
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

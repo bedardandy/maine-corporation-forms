@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_SOPAPPT.json",
+  "title": "CORP_SOPAPPT fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Free-text legal type of a nonfiling/nonqualified entity (e.g., 'General Partnership', 'Sole Proprietorship', 'Trust', 'Unincorporated Association', 'Limited Liability Company'). Distinct from the per-form-implied entity type (MBCA-6 \u2192 corporation, MLLC-6 \u2192 LLC). Required only on cross-form filings like SOPAPPT where the same form serves multiple entity types."
+        },
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "agent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an agent for service of process appointed under 5 MRSA \u00a7112 by a nonfiling domestic or nonqualified foreign entity. Distinct from registered_agent.* (formation/qualification forms) and clerk.* (NP/clerk-change forms). The \u00a7112 appointment is good for 5 years and does not require commercial-vs-noncommercial classification."
+        },
+        "physical_address": {
+          "type": "string",
+          "description": "Physical address of the \u00a7112 agent for service of process. Form explicitly prohibits P.O. Box."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "agent",
+    "entity",
+    "filing"
+  ]
+}

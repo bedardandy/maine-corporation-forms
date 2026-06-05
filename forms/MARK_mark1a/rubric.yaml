@@ -1,0 +1,35 @@
+checks:
+  - id: disclaimed-portion-required
+    description: "disclaimer.disclaimed_portion_description.line1 is non-empty (the form's purpose is to disclaim something — empty disclaimer is meaningless)."
+    depends_on_keys:
+      - disclaimer.disclaimed_portion_description.line1
+    severity: required
+  - id: exactly-one-mark-type
+    description: "Exactly one mark.type checkbox is selected (form instruction: 'X' one box only)."
+    depends_on_keys:
+      - mark.type
+    severity: required
+  - id: text-or-features-indicated
+    description: "At least one of mark.text_words.line1 or mark.design_features.line1 is non-empty (or both contain explicit 'none' per the form's 'if none, so indicate' instruction). The mark must claim something protectable beyond the disclaimed portion."
+    depends_on_keys:
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: type-consistent-with-parent
+    description: "When the disclaimer is filed alongside a MARK_mark1 registration, mark.type (this form) should be consistent with the type portion of mark.type_and_class_number (the parent registration). This is a cross-form check; rubric is optional because the parent form may not always be available at validation time."
+    depends_on_keys:
+      - mark.type
+      - mark.type_and_class_number
+    severity: optional
+  - id: disclaimed-not-equal-protected
+    description: disclaimer.disclaimed_portion_description should not be a verbatim duplicate of mark.text_words or mark.design_features — disclaiming everything you also claim as protected is a contradiction. Heuristic check.
+    depends_on_keys:
+      - disclaimer.disclaimed_portion_description.line1
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: optional

@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_RO-E911.json",
+  "title": "CORP_RO-E911 fill data",
+  "type": "object",
+  "properties": {
+    "clerk_change": {
+      "type": "object",
+      "properties": {
+        "old_address": {
+          "type": "string",
+          "description": "The previous address of the clerk/registered agent as it appears on the SOS records, captured on the RO-E911 filing because the change is administrative (E911 renumbering / USPS reassignment) and the entity record does not yet have the new address. Single-line combined street+city+state+zip per the form's '(street, city, state and zip code - old address)' label."
+        },
+        "new_physical_address": {
+          "type": "string",
+          "description": "The new physical-location address of the clerk/RA after an administrative renumbering. Generic (not commercial-vs-noncommercial qualified, unlike CORP_CLKRA-3's split keys), since RO-E911 does not ask which type of agent is on record."
+        },
+        "new_mailing_address": {
+          "type": "string",
+          "description": "Optional new mailing address of the clerk/RA after an administrative renumbering."
+        },
+        "address_change_authorized_by": {
+          "type": "string",
+          "description": "Which authority directed the address change on a RO-E911 filing. Enum: 'town_municipality' (local E911 / street-renumbering) | 'us_postal_service' (zip-code or carrier-route reassignment). Drives signer authority \u2014 the authorizing body's official is the only valid signer.",
+          "enum": [
+            "town_municipality",
+            "us_postal_service"
+          ]
+        },
+        "current_clerk_or_agent_name": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk_change",
+    "entity",
+    "filing"
+  ]
+}

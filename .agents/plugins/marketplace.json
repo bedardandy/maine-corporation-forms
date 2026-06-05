@@ -1,0 +1,10 @@
+{
+  "name": "maine-corporation-forms-marketplace",
+  "plugins": [
+    {
+      "name": "maine-corporation-forms",
+      "source": "../../.codex-plugin",
+      "description": "Route, plan, and fill Maine Secretary of State business-entity filing forms."
+    }
+  ]
+}

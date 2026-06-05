@@ -1,0 +1,64 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: formation-date-required
+    description: entity.formation_date is non-empty.
+    depends_on_keys:
+      - entity.formation_date
+    severity: required
+  - id: cancellation-after-formation
+    description: filing.date_signed is on or after entity.formation_date — cannot cancel before formation.
+    depends_on_keys:
+      - filing.date_signed
+      - entity.formation_date
+    severity: required
+  - id: dissolution-not-after-cancellation
+    description: "If entity.dissolution_date is set, it must be on or before filing.date_signed (governance dissolves first, then files the cancellation certificate)."
+    depends_on_keys:
+      - entity.dissolution_date
+      - filing.date_signed
+    severity: advisory
+  - id: exactly-one-effective-date-type
+    description: "Exactly one of the THIRD options is selected (cancellation.effective_date_type is one of 'date_of_filing' | 'future_date')."
+    depends_on_keys:
+      - cancellation.effective_date_type
+    severity: required
+  - id: future-date-when-elected
+    description: "If cancellation.effective_date_type='future_date', cancellation.future_effective_date must be set and not in the past relative to filing.date_signed."
+    depends_on_keys:
+      - cancellation.effective_date_type
+      - cancellation.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: no-future-date-when-not-elected
+    description: "If cancellation.effective_date_type='date_of_filing', cancellation.future_effective_date should be empty (extra data on the form is a fill error)."
+    depends_on_keys:
+      - cancellation.effective_date_type
+      - cancellation.future_effective_date
+    severity: advisory
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-75
+    description: filing.total_fees_dollars equals $75 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

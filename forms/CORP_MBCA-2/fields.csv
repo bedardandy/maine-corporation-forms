@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+2One,0,text,(Name of Foreign Corporation),entity.home_jurisdiction_name,high,"Legal name of the foreign corporation in its home jurisdiction. Per the entity-name-vs-home-jurisdiction convention, foreign-qualification/registration forms use entity.home_jurisdiction_name (matches MLLC-12, FICT-4)."
+Check Box8,0,text,FIRST: ('X' one box only.) This application is for a [ ] new ... registration of corporate name,filing.application_type,high,Radio option for 'new' registration. Enum value: 'new'.
+Check Box1,0,text,FIRST: ... or [ ] renewal of a registration of corporate name,filing.application_type,high,Radio option for 'renewal'. Enum value: 'renewal'. Mutually exclusive with Check Box8.
+2Four,0,text,SECOND: The state or country under the laws of which it is incorporated is,entity.home_jurisdiction,high,State or country of incorporation. Same key as MLLC-12's 'Jurisdiction where formed'.
+2Five,0,text,SECOND: ...the address of its principal office is located at: (line 1),entity.principal_office.physical_address.street,high,"First line of principal-office address (street). Inferred split from 2-line widget composition with '(street, city, state and zip code)' label below the second line; mirrors the cover-letter mailing_address.{street, city_state_zip} primitive."
+2Six,0,text,"(street, city, state and zip code)",entity.principal_office.physical_address.city_state_zip,high,"Second line of principal-office address (city/state/zip). The label '(street, city, state and zip code)' appears below this widget."
+2Seven,0,text,THIRD: The date of its incorporation is,entity.formation_date_in_home_jurisdiction,high,Date the foreign corporation was incorporated in its home jurisdiction. Matches MLLC-12 'Date of formation'.
+2Eight,0,text,FOURTH: A brief statement of the nature of the corporation's business:,entity.business_purpose,high,"General description of the foreign corporation's business. Distinct from MLLC-12's entity.maine_business_purpose, which describes 'the nature of the business or purpose(s) to be conducted or promoted in the State of Maine' (Maine-scoped). This form's question is unscoped — it asks about the corporation's business generally — so a separate canonical key is appropriate."
+2Nine,0,text,DATED,filing.date_signed,high,Date of signature.
+2Ten,0,text,*By ___ (signature of any duly authorized officer) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined name+capacity widget. Shape D. Footnote requires signature by 'any duly authorized officer'.
+cover1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing (typically populated with entity.home_jurisdiction_name).
+cover2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+cover3,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+cover4,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+cover,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'. Note: this widget is named 'cover' (not 'cover5') on this template — drafter caught the rename correctly.
+cover6,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($20/month × 12 = $240 for full-year new registration; $200 base for renewal per page-0 header, plus expedite premium)."
+cover7,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+cover8,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+cover9,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+cover10,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+cover11,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+cover12,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+cover13,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+cover14,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

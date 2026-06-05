@@ -1,0 +1,50 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (foreign-surrender implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-authorization-date-required
+    description: entity.maine_authorization_date is non-empty and on or before filing.date_signed (cannot surrender authority before it was granted).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: service-address-required
+    description: withdrawal.service_of_process_mailing_address is non-empty (FIFTH requires a mailing address for SOS to forward post-surrender process).
+    depends_on_keys:
+      - withdrawal.service_of_process_mailing_address
+    severity: required
+  - id: principal-office-address-required
+    description: entity.principal_office.physical_address is non-empty (SIXTH).
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (form footnote: must be 'any duly authorized individual' per 13-B MRSA §104.1.B)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-15
+    description: filing.total_fees_dollars equals $15 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

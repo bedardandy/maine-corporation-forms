@@ -1,0 +1,507 @@
+{
+  "form_id": "LP_MLPA-9",
+  "fields": {
+    "entity.name": {
+      "widget_id": [
+        "Text1",
+        "Text3"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Limited Partnership)",
+      "when": "entity.is_lllp == true"
+    },
+    "entity.initial_certificate_filing_date": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The date of filing of the limited partnership's initial certificate is ___ (date)"
+    },
+    "entity.is_lllp": {
+      "widget_id": [
+        "Check Box4",
+        "Check Box5"
+      ],
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The limited partnership is a limited liability limited partnership."
+    },
+    "entity.is_professional_lllp": {
+      "widget_id": "Check Box6",
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4"
+    },
+    "entity.professional_services_description": {
+      "widget_id": [
+        "Text7",
+        "Text8"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "medium",
+      "label": "(type of professional services)",
+      "when": "entity.is_professional_lllp == true"
+    },
+    "new_general_partner_1.name": {
+      "widget_id": "Text9",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Name (row 1)"
+    },
+    "new_general_partner_1.address": {
+      "widget_id": "Text10",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Address (row 1)"
+    },
+    "new_general_partner_2.name": {
+      "widget_id": "Text11",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Name (row 2)"
+    },
+    "new_general_partner_2.address": {
+      "widget_id": "Text12",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Address (row 2)"
+    },
+    "new_general_partner_3.name": {
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Name (row 3)"
+    },
+    "new_general_partner_3.address": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Address (row 3)"
+    },
+    "new_general_partner.additional_attached": {
+      "widget_id": "Check Box15__p1",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box15' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "FIFTH: Names and addresses of additional new general partners are attached as Exhibit ___"
+    },
+    "new_general_partner.additional_exhibit_letter": {
+      "widget_id": "Text18",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: Exhibit ___",
+      "when": "new_general_partner.additional_attached == true"
+    },
+    "dissociated_general_partner_1.name": {
+      "widget_id": "Text19",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Name (row 1)"
+    },
+    "dissociated_general_partner_1.address": {
+      "widget_id": "Text20",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Address (row 1)"
+    },
+    "dissociated_general_partner_2.name": {
+      "widget_id": "Text21",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Name (row 2)"
+    },
+    "dissociated_general_partner_2.address": {
+      "widget_id": "Text22",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Address (row 2)"
+    },
+    "dissociated_general_partner_3.name": {
+      "widget_id": "Text23",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Name (row 3)"
+    },
+    "dissociated_general_partner_3.address": {
+      "widget_id": "Text24",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Address (row 3)"
+    },
+    "dissociated_general_partner.additional_attached": {
+      "widget_id": "Check Box26",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Names of additional dissociated person as a general partners are attached as Exhibit ___"
+    },
+    "dissociated_general_partner.additional_exhibit_letter": {
+      "widget_id": "Text25",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: Exhibit ___",
+      "when": "dissociated_general_partner.additional_attached == true"
+    },
+    "replacement_general_partner.name": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (name)"
+    },
+    "replacement_general_partner.physical_address": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (physical location - street (not P.O. Box), city, state and zip code)"
+    },
+    "replacement_general_partner.mailing_address": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (mailing address if different from above)"
+    },
+    "winding_up_person.name": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: (name)"
+    },
+    "winding_up_person.physical_address": {
+      "widget_id": "Text16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: (physical location - street (not P.O. Box), city, state and zip code)"
+    },
+    "winding_up_person.mailing_address": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: (mailing address if different from above)"
+    },
+    "entity.is_dissolved": {
+      "widget_id": "Check Box1",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: The limited partnership is dissolved."
+    },
+    "general_partner_address_change_1.name": {
+      "widget_id": "Text26",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: Name of current general partner (row 1)"
+    },
+    "general_partner_address_change_1.new_address": {
+      "widget_id": "Text27",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: New Address (row 1)"
+    },
+    "general_partner_address_change_2.name": {
+      "widget_id": "Text28",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: Name of current general partner (row 2)"
+    },
+    "general_partner_address_change_2.new_address": {
+      "widget_id": "Text29",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: New Address (row 2)"
+    },
+    "general_partner_address_change_3.name": {
+      "widget_id": "Text30",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: Name of current general partner (row 3)"
+    },
+    "general_partner_address_change_3.new_address": {
+      "widget_id": "Text31",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: New Address (row 3)"
+    },
+    "general_partner_address_change.additional_attached": {
+      "widget_id": "Check Box18",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: Names and new addresses of current general partners are attached as Exhibit ___"
+    },
+    "general_partner_address_change.additional_exhibit_letter": {
+      "widget_id": "Text32",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TENTH: Exhibit ___",
+      "when": "general_partner_address_change.additional_attached == true"
+    },
+    "general_partner_name_change_1.name": {
+      "widget_id": "Text33",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: Name of current general partner (row 1)"
+    },
+    "general_partner_name_change_1.new_name": {
+      "widget_id": "Text34",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: New name of current general partner (row 1)"
+    },
+    "general_partner_name_change_2.name": {
+      "widget_id": "Text35",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: Name of current general partner (row 2)"
+    },
+    "general_partner_name_change_2.new_name": {
+      "widget_id": "Text36",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: New name of current general partner (row 2)"
+    },
+    "general_partner_name_change_3.name": {
+      "widget_id": "Text37",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: Name of current general partner (row 3)"
+    },
+    "general_partner_name_change_3.new_name": {
+      "widget_id": "Text38",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: New name of current general partner (row 3)"
+    },
+    "general_partner_name_change.additional_attached": {
+      "widget_id": "Check Box39",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: Change of name of any current general partners are attached as Exhibit ___"
+    },
+    "general_partner_name_change.additional_exhibit_letter": {
+      "widget_id": "Text40",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "ELEVENTH: Exhibit ___",
+      "when": "general_partner_name_change.additional_attached == true"
+    },
+    "amendment.other_exhibit_letter": {
+      "widget_id": "Text41",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "TWELFTH: Exhibit ___"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text42",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "DATED ___"
+    },
+    "general_partner_1.printed_name": {
+      "widget_id": "Text43",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Authorized Signatories: (type or print name) [row 1]"
+    },
+    "general_partner_2.printed_name": {
+      "widget_id": "Text44",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Authorized Signatories: (type or print name) [row 2]"
+    },
+    "general_partner_3.printed_name": {
+      "widget_id": "Text45",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Authorized Signatories: (type or print name) [row 3]"
+    },
+    "general_partner_entity_1.name": {
+      "widget_id": "Text47",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: Name of Entity [row 1]"
+    },
+    "general_partner_entity_1.signer_printed_name_and_capacity": {
+      "widget_id": "Text48",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: (type or print name and capacity) [row 1]"
+    },
+    "general_partner_entity_2.name": {
+      "widget_id": "Text49",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: Name of Entity [row 2]"
+    },
+    "general_partner_entity_2.signer_printed_name_and_capacity": {
+      "widget_id": "Text50",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: (type or print name and capacity) [row 2]"
+    },
+    "general_partner_entity_3.name": {
+      "widget_id": "Text51",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: Name of Entity [row 3]"
+    },
+    "general_partner_entity_3.signer_printed_name_and_capacity": {
+      "widget_id": "Text52",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "For Authorization Signatories which are Entities: (type or print name and capacity) [row 3]"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Name of contact person"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Daytime telephone number"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Contact email address for this filing"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Email address to use for annual report reminders"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Name of attested copy recipient"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Firm or Company"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "Mailing Address"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 4,
+      "confidence": "high",
+      "label": "City, State & Zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 4,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box14' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15__p4",
+      "field_type": "checkbox",
+      "page": 4,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box15' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 4,
+      "confidence": "high",
+      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

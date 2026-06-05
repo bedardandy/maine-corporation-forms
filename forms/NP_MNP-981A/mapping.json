@@ -1,0 +1,344 @@
+{
+  "form_id": "NP_MNP-981A",
+  "fields": {
+    "entity.original_organization_address.street": {
+      "widget_id": "981a1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...corporation duly organized at [street]"
+    },
+    "entity.original_organization_address.city": {
+      "widget_id": "981a2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...in the town of [town]"
+    },
+    "entity.original_organization_date.day": {
+      "widget_id": "981a3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...on the [day] day of"
+    },
+    "entity.original_organization_date.month": {
+      "widget_id": "981a4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...[month]"
+    },
+    "entity.original_organization_date.year": {
+      "widget_id": "981a5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: ...[year]"
+    },
+    "entity.name": {
+      "widget_id": "981a6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: The name of said corporation is now"
+    },
+    "entity.name_history[0].name": {
+      "widget_id": "981a7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 1 \u2014 New Name"
+    },
+    "entity.name_history[0].date": {
+      "widget_id": "981a8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 1 \u2014 Date of Change"
+    },
+    "entity.name_history[1].name": {
+      "widget_id": "981a9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 2 \u2014 New Name"
+    },
+    "entity.name_history[1].date": {
+      "widget_id": "981a10",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 2 \u2014 Date of Change"
+    },
+    "entity.name_history[2].name": {
+      "widget_id": "981a11",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 3 \u2014 New Name"
+    },
+    "entity.name_history[2].date": {
+      "widget_id": "981a12",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 3 \u2014 Date of Change"
+    },
+    "entity.name_history[3].name": {
+      "widget_id": "981a13",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 4 \u2014 New Name"
+    },
+    "entity.name_history[3].date": {
+      "widget_id": "981a14",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 4 \u2014 Date of Change"
+    },
+    "entity.name_history[4].name": {
+      "widget_id": "981a15",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 5 \u2014 New Name"
+    },
+    "entity.name_history[4].date": {
+      "widget_id": "981a16",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: row 5 \u2014 Date of Change"
+    },
+    "entity.original_name": {
+      "widget_id": [
+        "981a17",
+        "981a18"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "medium",
+      "label": "FOURTH: The name of the corporation was originally [line 1]"
+    },
+    "entity.original_purpose": {
+      "widget_id": "981a19",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "FIFTH: The original purposes of the corporation at the time of incorporation were:"
+    },
+    "entity.nonprofit_type": {
+      "widget_id": [
+        "Check Box4",
+        "Check Box5"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH: [ ] The corporation is organized as a public benefit corporation for the following purpose or purposes:"
+    },
+    "entity.public_benefit_purpose": {
+      "widget_id": "981a21",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH (public benefit): purpose description",
+      "when": "entity.nonprofit_type == 'public_benefit'"
+    },
+    "entity.mutual_benefit_purpose": {
+      "widget_id": "981a23",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SIXTH (mutual benefit): purpose description"
+    },
+    "entity.management_structure": {
+      "widget_id": [
+        "Check Box6",
+        "Check Box7"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: [ ] Directors (including trustees, governors, managers, etc.), or if no Directors,"
+    },
+    "entity.current_address.street": {
+      "widget_id": "981a26",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: Said corporation is now located at [street]"
+    },
+    "entity.current_address.city": {
+      "widget_id": "981a27",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: ...in the town of [town]"
+    },
+    "entity.current_address.county": {
+      "widget_id": "981a28",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "EIGHTH: ...County of [county]"
+    },
+    "entity.officer_count": {
+      "widget_id": "981a29",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "NINTH: The number of officers is [count]"
+    },
+    "officer_president.name": {
+      "widget_id": "981a30",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "NINTH: President \u2014 name"
+    },
+    "officer_vice_president.name": {
+      "widget_id": "981a31",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "NINTH: Vice-President \u2014 name"
+    },
+    "officer_secretary.name": {
+      "widget_id": "981a32",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "NINTH: Secretary or Clerk \u2014 name"
+    },
+    "officer_treasurer.name": {
+      "widget_id": "981a33",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "NINTH: Treasurer \u2014 name"
+    },
+    "filing.date_signed": {
+      "widget_id": "981a34",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Dated"
+    },
+    "filing.signer_president.printed_name": {
+      "widget_id": "981a35",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(President) \u2014 type or print name"
+    },
+    "filing.signer_secretary.printed_name": {
+      "widget_id": "981a36",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Secretary/Clerk) \u2014 type or print name"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Name of contact person"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Daytime telephone number"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Contact email address for this filing"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Email address to use for annual report reminders"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Name of attested copy recipient"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Firm or Company"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "Mailing Address"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 3,
+      "confidence": "high",
+      "label": "City, State & Zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 3,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 3,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 3,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

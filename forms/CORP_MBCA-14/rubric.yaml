@@ -1,0 +1,45 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (signer must be a duly authorized officer or the clerk per 13-C MRSA §121.5; cannot be auto-validated from form alone).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: future-effective-date-not-before-filing
+    description: "If excuse.future_effective_date is set, it must be on or after filing.date_signed (the certificate cannot take effect before it is filed)."
+    depends_on_keys:
+      - excuse.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.{name,phone,email} are all non-empty (per cover-letter NOTE)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: first-entity-name-required
+    description: "filing.entities[0].name is non-empty (the cover letter must identify at least one filing)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: exactly-one-expedited-tier
+    description: "At most one of the three expedited-service tiers is selected (hold_for_pickup | 24h_next_business_day | immediate_same_day). Zero is also valid (standard processing)."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-40
+    description: "filing.total_fees_dollars is approximately $40 base (per page-0 'Filing Fee $40.00') plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

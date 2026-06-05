@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-13A.json",
+  "title": "NP_MNPCA-13A fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "original_annual_report_date": {
+          "type": "string",
+          "description": "Date the prior (un-amended) annual report was filed with the Secretary of State. Required by the SECOND recital on amended annual reports; the amendment must post-date this filing."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "changes_description": {
+          "type": "object",
+          "properties": {
+            "line{1": {
+              "type": "object",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {
+                    "7}": {
+                      "type": "string",
+                      "description": "Free-text description of what changed in the amended annual report, split across up to 7 inline lines. Overflow attaches as additional pages (no opt-in checkbox or exhibit-letter widget \u2014 informal attachment). Same .line{N} convention as mark.text_words / mark.usage_description."
+                    }
+                  }
+                }
+              }
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "line3": {
+              "type": "string"
+            },
+            "line4": {
+              "type": "string"
+            },
+            "line5": {
+              "type": "string"
+            },
+            "line6": {
+              "type": "string"
+            },
+            "line7": {
+              "type": "string"
+            }
+          }
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Date the reported changes actually took effect (e.g., date of resignation, date of address change). Distinct from filing.original_annual_report_date and filing.date_signed."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

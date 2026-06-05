@@ -1,0 +1,63 @@
+checks:
+  - id: home-name-required
+    description: "entity.home_jurisdiction_name is non-empty (the foreign LLP's name as filed in its home jurisdiction)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required-and-non-maine
+    description: "entity.home_jurisdiction is non-empty and not 'Maine' (the form is for foreign LLPs only)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: application-type-selected
+    description: "Exactly one of the FIRST checkboxes is selected (filing.application_type resolves to 'new' or 'renewal')."
+    depends_on_keys:
+      - filing.application_type
+    severity: required
+  - id: principal-office-address-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is on or before filing.date_signed.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - filing.date_signed
+    severity: required
+  - id: business-purpose-required
+    description: entity.business_purpose is non-empty.
+    depends_on_keys:
+      - entity.business_purpose
+    severity: required
+  - id: certificate-of-existence-attached
+    description: entity.certificate_of_existence_attached is true and dated within 90 days of filing.date_signed (FIFTH recital).
+    depends_on_keys:
+      - entity.certificate_of_existence_attached
+      - filing.date_signed
+    severity: required
+  - id: signer-capacity-present
+    description: filing.signer.printed_name_and_capacity includes both name and capacity (the signer must be a partner per 31 MRSA §806-A).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.home_jurisdiction_name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-by-application-type
+    description: "filing.total_fees_dollars matches application type per page-0 header: $20/month prorated for 'new' (registration runs through the calendar year), or $200 flat for 'renewal'. Plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.application_type
+      - filing.expedited_service
+    severity: optional

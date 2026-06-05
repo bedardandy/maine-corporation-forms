@@ -1,0 +1,63 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: home-jurisdiction-required
+    description: "entity.home_jurisdiction is non-empty (typically 'Maine' or 'ME' for domestic nonprofits)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: original-report-date-required
+    description: filing.original_annual_report_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: changes-description-nonempty
+    description: At least one of amendment.changes_description.line1..line7 is non-empty (the THIRD block carries the substantive amendment).
+    depends_on_keys:
+      - amendment.changes_description.line1
+      - amendment.changes_description.line2
+      - amendment.changes_description.line3
+      - amendment.changes_description.line4
+      - amendment.changes_description.line5
+      - amendment.changes_description.line6
+      - amendment.changes_description.line7
+    severity: required
+  - id: effective-date-required
+    description: amendment.effective_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - amendment.effective_date
+      - filing.date_signed
+    severity: required
+  - id: amendment-window
+    description: filing.date_signed is no later than December 31 of the calendar year of filing.original_annual_report_date (per 13-B MRSA §1301-C amendment window). Cannot file an amended annual report after that year ends.
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be a duly authorized officer per 13-B MRSA §104.1.B).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: filing.total_fees_dollars equals $35 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

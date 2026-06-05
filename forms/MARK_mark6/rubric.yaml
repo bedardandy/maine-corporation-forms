@@ -1,0 +1,46 @@
+checks:
+  - id: mark-identifier-present
+    description: "At least one of mark.charter_number, mark.text_words.line1, or mark.design_features.line1 is non-empty (the mark must be identifiable for cancellation)."
+    depends_on_keys:
+      - mark.charter_number
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: required
+  - id: signer-required
+    description: mark.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - mark.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-signed-present
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-10
+    description: filing.total_fees_dollars equals $10 (base cancellation fee per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: cover-entity-mirrors-mark-applicant
+    description: "filing.entities[0].name should be the registrant/assignee identity (mirrors mark.applicant.* on the original MARK_mark1 registration). Advisory: mark6 doesn't carry a per-form applicant block, so the cover-letter row is the only place the registrant identity appears."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: advisory

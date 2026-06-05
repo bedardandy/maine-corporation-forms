@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNP-9.json",
+  "title": "NP_MNP-9 fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "nature_and_text": {
+          "type": "object",
+          "properties": {
+            "line{N}": {
+              "type": "string",
+              "description": "Per-line free-text capture of the nature-of-change description and text of the amendment on a Certificate of Amendment for a Maine domestic nonprofit (13-B MRSA \u00a7934). Form provides 15 inline lines (N=1..15) with overflow via attached pages. Distinct from CORP_MBCA-9's amendment.text_exhibit_letter (BC amendments use exhibit reference; nonprofit amendments use inline text directly on the form). Per-line indexing follows MARK1's mark.text_words.line{N} precedent for inline multi-line widgets."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "line3": {
+              "type": "string"
+            },
+            "line4": {
+              "type": "string"
+            },
+            "line5": {
+              "type": "string"
+            },
+            "line6": {
+              "type": "string"
+            },
+            "line7": {
+              "type": "string"
+            },
+            "line8": {
+              "type": "string"
+            },
+            "line9": {
+              "type": "string"
+            },
+            "line10": {
+              "type": "string"
+            },
+            "line11": {
+              "type": "string"
+            },
+            "line12": {
+              "type": "string"
+            },
+            "line13": {
+              "type": "string"
+            },
+            "line14": {
+              "type": "string"
+            },
+            "line15": {
+              "type": "string"
+            }
+          }
+        },
+        "adoption_method": {
+          "type": "string",
+          "description": "Method by which a nonprofit-corporation amendment was adopted. Enum: 'member_vote' (members at meeting with quorum, majority of votes entitled) | 'board_of_directors_majority_vote' (no members or none entitled, majority of whole board/trustees/managing board at any legal meeting). Naming aligns with MNPCA-10 merger.parties[N].vote_method enum values. NOTE: the THIRD election radio is filled via the two mutually-exclusive booleans adopted_by_member_vote / adopted_by_board_vote (set exactly one); this enum is retained as the semantic source value.",
+          "enum": [
+            "member_vote",
+            "board_of_directors_majority_vote"
+          ]
+        },
+        "adoption_date": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "nonprofit_type": {
+          "type": "string",
+          "description": "Nonprofit classification. Enum: 'public_benefit' | 'mutual_benefit'. NOTE: the FIRST election radio is filled via the two mutually-exclusive booleans is_public_benefit / is_mutual_benefit (set exactly one); this enum is retained as the semantic source value.",
+          "enum": [
+            "public_benefit",
+            "mutual_benefit"
+          ]
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,1252 @@
+{
+  "forms": [
+    {
+      "form_id": "CORP_ASUM-5",
+      "title": "Statement of Intention to Do Business Under an Assumed Name",
+      "hints": [
+        "Business Corporation",
+        "form ASUM-5"
+      ]
+    },
+    {
+      "form_id": "CORP_CLKRA-3",
+      "title": "Statement of Appointment or Change of Clerk or Registered Agent",
+      "hints": [
+        "Business Corporation",
+        "form CLKRA-3"
+      ]
+    },
+    {
+      "form_id": "CORP_FICT-4",
+      "title": "Statement of Intention to do Business under a Fictitious Name",
+      "hints": [
+        "Business Corporation",
+        "form FICT-4"
+      ]
+    },
+    {
+      "form_id": "CORP_HO-E911",
+      "title": "Notification of Change in Home Office Address by Municipality or U.S. Postal Service",
+      "hints": [
+        "Business Corporation",
+        "form HO-E911"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-1",
+      "title": "Application for Reservation of Name",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-1"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-10",
+      "title": "Articles of Merger or Share Exchange (Survivor is a Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-10"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-10A",
+      "title": "Statement of Abandonment of Merger or Share Exchange",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-10A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-11",
+      "title": "Articles of Dissolution",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-11"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-11A",
+      "title": "Articles of Revocation of Dissolution",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-11A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-11I",
+      "title": "Articles of Dissolution (by Incorporators or Initial Directors)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-11I"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-12",
+      "title": "Application for Authority to do Business (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-12"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-12A",
+      "title": "Amended Application for Authority to Do Business (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-12A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-12B",
+      "title": "Application of Withdrawal (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-12B"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-12C",
+      "title": "Application for Transfer of Authority (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-12C"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-12E-NCRA",
+      "title": "Statement of Resignation of Noncommercial Registered Agent (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-12E-NCRA"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-13A",
+      "title": "Amended Annual Report (Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-13A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-14",
+      "title": "Certificate of Excuse (for a Maine Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-14"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-14A",
+      "title": "Certificate of Resumption (for a Maine Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-14A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-15",
+      "title": "Application for the Use of an Indistinguishable Name",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-15"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-17",
+      "title": "Articles of Correction (Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-17"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-19",
+      "title": "Articles of Domestication (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-19"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-19A",
+      "title": "Articles of Charter Surrender (Upon Domestication)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-19A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-19B",
+      "title": "Statement of Abandonment of Domestication (Domestic or Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-19B"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-1A",
+      "title": "Transfer of Reserved Name",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-1A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-2",
+      "title": "Application for Registration of Name (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-2"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-20",
+      "title": "Articles of Nonprofit Conversion",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-20"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-20A",
+      "title": "Articles of Charter Surrender (Upon Nonprofit Conversion)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-20A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-20B",
+      "title": "Statement of Abandonment of Nonprofit Conversion (Domestic Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-20B"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-21",
+      "title": "Articles of Entity Conversion by Domestic Business Corporation",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-21"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-21A",
+      "title": "Articles of Entity Conversion (Domestic or Foreign Unincorporated Entity → Maine Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-21A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-21B",
+      "title": "Articles of Charter Surrender (Upon Entity Conversion)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-21B"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-21C",
+      "title": "Statement of Abandonment of Entity Conversion",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-21C"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-2A",
+      "title": "Consent Terminating Name Registration (Foreign Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-2A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-3A-NCRA",
+      "title": "Statement of Resignation of Noncommercial Clerk (Domestic Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-3A-NCRA"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-5A",
+      "title": "Termination of Statement of Intention to Do Business Under an Assumed or Fictitious Name (Business Corporation)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-5A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-6",
+      "title": "Articles of Incorporation",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-6"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-6-1",
+      "title": "Articles of Incorporation (to accompany other filings)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-6-1"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-6A",
+      "title": "Restated Articles of Incorporation",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-6A"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-9",
+      "title": "Articles of Amendment",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-9"
+      ]
+    },
+    {
+      "form_id": "CORP_MBCA-9A",
+      "title": "Articles of Amendment (Reorganization ordered or decreed by a court)",
+      "hints": [
+        "Business Corporation",
+        "form MBCA-9A"
+      ]
+    },
+    {
+      "form_id": "CORP_MERGFOR",
+      "title": "Merger (Foreign Entities)",
+      "hints": [
+        "Business Corporation",
+        "form MERGFOR"
+      ]
+    },
+    {
+      "form_id": "CORP_REVIVAL",
+      "title": "Application for Certificate of Revival",
+      "hints": [
+        "Business Corporation",
+        "form REVIVAL"
+      ]
+    },
+    {
+      "form_id": "CORP_RO-E911",
+      "title": "Notification of Change in Address by Municipality or U.S. Postal Service",
+      "hints": [
+        "Business Corporation",
+        "form RO-E911"
+      ]
+    },
+    {
+      "form_id": "CORP_SOPAPPT",
+      "title": "Statement of Appointment of Agent for Service of Process for a Nonfiling Domestic Entity or a Nonqualified Foreign Entity",
+      "hints": [
+        "Business Corporation",
+        "form SOPAPPT"
+      ]
+    },
+    {
+      "form_id": "GP_CONV-PARTNER",
+      "title": "Articles of Conversion of Partnership",
+      "hints": [
+        "General Partnership",
+        "form CONV-PARTNER"
+      ]
+    },
+    {
+      "form_id": "GP_MPA-1",
+      "title": "Statement of Dissociation (General Partnership)",
+      "hints": [
+        "General Partnership",
+        "form MPA-1"
+      ]
+    },
+    {
+      "form_id": "GP_MPA-2",
+      "title": "Statement of Dissolution (General Partnership)",
+      "hints": [
+        "General Partnership",
+        "form MPA-2"
+      ]
+    },
+    {
+      "form_id": "LLC_MERGFOR",
+      "title": "Merger (Foreign Entities)",
+      "hints": [
+        "Limited Liability Company",
+        "form MERGFOR"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-1",
+      "title": "Application for Reservation of Name (Limited Liability Company)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-1"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-10",
+      "title": "Statement of Merger (Relating to a Limited Liability Company)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-10"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-11C",
+      "title": "Certificate of Cancellation (Domestic LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-11C"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-12",
+      "title": "Statement of Foreign Qualification (Foreign LLC Authority to Conduct Activities)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-12"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-12A",
+      "title": "Statement of Change of Foreign Qualification",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-12A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-12B",
+      "title": "Statement of Cancellation of Foreign Qualification (Foreign LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-12B"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-13A",
+      "title": "Amended Annual Report (Maine or Foreign LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-13A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-14",
+      "title": "Certificate of Excuse (for a Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-14"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-14A",
+      "title": "Certificate of Resumption (for a Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-14A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-15",
+      "title": "Application for the Use of an Indistinguishable Name",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-15"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-17",
+      "title": "Statement of Correction (Limited Liability Company — Maine or Foreign)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-17"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-1A",
+      "title": "Transfer of Reserved Name (LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-1A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-2",
+      "title": "Application for Registration of Name (Foreign Limited Liability Company)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-2"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-3A-NCRA",
+      "title": "Statement of Resignation of Noncommercial Registered Agent (Maine or Foreign LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-3A-NCRA"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-5A",
+      "title": "Termination of Statement of Intention to Transact Business Under an Assumed or Fictitious Name (Maine or Foreign LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-5A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-6",
+      "title": "Certificate of Formation (LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-6"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-6A",
+      "title": "Restated Certificate of Formation (Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-6A"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLC-9",
+      "title": "Certificate of Amendment (Maine Limited Liability Company)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLC-9"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLCACSOA",
+      "title": "Amendment or Cancellation of Statement of Authority (Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLCACSOA"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLCCONV",
+      "title": "Statement of Conversion (Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLCCONV"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLCDENIAL",
+      "title": "Statement of Denial of Authority (Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLCDENIAL"
+      ]
+    },
+    {
+      "form_id": "LLC_MLLCSOA",
+      "title": "Statement of Authority (for a Maine LLC)",
+      "hints": [
+        "Limited Liability Company",
+        "form MLLCSOA"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-1",
+      "title": "Application for Reservation of Name (Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-1"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-11R",
+      "title": "Certificate of Renunciation (Domestic Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-11R"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-12",
+      "title": "Application for Authority to Do Business (Foreign Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-12"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-12-1",
+      "title": "Application for Authority to do Business (Foreign Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-12-1"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-12A",
+      "title": "Amended Application for Authority to Do Business (Foreign LLP)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-12A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-12B",
+      "title": "Cancellation of Authority to Do Business (Foreign Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-12B"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-13A",
+      "title": "Amended Annual Report (Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-13A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-15",
+      "title": "Application for the Use of an Indistinguishable Name (LLP)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-15"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-17",
+      "title": "Certificate of Correction (Domestic Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-17"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-17A",
+      "title": "Certificate of Correction (Foreign Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-17A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-1A",
+      "title": "Transfer of Reserved Name (Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-1A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-2",
+      "title": "Application for Registration of Name (Foreign Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-2"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-3A-NCRA",
+      "title": "Statement of Resignation of Noncommercial Registered Agent (Maine Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-3A-NCRA"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-5A",
+      "title": "Termination of Statement of Intention to Do Business Under an Assumed or Fictitious Name (LLP)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-5A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-6",
+      "title": "Certificate of Limited Liability Partnership",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-6"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-6-1",
+      "title": "Certificate of Limited Liability Partnership — accompanying entity-action filing",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-6-1"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-6A",
+      "title": "Restated Certificate of Limited Liability Partnership",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-6A"
+      ]
+    },
+    {
+      "form_id": "LLP_MLLP-9",
+      "title": "Certificate of Amendment (Domestic Limited Liability Partnership)",
+      "hints": [
+        "Limited Liability Partnership",
+        "form MLLP-9"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-1",
+      "title": "Application for Reservation of Name (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-1"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-10",
+      "title": "Articles of Merger (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-10"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-11C",
+      "title": "Statement of Termination (Domestic Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-11C"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-12",
+      "title": "Application for Certificate of Authority to Transact Business (Foreign Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-12"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-12-1",
+      "title": "Application for Certificate of Authority to Transact Business (Foreign LP) — accompanying Application for Transfer of Authority",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-12-1"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-12A",
+      "title": "Application for Amended Certificate of Authority to Transact Business (Foreign Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-12A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-12B",
+      "title": "Notice of Cancellation of Certificate of Authority to Transact Business (Foreign Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-12B"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-13A",
+      "title": "Amended Annual Report (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-13A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-15",
+      "title": "Application for the Use of an Indistinguishable Name",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-15"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-17",
+      "title": "Statement of Correction (Limited Partnership — Maine or Foreign)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-17"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-1A",
+      "title": "Notice of Transfer of Reserved Name (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-1A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-2",
+      "title": "Application for Registration of Name (Foreign Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-2"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-3A-NCRA",
+      "title": "Statement of Resignation of Noncommercial Registered Agent (Domestic Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-3A-NCRA"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-5A",
+      "title": "Statement of Termination of an Assumed or Fictitious Name (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-5A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-5B",
+      "title": "Statement to Add/Delete/Change Location Where an Assumed Name is Used in Maine (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-5B"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-6",
+      "title": "Certificate of Limited Partnership",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-6"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-6-1",
+      "title": "Certificate of Limited Partnership — accompanying a transaction (Conversion / Merger / Consolidation)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-6-1"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-6A",
+      "title": "Restated Certificate of Limited Partnership",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-6A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-9",
+      "title": "Certificate of Amendment (Domestic Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-9"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-9A",
+      "title": "Statement of Withdrawal of a Limited Partner",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-9A"
+      ]
+    },
+    {
+      "form_id": "LP_MLPA-9B",
+      "title": "Statement of Dissociation (Limited Partnership)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPA-9B"
+      ]
+    },
+    {
+      "form_id": "LP_MLPACONV",
+      "title": "Articles of Conversion (Maine Limited Partnership → Other Type of Organization)",
+      "hints": [
+        "Limited Partnership",
+        "form MLPACONV"
+      ]
+    },
+    {
+      "form_id": "MARK_mark1",
+      "title": "Application for Registration of a Mark",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark1"
+      ]
+    },
+    {
+      "form_id": "MARK_mark1a",
+      "title": "Mark Disclaimer",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark1a"
+      ]
+    },
+    {
+      "form_id": "MARK_mark2",
+      "title": "Application for Renewal of a Mark",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark2"
+      ]
+    },
+    {
+      "form_id": "MARK_mark3",
+      "title": "Application for Amendment of a Mark",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark3"
+      ]
+    },
+    {
+      "form_id": "MARK_mark4",
+      "title": "Application for Assignment of a Mark",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark4"
+      ]
+    },
+    {
+      "form_id": "MARK_mark5",
+      "title": "Class Numbers for Marks (Trademark Reference Guide)",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark5"
+      ]
+    },
+    {
+      "form_id": "MARK_mark6",
+      "title": "Voluntary Cancellation of Registration of Mark",
+      "hints": [
+        "Trademark / Service Mark",
+        "form mark6"
+      ]
+    },
+    {
+      "form_id": "NP_CLKRA-3",
+      "title": "Statement of Appointment or Change of Clerk or Registered Agent",
+      "hints": [
+        "Nonprofit Corporation",
+        "form CLKRA-3"
+      ]
+    },
+    {
+      "form_id": "NP_FICT-4",
+      "title": "Statement of Intention to Do Business Under a Fictitious Name (Foreign Entities Only)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form FICT-4"
+      ]
+    },
+    {
+      "form_id": "NP_MLC-3_0",
+      "title": "Change of Clerk and/or Address (Domestic Nonprofit Corporation / Independent Local Church)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MLC-3_0"
+      ]
+    },
+    {
+      "form_id": "NP_MLC-6",
+      "title": "Certificate of Organization (Domestic Nonprofit Corporation Independent Local Church)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MLC-6"
+      ]
+    },
+    {
+      "form_id": "NP_MNP-3",
+      "title": "Change of Contact Person and/or Address (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNP-3"
+      ]
+    },
+    {
+      "form_id": "NP_MNP-6",
+      "title": "Certificate of Organization (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNP-6"
+      ]
+    },
+    {
+      "form_id": "NP_MNP-9",
+      "title": "Certificate of Amendment (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNP-9"
+      ]
+    },
+    {
+      "form_id": "NP_MNP-981A",
+      "title": "Certificate of Organization (Domestic Nonprofit Corporation, 13 MRSA §981-A)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNP-981A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-1",
+      "title": "Application for Reservation of Name (Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-1"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-10",
+      "title": "Articles of Merger (Maine/Maine Domestic Nonprofit)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-10"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-10A",
+      "title": "Articles of Consolidation (Domestic Nonprofit Corporations)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-10A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-10C",
+      "title": "Articles of Merger (Merger of Domestic and Foreign Nonprofit Corporations)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-10C"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-10E",
+      "title": "Articles of Consolidation (Domestic and Foreign Nonprofit Corporations)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-10E"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11",
+      "title": "Statement of Intent to Dissolve (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11A",
+      "title": "Statement of Intent to Dissolve (Domestic Nonprofit Corporation, Vote of Members or Directors)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11B",
+      "title": "Statement of Revocation of Voluntary Dissolution Proceedings (Nonprofit)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11B"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11C",
+      "title": "Statement of Revocation of Voluntary Dissolution Proceedings (Domestic Nonprofit, Vote of Members or Directors)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11C"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11D",
+      "title": "Articles of Dissolution (Domestic Nonprofit Corporation, post-intent)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11D"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-11E",
+      "title": "Voluntary Dissolution by Incorporators (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-11E"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-12",
+      "title": "Application for Authority to Carry on Activities (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-12"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-12-1",
+      "title": "Application for Authority to Carry on Activities (Foreign Nonprofit Corporation, sub-form to accompany Application for Transfer of Authority)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-12-1"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-12A",
+      "title": "Amended Application for Authority to Carry on Activities (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-12A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-12B",
+      "title": "Application for Surrender of Authority to Carry on Activities (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-12B"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-13A",
+      "title": "Amended Annual Report (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-13A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-14",
+      "title": "Application for Excuse (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-14"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-14A",
+      "title": "Certificate of Resumption (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-14A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-15",
+      "title": "Application for the Use of an Indistinguishable Name (Nonprofit)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-15"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-16",
+      "title": "Approval of Local Development Corporation by Municipal Officers",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-16"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-17",
+      "title": "Certificate of Correction (Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-17"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-19",
+      "title": "Articles of Domestication and Conversion (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-19"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-19A",
+      "title": "Statement of Abandonment of Domestication and Conversion (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-19A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-1A",
+      "title": "Transfer of Reserved Name (Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-1A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-2",
+      "title": "Application for Registration of Name (Foreign Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-2"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-3A-NCRA",
+      "title": "Statement of Resignation of Noncommercial Registered Agent (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-3A-NCRA"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-5A",
+      "title": "Termination of Statement of Intention to Carry on Activities Under an Assumed or Fictitious Name (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-5A"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-6",
+      "title": "Articles of Incorporation (Nonprofit)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-6"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-6-1",
+      "title": "Articles of Incorporation (Nonprofit) — to accompany Conversion or Restatement",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-6-1"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-6A_0",
+      "title": "Restated Articles of Incorporation (Domestic Nonprofit Corporation, alternate template)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-6A_0"
+      ]
+    },
+    {
+      "form_id": "NP_MNPCA-9",
+      "title": "Articles of Amendment (Domestic Nonprofit Corporation)",
+      "hints": [
+        "Nonprofit Corporation",
+        "form MNPCA-9"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Foreign Registered Name),entity.home_jurisdiction_name,high,Top-of-form field for the foreign corporation's registered name. Foreign-entity-name convention (entity-name-vs-home-jurisdiction); same key as MLLC-12 / MLPA-12B / MLLP-12B.
+Text2,0,text,FIRST: The state or country under the laws of which it is incorporated is,entity.home_jurisdiction,high,State or country of incorporation. Same key as MLPA-12B / MLLP-12B.
+Text3,0,text,and the address of its principal office is located at: ___,entity.principal_office.physical_address,high,First (inline) line of the principal-office address. Same key as MLPA-12B / MLLP-12B.
+Text4,0,text,"[continuation of principal office address] (street, city, state and zip code)",entity.principal_office.physical_address,medium,"Second (overflow) line for the same principal-office address; the form provides two visual lines under the single '(street, city, state and zip code)' caption. Mapped to the same canonical key as Text3 — the filler will write the same string to both widgets, or synth may produce a value that fits Text4 alone. See open_question on dual-line address widgets."
+Text5,0,text,SECOND: The date of its incorporation is,entity.formation_date_in_home_jurisdiction,high,Date of original incorporation in the home jurisdiction. Same key as MLLP-12 / MLPA-12B.
+Text6,0,text,DATED,filing.date_signed,high,Date the consent was signed.
+Text7,0,text,By [signature of any duly authorized officer] / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined name and capacity of the authorized officer (Shape D — single combined widget). Form footnote requires §1217.5 authorization.
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day' (+$50).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day' (+$100).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees: $35 base (page-0 header) plus expedite premium.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email (entity-level).
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

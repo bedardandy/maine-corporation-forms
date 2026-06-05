@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/MARK_mark5.json",
+  "title": "MARK_mark5 fill data",
+  "type": "object",
+  "properties": {},
+  "required": []
+}

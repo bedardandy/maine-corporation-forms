@@ -1,0 +1,32 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+11r1,0,text,(Name of Limited Liability Partnership),entity.name,high,Top-of-form LLP name. Domestic LLP under 31 MRSA §825 — uses entity.name (not entity.home_jurisdiction_name).
+11r2,0,text,FIRST: The date of filing of its certificate of limited liability partnership was,entity.llp_certificate_filing_date,high,Date the original LLP certificate (MLLP-1 registration) was filed with SOS — anchor for the renunciation timeline.
+11r3,0,text,SECOND: The reason for filing the certificate of renunciation is — line 1,renunciation.reason.line1,high,Reason for renouncing LLP status (multi-line widget; line 1 of 3). Indexed lineN mirroring the upstream amendment.nature_and_text.lineN multi-line pattern.
+11r4,0,text,SECOND: reason text (line 2),renunciation.reason.line2,high,SECOND reason line 2.
+11r5,0,text,SECOND: reason text (line 3 — bottom),renunciation.reason.line3,high,SECOND reason line 3.
+11r6,0,text,"THIRD: The future effective date or time of renunciation, which must be a date or time certain, if it is not to be effective upon the filing of the certificate",renunciation.future_effective_date,high,"Optional future effective date/time. If blank, renunciation is effective upon filing."
+11r7,0,text,"FOURTH: Other information, if any, that the person filing the certificate of renunciation determines to be necessary is set forth in Exhibit ___",renunciation.additional_info_exhibit_letter,high,Inline exhibit letter for additional information (FOURTH).
+11r8,1,text,DATED ___,filing.date_signed,high,Date the certificate was signed.
+11r9,1,text,Authorized Signature(s)*: (signature) / (type or print name and capacity) [row 1],filing.signer.printed_name_and_capacity,high,First (primary) authorized individual signer's combined name+capacity (Shape D). Slot-1 follows the MLLC-17 convention of bare 'filing.signer' for the canonical primary signer (no '_1' suffix).
+11r10,1,text,Authorized Signature(s)*: row 2,filing.signer_2.printed_name_and_capacity,high,"Second authorized individual signer (optional; used when the §825 tier requires multiple signers, e.g., majority-in-interest of partners). Same shape as MLLC-17."
+11r11,1,text,Authorized Signature(s)*: row 3,filing.signer_3.printed_name_and_capacity,high,Third authorized individual signer (optional).
+11r12,1,text,For Authorized Signature(s) on behalf of Entities: Name of Entity [row 1],filing.entity_signer_1.name,high,"Name of an entity signing on behalf of the LLP (when the §825 authorized person is itself an entity, parallel to general_partner_entity_N.name on LP forms)."
+11r13,1,text,By (authorized signature) / (type or print name and capacity) [entity row 1],filing.entity_signer_1.signer_printed_name_and_capacity,high,Printed name + capacity of the natural person signing for entity-signer 1.
+11r14,1,text,Name of Entity [row 2],filing.entity_signer_2.name,high,Entity-signer 2 name (optional).
+11r15,1,text,By (authorized signature) / (type or print name and capacity) [entity row 2],filing.entity_signer_2.signer_printed_name_and_capacity,high,Entity-signer 2 authorized signer.
+11r16,1,text,Name of Entity [row 3],filing.entity_signer_3.name,high,Entity-signer 3 name (optional).
+11r17,1,text,By (authorized signature) / (type or print name and capacity) [entity row 3],filing.entity_signer_3.signer_printed_name_and_capacity,high,Entity-signer 3 authorized signer.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $75 per page-0 header plus expedite premium).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space preserved upstream.

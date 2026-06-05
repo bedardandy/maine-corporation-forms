@@ -1,0 +1,48 @@
+checks:
+  - id: entity-name-required
+    description: entity.name (the limited partnership) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: withdrawing-partner-identity-required
+    description: withdrawing_limited_partner.name (the recital identifying who is withdrawing) is non-empty.
+    depends_on_keys:
+      - withdrawing_limited_partner.name
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one of the two signer blocks is populated: either withdrawing_limited_partner.printed_name (individual) OR withdrawing_limited_partner_entity.name + withdrawing_limited_partner_entity.signer_printed_name_and_capacity (entity). Filling both is structurally inconsistent."
+    depends_on_keys:
+      - withdrawing_limited_partner.printed_name
+      - withdrawing_limited_partner_entity.name
+      - withdrawing_limited_partner_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-block-consistency
+    description: "If withdrawing_limited_partner_entity.name is set, withdrawing_limited_partner_entity.signer_printed_name_and_capacity must also be set (an entity cannot sign without identifying the natural person signing for it)."
+    depends_on_keys:
+      - withdrawing_limited_partner_entity.name
+      - withdrawing_limited_partner_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-entity-name-matches-body
+    description: "filing.entities[0].name equals entity.name (the partnership)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: "filing.total_fees_dollars equals $35 base (per page-0 'Filing Fee $35.00' header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

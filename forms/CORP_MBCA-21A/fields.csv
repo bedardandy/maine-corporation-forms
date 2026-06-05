@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+21a1,0,text,(Name of Unincorporated Entity Prior to Conversion),entity.name,high,"Pre-conversion name of the unincorporated entity. Mirrors MBCA-21 (corp → unincorporated) which uses entity.name for the pre-conversion party. Note: 'unincorporated entity' includes domestic Maine LLCs/LPs (entity.name) and foreign equivalents (where home_jurisdiction_name might apply), but the form labels the field generically — use entity.name."
+21a2,0,text,FIRST: The name of the unincorporated entity is changed as follows (the same must satisfy the requirements of 13-C MRSA §401),conversion.new_entity.name,high,"Post-conversion corporate name. Must satisfy 13-C MRSA §401 corporate-naming requirements (suffix: 'Corp.', 'Corporation', 'Inc.', 'Incorporated', etc.). Same key as MBCA-21."
+21a3,0,text,SECOND: (Foreign Unincorporated Entity Only) The unincorporated entity was organized in (state or country),entity.home_jurisdiction,high,State or country where the foreign unincorporated entity was organized. Conditional — applies only when the converting entity is foreign (Check Box5 selected).
+21a4,0,text,SECOND: ...and the date of organization was,entity.formation_date_in_home_jurisdiction,high,Date the foreign unincorporated entity was originally formed. Conditional on foreign status. Same key as MLLC-12's 'Date of formation'.
+Check Box4,0,text,THIRD: [ ] (Domestic Unincorporated Entity) The plan of entity conversion was duly approved by the unincorporated entity in accordance with the organic law of the unincorporated entity,conversion.approval_type,high,Radio option for domestic-source-law approval. Enum value: 'domestic'. Mutually exclusive with Check Box5.
+Check Box5,0,text,THIRD: [ ] (Foreign Unincorporated Entity) The conversion of the unincorporated entity was duly approved in the manner required by its organic law,conversion.approval_type,high,"Radio option for foreign-source-law approval. Enum value: 'foreign'. Mutually exclusive with Check Box4. Selecting this implies SECOND fields (entity.home_jurisdiction, entity.formation_date_in_home_jurisdiction) must be populated."
+21a7,0,text,FOURTH: All the statements required to be set forth in Articles of Incorporation (Form MBCA-6-1) are attached as Exhibit ___,conversion.new_entity_provisions_exhibit_letter,high,Inline exhibit letter for the attached Articles of Incorporation provisions (typically a completed-but-unsigned MBCA-6-1). Same key as MBCA-21.
+21a8,0,text,FIFTH: The effective date of the articles of entity conversion (if other than the date of filing of the articles of entity conversion) is,conversion.future_effective_date,high,"Optional future effective date. If blank, filing date applies. Same key as MBCA-21 and merger.future_effective_date on MBCA-10."
+21a9,0,text,DATED,filing.date_signed,high,Date of signature.
+21a10,0,text,*By ___ (signature of any duly authorized representative) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget. Shape D (matches MBCA-21, MBCA-11, MLLC-12). Footnote allows signature by 'an officer or other duly authorized representative' per 13-C MRSA §955."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 — typically populated with the bundled MBCA-6-1 entity name.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($145 base per page-0 header, plus expedite premium and bundled MBCA-6-1 fee)."
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email (applies to the post-conversion corporation).
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

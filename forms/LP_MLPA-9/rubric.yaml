@@ -1,0 +1,63 @@
+checks:
+  - id: entity-name-nonempty
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: initial-certificate-date-nonempty
+    description: entity.initial_certificate_filing_date is non-empty.
+    depends_on_keys:
+      - entity.initial_certificate_filing_date
+    severity: required
+  - id: lllp-name-suffix-consistency
+    description: "If entity.is_lllp is true, entity.name must contain 'LLLP', 'L.L.L.P.', or 'Limited Liability Limited Partnership'. If false, it must contain 'LP', 'L.P.', or 'Limited Partnership'."
+    depends_on_keys:
+      - entity.is_lllp
+      - entity.name
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_lllp is true, entity.professional_services_description must be non-empty."
+    depends_on_keys:
+      - entity.is_professional_lllp
+      - entity.professional_services_description
+    severity: required
+  - id: new-gp-exhibit-when-flagged
+    description: "If new_general_partner.additional_attached is true, new_general_partner.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - new_general_partner.additional_attached
+      - new_general_partner.additional_exhibit_letter
+    severity: required
+  - id: dissociated-gp-exhibit-when-flagged
+    description: "If dissociated_general_partner.additional_attached is true, dissociated_general_partner.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - dissociated_general_partner.additional_attached
+      - dissociated_general_partner.additional_exhibit_letter
+    severity: required
+  - id: address-change-exhibit-when-flagged
+    description: "If general_partner_address_change.additional_attached is true, general_partner_address_change.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - general_partner_address_change.additional_attached
+      - general_partner_address_change.additional_exhibit_letter
+    severity: required
+  - id: name-change-exhibit-when-flagged
+    description: "If general_partner_name_change.additional_attached is true, general_partner_name_change.additional_exhibit_letter must be set."
+    depends_on_keys:
+      - general_partner_name_change.additional_attached
+      - general_partner_name_change.additional_exhibit_letter
+    severity: required
+  - id: other-amendment-exhibit-when-flagged
+    description: "If TWELFTH is used (implied by amendment.other_exhibit_letter being set), the exhibit letter must be present."
+    depends_on_keys:
+      - amendment.other_exhibit_letter
+    severity: required
+  - id: signer-present
+    description: At least one signatory (individual or entity) is populated.
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required

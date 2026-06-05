@@ -1,0 +1,162 @@
+{
+  "_model": "propose-and-flag",
+  "_about": "Maine case-law cross-reference, keyed by transaction CATEGORY (not by form field). Case law gives legal BACKGROUND around a filing; it almost never tells you how to fill a box. This is NOT legal advice and NOT an official citation list. Every entry is verified=false: each was located via web search and its holding paraphrased from search snippets, NOT read end-to-end from the primary source in this environment (Justia returned 403, courts.maine.gov PDFs must be located by exact reporter URL). Before relying on any entry, open the cited decision in the official reporter (A.2d / A.3d / 'YEAR ME N') and confirm the holding, the citation, and that it is still good law.",
+  "_caveats": {
+    "predecessor_statute": "Several decisions construe TITLE 13-A (the former Maine Business Corporation Act, repealed by PL 2001 c.640 eff. 2003) or common law, NOT the current Title 13-C. They remain persuasive on doctrine (veil-piercing, fiduciary duty, fair value) but a 13-A section number is NOT a 13-C section number. Entries note era='13-A' or 'common-law' where applicable.",
+    "court_level": "Entries note court='Law Court' (Maine Supreme Judicial Court, binding precedent) vs court='Business and Consumer Court' (trial-level, persuasive only).",
+    "verification_required": "An unverified entry must never be quoted in a filing or to a client as settled law."
+  },
+  "verification": {
+    "authority": "Maine Supreme Judicial Court Reporter of Decisions (https://www.courts.maine.gov/courts/sjc/lawcourt/) and the Atlantic Reporter",
+    "verified_by": null,
+    "verified_on": null
+  },
+  "category_to_form_families": {
+    "dissolution_reinstatement": {
+      "form_id_prefixes_or_codes": ["CORP_MBCA-11A", "CORP_MBCA-12", "CORP_REVIVAL", "NP_MNPCA-11B", "NP_MNPCA-12"],
+      "note": "Voluntary/administrative dissolution, revival, reinstatement. Relevant legal backdrop: effect of dissolution on claims and on title to property; relation-back of reinstatement."
+    },
+    "conversion_merger": {
+      "form_id_prefixes_or_codes": ["CORP_MBCA-21A", "LP_MLPACONV", "CORP_MBCA-6A"],
+      "note": "Conversions, mergers, restatements. Backdrop: successor liability; dissenters'/appraisal (fair value) rights."
+    },
+    "agent_and_address_change": {
+      "form_id_prefixes_or_codes": ["CORP_CLKRA-3", "CORP_RO-E911", "CORP_HO-E911", "NP_MNP-3"],
+      "note": "Clerk / registered-agent / office-address changes. Backdrop: service of process on the registered agent; agent authority surviving dissolution."
+    },
+    "formation_and_governance": {
+      "form_id_prefixes_or_codes": ["CORP_", "NP_", "LLC_"],
+      "note": "Incorporation/formation and ongoing governance. Backdrop: veil-piercing as the liability boundary; director/controlling-shareholder fiduciary duty; derivative-suit demand; books-and-records access."
+    }
+  },
+  "categories": {
+    "dissolution_reinstatement": {
+      "cases": [
+        {
+          "name": "Order on Defs' Motions to Dismiss, BCD-CV-14-37",
+          "citation": "Me. Bus. & Consumer Ct., BCD-CV-14-37",
+          "year": 2014,
+          "court": "Business and Consumer Court",
+          "era": "13-C",
+          "topic": "Dissolution does not transfer title to corporate property",
+          "holding_summary": "Applying 13-C M.R.S. §1406(2)(E), the court noted that the dissolution of a corporation does not effectuate a transfer of title to its property.",
+          "source_url": "https://courts.maine.gov/courts/bcd/cv-orders/CV-14-37/BCD-CV-14-37-Order-on-Defs-Motions-to-Dismiss.pdf",
+          "verified": false,
+          "source_note": "Trial-court order; persuasive only. Holding paraphrased from search snippet, not read in full."
+        }
+      ],
+      "statute_anchor": "13-C §1406 (effect of dissolution); §1422 (reinstatement following administrative dissolution, relation-back)"
+    },
+    "conversion_merger": {
+      "cases": [
+        {
+          "name": "In re Valuation of Common Stock of Libby, McNeill & Libby",
+          "citation": "406 A.2d 54 (Me. 1979)",
+          "year": 1979,
+          "court": "Law Court",
+          "era": "13-A",
+          "topic": "Dissenters' rights — 'fair value' of shares on merger",
+          "holding_summary": "Dissenting shareholders are entitled to the full fair value of their shares, determined independently of the merger that triggered the buyout; fair value draws on stock-market price, investment value, and net asset value.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1979/406-a-2d-54-0.html",
+          "verified": false,
+          "source_note": "Construes 13-A M.R.S.A. §909 (predecessor appraisal statute), NOT current 13-C. Holding paraphrased from search snippet."
+        },
+        {
+          "name": "Director of the Bureau of Labor Standards v. Diamond Brands, Inc.",
+          "citation": "588 A.2d 734 (Me. 1991)",
+          "year": 1991,
+          "court": "Law Court",
+          "era": "common-law / statutory severance",
+          "topic": "Successor liability after asset purchase",
+          "holding_summary": "Addressed whether a successor corporation is liable (here, for severance pay) following a purchase of corporate assets, across a chain of predecessors.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1991/588-a-2d-734-0.html",
+          "verified": false,
+          "source_note": "Severance-pay statute context, not a 13-C filing rule. Holding paraphrased from search snippet."
+        }
+      ],
+      "statute_anchor": "13-C Chapter 11 (mergers/share exchange) and Chapter 13 (appraisal/dissenters' rights)"
+    },
+    "agent_and_address_change": {
+      "cases": [],
+      "statute_anchor": "13-C §§621–632 (registered agent/office); §1422(4) (administrative dissolution does not terminate registered-agent authority); service-of-process provisions.",
+      "note": "No on-point Law Court decision located via search. The governing rules here are statutory; do not infer case law that was not found."
+    },
+    "formation_and_governance": {
+      "cases": [
+        {
+          "name": "Spickler v. Dube",
+          "citation": "644 A.2d 465 (Me. 1994)",
+          "year": 1994,
+          "court": "Law Court",
+          "era": "common-law",
+          "topic": "Alter ego / veil-piercing of a close corporation",
+          "holding_summary": "If the corporate form is ignored by the corporation's proprietors, the corporation may be treated as their alter ego; but where corporate form is properly adhered to, a close corporation's distinct legal identity is preserved for taxation, regulation, and liability.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1994/644-a-2d-465-0.html",
+          "verified": false,
+          "source_note": "Holding paraphrased from search snippet; not read in full."
+        },
+        {
+          "name": "Sturtevant v. Town of Winthrop",
+          "citation": "1999 ME 84",
+          "year": 1999,
+          "court": "Law Court",
+          "era": "common-law",
+          "topic": "Veil-piercing standard; reverse piercing",
+          "holding_summary": "States the two-part veil-piercing test — (1) the defendant abused the privilege of a separate corporate identity, and (2) an unjust or inequitable result would follow from recognizing the separate corporate existence — and treats the weight of authority as against reverse piercing.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1999/1999-me-84-0.html",
+          "verified": false,
+          "source_note": "Holding paraphrased from search snippet; confirm the exact two-part formulation in the opinion."
+        },
+        {
+          "name": "State v. Weinschenk / LVI Group (verify caption)",
+          "citation": "1997 ME 25",
+          "year": 1997,
+          "court": "Law Court",
+          "era": "common-law",
+          "topic": "Veil-piercing between parent and subsidiary corporations",
+          "holding_summary": "Examined whether mere stock ownership and intertwined management suffice to pierce the corporate veil between parent and subsidiary.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1997/1997-me-25-0.html",
+          "verified": false,
+          "source_note": "Case caption uncertain from search results ('State v. LVI Group' label) — confirm the exact party names and citation before use."
+        },
+        {
+          "name": "Moore v. Maine Industrial Services, Inc.",
+          "citation": "645 A.2d 626 (Me. 1994)",
+          "year": 1994,
+          "court": "Law Court",
+          "era": "13-A / common-law",
+          "topic": "Fiduciary duty of controlling shareholders to the minority",
+          "holding_summary": "Recognized that majority, dominant, or controlling shareholders (or a group acting together to exercise effective control) owe a fiduciary duty to minority shareholders; directors must act in good faith with a view to the interests of the corporation and shareholders.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1994/645-a-2d-626-0.html",
+          "verified": false,
+          "source_note": "Holding paraphrased from search snippet; predates 13-C. Confirm against the opinion."
+        },
+        {
+          "name": "Webber v. Webber Oil Co.",
+          "citation": "495 A.2d 1215 (Me. 1985)",
+          "year": 1985,
+          "court": "Law Court",
+          "era": "13-A",
+          "topic": "Shareholder derivative action — demand requirement",
+          "holding_summary": "A shareholder bringing a derivative action must plead particularized facts showing exhaustion of intra-corporate remedies; whether demand on directors is required or excused lies within the trial court's discretion based on the complaint's allegations.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/1985/495-a-2d-1215-0.html",
+          "verified": false,
+          "source_note": "Predates 13-C; demand rules now also governed by statute/rule. Holding paraphrased from search snippet."
+        },
+        {
+          "name": "Fair Friend Enterprise Co., Ltd. v. CNC Systems, Inc. (verify)",
+          "citation": "2025 ME (number unconfirmed)",
+          "year": 2025,
+          "court": "Law Court",
+          "era": "13-C",
+          "topic": "Shareholder access to corporate books and records",
+          "holding_summary": "Reported (via search) to involve a shareholder's right to inspect corporate books and records under Maine law.",
+          "source_url": "https://law.justia.com/cases/maine/supreme-court/2025/",
+          "verified": false,
+          "source_note": "BOTH the precise citation (ME number) AND the holding are unconfirmed from search; treat as a lead to verify, not a citation. Likely relates to 13-C §1602 (inspection of records by shareholders)."
+        }
+      ],
+      "statute_anchor": "13-C §831 (general standards for directors); §1602 (inspection of records); common-law veil-piercing and fiduciary-duty doctrine"
+    }
+  }
+}

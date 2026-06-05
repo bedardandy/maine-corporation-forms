@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-6-1.json",
+  "title": "NP_MNPCA-6-1 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "accompanying_document_type": {
+          "type": "string",
+          "description": "When this articles-attachment is filed alongside another primary filing, identifies which one. Enum: 'articles_of_nonprofit_conversion' | 'statement_of_conversion' | 'restated_articles_of_incorporation'. Specific to attachment-form variants like MNPCA-6-1 that don't stand alone as a complete filing.",
+          "enum": [
+            "articles_of_nonprofit_conversion",
+            "statement_of_conversion",
+            "restated_articles_of_incorporation"
+          ]
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "nonprofit_type": {
+          "type": "string"
+        },
+        "public_benefit_purpose": {
+          "type": "string"
+        },
+        "mutual_benefit_purpose": {
+          "type": "string"
+        },
+        "initial_directors_count": {
+          "type": "integer"
+        },
+        "directors_min_count": {
+          "type": "integer"
+        },
+        "directors_max_count": {
+          "type": "integer"
+        },
+        "has_members": {
+          "type": "boolean"
+        },
+        "no_political_activities_clause": {
+          "type": "string"
+        },
+        "has_501c_exhibit": {
+          "type": "boolean"
+        },
+        "501c_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

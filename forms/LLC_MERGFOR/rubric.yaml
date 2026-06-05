@@ -1,0 +1,52 @@
+checks:
+  - id: surviving-home-name-required
+    description: merger.surviving_entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - merger.surviving_entity.home_jurisdiction_name
+    severity: required
+  - id: surviving-jurisdiction-required
+    description: "merger.surviving_entity.home_jurisdiction is non-empty and is not 'Maine' (the form is for foreign entities)."
+    depends_on_keys:
+      - merger.surviving_entity.home_jurisdiction
+    severity: required
+  - id: nonsurviving-home-name-required
+    description: merger.nonsurviving_entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - merger.nonsurviving_entity.home_jurisdiction_name
+    severity: required
+  - id: nonsurviving-jurisdiction-required
+    description: merger.nonsurviving_entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - merger.nonsurviving_entity.home_jurisdiction
+    severity: required
+  - id: at-least-one-party-authorized-in-maine
+    description: At least one of merger.surviving_entity.maine_authorization_date or merger.nonsurviving_entity.maine_authorization_date is non-empty (the merger is filed in Maine because at least one party touches Maine).
+    depends_on_keys:
+      - merger.surviving_entity.maine_authorization_date
+      - merger.nonsurviving_entity.maine_authorization_date
+    severity: required
+  - id: certified-copy-attached
+    description: merger.certified_copy_attached is true (the form requires a certified copy of the merger from the home jurisdiction).
+    depends_on_keys:
+      - merger.certified_copy_attached
+    severity: required
+  - id: filing-entity-name-matches-survivor
+    description: "filing.entities[0].name matches merger.surviving_entity.home_jurisdiction_name (or merger.surviving_entity.new_name when populated)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - merger.surviving_entity.home_jurisdiction_name
+      - merger.surviving_entity.new_name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-matches-entity-type
+    description: "filing.total_fees_dollars equals $25 (foreign nonprofit), $100 (foreign business corporation), or $150 (foreign LP / foreign LLP) per the page-0 fee table, plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

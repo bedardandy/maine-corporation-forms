@@ -1,0 +1,26 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Entity,0,text,(Exact Legal Name of Entity on the records of the Secretary of State),entity.name,high,"Exact legal name as on SOS record. Same convention as CLKRA-3, FICT-4, and other shared multi-entity forms."
+assumed name,0,text,FIRST: The entity intends to transact business under the assumed name of:,assumed_name.name,high,"The DBA being registered. Subject to entity-type-specific naming statutes (e.g., a corporation's assumed name still cannot conflict with another registered name under 13-C §401)."
+location,0,text,"SECOND: If the assumed name is not to be used at all the places of business in Maine, the location(s) where it will be used is (are):",assumed_name.locations,high,Free-text list of Maine locations where the assumed name will be used. Conditional: only required if the DBA is location-restricted; otherwise it is used at all places of business and this field may be left blank.
+Check Box1,0,text,Additional locations are attached hereto as Exhibit ___ and made a part hereof.,assumed_name.additional_locations_exhibit,high,"Boolean opt-in for an attached locations exhibit. Mirrors the additional-{incorporators,GPs}-exhibit pattern across the corpus."
+,0,checkbox,"Exhibit ___ (inline blank next to Check Box1, rect [308.0, 396.1, 333.1, 417.8])",assumed_name.additional_locations_exhibit_letter,medium,"Unnamed widget at rect [308.0, 396.1, 333.1, 417.8] — small inline blank for the exhibit letter (e.g., 'A'). Empty field_id is preserved as-is; fill engine matches by rect/widget index."
+jurisdiction,0,text,THIRD: (Foreign Entities Only) Jurisdiction of incorporation/organization,entity.home_jurisdiction,high,"Foreign entity's home state/country. Same key family as CLKRA-3, MBCA-12, MLLC-12, FICT-4."
+date authorized ro transact business in maine,0,text,and the date on which the entity was authorized to transact business in Maine,entity.maine_authorization_date,high,Date the foreign entity originally qualified in Maine. Same key as CLKRA-3.
+DATED,0,text,DATED ___,filing.date_signed,high,Date signed.
+type or print name,0,text,(type or print name),filing.signer.printed_name,high,Signer printed name. Shape A (split name + title) — paired with 'title of signer' below.
+title of signer,0,text,(title of signer),filing.signer.title,high,"Signer title (e.g., 'President', 'Manager', 'General Partner'). Allowed values constrained by the entity-type-specific signature footnotes (*1) through (*5)."
+If signing partner or general partner is an entity name of entity 1,0,text,"LIMITED PARTNERSHIPS AND LIMITED LIABILITY PARTNERSHIPS (only if applicable) If signing partner or general partner is an entity, name of entity:",filing.signer_partner_entity_name,high,"When an LP/LLP signing partner is itself an entity, captures that entity's name. Same canonical key as CLKRA-3 Text16 ('filing.signer_partner_entity_name'). Used only when filing.signer.title indicates a partner role and the signer-of-record is an entity rather than a natural person."
+Text1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+,1,text,"Name of entity [2] (rect [36.5, 675.1, 472.9, 697.6])",filing.entities[1].name,medium,"Unnamed widget at rect [36.5, 675.1, 472.9, 697.6] — second cover-letter entity row. Empty field_id is preserved; fill engine matches by rect/widget index."
+Check Box10,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box11,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box12,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Text13,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees enclosed.
+Text14,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Text15,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Text16,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Text17,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Text18,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Text19,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Text20,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+Text21,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

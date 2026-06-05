@@ -1,0 +1,46 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,FIRST: party row 1 (Name | Type of Entity | Jurisdiction | Date),merger.parties[0].recital,high,First merger-party row recital (single wide widget: name | type | jurisdiction | date).
+Text2,0,text,FIRST: party row 2 (Name | Type of Entity | Jurisdiction | Date),merger.parties[1].recital,high,Second merger-party row recital.
+Text3,0,text,FIRST: party row 3 (Name | Type of Entity | Jurisdiction | Date),merger.parties[2].recital,high,Third merger-party row recital.
+Text4,0,text,FIRST: party row 4 (Name | Type of Entity | Jurisdiction | Date),merger.parties[3].recital,high,Fourth merger-party row recital (party 4 signs on attached copy of page 2).
+Check Box5,0,checkbox,"Names, type of entity, jurisdiction and effective date of the additional parties to the merger or share exchange are attached as Exhibit ___, and made a part hereof.",merger.additional_parties_attached,high,"Boolean opt-in for additional-parties exhibit (Check Box5, on-state Yes). Pass-1 had field_type=text; corrected to checkbox."
+Text6,0,text,"are attached as Exhibit ___, and made a part hereof",merger.additional_parties_exhibit_letter,high,Inline exhibit letter for additional-parties block.
+Text7,0,text,SECOND: The name and jurisdiction of incorporation of the surviving entity (Name | Jurisdiction),merger.surviving_entity.name_and_jurisdiction,high,Single wide text field combining survivor name and jurisdiction.
+Text8,0,text,THIRD: The address of such place of business is as follows (line 1),merger.surviving_entity.principal_office.physical_address,high,Single-line physical address of survivor principal place of business.
+Text9,0,text,THIRD: address line 2,merger.surviving_entity.principal_office.mailing_address,medium,Second address line below THIRD; optional mailing address.
+Check Box10,1,checkbox,"FOURTH option 1: If the originating document of the survivor of a merger is amended, the amendments are attached as Exhibit ___",merger.fourth_election.survivor_originating_doc_amended,high,"FOURTH option 1 checkbox (Check Box10, Yes). Split from enum; pass-1 list checked both boxes."
+Check Box11,1,checkbox,"FOURTH option 2: If the result of the merger or share exchange creates a new corporation, attached is Exhibit ___ which contains all the provisions required...",merger.fourth_election.new_corporation_created,high,"FOURTH option 2 checkbox (Check Box11, Yes). Split from enum."
+Text24,1,text,amendments to the survivor's originating document are attached as Exhibit ___,merger.survivor_amendments_exhibit_letter,high,Inline exhibit letter for FOURTH option 1.
+Text12,1,text,attached is Exhibit ___ which contains all the provisions required...,merger.new_corporation_provisions_exhibit_letter,high,Inline exhibit letter for FOURTH option 2.
+Text13,1,text,FIFTH: The future effective date of the articles of merger or share exchange (if other than the date of filing) is,merger.future_effective_date,high,"Optional future effective date; if blank, filing date applies."
+Check Box14,1,checkbox,"SIXTH option 1: The plan was duly approved by the shareholders and, if voting by any separate voting group was required, by each separate group...",merger.sixth_election.shareholder_approval_obtained,medium,SIXTH option 1 -> Check Box14 (on-state Yes). Was pass-1 unnamed widget y~551. ORPHAN: field has no page /Annots widget; sets /V but renders no checkmark. Unfillable on this template.
+Check Box15,1,checkbox,SIXTH option 2: The plan of merger or share exchange did not require approval by the shareholders.,merger.sixth_election.shareholder_approval_not_required,medium,SIXTH option 2 -> Check Box15 (Yes). Was pass-1 unnamed widget y~514. ORPHAN: no page widget; unfillable on this template.
+Check Box16,1,checkbox,SEVENTH option 1: The participation of the foreign corporation was duly authorized as required by the organic law of the corporation.,merger.seventh_election.foreign_corp_authorized,medium,SEVENTH option 1 -> Check Box16 (Yes). Was pass-1 unnamed widget y~463. ORPHAN: no page widget; unfillable on this template.
+Check Box17,1,checkbox,SEVENTH option 2: The participation of the eligible entity was duly authorized as required by the organic law of that entity.,merger.seventh_election.eligible_entity_authorized,high,"SEVENTH option 2 -> Check Box17 (Yes), real on-page widget (page 1). Fillable."
+Text5,1,text,EIGHTH: ...the foreign corporation or foreign eligible entity shall provide the mailing address to which the Secretary of State may mail a copy of any process served on the Secretary of State (mailing address),merger.foreign_survivor.service_of_process_mailing_address,high,Mailing address for service of process (foreign survivor).
+Text10,2,text,Must Be Completed By the First Party to the Merger: (Name and type of participating business entity),merger.parties[0].signature_block.name_and_type,high,Page-2 signature block 1 head: party name and type.
+Text11,2,text,First Party: (Date),merger.parties[0].signature_block.date_signed,high,Date signed by party 1.
+Text14,2,text,First Party: (*Authorized signature) / (Type or print name and capacity) — signer 1,merger.parties[0].signature_block.signer_1.printed_name_and_capacity,high,Party 1 first authorized signer.
+Text15,2,text,First Party: signer 2,merger.parties[0].signature_block.signer_2.printed_name_and_capacity,high,Party 1 second authorized signer.
+Text16,2,text,Must Be Completed By the Second Party: (Name and type),merger.parties[1].signature_block.name_and_type,high,Page-2 signature block 2 head.
+Text17,2,text,Second Party: (Date),merger.parties[1].signature_block.date_signed,high,Date signed by party 2.
+Text18,2,text,Second Party: signer 1,merger.parties[1].signature_block.signer_1.printed_name_and_capacity,high,Party 2 first signer.
+Text19,2,text,Second Party: signer 2,merger.parties[1].signature_block.signer_2.printed_name_and_capacity,high,Party 2 second signer.
+Text20,2,text,Must Be Completed By the Third Party: (Name and type),merger.parties[2].signature_block.name_and_type,high,Page-2 signature block 3 head.
+Text21,2,text,Third Party: (Date),merger.parties[2].signature_block.date_signed,high,Date signed by party 3.
+Text22,2,text,Third Party: signer 1,merger.parties[2].signature_block.signer_1.printed_name_and_capacity,high,Party 3 first signer.
+Text23,2,text,Third Party: signer 2,merger.parties[2].signature_block.signer_2.printed_name_and_capacity,high,Party 3 second signer.
+Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,low,Expedite tier -> Check Box14 (Yes). Was pass-1 unnamed cover hold-for-pickup. ORPHAN: no page widget; renders no checkmark. Unfillable on this template. Same /T as sixth_election.shareholder_approval_obtained.
+Check Box15,3,checkbox,24-hour expedited filing,filing.expedited_service.expedite_24h,low,Expedite tier -> Check Box15 (Yes). Was pass-1 unnamed cover 24h. ORPHAN: no page widget; unfillable. Same /T as sixth_election.shareholder_approval_not_required.
+Check Box16,3,checkbox,Immediate expedited filing,filing.expedited_service.immediate,low,Expedite tier -> Check Box16 (Yes). Was pass-1 unnamed cover immediate. ORPHAN: no page widget; unfillable. Same /T as seventh_election.foreign_corp_authorized.
+Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,3,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,3,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,3,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,3,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,3,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,3,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

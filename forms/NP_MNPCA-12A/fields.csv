@@ -1,0 +1,33 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+12a1,0,text,(Name of Corporation),entity.home_jurisdiction_name,high,"Top-of-form entity name. For foreign nonprofit filings, this maps to the entity's name in its home (non-Maine) jurisdiction per the entity-name-vs-home-jurisdiction convention."
+12a2,0,text,FIRST: The jurisdiction of its incorporation is,entity.home_jurisdiction,high,State or country of original incorporation.
+12a3,0,text,SECOND: The date on which it was authorized to carry on activities in the State of Maine is,entity.maine_authorization_date,high,Date of original foreign-qualification in Maine — required to amend an existing authorization.
+12a4,0,text,THIRD: The proposed amendment to its application of authority is ___ (line 1 inline),amendment.description,high,"Free-text description of the amendment being filed (line 1, inline trailing blank at end of THIRD sentence)."
+12a5,0,text,"THIRD: ___ (line 2, full-width continuation)",amendment.description,high,Full-width continuation line for THIRD amendment description. Same canonical key as 12a4 — synth writes the full description across whichever line(s) it fits in.
+12a6,0,text,"FOURTH: The corporate name of the corporation has been changed to (If no change, so indicate.) ___ (line 1 inline)",entity.home_jurisdiction_name_new,high,FOURTH inline trailing blank for the new corporate name in the home jurisdiction (line 1).
+12a7,0,text,"FOURTH: ___ under the laws of its jurisdiction of (line 2, full-width continuation)",entity.home_jurisdiction_name_new,high,FOURTH full-width continuation for the new corporate name. Wraps the long-name case; same canonical key as 12a6.
+12a8,0,text,FOURTH: incorporation on ___ (date),entity.name_change_date_in_home_jurisdiction,high,FOURTH date inline blank: the date the name change was effected in the home jurisdiction. The narrow widget (width ~68pt) sits on the third visual line of FOURTH after 'incorporation on'.
+12a9,0,text,"FIFTH: If the real corporate name is not available, the fictitious name under which it proposes to apply for authority to carry on activities in the State of Maine is (If not applicable, so indicate.) ___ (full-width continuation)",entity.maine_fictitious_name,high,FIFTH full-width continuation line — the only widget for the FIFTH fictitious-name blank. The FIFTH sentence wraps onto a label-only first row and the underline (with widget 12a9) sits on the next row.
+Check Box4,0,text,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious-name registration) is bundled with this filing.
+12a11,0,text,"SIXTH: The activity (activities) which it seeks to pursue in the State of Maine is (are) authorized by the laws of its jurisdiction of incorporation and consist(s) of (If no change, so indicate.) ___ (line 1 inline)",entity.maine_business_purpose,high,SIXTH inline trailing blank for the description of activities (line 1).
+12a12,0,text,"SIXTH: ___ (line 2, full-width continuation)",entity.maine_business_purpose,high,SIXTH continuation (line 2). Same canonical key as 12a11.
+12a13,0,text,"SIXTH: ___ (line 3, full-width continuation)",entity.maine_business_purpose,high,SIXTH continuation (line 3). Same canonical key as 12a11.
+12a14,1,text,"SEVENTH: The new address of its registered or principal office, wherever located, is (If no change, so indicate.) ___ (full-width line, with '(street, city, state and zip code)' caption)",entity.principal_office.physical_address,high,"Updated principal/registered office address (street, city, state, zip) in the home jurisdiction. SEVENTH has only this single full-width widget."
+12a15,1,text,EIGHTH: The address of the registered office of the corporation in the State of Maine is ___ (line 1 inline trailing blank),registered_agent.physical_address,high,"EIGHTH inline trailing blank (right side, end of 'is ___'). Maine registered-office address — maps to the existing registered_agent.physical_address namespace per convention (registered office IS the registered agent's office under Maine law)."
+12a16,1,text,"EIGHTH: ___ (full-width continuation; '(street, city, state and zip code)' caption)",registered_agent.physical_address,high,EIGHTH full-width continuation line for the Maine registered office address. Same canonical key as 12a15 — filler writes the full address into the widget that fits best (typically the full-width continuation).
+12a17,1,text,DATED ___,filing.date_signed,high,"Date of signature (narrow widget, left side of signature row)."
+12a18,1,text,*By ___ (signature of any duly authorized individual) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Single signer's printed name and capacity (Shape D combined). Form footnote: 'MUST be signed by any duly authorized individual.'
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-6.json",
+  "title": "CORP_MBCA-6 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Legal name of the business entity being formed/amended."
+        },
+        "is_professional_corporation": {
+          "type": "boolean",
+          "description": "Boolean indicating professional-corporation status under 13 MRSA Ch 22-A."
+        },
+        "professional_services_description": {
+          "type": "string",
+          "description": "Free-text description of the professional services provided (only when entity.is_professional_corporation = true)."
+        },
+        "is_close_corporation": {
+          "type": "boolean",
+          "description": "Boolean indicating election as a close corporation under 13-C MRSA \u00a71803."
+        },
+        "share_structure": {
+          "type": "string",
+          "description": "Whether the corporation has a single class or two-or-more classes/series of shares. Enum: 'single_class' | 'multi_class'.",
+          "enum": [
+            "single_class",
+            "multi_class"
+          ]
+        },
+        "authorized_shares_total": {
+          "type": "integer",
+          "description": "Total number of authorized shares (single-class option)."
+        },
+        "share_class_name": {
+          "type": "string",
+          "description": "Optional name of the share class (single-class option)."
+        },
+        "multi_class_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit describing multi-class share structure per 13-C MRSA \u00a7601."
+        },
+        "has_board_of_directors": {
+          "type": "boolean",
+          "description": "Boolean: true = corporation will have a Board of Directors; false = no directors, business managed by shareholders per 13-C MRSA \u00a7743."
+        },
+        "directors_count_limited": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating that directors_min_count and directors_max_count are populated."
+        },
+        "directors_min_count": {
+          "type": "integer",
+          "description": "Minimum number of directors."
+        },
+        "directors_max_count": {
+          "type": "integer",
+          "description": "Maximum number of directors."
+        },
+        "director_liability_limited": {
+          "type": "boolean",
+          "description": "Boolean elect-in for director liability shield under 13-C MRSA \u00a7202.2.D."
+        },
+        "mandatory_indemnification": {
+          "type": "boolean",
+          "description": "Boolean elect-in for mandatory director/officer indemnification under 13-C MRSA \u00a7\u00a7202, 857, 859."
+        },
+        "preemptive_rights_elected": {
+          "type": "boolean",
+          "description": "Boolean elect-in for shareholder preemptive rights under 13-C MRSA \u00a7641."
+        },
+        "additional_provisions_present": {
+          "type": "boolean",
+          "description": "Boolean indicating an additional-provisions exhibit is attached."
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional provisions of the Articles."
+        },
+        "additional_incorporators_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional incorporators (when more than one incorporator signs)."
+        },
+        "annual_report_reminder_email": {
+          "type": "string",
+          "description": "Persistent email address used for annual-report reminders (distinct from per-filing contact email)."
+        }
+      }
+    },
+    "clerk": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the registered clerk for a Maine business corporation."
+        },
+        "type": {
+          "type": "string",
+          "description": "Whether the clerk is a Commercial Registered Agent (CRA) or a Noncommercial Clerk. Enum: 'commercial' | 'noncommercial'.",
+          "enum": [
+            "commercial",
+            "noncommercial"
+          ]
+        },
+        "cra_public_number": {
+          "type": "string",
+          "description": "Maine SOS Commercial Registered Agent (CRA) public registration number; required only when clerk.type = 'commercial'."
+        },
+        "physical_address": {
+          "type": "string",
+          "description": "Physical-location address of the clerk (NOT a P.O. Box). Single-line on this form: street, city, state, zip."
+        },
+        "mailing_address": {
+          "type": "string",
+          "description": "Optional mailing address of the clerk if different from physical location."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string",
+          "description": "Date the filing was signed."
+        },
+        "entities[*]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "List of entities included in this multi-form bundled filing (cover-letter rows 1 and 2)."
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string",
+          "description": "Total filing fee amount enclosed (USD)."
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of person to contact about questions on this filing."
+            },
+            "phone": {
+              "type": "string",
+              "description": "Daytime telephone number for the filing contact."
+            },
+            "email": {
+              "type": "string",
+              "description": "Email address for filing-specific correspondence."
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the person to whom the attested copy of the completed filing is returned."
+            },
+            "firm": {
+              "type": "string",
+              "description": "Firm or company of the attested-copy recipient."
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string",
+                  "description": "Mailing address (street/PO Box) of the attested-copy recipient."
+                },
+                "city_state_zip": {
+                  "type": "string",
+                  "description": "Combined city/state/zip line for the attested-copy recipient (this form does not split components)."
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "incorporator_1": {
+      "type": "object",
+      "properties": {
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of the (primary) incorporator. Index suffix supports multi-incorporator filings."
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk",
+    "entity",
+    "filing"
+  ]
+}

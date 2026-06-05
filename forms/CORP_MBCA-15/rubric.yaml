@@ -1,0 +1,56 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name is non-empty (the consenting corporation's current Maine name)."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: proposed-name-required
+    description: indistinguishable_name.proposed_name is non-empty.
+    depends_on_keys:
+      - indistinguishable_name.proposed_name
+    severity: required
+  - id: requestor-name-required
+    description: indistinguishable_name.requestor_name is non-empty.
+    depends_on_keys:
+      - indistinguishable_name.requestor_name
+    severity: required
+  - id: new-distinguishable-name-required
+    description: entity.new_distinguishable_name is non-empty (consenting corp commits to a new name).
+    depends_on_keys:
+      - entity.new_distinguishable_name
+    severity: required
+  - id: new-name-distinguishable-from-old
+    description: entity.new_distinguishable_name differs from entity.name and from indistinguishable_name.proposed_name (otherwise the consent is vacuous).
+    depends_on_keys:
+      - entity.name
+      - entity.new_distinguishable_name
+      - indistinguishable_name.proposed_name
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (Shape D).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-signed-present
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-20
+    description: filing.total_fees_dollars equals $20 base plus expedite premium (and any accompanying-form fees if filed bundled with MBCA-9).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

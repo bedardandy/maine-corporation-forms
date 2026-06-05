@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-19A.json",
+  "title": "CORP_MBCA-19A fill data",
+  "type": "object",
+  "properties": {
+    "domestication": {
+      "type": "object",
+      "properties": {
+        "effective_date": {
+          "type": "string",
+          "description": "Effective date of the corporation's outbound domestication (conversion to a foreign entity). Per 13-C \u00a7925, must be coordinated with the foreign-jurisdiction filing's effective date."
+        },
+        "new_jurisdiction": {
+          "type": "string",
+          "description": "The state or country into which the Maine corporation is being domesticated. Distinct from entity.home_jurisdiction (used for inbound foreign-qualification filings) \u2014 domestication.new_jurisdiction is the destination of an outbound surrender; entity.home_jurisdiction is the origin of an inbound foreign entity."
+        },
+        "service_of_process_mailing_address": {
+          "type": "string",
+          "description": "Mailing address to which the Maine SOS will forward any process served on the SOS regarding shareholder-appraisal-rights enforcement after the charter is surrendered. Required by 13-C \u00a7924.4 in connection with \u00a7\u00a713-1301 et seq. appraisal proceedings."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "domestication",
+    "entity",
+    "filing"
+  ]
+}

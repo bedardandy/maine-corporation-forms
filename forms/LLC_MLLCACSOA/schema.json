@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLCACSOA.json",
+  "title": "LLC_MLLCACSOA fill data",
+  "type": "object",
+  "properties": {
+    "authority": {
+      "type": "object",
+      "properties": {
+        "original_filing_date": {
+          "type": "string",
+          "description": "Date the original Statement of Authority (31 MRSA \u00a71542) was filed with the Maine SOS. Distinct from entity.original_articles_filing_date (which references the LLC's certificate of formation, not a subordinate authority statement). New namespace 'authority.*' anticipates additional Statement-of-Authority concepts on related forms (e.g., a future Statement of Authority filing form may also use authority.*)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "description": "Enum identifying which action a multi-action form is performing on a single filing. On MLLCACSOA: 'amendment' | 'cancellation' (mutually exclusive \u2014 exactly one of the two SECOND checkboxes is selected). Generic enough to be reused on future amend/cancel/restate-style forms that radio-select between alternative outcomes."
+        },
+        "additional_information_exhibit_letter": {
+          "type": "string",
+          "description": "Inline exhibit-letter referencing additional information about the filing's action (amendment description / cancellation description) when the inline four-line block is insufficient. Filing-scoped (not entity-scoped) \u2014 distinct from entity.additional_provisions_exhibit_letter on formation/restated-certificate filings."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "affected_person_or_position": {
+          "type": "string",
+          "description": "Person or position whose authority is being amended (when filing.action_type='amendment'). Free-text \u2014 typically a name, role, or both."
+        },
+        "description_N": {
+          "type": "string",
+          "description": "Indexed lines (1..4 inline) describing the amendment to the Statement of Authority. Form provides a literal four-line block; synth fills lines from a single logical description string at fill time. Overflow goes to filing.additional_information_exhibit_letter."
+        },
+        "description_1": {
+          "type": "string"
+        },
+        "description_2": {
+          "type": "string"
+        },
+        "description_3": {
+          "type": "string"
+        },
+        "description_4": {
+          "type": "string"
+        }
+      }
+    },
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "affected_person_or_position": {
+          "type": "string",
+          "description": "Person or position whose authority is being cancelled (when filing.action_type='cancellation'). Parallel to amendment.affected_person_or_position; scoped under cancellation.* because the form provides separate widgets per action."
+        },
+        "description_N": {
+          "type": "string",
+          "description": "Indexed lines (1..4 inline) describing the authority being cancelled. Same shape as amendment.description_N."
+        },
+        "description_1": {
+          "type": "string"
+        },
+        "description_2": {
+          "type": "string"
+        },
+        "description_3": {
+          "type": "string"
+        },
+        "description_4": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

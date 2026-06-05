@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-12B.json",
+  "title": "CORP_MBCA-12B fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "maine_authorization_date": {
+          "type": "string",
+          "description": "Date a foreign entity was authorized to transact business in Maine (i.e., the date Maine issued the certificate of authority following the original Application for Authority). Distinct from entity.formation_date_in_home_jurisdiction which is the home-state organization date."
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "withdrawal": {
+      "type": "object",
+      "properties": {
+        "conversion": {
+          "type": "object",
+          "properties": {
+            "new_entity_type": {
+              "type": "string",
+              "description": "Type of entity that the foreign business corporation has been converted into (when withdrawing upon conversion to a nonfiling entity per 13-C MRSA \u00a71521 / FOURTH)."
+            },
+            "governing_jurisdiction": {
+              "type": "string",
+              "description": "Jurisdiction whose laws govern the converted entity's internal affairs (paired with withdrawal.conversion.new_entity_type in FOURTH)."
+            }
+          }
+        },
+        "service_of_process_mailing_address": {
+          "type": "string",
+          "description": "Mailing address (combined street, city, state, zip in a single widget) to which the Secretary of State may mail a copy of any process served on the Secretary of State during the withdrawal period (FIFTH). Required."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "withdrawal"
+  ]
+}

@@ -1,0 +1,50 @@
+checks:
+  - id: filing-party-name-required
+    description: entity.name (the specific party filing the abandonment) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: at-least-two-parties-recited
+    description: "merger.parties[0].recital and merger.parties[1].recital are both non-empty (a merger by definition has at least 2 constituent parties; the abandonment recital must list them)."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+    severity: required
+  - id: filing-party-listed-among-parties
+    description: "entity.name appears as a substring of at least one merger.parties[N].recital — the filer must be one of the parties to the merger per 13-C §1108.2."
+    depends_on_keys:
+      - entity.name
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+      - "merger.parties[2].recital"
+      - "merger.parties[3].recital"
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-entity-matches-filer
+    description: "filing.entities[0].name equals entity.name (the party filing the abandonment)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: "filing.total_fees_dollars equals $35 base (per page-0 'Filing Fee $35.00' header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

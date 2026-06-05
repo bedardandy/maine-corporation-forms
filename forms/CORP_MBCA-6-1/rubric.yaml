@@ -1,0 +1,68 @@
+checks:
+  - id: exactly-one-accompanying-filing-type
+    description: "Exactly one of the six top-of-page filing-purpose checkboxes is selected (filing.accompanying_filing_type is one of the 6 enum values, not null and not multiple)."
+    depends_on_keys:
+      - filing.accompanying_filing_type
+    severity: required
+  - id: entity-name-nonempty
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_corporation is true, entity.professional_services_description must be non-empty; if false, it must be empty."
+    depends_on_keys:
+      - entity.is_professional_corporation
+      - entity.professional_services_description
+    severity: required
+  - id: exactly-one-clerk-type
+    description: Exactly one of the SECOND clerk-type options is selected (commercial XOR noncommercial).
+    depends_on_keys:
+      - clerk.type
+    severity: required
+  - id: clerk-cra-number-when-commercial
+    description: "If clerk.type='commercial', clerk.cra_public_number must be present; if 'noncommercial', it must be absent."
+    depends_on_keys:
+      - clerk.type
+      - clerk.cra_public_number
+    severity: required
+  - id: clerk-physical-not-pobox
+    description: "clerk.physical_address must not begin with 'P.O.', 'PO Box', or 'Post Office Box' (form forbids P.O. Box for physical location)."
+    depends_on_keys:
+      - clerk.physical_address
+    severity: required
+  - id: exactly-one-share-structure
+    description: Exactly one of the FOURTH share-structure options is selected (single_class XOR multi_class).
+    depends_on_keys:
+      - entity.share_structure
+    severity: required
+  - id: authorized-shares-when-single-class
+    description: "If entity.share_structure='single_class', entity.authorized_shares_total must be a positive integer."
+    depends_on_keys:
+      - entity.share_structure
+      - entity.authorized_shares_total
+    severity: required
+  - id: multi-class-exhibit-when-elected
+    description: "If entity.share_structure='multi_class', entity.multi_class_exhibit_letter must be a single uppercase letter."
+    depends_on_keys:
+      - entity.share_structure
+      - entity.multi_class_exhibit_letter
+    severity: required
+  - id: exactly-one-board-structure
+    description: Exactly one of the FIFTH board-structure options is selected (board XOR no-board).
+    depends_on_keys:
+      - entity.has_board_of_directors
+    severity: required
+  - id: director-count-range-valid
+    description: "If entity.directors_count_limited is true, both entity.directors_min_count and entity.directors_max_count are positive integers and min <= max."
+    depends_on_keys:
+      - entity.directors_count_limited
+      - entity.directors_min_count
+      - entity.directors_max_count
+    severity: required
+  - id: additional-provisions-exhibit-letter-when-flagged
+    description: "If entity.additional_provisions_present is true, entity.additional_provisions_exhibit_letter must be a single uppercase letter."
+    depends_on_keys:
+      - entity.additional_provisions_present
+      - entity.additional_provisions_exhibit_letter
+    severity: required

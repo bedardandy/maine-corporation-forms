@@ -1,0 +1,31 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Limited Partnership,0,text,(Name of Limited Partnership),entity.name,high,Top-of-form LP name. Form serves both Maine domestic and foreign LPs from a single 'entity.name' widget — the SECOND/FIRST jurisdiction block disambiguates foreign LPs.
+undefined_2,0,text,FIRST: The jurisdiction of its organization is,entity.home_jurisdiction,high,"State or country of organization (for a domestic LP, 'Maine'; for a foreign LP, the home jurisdiction)."
+undefined_3,0,text,SECOND: The date the current year's annual report was filed,filing.original_annual_report_date,high,Date the original annual report (the one being amended) was filed with SOS. Anchor for the §1330.2 amendment-window check.
+The information has changed as follows attach additional pages if necessary 1,0,text,"THIRD: The information has changed as follows (attach additional pages, if necessary): line 1",amendment.changes_description.line1,high,Multi-line text widget for the substantive change description. Indexed line1–line8 mirroring the upstream amendment.nature_and_text.lineN pattern (NP_MNP-9).
+The information has changed as follows attach additional pages if necessary 2,0,text,THIRD: amendment text (line 2),amendment.changes_description.line2,high,THIRD line 2.
+The information has changed as follows attach additional pages if necessary 3,0,text,THIRD: amendment text (line 3),amendment.changes_description.line3,high,THIRD line 3.
+The information has changed as follows attach additional pages if necessary 4,0,text,THIRD: amendment text (line 4),amendment.changes_description.line4,high,THIRD line 4.
+The information has changed as follows attach additional pages if necessary 5,0,text,THIRD: amendment text (line 5),amendment.changes_description.line5,high,THIRD line 5.
+The information has changed as follows attach additional pages if necessary 6,0,text,THIRD: amendment text (line 6),amendment.changes_description.line6,high,THIRD line 6.
+The information has changed as follows attach additional pages if necessary 7,0,text,THIRD: amendment text (line 7),amendment.changes_description.line7,high,THIRD line 7.
+The information has changed as follows attach additional pages if necessary 8,0,text,THIRD: amendment text (line 8 — bottom),amendment.changes_description.line8,high,THIRD line 8 (bottom). Attach additional pages if more than 8 lines needed.
+undefined_4,0,text,FOURTH: This information changed on* (date),amendment.effective_date,high,Date on which the reported changes actually occurred (the operative date of the underlying change). Same key as upstream amendment.effective_date.
+Dated,1,text,Dated ___,filing.date_signed,high,Date the amended annual report was signed.
+type or print name,1,text,General Partner(s) **: (signature) / (type or print name),general_partner_1.printed_name,high,"Printed name of the individual GP signer (per-officer signer pattern; only one inline slot since §1324.1.J requires only one GP signature). Same shape as MLPA-12A, MLPA-12B, MLPA-17."
+Name of Entity,1,text,For General Partner(s) which are Entities: Name of Entity,general_partner_entity_1.name,high,Name of an entity GP signer (alternative to individual signer).
+type or print name and capacity,1,text,By (authorized signature) / (type or print name and capacity) [entity GP signer],general_partner_entity_1.signer_printed_name_and_capacity,high,Printed name + capacity of authorized signer for the entity GP.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees plus expedite premium.
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

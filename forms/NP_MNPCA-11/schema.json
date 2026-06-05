@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-11.json",
+  "title": "NP_MNPCA-11 fill data",
+  "type": "object",
+  "properties": {
+    "officer_<role>": {
+      "type": "object",
+      "properties": {
+        "{name,address}": {
+          "type": "string",
+          "description": "Role-keyed officer roster pattern for nonprofit dissolution: officer_president.{name,address}, officer_treasurer.{name,address}, officer_secretary.{name,address}, officer_clerk.{name,address}. The form's row labels (President, Treasurer, Secretary, Clerk) supply the capacity; the user only enters name and address. Distinct from CORP_MBCA-12's `officer_N.printed_name_and_capacity` (where capacity is user-entered) and from `incorporator_N.*` (formation-only)."
+        }
+      }
+    },
+    "director_N": {
+      "type": "object",
+      "properties": {
+        "{name,address}": {
+          "type": "string",
+          "description": "Indexed director roster (3 inline rows on MNPCA-11) for the FIRST table's 'Directors:' rows. Address is a single-line widget combining street/city/state/zip. Overflow goes to 'List additional directors on reverse side' (no widget binds the overflow page)."
+        }
+      }
+    },
+    "dissolution": {
+      "type": "object",
+      "properties": {
+        "consent_class": {
+          "type": "string",
+          "description": "Enum capturing which class of constituents executed the written consent attached as Exhibit A: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND)."
+        }
+      }
+    },
+    "registered_office": {
+      "type": "object",
+      "properties": {
+        "address_line{1,2}": {
+          "type": "string",
+          "description": "Two-line registered office address of a Maine domestic corporation (FOURTH paragraph). Same multi-line pattern as NP_MNPCA-10's merger.surviving_corp.registered_office_address_line{1,2}."
+        },
+        "address_line1": {
+          "type": "string"
+        },
+        "address_line2": {
+          "type": "string"
+        }
+      }
+    },
+    "certification": {
+      "type": "object",
+      "properties": {
+        "clerk_signature_printed_name": {
+          "type": "string",
+          "description": "Printed name (or signature, if the user types it) of the clerk, secretary, or assistant secretary who certifies custody of the minutes showing the member-vote action. Required when dissolution.consent_class='members'; not required when consent_class='directors_when_no_voting_members'. Same primitive family as NP_MNPCA-10's merger.parties[N].clerk_certification.signer_printed_name_and_title."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_N": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Indexed authorized-officer signature slots for filings that provide multiple signature blocks (filing.signer_1.*, filing.signer_2.*, etc.). MNPCA-11 has two slots; only the first is required (per 13-B MRSA \u00a7104.1.B). Each slot uses the Shape-D combined-name-and-capacity primitive."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_president": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_treasurer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_secretary": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_clerk": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "director_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "director_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "director_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "dissolution",
+    "entity",
+    "filing",
+    "registered_office"
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "form_id": "CORP_MBCA-2",
+  "fields": {
+    "entity.home_jurisdiction_name": {
+      "widget_id": "2One",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Foreign Corporation)"
+    },
+    "filing.application_type": {
+      "field_type": "enum_select",
+      "page": 0,
+      "confidence": "medium",
+      "label": "FIRST: ('X' one box only.) This application is for a [ ] new ... registration of corporate name",
+      "options": {
+        "new": "Check Box8",
+        "renewal": "Check Box1"
+      },
+      "binding_source": "geometry_verified + opus_vision_label_alignment (high, manual)"
+    },
+    "entity.home_jurisdiction": {
+      "widget_id": "2Four",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: The state or country under the laws of which it is incorporated is"
+    },
+    "entity.principal_office.physical_address.street": {
+      "widget_id": "2Five",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: ...the address of its principal office is located at: (line 1)"
+    },
+    "entity.principal_office.physical_address.city_state_zip": {
+      "widget_id": "2Six",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(street, city, state and zip code)"
+    },
+    "entity.formation_date_in_home_jurisdiction": {
+      "widget_id": "2Seven",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The date of its incorporation is"
+    },
+    "entity.business_purpose": {
+      "widget_id": "2Eight",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: A brief statement of the nature of the corporation's business:"
+    },
+    "filing.date_signed": {
+      "widget_id": "2Nine",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "DATED",
+      "when": "filing.application_type == 'renewal'"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "2Ten",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "*By ___ (signature of any duly authorized officer) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[0].name"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[1].name"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.total_fees_dollars"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.name"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.phone"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.email"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "entity.annual_report_reminder_email"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.name"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.firm"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.street"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

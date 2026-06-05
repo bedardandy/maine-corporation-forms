@@ -1,0 +1,60 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: "entity.home_jurisdiction_name is non-empty (the corporation's existing name in its home jurisdiction)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty (FIRST).
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-authorization-date-required
+    description: entity.maine_authorization_date is non-empty — the original Maine authorization must exist in order to amend it (SECOND).
+    depends_on_keys:
+      - entity.maine_authorization_date
+    severity: required
+  - id: amendment-description-required
+    description: amendment.description is non-empty (THIRD).
+    depends_on_keys:
+      - amendment.description
+    severity: required
+  - id: name-change-date-paired
+    description: "If entity.home_jurisdiction_name_new is set, entity.name_change_date_in_home_jurisdiction must also be set (FOURTH pairs the new name with its effective date)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name_new
+      - entity.name_change_date_in_home_jurisdiction
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true (FIFTH requires accompanying FICT-4 when a fictitious name is elected)."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: maine-business-purpose-required
+    description: "entity.maine_business_purpose is non-empty (SIXTH; or 'no change, so indicate' is permitted text)."
+    depends_on_keys:
+      - entity.maine_business_purpose
+    severity: required
+  - id: addresses-when-changed
+    description: "If addresses are amended: entity.principal_office.physical_address (SEVENTH) and registered_agent.physical_address (EIGHTH) — at least one is non-empty when an address change is the basis of the amendment."
+    depends_on_keys:
+      - entity.principal_office.physical_address
+      - registered_agent.physical_address
+    severity: optional
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-base-15
+    description: filing.total_fees_dollars equals the $15.00 base fee (per page 0 header) plus any expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

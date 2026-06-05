@@ -1,0 +1,88 @@
+checks:
+  - id: current-and-new-name-both-present
+    description: "Both entity.name (current name as on SOS record) and entity.new_name are non-empty. If filer intends no name change, entity.new_name should equal entity.name OR contain a 'no change' marker."
+    depends_on_keys:
+      - entity.name
+      - entity.new_name
+    severity: required
+  - id: initial-filing-date-valid
+    description: entity.initial_filing_date is a valid date and not in the future relative to filing.date_signed.
+    depends_on_keys:
+      - entity.initial_filing_date
+      - filing.date_signed
+    severity: required
+  - id: designated-office-physical-not-pobox
+    description: "entity.designated_office.physical_address must not begin with 'P.O.', 'PO Box', or 'Post Office Box'."
+    depends_on_keys:
+      - entity.designated_office.physical_address
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of FOURTH registered_agent.type options is selected (commercial XOR noncommercial).
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be set; if 'noncommercial', it must be absent."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: "registered_agent.physical_address must not begin with 'P.O.', 'PO Box', or 'Post Office Box'."
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: at-least-one-general-partner
+    description: At least one general_partner_N (individual or entity) is fully populated; LP requires ≥1 GP per 31 MRSA §1322.5.
+    depends_on_keys:
+      - general_partner_1.name
+      - general_partner_1.address
+      - general_partner_entity_1.name
+    severity: required
+  - id: gp-name-address-pair-consistency
+    description: "If general_partner_N.name is non-empty, general_partner_N.address must also be non-empty (and vice versa)."
+    depends_on_keys:
+      - general_partner_1.name
+      - general_partner_1.address
+      - general_partner_2.name
+      - general_partner_2.address
+      - general_partner_3.name
+      - general_partner_3.address
+    severity: required
+  - id: gp-printed-name-when-named
+    description: Each populated general_partner_N (individual) has a corresponding general_partner_N.printed_name on the page-1 signature block; certificate must be signed by all GPs.
+    depends_on_keys:
+      - general_partner_1.name
+      - general_partner_1.printed_name
+      - general_partner_2.name
+      - general_partner_2.printed_name
+      - general_partner_3.name
+      - general_partner_3.printed_name
+    severity: required
+  - id: entity-gp-signer-when-named
+    description: Each populated general_partner_entity_N has a corresponding signer_printed_name_and_capacity on the page-2 entity-GP block.
+    depends_on_keys:
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+      - general_partner_entity_2.name
+      - general_partner_entity_2.signer_printed_name_and_capacity
+      - general_partner_entity_3.name
+      - general_partner_entity_3.signer_printed_name_and_capacity
+    severity: required
+  - id: lllp-name-suffix-when-elected
+    description: "If entity.is_lllp is true, entity.new_name must contain 'L.L.L.P.', 'LLLP', or 'Limited Liability Limited Partnership' and must NOT contain 'L.P.' or 'LP' (per 31 MRSA §1308.1.A.3)."
+    depends_on_keys:
+      - entity.is_lllp
+      - entity.new_name
+    severity: required
+  - id: professional-services-implies-lllp
+    description: "If entity.professional_services_description is non-empty (EIGHTH professional-LLLP election checked), entity.is_lllp must be true (PLLLP is a special case of LLLP per §1354.4)."
+    depends_on_keys:
+      - entity.professional_services_description
+      - entity.is_lllp
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future relative to the submission date.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required

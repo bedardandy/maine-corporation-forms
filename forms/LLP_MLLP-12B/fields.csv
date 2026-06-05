@@ -1,0 +1,24 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+12b1,0,text,(Name of Limited Liability Partnership in Jurisdiction of Organization),entity.home_jurisdiction_name,high,LLP's legal name in its home jurisdiction. Same key family as MLLP-12 / MLLC-12 / MLPA-12B (entity-name-vs-home-jurisdiction convention).
+12b2,0,text,"FIRST: If different, the name under which the limited liability partnership applied for authority to do business in the State of Maine pursuant to 31 MRSA §853.1.A or 31 MRSA §852.2.B is",entity.maine_fictitious_name,medium,Maine name used at qualification when different from the home name. The form text cites BOTH §853.1.A (general foreign-qualification fictitious-name provision) AND §852.2.B (assumed-name-for-suffix); MLLP-12 (qualification) splits these into two separate widgets (entity.maine_assumed_name_for_suffix and entity.maine_fictitious_name). MLLP-12B collapses both into one widget. Mapped to the more general fictitious-name key — synth/rubric must accept the value regardless of which §852.2.B vs §853.1.A path produced it. See open_question.
+12b3,0,text,SECOND: The jurisdiction of its organization is,entity.home_jurisdiction,high,State or country of formation. Same key as MLLP-12 / MLPA-12B.
+12b4,0,text,THIRD: The date on which it was authorized to do business in the State of Maine is,entity.maine_authorization_date,high,Date the foreign LLP was originally authorized in Maine. Same key as MLPA-12B / FICT-4 / CLKRA-3.
+12b5,0,text,"SIXTH: The address of the principal or registered office of the limited liability partnership, wherever located, is (street, city, state and zip)",entity.principal_office.physical_address,high,Single-line physical address of the principal/registered office (wherever located). Same key family as MLLC-12 / MLPA-12B / MLLP-12-1.
+12b6,1,text,DATED ___,filing.date_signed,high,Date of signature.
+12b7,1,text,Authorized Signature(s)* / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Individual-signer printed name and capacity (Shape D — combined widget). Same shape as MLLP-12 / MLLP-17.
+12b9,1,text,For Authorized Signature(s) on behalf of Entities: Name of Entity,filing.signer.entity_name,high,"Name of the entity signing on behalf of the LLP. Established canonical key (MLLP-12, MLLP-17, MLLP-17A, MLLP-9). Note: drafter proposed `filing.signer_entity.name` which is non-canonical — corrected here."
+12b10,1,text,For Authorized Signature(s) on behalf of Entities: By (authorized signature) / (type or print name and capacity),filing.signer.entity_signer_printed_name_and_capacity,high,Printed name and capacity of the natural person signing for the entity signer. Established canonical key (parallels filing.signer.entity_name above; same family on MLLP-12 / MLLP-17). Drafter's `filing.signer_entity.signer_printed_name_and_capacity` corrected here.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day' (+$50).
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day' (+$100).
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $90 per page-0 header plus expedite premium).
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email (entity-level).
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

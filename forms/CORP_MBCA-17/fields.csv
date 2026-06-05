@@ -1,0 +1,24 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Corporation,0,text,(Name of Corporation),entity.name,high,"Top-of-form corporation name. The form serves both domestic and foreign corporations from this single 'entity.name' widget — when foreign, this is the home-jurisdiction legal name (which is also what's on file with Maine SOS). Same shape as LLC_MLLC-17."
+ie Articles of Incorporation Articles of Amendment etc,0,text,"FIRST: Name of document requiring correction: (i.e. Articles of Incorporation, Articles of Amendment, etc.)",correction.original_document_name,high,Title of the original document being corrected. Same key as LLC_MLLC-17. Field-id is the truncated tail of the parenthetical example text (auto-named by the PDF authoring tool).
+Date on which document was filed by Secretary of State,0,text,SECOND: Date on which document was filed by Secretary of State:,correction.original_filing_date,high,Date the original document was filed with the Maine SOS. Same key as LLC_MLLC-17.
+Text1,0,text,FOURTH: The inaccuracy or defect to be corrected is described as follows:,correction.error_description,high,Large multiline text widget describing the inaccuracy or defect. Same key as LLC_MLLC-17. (THIRD is a fixed statutory recital with no widget.)
+Text2,0,text,FIFTH: The portion of the said document to be corrected is corrected to read in its entirety as follows:,correction.corrected_information,high,Large multiline text widget for the corrected text. Same key as LLC_MLLC-17.
+and the date on which,1,text,SEVENTH (Foreign Corporation Only): Jurisdiction of incorporation ___ and the date on which the corporation was authorized to transact business in Maine ___,entity.home_jurisdiction,high,Jurisdiction of incorporation for foreign corporations. Field-id is a fragment of the inline label text (auto-named — the underlined blank for jurisdiction sits between two label fragments). Same key as LP_MLPA-12A / LLP_MLLP-2.
+undefined_2,1,text,SEVENTH (Foreign Corporation Only): …and the date on which the corporation was authorized to transact business in Maine ___,entity.maine_authorization_date,high,Date the foreign corporation was originally authorized to transact business in Maine. Field-id is generic 'undefined_2' (template anomaly — the second blank in SEVENTH did not get a meaningful /T name). Same key as LP_MLPA-12A.
+DATED,1,text,DATED ___,filing.date_signed,high,Date of signature.
+type or print name and capacity,1,text,*By ___ (signature of any duly authorized person) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined printed-name + capacity widget. Shape D per filing-signer-shape convention. The (signature) line above is wet-ink only with no AcroForm widget. Per page-2 footnote and §121.5, the signer must be a duly authorized officer or the corporation's clerk — capacity should reflect that role."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($50 base per page-0 header plus expedite premium).
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

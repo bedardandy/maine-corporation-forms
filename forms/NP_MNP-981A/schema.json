@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNP-981A.json",
+  "title": "NP_MNP-981A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "original_organization_address": {
+          "type": "object",
+          "properties": {
+            "{street,city}": {
+              "type": "string",
+              "description": "Place where the corporation was originally organized \u2014 used by \u00a7981-A re-recital filings to certify historical organization. State is implicit ('State of Maine' is hardcoded text on the form). Distinct from entity.current_address (current location) and entity.principal_office.* (modern formation address)."
+            },
+            "street": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            }
+          }
+        },
+        "original_organization_date": {
+          "type": "object",
+          "properties": {
+            "{day,month,year}": {
+              "type": "string",
+              "description": "Date of original organization, split into three widgets (day/month/year) rather than a single ISO date because the form composes the recital sentence with three separate blanks ('on the X day of Y, Z')."
+            },
+            "day": {
+              "type": "string"
+            },
+            "month": {
+              "type": "string"
+            },
+            "year": {
+              "type": "string"
+            }
+          }
+        },
+        "name_history[N]": {
+          "type": "object",
+          "properties": {
+            "{name,date}": {
+              "type": "string",
+              "description": "Chronological list of prior names of the corporation, with the date of each name change. Up to 5 inline rows on MNP-981A (overflow via attached page). N is 0-indexed; row 0 is the oldest prior name."
+            }
+          }
+        },
+        "original_name": {
+          "type": "string",
+          "description": "The original (founding) name of the corporation at inception. Distinct from entity.name (current name, SECOND recital) and from entity.name_history[N].name (intermediate names). On MNP-981A this field has two physical widgets (981a17 line 1, 981a18 line 2) to accommodate long original names \u2014 both bind the same canonical key."
+        },
+        "original_purpose": {
+          "type": "string",
+          "description": "Free-text description of the corporation's original purpose at incorporation. Singular per MNPCA-6's `entity.public_benefit_purpose` / `entity.mutual_benefit_purpose` convention, even though the form text reads 'purposes' (plural)."
+        },
+        "management_structure": {
+          "type": "string",
+          "description": "13-B MRSA management-structure enum: 'directors' (including trustees, governors, managers, etc.) or 'members'. Single canonical key backed by two physical checkboxes in a one-of-N radio group (SEVENTH on MNP-981A)."
+        },
+        "current_address": {
+          "type": "object",
+          "properties": {
+            "{street,city,county}": {
+              "type": "integer",
+              "description": "Where the existing corporation is now located. Includes county (atypical for modern address blocks \u2014 county is required by the \u00a7981-A recital text). State is implicit ('State of Maine' hardcoded). Distinct from registered_office and principal_office addresses on formation forms."
+            },
+            "street": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "county": {
+              "type": "integer"
+            }
+          }
+        },
+        "officer_count": {
+          "type": "integer",
+          "description": "Numeric count of officers stated on the NINTH recital. Should match the populated officer_<role>.name slots in the same recital. Stand-alone integer, not derived (the form asks the filer to state it explicitly)."
+        },
+        "name": {
+          "type": "string"
+        },
+        "name_history[0]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "name_history[1]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "name_history[2]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "name_history[3]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "name_history[4]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "nonprofit_type": {
+          "type": "string"
+        },
+        "public_benefit_purpose": {
+          "type": "string"
+        },
+        "mutual_benefit_purpose": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_vice_president": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Extension of the existing officer_<role>.{name,address} fixed-role roster pattern (NP_MNP-9 documented officer_president, officer_treasurer, officer_secretary, officer_clerk). MNP-981A adds officer_vice_president.name as a slot."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_<role>": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string",
+              "description": "Per-role signer pattern for forms with two fixed-role signature slots (e.g., President + Secretary/Clerk on MNP-981A). Distinct from filing.signer.* (single abstract filer) and from merger/consolidation.parties[N].signature_block.signer_{1,2}.* (per-party in merger filings). Roles observed: filing.signer_president.printed_name, filing.signer_secretary.printed_name. Combine with the existing officer_<role>.* roster to identify which sitting officers are also signers."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_president": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_secretary": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "officer_president": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_secretary": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "officer_treasurer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

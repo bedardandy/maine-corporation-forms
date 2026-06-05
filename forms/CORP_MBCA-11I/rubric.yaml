@@ -1,0 +1,65 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: incorporation-date-required
+    description: entity.original_articles_filing_date is non-empty and is on or before filing.date_signed.
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - filing.date_signed
+    severity: required
+  - id: authorization-date-required
+    description: dissolution.authorization_date is non-empty and is on or after entity.original_articles_filing_date and on or before filing.date_signed.
+    depends_on_keys:
+      - dissolution.authorization_date
+      - entity.original_articles_filing_date
+      - filing.date_signed
+    severity: required
+  - id: effective-date-on-or-after-authorization
+    description: "If dissolution.effective_date is set, it is on or after dissolution.authorization_date."
+    depends_on_keys:
+      - dissolution.effective_date
+      - dissolution.authorization_date
+    severity: required
+  - id: exactly-one-early-dissolution-basis
+    description: "Exactly one of FOURTH-recital checkboxes is selected, populating dissolution.early_dissolution_basis with 'no_shares_issued' or 'not_commenced_business' (form text 'X one box only')."
+    depends_on_keys:
+      - dissolution.early_dissolution_basis
+    severity: required
+  - id: at-least-one-signer
+    description: At least filing.signer_1.printed_name_and_capacity is non-empty (form footer requires majority of incorporators/initial directors to sign).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: signer-capacity-present
+    description: "Each populated signer slot's printed_name_and_capacity includes a capacity ('Incorporator' or 'Initial Director' per 13-C MRSA §1401)."
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-75
+    description: filing.total_fees_dollars equals $75 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

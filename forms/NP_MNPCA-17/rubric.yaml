@@ -1,0 +1,59 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: home-jurisdiction-when-foreign
+    description: "If filer is a foreign nonprofit (entity.home_jurisdiction is set), it must not equal 'Maine' — the form has a separate '(incorporated under the laws of the State of Maine)' parenthetical for domestic filers."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: optional
+  - id: original-filing-date-required
+    description: correction.original_filing_date is non-empty (FIRST).
+    depends_on_keys:
+      - correction.original_filing_date
+    severity: required
+  - id: original-document-title-required
+    description: correction.original_document_title is non-empty (FIRST).
+    depends_on_keys:
+      - correction.original_document_title
+    severity: required
+  - id: error-description-required
+    description: correction.error_description is non-empty (THIRD).
+    depends_on_keys:
+      - correction.error_description
+    severity: required
+  - id: corrected-text-required
+    description: correction.corrected_text is non-empty (FOURTH).
+    depends_on_keys:
+      - correction.corrected_text
+    severity: required
+  - id: registered-office-address-required
+    description: registered_agent.physical_address is non-empty (SIXTH).
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: at-least-one-signer
+    description: At least one of filing.signer or filing.signer_2 printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: original-filing-date-not-in-future
+    description: correction.original_filing_date must be on or before filing.date_signed (you can only correct documents that already exist).
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: fee-base-10
+    description: filing.total_fees_dollars equals the $10.00 base fee (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

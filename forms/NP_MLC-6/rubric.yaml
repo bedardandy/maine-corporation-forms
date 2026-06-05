@@ -1,0 +1,67 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: location-city-required
+    description: entity.location_city is non-empty.
+    depends_on_keys:
+      - entity.location_city
+    severity: required
+  - id: trustee-count-required
+    description: entity.trustee_count is non-empty and a positive integer.
+    depends_on_keys:
+      - entity.trustee_count
+    severity: required
+  - id: trustee-names-inline-required
+    description: entity.trustee_names_inline is non-empty (THIRD recital lists the trustees in prose).
+    depends_on_keys:
+      - entity.trustee_names_inline
+    severity: required
+  - id: clerk-name-required
+    description: clerk.printed_name is non-empty.
+    depends_on_keys:
+      - clerk.printed_name
+    severity: required
+  - id: clerk-address-required
+    description: clerk.address.street and clerk.address.city_state_zip are non-empty.
+    depends_on_keys:
+      - clerk.address.street
+      - clerk.address.city_state_zip
+    severity: required
+  - id: treasurer-name-required
+    description: treasurer.printed_name is non-empty.
+    depends_on_keys:
+      - treasurer.printed_name
+    severity: required
+  - id: treasurer-address-required
+    description: treasurer.address.street and treasurer.address.city_state_zip are non-empty.
+    depends_on_keys:
+      - treasurer.address.street
+      - treasurer.address.city_state_zip
+    severity: required
+  - id: at-least-one-trustee
+    description: "trustee_1.printed_name is non-empty (at minimum, the form requires one trustee block populated; entity.trustee_count should match the count of populated trustee_N blocks plus any spilled to attached pages)."
+    depends_on_keys:
+      - trustee_1.printed_name
+      - entity.trustee_count
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-info-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

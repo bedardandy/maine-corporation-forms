@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-5B.json",
+  "title": "LP_MLPA-5B fill data",
+  "type": "object",
+  "properties": {
+    "assumed_name": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an active assumed-name (DBA) registration for an entity, used as a stable identifier when the assumed-name registration is being modified (vs. terminated). Distinct from filing.terminated_fictitious_name (MLPA-5A), which is a one-shot 'name-being-killed' value, and from entity.maine_assumed_name_for_suffix (foreign-qualification suffix-correction), which is a Maine-side alias for a foreign entity's home name. assumed_name.* is the namespace for ongoing-DBA modification filings."
+        },
+        "current_location": {
+          "type": "string",
+          "description": "Free-text description of the location(s) currently associated with an active assumed-name registration \u2014 the as-is state that a modification filing will change."
+        }
+      }
+    },
+    "assumed_name_change": {
+      "type": "object",
+      "properties": {
+        "change_locations": {
+          "type": "boolean",
+          "description": "Boolean elect-in: this filing intends to modify the location(s) where the assumed name is used. May be combined with add_locations/delete_locations on the same filing (form text reads 'The limited partnership intends to:' followed by 3 independent checkboxes)."
+        },
+        "add_locations": {
+          "type": "boolean",
+          "description": "Boolean elect-in: this filing intends to add additional location(s) to the assumed-name registration."
+        },
+        "delete_locations": {
+          "type": "boolean",
+          "description": "Boolean elect-in: this filing intends to delete location(s) from the assumed-name registration."
+        },
+        "description": {
+          "type": "object",
+          "properties": {
+            "line{N}": {
+              "type": "string",
+              "description": "Multi-line free-text description of the change/addition/deletion. 2 inline lines on MLPA-5B (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) \u2014 synth concatenates non-empty lines. If more space is needed the form provides an exhibit-letter blank (see assumed_name_change.additional_locations_exhibit_letter)."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "additional_locations_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating that additional location entries (beyond what fits inline) are appended on a separate exhibit."
+        },
+        "additional_locations_exhibit_letter": {
+          "type": "string",
+          "description": "Single-letter inline exhibit reference for the additional-locations exhibit when assumed_name_change.additional_locations_attached is true."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "assumed_name",
+    "entity",
+    "filing"
+  ]
+}

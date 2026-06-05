@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-2.json",
+  "title": "CORP_MBCA-2 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "application_type": {
+          "type": "string",
+          "description": "Whether this filing is a new application or a renewal. Enum: 'new' | 'renewal'. Used on registration/renewal forms (e.g., MBCA-2 foreign-corp name registration).",
+          "enum": [
+            "new",
+            "renewal"
+          ]
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "business_purpose": {
+          "type": "string",
+          "description": "Free-text description of the entity's business activities (unscoped \u2014 applies generally, not to a specific jurisdiction). Distinct from entity.maine_business_purpose, which is Maine-scoped and used by foreign-qualification forms (MLLC-12). Name-registration forms ask the unscoped variant because the corporation may not yet conduct business in Maine."
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string",
+                  "description": "Street line of the principal-office physical address (multi-widget split variant; complements city_state_zip). Used when the form provides two physical address widgets rather than the single-line entity.principal_office.physical_address used by MLLC-12."
+                },
+                "city_state_zip": {
+                  "type": "string",
+                  "description": "City/state/zip line of the principal-office physical address (multi-widget split variant)."
+                }
+              }
+            }
+          }
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

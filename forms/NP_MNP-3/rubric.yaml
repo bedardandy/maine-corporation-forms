@@ -1,0 +1,65 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-action-type
+    description: "Exactly one of FIRST A/B/C/D options is selected (form instructs 'X all boxes that apply' but the four options are semantically mutually exclusive — only one type of change per filing)."
+    depends_on_keys:
+      - contact_change.action_type
+    severity: required
+  - id: current-contact-block-required
+    description: contact_change.current_name and contact_change.current_address are non-empty (SECOND block — always required to identify which record is being changed).
+    depends_on_keys:
+      - contact_change.current_name
+      - contact_change.current_address
+    severity: required
+  - id: new-name-when-person-changing
+    description: "If contact_change.action_type ∈ {'change_of_contact_person_and_address', 'change_of_contact_person', 'change_in_name_of_current_contact_person'}, contact_change.new_name must be non-empty."
+    depends_on_keys:
+      - contact_change.action_type
+      - contact_change.new_name
+    severity: required
+  - id: new-address-when-address-changing
+    description: "If contact_change.action_type ∈ {'change_of_address', 'change_of_contact_person_and_address'}, contact_change.new_physical_address must be non-empty."
+    depends_on_keys:
+      - contact_change.action_type
+      - contact_change.new_physical_address
+    severity: required
+  - id: signer-name-and-title-required
+    description: filing.signer.printed_name and filing.signer.title are non-empty (Shape A).
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer.title
+    severity: required
+  - id: signer-title-matches-action-type
+    description: "Per page-1 footnote: if contact_change.action_type ∈ {'change_of_address', 'change_in_name_of_current_contact_person'} (A or D), filing.signer.title must indicate 'Contact Person'; if action_type ∈ {'change_of_contact_person_and_address', 'change_of_contact_person'} (B or C), filing.signer.title must be 'Secretary' or 'Clerk'."
+    depends_on_keys:
+      - contact_change.action_type
+      - filing.signer.title
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

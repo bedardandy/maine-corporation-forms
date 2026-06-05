@@ -1,0 +1,77 @@
+checks:
+  - id: entity-name-nonempty
+    description: entity.name is non-empty and matches the printed name on the form.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_corporation is true, entity.professional_services_description must be non-empty; if false, the description must be empty."
+    depends_on_keys:
+      - entity.is_professional_corporation
+      - entity.professional_services_description
+    severity: required
+  - id: clerk-cra-number-when-commercial
+    description: "If clerk.type = 'commercial', clerk.cra_public_number must be present; if 'noncommercial', it must be absent."
+    depends_on_keys:
+      - clerk.type
+      - clerk.cra_public_number
+    severity: required
+  - id: clerk-physical-not-pobox
+    description: "clerk.physical_address must not begin with 'P.O.', 'PO Box', or 'Post Office Box' (form explicitly forbids P.O. Box for physical location)."
+    depends_on_keys:
+      - clerk.physical_address
+    severity: required
+  - id: exactly-one-share-structure
+    description: Exactly one of the SIXTH options is selected (single_class XOR multi_class).
+    depends_on_keys:
+      - entity.share_structure
+    severity: required
+  - id: authorized-shares-when-single-class
+    description: "If entity.share_structure = 'single_class', entity.authorized_shares_total must be a positive integer."
+    depends_on_keys:
+      - entity.share_structure
+      - entity.authorized_shares_total
+    severity: required
+  - id: multi-class-exhibit-when-elected
+    description: "If entity.share_structure = 'multi_class', entity.multi_class_exhibit_letter must be set."
+    depends_on_keys:
+      - entity.share_structure
+      - entity.multi_class_exhibit_letter
+    severity: required
+  - id: exactly-one-board-structure
+    description: Exactly one of the SEVENTH options is selected (board XOR no-board).
+    depends_on_keys:
+      - entity.has_board_of_directors
+    severity: required
+  - id: director-count-range-valid
+    description: "If entity.directors_count_limited is true, entity.directors_min_count <= entity.directors_max_count and both are positive integers."
+    depends_on_keys:
+      - entity.directors_count_limited
+      - entity.directors_min_count
+      - entity.directors_max_count
+    severity: required
+  - id: additional-provisions-exhibit-letter-when-flagged
+    description: "If entity.additional_provisions_present is true, entity.additional_provisions_exhibit_letter must be set."
+    depends_on_keys:
+      - entity.additional_provisions_present
+      - entity.additional_provisions_exhibit_letter
+    severity: required
+  - id: filing-fees-match-expedite-tier
+    description: "filing.total_fees_dollars equals base fee ($145) plus expedite premium per entity ($0/$50/$100) times entity count, summed across all entities in filing.entities."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - filing.entities
+    severity: optional
+  - id: contact-fields-when-attested-copy-requested
+    description: "When any expedited option requires a return copy, all attested_copy_recipient address fields (name, mailing_address.*) are populated."
+    depends_on_keys:
+      - filing.attested_copy_recipient.name
+      - filing.attested_copy_recipient.mailing_address.street
+      - filing.attested_copy_recipient.mailing_address.city_state_zip
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future relative to the submission date.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required

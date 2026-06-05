@@ -1,0 +1,152 @@
+{
+  "form_id": "LLC_MERGFOR",
+  "fields": {
+    "merger.surviving_entity.home_jurisdiction_name": {
+      "widget_id": "Name of the SURVIVING Foreign Entity in the Jurisdiction of Organization",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: Name of the SURVIVING Foreign Entity in the Jurisdiction of Organization:"
+    },
+    "merger.surviving_entity.home_jurisdiction": {
+      "widget_id": "Jurisdiction where organized",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Jurisdiction where organized:"
+    },
+    "merger.surviving_entity.maine_authorization_date": {
+      "widget_id": "If authorized to transact business in Maine the date authorized is",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "If authorized to transact business in Maine, the date authorized is:"
+    },
+    "merger.surviving_entity.new_name": {
+      "widget_id": "New name of surviving foreign entity if changed as result of merger",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "New name of surviving foreign entity, if changed as result of merger:"
+    },
+    "merger.nonsurviving_entity.home_jurisdiction_name": {
+      "widget_id": "pages if necessary",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: Name of the NONSURVIVING Foreign Entity in the Jurisdiction of Organization (attach additional pages if necessary):"
+    },
+    "merger.nonsurviving_entity.home_jurisdiction": {
+      "widget_id": "Jurisdiction where organized_2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Jurisdiction where organized:"
+    },
+    "merger.nonsurviving_entity.maine_authorization_date": {
+      "widget_id": "Date authorized to transact business in Maine if applicable",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Date authorized to transact business in Maine (if applicable):"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "Text16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Contact email address for this filing)"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Email address to use for annual report reminders)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Text18",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Name of attested copy recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Text19",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Text20",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "Text21",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box10",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box11",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box12",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

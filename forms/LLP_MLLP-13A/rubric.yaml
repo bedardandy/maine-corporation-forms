@@ -1,0 +1,75 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: jurisdiction-required
+    description: entity.home_jurisdiction is non-empty (FIRST recital).
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: original-filing-date-required
+    description: amendment.original_filing_date is non-empty and not in the future and not after filing.date_signed.
+    depends_on_keys:
+      - amendment.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: changes-description-nonempty
+    description: At least one of amendment.changes_description.line1..line5 is non-empty (otherwise the amendment describes no change).
+    depends_on_keys:
+      - amendment.changes_description.line1
+      - amendment.changes_description.line2
+      - amendment.changes_description.line3
+      - amendment.changes_description.line4
+      - amendment.changes_description.line5
+    severity: required
+  - id: effective-date-required
+    description: "amendment.effective_date is non-empty and is on or after the entity's earliest known formation date and on or before filing.date_signed."
+    depends_on_keys:
+      - amendment.effective_date
+      - filing.date_signed
+    severity: required
+  - id: effective-date-after-original-filing
+    description: "amendment.effective_date is on or after amendment.original_filing_date (the change must have occurred at or after the report being corrected was filed — otherwise the original report was already wrong, which is a different fix path)."
+    depends_on_keys:
+      - amendment.effective_date
+      - amendment.original_filing_date
+    severity: optional
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name_and_capacity (individual partner) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity partner). Both empty or both populated is a fill error."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-capacity-required
+    description: "If filing.signer_entity.name is populated, filing.signer_entity.signer_printed_name_and_capacity must also be populated."
+    depends_on_keys:
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-at-most-one
+    description: At most one of the three expedite checkboxes is selected.
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-domestic-vs-foreign
+    description: "filing.total_fees_dollars is approximately $85 (when entity.home_jurisdiction is 'Maine'/'ME') or $150 (foreign LLP), plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - entity.home_jurisdiction
+    severity: optional

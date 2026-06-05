@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Corporation,0,text,(Name of Corporation),entity.name,high,Top-of-form corporation name. Form serves both Maine domestic and foreign corporations from a single 'entity.name' widget — the FIRST jurisdiction block disambiguates foreign corps. Same approach as sister-form LP_MLPA-13A.
+undefined_2,0,text,FIRST: The jurisdiction of its incorporation is,entity.home_jurisdiction,high,"State or country of incorporation (for a domestic corp, 'Maine'; for a foreign corp, the home jurisdiction). Same key family as LP_MLPA-13A, CORP_MBCA-12, LLC_MLLC-12 — the universal 'home jurisdiction' primitive that works for both domestic and foreign filings."
+undefined_3,0,text,SECOND: The date the current year's annual report was filed,filing.original_annual_report_date,high,Date the original annual report (the one being amended) was filed with SOS. Anchor for the §1623 amendment-window check. Same key as LP_MLPA-13A.
+The information has changed as follows attach additional pages if necessary 1,0,text,"THIRD: The information has changed as follows (attach additional pages, if necessary): line 1",amendment.changes_description.line1,high,Multi-line text widget for the substantive change description. Indexed line1–line4 mirroring LP_MLPA-13A's amendment.changes_description.lineN pattern (which has 8 inline lines).
+The information has changed as follows attach additional pages if necessary 2,0,text,THIRD: amendment text (line 2),amendment.changes_description.line2,high,THIRD line 2.
+The information has changed as follows attach additional pages if necessary 3,0,text,THIRD: amendment text (line 3),amendment.changes_description.line3,high,THIRD line 3.
+The information has changed as follows attach additional pages if necessary 4,0,text,THIRD: amendment text (line 4 — bottom),amendment.changes_description.line4,high,THIRD line 4 (bottom). Attach additional pages if more than 4 lines needed.
+undefined_4,0,text,FOURTH: This information changed on (date),amendment.effective_date,high,Date on which the reported changes actually occurred (the operative date of the underlying change). Same key as LP_MLPA-13A and the upstream amendment.effective_date primitive.
+DATED,0,text,DATED ___,filing.date_signed,high,Date the amended annual report was signed.
+type or print name and capacity,0,text,*By (authorized signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined printed-name-and-capacity widget for the corporate signer. Shape D per the filing-signer-shape convention (matches CORP_MBCA-11, LLC_MLLC-12). The page-1 footnote enumerates who may sign — capacity captures officer/clerk role."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees plus expedite premium ($85 domestic / $150 foreign base; $50 for 24h, $100 for immediate)."
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

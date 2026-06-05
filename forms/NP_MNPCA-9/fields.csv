@@ -1,0 +1,43 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+1,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit corporation name at top of page 0. Domestic — uses entity.name (not entity.home_jurisdiction_name).
+Check Box4,0,text,FIRST: ('X' one box only.) [ ] public benefit corporation,entity.nonprofit_type,high,Mutually-exclusive checkbox 1 of 2 in FIRST. Enum value 'public_benefit'. Same canonical key family as NP_MNPCA-6 / NP_MNP-6 / NP_MNP-9.
+Check Box5,0,text,FIRST: [ ] mutual benefit corporation,entity.nonprofit_type,high,Mutually-exclusive checkbox 2 of 2 in FIRST. Enum value 'mutual_benefit'.
+4,0,text,SECOND: NATURE OF CHANGE / TEXT of amendment (line 1 — top),amendment.nature_and_text.line1,high,Top of the 15-line amendment text block. Per-line indexing follows sister NP_MNP-9's amendment.nature_and_text.line{N} convention (and MARK1's mark.text_words.line{N} precedent for inline multi-line widgets).
+5,0,text,SECOND: amendment text (line 2),amendment.nature_and_text.line2,high,Second line.
+6,0,text,SECOND: amendment text (line 3),amendment.nature_and_text.line3,high,Third line.
+7,0,text,SECOND: amendment text (line 4),amendment.nature_and_text.line4,high,Fourth line.
+8,0,text,SECOND: amendment text (line 5),amendment.nature_and_text.line5,high,Fifth line.
+9,0,text,SECOND: amendment text (line 6),amendment.nature_and_text.line6,high,Sixth line.
+10,0,text,SECOND: amendment text (line 7),amendment.nature_and_text.line7,high,Seventh line.
+11,0,text,SECOND: amendment text (line 8),amendment.nature_and_text.line8,high,Eighth line.
+12,0,text,SECOND: amendment text (line 9),amendment.nature_and_text.line9,high,Ninth line.
+13,0,text,SECOND: amendment text (line 10),amendment.nature_and_text.line10,high,Tenth line.
+14,0,text,SECOND: amendment text (line 11),amendment.nature_and_text.line11,high,Eleventh line.
+15,0,text,SECOND: amendment text (line 12),amendment.nature_and_text.line12,high,Twelfth line.
+16,0,text,SECOND: amendment text (line 13),amendment.nature_and_text.line13,high,Thirteenth line.
+17,0,text,SECOND: amendment text (line 14),amendment.nature_and_text.line14,high,Fourteenth line.
+18,0,text,SECOND: amendment text (line 15 — bottom),amendment.nature_and_text.line15,high,Bottom line. Form notes 'Attach additional pages as needed' for overflow.
+19,1,text,THIRD: The amendment was adopted on (date),amendment.adoption_date,high,Date the amendment was adopted by members or board. Same canonical key as sister NP_MNP-9 and CORP_MBCA-9.
+Check Box6,1,text,THIRD: [ ] By the members at a meeting at which a quorum was present and the amendment received at least a majority of the votes which members were entitled to cast.,amendment.adoption_method,high,Mutually-exclusive checkbox 1 of 4 in THIRD. Enum value 'member_majority_at_meeting'.
+Check Box7,1,text,THIRD: [ ] (If the Articles require more than a majority vote.) By the members at a meeting at which a quorum was present and the amendment received at least the percentage of votes required by the Articles of Incorporation.,amendment.adoption_method,high,Mutually-exclusive checkbox 2 of 4 in THIRD. Enum value 'member_supermajority_at_meeting' — used when articles require more than a simple majority.
+Check Box8,1,text,THIRD: [ ] By the written consent of all members entitled to vote with respect thereto.,amendment.adoption_method,high,Mutually-exclusive checkbox 3 of 4 in THIRD. Enum value 'member_written_consent'.
+Check Box9,1,text,"THIRD: [ ] (If no members, or none entitled to vote thereon.) By majority vote of the board of directors.",amendment.adoption_method,high,Mutually-exclusive checkbox 4 of 4 in THIRD. Enum value 'board_of_directors_majority_vote' — same enum naming as sister NP_MNP-9 and NP_MNPCA-10.
+24,1,text,FOURTH: The address of the registered office of the corporation in the State of Maine is ____ (inline trailing blank),registered_office.address_line1,high,"Narrow trailing blank ending the FOURTH paragraph (rect x=419..572, right side). Same multi-line registered_office.address_line{1,2} pattern as sister NP_MNPCA-11 / 11A / 11C."
+25,1,text,"FOURTH: ____ (street, city, state and zip code)",registered_office.address_line2,high,"Wide labeled line below the FOURTH paragraph for the registered office address (street, city, state and zip code)."
+26,1,text,DATED,filing.date_signed,high,Date the filing was signed by the authorized officer (top-left of page 1).
+27,1,text,*By ____ (signature) / (type or print name and capacity) — first signer,filing.signer_1.printed_name_and_capacity,high,First authorized officer's printed name and capacity (top-right block on page 1). Shape D (combined name+capacity). Indexed signer_N pattern matches sister NP_MNPCA-11 (two-slot signature block).
+28,1,text,*By ____ (signature) / (type or print name and capacity) — second signer,filing.signer_2.printed_name_and_capacity,high,"Second authorized officer's printed name and capacity (right block, lower y). The form provides two signature slots; 13-B MRSA §104.1.B requires only one authorized officer, so the second slot is optional."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (page-0 header references base fee plus expedite premium).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email (distinct from filing.contact.email).
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

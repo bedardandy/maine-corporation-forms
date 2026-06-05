@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(name of foreign entity),entity.home_jurisdiction_name,high,Foreign entity's name as it appears on the SOS record. Foreign-form convention per LLC_MLLC-12 / CORP_FICT-4.
+Text2,0,text,"FIRST: The old home office address as it appears on the record in the Secretary of State's office (street, city, state and zip code - old address)",entity.home_office_address_old,high,Single-line old home-office address on file with SOS prior to the municipal/USPS change.
+Text3,0,text,"SECOND: The new home office address (physical location, not P.O. Box - street, city, state and zip code)",entity.home_office_address_new.physical,high,New physical street address — explicitly excludes P.O. boxes per label.
+Text4,0,text,(mailing address if different from above),entity.home_office_address_new.mailing,high,Optional mailing address when distinct from the new physical location.
+Text5,0,text,THIRD: The jurisdiction of organization/incorporation is,entity.home_jurisdiction,high,"State or country of formation. Existing key (LLC_MLLC-12, CORP_FICT-4)."
+Text6,0,text,and the date on which the entity was authorized to transact business in the State of Maine is,entity.maine_authorization_date,high,Date the foreign entity qualified in Maine. Existing key (CORP_CLKRA-3).
+Text7,0,text,FOURTH: ... duly authorized by (choose one): Town/Municipality,filing.authorized_by,medium,"FOURTH-section selection box for the 'Town/Municipality' option. Despite its visual checkbox appearance, this widget is /Tx (free text) — the signer marks it (e.g., 'X') or types the municipality name. Mutually exclusive with Text8."
+Text8,0,text,FOURTH: ... duly authorized by (choose one): U.S. Postal Service,filing.authorized_by,medium,FOURTH-section selection box for the 'U.S. Postal Service' option. Same /Tx-as-checkbox quirk as Text7. Mutually exclusive with Text7.
+Text9,0,text,DATED,filing.date_signed,high,Date the cover-page signature block was executed (left of the **By signature row).
+Text10,0,text,(type or print name and capacity),filing.signer.printed_name_and_capacity,high,Shape D — printed name + capacity combined in one widget. Capacity is constrained by footnote 2 to 'municipal official' or 'postmaster'.
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 — first entity in the submitted-filings bundle.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier = 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier = '24h_next_business_day' ($50/entity).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier = 'immediate_same_day' ($100/entity).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Form header notes 'No Filing Fee' for the body filing itself; this widget captures only the optional expedite fee.
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Filing-question contact.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Daytime phone for contact.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Per-filing contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Persistent recurring-reminder email tied to the entity (separate from per-filing contact email).
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient of the attested copy of the completed filing.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm/company.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street/PO box.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined into a single widget.

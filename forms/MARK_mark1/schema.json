@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/MARK_mark1.json",
+  "title": "MARK_mark1 fill data",
+  "type": "object",
+  "properties": {
+    "mark": {
+      "type": "object",
+      "properties": {
+        "dates_of_first_use": {
+          "type": "object",
+          "properties": {
+            "anywhere": {
+              "type": "string",
+              "description": "Date the mark was first used anywhere (any jurisdiction)."
+            },
+            "in_maine": {
+              "type": "string",
+              "description": "Date the mark was first used in Maine by applicant or predecessor."
+            }
+          }
+        },
+        "predecessor_name_and_address": {
+          "type": "string",
+          "description": "Predecessor-in-business name and address when first-use-in-Maine was by a predecessor (not the applicant directly)."
+        },
+        "text_words": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Word(s) of the mark to be registered (two-line free-form input)."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "design_features": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Description of the design features (logo, stylization) of the mark (two-line free-form input). 'If none, so indicate.'"
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "type_and_class_number": {
+          "type": "integer",
+          "description": "Combined type-of-mark (trademark/service mark/collective mark) and class number from MARK-5. Class number determines per-class fee tier."
+        },
+        "goods_or_services_description": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Description of the goods manufactured or sold and/or services provided under the mark (two-line free-form input)."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "usage_description": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Description of how the mark is used (applied to goods, used to promote sale, used in connection with services)."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "additional_pages_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional pages are attached for any of the multi-line fields."
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity of the person signing the mark application. For individuals, capacity is typically 'Myself'; for entities, capacity is the signer's officer/role title."
+            }
+          }
+        },
+        "applicant": {
+          "type": "object",
+          "properties": {
+            "entity_name": {
+              "type": "string",
+              "description": "Applicant's identity as it should appear on the registered mark \u2014 'Myself' for individuals, or firm/association/corporate name for entities."
+            },
+            "mailing_address": {
+              "type": "string",
+              "description": "Applicant's mailing address (single combined widget on this form)."
+            },
+            "entity_type": {
+              "type": "string",
+              "description": "Mutually-exclusive enum of applicant's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation)."
+            },
+            "entity_type_other_explanation": {
+              "type": "string",
+              "description": "Free-text explanation when applicant's entity_type='other'."
+            },
+            "jurisdiction_of_organization": {
+              "type": "string",
+              "description": "Home jurisdiction (state) of the applicant entity. Required when applicant.entity_type is corporation, LLC, LP, LLP, or other registered entity type."
+            },
+            "date_of_organization": {
+              "type": "string",
+              "description": "Date applicant entity was incorporated/organized in its home jurisdiction."
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "mark"
+  ]
+}

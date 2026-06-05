@@ -1,0 +1,12 @@
+form_id: CORP_HO-E911
+code: HO-E911
+title: Notification of Change in Home Office Address by Municipality or U.S. Postal Service
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 24
+mapped_fields: 21
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

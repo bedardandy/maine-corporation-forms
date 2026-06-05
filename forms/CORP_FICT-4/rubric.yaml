@@ -1,0 +1,44 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: fictitious-name-required
+    description: entity.maine_fictitious_name is non-empty.
+    depends_on_keys:
+      - entity.maine_fictitious_name
+    severity: required
+  - id: fictitious-name-distinct
+    description: entity.maine_fictitious_name differs from entity.home_jurisdiction_name (case-insensitive).
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (this form is foreign-only)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-auth-date-not-future
+    description: entity.maine_authorization_date is not in the future.
+    depends_on_keys:
+      - entity.maine_authorization_date
+    severity: required
+  - id: filing-date-on-or-after-auth
+    description: "filing.date_signed is on or after entity.maine_authorization_date (you can't file a fictitious-name statement before being authorized to transact business)."
+    depends_on_keys:
+      - filing.date_signed
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-title-required
+    description: "filing.signer.title is non-empty (form's signature footnote restricts authorized signers per entity type)."
+    depends_on_keys:
+      - filing.signer.title
+    severity: required
+  - id: fee-matches-entity-type
+    description: filing.total_fees_dollars equals $40 (for-profit) or $25 (nonprofit) plus any expedite premium per entity.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-13A.json",
+  "title": "LLP_MLLP-13A fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "original_filing_date": {
+          "type": "string",
+          "description": "Date the prior filing being amended was filed (SECOND on amended-annual-report forms). Namespaced under amendment.* because it identifies the underlying SOS record being corrected, not a property of the LLP itself. Generalizable to other amendment forms that reference a prior filing by date."
+        },
+        "changes_description": {
+          "type": "object",
+          "properties": {
+            "line{1,2,3,4,5}": {
+              "type": "string",
+              "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            },
+            "line3": {
+              "type": "string"
+            },
+            "line4": {
+              "type": "string"
+            },
+            "line5": {
+              "type": "string"
+            }
+          }
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Date on which the underlying information actually changed (FOURTH). Distinct from filing.date_signed (the date the amendment is signed/filed) \u2014 the effective date may be earlier than the filing date when the change happened in the past and is being reported retroactively."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+10a1,0,text,(Name of party to the merger or share exchange filing this document),entity.name,high,Name of the specific party filing the abandonment. Used as the form-level entity handle (matches filing.entities[0].name on the cover letter).
+10a2,0,text,SECOND: parties row 1 (Name | Type of Entity | Jurisdiction),merger.parties[0].recital,high,First merger-party row recital. Form has three column headers (Name | Type of Entity | Jurisdiction) but only one underlined blank per row — same combined-recital pattern as MBCA-10's FIRST recital (see merger.parties[N].recital schema gap).
+10a3,0,text,SECOND: parties row 2 (Name | Type of Entity | Jurisdiction),merger.parties[1].recital,high,Second merger-party row recital.
+10a4,0,text,SECOND: parties row 3 (Name | Type of Entity | Jurisdiction),merger.parties[2].recital,high,Third merger-party row recital.
+10a5,0,text,SECOND: parties row 4 (Name | Type of Entity | Jurisdiction),merger.parties[3].recital,high,Fourth merger-party row recital.
+10a6,0,text,DATED ____,filing.date_signed,high,Date the abandonment statement was signed.
+10a7,0,text,*By (signature of officer or other duly authorized representative) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Single-filer signer block. Shape D (printed name + capacity combined) per 2026-04-30-filing-signer-shape.md — matches CORP_MBCA-11, LLC_MLLC-12, MBCA-21."
+Name of entitys on the submitted filings 1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1. Field-id deviates from the canonical 'Name of entity' / 'Name of entitys on the submitted filings 2' naming used elsewhere — this template names slot 1 explicitly with '_1' suffix.
+Name of entitys on the submitted filings 2,1,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box1,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'. Field-id 'Check Box1' is a template-rename of the standard 'Check Box14' on most SOS forms.
+Check Box2,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box3,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

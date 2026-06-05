@@ -1,0 +1,49 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+1,0,text,DOMESTIC NONPROFIT CORPORATION / STATE OF MAINE / ARTICLES OF MERGER (Merged Maine Corporations),merger.merging_corporations_recital,high,Top blank line under '(Merged Maine Corporations)' label — receives one or more merging-corp names (form supports comma-separated or multi-line for >1).
+2,0,text,INTO / (Surviving Maine Corporation),merger.surviving_corporation_name,high,Name of the surviving corporation.
+5,0,text,SECOND: The plan of merger is set forth in Exhibit ___ attached hereto and made a part hereof.,merger.plan_exhibit_letter,high,Inline exhibit letter for the plan-of-merger document.
+6,0,text,THIRD: As to each participating corporation: Name of Corporation (block 1),merger.parties[0].name,high,First THIRD-block corporation name.
+Check Box1,0,text,[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast.,merger.parties[0].vote_method,high,Block 1 option 1: 'majority_member_vote'.
+8,0,text,By the members at a meeting on (date) ___,merger.parties[0].vote_method_date,high,Date for block 1 option 1.
+Check Box2,0,text,"[ ] If the Articles of Incorporation require more than a majority vote, by the members at a meeting on (date) ___ and such plan received at least the percentage of votes of the members required by the Articles of Incorporation.",merger.parties[0].vote_method,high,Block 1 option 2: 'supermajority_member_vote'.
+11,0,text,by the members at a meeting on (date) ___,merger.parties[0].vote_method_date,high,Date for block 1 option 2.
+Check Box3,0,text,"[ ] By the written consent of all members entitled to vote with respect thereto, dated ___, without resolution of the board of directors.",merger.parties[0].vote_method,high,Block 1 option 3: 'written_consent_of_members'.
+13,0,text,dated ___ without resolution of the board of directors,merger.parties[0].vote_method_date,high,Date for block 1 option 3.
+Check Box4,0,text,"[ ] There being no members, or in the case of a dissolution, no member entitled to vote thereon, the plan was adopted by a majority vote of the board of directors in office at a meeting held on ___.",merger.parties[0].vote_method,high,Block 1 option 4: 'board_of_directors_majority_vote' (used when no voting members).
+15,0,text,the plan was adopted by a majority vote of the board of directors in office at a meeting held on ___,merger.parties[0].vote_method_date,high,Date for block 1 option 4.
+16,0,text,Name of Corporation (block 2),merger.parties[1].name,high,Second THIRD-block corporation name.
+Check Box5,0,text,Block 2 option 1: By the members at a meeting on (date)...,merger.parties[1].vote_method,high,Block 2 option 1: 'majority_member_vote'.
+18,0,text,Block 2 option 1 date,merger.parties[1].vote_method_date,high,Date for block 2 option 1.
+Check Box6,0,text,Block 2 option 2: supermajority member vote,merger.parties[1].vote_method,high,Block 2 option 2: 'supermajority_member_vote'.
+20,0,text,Block 2 option 2 date,merger.parties[1].vote_method_date,high,Date for block 2 option 2.
+Check Box7,0,text,Block 2 option 3: written consent of members,merger.parties[1].vote_method,high,Block 2 option 3: 'written_consent_of_members'.
+22,0,text,Block 2 option 3 date,merger.parties[1].vote_method_date,high,Date for block 2 option 3.
+Check Box8,0,text,Block 2 option 4: board of directors vote (no members),merger.parties[1].vote_method,high,Block 2 option 4: 'board_of_directors_majority_vote'.
+24,0,text,Block 2 option 4 date,merger.parties[1].vote_method_date,high,Date for block 2 option 4.
+25,1,text,FOURTH: The address of the registered office of the surviving corporation in the State of Maine is ___ (inline trailing blank),merger.surviving_corp.registered_office_address_line1,medium,Narrow trailing blank ending the FOURTH paragraph 1 sentence; combined with line 2 ('26') for the full address. Some templates split the address across the trailing-sentence blank and the labeled line below.
+26,1,text,"(street, city, state and zip code) — surviving corp",merger.surviving_corp.registered_office_address_line2,high,Wide labeled line below the FOURTH paragraph for the surviving corp's registered office address.
+27,1,text,FOURTH: The address of the registered office of the merged corporation in the State of Maine is ___ (inline trailing blank),merger.merging_corp.registered_office_address_line1,medium,Narrow trailing blank for FOURTH paragraph 2.
+28,1,text,"(street, city, state and zip code) — merged corp",merger.merging_corp.registered_office_address_line2,high,Wide labeled line for the merged corp's registered office address.
+29,1,text,FIFTH: Effective date of the merger (if later than date of filing of Articles) is ___ (Note: Not to exceed 60 days from date of filing of the Articles),merger.future_effective_date,high,Optional future effective date capped at 60 days post-filing per 13-B MRSA.
+30,1,text,DATED ___ (surviving corp signature block),merger.parties[0].signature_block.date_signed,high,Date the surviving corporation signed.
+31,1,text,(surviving corporation) — corp-name underline next to DATED,merger.parties[0].signature_block.corporation_name,medium,Right-side blank labeled '(surviving corporation)' on the DATED row. Likely re-states the surviving corp's name to confirm the signature is for that party.
+32,1,text,*By (signature) ___ / (type or print name and capacity) — surviving corp signer 1,merger.parties[0].signature_block.signer_1.printed_name_and_capacity,high,Surviving corp signer 1.
+33,1,text,*By (signature) ___ / (type or print name and capacity) — surviving corp signer 2,merger.parties[0].signature_block.signer_2.printed_name_and_capacity,high,Surviving corp signer 2.
+34,1,text,MUST BE COMPLETED FOR VOTE OF MEMBERS — (name of corporation),merger.parties[0].clerk_certification.corporation_name,medium,Inset clerk-certification block: re-states the corporation name. Required when vote_method is a member-vote variant (options 1-3); not required for option 4 (board-of-directors vote with no members).
+35,1,text,"MUST BE COMPLETED FOR VOTE OF MEMBERS — (signature of clerk, secretary or asst. secretary)",merger.parties[0].clerk_certification.signer_printed_name_and_title,medium,Inset clerk-certification signer (clerk / secretary / assistant secretary). Required when member-vote variant is selected.
+36,1,text,DATED ___ (merged corp signature block),merger.parties[1].signature_block.date_signed,medium,"Date the merged corp signed. CAVEAT: this template appears incomplete — the merged-corp signature block has only widgets '36' and '37', missing parallel widgets for corp-name underline, signer 2, and clerk-cert (compare to surviving corp's '30'-'35')."
+37,1,text,*By (signature) ___ / (type or print name and capacity) — merged corp signer,merger.parties[1].signature_block.signer_1.printed_name_and_capacity,medium,"Merged corp signer 1. CAVEAT: signer 2, corp-name underline, and clerk-certification widgets are MISSING from the AcroForm on this template (likely a 2006-revision template bug; visually they exist on the page but have no /T)."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (likely both surviving and merged corps for a merger).
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($25 minimum per page 0 header).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

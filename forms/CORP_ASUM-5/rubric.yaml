@@ -1,0 +1,59 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty (must match SOS record exactly).
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: assumed-name-required
+    description: assumed_name.name is non-empty.
+    depends_on_keys:
+      - assumed_name.name
+    severity: required
+  - id: assumed-name-not-equal-entity-name
+    description: assumed_name.name does not equal entity.name (an assumed name that matches the legal name is meaningless).
+    depends_on_keys:
+      - assumed_name.name
+      - entity.name
+    severity: required
+  - id: exhibit-letter-when-flagged
+    description: "If assumed_name.additional_locations_exhibit is true, assumed_name.additional_locations_exhibit_letter must be non-empty."
+    depends_on_keys:
+      - assumed_name.additional_locations_exhibit
+      - assumed_name.additional_locations_exhibit_letter
+    severity: required
+  - id: foreign-fields-paired
+    description: entity.home_jurisdiction and entity.maine_authorization_date are either both populated (foreign entity) or both empty (domestic entity).
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.maine_authorization_date
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-name-and-title-required
+    description: filing.signer.printed_name and filing.signer.title are non-empty (Shape A).
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer.title
+    severity: required
+  - id: partner-entity-name-when-partner-signer
+    description: "filing.signer_partner_entity_name is populated only when filing.signer.title is a partner-role title (general partner, partner) on an LP/LLP filing. Otherwise should be empty."
+    depends_on_keys:
+      - filing.signer_partner_entity_name
+      - filing.signer.title
+    severity: optional
+  - id: fee-by-entity-type
+    description: "filing.total_fees_dollars equals $125 for for-profit entities (BC, LLC, LP, LLP) or $25 for nonprofits (per page 0 header), plus expedite premium. Cannot be auto-validated without knowing entity_type."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

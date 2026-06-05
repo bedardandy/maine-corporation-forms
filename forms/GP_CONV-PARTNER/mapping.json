@@ -1,0 +1,145 @@
+{
+  "form_id": "GP_CONV-PARTNER",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The name of the converting partnership immediately before the conversion is"
+    },
+    "conversion.new_entity.name": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The name of the resulting entity is (the name must satisfy the organic law of the surviving entity)"
+    },
+    "conversion.future_effective_date": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: The future effective date of the conversion (if other than date of filing of the Articles) is \u2014 (Not to exceed 90 days from date of filing of the Articles)"
+    },
+    "conversion.new_entity_provisions_exhibit_letter": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: All of the statements required to be set forth in the organizing documents for the resulting entity are attached as Exhibit ___"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___ (top-right of converting-partnership signature block)"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(authorized signature) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "cover1",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "cover2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "cover6",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "cover7",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "cover8",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "cover9",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Contact email address for this filing)"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "cover10",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Email address to use for annual report reminders)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "cover11",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of attested copy recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "cover12",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "cover13",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "cover14",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "cover3",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "cover4",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "cover",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

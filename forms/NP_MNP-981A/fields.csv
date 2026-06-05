@@ -1,0 +1,51 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+981a1,0,text,FIRST: ...corporation duly organized at [street],entity.original_organization_address.street,high,First widget on the FIRST recital line: street address where the corporation was originally organized. Place-of-organization is at most a single street address (no apt/suite split).
+981a2,0,text,FIRST: ...in the town of [town],entity.original_organization_address.city,high,"Town of original organization. Form text says 'State of Maine' immediately after, so state is implicit and not a widget."
+981a3,0,text,FIRST: ...on the [day] day of,entity.original_organization_date.day,high,Day component of original organization date. Form splits date into 3 widgets (day/month/year) rather than a single ISO date — mapping mirrors widget composition.
+981a4,0,text,FIRST: ...[month],entity.original_organization_date.month,high,"Month component (free-text, e.g., 'July')."
+981a5,0,text,FIRST: ...[year],entity.original_organization_date.year,high,Year component (4-digit).
+981a6,0,text,SECOND: The name of said corporation is now,entity.name,high,Current legal name of the nonprofit corporation. Maps to the standard entity.name (not entity.original_name — that is FOURTH).
+981a7,0,text,THIRD: row 1 — New Name,entity.name_history[0].name,high,First (oldest) prior name in the chronological history table.
+981a8,0,text,THIRD: row 1 — Date of Change,entity.name_history[0].date,high,Date of first name change (paired with 981a7 by row y-position).
+981a9,0,text,THIRD: row 2 — New Name,entity.name_history[1].name,high,Second prior name.
+981a10,0,text,THIRD: row 2 — Date of Change,entity.name_history[1].date,high,Date of second name change.
+981a11,0,text,THIRD: row 3 — New Name,entity.name_history[2].name,high,Third prior name.
+981a12,0,text,THIRD: row 3 — Date of Change,entity.name_history[2].date,high,Date of third name change.
+981a13,0,text,THIRD: row 4 — New Name,entity.name_history[3].name,high,Fourth prior name.
+981a14,0,text,THIRD: row 4 — Date of Change,entity.name_history[3].date,high,Date of fourth name change.
+981a15,0,text,THIRD: row 5 — New Name,entity.name_history[4].name,high,Fifth (most recent) prior name. Row 5 is the last inline row; form note says 'Attach additional page(s) if necessary.'
+981a16,0,text,THIRD: row 5 — Date of Change,entity.name_history[4].date,high,Date of fifth name change.
+981a17,0,text,FOURTH: The name of the corporation was originally [line 1],entity.original_name,high,Original (founding) name of the corporation. Line-1 widget on the FOURTH recital.
+981a18,0,text,FOURTH: [continuation line for original name],entity.original_name,medium,"Line-2 continuation widget for FOURTH original-name string. Maps to the same canonical key — synth/filler must split a long original_name across the two widgets, or leave 981a18 empty when the name fits on line 1."
+981a19,1,text,FIFTH: The original purposes of the corporation at the time of incorporation were:,entity.original_purpose,high,"Free-text description of the original corporate purpose at incorporation (singular, matches MNPCA-6 convention for purpose strings). Distinct from current SIXTH purposes — original purposes are historical."
+Check Box4,1,text,SIXTH: [ ] The corporation is organized as a public benefit corporation for the following purpose or purposes:,entity.nonprofit_type,high,"Public-benefit checkbox. Enum value: 'public_benefit'. Maps to the same single canonical key as Check Box5 — see MNPCA-6 convention. SIXTH header reads '(""X"" one box only.)'."
+981a21,1,text,SIXTH (public benefit): purpose description,entity.public_benefit_purpose,high,Free-text public-benefit purpose statement (only required when entity.nonprofit_type='public_benefit'). Singular per MNPCA-6 convention.
+Check Box5,1,text,"SIXTH: [ ] The corporation is organized as a mutual benefit corporation for all purposes permitted under 13-B MRSA, or, if not for all such purposes, then for the following purpose or purposes:",entity.nonprofit_type,high,Mutual-benefit checkbox. Enum value: 'mutual_benefit'. Same canonical key as Check Box4.
+981a23,1,text,SIXTH (mutual benefit): purpose description,entity.mutual_benefit_purpose,high,Free-text mutual-benefit purpose statement (empty if mutual benefit covers 'all purposes permitted under 13-B'). Singular per MNPCA-6 convention.
+Check Box6,1,text,"SEVENTH: [ ] Directors (including trustees, governors, managers, etc.), or if no Directors,",entity.management_structure,high,"Director-managed checkbox. Enum value: 'directors'. SEVENTH header reads '(""X"" one box only.)' — exactly one of Check Box6/Check Box7 selected."
+Check Box7,1,text,SEVENTH: [ ] Members.,entity.management_structure,high,Member-managed checkbox. Enum value: 'members'. Same canonical key as Check Box6.
+981a26,1,text,EIGHTH: Said corporation is now located at [street],entity.current_address.street,high,Current street address (where corporation is now located). Distinct from FIRST original_organization_address (historical).
+981a27,1,text,EIGHTH: ...in the town of [town],entity.current_address.city,high,Current town. State is 'State of Maine' implicit (not a widget).
+981a28,1,text,EIGHTH: ...County of [county],entity.current_address.county,high,Current county. The county field is unusual — not normally part of standard mailing addresses — but is required by the recital text.
+981a29,2,text,NINTH: The number of officers is [count],entity.officer_count,high,"Numeric count of officers. Should match the populated officer_<role>.name slots below (typically 4: President, Vice-President, Secretary/Clerk, Treasurer)."
+981a30,2,text,NINTH: President — name,officer_president.name,high,"Name of the President. Role-keyed officer roster (matches NP_MNP-9 convention: officer_<role>.{name,address} where role is fixed by the form's row label). Distinct from CORP_MBCA-12's user-entered capacity pattern."
+981a31,2,text,NINTH: Vice-President — name,officer_vice_president.name,high,Name of the Vice-President. Vice-President is optional in 13-B governance but the form provides a fixed slot.
+981a32,2,text,NINTH: Secretary or Clerk — name,officer_secretary.name,high,Name of the Secretary or Clerk. Form label 'Secretary or Clerk' — Maine 13-B uses 'clerk' as the canonical role name but this form accepts either.
+981a33,2,text,NINTH: Treasurer — name,officer_treasurer.name,high,Name of the Treasurer.
+981a34,2,text,Dated,filing.date_signed,high,Date of signature (page 2 signature block).
+981a35,2,text,(President) — type or print name,filing.signer_president.printed_name,high,"Printed name of the President signer. Per-role signer pattern: the form has fixed signature slots labeled (President) and (Secretary/Clerk), so the canonical key uses the role name. Adjacent to the wet-ink (signature) line which has no widget."
+981a36,2,text,(Secretary/Clerk) — type or print name,filing.signer_secretary.printed_name,high,Printed name of the Secretary/Clerk signer. Pairs with 981a35; 13-B §704 requires the corporation's clerk to attest most recital filings.
+Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day' ($50 additional).
+Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day' ($100 additional).
+Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total enclosed fees.
+Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,3,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,3,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,3,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,3,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,3,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,3,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

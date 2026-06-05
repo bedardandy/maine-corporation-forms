@@ -1,0 +1,73 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (foreign-qualification implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: fictitious-name-when-home-unavailable
+    description: "If entity.home_jurisdiction_name fails 13-C §401 / Chapter 22-A §736, entity.maine_fictitious_name must be set. Cannot be auto-validated; flag for manual review when both home and fictitious are populated, or when home looks like it would collide with a Maine-registered name."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+      - entity.maine_fictitious_name
+    severity: optional
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of SECOND commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be set."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: formation-date-not-future
+    description: entity.formation_date_in_home_jurisdiction is not in the future.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: filing-date-on-or-after-formation
+    description: filing.date_signed is on or after entity.formation_date_in_home_jurisdiction (cannot apply for Maine authority before being formed).
+    depends_on_keys:
+      - filing.date_signed
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: principal-office-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: at-least-one-officer
+    description: At least one officer_N row is fully populated (printed_name_and_capacity + address.street + address.city_state_zip).
+    depends_on_keys:
+      - officer_1.printed_name_and_capacity
+      - officer_1.address.street
+      - officer_1.address.city_state_zip
+    severity: required
+  - id: professional-corp-name-suffix
+    description: "If entity.is_professional_corporation is true, entity.home_jurisdiction_name (or maine_fictitious_name when set) must contain one of: 'chartered', 'professional corporation', 'professional association', 'service corporation', 'P.C.', 'P.A.', or 'S.C.' (per page 2 footnote)."
+    depends_on_keys:
+      - entity.is_professional_corporation
+      - entity.home_jurisdiction_name
+      - entity.maine_fictitious_name
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (signer must be an officer per 13-C MRSA §1121.5; cannot be auto-validated from form alone).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: certificate-of-existence-recency
+    description: "EIGHTH paragraph requires that an attached certificate of existence (or document of similar import) is dated within 90 days before delivery; tracked manually in filing.notes since the COE is a separate attachment, not a form field."
+    depends_on_keys: []
+    severity: required
+  - id: fee-matches-entity-type
+    description: filing.total_fees_dollars equals $250 (base fee per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

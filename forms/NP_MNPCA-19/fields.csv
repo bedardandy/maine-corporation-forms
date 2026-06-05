@@ -1,0 +1,23 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+19one,0,text,(Name of Corporation in Jurisdiction of Incorporation),entity.home_jurisdiction_name,high,"Page-0 heading reads 'FOREIGN NONPROFIT CORPORATION' — per 2026-04-30-entity-name-vs-home-jurisdiction.md, foreign-form name fields use entity.home_jurisdiction_name. Same convention as CORP_MBCA-19, NP_MNPCA-19A, LLC_MLLC-12."
+19two,0,text,FIRST: If the real corporate name is not available in this state... the name it proposes to use in the State of Maine:,domestication.maine_name,high,Proposed name in Maine when the foreign legal name is unavailable. Same canonical key used by CORP_MBCA-19 (which references domestication.maine_name in open_questions/rubric even though the BC template does not include a body widget for it; this nonprofit template does include the widget).
+19three,0,text,FIRST: The corporation was originally incorporated in ___ (state or country),entity.home_jurisdiction,high,State or country of original incorporation (foreign jurisdiction).
+19four,0,text,and the original date of incorporation was ___,entity.formation_date_in_home_jurisdiction,high,Date of original formation in the home jurisdiction.
+19five,0,text,THIRD: All the statements required to be set forth in Articles of Incorporation (MBCA-6-1) are attached as Exhibit ___,domestication.articles_exhibit_letter,high,"Inline exhibit letter referencing the attached new-entity Articles of Incorporation. Template references 'MBCA-6-1' (the BC articles form), which is suspected to be an upstream template-text error — for a nonprofit domestication, the attached articles would conventionally be MNPCA-6-1 (nonprofit articles). Canonical key reused from CORP_MBCA-19."
+19six,0,text,FOURTH: The effective date of the articles of domestication and conversion (if other than the date of filing of the articles of domestication and conversion) is ___,domestication.future_effective_date,high,"Optional future effective date. If blank, filing date applies. Same shape as CORP_MBCA-19 / conversion.future_effective_date / merger.future_effective_date."
+19seven,0,text,DATED ___,filing.date_signed,high,Date the filing was signed.
+19eight,0,text,*By ___ (signature of an officer or other duly authorized representative) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget. Shape D per 2026-04-30-filing-signer-shape.md (matches CORP_MBCA-19, MBCA-11, MLLC-12, MBCA-19A, NP_MNPCA-19A). The *By signature line is decorative — wet-ink applied post-print."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,"Cover-letter row 2 (used when multiple filings share a single cover letter — e.g., this filing plus the bundled MNPCA-6-1 articles exhibit)."
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($125 base per page-0 header plus expedite premium and any bundled-filing fees).
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email (applies to the post-domestication Maine domestic nonprofit entity).
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

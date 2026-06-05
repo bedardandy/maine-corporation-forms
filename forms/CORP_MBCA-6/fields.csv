@@ -1,0 +1,41 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,FIRST: The name of the corporation is,entity.name,high,Primary corporation name field at top of Articles.
+Check Box18,0,checkbox,SECOND: 'X' only if applicable — This is a professional corporation formed pursuant to 13 MRSA Chapter 22-A,entity.is_professional_corporation,high,Boolean elect-in for professional-corporation status.
+Text2,0,text,(type of professional services),entity.professional_services_description,high,Free-text description used only when professional-corporation checkbox is set.
+Check Box17,0,checkbox,THIRD: 'X' only if applicable — This is a close corporation formed pursuant to 13-C MRSA §1803,entity.is_close_corporation,high,Boolean elect-in for close-corporation status.
+Text16,0,text,FOURTH: Commercial Clerk — CRA Public Number,clerk.cra_public_number,high,Right-aligned narrow field on Commercial Clerk line.
+Text3,0,text,(name of commercial clerk),clerk.name,high,Full-width name line; same logical concept regardless of commercial vs noncommercial selection.
+Text4,0,text,(name of clerk) [under Noncommercial Clerk option],clerk.name,medium,Form has separate name line for noncommercial clerk; both populate the same canonical key (filer uses one row based on type).
+Text5,0,text,"(physical location, not P.O. Box - street, city, state and zip code)",clerk.physical_address,high,Single-line concatenated address; not split into street/city/state/zip on this form.
+Text6,0,text,(mailing address if different from above),clerk.mailing_address,high,Optional single-line mailing address.
+clerk,,text,Commercial Clerk vs Noncommercial Clerk (mutually exclusive),clerk.type,medium,Page-null checkbox group; appears to be the Commercial/Noncommercial radio. Enum values: 'commercial' | 'noncommercial'.
+Text8,1,text,SIXTH: There shall only be one class of shares. The number of authorized shares is ___,entity.authorized_shares_total,high,Inline numeric blank on the single-class option.
+Text7,1,text,(Optional) Name of class:,entity.share_class_name,high,Optional class label for the single-class election.
+Text15,1,text,SIXTH alt: ...is set forth in Exhibit __ attached hereto,entity.multi_class_exhibit_letter,medium,Tiny inline blank for the Exhibit letter referenced when multi-class option is elected.
+sixth,,text,SIXTH: one class vs two-or-more classes (mutually exclusive),entity.share_structure,medium,Page-null checkbox appears to back the SIXTH radio. Enum: 'single_class' | 'multi_class'.
+seventh,,checkbox,SEVENTH: Board of Directors vs no directors (mutually exclusive),entity.has_board_of_directors,medium,"Page-null checkbox appears to back the SEVENTH radio. Boolean (true=board, false=managed by shareholders per 13-C MRSA §743)."
+Check Box28,1,checkbox,EIGHTH: [X] The number of directors is limited as follows,entity.directors_count_limited,high,Opt-in checkbox enabling the min/max blanks.
+Text13,1,text,not fewer than __ nor more than,entity.directors_min_count,high,Inline numeric — minimum directors.
+Text14,1,text,nor more than __ directors,entity.directors_max_count,high,Inline numeric — maximum directors.
+Check Box29,1,checkbox,"EIGHTH: [X] To the fullest extent permitted by 13-C MRSA §202.2.D, a director shall have no liability",entity.director_liability_limited,high,Opt-in for §202.2.D liability shield.
+Check Box30,1,text,"EIGHTH: [X] Except as otherwise specified by contract or in its bylaws, the Corporation shall in all cases provide indemnification",entity.mandatory_indemnification,high,"Opt-in for mandatory indemnification under 13-C MRSA §§202, 857, 859."
+Check Box31,1,checkbox,NINTH: [X] The Corporation elects to have preemptive rights as defined in 13-C MRSA §641,entity.preemptive_rights_elected,high,Boolean elect-in for preemptive rights.
+Check Box32,1,checkbox,TENTH: [X] Additional provisions of these Articles of Incorporation are set forth in Exhibit __,entity.additional_provisions_present,high,Boolean opt-in indicating an additional-provisions exhibit is attached.
+Text12,1,text,Exhibit __ attached hereto and made a part hereof (TENTH),entity.additional_provisions_exhibit_letter,high,Inline exhibit letter for TENTH.
+Text11,1,text,ELEVENTH: ...set forth on Exhibit __ attached hereto,entity.additional_incorporators_exhibit_letter,high,Inline exhibit letter for ELEVENTH (additional incorporators list).
+Text9,1,text,Dated ____,filing.date_signed,high,Date the filing was signed by the incorporator.
+Text10,1,text,*By ____ (original written signature) / (type or print name of incorporator),incorporator_1.printed_name,medium,Single text field on the signature row; PDF doesn't separate signature widget from print-name. Treating as printed name (signatures are typically rendered as image elsewhere).
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,First entity name on cover-letter; supports multi-form bundling.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Second entity name on cover-letter (multi-form bundle).
+Check Box14,2,text,"Hold attested copy for pick up at our office in Augusta, Maine",filing.expedited_service,high,Mutually-exclusive expedited-service option = 'hold_for_pickup' (no fee).
+Check Box15,2,text,24-hour expedited filing (next business day) service: $50 additional filing fee per entity,filing.expedited_service,high,Mutually-exclusive expedited-service option = '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing (same business day): $100 additional filing fee per entity,filing.expedited_service,high,Mutually-exclusive expedited-service option = 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Dollar amount enclosed by filer.
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact for filing-related questions.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Daytime phone for the filing contact.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Per-filing contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent recurring-reminder email — distinct from per-filing contact email.
+Name of attested copy recipient,2,text,Name and address of person to return the attested copy of the completed filing — (Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient for the returned attested copy.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Firm/company associated with attested-copy recipient.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Street/mailing line for attested-copy recipient.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Single-line city/state/zip; form doesn't split components.

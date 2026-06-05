@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-21.json",
+  "title": "CORP_MBCA-21 fill data",
+  "type": "object",
+  "properties": {
+    "conversion": {
+      "type": "object",
+      "properties": {
+        "new_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Post-conversion name of the surviving entity (must satisfy the organic law of the new entity type, e.g., LLC suffix per 31 MRSA \u00a71508)."
+            },
+            "type": {
+              "type": "string",
+              "description": "Free-text type of the surviving entity post-conversion (e.g., 'Limited Liability Company', 'Limited Partnership')."
+            }
+          }
+        },
+        "new_entity_provisions_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing provisions required for the new entity's public organic document."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future effective date for the entity conversion. If blank, the filing date applies."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "conversion",
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,12 @@
+form_id: GP_CONV-PARTNER
+code: CONV-PARTNER
+title: Articles of Conversion of Partnership
+entity_type: General Partnership
+statute: Maine Uniform Partnership Act (31 M.R.S.)
+num_pages: 3
+num_fields: 21
+mapped_fields: 18
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

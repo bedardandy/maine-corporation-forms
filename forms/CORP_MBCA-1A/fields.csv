@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+1aOne,0,text,(Name previously reserved pursuant to §402.1),name_reservation.name_to_reserve,high,"The reserved corporate name being transferred. Reuses MBCA-1's name_reservation.name_to_reserve key — semantically the same name, just at a later moment in its 120-day reservation lifecycle."
+1atwo,0,text,Name of original applicant,name_reservation.applicant.name,high,"The original applicant who reserved the name (the transferor). Reuses MBCA-1's name_reservation.applicant.name — same conceptual identity, just on the transfer form rather than the original reservation form."
+1aThree,0,text,Name of transferee,name_reservation.transferee.name,high,Name of the person/entity receiving the reservation. New schema-gap key parallel to name_reservation.applicant.name; lives in the same name_reservation.* namespace rather than a top-level transfer.*.
+1aFour,0,text,Address of transferee,name_reservation.transferee.address,high,Single-line transferee address (form does not split components). Parallel shape to MBCA-1's name_reservation.applicant.address.
+1aFive,0,text,DATED ___,filing.date_signed,high,Date the transferor signed the document.
+1aSix,0,text,ORIGINAL APPLICANT (Transferor) / (signature of any duly authorized person) / (type or print name and capacity),name_reservation.applicant.printed_name_and_capacity,high,"Combined printed-name-and-capacity widget for the transferor (or duly authorized person signing on the transferor's behalf). Reuses MBCA-1's name_reservation.applicant.printed_name_and_capacity rather than filing.signer.printed_name_and_capacity, mirroring MBCA-1's choice to keep the applicant-signed shape under the name_reservation.* namespace (the form has no separately formed entity yet — there is no 'filing entity' to attach a generic filing.signer.* to)."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Typically populated with the reserved name being transferred.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($20 base per page-0 header plus expedite premium).
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,medium,"Annual-report reminder email — like MBCA-1, this field is meaningless on a name-reservation transfer (no entity is created), but the cover-letter primitive includes it. Typically left blank."
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

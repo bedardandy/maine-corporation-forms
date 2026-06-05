@@ -1,0 +1,56 @@
+checks:
+  - id: pre-conversion-name-required
+    description: entity.name (pre-conversion unincorporated entity name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-entity-name-required
+    description: conversion.new_entity.name is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: required
+  - id: new-entity-name-corp-suffix
+    description: "conversion.new_entity.name contains a statutory corporate suffix per 13-C MRSA §401: 'Corp.', 'Corporation', 'Co.', 'Company', 'Inc.', 'Incorporated', or 'Limited'."
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: required
+  - id: exactly-one-approval-type
+    description: "Exactly one of the THIRD checkboxes is selected (conversion.approval_type ∈ {'domestic','foreign'})."
+    depends_on_keys:
+      - conversion.approval_type
+    severity: required
+  - id: foreign-fields-when-foreign-approval
+    description: "If conversion.approval_type = 'foreign', entity.home_jurisdiction and entity.formation_date_in_home_jurisdiction must be non-empty (SECOND is labeled 'Foreign Unincorporated Entity Only')."
+    depends_on_keys:
+      - conversion.approval_type
+      - entity.home_jurisdiction
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: foreign-jurisdiction-not-maine
+    description: "If conversion.approval_type = 'foreign', entity.home_jurisdiction must not equal 'Maine' or 'ME'."
+    depends_on_keys:
+      - conversion.approval_type
+      - entity.home_jurisdiction
+    severity: required
+  - id: provisions-exhibit-required
+    description: "conversion.new_entity_provisions_exhibit_letter is non-empty (FOURTH requires the attached Articles of Incorporation provisions exhibit, Form MBCA-6-1)."
+    depends_on_keys:
+      - conversion.new_entity_provisions_exhibit_letter
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If conversion.future_effective_date is set, it must be on or after filing.date_signed."
+    depends_on_keys:
+      - conversion.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-base-145
+    description: filing.total_fees_dollars equals $145 base (per page-0 header) plus expedite premium and bundled MBCA-6-1 incorporation fee.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

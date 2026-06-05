@@ -1,0 +1,12 @@
+form_id: LLC_MLLCDENIAL
+code: MLLCDENIAL
+title: Statement of Denial of Authority (Maine LLC)
+entity_type: Limited Liability Company
+statute: Maine Limited Liability Company Act (31 M.R.S. ch. 21)
+num_pages: 2
+num_fields: 18
+mapped_fields: 16
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

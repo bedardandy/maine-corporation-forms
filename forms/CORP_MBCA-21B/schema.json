@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-21B.json",
+  "title": "CORP_MBCA-21B fill data",
+  "type": "object",
+  "properties": {
+    "conversion": {
+      "type": "object",
+      "properties": {
+        "effective_date": {
+          "type": "string",
+          "description": "Effective date of the underlying entity conversion (Maine corp \u2192 foreign unincorporated entity) that this charter-surrender filing memorializes. Populated on the surrender filing as a backward-looking recital of when the conversion took effect; distinct from conversion.future_effective_date (forward-looking effective date for MBCA-21's conversion articles)."
+        },
+        "surviving_entity_jurisdiction": {
+          "type": "string",
+          "description": "Jurisdiction (state or country) under whose laws the surviving entity is organized post-conversion. Free-text. MBCA-21B-specific because the surrender filing must identify where to send process under \u00a7956."
+        },
+        "surviving_entity_executive_office_address": {
+          "type": "string",
+          "description": "Address of the executive office of the surviving entity immediately after the conversion. Required only if the surviving entity is a nonfiling entity (no SOS-equivalent record exists in its home jurisdiction)."
+        },
+        "service_of_process_mailing_address": {
+          "type": "string",
+          "description": "Mailing address at which the Maine Secretary of State will mail copies of any process served on the SOS regarding shareholder appraisal-rights actions arising from the conversion (per 13-C MRSA \u00a7956.1.E and chapter 13). Always required on MBCA-21B because the surviving entity is foreign by definition. Conceptually parallel to merger.foreign_survivor.service_of_process_mailing_address on MBCA-10."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "conversion",
+    "entity",
+    "filing"
+  ]
+}

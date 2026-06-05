@@ -1,0 +1,71 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: text-exhibit-letter-required
+    description: restatement.text_exhibit_letter is non-empty (the form footnote requires Form MNPCA-6-1 with the full restated text accompany this filing).
+    depends_on_keys:
+      - restatement.text_exhibit_letter
+    severity: required
+  - id: adoption-date-required
+    description: restatement.adoption_date is non-empty and parses as a date on or before filing.date_signed.
+    depends_on_keys:
+      - restatement.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: exactly-one-adoption-method
+    description: Exactly one of Check Box4/5/6/10 is selected (restatement.adoption_method set to a single enum value).
+    depends_on_keys:
+      - restatement.adoption_method
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of Commercial or Noncommercial Registered Agent is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: registered-agent-name-required
+    description: registered_agent.name is non-empty.
+    depends_on_keys:
+      - registered_agent.name
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address is non-empty and is not a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number is non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: primary-signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (form footnote ** requires signature by a duly authorized officer per 13-B MRSA §104.1.B)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: secondary-signer-when-member-vote
+    description: "If restatement.adoption_method ∈ {members_majority_at_meeting, members_supermajority_at_meeting, members_written_consent}, the MUST-BE-COMPLETED-FOR-VOTE-OF-MEMBERS clerk-attestation block must be completed (wet-ink only — no widget — but synth/rubric should track the constraint)."
+    depends_on_keys:
+      - restatement.adoption_method
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty (per the cover letter's own rubric: 'failure to provide a contact name and telephone number or email address will result in the return of the erroneous filing(s)')."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: cover-letter-entity-name-matches
+    description: "filing.entities[0].name equals entity.name on body."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: optional

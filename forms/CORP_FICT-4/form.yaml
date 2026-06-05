@@ -1,0 +1,12 @@
+form_id: CORP_FICT-4
+code: FICT-4
+title: Statement of Intention to do Business under a Fictitious Name
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 21
+mapped_fields: 19
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-10.json",
+  "title": "NP_MNPCA-10 fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "merging_corporations_recital": {
+          "type": "string",
+          "description": "Free-text recital of one or more merging Maine corporation names (the parties that merge into the survivor). For Maine/Maine nonprofit mergers this is a single combined widget \u2014 multi-corp scenarios use comma-separated or multi-line input."
+        },
+        "surviving_corporation_name": {
+          "type": "string",
+          "description": "Name of the surviving Maine corporation in a Maine/Maine nonprofit merger."
+        },
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "vote_method": {
+              "type": "string",
+              "description": "Mutually-exclusive enum capturing how a participating corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote' (the last when there are no voting members)."
+            },
+            "vote_method_date": {
+              "type": "string",
+              "description": "Date associated with the selected vote_method (meeting date, written consent date, or board meeting date depending on which option was chosen)."
+            },
+            "name": {
+              "type": "string",
+              "description": "Name of one party to the merger (THIRD voting block recital). Repeats the names from the top-of-page recital for per-corp voting attestation."
+            },
+            "clerk_certification": {
+              "type": "object",
+              "properties": {
+                "corporation_name": {
+                  "type": "string",
+                  "description": "Name of the corporation in the inset member-vote clerk certification block (re-states the corp name to scope the certification)."
+                },
+                "signer_printed_name_and_title": {
+                  "type": "string",
+                  "description": "Printed name and title of the clerk/secretary/assistant secretary who certifies that minutes show the member-vote action. Required when vote_method is one of the member-vote variants (not required when vote_method='board_of_directors_majority_vote')."
+                }
+              }
+            }
+          }
+        },
+        "plan_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the plan of merger (SECOND)."
+        },
+        "surviving_corp": {
+          "type": "object",
+          "properties": {
+            "registered_office_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line registered office address of the surviving corporation in Maine (FOURTH paragraph 1)."
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            }
+          }
+        },
+        "merging_corp": {
+          "type": "object",
+          "properties": {
+            "registered_office_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line registered office address of the merged corporation in Maine (FOURTH paragraph 2)."
+            },
+            "registered_office_address_line1": {
+              "type": "string"
+            },
+            "registered_office_address_line2": {
+              "type": "string"
+            }
+          }
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "vote_method": {
+              "type": "string"
+            },
+            "vote_method_date": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "clerk_certification": {
+              "type": "object",
+              "properties": {
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_printed_name_and_title": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "vote_method": {
+              "type": "string"
+            },
+            "vote_method_date": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "future_effective_date": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "merger"
+  ]
+}

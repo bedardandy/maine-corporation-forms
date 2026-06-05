@@ -1,0 +1,12 @@
+form_id: CORP_CLKRA-3
+code: CLKRA-3
+title: Statement of Appointment or Change of Clerk or Registered Agent
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 3
+num_fields: 33
+mapped_fields: 28
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

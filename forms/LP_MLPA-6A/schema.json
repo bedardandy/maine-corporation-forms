@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-6A.json",
+  "title": "LP_MLPA-6A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "new_name": {
+          "type": "string",
+          "description": "New name of the LP after restatement. If no name change is intended, filer writes 'no change' or repeats the current name. Distinct from entity.name (which captures the pre-restatement name as on record with SOS)."
+        },
+        "initial_filing_date": {
+          "type": "string",
+          "description": "Date the original (pre-restatement) certificate of LP was filed with SOS. Anchors the Restated Certificate to the original filing per 31 MRSA \u00a71322.5. Novel key for Restated-* form variants; not present on the original MLPA-6 certificate."
+        },
+        "name": {
+          "type": "string"
+        },
+        "designated_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            }
+          }
+        },
+        "is_lllp": {
+          "type": "boolean"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "printed_name": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "general_partner_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_entity_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

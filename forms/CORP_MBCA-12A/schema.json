@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-12A.json",
+  "title": "CORP_MBCA-12A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_jurisdiction_name_on_record": {
+          "type": "string",
+          "description": "The foreign entity's legal name as it currently appears on the Maine Secretary of State's record (used by amendment-form recitals to identify which existing record is being modified). Distinct from entity.home_jurisdiction_name, which on amendment forms holds the NEW name post-amendment."
+        },
+        "home_jurisdiction_on_record": {
+          "type": "string",
+          "description": "The foreign entity's home state or country as it currently appears on the SOS record (used by amendment-form recitals). Distinct from entity.home_jurisdiction, which on amendment forms holds the NEW jurisdiction post-amendment."
+        },
+        "maine_authorization_date": {
+          "type": "string"
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "certificate_of_existence_attached": {
+          "type": "boolean",
+          "description": "Boolean confirming that a certificate of existence (or document of similar import) duly authenticated by the home-jurisdiction SOS, dated within 90 days of delivery, accompanies a foreign-entity amendment (specifically required when the home jurisdiction itself has changed under 13-C MRSA \u00a71504 / Item FIFTH). Distinct from the unchecked attachment-presence convention used by CORP_MBCA-12 / MBCA-12B (which require the COE but lack an explicit form widget) \u2014 MBCA-12A introduces a dedicated checkbox so the filer attests on the form."
+        },
+        "fict4_accompanies": {
+          "type": "string"
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,12 @@
+form_id: CORP_MBCA-6-1
+code: MBCA-6-1
+title: Articles of Incorporation (to accompany other filings)
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 25
+mapped_fields: 23
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+2One,0,text,(Name of foreign corporation),entity.home_jurisdiction_name,high,Top-of-page identifier — the foreign corporation's name as it appears in its home jurisdiction. Foreign-form convention per CORP_FICT-4 / LLC_MLLC-12 / CORP_HO-E911.
+2two,0,text,FIRST: ('X' one box only.) [ ] new,filing.application_type,high,Small /Tx widget (rect width ≈17) functioning as a checkbox for 'new'. Mutually-exclusive with 2three. Enum value 'new'. The form intends an X mark — implemented as /Tx rather than /Btn (template anomaly).
+2three,0,text,FIRST: [ ] renewal,filing.application_type,high,"Small /Tx widget (rect width ≈17) functioning as a checkbox for 'renewal'. Mutually-exclusive with 2two. Enum value 'renewal'. Drafter originally mapped this to entity.home_jurisdiction — corrected during review based on rect (tiny ≈17-wide widget on the same y-row as 2two, immediately preceding the 'renewal' label)."
+2four,0,text,SECOND: The state or country under the laws of which it is incorporated is ____,entity.home_jurisdiction,high,"Trailing blank ending the SECOND paragraph 1 (rect x=370..573 — right side only, matches a trailing-line blank). Holds the foreign entity's home state or country. Reuses the entity.home_jurisdiction key family (CORP_FICT-4, CLKRA-3, MLLC-12, MBCA-12, HO-E911). Drafter originally mapped this to entity.principal_office.physical_address — corrected during review based on rect position and the SECOND paragraph layout."
+2five,0,text,SECOND: ...and the address of its principal office is located at: ____ (line 1),entity.principal_office.address_line1,high,"Wide labeled line for the principal office address line 1 (street). Two-line address_line{1,2} pattern (same shape as registered_office.address_line{1,2} on MNPCA-11 / 11A / 11C — extended to entity.principal_office.* for this form's three-physical-line address layout)."
+2six,0,text,"SECOND: ____ (street, city, state and zip code) (line 2)",entity.principal_office.address_line2,high,"Wide labeled line for the principal office address line 2 (street, city, state, zip code) per the parenthetical label below the widget."
+2seven,0,text,THIRD: The date of its incorporation is ____,entity.formation_date_in_home_jurisdiction,high,Original incorporation date in the home jurisdiction. Same conceptual key as the formation-date semantics on CORP_FICT-4 / MLLC-12 (named entity.maine_authorization_date there for the Maine authorization date — distinct from this form's home-jurisdiction date of incorporation).
+2eight,0,text,FOURTH: A brief statement of the nature of the corporation's activities to be conducted in Maine.,entity.maine_business_purpose,high,Free-text description of activities the foreign nonprofit will conduct in Maine. Reuses the entity.maine_business_purpose key family used for foreign-qualification forms.
+2nine,0,text,DATED ____,filing.date_signed,high,Signing date (bottom-left of page 0).
+2ten,0,text,*By ____ (signature of any duly authorized individual) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined name+capacity of the duly authorized signing individual. Shape D per 2026-04-30-filing-signer-shape.md.
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees. Page-0 header reads 'Filing Fee $5.00 per month. Renewal Fee $50.00.' — synth must compute base fee per filing.application_type (new = $5/month × months remaining in calendar year; renewal = $50).
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email (distinct from filing.contact.email).
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

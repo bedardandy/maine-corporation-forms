@@ -1,0 +1,143 @@
+{
+ "form_id": "NP_MNPCA-6-1",
+ "fields": {
+  "filing.accompanying_document_type": {
+   "field_type": "enum_select",
+   "page": 0,
+   "confidence": "medium",
+   "label": "Articles of Nonprofit Conversion (13-C MRSA \u00a7933)",
+   "options": {
+    "articles_of_nonprofit_conversion": "Check Box6",
+    "statement_of_conversion": "Check Box7",
+    "restated_articles_of_incorporation": "Check Box8"
+   },
+   "binding_source": "geometry_verified + opus_vision_alignment (high)"
+  },
+  "entity.name": {
+   "widget_id": "Text9",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "FIRST: The name of the corporation is"
+  },
+  "entity.nonprofit_type": {
+   "widget_id": [
+    "Check Box10",
+    "Check Box11"
+   ],
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes"
+  },
+  "entity.public_benefit_purpose": {
+   "widget_id": "Text30",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "(public benefit purposes description)"
+  },
+  "entity.mutual_benefit_purpose": {
+   "widget_id": "Text19",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "(mutual benefit purposes description)"
+  },
+  "registered_agent.type": {
+   "widget_id": [
+    "Check Box12",
+    "Check Box13"
+   ],
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "THIRD: Commercial Registered Agent"
+  },
+  "registered_agent.cra_public_number": {
+   "widget_id": "Text22",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "CRA Public Number",
+   "when": "registered_agent.type == 'commercial'"
+  },
+  "registered_agent.name": {
+   "widget_id": [
+    "Text21",
+    "Text23"
+   ],
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "(name of commercial registered agent)"
+  },
+  "registered_agent.physical_address": {
+   "widget_id": "Text24",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "(physical location, not P.O. Box \u2013 street, city, state and zip code)"
+  },
+  "registered_agent.mailing_address": {
+   "widget_id": "Text25",
+   "field_type": "text",
+   "page": 0,
+   "confidence": "high",
+   "label": "(mailing address if different from above)"
+  },
+  "entity.initial_directors_count": {
+   "widget_id": "Text26",
+   "field_type": "text",
+   "page": 1,
+   "confidence": "high",
+   "label": "FIFTH: ...the initial board of directors of the corporation, if the number has been determined ... is ___"
+  },
+  "entity.directors_min_count": {
+   "widget_id": "Text27",
+   "field_type": "text",
+   "page": 1,
+   "confidence": "high",
+   "label": "FIFTH: The minimum number of directors (not less than 3) shall be ___"
+  },
+  "entity.directors_max_count": {
+   "widget_id": "Text28",
+   "field_type": "text",
+   "page": 1,
+   "confidence": "high",
+   "label": "FIFTH: ...and the maximum number of directors shall be ___"
+  },
+  "entity.has_members": {
+   "widget_id": [
+    "Check Box14",
+    "Check Box15"
+   ],
+   "field_type": "checkbox",
+   "page": 1,
+   "confidence": "high",
+   "label": "SIXTH: There shall be no members."
+  },
+  "entity.no_political_activities_clause": {
+   "widget_id": "Check Box16",
+   "field_type": "text",
+   "page": 1,
+   "confidence": "high",
+   "label": "SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ..."
+  },
+  "entity.has_501c_exhibit": {
+   "widget_id": "Check Box17",
+   "field_type": "checkbox",
+   "page": 1,
+   "confidence": "high",
+   "label": "EIGHTH: (Optional) ... Other provisions ... are set out in Exhibit ___"
+  },
+  "entity.501c_exhibit_letter": {
+   "widget_id": "Text29",
+   "field_type": "text",
+   "page": 1,
+   "confidence": "high",
+   "label": "Exhibit ___ attached hereto",
+   "when": "entity.has_501c_exhibit == true"
+  }
+ }
+}

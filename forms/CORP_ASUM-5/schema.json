@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_ASUM-5.json",
+  "title": "CORP_ASUM-5 fill data",
+  "type": "object",
+  "properties": {
+    "assumed_name": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The assumed name (DBA) under which an existing Maine entity intends to transact business. Distinct from entity.maine_fictitious_name (used by foreign entities to substitute for a non-conforming home name on qualification filings) \u2014 an assumed name is an additional trade name layered on top of a legal name, not a substitute identity."
+        },
+        "locations": {
+          "type": "string",
+          "description": "Free-text list of specific Maine locations where the assumed name will be used. Conditional: only populated when the DBA is location-restricted; if the assumed name is used at all places of business, this field is left blank."
+        },
+        "additional_locations_exhibit": {
+          "type": "boolean",
+          "description": "Boolean opt-in flagging that additional Maine locations are listed on an attached exhibit."
+        },
+        "additional_locations_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit listing additional locations (e.g., 'A'). Set when assumed_name.additional_locations_exhibit is true."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "maine_authorization_date": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_partner_entity_name": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "assumed_name",
+    "entity",
+    "filing"
+  ]
+}

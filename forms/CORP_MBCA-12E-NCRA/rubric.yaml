@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty (must match SOS record).
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: registered-agent-name-required
+    description: "registered_agent.name is non-empty (the resigning agent's name as on record)."
+    depends_on_keys:
+      - registered_agent.name
+    severity: required
+  - id: registered-agent-physical-address-required
+    description: registered_agent.physical_address is non-empty (must match SOS record verbatim).
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: notice-recipient-name-required
+    description: resignation_notice.recipient_name is non-empty.
+    depends_on_keys:
+      - resignation_notice.recipient_name
+    severity: required
+  - id: notice-recipient-address-required
+    description: resignation_notice.recipient_address is non-empty.
+    depends_on_keys:
+      - resignation_notice.recipient_address
+    severity: required
+  - id: notice-recipient-title-required
+    description: resignation_notice.recipient_title is non-empty (must be a corporate-officer title).
+    depends_on_keys:
+      - resignation_notice.recipient_title
+    severity: required
+  - id: filing-date-required
+    description: "filing.date_signed is non-empty (resignation effective date is filing.date_signed + 31 days, by §111)."
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-name-required
+    description: "filing.signer.printed_name is non-empty. Should equal registered_agent.name (the form's signature block is signed by the resigning agent)."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - registered_agent.name
+    severity: required
+  - id: signer-matches-resigning-agent
+    description: "filing.signer.printed_name should match registered_agent.name (the resigning agent is the signer; mismatch indicates either a typo or that someone other than the agent of record is signing, which §111 does not authorize)."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - registered_agent.name
+    severity: required
+  - id: fee-base-35
+    description: filing.total_fees_dollars equals $35 base (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

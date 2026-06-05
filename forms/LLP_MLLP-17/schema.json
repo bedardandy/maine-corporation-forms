@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-17.json",
+  "title": "LLP_MLLP-17 fill data",
+  "type": "object",
+  "properties": {
+    "correction": {
+      "type": "object",
+      "properties": {
+        "original_filing_date": {
+          "type": "string",
+          "description": "Date the original document (now being corrected) was filed with the Secretary of State."
+        },
+        "original_document_type": {
+          "type": "string",
+          "description": "Title/type of the original document being corrected (e.g., 'Certificate of Limited Liability Partnership', 'Certificate of Amendment'). NOTE: on MLLP-17 this concept is visible on the form ('partnership entitled: ___') but the corresponding AcroForm widget is MISSING \u2014 template-level upstream bug. The canonical key is reserved for future correction-style forms that DO bind it."
+        },
+        "defect_description": {
+          "type": "string",
+          "description": "Free-text description of the inaccuracy or defect in the original filing that necessitates the correction (THIRD recital)."
+        },
+        "corrected_text": {
+          "type": "string",
+          "description": "Free-text replacement for the defective portion of the original document \u2014 what it should read in its entirety after correction (FOURTH recital). Multi-line."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of an entity-partner (corporate/LLC) that is signing the certificate on behalf of itself as a partner. Used when a partner of the LLP is itself an entity rather than a natural person. Parallel-block analog to the per-officer pattern's `<role>_entity_N.name`, but applied to a generic 'filer is one of multiple partners' context (not formation-time roles)."
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity of the natural person signing on behalf of an entity-partner (filing.signer_entity.name). Same primitive as `<role>_entity_N.signer_printed_name_and_capacity` from per-officer-signer-pattern, applied under filing.signer_entity.*."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "correction",
+    "entity",
+    "filing"
+  ]
+}

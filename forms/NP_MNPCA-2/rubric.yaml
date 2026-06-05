@@ -1,0 +1,59 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: exactly-one-application-type
+    description: "Exactly one of FIRST options is selected (filing.application_type ∈ {'new', 'renewal'})."
+    depends_on_keys:
+      - filing.application_type
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (this is a foreign-only form)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: principal-office-required
+    description: entity.principal_office.address_line2 (the wide labeled street/city/state/zip line) is non-empty.
+    depends_on_keys:
+      - entity.principal_office.address_line2
+    severity: required
+  - id: formation-date-required
+    description: entity.formation_date_in_home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: business-purpose-required
+    description: entity.maine_business_purpose is non-empty (FOURTH paragraph).
+    depends_on_keys:
+      - entity.maine_business_purpose
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: renewal-window
+    description: "If filing.application_type='renewal', filing.date_signed is between October 1 and December 31 (page-0 instruction: 'A renewal application can be filed between October 1 and December 31 of the current calendar year')."
+    depends_on_keys:
+      - filing.application_type
+      - filing.date_signed
+    severity: required
+  - id: fee-by-application-type
+    description: "If filing.application_type='renewal', filing.total_fees_dollars equals $50 base; if 'new', filing.total_fees_dollars equals $5 × months remaining in calendar year (per page-0 header). Plus expedite premium per filing.expedited_service tier."
+    depends_on_keys:
+      - filing.application_type
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

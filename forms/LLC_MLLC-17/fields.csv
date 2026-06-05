@@ -1,0 +1,23 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+name,0,text,(Name of Maine or Foreign Limited Liability Company),entity.name,high,"Top-of-form LLC name. Form serves both domestic and foreign LLCs from a single 'entity.name' widget — no separate entity.home_jurisdiction_name slot is provided here, unlike the Application for Authority filings."
+file date,0,text,FIRST: On ___ (filing date) the Secretary of State filed a document delivered for filing by the undersigned limited liability company entitled,correction.original_filing_date,high,Date the original document being corrected was filed with the SOS.
+form filed,0,text,"limited liability company entitled: ___ (i.e. Application for Authority to do Business, Assumed Name, etc.)",correction.original_document_name,high,"Title of the original document being corrected (e.g., 'Application for Authority to do Business', 'Statement of Assumed Name')."
+Text5,0,text,THIRD: The incorrect or inaccurate information to be corrected and the reason it is incorrect or inaccurate or the manner in which the signing was defective is described as follows,correction.error_description,high,Large multiline text widget for describing the error and the reason for correction.
+Text10,0,text,FOURTH: The correction of the incorrect or inaccurate information or the correction to the manner in which the signing was defective is described as follows,correction.corrected_information,high,Large multiline text widget for describing the corrected information.
+dated,1,text,DATED ___,filing.date_signed,high,Date the Statement of Correction is signed. Single Dated field shared across both signer slots.
+name and capacity 1,1,text,*Authorized person (block 1): (signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,First authorized signer's combined name+capacity widget. Shape D (matches MBCA-11 / MLLC-12 / MBCA-21 / MBCA-20). The form provides two parallel signature blocks ('*Authorized person' x2); the first is treated as the primary signer.
+name and capacity 2,1,text,*Authorized person (block 2): (signature) / (type or print name and capacity),filing.signer_2.printed_name_and_capacity,high,"Second authorized signer's combined name+capacity widget (Shape D, optional). Used when more than one authorized person co-signs the correction. Per-signer numbering (signer_2) parallels the merger-form pattern (merger.parties[N].signature_block.signer_1/signer_2 on MBCA-10) but at the filing level rather than per-party."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees (base $50 per page-0 header plus expedite premium).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

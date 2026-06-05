@@ -1,0 +1,57 @@
+checks:
+  - id: llc-name-suffix-required
+    description: "entity.name ends with one of the statutory suffixes: 'Limited Liability Company', 'Limited Company', 'L.L.C.', 'LLC', 'L.C.', 'LC', or (if low-profit) 'L3C' or 'l3c' (case-insensitive substring match per 31 MRSA §1508)."
+    depends_on_keys:
+      - entity.name
+      - entity.is_low_profit_llc
+    severity: required
+  - id: exactly-one-effective-date-choice
+    description: Exactly one of the SECOND options is selected.
+    depends_on_keys:
+      - entity.formation_effective_date_choice
+    severity: required
+  - id: later-date-required-when-elected
+    description: "If entity.formation_effective_date_choice = 'later_specified', entity.formation_effective_date must be set and on or after filing.date_signed."
+    depends_on_keys:
+      - entity.formation_effective_date_choice
+      - entity.formation_effective_date
+      - filing.date_signed
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_llc is true, entity.professional_services_description must be non-empty."
+    depends_on_keys:
+      - entity.is_professional_llc
+      - entity.professional_services_description
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of FIFTH commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type = 'commercial', registered_agent.cra_public_number must be set; if 'noncommercial', it must be absent."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: registered-agent-name-required
+    description: registered_agent.name is non-empty (regardless of type).
+    depends_on_keys:
+      - registered_agent.name
+    severity: required
+  - id: registered-agent-physical-not-pobox
+    description: registered_agent.physical_address must not be a P.O. Box.
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: exactly-one-expedite-tier
+    description: At most one of the three cover-letter expedite checkboxes is set.
+    depends_on_keys:
+      - filing.expedited_service
+    severity: optional
+  - id: low-profit-and-professional-mutually-exclusive
+    description: entity.is_low_profit_llc and entity.is_professional_llc cannot both be true.
+    depends_on_keys:
+      - entity.is_low_profit_llc
+      - entity.is_professional_llc
+    severity: required

@@ -1,0 +1,62 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-filing-date-required
+    description: entity.original_filing_date is non-empty and not in the future.
+    depends_on_keys:
+      - entity.original_filing_date
+    severity: required
+  - id: exactly-one-revival-entity-type
+    description: Exactly one of THIRD A/B/C/D is selected (revival.entity_type set to a single enum value).
+    depends_on_keys:
+      - revival.entity_type
+    severity: required
+  - id: clerk-at-dissolution-required
+    description: revival.clerk_at_dissolution.name and revival.clerk_at_dissolution.address are both non-empty.
+    depends_on_keys:
+      - revival.clerk_at_dissolution.name
+      - revival.clerk_at_dissolution.address
+    severity: required
+  - id: purpose-required
+    description: revival.purpose is non-empty (concatenation of all four FIFTH lines).
+    depends_on_keys:
+      - revival.purpose
+    severity: required
+  - id: time-period-required
+    description: revival.time_period_needed is non-empty.
+    depends_on_keys:
+      - revival.time_period_needed
+    severity: required
+  - id: at-least-one-requesting-party
+    description: "At least one of requesting_party_{1,2,3}.printed_name is non-empty along with the corresponding address rows."
+    depends_on_keys:
+      - requesting_party_1.printed_name
+      - requesting_party_2.printed_name
+      - requesting_party_3.printed_name
+    severity: required
+  - id: signer-printed-name-required
+    description: filing.signer.printed_name is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-matches-entity-type
+    description: "filing.total_fees_dollars equals $25 (nonprofit) or $150 (business corp / LLC / LP), plus expedite premium if any."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - revival.entity_type
+      - filing.expedited_service
+    severity: optional
+  - id: entities-consistent
+    description: "filing.entities[0].name on cover letter matches entity.name on body (same entity through revival)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: optional

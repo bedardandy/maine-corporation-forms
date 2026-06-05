@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-11.json",
+  "title": "CORP_MBCA-11 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "original_articles_filing_date": {
+          "type": "string",
+          "description": "Date the original articles of incorporation were filed with the SOS \u2014 referenced on dissolution and other amendment-style filings."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "dissolution": {
+      "type": "object",
+      "properties": {
+        "authorization_date": {
+          "type": "string",
+          "description": "Date the dissolution was internally authorized by the corporation."
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Optional delayed effective date for the dissolution; blank means effective upon filing."
+        },
+        "shareholder_approval_obtained": {
+          "type": "boolean",
+          "description": "Boolean affirming statutory shareholder approval was obtained for the dissolution proposal."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity (officer title or 'Clerk') of the person signing the filing."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

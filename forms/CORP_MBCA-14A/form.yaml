@@ -1,0 +1,12 @@
+form_id: CORP_MBCA-14A
+code: MBCA-14A
+title: Certificate of Resumption (for a Maine Business Corporation)
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 22
+mapped_fields: 19
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

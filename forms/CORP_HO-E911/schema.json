@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_HO-E911.json",
+  "title": "CORP_HO-E911 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_office_address_old": {
+          "type": "string",
+          "description": "Single-line previous home-office address of a foreign entity as it appeared on the SOS record before a municipal/USPS-imposed change. Distinct from `entity.maine_office.*` (which is the Maine office) and from `registered_agent.*` (which is the in-Maine registered-agent address)."
+        },
+        "home_office_address_new": {
+          "type": "object",
+          "properties": {
+            "physical": {
+              "type": "string",
+              "description": "Single-line new physical home-office address (street/city/state/zip). Form explicitly forbids P.O. boxes here."
+            },
+            "mailing": {
+              "type": "string",
+              "description": "Optional new mailing address used when distinct from the new physical location."
+            }
+          }
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "maine_authorization_date": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "authorized_by": {
+          "type": "string",
+          "description": "Who authorized the address change. Enum: 'town_municipality' | 'us_postal_service'. On HO-E911 the choice is captured by two adjacent /Tx widgets (Text7, Text8) that visually appear as checkboxes \u2014 the signer typically marks one with 'X'.",
+          "enum": [
+            "town_municipality",
+            "us_postal_service"
+          ]
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

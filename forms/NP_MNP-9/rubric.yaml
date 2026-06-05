@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name is non-empty (header) and matches filing.entities[0].name (cover-letter row 1)."
+    depends_on_keys:
+      - entity.name
+      - "filing.entities[0].name"
+    severity: required
+  - id: exactly-one-nonprofit-type
+    description: Exactly one of FIRST public_benefit/mutual_benefit options is selected.
+    depends_on_keys:
+      - entity.nonprofit_type
+    severity: required
+  - id: amendment-text-nonempty
+    description: At least amendment.nature_and_text.line1 is non-empty (a Certificate of Amendment must describe what is changing).
+    depends_on_keys:
+      - amendment.nature_and_text.line1
+    severity: required
+  - id: adoption-date-required
+    description: amendment.adoption_date is non-empty.
+    depends_on_keys:
+      - amendment.adoption_date
+    severity: required
+  - id: adoption-date-not-future
+    description: amendment.adoption_date is not in the future relative to filing.date_signed.
+    depends_on_keys:
+      - amendment.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: exactly-one-adoption-method
+    description: Exactly one of THIRD member_vote/board_of_directors_majority_vote options is selected.
+    depends_on_keys:
+      - amendment.adoption_method
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (Shape D).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: signer-capacity-secretary-or-clerk
+    description: "filing.signer.printed_name_and_capacity contains 'Secretary' or 'Clerk' (form footnote requires the document be signed by the secretary or clerk)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

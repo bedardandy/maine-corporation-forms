@@ -1,0 +1,23 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Partnership as it appears on the records of the Secretary of State),entity.name,high,LP name as it appears on the SOS record. Must match record exactly so SOS can identify the entity whose RA slot is being vacated.
+Text2,0,text,FIRST: (name of current noncommercial registered agent),registered_agent.name,high,"Name of the noncommercial registered agent of record (i.e., the resigning party / filer). Reuses the established registered_agent.* namespace per CORP_MBCA-3A-NCRA / CORP_MBCA-12E-NCRA / LLC_MLLC-3A-NCRA precedent. (Drafter proposed `resigning_agent.name`; corrected during review.)"
+Text3,0,text,"(physical street address, city, state and zip code – as it appears on the record)",registered_agent.physical_address,high,"Single-line physical address of the noncommercial RA of record. Form explicitly says 'as it appears on the record' — value must match SOS record verbatim, not the agent's current preferred address. (Drafter proposed `resigning_agent.physical_address`; corrected.)"
+Text4,0,text,SECOND: (insert name) — person at the LP to receive §111 notice,resignation_notice.recipient_name,high,Name of the person at the LP to whom the agent will deliver the §111-required notice of resignation. Reuses the existing resignation_notice.* namespace from the NCRA family. (Drafter proposed `resignation_notice_recipient.name`; corrected to dotted-suffix form for namespace consistency.)
+Text5,0,text,(mailing address including zip code) — for §111 notice,resignation_notice.recipient_address,high,Mailing address (single line incl. ZIP) where the §111 notice of resignation will be sent. (Drafter proposed `resignation_notice_recipient.mailing_address`; corrected.)
+Text6,0,text,(title of person notified),resignation_notice.recipient_title,high,Title of the person at the LP receiving the §111 notice. Form caption is the broad '(title of person notified)' — for an LP this is typically 'General Partner' (not corporate-officer titles). Same caption as LLC_MLLC-3A-NCRA.
+Text7,0,text,Dated ____,filing.date_signed,high,Date the statement of resignation is signed; resignation takes effect 31 days after this filing is delivered to the LP.
+Text8,0,text,(type or print name) — below the (signature of noncommercial registered agent) caption,filing.signer.printed_name,high,"Signer printed name (Shape B — name only, no separate title widget). The signer is by definition the resigning RA whose name was already entered at Text2; redundant by design (form acts as both attestation and signature). Same as the rest of the NCRA family."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day' (+$50).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day' (+$100).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($35 base per page-0 header plus expedite premium).
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email (applies to the LP; resignation does not affect annual-report obligations — only the RA slot).
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

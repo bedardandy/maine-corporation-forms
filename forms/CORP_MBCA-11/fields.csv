@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation),entity.name,high,Existing corporation name being dissolved.
+Text2,0,text,FIRST: The date the original articles of incorporation were filed,entity.original_articles_filing_date,high,Original incorporation-filing date of the corporation.
+Text3,0,text,SECOND: The date on which the dissolution was authorized is,dissolution.authorization_date,high,Date the dissolution was authorized internally.
+Text4,0,text,THIRD: The future effective date of the articles of dissolution (if other than the date of filing) is,dissolution.effective_date,high,Optional delayed effective date; blank means effective on filing.
+Check Box7,0,checkbox,FOURTH: [Check if applicable] The proposal to dissolve was duly approved by the shareholders in the manner required by this Act and by the corporation's articles of incorporation.,dissolution.shareholder_approval_obtained,high,Boolean affirming statutory shareholder approval (only relevant when shares have been issued).
+Text5,0,text,DATED ___,filing.date_signed,high,Date of signature.
+Text6,0,text,*By ___ (signature of any duly authorized officer) / (type or print name and capacity),filing.signer.printed_name_and_capacity,medium,"Single text field on the signature row; treating as printed name + capacity (e.g., 'Jane Doe, President')."
+Name of entitys on the submitted filings 1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box1,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'. Note: this form uses Check Box1/2/3 instead of the 14/15/16 numbering on other cover-letter pages.
+Check Box2,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box3,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,medium,"Persistent annual-report reminder email — note: dissolved entities won't receive future reports, so this is typically left blank."
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

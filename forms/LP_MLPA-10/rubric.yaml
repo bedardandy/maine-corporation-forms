@@ -1,0 +1,82 @@
+checks:
+  - id: at-least-two-parties
+    description: "merger.parties[0].recital and merger.parties[1].recital are both non-empty (a merger requires at least 2 constituent parties)."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+    severity: required
+  - id: additional-parties-when-overflow
+    description: "If all four merger.parties[N].recital are populated AND any further parties exist beyond row 4, merger.additional_parties_attached must be true and merger.additional_parties_exhibit_letter must be set."
+    depends_on_keys:
+      - "merger.parties[3].recital"
+      - merger.additional_parties_attached
+      - merger.additional_parties_exhibit_letter
+    severity: required
+  - id: surviving-entity-fields-required
+    description: "merger.surviving_entity.name, merger.surviving_entity.form, and merger.surviving_entity.jurisdiction are all non-empty."
+    depends_on_keys:
+      - merger.surviving_entity.name
+      - merger.surviving_entity.form
+      - merger.surviving_entity.jurisdiction
+    severity: required
+  - id: effective-date-required
+    description: merger.effective_date is non-empty.
+    depends_on_keys:
+      - merger.effective_date
+    severity: required
+  - id: fifth-election-required
+    description: Exactly one merger.fifth_election option is selected.
+    depends_on_keys:
+      - merger.fifth_election
+    severity: required
+  - id: fifth-subelection-when-preexisted
+    description: "If merger.fifth_election='preexisted', exactly one merger.fifth_subelection option must be selected (amendments_attached vs organizational_docs_unchanged)."
+    depends_on_keys:
+      - merger.fifth_election
+      - merger.fifth_subelection
+    severity: required
+  - id: third-fifth-consistency
+    description: "merger.surviving_entity_created_by_merger=true iff merger.fifth_election='created_by_merger' (THIRD and FIFTH option 1 declare the same fact)."
+    depends_on_keys:
+      - merger.surviving_entity_created_by_merger
+      - merger.fifth_election
+    severity: required
+  - id: foreign-survivor-address-when-foreign
+    description: "If merger.surviving_entity.jurisdiction is not 'Maine'/'ME', merger.foreign_survivor.service_of_process_physical_address must be set."
+    depends_on_keys:
+      - merger.surviving_entity.jurisdiction
+      - merger.foreign_survivor.service_of_process_physical_address
+    severity: required
+  - id: each-party-signed
+    description: "For each populated merger.parties[N].recital (N in 0..3), the corresponding signature_block.name_and_type, signature_block.date_signed, and signature_block.signer_1.printed_name_and_capacity must be non-empty."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[0].signature_block.name_and_type"
+      - "merger.parties[0].signature_block.date_signed"
+      - "merger.parties[0].signature_block.signer_1.printed_name_and_capacity"
+    severity: required
+  - id: lp-constituent-multi-signer
+    description: "For each LP constituent (recital includes 'Limited Partnership' / 'L.P.' / 'LP' / LLLP), all GPs must sign per §1438 footnote — rubric loosens to ≥2 signer slots populated when the party is identifiable as an LP, since synth may not have full GP roster info."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[0].signature_block.signer_1.printed_name_and_capacity"
+      - "merger.parties[0].signature_block.signer_2.printed_name_and_capacity"
+    severity: advisory
+  - id: filing-date-not-future
+    description: filing.contact and signature dates not in the future (effective_date may be future-dated; signature dates may not).
+    depends_on_keys:
+      - "merger.parties[0].signature_block.date_signed"
+    severity: required
+  - id: fee-base-150
+    description: filing.total_fees_dollars equals $150 base (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

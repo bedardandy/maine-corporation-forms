@@ -1,0 +1,48 @@
+checks:
+  - id: entity-name-required
+    description: entity.name (the partnership name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: dissociating-partner-named
+    description: dissociating_partner.name is non-empty (the FIRST recital is meaningless without it).
+    depends_on_keys:
+      - dissociating_partner.name
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name (individual partner) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity partner). Both blocks empty or both populated is a fill error."
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-capacity-required
+    description: "If filing.signer_entity.name is populated, filing.signer_entity.signer_printed_name_and_capacity must also be populated."
+    depends_on_keys:
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name (the partnership being filed for)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: fee-matches-tier
+    description: filing.total_fees_dollars equals base $20 plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,19 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+5aOne,0,text,(Real Name of Corporation),entity.name,high,Top-of-form blank labeled '(Real Name of Corporation)' — the real legal name of the corporation that is terminating its assumed/fictitious-name registration.
+5aTwo,0,text,SECOND: The corporation intends to terminate the assumed or fictitious name of ___,entity.assumed_or_fictitious_name,high,"The specific assumed/fictitious name being terminated. This is the same canonical concept that the original (CORP_MBCA-5) registration form would populate; on the termination form, the same key identifies which prior registration is being terminated."
+5aThree,0,text,DATED ___,filing.date_signed,high,Date the termination statement was signed.
+5aFour,0,text,*By ___ (signature of any duly authorized person) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name and capacity of the signer (Shape D from filing-signer-shape convention; same as CORP_MBCA-11, LLC_MLLC-12). The asterisk-footnote allows 'any duly authorized officer OR the clerk' (§121.5)."
+Name of entitys on the submitted filings 1,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,"Cover-letter row 1. NOTE: this template uses the field-id 'Name of entitys on the submitted filings 1' (with index '1'), distinct from the more-common 'Name of entity' field-id used on later cover-letter revisions. Same canonical key."
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box1,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'. NOTE: this template uses 'Check Box1/2/3' for the cover-letter expedite tier instead of the more-common 'Check Box14/15/16'. Same canonical key.
+Check Box2,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box3,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total filing fee enclosed (USD); base $20 per page 0 header plus any expedite premium.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Persistent annual-report reminder email.
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

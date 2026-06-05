@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Liability Partnership),entity.home_jurisdiction_name,high,Foreign LLP's legal name in its home jurisdiction. Foreign-correction analog to LLP_MLLP-17's `entity.name` — uses entity-name-vs-home-jurisdiction convention.
+Text6,0,text,"a partnership organized under the laws of the jurisdiction of ____, and authorized to do business in Maine",entity.home_jurisdiction,high,State or country of organization. Same key family as LLC_MLLC-12 / CORP_MBCA-12 foreign-qualification forms.
+Text7,0,text,FIRST: On ____ (date) the Secretary of State filed a document delivered for filing by the undersigned foreign limited liability partnership entitled:,correction.original_filing_date,high,Date the original (incorrect) document was filed. Same key as LLP_MLLP-17.
+Text2,0,text,"partnership entitled: ____ (i.e. Application for Authority to do Business, Assumed Name, etc.)",correction.original_document_type,high,"Title/type of the original document being corrected (e.g., Application for Authority, Assumed Name). Same key as LLP_MLLP-17 schema_gap; on this template it IS bound to a widget (unlike LLP_MLLP-17 where the analogous blank has no AcroForm widget — upstream template difference)."
+Text8,0,text,THIRD: The inaccuracy or defect to be corrected is described as follows:,correction.defect_description,high,Large multi-line text box (rect ~121pt high) for free-text description of the inaccuracy or defect (THIRD recital). Same key as LLP_MLLP-17.
+Text9,0,text,FOURTH: The portion of the said document to be corrected is corrected to read in its entirety as follows:,correction.corrected_text,high,Large multi-line text box (rect ~113pt high) for the corrected text replacing the defective portion (FOURTH recital). Same key as LLP_MLLP-17.
+Text10,1,text,DATED ____,filing.date_signed,high,Date the certificate is signed.
+Text3,1,text,Partner(s)* ... (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget for individual-partner signature. Shape D (matching LLP_MLLP-17, CORP_MBCA-11, LLC_MLLC-12). The (signature) line above is wet-ink only and has no AcroForm widget."
+Text4,1,text,For Partner(s) which are Entities — Name of Entity,filing.signer_entity.name,high,"Name of the entity-partner when the signer is a corporate/LLC partner rather than a natural person. Parallel block to the individual-partner block above. Same key family as LLP_MLLP-17, GP_MPA-1, LP_MLPA-6's `general_partner_entity_N.name`."
+Text5,1,text,For Partner(s) which are Entities — By ____ (type or print name and capacity),filing.signer_entity.signer_printed_name_and_capacity,high,Combined name+capacity of the natural person signing on behalf of the entity-partner. Same primitive as LLP_MLLP-17.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees enclosed.
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

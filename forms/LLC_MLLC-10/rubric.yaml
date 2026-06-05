@@ -1,0 +1,79 @@
+checks:
+  - id: at-least-two-parties
+    description: "merger.parties[0].recital and merger.parties[1].recital are both non-empty (a merger requires at least 2 constituent organizations)."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[1].recital"
+    severity: required
+  - id: additional-parties-when-overflow
+    description: "If all four merger.parties[N].recital are populated AND further parties exist, merger.additional_parties_attached must be true and merger.additional_parties_exhibit_letter must be set."
+    depends_on_keys:
+      - "merger.parties[3].recital"
+      - merger.additional_parties_attached
+      - merger.additional_parties_exhibit_letter
+    severity: required
+  - id: surviving-entity-fields-required
+    description: "merger.surviving_entity.name, merger.surviving_entity.form, merger.surviving_entity.jurisdiction, merger.surviving_entity.date_of_organization, and merger.surviving_entity.principal_office.physical_address are all non-empty."
+    depends_on_keys:
+      - merger.surviving_entity.name
+      - merger.surviving_entity.form
+      - merger.surviving_entity.jurisdiction
+      - merger.surviving_entity.date_of_organization
+      - merger.surviving_entity.principal_office.physical_address
+    severity: required
+  - id: third-election-required
+    description: "Exactly one merger.third_election option is selected ('created_by_merger' or 'preexisted')."
+    depends_on_keys:
+      - merger.third_election
+    severity: required
+  - id: third-subelection-when-preexisted
+    description: "If merger.third_election='preexisted', exactly one merger.third_subelection option must be selected (amendments_attached vs organizational_docs_unchanged). If merger.third_election='created_by_merger', merger.third_subelection must be unset."
+    depends_on_keys:
+      - merger.third_election
+      - merger.third_subelection
+    severity: required
+  - id: survivor-org-date-consistency
+    description: "If merger.third_election='created_by_merger', merger.surviving_entity.date_of_organization should equal merger.effective_date (the survivor was created by the merger so its formation date is the merger date)."
+    depends_on_keys:
+      - merger.third_election
+      - merger.surviving_entity.date_of_organization
+      - merger.effective_date
+    severity: advisory
+  - id: effective-date-required
+    description: merger.effective_date is non-empty.
+    depends_on_keys:
+      - merger.effective_date
+    severity: required
+  - id: foreign-survivor-address-when-foreign
+    description: "If merger.surviving_entity.jurisdiction is not 'Maine'/'ME', merger.foreign_survivor.service_of_process_physical_address must be set."
+    depends_on_keys:
+      - merger.surviving_entity.jurisdiction
+      - merger.foreign_survivor.service_of_process_physical_address
+    severity: required
+  - id: each-party-signed
+    description: "For each populated merger.parties[N].recital (N in 0..3), the corresponding signature_block.name_and_type, signature_block.date_signed, and signature_block.signer_1.printed_name_and_capacity must be non-empty."
+    depends_on_keys:
+      - "merger.parties[0].recital"
+      - "merger.parties[0].signature_block.name_and_type"
+      - "merger.parties[0].signature_block.date_signed"
+      - "merger.parties[0].signature_block.signer_1.printed_name_and_capacity"
+    severity: required
+  - id: filing-entity-name-matches-survivor
+    description: "filing.entities[0].name should match merger.surviving_entity.name (the survivor is the post-merger filer)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - merger.surviving_entity.name
+    severity: advisory
+  - id: fee-base-150
+    description: filing.total_fees_dollars equals $150 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

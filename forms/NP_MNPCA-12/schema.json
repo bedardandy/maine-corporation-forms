@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-12.json",
+  "title": "NP_MNPCA-12 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "fict4_accompanies": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating Form FICT-4 (Statement of Fictitious Name) is bundled with this foreign-qualification application. Set when entity.maine_fictitious_name is populated and the filer is using a fictitious name in Maine per 13-B MRSA \u00a7301-A. Distinct from generic filing.bundled_with \u2014 this is a form-specific declaration with its own checkbox."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_purpose_description_line{1,2}": {
+          "type": "string",
+          "description": "Two-line free-text description of the purposes the foreign nonprofit is authorized to carry on under the laws of its home jurisdiction. _line1/_line2 split mirrors registered_office.address_line{1,2} convention."
+        },
+        "maine_activities_scope": {
+          "type": "string",
+          "description": "Whether the foreign nonprofit seeks authority for ALL activities authorized in its home jurisdiction (Maine-allowed) or only a SPECIFIC subset. Enum: 'all' (FOURTH Yes) | 'specific' (FOURTH No, with subset detailed in entity.maine_specific_activities_line{1,2}).",
+          "enum": [
+            "all",
+            "specific"
+          ]
+        },
+        "maine_specific_activities_line{1,2}": {
+          "type": "string",
+          "description": "Two-line free-text description of the specific subset of activities for which Maine authority is sought, used when entity.maine_activities_scope='specific'."
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address_line{1,2}": {
+              "type": "string",
+              "description": "Two-line single-concept physical address of the principal/registered office (combined street/city/state/zip). Distinct from the physical+mailing pair pattern on MBCA-12 \u2014 NP_MNPCA-12 uses two widgets for one address concept rather than physical-plus-optional-mailing."
+            },
+            "physical_address_line1": {
+              "type": "string"
+            },
+            "physical_address_line2": {
+              "type": "string"
+            }
+          }
+        },
+        "home_jurisdiction_name": {
+          "type": "string"
+        },
+        "maine_fictitious_name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string"
+        },
+        "home_purpose_description_line1": {
+          "type": "string"
+        },
+        "home_purpose_description_line2": {
+          "type": "string"
+        },
+        "maine_specific_activities_line1": {
+          "type": "string"
+        },
+        "maine_specific_activities_line2": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

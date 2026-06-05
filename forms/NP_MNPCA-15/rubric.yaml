@@ -1,0 +1,49 @@
+checks:
+  - id: consenting-entity-name-required
+    description: "entity.name (consenting corporation's current name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: indistinguishable-name-required
+    description: indistinguishable_name.proposed_name is non-empty (FIRST line 1 — the name being consented to).
+    depends_on_keys:
+      - indistinguishable_name.proposed_name
+    severity: required
+  - id: requestor-name-required
+    description: indistinguishable_name.requestor_name is non-empty (FIRST line 2 — the entity that will use the name).
+    depends_on_keys:
+      - indistinguishable_name.requestor_name
+    severity: required
+  - id: new-name-required
+    description: "entity.new_name is non-empty (THIRD — the consenting entity's new distinguishable name)."
+    depends_on_keys:
+      - entity.new_name
+    severity: required
+  - id: new-name-distinguishable-from-old
+    description: entity.new_name must differ from entity.name (the whole point of this filing is to change the name to something distinguishable).
+    depends_on_keys:
+      - entity.name
+      - entity.new_name
+    severity: required
+  - id: registered-office-required
+    description: registered_agent.physical_address is non-empty (FOURTH).
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: at-least-one-signer
+    description: At least one of filing.signer or filing.signer_2 printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals the $5.00 base fee (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

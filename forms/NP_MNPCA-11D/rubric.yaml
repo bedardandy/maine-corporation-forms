@@ -1,0 +1,45 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: intent-date-required
+    description: dissolution.intent_filed_date is non-empty and on or before filing.date_signed (Articles of Dissolution must post-date the prior intent filing).
+    depends_on_keys:
+      - dissolution.intent_filed_date
+      - filing.date_signed
+    severity: required
+  - id: registered-office-required
+    description: registered_office.address_line2 (the wide labeled street/city/state/zip line) is non-empty.
+    depends_on_keys:
+      - registered_office.address_line2
+    severity: required
+  - id: first-signer-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (13-B MRSA §104.1.B requires at least one authorized officer to sign).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: second-signer-optional
+    description: "filing.signer_2.printed_name_and_capacity is optional; if present, must be a different person from signer_1 (cannot validate identity from the form alone)."
+    depends_on_keys:
+      - filing.signer_2.printed_name_and_capacity
+    severity: optional
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-10
+    description: filing.total_fees_dollars equals $10 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

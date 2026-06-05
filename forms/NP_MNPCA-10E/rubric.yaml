@@ -1,0 +1,75 @@
+checks:
+  - id: at-least-two-parties
+    description: "At least two consolidation.parties[N].name are non-empty (consolidation requires ≥2 participating corporations)."
+    depends_on_keys:
+      - "consolidation.parties[0].name"
+      - "consolidation.parties[1].name"
+    severity: required
+  - id: party-name-descriptor-pair
+    description: "If consolidation.parties[N].name is non-empty, consolidation.parties[N].descriptor must also be non-empty (every party has a name + descriptor pair on page 0)."
+    depends_on_keys:
+      - "consolidation.parties[0].name"
+      - "consolidation.parties[0].descriptor"
+      - "consolidation.parties[1].name"
+      - "consolidation.parties[1].descriptor"
+    severity: required
+  - id: new-entity-name-and-descriptor
+    description: "consolidation.new_entity.name and consolidation.new_entity.descriptor are both non-empty (the consolidation produces a NEW corp, which must be named)."
+    depends_on_keys:
+      - consolidation.new_entity.name
+      - consolidation.new_entity.descriptor
+    severity: required
+  - id: plan-exhibit-required
+    description: consolidation.plan_exhibit_letter is a single uppercase letter (THIRD references the plan via exhibit).
+    depends_on_keys:
+      - consolidation.plan_exhibit_letter
+    severity: required
+  - id: exactly-one-adoption-method
+    description: "consolidation.parties[0].adoption_method is exactly one of the 4 enum values (FOURTH 'X one box only')."
+    depends_on_keys:
+      - "consolidation.parties[0].adoption_method"
+    severity: required
+  - id: adoption-date-when-method-set
+    description: "If consolidation.parties[0].adoption_method is set, consolidation.parties[0].adoption_date must also be set."
+    depends_on_keys:
+      - "consolidation.parties[0].adoption_method"
+      - "consolidation.parties[0].adoption_date"
+    severity: required
+  - id: adoption-percentage-when-supermajority
+    description: "If consolidation.parties[0].adoption_method='supermajority_member_vote', consolidation.parties[0].adoption_percentage should be set (NOTE: the percentage widget is missing from the AcroForm — filer writes by hand)."
+    depends_on_keys:
+      - "consolidation.parties[0].adoption_method"
+      - "consolidation.parties[0].adoption_percentage"
+    severity: optional
+  - id: fifth-addresses-required
+    description: "Both parties' FIFTH registered-office addresses (line2, the labeled street/city/state/zip line) are non-empty."
+    depends_on_keys:
+      - "consolidation.parties[0].registered_office_address_line2"
+      - "consolidation.parties[1].registered_office_address_line2"
+    severity: required
+  - id: future-effective-date-cap
+    description: "If consolidation.effective_date is set, it must be on or after filing.date_signed AND no later than filing.date_signed + 60 days (per 13-B MRSA §906 cap)."
+    depends_on_keys:
+      - consolidation.effective_date
+      - filing.date_signed
+    severity: required
+  - id: signature-blocks-populated
+    description: "Each party's signature_block has date_signed, corporation_name, and printed_name_and_capacity populated. (signature widget is wet-ink and may be blank.)"
+    depends_on_keys:
+      - "consolidation.parties[0].signature_block.date_signed"
+      - "consolidation.parties[0].signature_block.corporation_name"
+      - "consolidation.parties[0].signature_block.printed_name_and_capacity"
+      - "consolidation.parties[1].signature_block.date_signed"
+      - "consolidation.parties[1].signature_block.corporation_name"
+      - "consolidation.parties[1].signature_block.printed_name_and_capacity"
+    severity: required
+  - id: fee-min-25
+    description: "filing.total_fees_dollars >= $25 base (per page 0 header §1481) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+    severity: optional
+  - id: exactly-one-expedite-tier
+    description: "Exactly one of the cover-letter expedite checkboxes ('hold' / '24h' / 'imm') is selected."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required

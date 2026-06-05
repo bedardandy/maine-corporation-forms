@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLCSOA.json",
+  "title": "LLC_MLLCSOA fill data",
+  "type": "object",
+  "properties": {
+    "authority_N": {
+      "type": "object",
+      "properties": {
+        "person_or_position": {
+          "type": "string",
+          "description": "Name of a person or existing position being granted authority or limitations under 31 MRSA \u00a71542.1. Indexed list (1..3 inline; overflow via authority.additional_exhibit_letter)."
+        },
+        "authority_text_line_M": {
+          "type": "string",
+          "description": "Free-form text describing the authority granted or limitations imposed for authority block N. The form provides 4 single-line widgets per block (M=1..4) \u2014 fill them as a multi-line paragraph. Synth concatenates with linebreaks; rubrics check that line 1 is non-empty when person_or_position is set."
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "additional_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of an exhibit containing additional authority blocks beyond the three inline slots. The form's checkbox-equivalent affordance is the inline exhibit-letter widget itself: presence of a letter implies the exhibit is attached."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_N": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Multi-signer Shape D variant. N=1..3. Used when a form has multiple parallel filing-signer slots (vs. the single filing.signer.printed_name_and_capacity used on MBCA-11/MLLC-12). Some 31 MRSA \u00a71542 statements may be signed by multiple authorized persons reflecting joint authority. Distinct from merger.parties[N].signature_block.signer_M (per-party merger signers) and from per-officer signers (general_partner_N.printed_name)."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_3": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "authority_1": {
+      "type": "object",
+      "properties": {
+        "person_or_position": {
+          "type": "string"
+        },
+        "authority_text_line_1": {
+          "type": "string"
+        },
+        "authority_text_line_2": {
+          "type": "string"
+        },
+        "authority_text_line_3": {
+          "type": "string"
+        },
+        "authority_text_line_4": {
+          "type": "string"
+        }
+      }
+    },
+    "authority_2": {
+      "type": "object",
+      "properties": {
+        "person_or_position": {
+          "type": "string"
+        },
+        "authority_text_line_1": {
+          "type": "string"
+        },
+        "authority_text_line_2": {
+          "type": "string"
+        },
+        "authority_text_line_3": {
+          "type": "string"
+        },
+        "authority_text_line_4": {
+          "type": "string"
+        }
+      }
+    },
+    "authority_3": {
+      "type": "object",
+      "properties": {
+        "person_or_position": {
+          "type": "string"
+        },
+        "authority_text_line_1": {
+          "type": "string"
+        },
+        "authority_text_line_2": {
+          "type": "string"
+        },
+        "authority_text_line_3": {
+          "type": "string"
+        },
+        "authority_text_line_4": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "authority_1",
+    "entity",
+    "filing"
+  ]
+}

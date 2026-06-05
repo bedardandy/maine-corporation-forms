@@ -1,0 +1,45 @@
+checks:
+  - id: pre-conversion-name-required
+    description: entity.name (pre-conversion corporate name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-entity-name-required
+    description: conversion.new_entity.name is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: required
+  - id: new-entity-type-required
+    description: conversion.new_entity.type is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.type
+    severity: required
+  - id: new-entity-name-suffix-by-type
+    description: "conversion.new_entity.name contains a statutory suffix appropriate for conversion.new_entity.type (e.g., 'LLC' / 'L.L.C.' / 'Limited Liability Company' for LLC per 31 MRSA §1508; 'LP' / 'L.P.' / 'Limited Partnership' for LP per 31 MRSA §1308)."
+    depends_on_keys:
+      - conversion.new_entity.name
+      - conversion.new_entity.type
+    severity: required
+  - id: provisions-exhibit-required-when-filing-entity
+    description: "If conversion.new_entity.type implies a filing entity (LLC, LP, LLLP, etc.), conversion.new_entity_provisions_exhibit_letter must be set and the corresponding formation form (MLLC-6 / MLPA-6) must be bundled."
+    depends_on_keys:
+      - conversion.new_entity.type
+      - conversion.new_entity_provisions_exhibit_letter
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If conversion.future_effective_date is set, it must be on or after filing.date_signed."
+    depends_on_keys:
+      - conversion.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (signer must be 'an officer or other duly authorized representative' per §955.1; cannot be auto-validated from form alone)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-base-145
+    description: filing.total_fees_dollars equals $145 base (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

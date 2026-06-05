@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-6.json",
+  "title": "LLC_MLLC-6 fill data",
+  "type": "object",
+  "properties": {
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Whether the registered agent is a Commercial Registered Agent (CRA) or a Noncommercial Registered Agent. Enum: 'commercial' | 'noncommercial'.",
+          "enum": [
+            "commercial",
+            "noncommercial"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the registered agent (used by LLC/LP/LLP/NP filings; mirrors clerk.name on Business Corp filings since BCs use 'clerk' terminology while LLCs use 'registered agent')."
+        },
+        "cra_public_number": {
+          "type": "string",
+          "description": "Maine SOS Commercial Registered Agent (CRA) public registration number; required only when registered_agent.type = 'commercial'."
+        },
+        "physical_address": {
+          "type": "string",
+          "description": "Physical-location address of the registered agent (NOT a P.O. Box). Single-line: street, city, state, zip."
+        },
+        "mailing_address": {
+          "type": "string",
+          "description": "Optional mailing address of the registered agent if different from physical location."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "formation_effective_date_choice": {
+          "type": "string",
+          "description": "Whether the LLC's effective date is the date of filing or a later specified date. Enum: 'on_filing' | 'later_specified'.",
+          "enum": [
+            "on_filing",
+            "later_specified"
+          ]
+        },
+        "formation_effective_date": {
+          "type": "string",
+          "description": "Specific later effective date (only set when entity.formation_effective_date_choice = 'later_specified')."
+        },
+        "is_low_profit_llc": {
+          "type": "boolean",
+          "description": "Boolean elect-in for L3C (low-profit) status under 31 MRSA \u00a71611, with statutory qualifications A\u2013D."
+        },
+        "is_professional_llc": {
+          "type": "boolean",
+          "description": "Boolean elect-in for professional-LLC status under 13 MRSA Chapter 22-A."
+        },
+        "statement_of_authority_exhibit_letter": {
+          "type": "string",
+          "description": "Optional exhibit letter referencing an initial statement of authority (per 31 MRSA \u00a71542.1) attached to the certificate of formation."
+        },
+        "name": {
+          "type": "string"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_title": {
+              "type": "string",
+              "description": "Printed name and title of the authorized person who signed (e.g., 'Member', 'Manager', 'Authorized Person')."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "registered_agent"
+  ]
+}

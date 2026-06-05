@@ -1,0 +1,49 @@
+checks:
+  - id: entity-name-required
+    description: entity.name (pre-conversion corporate name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: conversion-effective-date-required
+    description: conversion.effective_date is non-empty (FIRST paragraph requires the effective date of the conversion).
+    depends_on_keys:
+      - conversion.effective_date
+    severity: required
+  - id: conversion-effective-date-not-after-filing
+    description: conversion.effective_date should be on or before filing.date_signed — the surrender filing memorializes a conversion that has already taken effect.
+    depends_on_keys:
+      - conversion.effective_date
+      - filing.date_signed
+    severity: optional
+  - id: surviving-jurisdiction-required
+    description: conversion.surviving_entity_jurisdiction is non-empty (THIRD paragraph requires the home jurisdiction of the surviving entity).
+    depends_on_keys:
+      - conversion.surviving_entity_jurisdiction
+    severity: required
+  - id: executive-office-conditional
+    description: "If the surviving entity is a nonfiling entity (e.g., GP, sole proprietorship), conversion.surviving_entity_executive_office_address must be non-empty. For filing entities (LLC, LP, corp in another state), the field may be left blank."
+    depends_on_keys:
+      - conversion.surviving_entity_executive_office_address
+      - conversion.surviving_entity_jurisdiction
+    severity: optional
+  - id: service-address-required
+    description: conversion.service_of_process_mailing_address is non-empty (FIFTH paragraph mandates SOS-as-agent appointment for appraisal-rights service).
+    depends_on_keys:
+      - conversion.service_of_process_mailing_address
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (signer must be 'an officer or other duly authorized representative' per §956.1)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-90
+    description: filing.total_fees_dollars equals $90 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

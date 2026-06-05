@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/MARK_mark4.json",
+  "title": "MARK_mark4 fill data",
+  "type": "object",
+  "properties": {
+    "mark": {
+      "type": "object",
+      "properties": {
+        "assignor": {
+          "type": "object",
+          "properties": {
+            "name_and_address": {
+              "type": "string",
+              "description": "Combined name and address of the assignor (current owner transferring the mark). Two-line free-form widget where both lines bind to the same canonical key."
+            },
+            "entity_type": {
+              "type": "string",
+              "description": "Mutually-exclusive enum of the assignor's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation). Mirrors mark.applicant.entity_type from MARK_mark1."
+            },
+            "entity_type_other_explanation": {
+              "type": "string",
+              "description": "Free-text explanation when assignor.entity_type='other'."
+            },
+            "jurisdiction_of_organization": {
+              "type": "string",
+              "description": "Home jurisdiction (state) of the assignor entity. Required when assignor.entity_type implies a registered entity (corporation, LP, LLC, LLP, or 'other' resolving to such)."
+            },
+            "date_of_organization": {
+              "type": "string",
+              "description": "Date assignor entity was incorporated/organized in its home jurisdiction."
+            },
+            "printed_name_and_capacity": {
+              "type": "string",
+              "description": "Printed name and capacity of the natural person signing for the assignor. Bound to two widgets \u2014 the Whereas-clause recital (mark4Nineteen) and the Signature-line (mark4Twentytwo) \u2014 both filled with the same value."
+            },
+            "date_signed": {
+              "type": "string",
+              "description": "Date the assignor signed the assignment (distinct from mark.assignment.date_of_transfer, which is the legal effective date)."
+            }
+          }
+        },
+        "assignment": {
+          "type": "object",
+          "properties": {
+            "date_of_transfer": {
+              "type": "string",
+              "description": "Date the mark was legally sold/assigned/transferred per the assignor's recital ('said mark has been sold, assigned and transferred on (date)')."
+            }
+          }
+        },
+        "assignee": {
+          "type": "object",
+          "properties": {
+            "name_and_address": {
+              "type": "string",
+              "description": "Combined name and address of the assignee (new owner receiving the mark). Two-line free-form widget where both lines bind to the same canonical key."
+            },
+            "entity_type": {
+              "type": "string",
+              "description": "Mutually-exclusive enum of the assignee's legal form (same enum values as mark.assignor.entity_type)."
+            },
+            "entity_type_other_explanation": {
+              "type": "string",
+              "description": "Free-text explanation when assignee.entity_type='other'."
+            },
+            "jurisdiction_of_organization": {
+              "type": "string",
+              "description": "Home jurisdiction (state) of the assignee entity."
+            },
+            "date_of_organization": {
+              "type": "string",
+              "description": "Date assignee entity was incorporated/organized in its home jurisdiction."
+            },
+            "date_signed": {
+              "type": "string",
+              "description": "Date the assignee signed/accepted the assignment."
+            }
+          }
+        },
+        "charter_number": {
+          "type": "integer"
+        },
+        "text_words": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "design_features": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "mark"
+  ]
+}

@@ -1,0 +1,70 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty (FIRST).
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: original-report-date-required-and-past
+    description: filing.original_annual_report_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: amendment-window-same-filing-year
+    description: "filing.date_signed is on or before December 31 of the year of filing.original_annual_report_date (per the * footnote: amendment window is from original filing date until Dec 31 of that filing year)."
+    depends_on_keys:
+      - filing.original_annual_report_date
+      - filing.date_signed
+    severity: required
+  - id: changes-description-nonempty
+    description: At least one of amendment.changes_description.line1–line8 is non-empty.
+    depends_on_keys:
+      - amendment.changes_description.line1
+      - amendment.changes_description.line2
+      - amendment.changes_description.line3
+      - amendment.changes_description.line4
+      - amendment.changes_description.line5
+      - amendment.changes_description.line6
+      - amendment.changes_description.line7
+      - amendment.changes_description.line8
+    severity: required
+  - id: amendment-effective-date-required
+    description: amendment.effective_date is non-empty (FOURTH).
+    depends_on_keys:
+      - amendment.effective_date
+    severity: required
+  - id: signer-required
+    description: "At least one signer present: general_partner_1.printed_name OR (general_partner_entity_1.name + general_partner_entity_1.signer_printed_name_and_capacity). §1324.1.J only requires one GP signature."
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-gp-consistency
+    description: "If general_partner_entity_1.name is set, general_partner_entity_1.signer_printed_name_and_capacity must also be set."
+    depends_on_keys:
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required

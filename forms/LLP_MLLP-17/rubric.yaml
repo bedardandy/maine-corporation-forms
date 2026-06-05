@@ -1,0 +1,52 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-filing-date-required
+    description: correction.original_filing_date is non-empty.
+    depends_on_keys:
+      - correction.original_filing_date
+    severity: required
+  - id: original-filing-date-not-future
+    description: "correction.original_filing_date is on or before filing.date_signed (cannot correct a document that hasn't been filed yet)."
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: defect-description-required
+    description: correction.defect_description is non-empty.
+    depends_on_keys:
+      - correction.defect_description
+    severity: required
+  - id: corrected-text-required
+    description: correction.corrected_text is non-empty.
+    depends_on_keys:
+      - correction.corrected_text
+    severity: required
+  - id: signer-required-individual-or-entity
+    description: "Either (filing.signer.printed_name_and_capacity) is non-empty for an individual-partner signer, OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) are both non-empty for an entity-partner signer. At least one path must be populated per 31 MRSA §826.1.B/2."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

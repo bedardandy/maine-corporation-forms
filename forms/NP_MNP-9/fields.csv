@@ -1,0 +1,36 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation),entity.name,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+bene,0,radio,FIRST: ('X' one box only.) [ ] public benefit corporation / [ ] mutual benefit corporation,entity.nonprofit_type,high,"Radio group; options: public_benefit->/bene, mutual_benefit->/bene1"
+Text15,0,text,SECOND: NATURE OF CHANGE / TEXT of amendment (line 1 — top),amendment.nature_and_text.line1,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text14,0,text,SECOND: amendment text (line 2),amendment.nature_and_text.line2,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text12,0,text,SECOND: amendment text (line 3),amendment.nature_and_text.line3,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text16,0,text,SECOND: amendment text (line 4),amendment.nature_and_text.line4,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text17,0,text,SECOND: amendment text (line 5),amendment.nature_and_text.line5,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text18,0,text,SECOND: amendment text (line 6),amendment.nature_and_text.line6,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text19,0,text,SECOND: amendment text (line 7),amendment.nature_and_text.line7,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text20,0,text,SECOND: amendment text (line 8),amendment.nature_and_text.line8,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text21,0,text,SECOND: amendment text (line 9),amendment.nature_and_text.line9,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text22,0,text,SECOND: amendment text (line 10),amendment.nature_and_text.line10,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text23,0,text,SECOND: amendment text (line 11),amendment.nature_and_text.line11,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text24,0,text,SECOND: amendment text (line 12),amendment.nature_and_text.line12,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text25,0,text,SECOND: amendment text (line 13),amendment.nature_and_text.line13,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text26,0,text,SECOND: amendment text (line 14),amendment.nature_and_text.line14,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text27,0,text,SECOND: amendment text (line 15 — bottom),amendment.nature_and_text.line15,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text28,1,text,THIRD: The amendment was adopted on (date) ___,amendment.adoption_date,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+vote,1,radio,THIRD: [ ] By the members at a meeting (majority of votes entitled to be cast) / [ ] By majority vote of the whole board (if no members entitled to vote),amendment.adoption_method,high,"Radio group; options: member_vote->/bene, board_vote->/bene1"
+Text29,1,text,DATED ___,filing.date_signed,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Text38,1,text,(type or print name and capacity),filing.signer.printed_name_and_capacity,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,"Shared value across widgets ['Check Box14', 'Check Box15', 'Check Box16']; Mapped from pass-1 field_mappings; widget verified present in AcroForm."
+Check Box15,2,text,Hold attested copy for pick up,filing.expedited_service,high,"Shared value across widgets ['Check Box14', 'Check Box15', 'Check Box16']; Mapped from pass-1 field_mappings; widget verified present in AcroForm."
+Check Box16,2,text,Hold attested copy for pick up,filing.expedited_service,high,"Shared value across widgets ['Check Box14', 'Check Box15', 'Check Box16']; Mapped from pass-1 field_mappings; widget verified present in AcroForm."
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Mapped from pass-1 field_mappings; widget verified present in AcroForm.

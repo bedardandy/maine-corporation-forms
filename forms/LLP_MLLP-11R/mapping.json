@@ -1,0 +1,222 @@
+{
+  "form_id": "LLP_MLLP-11R",
+  "fields": {
+    "entity.name": {
+      "widget_id": "11r1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Limited Liability Partnership)"
+    },
+    "entity.llp_certificate_filing_date": {
+      "widget_id": "11r2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The date of filing of its certificate of limited liability partnership was"
+    },
+    "renunciation.reason.line1": {
+      "widget_id": "11r3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: The reason for filing the certificate of renunciation is \u2014 line 1"
+    },
+    "renunciation.reason.line2": {
+      "widget_id": "11r4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: reason text (line 2)"
+    },
+    "renunciation.reason.line3": {
+      "widget_id": "11r5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: reason text (line 3 \u2014 bottom)"
+    },
+    "renunciation.future_effective_date": {
+      "widget_id": "11r6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The future effective date or time of renunciation, which must be a date or time certain, if it is not to be effective upon the filing of the certificate"
+    },
+    "renunciation.additional_info_exhibit_letter": {
+      "widget_id": "11r7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: Other information, if any, that the person filing the certificate of renunciation determines to be necessary is set forth in Exhibit ___"
+    },
+    "filing.date_signed": {
+      "widget_id": "11r8",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "DATED ___"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "11r9",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Authorized Signature(s)*: (signature) / (type or print name and capacity) [row 1]"
+    },
+    "filing.signer_2.printed_name_and_capacity": {
+      "widget_id": "11r10",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Authorized Signature(s)*: row 2"
+    },
+    "filing.signer_3.printed_name_and_capacity": {
+      "widget_id": "11r11",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Authorized Signature(s)*: row 3"
+    },
+    "filing.entity_signer_1.name": {
+      "widget_id": "11r12",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "For Authorized Signature(s) on behalf of Entities: Name of Entity [row 1]"
+    },
+    "filing.entity_signer_1.signer_printed_name_and_capacity": {
+      "widget_id": "11r13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "By (authorized signature) / (type or print name and capacity) [entity row 1]"
+    },
+    "filing.entity_signer_2.name": {
+      "widget_id": "11r14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Name of Entity [row 2]"
+    },
+    "filing.entity_signer_2.signer_printed_name_and_capacity": {
+      "widget_id": "11r15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "By (authorized signature) / (type or print name and capacity) [entity row 2]"
+    },
+    "filing.entity_signer_3.name": {
+      "widget_id": "11r16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Name of Entity [row 3]"
+    },
+    "filing.entity_signer_3.signer_printed_name_and_capacity": {
+      "widget_id": "11r17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "By (authorized signature) / (type or print name and capacity) [entity row 3]"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of contact person"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Daytime telephone number"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Contact email address for this filing"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Email address to use for annual report reminders"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of attested copy recipient"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Firm or Company"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Mailing Address"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "City, State & Zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

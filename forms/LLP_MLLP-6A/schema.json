@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-6A.json",
+  "title": "LLP_MLLP-6A fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "original_name": {
+          "type": "string",
+          "description": "Name of the entity as filed on its original certificate/articles, when the current name differs (post-restatement or post-name-amendment). Used on restated certificates to disclose the original filing identity. Distinct from entity.name (current) and amendment.new_entity_name (the proposed new name on a name-change amendment)."
+        },
+        "name": {
+          "type": "string"
+        },
+        "original_articles_filing_date": {
+          "type": "string"
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "partner_N": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Combined printed name and capacity of a partner signing an LLP filing. Multi-slot per-officer pattern (N=1..2 inline; overflow on attached exhibit). Mirrors MLPA-6's general_partner_N.* convention but uses 'partner' for LLP terminology (LLPs do not have 'general partners' per 31 MRSA Ch 13). Distinct from filing.signer.* (single signer on amendments like MLLP-9) \u2014 used when the form provides multiple parallel signature slots for partners."
+        }
+      }
+    },
+    "partner_entity_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Legal name of a partner that is itself an entity (corporation/LLC/LP) signing through an authorized representative. Multi-slot per-officer pattern (N=1..2). Parallel to MLPA-6's general_partner_entity_N.name but for LLP terminology."
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string",
+          "description": "Combined printed name + capacity of the natural person who signs on behalf of an entity-partner. Same Shape-D primitive as filing.signer.printed_name_and_capacity but scoped under partner_entity_N.* for the entity-partner-as-signer pattern on multi-slot LLP filings."
+        }
+      }
+    },
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "new_entity_name": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "contact_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "partner_1": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "partner_2": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "partner_entity_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "partner_entity_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

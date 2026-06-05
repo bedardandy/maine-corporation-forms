@@ -1,0 +1,50 @@
+checks:
+  - id: entity-name-required
+    description: entity.name (real corporate name) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: assumed-name-required
+    description: assumed_name.name (the assumed/fictitious name being terminated) is non-empty.
+    depends_on_keys:
+      - assumed_name.name
+    severity: required
+  - id: assumed-name-not-equal-entity-name
+    description: assumed_name.name should differ from entity.name (an assumed name that matches the legal name is meaningless).
+    depends_on_keys:
+      - assumed_name.name
+      - entity.name
+    severity: required
+  - id: registered-office-required
+    description: registered_office.address_line2 (the wide labeled street/city/state/zip line) is non-empty.
+    depends_on_keys:
+      - registered_office.address_line2
+    severity: required
+  - id: signer-1-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (at least one duly authorized officer must sign per 13-B MRSA §104.1.B).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: signer-2-recommended
+    description: filing.signer_2.printed_name_and_capacity is recommended — the form provides a second slot but only one signer is statutorily required.
+    depends_on_keys:
+      - filing.signer_2.printed_name_and_capacity
+    severity: optional
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-5
+    description: filing.total_fees_dollars equals $5 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

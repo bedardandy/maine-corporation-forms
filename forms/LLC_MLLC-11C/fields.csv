@@ -1,0 +1,25 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Limited Liability Company),entity.name,high,Primary entity name field at the top of the Certificate of Cancellation.
+Text2,0,text,FIRST: The date the limited liability company's original certificate of formation was filed,entity.formation_date,high,Date the LLC was originally formed in Maine — anchor for verifying that cancellation is post-formation. Reuses the entity.formation_date key family used elsewhere across LLC/foreign-qualification forms.
+Text5,0,text,SECOND: The limited liability company is dissolved and the date of dissolution (if known) is,entity.dissolution_date,high,Date of internal dissolution (board/manager/member action) — distinct from the cancellation effective date which controls when SOS removes the LLC from the active records.
+,0,text,THIRD: [ ] the date of filing of this certificate,cancellation.effective_date_type,high,"First mutually-exclusive option in the cancellation effective-date election. Enum value 'date_of_filing'. Unnamed widget at rect [102.1, 409.0, 117.1, 424.1] — empty field_id is preserved as-is upstream; fill engine matches by rect/widget index."
+,0,text,THIRD: [ ] the future effective date as follows,cancellation.effective_date_type,high,"Second mutually-exclusive option ('future_date'). Unnamed widget at rect [101.5, 384.1, 116.4, 399.3] — empty field_id is preserved upstream."
+Text6,0,text,the future effective date as follows: ___,cancellation.future_effective_date,high,Inline date blank for the future-effective-date option. Required only when cancellation.effective_date_type='future_date'.
+Text7,0,text,FOURTH: ...set forth in Exhibit ___ attached and made a part hereof,filing.additional_info_exhibit_letter,high,Inline exhibit letter for additional information. Reuses the filing.additional_info_exhibit_letter key established on LP_MLPA-11C (same termination/cancellation-style 'other information' provision).
+Text8,0,text,DATED ___,filing.date_signed,high,Date the cancellation certificate is signed. Distinct from cancellation.future_effective_date (which can be later) and entity.dissolution_date (which can be earlier).
+Text4,0,text,*Authorized Signature** — (signature),,low,"Wet-ink signature line widget. Same convention as ASUM-5/MBCA-9: AcroForm template includes a /Tx field at the signature underline but Maine SOS expects wet-ink or scanned-image signatures, not typed text. Synth and rubric should leave this widget empty; signature is applied post-print. No canonical key assigned."
+Text9,0,text,(type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget for the authorized signer — Shape D per filing-signer-shape convention. Same pattern as MLLC-12, MBCA-11. Capacity is broader than title (e.g., 'Authorized Person' under §1676.1.B/C is allowed)."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($75 base per page-0 'Filing Fee $75.00' header plus expedite premium).
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Filing-contact name.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Filing-contact phone.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,medium,Annual-report reminder email — note: a cancelled LLC will not have annual reports going forward; this field on a cancellation filing is essentially advisory and may be left blank.
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

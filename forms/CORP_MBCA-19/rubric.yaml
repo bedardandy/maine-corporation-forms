@@ -1,0 +1,61 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: formation-date-required
+    description: entity.formation_date_in_home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+    severity: required
+  - id: formation-date-not-after-filing
+    description: entity.formation_date_in_home_jurisdiction is on or before filing.date_signed (cannot domesticate before original incorporation).
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - filing.date_signed
+    severity: required
+  - id: articles-exhibit-required
+    description: domestication.articles_exhibit_letter is non-empty (Form MBCA-6-1 must be attached).
+    depends_on_keys:
+      - domestication.articles_exhibit_letter
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If domestication.future_effective_date is set, it must be on or after filing.date_signed."
+    depends_on_keys:
+      - domestication.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: maine-name-suffix-when-set
+    description: "If domestication.maine_name is set, it must contain a 13-C MRSA §401-compliant corporate suffix ('Corporation', 'Incorporated', 'Company', 'Limited', or an abbreviation)."
+    depends_on_keys:
+      - domestication.maine_name
+    severity: advisory
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be an officer or duly authorized representative per §923).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-145
+    description: filing.total_fees_dollars equals $145 base (per page 0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

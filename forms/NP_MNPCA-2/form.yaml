@@ -1,0 +1,12 @@
+form_id: NP_MNPCA-2
+code: MNPCA-2
+title: Application for Registration of Name (Foreign Nonprofit Corporation)
+entity_type: Nonprofit Corporation
+statute: Maine Nonprofit Corporation Act (13-B M.R.S.)
+num_pages: 2
+num_fields: 24
+mapped_fields: 21
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

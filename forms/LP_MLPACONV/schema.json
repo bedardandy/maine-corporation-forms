@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPACONV.json",
+  "title": "LP_MLPACONV fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "organization_type": {
+          "type": "string",
+          "description": "Free-text legal form of the entity (e.g., 'Limited Partnership', 'Limited Liability Company'). Distinct from form-id metadata; populated when the entity itself recites its type on the form. NEW with MLPA-Conv \u2014 anticipated reuse on other recital forms."
+        },
+        "governing_statute_jurisdiction": {
+          "type": "string",
+          "description": "Jurisdiction whose statute governs the entity (e.g., 'Maine'). Distinct from entity.home_jurisdiction (foreign-qualification flavor) \u2014 this key is unscoped and applies when the form recites the governing law explicitly even if domestic."
+        },
+        "formation_date": {
+          "type": "string",
+          "description": "Date the entity was originally formed under its governing statute. Unscoped \u2014 distinct from entity.formation_date_in_home_jurisdiction (foreign-qualification flavor)."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "conversion": {
+      "type": "object",
+      "properties": {
+        "new_entity": {
+          "type": "object",
+          "properties": {
+            "governing_statute_jurisdiction": {
+              "type": "string",
+              "description": "Jurisdiction whose organic statute governs the post-conversion (resulting) entity. Sub-key under conversion.new_entity.*."
+            },
+            "formation_date": {
+              "type": "string",
+              "description": "Date the resulting entity was/will be formed under its governing statute. Sub-key under conversion.new_entity.*."
+            },
+            "principal_office": {
+              "type": "object",
+              "properties": {
+                "physical_address": {
+                  "type": "string",
+                  "description": "Single-line physical address of the post-conversion entity's principal office. Sub-key under conversion.new_entity.*."
+                }
+              }
+            },
+            "foreign_service_of_process_mailing_address": {
+              "type": "object",
+              "properties": {
+                "line1": {
+                  "type": "string",
+                  "description": "First line of \u00a71435 service-of-process mailing address for a foreign resulting entity not authorized to transact business in Maine. Required only when the resulting entity is foreign AND unauthorized; SOS becomes agent for service of process by appointment."
+                },
+                "line2": {
+                  "type": "string",
+                  "description": "Second/continuation line of the \u00a71435 service-of-process address."
+                }
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "REQUIRED effective date of conversion under the resulting entity's governing statute. Distinct from conversion.future_effective_date (MBCA-21's optional override). On forms where the effective date is determined by the surviving entity's organic law, this key applies."
+        },
+        "new_entity_organizing_document_exhibit_letter": {
+          "type": "string",
+          "description": "Inline exhibit letter referencing the FULL organizing document of the resulting entity, attached as part hereof (per SEVENTH option 1). Distinct from MBCA-21's conversion.new_entity_provisions_exhibit_letter, which references only the required-provisions subset."
+        },
+        "result_type": {
+          "type": "string",
+          "description": "Whether the resulting entity requires a SOS filing. Enum: 'filing_required' (organizing-document exhibit attached) | 'no_filing_required' (e.g., general partnership, sole prop).",
+          "enum": [
+            "filing_required",
+            "no_filing_required"
+          ]
+        }
+      }
+    },
+    "general_partner_N": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string",
+          "description": "Per-GP signer block applied in non-formation contexts (e.g., LP-conversion). Extends the per-officer-signer-pattern (`general_partner_N.*` from MLPA-6 formation) to forms where every GP must sign on behalf of an existing LP. Shape-D primitive (combined name+capacity) applied per GP. Distinct from filing.signer.* because the LP requires ALL GPs to sign, not just one authorized representative."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "general_partner_1": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    },
+    "general_partner_2": {
+      "type": "object",
+      "properties": {
+        "printed_name_and_capacity": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "conversion",
+    "entity",
+    "filing",
+    "general_partner_1"
+  ]
+}

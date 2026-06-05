@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-9.json",
+  "title": "LLP_MLLP-9 fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "new_entity_name": {
+          "type": "string",
+          "description": "New name of an entity when it is being changed by amendment. Special value 'no change' (literal) is permitted to indicate the name is not being amended. Same key applies to amendments under 13-C MRSA, 31 MRSA, etc."
+        },
+        "other_exhibit_letter": {
+          "type": "string",
+          "description": "Single-letter reference to an exhibit attached to the filing containing other amendments not captured by named recitals on the form body."
+        }
+      }
+    },
+    "contact_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the LLP's designated contact partner (the partner of record for SOS correspondence). Used on amendment filings to record an updated contact partner."
+        },
+        "address": {
+          "type": "string",
+          "description": "Business, residence, or mailing address of the LLP's contact partner. Single combined widget on this form (no street/city split)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the entity-partner signing the filing when the signer is itself an entity rather than an individual. Parallel filer-level block to filing.signer.*; see also schema-gaps GP_MPA-1 entry. Same primitive applies across LLP amendment, GP dissociation, and similar non-formation partnership filings."
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string",
+              "description": "Combined printed name + capacity of the natural person signing on behalf of an entity-partner. Same Shape-D primitive as filing.signer.printed_name_and_capacity but scoped under filing.signer_entity."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing"
+  ]
+}

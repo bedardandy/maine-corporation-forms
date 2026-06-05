@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-9.json",
+  "title": "CORP_MBCA-9 fill data",
+  "type": "object",
+  "properties": {
+    "amendment": {
+      "type": "object",
+      "properties": {
+        "adoption_date": {
+          "type": "string",
+          "description": "Date the amendment was adopted by the corporation."
+        },
+        "text_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the full amendment text (per 13-C MRSA \u00a7121.10.E)."
+        },
+        "approval_method": {
+          "type": "string",
+          "description": "Who approved the amendment. Enum: 'incorporators' | 'board_of_directors' | 'shareholders'.",
+          "enum": [
+            "incorporators",
+            "board_of_directors",
+            "shareholders"
+          ]
+        },
+        "benefit_corp_change": {
+          "type": "string",
+          "description": "Type of benefit-corporation status change (only when applicable). Enum: 'become' (assume status under \u00a71804) | 'modify_public_benefit' (per \u00a7121.1) | 'terminate' (per \u00a71805).",
+          "enum": [
+            "become",
+            "modify_public_benefit",
+            "terminate"
+          ]
+        },
+        "benefit_corp_public_benefit_exhibit_letter": {
+          "type": "string",
+          "description": "Exhibit letter describing the modified specific public benefit (when amendment.benefit_corp_change = 'modify_public_benefit')."
+        },
+        "share_exchange_exhibit_letter": {
+          "type": "string",
+          "description": "Exhibit letter containing share-exchange/reclassification/cancellation implementation provisions."
+        },
+        "share_exchange_inline_text": {
+          "type": "string",
+          "description": "Inline alternative to exhibit \u2014 prose stating share-exchange implementation."
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Optional delayed effective date for the amendment; blank means effective upon filing."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string",
+              "description": "Printed name of the duly authorized officer signing the filing."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "amendment",
+    "entity",
+    "filing"
+  ]
+}

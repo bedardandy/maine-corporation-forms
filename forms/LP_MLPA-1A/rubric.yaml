@@ -1,0 +1,50 @@
+checks:
+  - id: reserved-name-required
+    description: entity.name (the previously-reserved name being transferred) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-applicant-required
+    description: applicant.name (the transferor / original applicant) is non-empty.
+    depends_on_keys:
+      - applicant.name
+    severity: required
+  - id: transferee-name-required
+    description: transferee.name is non-empty.
+    depends_on_keys:
+      - transferee.name
+    severity: required
+  - id: transferee-address-required
+    description: transferee.address is non-empty.
+    depends_on_keys:
+      - transferee.address
+    severity: required
+  - id: transferor-signer-required
+    description: "applicant.printed_name_and_capacity (the transferor's printed name + capacity) is non-empty."
+    depends_on_keys:
+      - applicant.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-entity-matches-reserved-name
+    description: "filing.entities[0].name equals entity.name (the reserved string being transferred)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-20
+    description: "filing.total_fees_dollars equals $20 base (per page-0 'Filing Fee $20.00' header) plus expedite premium when an expedited tier is checked."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,12 @@
+form_id: LLP_MLLP-2
+code: MLLP-2
+title: Application for Registration of Name (Foreign Limited Liability Partnership)
+entity_type: Limited Liability Partnership
+statute: "Maine Uniform Partnership Act, LLP provisions (31 M.R.S.)"
+num_pages: 3
+num_fields: 23
+mapped_fields: 19
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

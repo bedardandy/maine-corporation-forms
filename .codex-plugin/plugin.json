@@ -1,0 +1,12 @@
+{
+  "name": "maine-corporation-forms",
+  "version": "0.1.0",
+  "description": "Route, plan, and fill Maine Secretary of State business-entity filing forms (corporations, LLCs, LPs, LLPs, partnerships, nonprofits, trademarks).",
+  "mcpServers": {
+    "maine-corporation-forms": {
+      "command": "python3",
+      "args": ["tools/agent_server.py"]
+    }
+  },
+  "skills": ["skills/route-and-fill/SKILL.md"]
+}

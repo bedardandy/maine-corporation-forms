@@ -1,0 +1,12 @@
+form_id: CORP_MBCA-11I
+code: MBCA-11I
+title: Articles of Dissolution (by Incorporators or Initial Directors)
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 23
+mapped_fields: 20
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

@@ -1,0 +1,29 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Check Box19,0,text,Articles of Entity Conversion (13-C MRSA §955.1),filing.accompanying_transaction_type,high,First option in the mutually exclusive transaction-type checkbox group ('X one box only'). Enum value 'entity_conversion'.
+Check Box20,0,text,"Articles/Certificate of Merger or Share Exchange (13-C MRSA §1106, 31 MRSA §744, 31 MRSA §1436)",filing.accompanying_transaction_type,high,Second option. Enum value 'merger_or_share_exchange'.
+Check Box21,0,text,Certificate of Inter-Entity Consolidation (31 MRSA §744),filing.accompanying_transaction_type,high,Third option. Enum value 'inter_entity_consolidation'.
+Check Box22,0,text,"Articles/Certificate of Conversion (13-C MRSA §746, 31 MRSA §1432)",filing.accompanying_transaction_type,high,Fourth option. Enum value 'articles_or_certificate_of_conversion'.
+Check Box23,0,text,Articles of Conversion of Partnership (31 MRSA §1093),filing.accompanying_transaction_type,high,Fifth option. Enum value 'conversion_of_partnership'.
+Text1,0,text,FIRST: The name of the limited partnership is,entity.name,high,"LP legal name; must contain 'Limited Partnership', 'L.P.', or 'LP' (or LLLP/PLLLP variants per 31 MRSA §1308.1.A). Same key as LP_MLPA-6."
+Text2,0,text,"SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street – not P.O. Box, city, state and zip code)",entity.designated_office.physical_address,high,Single-line physical address of the designated office in Maine. Same key as LP_MLPA-6.
+Text3,0,text,(mailing address if different from above),entity.designated_office.mailing_address,high,Optional mailing address of the designated office. Same key as LP_MLPA-6.
+Check Box24,0,text,THIRD: Commercial Registered Agent,registered_agent.type,high,"Mutually-exclusive option for 'commercial' registered agent. Same key family as MLPA-6, MLPA-12-1, CLKRA-3."
+Text4,0,text,CRA Public Number,registered_agent.cra_public_number,high,"Maine SOS CRA Public Number, required when registered_agent.type='commercial'."
+Text5,0,text,(name of commercial registered agent),registered_agent.name,high,Name slot for commercial RA. Synth fills exactly one of Text5/Text6 based on registered_agent.type.
+Check Box25,0,text,Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive option for 'noncommercial' registered agent.
+Text6,0,text,(name of noncommercial registered agent),registered_agent.name,high,Name slot for noncommercial RA. Alternative to Text5 — synth fills exactly one based on registered_agent.type.
+Text7,0,text,"(physical location, not P.O. Box – street, city, state and zip code) [registered agent]",registered_agent.physical_address,high,Single-line physical address of the registered agent in Maine. Same key as MLPA-6.
+Text8,0,text,(mailing address if different from above) [registered agent],registered_agent.mailing_address,high,Optional mailing address of the registered agent.
+Text9,1,text,FIFTH: Name (general partner row 1),general_partner_1.name,high,Name of the first general partner. Same per-officer roster pattern as LP_MLPA-6.
+Text10,1,text,FIFTH: Address (general partner row 1),general_partner_1.address,high,Address of the first general partner.
+Text11,1,text,FIFTH: Name (general partner row 2),general_partner_2.name,high,Name of the second general partner.
+Text12,1,text,FIFTH: Address (general partner row 2),general_partner_2.address,high,Address of the second general partner.
+Text13,1,text,FIFTH: Name (general partner row 3),general_partner_3.name,high,Name of the third general partner.
+Text14,1,text,FIFTH: Address (general partner row 3),general_partner_3.address,high,Address of the third general partner.
+Check Box26,1,text,Names and addresses of additional general partners are attached as Exhibit ___ and made a part hereof,general_partner.additional_attached,high,"Boolean opt-in for an exhibit listing additional general partners (4+). Same key as MLPA-6, MLPA-12-1."
+Text18,1,text,Exhibit ___ [additional general partners],general_partner.additional_exhibit_letter,high,Inline exhibit letter for additional GPs.
+Check Box27,1,checkbox,SIXTH: The limited partnership is a limited liability limited partnership,entity.is_lllp,high,"Boolean elect-in for LLLP status. If checked, the FIRST name must contain 'L.L.L.P.', 'LLLP', or 'Limited Liability Limited Partnership' per 31 MRSA §1308.1.A.3."
+Check Box28,1,checkbox,SEVENTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4,entity.is_professional_lllp,high,Boolean elect-in for professional LLLP/PLLLP status. Same key as MLPA-6 (note: aliased on MLPA-12-1 as entity.is_plllp).
+Text15,1,text,(provide the following professional services) — line 1,entity.professional_services_description,high,Professional-services description line 1 (PLLLP only). Two-line widget primitive identical to MLPA-6 (Text16/Text17). Synth concatenates Text15+Text16 for the canonical value; either may be empty.
+Text16,1,text,(provide the following professional services) — line 2,entity.professional_services_description,high,Professional-services description line 2. See Text15.
+Text17,1,text,EIGHTH: ...are set forth in the attached Exhibit ___ and made a part hereof,entity.additional_provisions_exhibit_letter,high,Inline exhibit letter for additional/subchapter-11 provisions. Small-width widget (rect ~33pt wide) consistent with a single-letter blank. Same key as MLPA-6 (Text18).

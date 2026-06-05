@@ -1,0 +1,51 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (foreign withdrawal implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-authorization-date-required
+    description: entity.maine_authorization_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: conversion-fields-all-or-none
+    description: "FOURTH is an optional all-or-nothing block: either both withdrawal.conversion.new_entity_type AND withdrawal.conversion.governing_jurisdiction are set, or both are empty."
+    depends_on_keys:
+      - withdrawal.conversion.new_entity_type
+      - withdrawal.conversion.governing_jurisdiction
+    severity: required
+  - id: service-address-required
+    description: withdrawal.service_of_process_mailing_address is non-empty (FIFTH requires a mailing address for service of process).
+    depends_on_keys:
+      - withdrawal.service_of_process_mailing_address
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be signed by a duly authorized officer per 13-C MRSA §121.5).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-90
+    description: filing.total_fees_dollars equals $90 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

@@ -1,0 +1,51 @@
+checks:
+  - id: reserved-name-required
+    description: entity.name (the name being reserved) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: lp-suffix-when-not-assumed
+    description: "If reservation.is_assumed_name is false, entity.name must contain one of: 'Limited Partnership', 'L.P.', 'LP' (case-insensitive). 31 MRSA §1305 entity-suffix requirement; relaxed when the name is reserved as assumed."
+    depends_on_keys:
+      - entity.name
+      - reservation.is_assumed_name
+    severity: required
+  - id: applicant-name-required
+    description: applicant.name is non-empty.
+    depends_on_keys:
+      - applicant.name
+    severity: required
+  - id: applicant-address-required
+    description: applicant.address is non-empty.
+    depends_on_keys:
+      - applicant.address
+    severity: required
+  - id: applicant-signer-required
+    description: applicant.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - applicant.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-entity-matches-reserved-name
+    description: "filing.entities[0].name equals entity.name (the reserved string)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-20
+    description: "filing.total_fees_dollars equals $20 base (per page-0 'Filing Fee $20.00' header) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

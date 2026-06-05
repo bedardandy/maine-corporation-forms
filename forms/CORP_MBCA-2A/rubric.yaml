@@ -1,0 +1,50 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required-and-non-maine
+    description: "entity.home_jurisdiction is non-empty and not 'Maine'/'ME' (foreign-name-registration termination implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: principal-office-address-required
+    description: entity.principal_office.physical_address is non-empty (filled into Text3 and/or Text4).
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: formation-date-required-and-not-future
+    description: entity.formation_date_in_home_jurisdiction is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: "filing.total_fees_dollars equals $35 base (page-0 header) plus expedite premium ($50 for 24h, $100 for immediate)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

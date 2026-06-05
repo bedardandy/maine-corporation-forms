@@ -1,0 +1,156 @@
+{
+  "form_id": "CORP_MBCA-14A",
+  "fields": {
+    "entity.name": {
+      "widget_id": "14a1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Corporation)"
+    },
+    "resumption.method": {
+      "widget_id": [
+        "Check Box4",
+        "Check Box5"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: [ ] A meeting was duly called and held at which a majority of shareholders voted to resume transacting business."
+    },
+    "resumption.meeting_date": {
+      "widget_id": "14a3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST (meeting branch): This meeting was held on (date)",
+      "when": "resumption.method == 'meeting'"
+    },
+    "resumption.meeting_location": {
+      "widget_id": "14a4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST (meeting branch): at (location)"
+    },
+    "resumption.effective_date": {
+      "widget_id": "14a6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: The effective date of the certificate of resumption (if other than the date of filing of the certificate of resumption):"
+    },
+    "filing.date_signed": {
+      "widget_id": "14a7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "DATED ___"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "14a8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "*By ___ (signature of any duly authorized person) / (type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[0].name"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.entities[1].name"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.total_fees_dollars"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.name"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.phone"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.contact.email"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "entity.annual_report_reminder_email"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.name"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.firm"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.street"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "Check Box16",
+      "field_type": "checkbox",
+      "page": 1,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

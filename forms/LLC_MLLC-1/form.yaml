@@ -1,0 +1,12 @@
+form_id: LLC_MLLC-1
+code: MLLC-1
+title: Application for Reservation of Name (Limited Liability Company)
+entity_type: Limited Liability Company
+statute: Maine Limited Liability Company Act (31 M.R.S. ch. 21)
+num_pages: 2
+num_fields: 20
+mapped_fields: 18
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

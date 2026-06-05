@@ -1,0 +1,12 @@
+form_id: CORP_MBCA-20B
+code: MBCA-20B
+title: Statement of Abandonment of Nonprofit Conversion (Domestic Business Corporation)
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 2
+num_fields: 18
+mapped_fields: 16
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

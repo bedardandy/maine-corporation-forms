@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: entity-type-required
+    description: entity.type is non-empty.
+    depends_on_keys:
+      - entity.type
+    severity: required
+  - id: home-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: agent-name-required
+    description: agent.name is non-empty.
+    depends_on_keys:
+      - agent.name
+    severity: required
+  - id: agent-address-required-not-pobox
+    description: "agent.physical_address is non-empty and does not contain 'P.O. Box', 'PO Box', 'P.O.Box', or 'Post Office Box' (case-insensitive). Form explicitly prohibits P.O. Box."
+    depends_on_keys:
+      - agent.physical_address
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (Shape D signer per the * footnote)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-100
+    description: filing.total_fees_dollars equals $100 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required

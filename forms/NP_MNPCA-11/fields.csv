@@ -1,0 +1,38 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit corporation name at top of form. Domestic — uses entity.name (not entity.home_jurisdiction_name).
+Text2,0,text,FIRST: President — Name,officer_president.name,high,Name of the corporation's President in the FIRST roster table. Role-keyed officer roster (the form's row labels supply the role; the user only types name and address). Distinct from CORP_MBCA-12's officer_N.printed_name_and_capacity pattern where capacity is user-entered.
+Text3,0,text,FIRST: President — Address,officer_president.address,high,"Address of the President (single-line widget — street, city, state, zip combined)."
+Text4,0,text,FIRST: Treasurer — Name,officer_treasurer.name,high,Name of the Treasurer.
+Text10,0,text,FIRST: Treasurer — Address,officer_treasurer.address,high,Address of the Treasurer (paired with Text4 by row y-position).
+Text5,0,text,FIRST: Secretary — Name,officer_secretary.name,high,Name of the Secretary.
+Text11,0,text,FIRST: Secretary — Address,officer_secretary.address,high,Address of the Secretary.
+Text6,0,text,FIRST: Clerk — Name,officer_clerk.name,high,Name of the Clerk.
+Text12,0,text,FIRST: Clerk — Address,officer_clerk.address,high,Address of the Clerk.
+Text7,0,text,FIRST: Directors — Name (row 1),director_1.name,high,Name of the first listed director. Indexed director_N.* pattern for the 3 inline director rows; 'List additional directors on reverse side' label below the table indicates overflow goes to a continuation page.
+Text13,0,text,FIRST: Directors — Address (row 1),director_1.address,high,Address of the first listed director.
+Text8,0,text,FIRST: Directors — Name (row 2),director_2.name,high,Name of the second listed director.
+Text14,0,text,FIRST: Directors — Address (row 2),director_2.address,high,Address of the second listed director.
+Text9,0,text,FIRST: Directors — Name (row 3),director_3.name,high,Name of the third listed director.
+Text15,0,text,FIRST: Directors — Address (row 3),director_3.address,high,Address of the third listed director.
+Check Box16,0,text,SECOND: All members of the corporation entitled to vote,dissolution.consent_class,high,"Mutually-exclusive checkbox 1 of 2 in SECOND. Enum value 'members'. rect [104.7, 196.3, 119.7, 211.4] is the page-0 KID widget of AcroForm /Btn field 'Check Box16' (on-state /Yes). UPSTREAM TEMPLATE DEFECT: this same field 'Check Box16' also owns a second kid on page 2 (the 'immediate' expedite box, rect [68.7,585.8]); they share one value so toggling one toggles the other. Bound by rect; the prior '(unnamed widget...)' id did not resolve by name."
+Check Box17,0,text,"SECOND: All directors of the corporation, there being no members or no members entitled to vote",dissolution.consent_class,high,Mutually-exclusive checkbox 2 of 2 in SECOND. Enum value 'directors_when_no_voting_members'.
+Text19,0,text,FOURTH: The address of the registered office of the corporation in the State of Maine is ____ (inline trailing blank),registered_office.address_line1,high,"Narrow trailing blank ending the FOURTH paragraph 1; the form splits the registered-office address across this trailing blank and the labeled wide line below. Same multi-line pattern as NP_MNPCA-10 merger.surviving_corp.registered_office_address_line{1,2}."
+Text18,0,text,"FOURTH: ____ (street, city, state and zip code)",registered_office.address_line2,high,Wide labeled line below the FOURTH paragraph for the registered office address (line 2 of the two-line widget).
+Text22,1,text,DATED ____,filing.date_signed,high,"Date the statement is signed (top-left of page 1). Drafter originally mapped this to certification.clerk_signature; corrected here based on widget position (top-left, narrow rect at y≈731-752, on the same line as the right-side first signature block)."
+Text20,1,text,*By ____ (signature) / (type or print name and capacity) — first signer,filing.signer_1.printed_name_and_capacity,high,First authorized officer's printed name and capacity (top-right block on page 1). Shape D (combined name+capacity).
+Text21,1,text,*By ____ (signature) / (type or print name and capacity) — second signer,filing.signer_2.printed_name_and_capacity,high,"Second authorized officer's printed name and capacity (right block, lower y). The form provides two signature slots; 13-B MRSA §104.1.B requires only one authorized officer, so the second slot is optional."
+Text23,1,text,"MUST BE COMPLETED FOR VOTE OF MEMBERS — (signature of clerk, secretary or asst. secretary)",certification.clerk_signature_printed_name,high,Inset clerk-certification block on the left of page 1: 'I certify that I have custody of the minutes showing the above action by the members.' Required only when dissolution.consent_class='members'. Same primitive as NP_MNPCA-10's merger.parties[N].clerk_certification.signer_printed_name_and_title.
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,"Checkbox /Btn for the 'immediate_same_day' expedite tier; rect [68.7, 585.8, 90.3, 606.3] is the page-2 KID widget of AcroForm /Btn field 'Check Box16'. UPSTREAM TEMPLATE DEFECT: 'Check Box16' has two kid widgets sharing one field value -- this page-2 'immediate' box AND the page-0 SECOND 'members' box (rect [104.7,196.3]) -- so toggling one toggles the other. Bound by rect; the prior '(unnamed widget...)' id did not resolve by name (and there is no 'Check Box13' in this form)."
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($10 base per page-0 header).
+Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
+Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.
+Contact email address for this filing,2,text,Contact email address for this filing,filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

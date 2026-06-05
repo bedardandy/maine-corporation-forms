@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-19B.json",
+  "title": "CORP_MBCA-19B fill data",
+  "type": "object",
+  "properties": {
+    "abandonment": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Mutually-exclusive enum capturing which direction of domestication is being abandoned: 'domestic' (the corp is currently Maine and is abandoning an outbound charter surrender pairing CORP_MBCA-19A) | 'foreign' (the corp is currently foreign and is abandoning an inbound articles-of-domestication pairing CORP_MBCA-19). Determines whether abandonment.would_be_effective_date is required."
+        },
+        "would_be_effective_date": {
+          "type": "string",
+          "description": "Date the underlying domestication would have become effective, absent this abandonment. Required when abandonment.path='domestic' (the SOS needs to know which pending charter-surrender is being abandoned). Distinct from domestication.effective_date on CORP_MBCA-19A \u2014 that key represents the actual effective date of a completed surrender; this key represents the would-have-been date of an abandoned one."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "abandonment",
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-15.json",
+  "title": "NP_MNPCA-15 fill data",
+  "type": "object",
+  "properties": {
+    "indistinguishable_name": {
+      "type": "object",
+      "properties": {
+        "proposed_name": {
+          "type": "string",
+          "description": "The name being consented to under 13-B MRSA \u00a7301-A.4 \u2014 a name that is too similar to an existing Maine entity's name and so requires the existing entity's consent before the requestor can use it. This is what the requestor wants to register; the consenting entity already holds a similar name and must change."
+        },
+        "requestor_name": {
+          "type": "string",
+          "description": "Name of the entity that wishes to use the indistinguishable name (i.e., the entity for whose benefit the consenting corporation is filing this consent)."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "new_name": {
+          "type": "string",
+          "description": "The new, distinguishable name that the consenting entity (the one currently holding a name similar to the requestor's desired name) will adopt as part of this filing. Distinct from `entity.home_jurisdiction_name_new` which is for foreign entities changing their home name; `entity.new_name` is for domestic Maine entities renaming themselves to free up an indistinguishable name."
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "physical_address": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "indistinguishable_name",
+    "registered_agent"
+  ]
+}

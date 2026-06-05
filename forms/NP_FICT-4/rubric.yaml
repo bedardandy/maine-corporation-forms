@@ -1,0 +1,52 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: fictitious-name-required
+    description: entity.maine_fictitious_name is non-empty.
+    depends_on_keys:
+      - entity.maine_fictitious_name
+    severity: required
+  - id: fictitious-name-distinct
+    description: entity.maine_fictitious_name differs from entity.home_jurisdiction_name (case-insensitive) — the whole point of a fictitious-name filing is to use a different name in Maine.
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required-and-not-maine
+    description: "entity.home_jurisdiction is non-empty and is not 'Maine' or 'ME' (this form is foreign-only)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-auth-date-required-and-not-future
+    description: entity.maine_authorization_date is non-empty and not in the future (entity must already be qualified in Maine to register a fictitious name).
+    depends_on_keys:
+      - entity.maine_authorization_date
+    severity: required
+  - id: filing-date-on-or-after-auth
+    description: "filing.date_signed is on or after entity.maine_authorization_date (you can't file a fictitious-name statement before being authorized to transact business)."
+    depends_on_keys:
+      - filing.date_signed
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-name-and-title-required
+    description: filing.signer.printed_name and filing.signer.title are both non-empty (Shape A pattern; statute restricts authorized signers per entity type).
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer.title
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-25-nonprofit
+    description: "filing.total_fees_dollars equals $25 (nonprofit base per page-0 header) plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup). Distinguishes the nonprofit invocation of FICT-4 from the for-profit one ($40 base)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

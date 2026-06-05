@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNP-3.json",
+  "title": "NP_MNP-3 fill data",
+  "type": "object",
+  "properties": {
+    "contact_change": {
+      "type": "object",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "description": "Type of contact-person/address change being filed for a domestic nonprofit (13-B MRSA \u00a7910). Enum: 'change_of_address' (A: address-only) | 'change_of_contact_person_and_address' (B: both) | 'change_of_contact_person' (C: person-only) | 'change_in_name_of_current_contact_person' (D: rename existing). Naming mirrors CORP_CLKRA-3's clerk_change.action_type pattern. Selection drives both which THIRD fields must be populated AND who must sign per the page-1 footnote.",
+          "enum": [
+            "change_of_address",
+            "change_of_contact_person_and_address",
+            "change_of_contact_person",
+            "change_in_name_of_current_contact_person"
+          ]
+        },
+        "current_name": {
+          "type": "string",
+          "description": "Name of the contact person currently on record at the SOS for a Maine domestic nonprofit. Used on Change-of-Contact-Person filings (NP MNP-3) to identify the SOS record being modified."
+        },
+        "current_address": {
+          "type": "string",
+          "description": "Current address (street/city/state/zip combined; single line) of the contact person on record. Distinct from contact_change.new_physical_address (which is the post-change physical address under options A/B)."
+        },
+        "new_name": {
+          "type": "string",
+          "description": "Name of the new contact person OR the new name of the current contact person, depending on contact_change.action_type. Empty when action_type='change_of_address' (option A only changes the address)."
+        },
+        "new_physical_address": {
+          "type": "string",
+          "description": "New physical-location address (NOT a P.O. Box) of the contact person, populated under action_type='change_of_address' or 'change_of_contact_person_and_address'. Empty under 'change_of_contact_person' or 'change_in_name_of_current_contact_person' (no address change)."
+        },
+        "new_mailing_address": {
+          "type": "string",
+          "description": "Optional new mailing address if different from contact_change.new_physical_address."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "contact_change",
+    "entity",
+    "filing"
+  ]
+}

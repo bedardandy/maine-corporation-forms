@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/GP_MPA-1.json",
+  "title": "GP_MPA-1 fill data",
+  "type": "object",
+  "properties": {
+    "dissociating_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the partner who is dissociating from the general partnership (the subject of the statement, not the signer). Distinct from filing.signer.* and from any role-keyed roster pattern \u2014 there is exactly one dissociating partner per statement."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the entity-partner signing the filing, when the signer is itself a corporate/LLC/LP partner rather than an individual. Parallel filer-level block to filing.signer.* (individual). Distinct from the per-officer entity-signer pattern (<role>_entity_N.*) used on formation forms because the entity here is the FILER (a single party), not a role-bearing originator."
+            },
+            "signer_printed_name_and_capacity": {
+              "type": "string",
+              "description": "Combined printed name + capacity of the natural person who signs on behalf of an entity-partner. Same Shape-D primitive as filing.signer.printed_name_and_capacity but scoped under filing.signer_entity to indicate the signer acts for an entity-partner."
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "dissociating_partner",
+    "entity",
+    "filing"
+  ]
+}

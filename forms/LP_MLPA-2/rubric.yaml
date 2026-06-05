@@ -1,0 +1,67 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: exactly-one-application-type
+    description: "Exactly one of FIRST checkboxes is selected (filing.application_type ∈ {'new','renewal'})."
+    depends_on_keys:
+      - filing.application_type
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (foreign LPs only)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: principal-office-address-complete
+    description: entity.principal_office.physical_address.street and entity.principal_office.physical_address.city_state_zip are both non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address.street
+      - entity.principal_office.physical_address.city_state_zip
+    severity: required
+  - id: formation-date-required
+    description: entity.formation_date_in_home_jurisdiction is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - entity.formation_date_in_home_jurisdiction
+      - filing.date_signed
+    severity: required
+  - id: business-purpose-required
+    description: "entity.business_purpose is non-empty (FOURTH brief statement of the LP's business)."
+    depends_on_keys:
+      - entity.business_purpose
+    severity: required
+  - id: signer-required-general-partner
+    description: "filing.signer.printed_name_and_capacity is non-empty (must be signed by a general partner per 31 MRSA §1324.1.M; capacity should reflect 'general partner' or equivalent)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: certificate-of-existence-recency
+    description: "FIFTH paragraph requires an attached certificate of existence (or document of similar import) duly authenticated by the SOS of the home jurisdiction, dated within 90 days before delivery. Tracked as an attachment, not a form field."
+    depends_on_keys: []
+    severity: required
+  - id: renewal-window-october-december
+    description: "If filing.application_type = 'renewal', filing.date_signed should fall between October 1 and December 31 (renewal-window rule per 31 MRSA §1309.4 / page-0 header note: 'A new application expires at the end of the calendar year in which the application is filed. A renewal application can be filed between October 1 and December 31')."
+    depends_on_keys:
+      - filing.application_type
+      - filing.date_signed
+    severity: optional
+  - id: fee-by-application-type
+    description: "filing.total_fees_dollars matches application type per page-0 header: $20/month prorated for 'new' (registration runs through the calendar year) or $200 flat for 'renewal'. Plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.application_type
+      - filing.expedited_service
+    severity: advisory

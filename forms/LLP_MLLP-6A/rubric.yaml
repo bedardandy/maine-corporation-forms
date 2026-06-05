@@ -1,0 +1,92 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name (the LLP's current SOS-recorded name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-name-suffix-when-changed
+    description: "If amendment.new_entity_name is populated and not 'no change', it must contain one of 'Limited Liability Partnership', 'L.L.P.', or 'LLP' (per 31 MRSA §803-A)."
+    depends_on_keys:
+      - amendment.new_entity_name
+    severity: required
+  - id: original-filing-block-present
+    description: Both entity.original_articles_filing_date and entity.original_name are populated (SECOND recital is two interdependent fields).
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - entity.original_name
+    severity: required
+  - id: original-filing-date-not-future
+    description: entity.original_articles_filing_date is on or before filing.date_signed.
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - filing.date_signed
+    severity: required
+  - id: registered-agent-type-selected
+    description: Exactly one of THIRD commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: registered-agent-name-and-physical-address-required
+    description: registered_agent.name and registered_agent.physical_address are non-empty.
+    depends_on_keys:
+      - registered_agent.name
+      - registered_agent.physical_address
+    severity: required
+  - id: cra-number-when-commercial
+    description: "If registered_agent.type='commercial', registered_agent.cra_public_number must be set."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: contact-partner-block-required
+    description: contact_partner.name and contact_partner.address are non-empty (FIFTH recital).
+    depends_on_keys:
+      - contact_partner.name
+      - contact_partner.address
+    severity: required
+  - id: exhibit-letter-format
+    description: "If entity.additional_provisions_exhibit_letter is populated, it must be a single uppercase letter A-Z."
+    depends_on_keys:
+      - entity.additional_provisions_exhibit_letter
+    severity: required
+  - id: at-least-one-partner-signer
+    description: "At least one of {partner_1.printed_name_and_capacity, partner_2.printed_name_and_capacity, partner_entity_1.signer_printed_name_and_capacity, partner_entity_2.signer_printed_name_and_capacity} is non-empty (per page-1 footnote requirement)."
+    depends_on_keys:
+      - partner_1.printed_name_and_capacity
+      - partner_2.printed_name_and_capacity
+      - partner_entity_1.signer_printed_name_and_capacity
+      - partner_entity_2.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-partner-block-internally-consistent
+    description: "If partner_entity_N.name is populated, partner_entity_N.signer_printed_name_and_capacity must also be populated (and vice versa) — the entity-partner block has two interdependent widgets per slot."
+    depends_on_keys:
+      - partner_entity_1.name
+      - partner_entity_1.signer_printed_name_and_capacity
+      - partner_entity_2.name
+      - partner_entity_2.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name (or amendment.new_entity_name if a name change is being effected)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+      - amendment.new_entity_name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-80
+    description: filing.total_fees_dollars equals $80 base (page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

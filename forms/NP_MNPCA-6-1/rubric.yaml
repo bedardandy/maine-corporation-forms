@@ -1,0 +1,52 @@
+checks:
+  - id: accompanying-document-type-required
+    description: Exactly one of the three accompanying-document-type checkboxes is selected.
+    depends_on_keys:
+      - filing.accompanying_document_type
+    severity: required
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-nonprofit-type
+    description: Exactly one of SECOND public_benefit/mutual_benefit options is selected.
+    depends_on_keys:
+      - entity.nonprofit_type
+    severity: required
+  - id: purpose-text-when-required
+    description: "If nonprofit_type = 'public_benefit', entity.public_benefit_purpose must be non-empty. If nonprofit_type = 'mutual_benefit' AND not 'all purposes permitted', entity.mutual_benefit_purpose must be non-empty."
+    depends_on_keys:
+      - entity.nonprofit_type
+      - entity.public_benefit_purpose
+      - entity.mutual_benefit_purpose
+    severity: required
+  - id: exactly-one-registered-agent-type
+    description: Exactly one of THIRD commercial/noncommercial options is selected.
+    depends_on_keys:
+      - registered_agent.type
+    severity: required
+  - id: cra-public-number-when-commercial
+    description: "If registered_agent.type = 'commercial', registered_agent.cra_public_number must be set."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: directors-count-valid
+    description: "If entity.initial_directors_count is set, it must be ≥3. If min/max are set, both must be ≥3 and min ≤ max."
+    depends_on_keys:
+      - entity.initial_directors_count
+      - entity.directors_min_count
+      - entity.directors_max_count
+    severity: required
+  - id: exactly-one-members-option
+    description: Exactly one of SIXTH no-members/has-members options is selected.
+    depends_on_keys:
+      - entity.has_members
+    severity: required
+  - id: 501c-exhibit-when-flagged
+    description: "If entity.has_501c_exhibit is true, entity.501c_exhibit_letter must be set."
+    depends_on_keys:
+      - entity.has_501c_exhibit
+      - entity.501c_exhibit_letter
+    severity: required

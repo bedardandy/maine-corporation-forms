@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MNPCA-10A.json",
+  "title": "NP_MNPCA-10A fill data",
+  "type": "object",
+  "properties": {
+    "consolidation": {
+      "type": "object",
+      "properties": {
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of one party to a consolidation (one of the two existing corporations being consolidated into a new entity). Mirrors merger.parties[N].name on NP_MNPCA-10. Multiple widgets on the form (top recital, THIRD adoption block, signature block) all bind to the same per-party canonical key."
+            },
+            "vote_method": {
+              "type": "string",
+              "description": "Mutually-exclusive enum capturing how a participating corporation adopted the plan of consolidation: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote' (the last when there are no voting members). Mirrors merger.parties[N].vote_method."
+            },
+            "vote_method_date": {
+              "type": "string",
+              "description": "Date paired with the selected vote_method (meeting date, written consent date, or board meeting date depending on which option was chosen). Mirrors merger.parties[N].vote_method_date."
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string",
+                  "description": "Date the participating corporation's signature block was executed."
+                },
+                "corporation_name": {
+                  "type": "string",
+                  "description": "Re-statement of the participating corporation's name in the right-side blank of the DATED row of its signature block."
+                },
+                "signer_{1,2}": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string",
+                      "description": "Name and capacity of the authorized officer(s) signing for a participating corporation. Two signer slots per party because some entity types under 13-B MRSA \u00a7904 require two signers (e.g., for nonprofit conversions). Mirrors merger.parties[N].signature_block.signer_{1,2}.printed_name_and_capacity from NP_MNPCA-10."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "plan_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing the plan of consolidation (SECOND)."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Optional future effective date for the consolidation; capped at 60 days post-filing per 13-B MRSA. Mirrors merger.future_effective_date."
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "vote_method": {
+              "type": "string"
+            },
+            "vote_method_date": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "vote_method": {
+              "type": "string"
+            },
+            "vote_method_date": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "date_signed": {
+                  "type": "string"
+                },
+                "corporation_name": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "registered_office": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "description": "Single-line registered-office address (street, city, state, zip combined) for the new corporation resulting from the consolidation. Distinct from merger.surviving_corp.registered_office_address on NP_MNPCA-10 because consolidation produces a NEW entity rather than designating a survivor."
+            }
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "consolidation",
+    "entity"
+  ]
+}

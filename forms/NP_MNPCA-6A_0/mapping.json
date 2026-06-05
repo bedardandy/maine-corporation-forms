@@ -1,0 +1,196 @@
+{
+  "form_id": "NP_MNPCA-6A_0",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Name of Corporation as it appears on the records of the Secretary of State)"
+    },
+    "restatement.text_exhibit_letter": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: All restated statements required to be set forth in Articles of Incorporation (*MNPCA-6-1) are attached as Exhibit ___"
+    },
+    "restatement.adoption_date": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "This restatement was adopted on (date)"
+    },
+    "restatement.adoption_method": {
+      "widget_id": [
+        "Check Box4",
+        "Check Box5",
+        "Check Box6",
+        "Check Box10"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "By the members at a meeting at which a quorum was present and the restatement received at least a majority of the votes which members were entitled to cast."
+    },
+    "registered_agent.type": {
+      "widget_id": [
+        "Check Box8",
+        "Check Box9"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: [ ] Commercial Registered Agent"
+    },
+    "registered_agent.cra_public_number": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: CRA Public Number",
+      "when": "registered_agent.type == 'commercial'"
+    },
+    "registered_agent.name": {
+      "widget_id": [
+        "Text11",
+        "Text12"
+      ],
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(name of commercial registered agent)"
+    },
+    "registered_agent.physical_address": {
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(physical location, not P.O. Box – street, city, state and zip code)"
+    },
+    "registered_agent.mailing_address": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(mailing address if different from above)"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Dated"
+    },
+    "filing.signer.printed_name_and_capacity": {
+      "widget_id": "Text16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "**By ___ (signature) / type or print name and capacity)"
+    },
+    "filing.signer_2.printed_name_and_capacity": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "**By ___ (signature) / type or print name and capacity)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "C1",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of Entity (s) [line 1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "C2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of Entity (s) [line 2]"
+    },
+    "filing.enclosed_filing_types.line1": {
+      "widget_id": "C3",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "List type of filing(s) enclosed (i.e. Articles of Incorporation, Articles of Merger, ...) [line 1]"
+    },
+    "filing.enclosed_filing_types.line2": {
+      "widget_id": "C4",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "List type of filing(s) enclosed [line 2]"
+    },
+    "filing.expedited_service": {
+      "widget_id": [
+        "Check Box20",
+        "Check Box21",
+        "Check Box22"
+      ],
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold for pick up"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "C5",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total filing fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "C6",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of contact person)"
+    },
+    "filing.contact.phone": {
+      "widget_id": "C7",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Daytime telephone number)"
+    },
+    "filing.contact.email": {
+      "widget_id": "C8",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Email address)"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "C9",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Name of attested recipient)"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "C10",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Firm or Company)"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "C11",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(Mailing Address)"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "C12",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "(City, State & Zip)"
+    }
+  }
+}

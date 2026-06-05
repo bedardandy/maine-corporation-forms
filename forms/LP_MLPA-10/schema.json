@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-10.json",
+  "title": "LP_MLPA-10 fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string",
+              "description": "Combined name | form of organization | jurisdiction recital for one party to the merger (FIRST recital block on LP_MLPA-10). Free-form string \u2014 form has a 3-column header (Name | Form of organization | Jurisdiction) but only one underlined blank per row. Same recital pattern as CORP_MBCA-10 (which uses 4 columns)."
+            }
+          }
+        },
+        "surviving_entity": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the organization surviving the merger. Distinct from CORP_MBCA-10's combined `merger.surviving_entity.name_and_jurisdiction` because LP_MLPA-10's SECOND has 3 separate widgets."
+            },
+            "form": {
+              "type": "string",
+              "description": "Legal form of the surviving entity (e.g., 'Limited Partnership', 'Limited Liability Company', 'Business Corporation')."
+            },
+            "jurisdiction": {
+              "type": "string",
+              "description": "Jurisdiction of the governing statute for the surviving entity (e.g., 'Maine', 'Delaware')."
+            }
+          }
+        },
+        "surviving_entity_created_by_merger": {
+          "type": "boolean",
+          "description": "Optional boolean (THIRD on LP_MLPA-10) \u2014 'check only if applicable: the surviving organization was created as a result of the merger'. Largely redundant with `merger.fifth_election='created_by_merger'` (rubric should cross-check), but the form provides both as parallel declarations."
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "Date the merger is effective under the governing statute of the surviving organization (FOURTH on LP_MLPA-10). Distinct from CORP_MBCA-10's `merger.future_effective_date` (which is optional 'if other than date of filing'); \u00a71438 phrases this as a required effective date."
+        },
+        "fifth_election": {
+          "type": "string",
+          "description": "Mutually-exclusive enum for FIFTH paragraph on LP_MLPA-10: 'created_by_merger' (option 1, requires the new survivor's organizational document attached) or 'preexisted' (option 2, requires merger.fifth_subelection)."
+        },
+        "fifth_subelection": {
+          "type": "string",
+          "description": "When merger.fifth_election='preexisted', a mutually-exclusive enum for sub-options under FIFTH option 2: 'amendments_attached' (Check Box23) or 'organizational_docs_unchanged' (Check Box24)."
+        },
+        "foreign_survivor": {
+          "type": "object",
+          "properties": {
+            "service_of_process_physical_address": {
+              "type": "string",
+              "description": "Physical street address of an office that may be used for service of process on a foreign surviving organization (SEVENTH on LP_MLPA-10). Parallel to existing `merger.foreign_survivor.service_of_process_mailing_address` from CORP_MBCA-10 \u2014 LP_MLPA-10 splits into two address lines (physical + mailing)."
+            },
+            "service_of_process_mailing_address": {
+              "type": "string"
+            }
+          }
+        },
+        "additional_info_exhibit_letter": {
+          "type": "string",
+          "description": "Letter of the exhibit containing additional information required by the governing statute of any constituent organization (EIGHTH on LP_MLPA-10)."
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[2]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parties[3]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            },
+            "signature_block": {
+              "type": "object",
+              "properties": {
+                "name_and_type": {
+                  "type": "string"
+                },
+                "date_signed": {
+                  "type": "string"
+                },
+                "signer_1": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "signer_2": {
+                  "type": "object",
+                  "properties": {
+                    "printed_name_and_capacity": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "additional_parties_attached": {
+          "type": "string"
+        },
+        "additional_parties_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "merger"
+  ]
+}

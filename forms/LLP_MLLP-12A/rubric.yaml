@@ -1,0 +1,77 @@
+checks:
+  - id: name-on-record-required
+    description: entity.home_jurisdiction_name_on_record is non-empty (top-of-form recital used to identify the existing SOS record).
+    depends_on_keys:
+      - entity.home_jurisdiction_name_on_record
+    severity: required
+  - id: amendment-changes-something
+    description: "At least one of FIRST (entity.home_jurisdiction_name), SECOND (entity.maine_fictitious_name), THIRD (entity.maine_business_purpose), FOURTH (entity.principal_office.*), FIFTH (contact_partner.*), or SIXTH (filing.other_amendments_exhibit_letter) carries a non-empty, non-'No change' value (an amendment that changes nothing is vacuous)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+      - entity.maine_fictitious_name
+      - entity.maine_business_purpose
+      - entity.principal_office.physical_address
+      - entity.principal_office.mailing_address
+      - contact_partner.name
+      - contact_partner.address
+      - filing.other_amendments_exhibit_letter
+    severity: required
+  - id: fict4-when-fictitious-name-changed
+    description: "If entity.maine_fictitious_name is set to a non-'No change' value (i.e., adopting or changing a fictitious name), filing.fict4_accompanies must be true."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: principal-office-physical-not-pobox
+    description: "If entity.principal_office.physical_address is set to a non-'No change' value, it must not start with 'P.O. Box' (per FOURTH parenthetical 'street (not P.O. Box)')."
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: exactly-one-signer-block
+    description: "Exactly one signer block is populated: either filing.signer.printed_name_and_capacity (individual partner) OR (filing.signer_entity.name AND filing.signer_entity.signer_printed_name_and_capacity) (entity partner). Both blocks empty or both populated is a fill error."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-capacity-required
+    description: "If filing.signer_entity.name is populated, filing.signer_entity.signer_printed_name_and_capacity must also be populated."
+    depends_on_keys:
+      - filing.signer_entity.name
+      - filing.signer_entity.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-partner-paired
+    description: "If contact_partner.name is set to a non-'No change' value, contact_partner.address must also be set (and vice versa)."
+    depends_on_keys:
+      - contact_partner.name
+      - contact_partner.address
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-at-most-one
+    description: At most one of the three expedite checkboxes is selected.
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-90-or-35
+    description: "filing.total_fees_dollars is approximately $90 (standard) or $35 (if amending ONLY items FOURTH and/or FIFTH per page-0 header annotation), plus $50 (24h) or $100 (immediate) for expedited service."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+      - entity.home_jurisdiction_name
+      - entity.maine_fictitious_name
+      - entity.maine_business_purpose
+      - entity.principal_office.physical_address
+      - contact_partner.name
+      - filing.other_amendments_exhibit_letter
+    severity: optional

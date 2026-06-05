@@ -1,0 +1,27 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text1,0,text,(Name of Corporation),entity.name,high,Top-of-form: the corporation's Maine-registered name (domestic-entity convention).
+Text2,0,text,FIRST: All restated statements required to be set forth in Articles of Incorporation (*MBCA-6-1) are attached as Exhibit ___,restatement.text_exhibit_letter,high,"Narrow inline blank (≈45 wide) for the exhibit letter that holds the full restated articles text. Parallel to MBCA-9's amendment.text_exhibit_letter — but scoped to restatement.* because the exhibit holds the entire restated document, not a single amendment."
+Check Box8,0,text,SECOND: The restated articles of incorporation consolidate all amendments into a single document,restatement.type,high,Mutually-exclusive option = 'consolidation_only' (no new amendment).
+Check Box9,0,text,SECOND: If a new amendment is included in the restated articles of incorporation the following must be completed,restatement.type,high,"Mutually-exclusive option = 'includes_new_amendment'. When selected, the conditional sub-fields (adoption date, approval method, optional share-exchange exhibit) become required."
+Text3,0,text,The text of the new amendment was adopted on (date) ___,amendment.adoption_date,high,Date the new amendment was adopted (conditional on restatement.type = 'includes_new_amendment'). Reuses MBCA-9's amendment.adoption_date.
+Check Box10,0,text,by the incorporators – shareholder approval was not required,amendment.approval_method,high,Approval-method enum value = 'incorporators'. Reuses MBCA-9's amendment.approval_method.
+Check Box11,0,text,by the board of directors – shareholder approval was not required,amendment.approval_method,high,Approval-method enum value = 'board_of_directors'.
+Check Box13,0,text,by the shareholders in the manner required by this Act and by the articles of incorporation,amendment.approval_method,high,Approval-method enum value = 'shareholders'.
+Text7,0,text,THIRD: ...are set forth in Exhibit ___ or as follows,amendment.share_exchange_exhibit_letter,high,Narrow inline blank (≈27 wide) at y=267 — the THIRD-section exhibit letter for share-exchange/reclassification/cancellation implementing provisions. Reuses MBCA-9's amendment.share_exchange_exhibit_letter (same form text).
+Text4,0,text,FOURTH: The effective date of the restated articles of incorporation (if other than the date of filing of the restated articles of incorporation) is ___,restatement.future_effective_date,high,Wider inline blank at y=225 (FOURTH section). Optional future-effective-date for the restated articles. Parallel to merger.future_effective_date / conversion.future_effective_date / domestication.future_effective_date (form-scoped naming convention).
+Text6,0,text,Dated,filing.date_signed,high,Signature-row date on left at y=195.
+Text5,0,text,**By ___ (signature) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Shape D — combined name+capacity at y=161, right side. Capacity is constrained by footnote ** to 'duly authorized officer OR the clerk' (13-C §121.5). The signature line itself has no AcroForm widget (wet-ink only)."
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier = 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier = '24h_next_business_day' ($50/entity).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier = 'immediate_same_day' ($100/entity).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Base fee $80 (per page-0 header) plus expedite premium.
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Filing-question contact.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Daytime phone for contact.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Per-filing contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Persistent recurring-reminder email tied to the entity.
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient of the attested copy.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm/company.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street/PO box.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

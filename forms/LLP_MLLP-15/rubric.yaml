@@ -1,0 +1,51 @@
+checks:
+  - id: existing-llp-name-required
+    description: entity.name (the consenting LLP) is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: indistinguishable-name-required
+    description: name_change.indistinguishable_name is non-empty.
+    depends_on_keys:
+      - name_change.indistinguishable_name
+    severity: required
+  - id: requestor-name-required
+    description: name_change.requestor_name is non-empty.
+    depends_on_keys:
+      - name_change.requestor_name
+    severity: required
+  - id: new-name-required
+    description: name_change.new_name is non-empty (the existing LLP must commit to a new distinguishable name).
+    depends_on_keys:
+      - name_change.new_name
+    severity: required
+  - id: new-name-distinct
+    description: name_change.new_name is materially different from name_change.indistinguishable_name and from entity.name (semantic check; can only flag obvious near-duplicates).
+    depends_on_keys:
+      - name_change.new_name
+      - name_change.indistinguishable_name
+      - entity.name
+    severity: optional
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be at least one partner per the page-0 footnote and 31 MRSA §826.1.B / §860.1).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-required
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-20
+    description: "filing.total_fees_dollars is approximately $20 base (per page-0 'Filing Fee $20.00') plus expedite premium. The companion name-change form carries its own separate fee."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

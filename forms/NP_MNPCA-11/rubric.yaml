@@ -1,0 +1,71 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: consent-class-exclusive
+    description: "Exactly one of dissolution.consent_class values is selected ('members' XOR 'directors_when_no_voting_members')."
+    depends_on_keys:
+      - dissolution.consent_class
+    severity: required
+  - id: officer-roster-required-roles
+    description: "All four required-role officer slots are populated: officer_president.name, officer_treasurer.name, officer_secretary.name, officer_clerk.name (the FIRST table reserves a fixed slot for each role per 13-B MRSA §704)."
+    depends_on_keys:
+      - officer_president.name
+      - officer_treasurer.name
+      - officer_secretary.name
+      - officer_clerk.name
+    severity: required
+  - id: officer-address-paired
+    description: "Every populated officer_<role>.name has a corresponding officer_<role>.address (and likewise for director_N)."
+    depends_on_keys:
+      - officer_president.name
+      - officer_president.address
+      - officer_treasurer.name
+      - officer_treasurer.address
+      - officer_secretary.name
+      - officer_secretary.address
+      - officer_clerk.name
+      - officer_clerk.address
+      - director_1.name
+      - director_1.address
+      - director_2.name
+      - director_2.address
+      - director_3.name
+      - director_3.address
+    severity: required
+  - id: registered-office-required
+    description: registered_office.address_line2 (the wide labeled line) is non-empty.
+    depends_on_keys:
+      - registered_office.address_line2
+    severity: required
+  - id: signer-1-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (at least one authorized officer must sign per 13-B MRSA §104.1.B).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: clerk-cert-when-member-vote
+    description: "If dissolution.consent_class='members', certification.clerk_signature_printed_name must be non-empty. If consent_class='directors_when_no_voting_members', the clerk certification is not required."
+    depends_on_keys:
+      - dissolution.consent_class
+      - certification.clerk_signature_printed_name
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-10
+    description: filing.total_fees_dollars equals $10 base (per page-0 header) plus expedite premium per filing.expedited_service tier.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

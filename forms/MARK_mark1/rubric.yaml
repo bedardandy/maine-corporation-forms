@@ -1,0 +1,74 @@
+checks:
+  - id: first-use-anywhere-required
+    description: mark.dates_of_first_use.anywhere is non-empty.
+    depends_on_keys:
+      - mark.dates_of_first_use.anywhere
+    severity: required
+  - id: first-use-in-maine-required
+    description: mark.dates_of_first_use.in_maine is non-empty.
+    depends_on_keys:
+      - mark.dates_of_first_use.in_maine
+    severity: required
+  - id: first-use-anywhere-not-after-maine
+    description: "mark.dates_of_first_use.anywhere is on or before mark.dates_of_first_use.in_maine (a mark must have been used 'anywhere' at least as early as it was first used in Maine)."
+    depends_on_keys:
+      - mark.dates_of_first_use.anywhere
+      - mark.dates_of_first_use.in_maine
+    severity: required
+  - id: text-or-features-required
+    description: "At least one of mark.text_words.line1 or mark.design_features.line1 is non-empty (a mark must have at least text words or design features; empty marks aren't registrable)."
+    depends_on_keys:
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: required
+  - id: type-and-class-required
+    description: mark.type_and_class_number is non-empty.
+    depends_on_keys:
+      - mark.type_and_class_number
+    severity: required
+  - id: goods-or-services-required
+    description: mark.goods_or_services_description.line1 is non-empty.
+    depends_on_keys:
+      - mark.goods_or_services_description.line1
+    severity: required
+  - id: usage-description-required
+    description: mark.usage_description.line1 is non-empty.
+    depends_on_keys:
+      - mark.usage_description.line1
+    severity: required
+  - id: applicant-entity-type-required
+    description: Exactly one mark.applicant.entity_type option is selected.
+    depends_on_keys:
+      - mark.applicant.entity_type
+    severity: required
+  - id: other-explanation-when-other
+    description: "If mark.applicant.entity_type='other', mark.applicant.entity_type_other_explanation must be non-empty."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.entity_type_other_explanation
+    severity: required
+  - id: jurisdiction-when-entity
+    description: "If mark.applicant.entity_type is one of {'corporation', 'limited_partnership', 'general_partnership', 'association', 'union'} (or 'other' with an entity-like explanation), mark.applicant.jurisdiction_of_organization and mark.applicant.date_of_organization must be set."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.jurisdiction_of_organization
+      - mark.applicant.date_of_organization
+    severity: required
+  - id: signer-required
+    description: mark.signer.printed_name_and_capacity and mark.applicant.entity_name are both non-empty.
+    depends_on_keys:
+      - mark.signer.printed_name_and_capacity
+      - mark.applicant.entity_name
+    severity: required
+  - id: applicant-mailing-address-required
+    description: mark.applicant.mailing_address is non-empty.
+    depends_on_keys:
+      - mark.applicant.mailing_address
+    severity: required
+  - id: fee-base-by-class-count
+    description: filing.total_fees_dollars equals $60 + $10 × (number of additional classes beyond the first) plus expedite premium. Class count is implicit in mark.type_and_class_number — multiple classes are listed comma-separated; rubric should parse and compute.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - mark.type_and_class_number
+      - filing.expedited_service
+    severity: optional

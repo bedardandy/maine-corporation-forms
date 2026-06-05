@@ -1,0 +1,28 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Name of Corporation,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit's existing legal name.
+Check Box5,0,text,FIRST: A. [ ] change of address,contact_change.action_type,high,Selects enum value 'change_of_address' (option A). Flat-enum 4-way choice. Naming mirrors CORP_CLKRA-3's clerk_change.action_type pattern.
+Check Box8,0,text,FIRST: B. [ ] change of contact person and address,contact_change.action_type,high,Selects enum value 'change_of_contact_person_and_address' (option B).
+Check Box6,0,text,FIRST: C. [ ] change of contact person,contact_change.action_type,high,Selects enum value 'change_of_contact_person' (option C).
+Check Box9,0,text,FIRST: D. [ ] change in name of current contact person,contact_change.action_type,high,Selects enum value 'change_in_name_of_current_contact_person' (option D).
+name of current contact person,0,text,SECOND: (name of current contact person),contact_change.current_name,high,Name of the contact person currently on record at the SOS — identifies which record is being modified.
+street city state and zip code,0,text,"SECOND: (street, city, state and zip code)",contact_change.current_address,high,Current address of the contact person on record (single combined widget; not split into street/city components).
+name of new contact person or new name of current contact person,0,text,THIRD: (name of new contact person or new name of current contact person),contact_change.new_name,high,New contact person name. Per page-0 THIRD instructions: populated under options B/C (new contact person's name) or D (new name of the current contact person). Empty under option A (address-only change).
+physical location not PO Box  street city state and zip code,0,text,"THIRD: (physical location, not P.O. Box – street, city, state and zip code)",contact_change.new_physical_address,high,New physical address of the contact person. Populated under options A/B; empty under C/D (no address change).
+mailing address if different from above,0,text,THIRD: (mailing address if different from above),contact_change.new_mailing_address,high,Optional mailing address if different from physical location.
+DATED,1,text,DATED ___,filing.date_signed,high,Filing signature date.
+type or print name,1,text,(type or print name),filing.signer.printed_name,high,"Printed name of the signer — Shape A (name + separate title widget) per filing-signer-shape convention. Same shape as CORP_CLKRA-3, CORP_FICT-4."
+title of signer,1,text,(title of signer),filing.signer.title,high,"Title of the signer (e.g., 'Contact Person', 'Secretary', 'Clerk' per page-1 footnote — driven by FIRST selection)."
+Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,2,text,Name of entity(s) on the submitted filings [2],filing.entities[1].name,high,Cover-letter row 2.
+Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
+Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
+Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($5 base per page-0 header plus expedite premium).
+Name of contact person,2,text,(Name of contact person),filing.contact.name,high,Filing-contact name (note: distinct from contact_change.* — that is the on-record contact person being changed; this is the filing-correspondence contact).
+Daytime telephone number,2,text,(Daytime telephone number),filing.contact.phone,high,Filing-contact phone.
+Contact email address for this filing,2,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,2,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,Annual-report reminder email.
+Name of attested copy recipient,2,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,2,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,2,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,2,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

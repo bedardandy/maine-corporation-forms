@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+Text3,0,text,(Name of Limited Partnership),entity.name,high,Primary entity name at top of the Statement of Dissociation.
+Text4,0,text,FIRST: The general partner named herein is dissociated... (Name of General Partner),dissociated_general_partner.name,high,"Name of the GP being dissociated, named in the FIRST recital. Non-indexed because the form provides exactly one slot. Mirrors the indexed `dissociated_general_partner_N.name` family used on MLPA-9 (Certificate of Amendment), where multi-slot dissociations are listed."
+Text5,0,text,Dated ____,filing.date_signed,high,Date the Statement was signed by the dissociating GP.
+Text6,0,text,General Partner(s)* / (type or print name),general_partner_1.printed_name,high,"Printed name of the individual GP signer. Per-officer signer pattern (see schema-gaps/2026-04-30-per-officer-signer-pattern.md). Per the page-1 footnote, this person MUST be the dissociating GP — i.e., this value equals `dissociated_general_partner.name` when that partner is an individual."
+Text7,0,text,For General Partner(s) which are Entities / Name of Entity,general_partner_entity_1.name,high,"Name of the entity GP, used when the dissociating GP is an entity rather than a natural person. Per the footnote, equals `dissociated_general_partner.name` in that case."
+Text8,0,text,By ____ (type or print name and capacity),general_partner_entity_1.signer_printed_name_and_capacity,high,Printed name and capacity of the natural person signing on behalf of the entity GP. Combined-shape primitive (Shape D) applied per officer.
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1; universal handle for entity name on this filing.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2; supports multi-form bundling.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier enum value '24h_next_business_day' (+$50).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier enum value 'immediate_same_day' (+$100).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total filing fees enclosed; base $35 plus any expedite premium.
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact person for the filing.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone number.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Contact email for this specific filing.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,"Email for annual report reminders (entity-level, not filing-level)."
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name for attested copy of the completed filing.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm/company.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient mailing address street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,"Recipient city, state, and zip combined."

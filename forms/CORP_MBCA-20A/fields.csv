@@ -1,0 +1,21 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+20a1,0,text,(Name of Corporation),entity.name,high,Top-of-form domestic business-corporation name. Domestic Maine filing — uses entity.name (not entity.home_jurisdiction_name).
+20a2,0,text,FIRST: ... and the effective date of the conversion is (date) ___,conversion.future_effective_date,high,"Effective date of the foreign nonprofit conversion. Reuses existing conversion.future_effective_date key per MBCA-20 / MBCA-20B / MBCA-21 precedent — semantically the same conversion-effective-date concept, even though FIRST here is mandatory (vs. MBCA-20's optional FOURTH)."
+20a3,0,text,THIRD: The corporation's new jurisdiction of incorporation is ___,conversion.new_jurisdiction,high,State or country where the corporation is reincorporating as a foreign nonprofit. Novel to the outbound (Maine → foreign) conversion direction — MBCA-20 / MBCA-21 stay within Maine and don't have this concept; MBCA-20A is the first form requiring it.
+20a4,0,text,FOURTH: ... shall provide a mailing address to which the Secretary of State may mail a copy of any process served on the Secretary of State (mailing address),filing.appraisal_rights_agent_mailing_address,high,"Forwarding mailing address for SOS-as-agent appointment, specifically for shareholder appraisal-rights process under 13-C ch.13. Distinct from filing.contact.* (cover-letter contact) and from merger.foreign_survivor.service_of_process_mailing_address (MBCA-10's parallel SOS-agent address for foreign survivors of a merger)."
+20a5,0,text,DATED ___,filing.date_signed,high,Date the filing was signed.
+20a6,0,text,*By ___ (signature of an officer or other duly authorized representative) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,Combined name+capacity widget. Shape D (matches MBCA-11 / MLLC-12 / MBCA-20 / MBCA-20B / MBCA-21). Form footnote requires 'an officer or other duly authorized representative' per 13-C MRSA §934.1; signature line is wet-ink (no AcroForm widget).
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive).
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($90 base per page-0 header plus expedite premium).
+Name of contact person,1,text,(Name of contact person),filing.contact.name,high,Contact name.
+Daytime telephone number,1,text,(Daytime telephone number),filing.contact.phone,high,Contact phone.
+Contact email address for this filing,1,text,(Contact email address for this filing),filing.contact.email,high,Filing-specific contact email.
+Email address to use for annual report reminders,1,text,(Email address to use for annual report reminders),entity.annual_report_reminder_email,high,"Annual-report reminder email. Note: the surrendering corporation will no longer have Maine annual-report obligations post-effective-date, so this field is typically left blank on charter-surrender filings."
+Name of attested copy recipient,1,text,(Name of attested copy recipient),filing.attested_copy_recipient.name,high,Recipient name.
+Firm or Company,1,text,(Firm or Company),filing.attested_copy_recipient.firm,high,Recipient firm.
+Mailing Address,1,text,(Mailing Address),filing.attested_copy_recipient.mailing_address.street,high,Recipient street.
+City State  Zip,1,text,"(City, State & Zip)",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined. Field-id has double-space ('City State  Zip') preserved upstream.

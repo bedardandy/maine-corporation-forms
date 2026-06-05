@@ -1,0 +1,12 @@
+form_id: CORP_REVIVAL
+code: REVIVAL
+title: Application for Certificate of Revival
+entity_type: Business Corporation
+statute: Maine Business Corporation Act (13-C M.R.S.)
+num_pages: 3
+num_fields: 38
+mapped_fields: 30
+source: Maine Secretary of State
+revision: null
+jurisdiction: Maine
+language: en

@@ -1,0 +1,195 @@
+{
+  "form_id": "LP_MLPA-12-1",
+  "fields": {
+    "entity.maine_assumed_name_for_suffix": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The proposed limited partnership name* to be used in this State",
+      "when": "entity.is_lllp == true"
+    },
+    "entity.maine_fictitious_name": {
+      "widget_id": "Text2",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SECOND: …the fictitious name under which it proposes to apply for authority to do business in the State of Maine is"
+    },
+    "filing.fict4_accompanies": {
+      "widget_id": "Check Box23",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Form FICT-4 accompanies this application."
+    },
+    "entity.is_lllp": {
+      "widget_id": "Check Box24",
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: …The foreign limited partnership is a limited liability limited partnership."
+    },
+    "entity.is_plllp": {
+      "widget_id": "Check Box25",
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: …This is a professional limited liability limited partnership** qualified pursuant to 31 MRSA §1354.4."
+    },
+    "entity.professional_services_description.line1": {
+      "widget_id": "Text3",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(provide the following professional services: ...) line 1"
+    },
+    "entity.professional_services_description.line2": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(provide the following professional services: ...) line 2"
+    },
+    "entity.formation_date_in_home_jurisdiction": {
+      "widget_id": "Text5",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: Date of organization"
+    },
+    "entity.home_jurisdiction": {
+      "widget_id": "Text6",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: Jurisdiction of organization"
+    },
+    "entity.principal_office.physical_address": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: The street and mailing address of the foreign limited partnership's principal office is: (physical location, street – not P.O. Box, city, state and zip code)"
+    },
+    "entity.principal_office.mailing_address": {
+      "widget_id": "Text8",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIFTH: (mailing address if different from above)"
+    },
+    "entity.required_office.physical_address": {
+      "widget_id": "Text9",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SIXTH: The street and mailing address of the foreign limited partnership's required office is: (physical location, street – not P.O. Box, city, state and zip code)"
+    },
+    "entity.required_office.mailing_address": {
+      "widget_id": "Text10",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "SIXTH: (mailing address if different from above)"
+    },
+    "registered_agent.type": {
+      "widget_id": [
+        "Check Box26",
+        "Check Box27"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: …Commercial Registered Agent"
+    },
+    "registered_agent.cra_public_number": {
+      "widget_id": "Text11",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: CRA Public Number",
+      "when": "registered_agent.type == 'commercial'"
+    },
+    "registered_agent.name": {
+      "widget_id": [
+        "Text12",
+        "Text13"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (name of commercial registered agent)"
+    },
+    "registered_agent.physical_address": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (physical location, not P.O. Box – street, city, state and zip code) [registered agent]"
+    },
+    "registered_agent.mailing_address": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "SEVENTH: (mailing address if different from above) [registered agent]"
+    },
+    "general_partner_1.name": {
+      "widget_id": "Text16",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Name (general partner row 1)"
+    },
+    "general_partner_1.address": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Address (general partner row 1)"
+    },
+    "general_partner_2.name": {
+      "widget_id": "Text18",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Name (general partner row 2)"
+    },
+    "general_partner_2.address": {
+      "widget_id": "Text19",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Address (general partner row 2)"
+    },
+    "general_partner_3.name": {
+      "widget_id": "Text20",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Name (general partner row 3)"
+    },
+    "general_partner_3.address": {
+      "widget_id": "Text21",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Address (general partner row 3)"
+    },
+    "general_partner.additional_attached": {
+      "widget_id": "Check Box28",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: Names and addresses of additional general partners are attached as Exhibit ___"
+    },
+    "general_partner.additional_exhibit_letter": {
+      "widget_id": "Text22",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "NINTH: …attached as Exhibit ____"
+    }
+  }
+}

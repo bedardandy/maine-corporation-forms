@@ -1,0 +1,74 @@
+checks:
+  - id: name-on-record-required
+    description: entity.home_jurisdiction_name_on_record is non-empty (top-of-form recital used to identify the existing SOS record).
+    depends_on_keys:
+      - entity.home_jurisdiction_name_on_record
+    severity: required
+  - id: jurisdiction-on-record-required
+    description: entity.home_jurisdiction_on_record is non-empty (FIRST recital).
+    depends_on_keys:
+      - entity.home_jurisdiction_on_record
+    severity: required
+  - id: maine-authorization-date-required
+    description: entity.maine_authorization_date is non-empty and on or before filing.date_signed (SECOND recital — Maine-side anniversary).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: amendment-changes-something
+    description: "At least one of entity.home_jurisdiction_name (THIRD), entity.principal_office.physical_address (FOURTH), or entity.home_jurisdiction (FIFTH) differs from its on-record counterpart, or contains a non-'no change' value (an amendment that changes nothing is vacuous)."
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+      - entity.home_jurisdiction_name_on_record
+      - entity.principal_office.physical_address
+      - entity.home_jurisdiction
+      - entity.home_jurisdiction_on_record
+    severity: required
+  - id: fict4-when-fictitious-name
+    description: "If entity.maine_fictitious_name is set, filing.fict4_accompanies must be true."
+    depends_on_keys:
+      - entity.maine_fictitious_name
+      - filing.fict4_accompanies
+    severity: required
+  - id: coe-when-jurisdiction-changed
+    description: "If entity.home_jurisdiction differs from entity.home_jurisdiction_on_record (Item FIFTH was amended), filing.certificate_of_existence_attached must be true (Check Box2 checked)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.home_jurisdiction_on_record
+      - filing.certificate_of_existence_attached
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "Both entity.home_jurisdiction and entity.home_jurisdiction_on_record are not 'Maine' or 'ME' (foreign-corp amendments only — domestic Maine corps amend differently)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.home_jurisdiction_on_record
+    severity: required
+  - id: signer-name-and-title-required
+    description: filing.signer.printed_name and filing.signer.title are both non-empty (Shape A — name and title in separate widgets).
+    depends_on_keys:
+      - filing.signer.printed_name
+      - filing.signer.title
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required
+  - id: fee-base-76-or-35
+    description: "filing.total_fees_dollars equals $76 base (changes other than FOURTH-only) or $35 (changing ONLY FOURTH/principal-office), plus expedite premium per filing.expedited_service tier."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

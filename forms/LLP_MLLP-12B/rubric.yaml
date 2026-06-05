@@ -1,0 +1,58 @@
+checks:
+  - id: home-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: home-jurisdiction-required-and-non-maine
+    description: "entity.home_jurisdiction is non-empty and not 'Maine'/'ME' (foreign cancellation implies a non-Maine home)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-auth-date-required-and-not-after-filing
+    description: entity.maine_authorization_date is non-empty and on or before filing.date_signed (cannot cancel before initial authorization).
+    depends_on_keys:
+      - entity.maine_authorization_date
+      - filing.date_signed
+    severity: required
+  - id: principal-office-required
+    description: entity.principal_office.physical_address is non-empty.
+    depends_on_keys:
+      - entity.principal_office.physical_address
+    severity: required
+  - id: signer-required
+    description: "Either (a) filing.signer.printed_name_and_capacity (individual path) is non-empty, or (b) filing.signer.entity_name AND filing.signer.entity_signer_printed_name_and_capacity (entity path) are both non-empty."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer.entity_name
+      - filing.signer.entity_signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-consistency
+    description: "If filing.signer.entity_name is set, filing.signer.entity_signer_printed_name_and_capacity must also be set, and vice versa."
+    depends_on_keys:
+      - filing.signer.entity_name
+      - filing.signer.entity_signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-90
+    description: filing.total_fees_dollars equals $90 base (per page-0 header) plus $50 (24h) or $100 (immediate) expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

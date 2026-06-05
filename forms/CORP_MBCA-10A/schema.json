@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MBCA-10A.json",
+  "title": "CORP_MBCA-10A fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "parties[N]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string",
+              "description": "Combined name | type of entity | jurisdiction recital for one party to the abandoned merger or share exchange. Free-form string \u2014 form provides three column headers but only one underlined blank per row (same combined-recital pattern as CORP_MBCA-10's FIRST block, where the recital additionally includes effective date). Already proposed in CORP_MBCA-10.json; this form reuses it (without the date column)."
+            }
+          }
+        },
+        "parties[0]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            }
+          }
+        },
+        "parties[1]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            }
+          }
+        },
+        "parties[2]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            }
+          }
+        },
+        "parties[3]": {
+          "type": "object",
+          "properties": {
+            "recital": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing"
+  ]
+}

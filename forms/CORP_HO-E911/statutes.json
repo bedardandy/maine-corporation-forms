@@ -1,0 +1,42 @@
+{
+  "form_id": "CORP_HO-E911",
+  "_model": "propose-and-flag",
+  "_about": "Per-field statute sidecar. This is an AI-PROPOSED cross-reference between form fields and Maine statute, NOT legal advice and NOT an official citation. Every per-field entry carries verified=false and MUST be confirmed against the current Maine Revised Statutes before it is relied on. Section numbers below are candidates to check, not assertions of law. The form-level governing_statute is taken verbatim from form.yaml (sourced from the Secretary of State header) and is the only entry treated as sourced.",
+  "governing_statute": {
+    "citation": "Maine Business Corporation Act (13-C M.R.S.)",
+    "source": "forms/CORP_HO-E911/form.yaml (Secretary of State form header)",
+    "verified": true
+  },
+  "verification": {
+    "authority": "Maine Revised Statutes, Title 13-C (https://legislature.maine.gov/statutes/13-C/)",
+    "instruction": "Open the cited title, confirm each proposed section still exists and says what the rationale claims, then set verified=true and record who verified it.",
+    "verified_by": null,
+    "verified_on": null
+  },
+  "fields": {
+    "entity.home_jurisdiction_name": {
+      "proposed_sections": [],
+      "rationale": "Identifies the foreign entity whose home office address is changing; foreign authority to transact business is governed by 13-C Chapter 15, but no specific section is asserted here.",
+      "confidence": "low",
+      "verified": false
+    },
+    "entity.home_office_address_new.physical": {
+      "proposed_sections": [],
+      "rationale": "The form forbids a P.O. box for the physical home office line. The no-P.O.-box rule is enforced by the rubric check 'new-physical-not-po-box'; the statutory basis (if any) for the physical-address requirement is unconfirmed.",
+      "confidence": "low",
+      "verified": false
+    },
+    "entity.maine_authorization_date": {
+      "proposed_sections": [],
+      "rationale": "Date the foreign entity was authorized to transact business in Maine; tied to the certificate of authority provisions of 13-C Chapter 15, exact section unconfirmed.",
+      "confidence": "low",
+      "verified": false
+    },
+    "filing.authorized_by": {
+      "proposed_sections": [],
+      "rationale": "Per the form's footnote, this notification is filed by a Town/Municipality or the U.S. Postal Service (an E-911 address change), not by the entity itself. The statutory hook for a municipality/USPS-initiated home-office address correction is unconfirmed and should be checked before citing.",
+      "confidence": "low",
+      "verified": false
+    }
+  }
+}

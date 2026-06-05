@@ -1,0 +1,215 @@
+{
+  "form_id": "LLC_MLLC-6",
+  "fields": {
+    "entity.name": {
+      "widget_id": "Text1",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "FIRST: The name of the limited liability company is"
+    },
+    "entity.formation_effective_date_choice": {
+      "field_type": "enum_select",
+      "page": 0,
+      "confidence": "medium",
+      "label": "SECOND: [ ] Date of this filing",
+      "options": {
+        "on_filing": "Check Box2",
+        "later_specified": "Check Box3"
+      },
+      "binding_source": "geometry_verified (tools/widget_probe.py)"
+    },
+    "entity.formation_effective_date": {
+      "widget_id": "Text4",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "Later effective date (specified here): ___",
+      "when": "entity.formation_effective_date_choice == 'later_specified'"
+    },
+    "entity.is_low_profit_llc": {
+      "widget_id": "Check Box5",
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "THIRD: [ ] This is a low-profit limited liability company pursuant to 31 MRSA \u00a71611"
+    },
+    "entity.is_professional_llc": {
+      "widget_id": "Check Box6",
+      "field_type": "checkbox",
+      "page": 0,
+      "confidence": "high",
+      "label": "FOURTH: [ ] This is a professional limited liability company* formed pursuant to 13 MRSA Chapter 22-A"
+    },
+    "entity.professional_services_description": {
+      "widget_id": "Text7",
+      "field_type": "text",
+      "page": 0,
+      "confidence": "high",
+      "label": "(Type of professional services)",
+      "when": "entity.is_professional_llc == true"
+    },
+    "registered_agent.type": {
+      "field_type": "enum_select",
+      "page": 1,
+      "confidence": "medium",
+      "label": "FIFTH: [ ] Commercial Registered Agent",
+      "options": {
+        "commercial": "Check Box8",
+        "noncommercial": "Check Box12"
+      },
+      "binding_source": "geometry_verified (tools/widget_probe.py)"
+    },
+    "registered_agent.cra_public_number": {
+      "widget_id": "Text10",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "CRA Public Number",
+      "when": "registered_agent.type == 'commercial'"
+    },
+    "registered_agent.name": {
+      "widget_id": [
+        "Text11",
+        "Text13"
+      ],
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Name of commercial registered agent)"
+    },
+    "registered_agent.physical_address": {
+      "widget_id": "Text14",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(physical location, not P.O. Box - street, city, state and zip code)"
+    },
+    "registered_agent.mailing_address": {
+      "widget_id": "Text15",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(mailing address if different from above)"
+    },
+    "entity.statement_of_authority_exhibit_letter": {
+      "widget_id": "Text17",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "SEVENTH: ...set forth in the attached Exhibit ___, and made part hereof"
+    },
+    "filing.date_signed": {
+      "widget_id": "Text18",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "Dated ___"
+    },
+    "filing.signer.printed_name_and_title": {
+      "widget_id": "Text19",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "medium",
+      "label": "**By ___ (original written signature of authorized person) / (type or print name and title of signer)"
+    },
+    "filing.entities[0].name": {
+      "widget_id": "Name of entity",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity(s) on the submitted filings [1]"
+    },
+    "filing.entities[1].name": {
+      "widget_id": "Name of entitys on the submitted filings 2",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of entity [2]"
+    },
+    "filing.total_fees_dollars": {
+      "widget_id": "Total fees enclosed",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Total fee(s) enclosed: $"
+    },
+    "filing.contact.name": {
+      "widget_id": "Name of contact person",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of contact person"
+    },
+    "filing.contact.phone": {
+      "widget_id": "Daytime telephone number",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Daytime telephone number"
+    },
+    "filing.contact.email": {
+      "widget_id": "Contact email address for this filing",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Contact email address for this filing"
+    },
+    "entity.annual_report_reminder_email": {
+      "widget_id": "Email address to use for annual report reminders",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Email address to use for annual report reminders"
+    },
+    "filing.attested_copy_recipient.name": {
+      "widget_id": "Name of attested copy recipient",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Name of attested copy recipient"
+    },
+    "filing.attested_copy_recipient.firm": {
+      "widget_id": "Firm or Company",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Firm or Company"
+    },
+    "filing.attested_copy_recipient.mailing_address.street": {
+      "widget_id": "Mailing Address",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "Mailing Address"
+    },
+    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
+      "widget_id": "City State  Zip",
+      "field_type": "text",
+      "page": 2,
+      "confidence": "high",
+      "label": "City, State & Zip"
+    },
+    "filing.expedited_service.hold_for_pickup": {
+      "widget_id": "Check Box14",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Hold attested copy for pick up"
+    },
+    "filing.expedited_service.expedite_24h": {
+      "widget_id": "Check Box15",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "24-hour expedited filing ($50)"
+    },
+    "filing.expedited_service.immediate": {
+      "widget_id": "IMM",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "Immediate expedited filing ($100)"
+    }
+  }
+}

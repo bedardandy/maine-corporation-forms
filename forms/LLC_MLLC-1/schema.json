@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-1.json",
+  "title": "LLC_MLLC-1 fill data",
+  "type": "object",
+  "properties": {
+    "applicant": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the person or entity applying for a name reservation (or other applicant-driven pre-formation filing). Distinct from filing.signer.* because the applicant is the requesting party (often the future LLC's organizer); the signer may be the same person or an authorized agent."
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of the applicant on a name-reservation or pre-formation filing. Single-line on this form (does not split into street/city/state/zip components)."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "is_assumed_name_reservation": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating that a name reservation is for use as an assumed/fictitious name (exempts the reserved name from the LLC suffix requirement of 31 MRSA \u00a71508). Applies to LLC and analogous LLP/LP/Corp reservation forms."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "applicant",
+    "entity",
+    "filing"
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-12.json",
+  "title": "LLC_MLLC-12 fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "home_jurisdiction_name": {
+          "type": "string",
+          "description": "Legal name of a foreign entity in its home jurisdiction (for foreign-qualification filings)."
+        },
+        "maine_assumed_name_for_suffix": {
+          "type": "string",
+          "description": "Alternate name used in Maine when the home-jurisdiction name does not contain a required LLC/Corp/etc. suffix per 31 MRSA \u00a71508.1."
+        },
+        "maine_fictitious_name": {
+          "type": "string",
+          "description": "Fictitious name under which a foreign entity seeks authority to conduct activities in Maine when its home-jurisdiction name is unavailable."
+        },
+        "formation_date_in_home_jurisdiction": {
+          "type": "string",
+          "description": "Date the foreign entity was originally formed in its home jurisdiction."
+        },
+        "home_jurisdiction": {
+          "type": "string",
+          "description": "State or country where the foreign entity was formed."
+        },
+        "principal_office": {
+          "type": "object",
+          "properties": {
+            "physical_address": {
+              "type": "string",
+              "description": "Physical-location address of the principal office (single-line: street, city, state, zip, country)."
+            },
+            "mailing_address": {
+              "type": "string",
+              "description": "Optional mailing address of the principal office if different from physical location."
+            }
+          }
+        },
+        "maine_business_purpose": {
+          "type": "string",
+          "description": "Free-text description of the nature of business or purposes to be conducted/promoted in Maine."
+        },
+        "maine_activities_start_date": {
+          "type": "string",
+          "description": "Date the foreign entity commenced or expects to commence conducting activities in Maine."
+        },
+        "is_series_llc": {
+          "type": "boolean",
+          "description": "Boolean indicating the LLC is governed by an agreement establishing designated series with separate rights/powers/duties (per 31 MRSA \u00a71622.2,3)."
+        },
+        "series_llc_exhibit_letter": {
+          "type": "string",
+          "description": "Exhibit letter referencing additional series-LLC information required when entity.is_series_llc = true."
+        },
+        "is_professional_llc": {
+          "type": "boolean"
+        },
+        "professional_services_description": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "fict4_accompanies": {
+          "type": "boolean",
+          "description": "Boolean indicating Form FICT-4 (fictitious name registration) is filed with this application."
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "manager_N": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of an LLC manager (indexed list \u2014 supports up to 3 inline; further on exhibit)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Combined business/residence/mailing address of an LLC manager (single-line on this form)."
+        }
+      }
+    },
+    "manager": {
+      "type": "object",
+      "properties": {
+        "additional_attached": {
+          "type": "boolean",
+          "description": "Boolean opt-in indicating an exhibit listing additional managers is attached."
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "manager_1": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "manager_2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "manager_3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "registered_agent"
+  ]
+}

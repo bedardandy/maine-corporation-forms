@@ -1,0 +1,54 @@
+checks:
+  - id: entity-name-nonempty
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-filing-date-nonempty
+    description: entity.original_certificate_filing_date is non-empty.
+    depends_on_keys:
+      - entity.original_certificate_filing_date
+    severity: required
+  - id: termination-date-not-before-formation
+    description: filing.date_signed is on or after entity.original_certificate_filing_date — cannot terminate before formation.
+    depends_on_keys:
+      - filing.date_signed
+      - entity.original_certificate_filing_date
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: at-least-one-gp-signed
+    description: "At least one GP slot is signed: any of general_partner_{1..3}.printed_name OR general_partner_entity_1.signer_printed_name_and_capacity is non-empty (§1323 strictly requires all GPs sign; rubric loosens to ≥1 since synth may model partial-fill states)."
+    depends_on_keys:
+      - general_partner_1.printed_name
+      - general_partner_2.printed_name
+      - general_partner_3.printed_name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-gp-name-when-signer-present
+    description: "If general_partner_entity_1.signer_printed_name_and_capacity is non-empty, general_partner_entity_1.name must also be non-empty."
+    depends_on_keys:
+      - general_partner_entity_1.name
+      - general_partner_entity_1.signer_printed_name_and_capacity
+    severity: required
+  - id: cover-entity-matches-body
+    description: "filing.entities[0].name matches entity.name (cover letter mirrors the LP being terminated)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: expedited-service-set
+    description: "filing.expedited_service is exactly one of hold_for_pickup | 24h_next_business_day | immediate_same_day."
+    depends_on_keys:
+      - filing.expedited_service
+    severity: required

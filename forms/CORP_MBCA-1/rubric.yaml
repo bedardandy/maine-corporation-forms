@@ -1,0 +1,29 @@
+checks:
+  - id: name-to-reserve-nonempty
+    description: name_reservation.name_to_reserve is non-empty.
+    depends_on_keys:
+      - name_reservation.name_to_reserve
+    severity: required
+  - id: applicant-fields-nonempty
+    description: name_reservation.applicant.name and name_reservation.applicant.address are both non-empty.
+    depends_on_keys:
+      - name_reservation.applicant.name
+      - name_reservation.applicant.address
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-matches-tier
+    description: "filing.total_fees_dollars >= $20 base fee plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: entities-consistent
+    description: "filing.entities[0].name on cover letter equals name_reservation.name_to_reserve on page 1."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - name_reservation.name_to_reserve
+    severity: optional

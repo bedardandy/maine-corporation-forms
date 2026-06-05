@@ -1,0 +1,62 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-document-name-required
+    description: correction.original_document_name is non-empty.
+    depends_on_keys:
+      - correction.original_document_name
+    severity: required
+  - id: original-filing-date-required
+    description: correction.original_filing_date is non-empty and parses as a valid date in the past relative to filing.date_signed.
+    depends_on_keys:
+      - correction.original_filing_date
+      - filing.date_signed
+    severity: required
+  - id: error-description-required
+    description: correction.error_description is non-empty.
+    depends_on_keys:
+      - correction.error_description
+    severity: required
+  - id: corrected-information-required
+    description: correction.corrected_information is non-empty.
+    depends_on_keys:
+      - correction.corrected_information
+    severity: required
+  - id: foreign-fields-conditional
+    description: "If the corporation is foreign (entity.home_jurisdiction is set and != 'Maine'/'ME'), entity.maine_authorization_date must also be set. If domestic, both fields should be empty. SEVENTH header explicitly says '(Foreign Corporation Only)'."
+    depends_on_keys:
+      - entity.home_jurisdiction
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-capacity-required
+    description: "filing.signer.printed_name_and_capacity is non-empty and capacity reflects an authorized officer or the corporation's clerk (per 13-C MRSA §121.5)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-body
+    description: "filing.entities[0].name matches entity.name."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name, phone, email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-50
+    description: filing.total_fees_dollars equals $50 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory

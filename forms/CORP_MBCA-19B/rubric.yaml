@@ -1,0 +1,58 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: exactly-one-abandonment-path
+    description: "Exactly one of FIRST checkboxes is selected (abandonment.path ∈ {'domestic', 'foreign'})."
+    depends_on_keys:
+      - abandonment.path
+    severity: required
+  - id: would-be-effective-date-when-domestic
+    description: "If abandonment.path='domestic', abandonment.would_be_effective_date must be non-empty (the form's only fillable date in the FIRST domestic recital)."
+    depends_on_keys:
+      - abandonment.path
+      - abandonment.would_be_effective_date
+    severity: required
+  - id: would-be-effective-date-after-filing
+    description: "If abandonment.would_be_effective_date is set, it must be on or after filing.date_signed (the abandonment is filed BEFORE the domestication would have become effective per §926)."
+    depends_on_keys:
+      - abandonment.would_be_effective_date
+      - filing.date_signed
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be an officer or duly authorized representative per §926).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: cover-letter-entity-matches
+    description: "filing.entities[0].name equals entity.name (the corporation's name on this filing)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: "filing.total_fees_dollars equals $35 base (per page-0 'Filing Fee $35.00' header) plus any expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional
+  - id: annual-report-reminder-email-only-when-domestic
+    description: "If abandonment.path='foreign', entity.annual_report_reminder_email may be left blank — the corporation does not become a Maine domestic and so will not receive Maine annual-report reminders. Optional check (the cover-letter widget is generic and accepts any value)."
+    depends_on_keys:
+      - abandonment.path
+      - entity.annual_report_reminder_email
+    severity: optional

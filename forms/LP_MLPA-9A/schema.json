@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LP_MLPA-9A.json",
+  "title": "LP_MLPA-9A fill data",
+  "type": "object",
+  "properties": {
+    "withdrawing_limited_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the limited partner withdrawing from the LP. Used regardless of whether the partner is an individual or an entity (the FIRST recital identifies the partner; the signature block below distinguishes individual vs. entity)."
+        },
+        "printed_name": {
+          "type": "string",
+          "description": "Printed name of the individual limited partner who signed the 'Limited Partner*' line. Set only when the withdrawing partner is a natural person."
+        }
+      }
+    },
+    "withdrawing_limited_partner_entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the entity acting as the withdrawing limited partner. Set only when the withdrawing partner is a corporate/entity partner."
+        },
+        "signer_printed_name_and_capacity": {
+          "type": "string",
+          "description": "Printed name and capacity of the natural person signing on behalf of the entity limited partner. Parallels the entity-officer signer pattern documented in 2026-04-30-per-officer-signer-pattern.md (general_partner_entity_N, incorporator_entity_N) but applied to a single withdrawing-LP slot under a role prefix."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "withdrawing_limited_partner"
+  ]
+}

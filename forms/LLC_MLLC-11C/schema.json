@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLC_MLLC-11C.json",
+  "title": "LLC_MLLC-11C fill data",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "dissolution_date": {
+          "type": "string",
+          "description": "Date of internal dissolution of an entity (board/manager/member action \u2014 i.e., the moment governance decided to wind up). Distinct from the cancellation effective date (when SOS removes the entity from active records) and from filing.date_signed (when the cancellation certificate is executed)."
+        },
+        "name": {
+          "type": "string"
+        },
+        "formation_date": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "cancellation": {
+      "type": "object",
+      "properties": {
+        "effective_date_type": {
+          "type": "string",
+          "description": "Mutually-exclusive enum identifying when a cancellation takes effect. Values: 'date_of_filing' | 'future_date'. Mapped onto the THIRD recital's two checkboxes."
+        },
+        "future_effective_date": {
+          "type": "string",
+          "description": "Future date on which a cancellation will take effect, used only when cancellation.effective_date_type='future_date'."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "additional_info_exhibit_letter": {
+          "type": "string"
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "cancellation",
+    "entity",
+    "filing"
+  ]
+}

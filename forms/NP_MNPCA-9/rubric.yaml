@@ -1,0 +1,55 @@
+checks:
+  - id: entity-name-required
+    description: "entity.name is non-empty (header) and matches filing.entities[0].name (cover-letter row 1)."
+    depends_on_keys:
+      - entity.name
+      - "filing.entities[0].name"
+    severity: required
+  - id: exactly-one-nonprofit-type
+    description: Exactly one of FIRST public_benefit/mutual_benefit options is selected.
+    depends_on_keys:
+      - entity.nonprofit_type
+    severity: required
+  - id: amendment-text-nonempty
+    description: At least amendment.nature_and_text.line1 is non-empty (an Articles of Amendment must describe what is changing).
+    depends_on_keys:
+      - amendment.nature_and_text.line1
+    severity: required
+  - id: adoption-date-required
+    description: amendment.adoption_date is non-empty.
+    depends_on_keys:
+      - amendment.adoption_date
+    severity: required
+  - id: adoption-date-not-future
+    description: amendment.adoption_date is not in the future relative to filing.date_signed.
+    depends_on_keys:
+      - amendment.adoption_date
+      - filing.date_signed
+    severity: required
+  - id: exactly-one-adoption-method
+    description: Exactly one of THIRD adoption-method options is selected (member_majority_at_meeting / member_supermajority_at_meeting / member_written_consent / board_of_directors_majority_vote).
+    depends_on_keys:
+      - amendment.adoption_method
+    severity: required
+  - id: registered-office-required
+    description: registered_office.address_line2 (the wide labeled street/city/state/zip line) is non-empty.
+    depends_on_keys:
+      - registered_office.address_line2
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-1-required
+    description: filing.signer_1.printed_name_and_capacity is non-empty (at least one duly authorized officer must sign per 13-B MRSA §104.1.B).
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: cover-letter-contact-required
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

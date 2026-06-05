@@ -1,0 +1,34 @@
+checks:
+  - id: home-jurisdiction-name-required
+    description: entity.home_jurisdiction_name is non-empty (this is a foreign-only form per the FOREIGN NONPROFIT CORPORATION page-0 heading).
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty (statement takes effect upon filing per SECOND).
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future (the statement takes effect upon filing — a future-dated statement cannot already be filed).
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: signer-required
+    description: "filing.signer.printed_name_and_capacity is non-empty (Shape D); the form footer requires signature by 'an officer or other duly authorized representative'."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: contact-info-complete
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: fee-base-35
+    description: filing.total_fees_dollars equals $35 base (per page-0 header) plus expedite premium ($0/$50/$100 by tier).
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

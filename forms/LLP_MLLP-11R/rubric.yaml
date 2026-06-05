@@ -1,0 +1,68 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: llp-filing-date-required-and-past
+    description: entity.llp_certificate_filing_date is non-empty and on or before filing.date_signed.
+    depends_on_keys:
+      - entity.llp_certificate_filing_date
+      - filing.date_signed
+    severity: required
+  - id: reason-required
+    description: At least one of renunciation.reason.line1–line3 is non-empty.
+    depends_on_keys:
+      - renunciation.reason.line1
+      - renunciation.reason.line2
+      - renunciation.reason.line3
+    severity: required
+  - id: future-effective-date-not-past
+    description: "If renunciation.future_effective_date is set, it is on or after filing.date_signed (must be a date or time certain in the future)."
+    depends_on_keys:
+      - renunciation.future_effective_date
+      - filing.date_signed
+    severity: required
+  - id: at-least-one-signer
+    description: "At least one of filing.signer.printed_name_and_capacity, filing.signer_2.printed_name_and_capacity, filing.signer_3.printed_name_and_capacity, filing.entity_signer_1.signer_printed_name_and_capacity, filing.entity_signer_2.signer_printed_name_and_capacity, or filing.entity_signer_3.signer_printed_name_and_capacity is non-empty (per §825 three-tier authority rule)."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+      - filing.signer_2.printed_name_and_capacity
+      - filing.signer_3.printed_name_and_capacity
+      - filing.entity_signer_1.signer_printed_name_and_capacity
+      - filing.entity_signer_2.signer_printed_name_and_capacity
+      - filing.entity_signer_3.signer_printed_name_and_capacity
+    severity: required
+  - id: entity-signer-consistency
+    description: "If filing.entity_signer_N.name is set for any N, the corresponding filing.entity_signer_N.signer_printed_name_and_capacity must also be set."
+    depends_on_keys:
+      - filing.entity_signer_1.name
+      - filing.entity_signer_1.signer_printed_name_and_capacity
+      - filing.entity_signer_2.name
+      - filing.entity_signer_2.signer_printed_name_and_capacity
+      - filing.entity_signer_3.name
+      - filing.entity_signer_3.signer_printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-75
+    description: filing.total_fees_dollars equals $75 base (per page-0 header) plus expedite premium.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: advisory
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required

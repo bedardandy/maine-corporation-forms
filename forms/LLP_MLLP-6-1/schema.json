@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/LLP_MLLP-6-1.json",
+  "title": "LLP_MLLP-6-1 fill data",
+  "type": "object",
+  "properties": {
+    "filing": {
+      "type": "object",
+      "properties": {
+        "underlying_filing_type": {
+          "type": "string",
+          "description": "Enum identifying which underlying entity-action filing this Certificate of Limited Liability Partnership accompanies. Values: 'articles_of_entity_conversion' (13-C MRSA §955.1), 'merger_or_share_exchange' (13-C MRSA §1106 / 31 MRSA §744 / §1436), 'inter_entity_consolidation' (31 MRSA §744), 'articles_of_conversion' (31 MRSA §746 / §1432), 'conversion_of_partnership' (31 MRSA §1093). Exactly one is selected per filing — the 5 page-0 checkboxes are mutually exclusive radio options. New canonical key for the '-1' accompaniment-form pattern; analogous future forms (e.g., LP_MLPA-12-1, LLP_MLLP-12-1) may carry different underlying-filing-type enums."
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "is_professional_llp": {
+          "type": "boolean"
+        },
+        "professional_services_description": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "additional_provisions_exhibit_letter": {
+          "type": "string"
+        }
+      }
+    },
+    "registered_agent": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "cra_public_number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "physical_address": {
+          "type": "string"
+        },
+        "mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "contact_partner": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "filing",
+    "registered_agent"
+  ]
+}

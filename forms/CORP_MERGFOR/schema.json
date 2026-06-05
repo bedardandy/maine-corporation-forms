@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_MERGFOR.json",
+  "title": "CORP_MERGFOR fill data",
+  "type": "object",
+  "properties": {
+    "merger": {
+      "type": "object",
+      "properties": {
+        "surviving_entity": {
+          "type": "object",
+          "properties": {
+            "home_jurisdiction_name": {
+              "type": "string",
+              "description": "Surviving entity's name as filed in its home (non-Maine) jurisdiction. Distinct from merger.surviving_entity.new_name (post-merger name change). Compare with MBCA-10/MNPCA-10 which use a combined merger.surviving_entity.name_and_jurisdiction recital \u2014 this form splits name and jurisdiction into separate widgets."
+            },
+            "home_jurisdiction": {
+              "type": "string",
+              "description": "State or country where the surviving entity is organized. Parallel to entity.home_jurisdiction (foreign-qualification convention) but scoped under merger.surviving_entity for clarity in the merger namespace."
+            },
+            "maine_authorization_date": {
+              "type": "string",
+              "description": "Date the surviving foreign entity was authorized to transact business in Maine, if it was previously qualified. Blank means it was never qualified in Maine."
+            },
+            "new_name": {
+              "type": "string",
+              "description": "New home-jurisdiction name of the surviving entity if the merger changes its name. Blank means unchanged."
+            }
+          }
+        },
+        "nonsurviving_entity": {
+          "type": "object",
+          "properties": {
+            "home_jurisdiction_name": {
+              "type": "string",
+              "description": "Nonsurviving (merged-away) entity's name in its home jurisdiction. Form provides one inline slot; additional nonsurviving entities are recorded via attached pages (no widget for them)."
+            },
+            "home_jurisdiction": {
+              "type": "string",
+              "description": "State or country where the nonsurviving entity is organized."
+            },
+            "maine_authorization_date": {
+              "type": "string",
+              "description": "Date the nonsurviving entity was authorized to transact business in Maine, if it was previously qualified. Blank means it was never qualified in Maine."
+            }
+          }
+        },
+        "certified_copy_attached": {
+          "type": "boolean",
+          "description": "Boolean: whether a certified copy of the merger (or certificate of merger) from the home jurisdiction is attached. The page-0 instruction line 'Must attach a Certified Copy of the Merger or a Certificate of Merger' makes this attachment mandatory for the filing to be accepted. No widget binds this fact \u2014 it is a manual/process check."
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "merger"
+  ]
+}

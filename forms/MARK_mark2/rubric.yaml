@@ -1,0 +1,74 @@
+checks:
+  - id: owner-name-required
+    description: "mark.applicant.entity_name is non-empty (mark owner's identity)."
+    depends_on_keys:
+      - mark.applicant.entity_name
+    severity: required
+  - id: owner-mailing-address-required
+    description: mark.applicant.mailing_address is non-empty.
+    depends_on_keys:
+      - mark.applicant.mailing_address
+    severity: required
+  - id: text-or-features-required
+    description: At least one of mark.text_words.line1 or mark.design_features.line1 is non-empty (the original mark must have had text or design content).
+    depends_on_keys:
+      - mark.text_words.line1
+      - mark.design_features.line1
+    severity: required
+  - id: type-required
+    description: mark.type is non-empty.
+    depends_on_keys:
+      - mark.type
+    severity: required
+  - id: type-amended-exactly-one
+    description: "Exactly one of the C 'amendment yes / no' checkboxes is selected."
+    depends_on_keys:
+      - mark.type_amended
+    severity: required
+  - id: class-change-action-when-class-set
+    description: "If mark.class_changes[0].class_number is set, exactly one of mark.class_changes[0].action ('added' / 'deleted') must also be set."
+    depends_on_keys:
+      - "mark.class_changes[0].class_number"
+      - "mark.class_changes[0].action"
+    severity: required
+  - id: class-change-description-when-added
+    description: "If mark.class_changes[0].action='added', mark.class_changes[0].description.line1 must be non-empty."
+    depends_on_keys:
+      - "mark.class_changes[0].action"
+      - "mark.class_changes[0].description.line1"
+    severity: required
+  - id: applicant-entity-type-exactly-one
+    description: Exactly one mark.applicant.entity_type option is selected.
+    depends_on_keys:
+      - mark.applicant.entity_type
+    severity: required
+  - id: other-explanation-when-other
+    description: "If mark.applicant.entity_type='other', mark.applicant.entity_type_other_explanation must be non-empty."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.entity_type_other_explanation
+    severity: required
+  - id: jurisdiction-when-entity
+    description: "If mark.applicant.entity_type is one of {corporation, limited_partnership, general_partnership, association, union} (or 'other' resolving to a registered entity), mark.applicant.jurisdiction_of_organization and mark.applicant.date_of_organization must be set."
+    depends_on_keys:
+      - mark.applicant.entity_type
+      - mark.applicant.jurisdiction_of_organization
+      - mark.applicant.date_of_organization
+    severity: required
+  - id: signer-required
+    description: mark.signer.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - mark.signer.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: fee-base-by-class-count
+    description: "filing.total_fees_dollars equals $60 base + $10 × (number of classes affected per mark.class_changes[]) plus expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - mark.class_changes
+      - filing.expedited_service
+    severity: optional

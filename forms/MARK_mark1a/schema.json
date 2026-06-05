@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/MARK_mark1a.json",
+  "title": "MARK_mark1a fill data",
+  "type": "object",
+  "properties": {
+    "disclaimer": {
+      "type": "object",
+      "properties": {
+        "disclaimed_portion_description": {
+          "type": "object",
+          "properties": {
+            "line{1,2}": {
+              "type": "string",
+              "description": "Two-line description of the portion of a mark (text words or design features) for which the applicant disclaims exclusive rights. Used on MARK_mark1a (Mark Disclaimer); the disclaimer form is filed alongside a registration to carve out elements (e.g., generic terms or descriptive features) from the exclusive scope while still allowing registration of the broader mark."
+            },
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "mark": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Mutually-exclusive enum classifying the mark: 'trademark' | 'service_mark' | 'combined_service_trademark' | 'certification_mark' | 'collective_mark'. Distinct from mark.type_and_class_number on MARK_mark1, which combines type and class number into a single free-text field. mark.type is the structured form of the type-only concept and appears on forms (like MARK_mark1a) that decompose the categories into checkboxes. Rubric for the mark family should treat mark.type as derivable from mark.type_and_class_number when only the latter is set, and vice-versa."
+        },
+        "text_words": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        },
+        "design_features": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string"
+            },
+            "line2": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "disclaimer",
+    "filing",
+    "mark"
+  ]
+}

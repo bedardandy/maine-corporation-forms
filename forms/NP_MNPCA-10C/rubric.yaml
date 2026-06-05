@@ -1,0 +1,105 @@
+checks:
+  - id: merging-corp-name-required
+    description: merger.merging_corp.name is non-empty.
+    depends_on_keys:
+      - merger.merging_corp.name
+    severity: required
+  - id: merging-corp-jurisdiction-required
+    description: merger.merging_corp.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - merger.merging_corp.home_jurisdiction
+    severity: required
+  - id: surviving-corp-name-required
+    description: merger.surviving_corp.name is non-empty.
+    depends_on_keys:
+      - merger.surviving_corp.name
+    severity: required
+  - id: surviving-corp-jurisdiction-required
+    description: merger.surviving_corp.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - merger.surviving_corp.home_jurisdiction
+    severity: required
+  - id: at-least-one-side-foreign
+    description: "At least one of merger.merging_corp.home_jurisdiction or merger.surviving_corp.home_jurisdiction is not 'Maine' (the form is for domestic-FOREIGN mergers; an all-Maine merger uses NP_MNPCA-10)."
+    depends_on_keys:
+      - merger.merging_corp.home_jurisdiction
+      - merger.surviving_corp.home_jurisdiction
+    severity: required
+  - id: at-least-one-side-domestic
+    description: "At least one of merger.merging_corp.home_jurisdiction or merger.surviving_corp.home_jurisdiction equals 'Maine' (the form requires a Maine party — a foreign-foreign merger doesn't file with Maine SOS)."
+    depends_on_keys:
+      - merger.merging_corp.home_jurisdiction
+      - merger.surviving_corp.home_jurisdiction
+    severity: required
+  - id: benefit-type-when-surviving-is-maine
+    description: "If merger.surviving_corp.home_jurisdiction = 'Maine', exactly one of merger.surviving_corp.benefit_type ∈ {'public_benefit', 'mutual_benefit'} is selected (FIRST recital). Not required when surviving corp is foreign."
+    depends_on_keys:
+      - merger.surviving_corp.home_jurisdiction
+      - merger.surviving_corp.benefit_type
+    severity: required
+  - id: foreign-corp-states-required
+    description: merger.foreign_corp_states is non-empty (SECOND requires identifying the foreign jurisdiction(s) whose laws permit the merger).
+    depends_on_keys:
+      - merger.foreign_corp_states
+    severity: required
+  - id: service-of-process-when-surviving-is-foreign
+    description: "If merger.surviving_corp.home_jurisdiction != 'Maine', merger.surviving_corp.service_of_process_address must be non-empty (the foreign survivor must designate an address for SOS-forwarded process)."
+    depends_on_keys:
+      - merger.surviving_corp.home_jurisdiction
+      - merger.surviving_corp.service_of_process_address
+    severity: required
+  - id: third-paragraph-restatements-consistent
+    description: Field 8 (THIRD restated surviving corp name) equals merger.surviving_corp.name; field 9 (THIRD governing law) equals merger.surviving_corp.home_jurisdiction.
+    depends_on_keys:
+      - merger.surviving_corp.name
+      - merger.surviving_corp.home_jurisdiction
+    severity: required
+  - id: plan-exhibit-required
+    description: merger.plan_exhibit_letter is non-empty.
+    depends_on_keys:
+      - merger.plan_exhibit_letter
+    severity: required
+  - id: domestic-vote-method-required
+    description: Exactly one merger.domestic_corp.vote_method option is selected.
+    depends_on_keys:
+      - merger.domestic_corp.vote_method
+    severity: required
+  - id: domestic-vote-method-date-required
+    description: merger.domestic_corp.vote_method_date is non-empty (paired with the selected vote_method).
+    depends_on_keys:
+      - merger.domestic_corp.vote_method
+      - merger.domestic_corp.vote_method_date
+    severity: required
+  - id: domestic-corp-name-matches-domestic-side
+    description: "merger.domestic_corp.name equals whichever of merger.surviving_corp.name or merger.merging_corp.name has home_jurisdiction='Maine'."
+    depends_on_keys:
+      - merger.domestic_corp.name
+      - merger.surviving_corp.name
+      - merger.merging_corp.name
+      - merger.surviving_corp.home_jurisdiction
+      - merger.merging_corp.home_jurisdiction
+    severity: required
+  - id: registered-office-addresses-required
+    description: "Both merger.surviving_corp.registered_office_address_line2 and merger.merging_corp.registered_office_address_line2 are non-empty (per page-1 footnote, use principal/registered office wherever located if no Maine office)."
+    depends_on_keys:
+      - merger.surviving_corp.registered_office_address_line2
+      - merger.merging_corp.registered_office_address_line2
+    severity: required
+  - id: future-effective-date-cap
+    description: "If merger.future_effective_date is set, it must be on or after filing.date_signed AND no later than filing.date_signed + 60 days (per the SEVENTH cap noted on form)."
+    depends_on_keys:
+      - merger.future_effective_date
+    severity: required
+  - id: signature-blocks-required
+    description: "Each corp's signature block has signer_1.printed_name_and_capacity and date_signed populated; signer_2 may be empty unless the entity type requires two signers."
+    depends_on_keys:
+      - merger.surviving_corp.signature_block.signer_1.printed_name_and_capacity
+      - merger.surviving_corp.signature_block.date_signed
+      - merger.merging_corp.signature_block.signer_1.printed_name_and_capacity
+      - merger.merging_corp.signature_block.date_signed
+    severity: required
+  - id: fee-min-25
+    description: "filing.total_fees_dollars >= $25 base (per page-0 'Minimum Fee $25.00' header) plus any expedite premium."
+    depends_on_keys:
+      - filing.total_fees_dollars
+    severity: optional

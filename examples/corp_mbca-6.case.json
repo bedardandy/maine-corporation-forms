@@ -1,0 +1,41 @@
+{
+  "entity": {
+    "name": "Wabanaki Widgets, Inc.",
+    "is_professional_corporation": false,
+    "is_close_corporation": false,
+    "authorized_shares_total": 1000,
+    "share_class_name": "Common",
+    "director_liability_limited": true,
+    "preemptive_rights_elected": false,
+    "annual_report_reminder_email": "reminders@example.com"
+  },
+  "clerk": {
+    "name": "Downeast Registered Agents, LLC",
+    "cra_public_number": "P99999",
+    "physical_address": "100 Example Way, Augusta, ME 04330",
+    "mailing_address": "PO Box 100, Augusta, ME 04332"
+  },
+  "incorporator_1": {
+    "printed_name": "Riverton Q. Sample"
+  },
+  "filing": {
+    "date_signed": "2026-01-15",
+    "total_fees_dollars": "145",
+    "entities": [
+      {"name": "Wabanaki Widgets, Inc."}
+    ],
+    "contact": {
+      "name": "Riverton Q. Sample",
+      "phone": "207-555-0100",
+      "email": "contact@example.com"
+    },
+    "attested_copy_recipient": {
+      "name": "Riverton Q. Sample",
+      "firm": "Sample & Sample, P.A.",
+      "mailing_address": {
+        "street": "200 Example Plaza, Suite 5",
+        "city_state_zip": "Portland, ME 04101"
+      }
+    }
+  }
+}

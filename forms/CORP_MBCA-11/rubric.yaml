@@ -1,0 +1,35 @@
+checks:
+  - id: entity-name-matches-records
+    description: "entity.name matches the corporation's name of record at the SOS."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: original-filing-date-before-dissolution
+    description: entity.original_articles_filing_date is strictly before dissolution.authorization_date.
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - dissolution.authorization_date
+    severity: required
+  - id: authorization-date-not-future
+    description: dissolution.authorization_date is not in the future relative to filing.date_signed.
+    depends_on_keys:
+      - dissolution.authorization_date
+      - filing.date_signed
+    severity: required
+  - id: effective-date-on-or-after-authorization
+    description: "If dissolution.effective_date is set, it is on or after dissolution.authorization_date."
+    depends_on_keys:
+      - dissolution.effective_date
+      - dissolution.authorization_date
+    severity: required
+  - id: signer-capacity-present
+    description: "filing.signer.printed_name_and_capacity includes a capacity (officer title or 'Clerk') — required because 13-C MRSA §121.5 limits signing authority."
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: fee-matches-tier
+    description: filing.total_fees_dollars equals base $75 plus expedite premium per entity.
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

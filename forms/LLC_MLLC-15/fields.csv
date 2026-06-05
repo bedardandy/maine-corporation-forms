@@ -1,0 +1,22 @@
+widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
+name,0,text,(Name of Limited Liability Company Allowing Indistinguishable Name),entity.name,high,Top-of-form: the consenting LLC's Maine-registered name (domestic-entity convention).
+consent,0,text,FIRST: ...consents to the use of the following indistinguishable name,name_consent.indistinguishable_name,high,The specific name being granted for use by the requestor.
+requestor,0,text,to ___ (requestor of indistinguishable name),name_consent.requestor.name,high,Name of the entity receiving the right to use the indistinguishable name.
+name change,0,text,THIRD: The entity in possession of the name must change its name to,name_consent.replacement_name,high,"New (distinguishable) name the consenting LLC undertakes to adopt. Form-scoped under name_consent.* alongside indistinguishable_name and requestor.name. When MLLC-15 is bundled with MLLC-9, synth copies this value into the bundled form's amendment.new_name. Must include a valid LLC suffix per §1508."
+dated,0,text,Dated,filing.date_signed,high,Date of execution (top-right of signature row).
+name and capacity1,0,text,(Type or print name and capacity) [Signer 1],filing.signer_1.printed_name_and_capacity,high,"First authorized signer (Shape D — combined name+capacity, paired with a wet-ink signature line that has no AcroForm widget). Statute requires at least one; this slot is required."
+name and capacity2,0,text,(Type or print name and capacity) [Signer 2],filing.signer_2.printed_name_and_capacity,high,Second authorized signer (Shape D). Statute (§1676.1B) only mandates one signer; this second slot is optional and used when the LLC's operating agreement calls for dual authorization.
+Name of entity,1,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
+Name of entitys on the submitted filings 2,1,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 (commonly used when the bundled name-change form is also listed here).
+Check Box14,1,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier = 'hold_for_pickup'.
+Check Box15,1,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier = '24h_next_business_day' ($50/entity).
+Check Box16,1,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier = 'immediate_same_day' ($100/entity).
+Total fees enclosed,1,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Base fee $35 (per page-0 header) plus expedite premium and any fee from the bundled name-change form.
+Name of contact person,1,text,Name of contact person,filing.contact.name,high,Filing-question contact.
+Daytime telephone number,1,text,Daytime telephone number,filing.contact.phone,high,Daytime phone for contact.
+Contact email address for this filing,1,text,Contact email address for this filing,filing.contact.email,high,Per-filing contact email.
+Email address to use for annual report reminders,1,text,Email address to use for annual report reminders,entity.annual_report_reminder_email,high,Persistent recurring-reminder email tied to the entity (post-name-change).
+Name of attested copy recipient,1,text,Name of attested copy recipient,filing.attested_copy_recipient.name,high,Recipient of the attested copy.
+Firm or Company,1,text,Firm or Company,filing.attested_copy_recipient.firm,high,Recipient firm/company.
+Mailing Address,1,text,Mailing Address,filing.attested_copy_recipient.mailing_address.street,high,Recipient street/PO box.
+City State  Zip,1,text,"City, State & Zip",filing.attested_copy_recipient.mailing_address.city_state_zip,high,Recipient city/state/zip combined.

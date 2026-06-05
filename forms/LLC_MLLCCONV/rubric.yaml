@@ -1,0 +1,89 @@
+checks:
+  - id: converting-entity-name-required
+    description: "entity.name (the converting/predecessor organization's name) is non-empty."
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: converting-entity-form-required
+    description: "entity.form_type is non-empty (the FIRST recital captures the converting entity's pre-conversion form)."
+    depends_on_keys:
+      - entity.form_type
+    severity: required
+  - id: converting-entity-jurisdiction-required
+    description: entity.home_jurisdiction is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: converting-entity-organization-date-required
+    description: entity.original_articles_filing_date is non-empty and is on or before filing.date_signed.
+    depends_on_keys:
+      - entity.original_articles_filing_date
+      - filing.date_signed
+    severity: required
+  - id: resulting-entity-name-required
+    description: conversion.new_entity.name is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.name
+    severity: required
+  - id: resulting-entity-form-required
+    description: conversion.new_entity.type is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.type
+    severity: required
+  - id: resulting-entity-jurisdiction-required
+    description: conversion.new_entity.jurisdiction is non-empty.
+    depends_on_keys:
+      - conversion.new_entity.jurisdiction
+    severity: required
+  - id: effective-date-required
+    description: conversion.effective_date is non-empty.
+    depends_on_keys:
+      - conversion.effective_date
+    severity: required
+  - id: foreign-address-required-when-foreign-resulting
+    description: "If conversion.new_entity.jurisdiction is non-Maine, conversion.foreign_resulting_entity.principal_office_address.line1 must be non-empty (SIXTH recital required for foreign-resulting filings per §1648.3)."
+    depends_on_keys:
+      - conversion.new_entity.jurisdiction
+      - conversion.foreign_resulting_entity.principal_office_address.line1
+    severity: required
+  - id: exactly-one-organizing-document-disposition
+    description: "Exactly one SEVENTH-recital checkbox is selected, populating conversion.organizing_document_disposition with 'attached_as_exhibit' or 'not_filing_with_sos' (form text 'Select One')."
+    depends_on_keys:
+      - conversion.organizing_document_disposition
+    severity: required
+  - id: exhibit-letter-required-when-attached
+    description: "If conversion.organizing_document_disposition='attached_as_exhibit', conversion.new_entity_provisions_exhibit_letter must be a single uppercase letter A-Z."
+    depends_on_keys:
+      - conversion.organizing_document_disposition
+      - conversion.new_entity_provisions_exhibit_letter
+    severity: required
+  - id: at-least-one-signer
+    description: At least filing.signer_1.printed_name_and_capacity is non-empty.
+    depends_on_keys:
+      - filing.signer_1.printed_name_and_capacity
+    severity: required
+  - id: signature-block-name-and-form-recital
+    description: "conversion.signature_block.converting_entity_name_and_form is non-empty and includes both the entity name and form (e.g., 'Acme LLC, a Maine limited liability company')."
+    depends_on_keys:
+      - conversion.signature_block.converting_entity_name_and_form
+      - entity.name
+      - entity.form_type
+    severity: required
+  - id: filing-date-required-and-not-future
+    description: filing.date_signed is non-empty and on or before today.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: filing-entity-name-matches-converting
+    description: "filing.entities[0].name matches entity.name (the converting/predecessor entity is the lead entity on the cover letter)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+      - entity.name
+    severity: required
+  - id: cover-letter-contact-present
+    description: "filing.contact.{name,phone,email} are all non-empty."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required

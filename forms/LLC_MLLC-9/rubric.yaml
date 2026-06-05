@@ -1,0 +1,70 @@
+checks:
+  - id: entity-name-required
+    description: entity.name is non-empty.
+    depends_on_keys:
+      - entity.name
+    severity: required
+  - id: new-name-suffix-when-changed
+    description: "If amendment.new_name is set and is not literally 'no change', it must contain a valid LLC suffix per 31 MRSA §1508 (e.g., 'L.L.C.', 'LLC', 'Limited Liability Company', 'L.C.')."
+    depends_on_keys:
+      - amendment.new_name
+    severity: required
+  - id: initial-filing-date-required-and-past
+    description: entity.initial_filing_date is non-empty and is on or before filing.date_signed (initial filing must precede the amendment).
+    depends_on_keys:
+      - entity.initial_filing_date
+      - filing.date_signed
+    severity: required
+  - id: professional-services-when-flagged
+    description: "If entity.is_professional_llc is true, at least entity.professional_services_description.line1 must be non-empty (FOURTH)."
+    depends_on_keys:
+      - entity.is_professional_llc
+      - entity.professional_services_description.line1
+    severity: required
+  - id: registered-agent-type-exclusive-when-changed
+    description: "If any FIFTH widget is populated (registered_agent.name / .physical_address / .cra_public_number), exactly one of registered_agent.type values must be selected (commercial XOR noncommercial). FIFTH is optional — when not populated, no agent change is being made."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.name
+      - registered_agent.physical_address
+      - registered_agent.cra_public_number
+    severity: required
+  - id: cra-number-when-commercial
+    description: "If registered_agent.type = 'commercial', registered_agent.cra_public_number must be non-empty."
+    depends_on_keys:
+      - registered_agent.type
+      - registered_agent.cra_public_number
+    severity: required
+  - id: agent-physical-not-pobox-when-set
+    description: "If registered_agent.physical_address is non-empty, it must not be a P.O. Box."
+    depends_on_keys:
+      - registered_agent.physical_address
+    severity: required
+  - id: at-least-one-authorized-signer
+    description: "At least authorized_person_1.printed_name_and_capacity is non-empty (per 31 MRSA §1676.1, the certificate must be signed by a person authorized by the LLC)."
+    depends_on_keys:
+      - authorized_person_1.printed_name_and_capacity
+    severity: required
+  - id: filing-date-required-not-future
+    description: filing.date_signed is non-empty and not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: contact-fields-nonempty
+    description: "filing.contact.name, filing.contact.phone, and filing.contact.email are non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - filing.contact.name
+      - filing.contact.phone
+      - filing.contact.email
+    severity: required
+  - id: filing-entities-nonempty
+    description: "filing.entities[0].name is non-empty (cover-letter primitive)."
+    depends_on_keys:
+      - "filing.entities[0].name"
+    severity: required
+  - id: fee-base-50-plus-expedite
+    description: "filing.total_fees_dollars equals $50 base fee plus any expedite premium ($50 for 24h_next_business_day, $100 for immediate_same_day, $0 for hold_for_pickup)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

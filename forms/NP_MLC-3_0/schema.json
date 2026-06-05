@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/NP_MLC-3_0.json",
+  "title": "NP_MLC-3_0 fill data",
+  "type": "object",
+  "properties": {
+    "clerk_change": {
+      "type": "object",
+      "properties": {
+        "change_type": {
+          "type": "string",
+          "description": "Enum naming the kind of change made on a \u00a73025 (church/nonprofit) Change-of-Clerk filing. Values: 'address' (FIRST A \u2014 change physical/mailing address only), 'clerk_and_address' (FIRST B \u2014 both new clerk and new address), 'clerk' (FIRST C \u2014 new clerk, address unchanged), 'clerk_name' (FIRST D \u2014 current clerk renames themselves). MLC-3-specific; distinct from CLKRA-3's two-way clerk_change.action_type ('new_appointment'|'modify_existing') because \u00a73025 carves out a narrower set of changes specific to small church/nonprofit corporations."
+        },
+        "current_clerk_or_agent_address": {
+          "type": "string",
+          "description": "Address of the clerk currently on SOS record (single-line: street + city + state + zip). Captured on MLC-3 SECOND alongside clerk_change.current_clerk_or_agent_name to fully recite the existing record before the change takes effect. Not present on CLKRA-3, which only captures the current name."
+        },
+        "current_clerk_or_agent_name": {
+          "type": "string"
+        },
+        "new_noncommercial_name": {
+          "type": "string"
+        },
+        "new_noncommercial_physical_address": {
+          "type": "string"
+        },
+        "new_noncommercial_mailing_address": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_1": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "signer_2": {
+          "type": "object",
+          "properties": {
+            "printed_name_and_capacity": {
+              "type": "string"
+            }
+          }
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk_change",
+    "entity",
+    "filing"
+  ]
+}

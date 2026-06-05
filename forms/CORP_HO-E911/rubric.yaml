@@ -1,0 +1,53 @@
+checks:
+  - id: foreign-name-required
+    description: entity.home_jurisdiction_name is non-empty.
+    depends_on_keys:
+      - entity.home_jurisdiction_name
+    severity: required
+  - id: old-address-required
+    description: "entity.home_office_address_old is non-empty and contains a comma (street, city, state, zip pattern)."
+    depends_on_keys:
+      - entity.home_office_address_old
+    severity: required
+  - id: new-physical-not-po-box
+    description: "entity.home_office_address_new.physical is non-empty and does not begin with 'P.O.', 'PO Box', or 'Post Office Box' (form forbids P.O. boxes for the physical line)."
+    depends_on_keys:
+      - entity.home_office_address_new.physical
+    severity: required
+  - id: old-and-new-differ
+    description: "entity.home_office_address_old and entity.home_office_address_new.physical differ (the form's purpose is to record a change)."
+    depends_on_keys:
+      - entity.home_office_address_old
+      - entity.home_office_address_new.physical
+    severity: required
+  - id: home-jurisdiction-not-maine
+    description: "entity.home_jurisdiction is not 'Maine' or 'ME' (this is a foreign-entity-only form)."
+    depends_on_keys:
+      - entity.home_jurisdiction
+    severity: required
+  - id: maine-authorization-date-required
+    description: entity.maine_authorization_date is non-empty and not in the future.
+    depends_on_keys:
+      - entity.maine_authorization_date
+    severity: required
+  - id: signer-name-and-capacity-required
+    description: filing.signer.printed_name_and_capacity is non-empty (must be municipal official or postmaster per footnote 2).
+    depends_on_keys:
+      - filing.signer.printed_name_and_capacity
+    severity: required
+  - id: authorized-by-exactly-one
+    description: "filing.authorized_by is set to exactly one of {'town_municipality','us_postal_service'} (mutually exclusive checkboxes)."
+    depends_on_keys:
+      - filing.authorized_by
+    severity: required
+  - id: filing-date-not-future
+    description: filing.date_signed is not in the future.
+    depends_on_keys:
+      - filing.date_signed
+    severity: required
+  - id: no-base-fee
+    description: "Form header states 'No Filing Fee'; filing.total_fees_dollars equals 0 (or empty) unless filing.expedited_service is set, in which case it equals the corresponding expedite premium ($50 or $100)."
+    depends_on_keys:
+      - filing.total_fees_dollars
+      - filing.expedited_service
+    severity: optional

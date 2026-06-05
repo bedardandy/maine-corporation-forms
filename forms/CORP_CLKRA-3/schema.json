@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://maine-corporation-forms/schemas/CORP_CLKRA-3.json",
+  "title": "CORP_CLKRA-3 fill data",
+  "type": "object",
+  "properties": {
+    "clerk_change": {
+      "type": "object",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "description": "Type of clerk/RA change being filed. Enum: 'new_appointment' (replacing existing) | 'modify_existing' (updating address or name).",
+          "enum": [
+            "new_appointment",
+            "modify_existing"
+          ]
+        },
+        "modify_subtype": {
+          "type": "string",
+          "description": "Sub-type of modify-existing change. Enum: 'address' | 'name'.",
+          "enum": [
+            "address",
+            "name"
+          ]
+        },
+        "current_clerk_or_agent_name": {
+          "type": "string",
+          "description": "Name of the existing clerk/RA on record at SOS (used to identify which record is being modified)."
+        },
+        "new_noncommercial_name": {
+          "type": "string",
+          "description": "Name of the new noncommercial clerk/RA being appointed."
+        },
+        "new_noncommercial_physical_address": {
+          "type": "string",
+          "description": "Physical street address of the new noncommercial clerk/RA (not P.O. Box)."
+        },
+        "new_noncommercial_mailing_address": {
+          "type": "string",
+          "description": "Optional mailing address of the new noncommercial clerk/RA."
+        },
+        "new_commercial_cra_public_number": {
+          "type": "string",
+          "description": "CRA Public Number of the new commercial clerk/registered agent."
+        },
+        "new_commercial_name": {
+          "type": "string",
+          "description": "Name of the new commercial registered agent (CRA)."
+        },
+        "bc_authorization": {
+          "type": "string",
+          "description": "For Maine domestic business corporations only: who authorized the change. Enum: 'board_of_directors' (and power not reserved to shareholders) | 'shareholders'.",
+          "enum": [
+            "board_of_directors",
+            "shareholders"
+          ]
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "maine_authorization_date": {
+          "type": "string",
+          "description": "Date a foreign entity was originally authorized to transact business in Maine."
+        },
+        "name": {
+          "type": "string"
+        },
+        "home_jurisdiction": {
+          "type": "string"
+        },
+        "annual_report_reminder_email": {
+          "type": "string"
+        }
+      }
+    },
+    "filing": {
+      "type": "object",
+      "properties": {
+        "signer_partner_entity_name": {
+          "type": "string",
+          "description": "When an LP/LLP filing is signed by a partner that is itself an entity, the name of that entity."
+        },
+        "signer": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title of the person signing the filing (e.g., 'President', 'Director', 'General Partner', 'Manager')."
+            },
+            "printed_name": {
+              "type": "string"
+            }
+          }
+        },
+        "date_signed": {
+          "type": "string"
+        },
+        "expedited_service": {
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "total_fees_dollars": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        },
+        "attested_copy_recipient": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "mailing_address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city_state_zip": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "array",
+          "description": "Entity name(s) the filing covers, as listed on the cover block.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "clerk_change",
+    "entity",
+    "filing"
+  ]
+}
