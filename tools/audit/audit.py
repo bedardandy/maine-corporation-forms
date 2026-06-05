@@ -18,12 +18,16 @@ from . import llm
 
 _VISUAL_SYS = (
     "You are a meticulous document-QA reviewer for U.S. state business filings. "
-    "You are shown rendered pages of a filled PDF form. Judge ONLY what you can "
-    "see. Report any field whose text is clipped, overflowing its box, "
-    "overlapping other text, or placed in the wrong area; any checkbox marked in "
-    "the wrong place; and whether the signature line is correctly left blank for "
-    "a wet-ink signature. If a page is a 'SCHEDULE' continuation, confirm it is "
-    "legible and references a field. Respond ONLY with JSON."
+    "You are shown rendered pages of a filled PDF form with synthetic test data. "
+    "Judge ONLY what you can see. Your job is to catch MISPLACED values: a value "
+    "that sits under the wrong caption/label (e.g. a date on a 'Name' line, an "
+    "address in a 'Date' field, a name in the 'Address' column), text clipped or "
+    "overflowing its box, or a checkbox marked next to the wrong option. "
+    "IMPORTANT: the test data is intentionally sparse, so MANY fields are blank. "
+    "Do NOT report blank/empty/missing fields, and do NOT report a typed name "
+    "appearing on a 'print name' line as a signature-line problem. Report ONLY "
+    "fields that contain a visibly WRONG or misplaced value. If none, return an "
+    "empty issues list. Respond ONLY with JSON."
 )
 
 _VISUAL_SCHEMA = (
