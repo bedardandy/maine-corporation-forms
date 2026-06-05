@@ -74,8 +74,10 @@ def visual_pass(form_id: str, png_paths, *, max_pages: int = 8) -> dict:
 
 
 def logic_pass(form_id: str, *, title: str, values: dict, rules: dict, rubric_checks) -> dict:
-    if not llm.opus_available():
-        return {"status": "skipped", "reason": "opus_unavailable"}
+    # AUDIT_LOGIC_BACKEND=qwen runs the form-logic pass on the local cluster.
+    use_qwen = os.environ.get("AUDIT_LOGIC_BACKEND") == "qwen" and llm.qwen_available()
+    if not use_qwen and not llm.opus_available():
+        return {"status": "skipped", "reason": "no_logic_model"}
     payload = {
         "form_id": form_id,
         "title": title,
@@ -92,7 +94,7 @@ def logic_pass(form_id: str, *, title: str, values: dict, rules: dict, rubric_ch
         + f"\n\nRespond ONLY with JSON matching: {_LOGIC_SCHEMA}"
     )
     try:
-        raw = llm.opus_message(_LOGIC_SYS, text)
+        raw = llm.qwen_chat(_LOGIC_SYS, text) if use_qwen else llm.opus_message(_LOGIC_SYS, text)
     except llm.LLMUnavailable as e:
         return {"status": "error", "reason": str(e)}
     verdict = llm.extract_json(raw)

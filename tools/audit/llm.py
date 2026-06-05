@@ -89,7 +89,7 @@ def qwen_chat(system: str, user: str, *, max_tokens: int = 2048, temperature: fl
 
 def qwen_vision(system: str, user: str, image_paths=None, *,
                 max_tokens: int = 1024, temperature: float = 0.0,
-                timeout: float = 180.0) -> str:
+                timeout: float = 300.0) -> str:
     """Visual pass on the local cluster (a vision Qwen, e.g. qwen3.6-27b).
 
     Sends one or more rendered PNGs plus a prompt via the OpenAI-compatible

@@ -194,6 +194,7 @@ def _summary_row(r: dict) -> str:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Qwen+Opus audit loop")
     ap.add_argument("--form", help="single form id")
+    ap.add_argument("--forms", default="", help="comma list of form ids (a subset)")
     ap.add_argument("--all", action="store_true", help="run every form")
     ap.add_argument("--limit", type=int, default=0, help="cap --all count")
     ap.add_argument("--qwen", action="store_true", help="enrich via Qwen")
@@ -208,10 +209,12 @@ def main(argv=None) -> int:
         form_ids = _all_form_ids()
         if args.limit:
             form_ids = form_ids[: args.limit]
+    elif args.forms:
+        form_ids = [f.strip() for f in args.forms.split(",") if f.strip()]
     elif args.form:
         form_ids = [args.form]
     else:
-        ap.error("specify --form ID or --all")
+        ap.error("specify --form ID, --forms A,B,C, or --all")
         return 2
 
     variants = [v.strip() for v in args.variants.split(",") if v.strip()] or None

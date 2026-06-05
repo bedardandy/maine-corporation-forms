@@ -1,19 +1,19 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit corporation name at top of form. Same key as sister NP_MNPCA-11.
-Text11,0,text,FIRST: President — Name,officer_president.name,high,"Name of the corporation's President in the FIRST roster table (top row, y≈398-419). Role-keyed officer roster matches sister NP_MNPCA-11 (form's row labels supply the role; user enters only name and address)."
-Text13,0,text,FIRST: Treasurer — Name,officer_treasurer.name,high,"Name of the Treasurer (row 2, y≈374-394)."
-Text14,0,text,FIRST: Secretary — Name,officer_secretary.name,high,"Name of the Secretary (row 3, y≈351-371)."
-Text15,0,text,FIRST: Clerk — Name,officer_clerk.name,high,"Name of the Clerk (row 4, y≈325-346)."
-Text16,0,text,FIRST: Directors — Name (row 1),director_1.name,high,"Name of the first listed director (row 5, y≈302-323). Indexed director_N.* pattern for the 3 inline director rows. 'List additional directors on reverse side' label below the table indicates overflow goes to a continuation page (no widgets bind the overflow)."
-Text17,0,text,FIRST: Directors — Name (row 2),director_2.name,high,"Name of the second listed director (row 6, y≈279-299)."
-Text18,0,text,FIRST: Directors — Name (row 3),director_3.name,high,"Name of the third listed director (row 7, y≈255-276)."
-Text20,0,text,FIRST: Treasurer — Address,officer_treasurer.address,high,"Address of the Treasurer (row 2, y≈373-394 LEFT). Drafter originally mapped this to officer_1.address (President) — incorrect; corrected here based on rect y-position pairing with Text13 (Treasurer name)."
-Text22,0,text,FIRST: Secretary — Address,officer_secretary.address,high,"Address of the Secretary (row 3, y≈349-370 LEFT). Drafter mapping shifted by one row; corrected here."
-Text23,0,text,FIRST: Clerk — Address,officer_clerk.address,high,"Address of the Clerk (row 4, y≈325-346 LEFT). Drafter mapping shifted by one row; corrected here."
-Text24,0,text,FIRST: Directors — Address (row 1),director_1.address,high,"Address of the first listed director (row 5, y≈302-322 LEFT)."
-Text25,0,text,FIRST: Directors — Address (row 2),director_2.address,high,"Address of the second listed director (row 6, y≈279-299 LEFT)."
-Text26,0,text,FIRST: Directors — Address (row 3),director_3.address,high,"Address of the third listed director (row 7, y≈256-276 LEFT)."
-Text27,0,text,FIRST: President — Address,officer_president.address,high,"Address of the President (row 1, y≈398-419 LEFT column). Address widget at the SAME y as Text11 (President name). Drafter originally mapped this widget to officer_7.address (Director 3) — incorrect; corrected here based on rect y-position (top row of left address column)."
+Text11,0,text,FIRST: President — Address,officer_president.address,high,"Name of the corporation's President in the FIRST roster table (top row, y≈398-419). Role-keyed officer roster matches sister NP_MNPCA-11 (form's row labels supply the role; user enters only name and address)."
+Text13,0,text,FIRST: Treasurer — Address,officer_treasurer.address,high,"Name of the Treasurer (row 2, y≈374-394)."
+Text14,0,text,FIRST: Secretary — Address,officer_secretary.address,high,"Name of the Secretary (row 3, y≈351-371)."
+Text15,0,text,FIRST: Clerk — Address,officer_clerk.address,high,"Name of the Clerk (row 4, y≈325-346)."
+Text16,0,text,FIRST: Directors — Address (row 1),director_1.address,high,"Name of the first listed director (row 5, y≈302-323). Indexed director_N.* pattern for the 3 inline director rows. 'List additional directors on reverse side' label below the table indicates overflow goes to a continuation page (no widgets bind the overflow)."
+Text17,0,text,FIRST: Directors — Address (row 2),director_2.address,high,"Name of the second listed director (row 6, y≈279-299)."
+Text18,0,text,FIRST: Directors — Address (row 3),director_3.address,high,"Name of the third listed director (row 7, y≈255-276)."
+Text20,0,text,FIRST: Treasurer — Name,officer_treasurer.name,high,"Address of the Treasurer (row 2, y≈373-394 LEFT). Drafter originally mapped this to officer_1.address (President) — incorrect; corrected here based on rect y-position pairing with Text13 (Treasurer name)."
+Text22,0,text,FIRST: Secretary — Name,officer_secretary.name,high,"Address of the Secretary (row 3, y≈349-370 LEFT). Drafter mapping shifted by one row; corrected here."
+Text23,0,text,FIRST: Clerk — Name,officer_clerk.name,high,"Address of the Clerk (row 4, y≈325-346 LEFT). Drafter mapping shifted by one row; corrected here."
+Text24,0,text,FIRST: Directors — Name (row 1),director_1.name,high,"Address of the first listed director (row 5, y≈302-322 LEFT)."
+Text25,0,text,FIRST: Directors — Name (row 2),director_2.name,high,"Address of the second listed director (row 6, y≈279-299 LEFT)."
+Text26,0,text,FIRST: Directors — Name (row 3),director_3.name,high,"Address of the third listed director (row 7, y≈256-276 LEFT)."
+Text27,0,text,FIRST: President — Name,officer_president.name,high,"Address of the President (row 1, y≈398-419 LEFT column). Address widget at the SAME y as Text11 (President name). Drafter originally mapped this widget to officer_7.address (Director 3) — incorrect; corrected here based on rect y-position (top row of left address column)."
 Check Box29,0,checkbox,SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote.,dissolution.consent_class,high,Mutually-exclusive checkbox 1 of 2 in SECOND. Enum value 'members'. Same key family as sister NP_MNPCA-11 (consent_class is reused on this vote-variant form because the underlying enum — who acted to dissolve — is identical between consent and vote variants).
 Check Box30,0,checkbox,SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote.,dissolution.consent_class,high,Mutually-exclusive checkbox 2 of 2 in SECOND. Enum value 'directors_when_no_voting_members'.
 Text31,1,text,"FIFTH: (street, city, state and zip code)",registered_office.address_line2,high,Total number of members or directors entitled to vote on the dissolution resolution (whichever class is selected in SECOND). Wide blank under the leftmost column header in the THIRD vote-tally table.
