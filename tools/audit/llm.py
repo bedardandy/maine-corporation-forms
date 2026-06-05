@@ -1,19 +1,26 @@
-"""Minimal, dependency-free clients for the two models in the audit loop.
+"""Minimal, dependency-free clients for the models in the audit loop.
 
-* Qwen via an OpenAI-compatible chat endpoint (the local cluster serves this).
-* Opus via the Anthropic Messages API (supports image input for the visual pass).
+* Qwen via an OpenAI-compatible chat endpoint (a local cluster serves this).
+  ``qwen_chat`` is text-only; ``qwen_vision`` sends rendered pages, so a vision
+  Qwen (e.g. qwen3.6-27b) can run the visual pass locally instead of Opus.
+* Opus via the Anthropic Messages API (also supports image input).
 
 Both use only the standard library (``urllib``) so the loop adds no third-party
 dependency. Endpoints and keys come from the environment -- nothing here names a
 host:
 
-  Qwen:  AUDIT_QWEN_BASE_URL  (e.g. http://HOST:PORT/v1)
-         AUDIT_QWEN_MODEL     (default: qwen)
-         AUDIT_QWEN_API_KEY   (optional)
+  Qwen:  AUDIT_QWEN_BASE_URL     (e.g. http://HOST:PORT/v1)
+         AUDIT_QWEN_MODEL        (text model; default: qwen)
+         AUDIT_QWEN_VISION_MODEL (vision model for qwen_vision; default: text model)
+         AUDIT_QWEN_API_KEY      (optional)
 
   Opus:  ANTHROPIC_API_KEY    (required for live Opus)
          AUDIT_OPUS_MODEL     (default: claude-opus-4-8)
          AUDIT_OPUS_BASE_URL  (default: https://api.anthropic.com)
+
+The visual pass picks its backend from AUDIT_VISION_BACKEND (``qwen`` routes it
+to the local cluster; otherwise Opus). Thinking traces are disabled via
+``chat_template_kwargs.enable_thinking=false`` for Qwen3.x models.
 
 If ``AUDIT_OFFLINE=1`` (or an endpoint/key is missing) the clients report
 unavailable so the pipeline skips the model passes and still completes.
@@ -77,6 +84,42 @@ def qwen_chat(system: str, user: str, *, max_tokens: int = 2048, temperature: fl
         "chat_template_kwargs": {"enable_thinking": False},
     }
     resp = _post_json(url, headers, payload)
+    return resp["choices"][0]["message"]["content"]
+
+
+def qwen_vision(system: str, user: str, image_paths=None, *,
+                max_tokens: int = 1024, temperature: float = 0.0,
+                timeout: float = 180.0) -> str:
+    """Visual pass on the local cluster (a vision Qwen, e.g. qwen3.6-27b).
+
+    Sends one or more rendered PNGs plus a prompt via the OpenAI-compatible
+    image_url block format, so the free local cluster can read back a filled
+    form instead of calling a paid vision model.
+    """
+    if not qwen_available():
+        raise LLMUnavailable("Qwen endpoint not configured (set AUDIT_QWEN_BASE_URL).")
+    base = os.environ["AUDIT_QWEN_BASE_URL"].rstrip("/")
+    headers = {"Content-Type": "application/json"}
+    key = os.environ.get("AUDIT_QWEN_API_KEY")
+    if key:
+        headers["Authorization"] = f"Bearer {key}"
+    content = [{"type": "text", "text": user}]
+    for p in image_paths or []:
+        b64 = base64.b64encode(open(p, "rb").read()).decode("ascii")
+        content.append({"type": "image_url",
+                        "image_url": {"url": f"data:image/png;base64,{b64}"}})
+    payload = {
+        "model": os.environ.get("AUDIT_QWEN_VISION_MODEL",
+                                os.environ.get("AUDIT_QWEN_MODEL", "qwen")),
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": content},
+        ],
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "chat_template_kwargs": {"enable_thinking": False},
+    }
+    resp = _post_json(f"{base}/chat/completions", headers, payload, timeout=timeout)
     return resp["choices"][0]["message"]["content"]
 
 

@@ -95,20 +95,30 @@ actual filing.
 
 A two-model loop that exercises the whole pipeline and reviews the result. Qwen
 (free, local) generates diverse scenarios; deterministic code injects synthetic
-identities, gates coverage, and validates signers; Opus 4.8 adjudicates the
+identities, gates coverage, and validates signers; a judge adjudicates the
 rendered output in two passes — *visual* (does it read right?) and *form-logic*
 (are the answers coherent?).
 
+The visual pass can run on **Opus** or, for free, on a **local vision model**.
+A vision-capable Qwen (e.g. `qwen3.6-27b`) reads the rendered pages directly, so
+the whole loop runs offline on the cluster. Set `AUDIT_VISION_BACKEND=qwen` to
+route the visual pass there; `qwen_vision` disables Qwen3.x thinking traces via
+`chat_template_kwargs.enable_thinking=false`.
+
 ```bash
-# Offline: every deterministic stage + render runs; Opus passes are skipped.
+# Offline: every deterministic stage + render runs; model passes are skipped.
 AUDIT_OFFLINE=1 python3 -m tools.audit.run --form CORP_MBCA-6
 
-# Live: point at the local Qwen cluster and Opus, then run.
+# Fully local: factgen + visual pass both on the cluster (no paid model).
 export AUDIT_QWEN_BASE_URL=http://YOUR_HOST:PORT/v1
-export AUDIT_QWEN_MODEL=qwen3.6-27b
+export AUDIT_QWEN_MODEL=qwen3.6-27b          # text (factgen)
+export AUDIT_QWEN_VISION_MODEL=qwen3.6-27b   # vision (visual pass)
+export AUDIT_VISION_BACKEND=qwen
+python3 -m tools.audit.run --form CORP_MBCA-6 --qwen
+
+# Or use Opus as the visual/logic judge instead.
 export ANTHROPIC_API_KEY=sk-...
 export AUDIT_OPUS_MODEL=claude-opus-4-8
-python3 -m tools.audit.run --form CORP_MBCA-6 --qwen
 python3 -m tools.audit.run --all --limit 20        # broad sweep
 ```
 

@@ -12,6 +12,7 @@ key) they return a ``skipped`` verdict so the pipeline still completes.
 from __future__ import annotations
 
 import json
+import os
 
 from . import llm
 
@@ -48,14 +49,21 @@ _LOGIC_SCHEMA = (
 
 
 def visual_pass(form_id: str, png_paths, *, max_pages: int = 8) -> dict:
-    if not llm.opus_available():
-        return {"status": "skipped", "reason": "opus_unavailable"}
+    # AUDIT_VISION_BACKEND=qwen runs the visual pass on the local vision cluster
+    # (e.g. qwen3.6-27b) instead of Opus — free and offline.
+    use_qwen = os.environ.get("AUDIT_VISION_BACKEND") == "qwen" and llm.qwen_available()
+    if not use_qwen and not llm.opus_available():
+        return {"status": "skipped", "reason": "no_vision_model"}
     text = (
         f"Form: {form_id}. Review the {len(png_paths)} rendered page image(s). "
         f"Respond ONLY with JSON matching: {_VISUAL_SCHEMA}"
     )
+    images = list(png_paths)[:max_pages]
     try:
-        raw = llm.opus_message(_VISUAL_SYS, text, image_paths=list(png_paths)[:max_pages])
+        if use_qwen:
+            raw = llm.qwen_vision(_VISUAL_SYS, text, image_paths=images)
+        else:
+            raw = llm.opus_message(_VISUAL_SYS, text, image_paths=images)
     except llm.LLMUnavailable as e:
         return {"status": "error", "reason": str(e)}
     verdict = llm.extract_json(raw)
