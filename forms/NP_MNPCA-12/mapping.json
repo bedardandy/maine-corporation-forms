@@ -17,7 +17,7 @@
     },
     "filing.fict4_accompanies": {
       "widget_id": "Check Box17",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "[ ] Form FICT-4 accompanies this application"

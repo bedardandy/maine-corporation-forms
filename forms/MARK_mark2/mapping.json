@@ -48,7 +48,7 @@
         "Check Box4",
         "Check Box6"
       ],
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "C: The type of mark indicated represents an amendment from that appearing on the original registration \u2014 yes"

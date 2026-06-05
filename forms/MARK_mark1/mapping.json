@@ -87,7 +87,7 @@
     },
     "mark.additional_pages_attached": {
       "widget_id": "Check Box30",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "[ ] Attach additional pages, if necessary."

@@ -66,7 +66,7 @@
     },
     "filing.certificate_of_existence_attached": {
       "widget_id": "Check Box2",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "[ ] A certificate of existence or a document of similar import duly authenticated by the Secretary of State or other official having custody of corporate records in the state or country under whose laws the foreign corporation is now incorporated, accompanies the change in Item FIFTH. The certificate of existence must have been issued not more than 90 days prior to the delivery of this application for filing."

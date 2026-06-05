@@ -122,7 +122,7 @@
     },
     "contact_partner.additional_attached": {
       "widget_id": "Check Box26",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "[ ] Names and addresses of additional contact partners are attached as Exhibit ___, and made a part hereof"

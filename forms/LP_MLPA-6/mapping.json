@@ -108,7 +108,7 @@
     },
     "general_partner.additional_attached": {
       "widget_id": "Check Box31",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "[ ] Names and addresses of additional general partners are attached as Exhibit ___"

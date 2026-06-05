@@ -24,21 +24,21 @@
     },
     "assumed_name_change.change_locations": {
       "widget_id": "Check Box4",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: Change location(s)"
     },
     "assumed_name_change.add_locations": {
       "widget_id": "Check Box5",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: Add additional location(s)"
     },
     "assumed_name_change.delete_locations": {
       "widget_id": "Check Box6",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: Delete location(s)"
@@ -59,7 +59,7 @@
     },
     "assumed_name_change.additional_locations_attached": {
       "widget_id": "Check Box9",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Additional locations are attached as Exhibit ___, and made a part hereof"

@@ -11,26 +11,26 @@ Text9,0,text,D: DESCRIBE goods manufactured or sold and/or the service that is p
 Text10,0,text,D: DESCRIBE goods/services (line 2),mark.goods_or_services_description.line2,high,Second line of the goods/services description.
 Text11,0,text,DESCRIBE manner in which mark is applied to the goods or used to promote their sale and/or the manner in which the mark is used in connection with the service (line 1),mark.usage_description.line1,high,"First line describing how the mark is used (e.g., 'printed on the label of bottles', 'displayed on the storefront sign')."
 Text12,0,text,DESCRIBE manner of use (line 2),mark.usage_description.line2,high,Second line of the usage description.
-Check Box30,0,text,"[ ] Attach additional pages, if necessary.",mark.additional_pages_attached,high,Boolean opt-in indicating additional pages are attached.
+Check Box30,0,checkbox,"[ ] Attach additional pages, if necessary.",mark.additional_pages_attached,high,Boolean opt-in indicating additional pages are attached.
 Text13,1,text,"E: I, ___ (Print/Type Name and Capacity), believe",mark.signer.printed_name_and_capacity,high,"Signer's printed name and capacity (e.g., 'Jane Doe, President'). Capacity indicates 'Myself' for individual applicant or an officer-title for entity applicant."
 Text14,1,text,"E: ___ (Myself, Firm, Association or Corporate Name)",mark.applicant.entity_name,high,"Applicant identity as it appears on the mark — 'Myself' for individual, or the firm/association/corporate name when applicant is an entity."
 Text15,1,text,"E: ___ (Mailing Address, City, State and Zip Code)",mark.applicant.mailing_address,high,Applicant's mailing address (single combined widget).
-Check Box23,1,text,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive applicant-type 'individual'.
-Check Box32,1,text,F: [ ] general partnership,mark.applicant.entity_type,high,Mutually-exclusive 'general_partnership'.
-Check Box25,1,text,F: [ ] limited partnership,mark.applicant.entity_type,high,Mutually-exclusive 'limited_partnership'.
-Check Box26,1,text,F: [ ] corporation,mark.applicant.entity_type,high,Mutually-exclusive 'corporation'.
-Check Box27,1,text,F: [ ] association,mark.applicant.entity_type,high,Mutually-exclusive 'association'.
-Check Box28,1,text,F: [ ] union,mark.applicant.entity_type,high,Mutually-exclusive 'union'.
-Check Box31,1,text,F: [ ] other ___ (Explain),mark.applicant.entity_type,high,Mutually-exclusive 'other' (requires mark.applicant.entity_type_other_explanation).
+Check Box23,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive applicant-type 'individual'.
+Check Box32,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'general_partnership'.
+Check Box25,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'limited_partnership'.
+Check Box26,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'corporation'.
+Check Box27,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'association'.
+Check Box28,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'union'.
+Check Box31,1,checkbox,F: Applicant is a (an): [ ] individual,mark.applicant.entity_type,high,Mutually-exclusive 'other' (requires mark.applicant.entity_type_other_explanation).
 Text16,1,text,F: other ___ (Explain),mark.applicant.entity_type_other_explanation,high,Free-text explanation when entity_type='other'.
 Text17,1,text,"F: If a corporation, limited liability company or limited liability partnership, the jurisdiction (state) of incorporation/organization is",mark.applicant.jurisdiction_of_organization,high,"Home jurisdiction; required when entity_type implies a filing entity (corporation, LP, LLP, or 'other' that is a registered entity)."
 Text18,1,text,F: ...and the date of incorporation/organization in its jurisdiction is,mark.applicant.date_of_organization,high,Date applicant entity was organized in its home jurisdiction.
 Text19,1,text,G: Date of this application,filing.date_signed,high,Date of the mark-registration application (matches the universal filing.date_signed key from cover-letter primitive).
 Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-Check Box14,2,text,Hold attested copy for pick up,filing.expedited_service,high,'hold_for_pickup'.
-Check Box15,2,text,24-hour expedited filing,filing.expedited_service,high,'24h_next_business_day'.
-Check Box16,2,text,Immediate expedited filing,filing.expedited_service,high,'immediate_same_day'.
+Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,'hold_for_pickup'.
+Check Box15,2,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,'24h_next_business_day'.
+Check Box16,2,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,'immediate_same_day'.
 Total fees enclosed,2,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,"Total fees ($60 first class + $10 each additional class per page 0 header, plus expedite premium)."
 Name of contact person,2,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,2,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

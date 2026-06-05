@@ -1,19 +1,19 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,FIRST: The name of the corporation is:,entity.home_jurisdiction_name,high,"Legal name of the foreign nonprofit in its home jurisdiction. Foreign-filing convention per 2026-04-30-entity-name-vs-home-jurisdiction.md (matches MLLC-12, FICT-4)."
 Text2,0,text,SECOND: ...the fictitious name under which it proposes to apply for authority to carry on activities in the State of Maine is:,entity.maine_fictitious_name,high,Fictitious name used in Maine when home name is unavailable per 13-B MRSA §301-A. Matches MLLC-12 SECOND.
-Check Box1,0,text,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious name registration) is bundled. Matches MLLC-12 Check Box4.
 Text3,0,text,THIRD: Its jurisdiction of incorporation is,entity.home_jurisdiction,high,State or country where the foreign nonprofit was incorporated. Matches MLLC-12 Text6.
 Text4,0,text,THIRD: ...and the date of incorporation is,entity.formation_date_in_home_jurisdiction,high,Date the nonprofit was originally formed in its home jurisdiction. Matches MLLC-12 Text5.
 Text5,0,text,FOURTH: Purpose(s) it is authorized to do under the laws of its jurisdiction of incorporation: (inline blank),entity.home_purpose.line1,high,"First line of the home-jurisdiction-authorized purposes blank. Two-widget free-text follows the MARK1 .line{1,2} convention for multi-line single-concept fields."
 Text6,0,text,FOURTH: ...continuation line below the purpose statement,entity.home_purpose.line2,high,Second (continuation) line of the FOURTH purposes free-text.
-Check Box2,0,text,FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes,filing.seeks_full_authority,high,Mutually-exclusive radio option 'Yes' (true) for full-scope authority.
-Check Box3,0,text,FIFTH: ...No,filing.seeks_full_authority,high,"Mutually-exclusive radio option 'No' (false). When false, entity.maine_limited_activities must be filled."
 Text7,0,text,"FIFTH: If no, specify activity (activities) for which authority is sought. (inline blank)",entity.maine_limited_activities.line1,high,First line of the limited-activities free-text (only filled when filing.seeks_full_authority is false).
 Text8,0,text,FIFTH: ...continuation line below,entity.maine_limited_activities.line2,high,Second (continuation) line of the FIFTH limited-activities free-text.
-Check Box4,0,text,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'commercial'. Pairs with Text9 (CRA Public Number) and Text10 (CRA name).
 Text9,0,text,SIXTH: CRA Public Number:,registered_agent.cra_public_number,high,Maine SOS CRA Public Number; required only when registered_agent.type='commercial'.
 Text10,0,text,SIXTH: (name of commercial registered agent),registered_agent.name,high,Name of registered agent (commercial path).
-Check Box5,0,text,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'noncommercial'. Pairs with Text11 (NCRA name).
-Text11,0,text,SIXTH: (name of noncommercial registered agent),registered_agent.name,high,Name of registered agent (noncommercial path).
+Text11,0,text,SIXTH: (name of commercial registered agent),registered_agent.name,high,Name of registered agent (noncommercial path).
 Text12,0,text,"SIXTH: (physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Maine physical address of the registered agent. Single-line widget (no street/city/state/zip split).
 Text13,0,text,SIXTH: (mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address of the registered agent if different from physical location.
+Check Box1,0,checkbox,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious name registration) is bundled. Matches MLLC-12 Check Box4.
+Check Box2,0,checkbox,FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes,filing.seeks_full_authority,high,Mutually-exclusive radio option 'Yes' (true) for full-scope authority.
+Check Box3,0,checkbox,FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes,filing.seeks_full_authority,high,"Mutually-exclusive radio option 'No' (false). When false, entity.maine_limited_activities must be filled."
+Check Box4,0,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'commercial'. Pairs with Text9 (CRA Public Number) and Text10 (CRA name).
+Check Box5,0,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'noncommercial'. Pairs with Text11 (NCRA name).

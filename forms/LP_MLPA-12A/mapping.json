@@ -45,7 +45,7 @@
     },
     "filing.fict4_accompanies": {
       "widget_id": "Check Box7",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Form FICT-4 accompanies this application"
@@ -94,7 +94,7 @@
     },
     "new_general_partner.additional_attached": {
       "widget_id": "Check Box20",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Names and addresses of additional new general partners are attached as Exhibit ___"
@@ -151,7 +151,7 @@
     },
     "dissociated_general_partner.additional_attached": {
       "widget_id": "Check Box28",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Names of additional dissociated persons as general partners are attached hereto as Exhibit ___"
@@ -208,7 +208,7 @@
     },
     "general_partner_address_change.additional_attached": {
       "widget_id": "Check Box36",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Names and new addresses of general partners are attached as Exhibit ___"
@@ -265,7 +265,7 @@
     },
     "general_partner_name_change.additional_attached": {
       "widget_id": "Check Box44",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Changes of name of any current general partners are attached as Exhibit ___"

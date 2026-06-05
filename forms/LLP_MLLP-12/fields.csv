@@ -2,34 +2,34 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,(Name of Limited Liability Partnership in Jurisdiction of Organization),entity.home_jurisdiction_name,high,LLP's legal name in its home (foreign) jurisdiction. Same key family as MLLC-12 / FICT-4 (foreign-entity-name convention).
 Text2,0,text,FIRST: The proposed limited liability partnership name* to be used in this State:,entity.maine_assumed_name_for_suffix,high,Alternate name used in Maine when the home-jurisdiction name lacks an LLP suffix per 31 MRSA §803-A. Same key as MLLC-12.
 Text3,0,text,SECOND: ...the fictitious name under which it proposes to apply for authority to do business in the State of Maine is,entity.maine_fictitious_name,high,Fictitious Maine name when the home name is unavailable. Same key as MLLC-12 / FICT-4.
-Check Box23,0,text,[ ] Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean opt-in indicating Form FICT-4 (fictitious-name registration) is bundled with this application. Same key as MLLC-12 / LP_MLPA-12A.
 Text4,0,text,FOURTH: Date of organization,entity.formation_date_in_home_jurisdiction,high,Date the LLP was organized in its home jurisdiction. Same key as MLLC-12.
 Text5,0,text,FOURTH: Jurisdiction of organization,entity.home_jurisdiction,high,Home state or country where the LLP was organized. Same key as MLLC-12.
 Text6,0,text,"FOURTH: Address of the registered or principal office, wherever located, is: (physical location - street (not P.O. Box), city, state and zip code)",entity.principal_office.physical_address,high,Single-line physical address of the principal office (may be outside Maine; not P.O. Box). Same key as MLLC-12.
 Text7,0,text,FOURTH: (mailing address if different from above),entity.principal_office.mailing_address,high,Optional principal-office mailing address. Same key as MLLC-12.
+Check Box23,0,checkbox,[ ] Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean opt-in indicating Form FICT-4 (fictitious-name registration) is bundled with this application. Same key as MLLC-12 / LP_MLPA-12A.
 Text8,1,text,FIFTH: ...The nature of the business or purposes to be conducted or promoted in the State of Maine is,entity.maine_business_purpose,high,Free-text description of activities to be conducted in Maine. Same key as MLLC-12 (analogous FIFTH paragraph).
-Check Box24,1,text,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial' option for the SIXTH RA block.
 Text9,1,text,SIXTH: CRA Public Number:,registered_agent.cra_public_number,high,Right-aligned narrow blank on the Commercial Registered Agent row.
 Text10,1,text,SIXTH: (name of commercial registered agent),registered_agent.name,high,Commercial-RA name (populated when registered_agent.type='commercial').
-Check Box25,1,text,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial' option.
-Text11,1,text,SIXTH: (name of noncommercial registered agent),registered_agent.name,high,Noncommercial-RA name (populated when registered_agent.type='noncommercial').
+Text11,1,text,SIXTH: (name of commercial registered agent),registered_agent.name,high,Noncommercial-RA name (populated when registered_agent.type='noncommercial').
 Text12,1,text,"SIXTH: (physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Maine physical address of the registered agent (not P.O. Box).
 Text13,1,text,SIXTH: (mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address for the registered agent.
 Text14,1,text,EIGHTH: NAME (contact partner row 1),contact_partner_1.name,high,Name of the LLP's contact partner. Single inline row on this form; further partners go on an attached exhibit (Check Box26).
 Text15,1,text,EIGHTH: ADDRESS (contact partner row 1),contact_partner_1.address,high,Combined business/residence/mailing address of the contact partner (single line).
-Check Box26,1,text,"[ ] Names and addresses of additional contact partners are attached as Exhibit ___, and made a part hereof",contact_partner.additional_attached,high,Boolean opt-in for an additional-contact-partners exhibit. Note: the corresponding inline blank for the exhibit-letter is not extracted as an AcroForm widget on this template (see open_questions).
 Text16,1,text,"NINTH: The date on which the foreign limited liability partnership first did, or intends to do, business in the State of Maine is",entity.maine_activities_start_date,high,Date the LLP commenced or intends to commence Maine activities. Same key family as MLLC-12 (entity.maine_activities_start_date).
 Text17,1,text,"TENTH: (type of professional services, line 1)",entity.professional_services_description.line1,high,First line of the professional-services description for a foreign professional LLP under 13 MRSA Chapter 22-A. Two-line variant of MLLC-12's single-widget entity.professional_services_description (this template provides two underlined blanks instead of one). Distinct from MLLC-12 because the form's physical widget composition differs.
 Text18,1,text,"TENTH: (type of professional services, line 2)",entity.professional_services_description.line2,high,Second line of the professional-services description.
+Check Box24,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial' option for the SIXTH RA block.
+Check Box25,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial' option.
+Check Box26,1,checkbox,"[ ] Names and addresses of additional contact partners are attached as Exhibit ___, and made a part hereof",contact_partner.additional_attached,high,Boolean opt-in for an additional-contact-partners exhibit. Note: the corresponding inline blank for the exhibit-letter is not extracted as an AcroForm widget on this template (see open_questions).
 Text19,2,text,Dated ___,filing.date_signed,high,Date of signature in the page-2 signature block.
 Text20,2,text,(Authorized Signature**) / (Type or print name and capacity),filing.signer.printed_name_and_capacity,high,Individual-signer printed name and capacity (Shape D). The wet-ink Authorized Signature line itself is not AcroForm-bound; this widget captures the typed name+capacity below.
 Text21,2,text,For Authorized Signature(s) ** on behalf of Entities: Name of Entity,filing.signer.entity_name,high,"Name of the entity signing on behalf of the LLP (used when the LLP is signed for by another entity rather than by an individual). Parallel to the per-officer-signer pattern's <role>_entity_N.name (see schema-gaps/2026-04-30-per-officer-signer-pattern.md), applied to filing.signer.*."
 Text22,2,text,For Authorized Signature(s) ** on behalf of Entities: By (Authorized signature) / (Type or print name and capacity),filing.signer.entity_signer_printed_name_and_capacity,high,Printed name and capacity of the natural person who signs for the entity (parallel to <role>_entity_N.signer_printed_name_and_capacity in the per-officer-signer convention).
 Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2 — useful when the foreign-qualification application is bundled with FICT-4 (Check Box23).
-Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
-Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite tier '24h_next_business_day'.
-Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite tier 'hold_for_pickup'.
+Check Box15,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Expedite tier '24h_next_business_day'.
+Check Box16,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Expedite tier 'immediate_same_day'.
 Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees ($250 base per page-0 'Filing Fee $250.00').
 Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

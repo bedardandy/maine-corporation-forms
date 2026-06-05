@@ -1,19 +1,19 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,(Name of Limited Partnership),entity.name,high,Primary entity name at top of form.
 Text2,0,text,FIRST: The date of filing of the limited partnership's initial certificate is ___ (date),entity.initial_certificate_filing_date,high,Date the original certificate was filed.
-Text3,0,text,"SECOND: The name of the limited partnership has been changed to (if no change, so indicate)",entity.name,high,Amended entity name. Replaces or confirms the name in Text1.
+Text3,0,text,(Name of Limited Partnership),entity.name,high,Amended entity name. Replaces or confirms the name in Text1.
 Check Box4,0,checkbox,THIRD: The limited partnership is a limited liability limited partnership.,entity.is_lllp,high,Boolean elect-in for LLLP status.
-Check Box5,0,checkbox,THIRD: The limited partnership is not a limited liability limited partnership.,entity.is_lllp,high,Boolean elect-out for LLLP status (mutually exclusive with Check Box4).
+Check Box5,0,checkbox,THIRD: The limited partnership is a limited liability limited partnership.,entity.is_lllp,high,Boolean elect-out for LLLP status (mutually exclusive with Check Box4).
 Check Box6,0,checkbox,FOURTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4,entity.is_professional_lllp,high,Boolean elect-in for professional LLLP status.
-Text7,0,text,(type of professional services),entity.professional_services_description,high,Free-text description of professional services (used when entity.is_professional_lllp is true).
-Text8,0,text,(type of professional services) [second line],entity.professional_services_description,medium,Second line of the professional services description; same canonical key as Text7.
+Text7,0,text,(type of professional services),entity.professional_services_description,medium,Free-text description of professional services (used when entity.is_professional_lllp is true).
+Text8,0,text,(type of professional services),entity.professional_services_description,medium,Second line of the professional services description; same canonical key as Text7.
 Text9,1,text,FIFTH: Name (row 1),new_general_partner_1.name,high,Name of first new general partner.
 Text10,1,text,FIFTH: Address (row 1),new_general_partner_1.address,high,Address of first new general partner.
 Text11,1,text,FIFTH: Name (row 2),new_general_partner_2.name,high,Name of second new general partner.
 Text12,1,text,FIFTH: Address (row 2),new_general_partner_2.address,high,Address of second new general partner.
 Text13,1,text,FIFTH: Name (row 3),new_general_partner_3.name,high,Name of third new general partner.
 Text14,1,text,FIFTH: Address (row 3),new_general_partner_3.address,high,Address of third new general partner.
-Check Box15,1,checkbox,FIFTH: Names and addresses of additional new general partners are attached as Exhibit ___,new_general_partner.additional_attached,medium,"Resolved placeholder '(unnamed widget at y620)' to real field Check Box15 (page-1 kid widget). SHARED-FIELD COLLISION: Check Box15 is one /Btn with a second kid on page 4 (24h-expedite); toggling sets both. On-state /Yes."
+Check Box15,1,checkbox,FIFTH: Names and addresses of additional new general partners are attached as Exhibit ___,new_general_partner.additional_attached; filing.expedited_service.expedite_24h,high,Expedite tier '24h_next_business_day'. Resolved from placeholder '(unnamed widget at y607)' to real field Check Box15 (page-4 kid widget). SHARED-FIELD COLLISION: same /Btn also has a page-1 kid (FIFTH additional-attached); toggling sets both. On-state /Yes.
 Text18,1,text,FIFTH: Exhibit ___,new_general_partner.additional_exhibit_letter,high,Exhibit letter for additional new GPs.
 Text19,1,text,SIXTH: Name (row 1),dissociated_general_partner_1.name,high,Name of first dissociated general partner.
 Text20,1,text,SIXTH: Address (row 1),dissociated_general_partner_1.address,high,Address of first dissociated general partner.
@@ -21,7 +21,7 @@ Text21,1,text,SIXTH: Name (row 2),dissociated_general_partner_2.name,high,Name o
 Text22,1,text,SIXTH: Address (row 2),dissociated_general_partner_2.address,high,Address of second dissociated general partner.
 Text23,1,text,SIXTH: Name (row 3),dissociated_general_partner_3.name,high,Name of third dissociated general partner.
 Text24,1,text,SIXTH: Address (row 3),dissociated_general_partner_3.address,high,Address of third dissociated general partner.
-Check Box26,1,text,SIXTH: Names of additional dissociated person as a general partners are attached as Exhibit ___,dissociated_general_partner.additional_attached,high,Opt-in checkbox for exhibit of additional dissociated GPs.
+Check Box26,1,checkbox,SIXTH: Names of additional dissociated person as a general partners are attached as Exhibit ___,dissociated_general_partner.additional_attached,high,Opt-in checkbox for exhibit of additional dissociated GPs.
 Text25,1,text,SIXTH: Exhibit ___,dissociated_general_partner.additional_exhibit_letter,high,Exhibit letter for additional dissociated GPs.
 Text4,1,text,SEVENTH: (name),replacement_general_partner.name,high,Name of the person admitted as GP after the last GP dissociated (31 MRSA §1391.3.B).
 Text5,1,text,"SEVENTH: (physical location - street (not P.O. Box), city, state and zip code)",replacement_general_partner.physical_address,high,Physical address of the replacement GP.
@@ -36,7 +36,7 @@ Text28,2,text,TENTH: Name of current general partner (row 2),general_partner_add
 Text29,2,text,TENTH: New Address (row 2),general_partner_address_change_2.new_address,high,New address for second current GP.
 Text30,2,text,TENTH: Name of current general partner (row 3),general_partner_address_change_3.name,high,Name of third current GP whose address changed.
 Text31,2,text,TENTH: New Address (row 3),general_partner_address_change_3.new_address,high,New address for third current GP.
-Check Box18,2,text,TENTH: Names and new addresses of current general partners are attached as Exhibit ___,general_partner_address_change.additional_attached,high,Opt-in checkbox for exhibit of additional address changes.
+Check Box18,2,checkbox,TENTH: Names and new addresses of current general partners are attached as Exhibit ___,general_partner_address_change.additional_attached,high,Opt-in checkbox for exhibit of additional address changes.
 Text32,2,text,TENTH: Exhibit ___,general_partner_address_change.additional_exhibit_letter,high,Exhibit letter for additional address changes.
 Text33,2,text,ELEVENTH: Name of current general partner (row 1),general_partner_name_change_1.name,high,Old name of first current GP whose name changed.
 Text34,2,text,ELEVENTH: New name of current general partner (row 1),general_partner_name_change_1.new_name,high,New name for first current GP.
@@ -44,7 +44,7 @@ Text35,2,text,ELEVENTH: Name of current general partner (row 2),general_partner_
 Text36,2,text,ELEVENTH: New name of current general partner (row 2),general_partner_name_change_2.new_name,high,New name for second current GP.
 Text37,2,text,ELEVENTH: Name of current general partner (row 3),general_partner_name_change_3.name,high,Old name of third current GP whose name changed.
 Text38,2,text,ELEVENTH: New name of current general partner (row 3),general_partner_name_change_3.new_name,high,New name for third current GP.
-Check Box39,2,text,ELEVENTH: Change of name of any current general partners are attached as Exhibit ___,general_partner_name_change.additional_attached,high,Opt-in checkbox for exhibit of additional name changes.
+Check Box39,2,checkbox,ELEVENTH: Change of name of any current general partners are attached as Exhibit ___,general_partner_name_change.additional_attached,high,Opt-in checkbox for exhibit of additional name changes.
 Text40,2,text,ELEVENTH: Exhibit ___,general_partner_name_change.additional_exhibit_letter,high,Exhibit letter for additional name changes.
 Text41,2,text,TWELFTH: Exhibit ___,amendment.other_exhibit_letter,high,Exhibit letter for other amendments (31 MRSA §1322).
 Text42,2,text,DATED ___,filing.date_signed,high,Date of signature.
@@ -59,9 +59,8 @@ Text51,3,text,For Authorization Signatories which are Entities: Name of Entity [
 Text52,3,text,For Authorization Signatories which are Entities: (type or print name and capacity) [row 3],general_partner_entity_3.signer_printed_name_and_capacity,high,Name and capacity of the natural person signing for the third entity signatory.
 Name of entity,4,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,4,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
-Check Box14,4,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite tier 'hold_for_pickup'.
-Check Box15,4,checkbox,24-hour expedited filing,filing.expedited_service,high,"Expedite tier '24h_next_business_day'. Resolved from placeholder '(unnamed widget at y607)' to real field Check Box15 (page-4 kid widget). SHARED-FIELD COLLISION: same /Btn also has a page-1 kid (FIFTH additional-attached); toggling sets both. On-state /Yes."
-Check Box16,4,text,Immediate expedited filing,filing.expedited_service,high,Expedite tier 'immediate_same_day'.
+Check Box14,4,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite tier 'hold_for_pickup'.
+Check Box16,4,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Expedite tier 'immediate_same_day'.
 Total fees enclosed,4,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
 Name of contact person,4,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,4,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

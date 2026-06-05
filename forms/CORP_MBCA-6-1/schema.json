@@ -9,7 +9,7 @@
       "properties": {
         "accompanying_filing_type": {
           "type": "string",
-          "description": "Mutually-exclusive enum identifying which principal filing this Articles-of-Incorporation attachment accompanies. Values: 'domestication' (13-C MRSA §953) | 'domestication_conversion' (§942) | 'entity_conversion' (§952.5 or §955.3) | 'merger_or_share_exchange' (§1106 / §1107) | 'partnership_conversion' (31 MRSA §1093) | 'restated_articles' (13-C MRSA §1007). This is the definitional concept that splits MBCA-6-1 from the standalone MBCA-6 articles — it tells SOS what other filing this Articles attachment is bundled with."
+          "description": "Mutually-exclusive enum identifying which principal filing this Articles-of-Incorporation attachment accompanies. Values: 'domestication' (13-C MRSA \u00a7953) | 'domestication_conversion' (\u00a7942) | 'entity_conversion' (\u00a7952.5 or \u00a7955.3) | 'merger_or_share_exchange' (\u00a71106 / \u00a71107) | 'partnership_conversion' (31 MRSA \u00a71093) | 'restated_articles' (13-C MRSA \u00a71007). This is the definitional concept that splits MBCA-6-1 from the standalone MBCA-6 articles \u2014 it tells SOS what other filing this Articles attachment is bundled with."
         }
       }
     },
@@ -22,7 +22,7 @@
         },
         "is_benefit_corporation": {
           "type": "boolean",
-          "description": "Boolean indicating election as a benefit corporation under 13-C MRSA §1803, with minimum-status-vote attestation per §1802.7."
+          "description": "Boolean indicating election as a benefit corporation under 13-C MRSA \u00a71803, with minimum-status-vote attestation per \u00a71802.7."
         },
         "professional_services_description": {
           "type": "string"
@@ -58,7 +58,7 @@
           "type": "boolean"
         },
         "mandatory_indemnification": {
-          "type": "string"
+          "type": "boolean"
         },
         "preemptive_rights_elected": {
           "type": "boolean"

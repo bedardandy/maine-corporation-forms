@@ -34,7 +34,7 @@
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "FOURTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4"
+      "label": "FOURTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA \u00a71354.4"
     },
     "entity.professional_services_description": {
       "widget_id": [
@@ -149,7 +149,7 @@
     },
     "dissociated_general_partner.additional_attached": {
       "widget_id": "Check Box26",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SIXTH: Names of additional dissociated person as a general partners are attached as Exhibit ___"
@@ -255,7 +255,7 @@
     },
     "general_partner_address_change.additional_attached": {
       "widget_id": "Check Box18",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "TENTH: Names and new addresses of current general partners are attached as Exhibit ___"
@@ -312,7 +312,7 @@
     },
     "general_partner_name_change.additional_attached": {
       "widget_id": "Check Box39",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "ELEVENTH: Change of name of any current general partners are attached as Exhibit ___"

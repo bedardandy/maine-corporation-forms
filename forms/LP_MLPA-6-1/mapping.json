@@ -9,10 +9,10 @@
         "Check Box22",
         "Check Box23"
       ],
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "Articles of Entity Conversion (13-C MRSA §955.1)"
+      "label": "Articles of Entity Conversion (13-C MRSA \u00a7955.1)"
     },
     "entity.name": {
       "widget_id": "Text1",
@@ -26,7 +26,7 @@
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street – not P.O. Box, city, state and zip code)"
+      "label": "SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street \u2013 not P.O. Box, city, state and zip code)"
     },
     "entity.designated_office.mailing_address": {
       "widget_id": "Text3",
@@ -68,7 +68,7 @@
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "(physical location, not P.O. Box – street, city, state and zip code) [registered agent]"
+      "label": "(physical location, not P.O. Box \u2013 street, city, state and zip code) [registered agent]"
     },
     "registered_agent.mailing_address": {
       "widget_id": "Text8",
@@ -146,7 +146,7 @@
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
-      "label": "SEVENTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4"
+      "label": "SEVENTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA \u00a71354.4"
     },
     "entity.professional_services_description": {
       "widget_id": [
@@ -156,7 +156,7 @@
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(provide the following professional services) — line 1",
+      "label": "(provide the following professional services) \u2014 line 1",
       "when": "entity.is_professional_lllp == true"
     },
     "entity.additional_provisions_exhibit_letter": {

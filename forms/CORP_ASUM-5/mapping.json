@@ -24,7 +24,7 @@
     },
     "assumed_name.additional_locations_exhibit": {
       "widget_id": "Check Box1",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Additional locations are attached hereto as Exhibit ___ and made a part hereof."

@@ -17,7 +17,7 @@
     },
     "entity.professional_services_description": {
       "widget_id": "Text2",
-      "field_type": "checkbox",
+      "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: (used only when checkbox 18 is set) provide the following professional services:",
@@ -28,7 +28,7 @@
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: …the fictitious name under which it proposes to apply for authority to do business in the State of Maine is"
+      "label": "THIRD: \u2026the fictitious name under which it proposes to apply for authority to do business in the State of Maine is"
     },
     "entity.professional_partners_licensed_statement": {
       "widget_id": "Text4",
@@ -112,7 +112,7 @@
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "Noncommercial path: (physical location, not P.O. Box – street, city, state and zip code)",
+      "label": "Noncommercial path: (physical location, not P.O. Box \u2013 street, city, state and zip code)",
       "when": "registered_agent.type == 'noncommercial'"
     },
     "registered_agent.mailing_address": {

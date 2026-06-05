@@ -24,7 +24,7 @@
     },
     "filing.fict4_accompanies": {
       "widget_id": "Check Box4",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Form FICT-4 accompanies this application. (See 31 MRSA \u00a71624.1)"
@@ -149,7 +149,7 @@
     },
     "manager.additional_attached": {
       "widget_id": "Check Box23",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "[ ] Names and addresses of additional managers are attached as Exhibit ___, and made a part hereof"

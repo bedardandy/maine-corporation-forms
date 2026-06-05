@@ -42,8 +42,12 @@
           "description": "Current type of an existing mark \u2014 values from MARK-1 \u00a7C: 'Trademark' | 'Service Mark' | 'Collective Mark'. On the amendment form this is captured as free text (single widget) rather than the checkbox group used elsewhere."
         },
         "type_changed": {
-          "type": "boolean",
-          "description": "Boolean indicating whether the type of mark is being amended (true = yes, the type indicated represents an amendment from that appearing on the original registration; false = no, type unchanged). Mapped onto a yes/no checkbox pair."
+          "type": "string",
+          "description": "Boolean indicating whether the type of mark is being amended (true = yes, the type indicated represents an amendment from that appearing on the original registration; false = no, type unchanged). Mapped onto a yes/no checkbox pair.",
+          "enum": [
+            "no",
+            "yes"
+          ]
         },
         "original_type_if_changed": {
           "type": "string",

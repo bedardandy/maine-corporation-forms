@@ -5,14 +5,14 @@ Text3,0,text,Jurisdiction of organization,entity.home_jurisdiction,high,State/co
 Text4,0,text,Date authorized to transact business in this State,entity.maine_authorization_date,high,Date the LP was originally authorized in Maine — anchor for amendment validity.
 Text5,0,text,SECOND: The name* of the limited partnership in its jurisdiction of organization has been changed to,entity.home_jurisdiction_name_new,high,New legal name in home jurisdiction (amendment-specific). entity.home_jurisdiction_name remains the prior name; this is the post-change value.
 Text6,0,text,THIRD: …the fictitious name under which it proposes to apply for authority to do business in the State of Maine is,entity.maine_fictitious_name,high,Fictitious name for Maine use when the real name is unavailable; same key as the FICT-4 form.
-Check Box7,0,text,Form FICT-4 accompanies this application,filing.fict4_accompanies,high,Boolean indicating FICT-4 is bundled with the amendment.
+Check Box7,0,checkbox,Form FICT-4 accompanies this application,filing.fict4_accompanies,high,Boolean indicating FICT-4 is bundled with the amendment.
 Text14,0,text,FOURTH: Name (new GP row 1),new_general_partner_1.name,high,Name of newly-admitted GP 1. Note: PDF skips Text8–13 in its widget naming.
 Text15,0,text,FOURTH: Address (new GP row 1),new_general_partner_1.address,high,Address of newly-admitted GP 1.
 Text16,0,text,FOURTH: Name (new GP row 2),new_general_partner_2.name,high,Name of newly-admitted GP 2.
 Text17,0,text,FOURTH: Address (new GP row 2),new_general_partner_2.address,high,Address of newly-admitted GP 2.
 Text18,0,text,FOURTH: Name (new GP row 3),new_general_partner_3.name,high,Name of newly-admitted GP 3.
 Text19,0,text,FOURTH: Address (new GP row 3),new_general_partner_3.address,high,Address of newly-admitted GP 3.
-Check Box20,0,text,Names and addresses of additional new general partners are attached as Exhibit ___,new_general_partner.additional_attached,high,Boolean opt-in for additional new-GP exhibit.
+Check Box20,0,checkbox,Names and addresses of additional new general partners are attached as Exhibit ___,new_general_partner.additional_attached,high,Boolean opt-in for additional new-GP exhibit.
 Text21,0,text,Exhibit ___ (additional new GPs),new_general_partner.additional_exhibit_letter,high,Exhibit letter for additional new GPs.
 Text22,1,text,FIFTH: Name (dissociated GP row 1),dissociated_general_partner_1.name,high,Name of dissociated GP 1.
 Text23,1,text,FIFTH: Address (dissociated GP row 1),dissociated_general_partner_1.address,high,Last-known address of dissociated GP 1.
@@ -20,7 +20,7 @@ Text24,1,text,FIFTH: Name (dissociated GP row 2),dissociated_general_partner_2.n
 Text25,1,text,FIFTH: Address (dissociated GP row 2),dissociated_general_partner_2.address,high,Address of dissociated GP 2.
 Text26,1,text,FIFTH: Name (dissociated GP row 3),dissociated_general_partner_3.name,high,Name of dissociated GP 3.
 Text27,1,text,FIFTH: Address (dissociated GP row 3),dissociated_general_partner_3.address,high,Address of dissociated GP 3.
-Check Box28,1,text,Names of additional dissociated persons as general partners are attached hereto as Exhibit ___,dissociated_general_partner.additional_attached,high,Boolean opt-in for additional dissociated-GP exhibit.
+Check Box28,1,checkbox,Names of additional dissociated persons as general partners are attached hereto as Exhibit ___,dissociated_general_partner.additional_attached,high,Boolean opt-in for additional dissociated-GP exhibit.
 Text29,1,text,Exhibit ___ (additional dissociated GPs),dissociated_general_partner.additional_exhibit_letter,high,Exhibit letter for additional dissociated GPs.
 Text30,1,text,SIXTH: Name of current general partner (address-change row 1),general_partner_address_change_1.name,high,Name of current GP whose address has changed (row 1).
 Text31,1,text,SIXTH: New Address (row 1),general_partner_address_change_1.new_address,high,New address for current GP 1.
@@ -28,7 +28,7 @@ Text32,1,text,SIXTH: Name of current general partner (address-change row 2),gene
 Text33,1,text,SIXTH: New Address (row 2),general_partner_address_change_2.new_address,high,New address for current GP 2.
 Text34,1,text,SIXTH: Name of current general partner (address-change row 3),general_partner_address_change_3.name,high,Name of current GP whose address has changed (row 3).
 Text35,1,text,SIXTH: New Address (row 3),general_partner_address_change_3.new_address,high,New address for current GP 3.
-Check Box36,1,text,Names and new addresses of general partners are attached as Exhibit ___,general_partner_address_change.additional_attached,high,Boolean opt-in for additional address-change exhibit.
+Check Box36,1,checkbox,Names and new addresses of general partners are attached as Exhibit ___,general_partner_address_change.additional_attached,high,Boolean opt-in for additional address-change exhibit.
 Text37,1,text,Exhibit ___ (additional address changes),general_partner_address_change.additional_exhibit_letter,high,Exhibit letter for additional address changes.
 Text38,1,text,SEVENTH: Name of current general partner (name-change row 1),general_partner_name_change_1.name,high,Prior name of current GP whose name has changed (row 1).
 Text39,1,text,SEVENTH: New name of current general partner (row 1),general_partner_name_change_1.new_name,high,New name for current GP 1.
@@ -36,7 +36,7 @@ Text40,1,text,SEVENTH: Name of current general partner (name-change row 2),gener
 Text41,1,text,SEVENTH: New name of current general partner (row 2),general_partner_name_change_2.new_name,high,New name for current GP 2.
 Text42,1,text,SEVENTH: Name of current general partner (name-change row 3),general_partner_name_change_3.name,high,Prior name of current GP whose name has changed (row 3).
 Text43,1,text,SEVENTH: New name of current general partner (row 3),general_partner_name_change_3.new_name,high,New name for current GP 3.
-Check Box44,1,text,Changes of name of any current general partners are attached as Exhibit ___,general_partner_name_change.additional_attached,high,Boolean opt-in for additional name-change exhibit.
+Check Box44,1,checkbox,Changes of name of any current general partners are attached as Exhibit ___,general_partner_name_change.additional_attached,high,Boolean opt-in for additional name-change exhibit.
 Text45,1,text,Exhibit ___ (additional name changes),general_partner_name_change.additional_exhibit_letter,high,Exhibit letter for additional name changes.
 Text46,1,text,EIGHTH: The new address of the foreign limited partnership's principal office (physical),entity.principal_office.physical_address,high,New physical address of the LP's principal office (post-amendment).
 Text47,1,text,(mailing address if different from above) [principal office],entity.principal_office.mailing_address,high,New mailing address of principal office.
@@ -49,9 +49,9 @@ Text53,2,text,Name of Entity [For General Partner(s) which are Entities],general
 Text55,2,text,By (type or print name and capacity) [entity GP signer],general_partner_entity_1.signer_printed_name_and_capacity,high,"Printed name + capacity of authorized signer for entity GP. Note: PDF skips Text54 in its widget naming (the '(authorized signature)' line is free ink, not a widget)."
 Name of entity,3,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1 (cover-letter primitive). Field-id is the literal label text rather than 'cover1' — same convention as MLLC-6/MLLC-12.
 Name of entitys on the submitted filings 2,3,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2. Field-id has typo 'entitys' (no apostrophe) preserved upstream.
-Check Box14,3,text,Hold attested copy for pick up,filing.expedited_service,high,Expedite enum value 'hold_for_pickup'.
-Check Box15,3,text,24-hour expedited filing,filing.expedited_service,high,Expedite enum value '24h_next_business_day'.
-Check Box16,3,text,Immediate expedited filing,filing.expedited_service,high,Expedite enum value 'immediate_same_day'.
+Check Box14,3,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite enum value 'hold_for_pickup'.
+Check Box15,3,checkbox,24-hour expedited filing ($50),filing.expedited_service.expedite_24h,high,Expedite enum value '24h_next_business_day'.
+Check Box16,3,checkbox,Immediate expedited filing ($100),filing.expedited_service.immediate,high,Expedite enum value 'immediate_same_day'.
 Total fees enclosed,3,text,Total fee(s) enclosed: $,filing.total_fees_dollars,high,Total fees.
 Name of contact person,3,text,Name of contact person,filing.contact.name,high,Contact name.
 Daytime telephone number,3,text,Daytime telephone number,filing.contact.phone,high,Contact phone.

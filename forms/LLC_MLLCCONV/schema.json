@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "form_type": {
-          "type": "boolean",
+          "type": "string",
           "description": "Free-text legal form of an entity (e.g., 'Limited Liability Company', 'Limited Partnership', 'Corporation'). Surfaced on conversion forms that capture the converting entity's form as a fillable field. Distinct from per-form-type-specific entity.is_lllp / entity.is_professional_llp boolean flags \u2014 entity.form_type is the human-readable form name as recited on the document."
         },
         "name": {

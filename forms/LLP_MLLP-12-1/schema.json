@@ -12,8 +12,8 @@
           "description": "Boolean indicating professional-LLP status under 13 MRSA Chapter 22-A. Parallel to LP_MLPA-9's entity.is_professional_lllp; the distinction is LLP (general partnership w/ liability shield) vs LLLP (limited partnership w/ liability shield)."
         },
         "professional_partners_licensed_statement": {
-          "type": "boolean",
-          "description": "Free-text recital confirming all partners are licensed in one or more states to render the LLP's professional services. The form provides a single text widget rather than a boolean — typical filers either enter a confirming statement or leave blank. A future redraft could split this into a boolean entity.professional_partners_all_licensed plus an optional text field for jurisdictions; pass-1 captures it as a single string to match the widget shape."
+          "type": "string",
+          "description": "Free-text recital confirming all partners are licensed in one or more states to render the LLP's professional services. The form provides a single text widget rather than a boolean \u2014 typical filers either enter a confirming statement or leave blank. A future redraft could split this into a boolean entity.professional_partners_all_licensed plus an optional text field for jurisdictions; pass-1 captures it as a single string to match the widget shape."
         },
         "maine_business_purpose": {
           "type": "string",
@@ -21,7 +21,7 @@
         },
         "maine_activities_start_date": {
           "type": "string",
-          "description": "Date the foreign entity first did or intends to do business in Maine. Required by 31 MRSA §852.3.J on foreign-qualification filings."
+          "description": "Date the foreign entity first did or intends to do business in Maine. Required by 31 MRSA \u00a7852.3.J on foreign-qualification filings."
         },
         "home_jurisdiction_name": {
           "type": "string"
@@ -56,7 +56,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "Name of the contact partner for a foreign LLP filing. The contact partner is an internal LLP role (a partner designated for SOS communications) — distinct from the registered_agent (external agent for service of process) and from filing.contact (cover-letter primitive)."
+          "description": "Name of the contact partner for a foreign LLP filing. The contact partner is an internal LLP role (a partner designated for SOS communications) \u2014 distinct from the registered_agent (external agent for service of process) and from filing.contact (cover-letter primitive)."
         },
         "address": {
           "type": "string",

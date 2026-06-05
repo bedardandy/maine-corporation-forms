@@ -55,7 +55,7 @@
         "Check Box2",
         "Check Box3"
       ],
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes"
@@ -108,7 +108,7 @@
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "SIXTH: (physical location, not P.O. Box – street, city, state and zip code)"
+      "label": "SIXTH: (physical location, not P.O. Box \u2013 street, city, state and zip code)"
     },
     "registered_agent.mailing_address": {
       "widget_id": "Text13",
