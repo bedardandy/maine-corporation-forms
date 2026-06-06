@@ -1,6 +1,6 @@
 # Maine Corporation Forms — developer entry points.
 # Most targets are PDF-free and offline; `fetch` and `fill` need the blank PDF.
-.PHONY: help test validate coverage status sync-schema route plan fill fetch mcp serve
+.PHONY: help test validate coverage status sync-schema route plan fill fetch check-upstream mcp serve
 
 help:
 	@echo "make test                       run the deterministic test suite (the CI gate)"
@@ -14,6 +14,7 @@ help:
 	@echo "make fill FORM=.. CASE=.. OUT=..  fill the blank PDF from a case (needs the PDF)"
 	@echo "make fetch FORMS=A,B            download blank PDFs from the official portal"
 	@echo "                                (verified; omit FORMS to fetch all)"
+	@echo "make check-upstream            re-probe official URLs; flag forms Maine has revised"
 	@echo "make mcp                        run the MCP server (find_forms / get_form / fill_form)"
 	@echo "make serve                      run the stdlib HTTP API + browser review UI on :8080"
 
@@ -47,6 +48,9 @@ fill:
 
 fetch:
 	python3 tools/fetch_pdfs.py $(if $(FORMS),--forms $(FORMS),)
+
+check-upstream:
+	python3 tools/check_upstream.py $(if $(FORMS),--forms $(FORMS),)
 
 mcp:
 	python3 tools/agent_server.py

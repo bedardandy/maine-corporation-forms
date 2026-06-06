@@ -86,10 +86,12 @@ catalog/
   caselaw.json          experimental case-law background (propose-and-flag)
 engine/                 deterministic fill engine (stdlib + pypdf)
   fill.py  plan.py  route.py  schema.py  canonical.py  printcopy.py
+  verify.py            pin each blank to its manifest SHA-256 (fill-time guard)
 docs/                   architecture, data model, field schema, integrations,
                         router/API, templating, print-and-sign, STATUS
 tools/
   fetch_pdfs.py         download blank PDFs from the official portal (verified)
+  check_upstream.py     re-probe official URLs; flag forms Maine has revised
   validate_form.py      validate one form folder — the modular-improvement loop
   agent_server.py       MCP server   api_server.py   stdlib HTTP API
   export/               templating / e-sign / doc-assembly export layer
@@ -114,6 +116,28 @@ python3 tools/fetch_pdfs.py --forms CORP_MBCA-6 # a subset
 
 You only need a blank to *fill* a form. The schema, mapping, and planning work
 without it.
+
+## Staying current — detecting a revised form
+
+Every mapping was enriched against one specific revision of the blank, pinned by
+SHA-256 in `catalog/pdf_manifest.json`. Maine sometimes re-uploads a revised form
+at the same URL; when that happens the widget layout can shift and a fill built
+on the old mapping lands values in the wrong place. Two guards catch this:
+
+```bash
+python3 tools/check_upstream.py            # re-probe official URLs; flag CHANGED / GONE
+```
+
+`check_upstream` re-downloads each blank, hashes it, and reports any form whose
+bytes no longer match the manifest. It is read-only (nothing is written to
+`forms/`) and exits non-zero on any change, so it works as a scheduled
+early-warning — run it from cron or CI on a weekly cadence. When it flags a form,
+re-run enrichment for that form, then `--update-manifest` to adopt the new hash.
+
+At **fill time**, `engine.fill` checks the on-disk blank against the manifest
+before filling. A mismatch warns by default (the fill still runs); set
+`MCF_VERIFY_BLANK=strict` to refuse, or `=off` to skip. So a blank that was
+silently swapped on disk cannot be filled without notice.
 
 ## Quickstart — fill a form
 

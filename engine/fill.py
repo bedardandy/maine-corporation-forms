@@ -20,13 +20,14 @@ Field types in ``mapping.json``:
   siblings are set to ``/Off``.
 """
 import json
+import os
 import sys
 from pathlib import Path
 
 import pypdf
 from pypdf.generic import NameObject, TextStringObject
 
-from . import canonical
+from . import canonical, verify
 
 
 def load_mapping(form_id, forms_root="forms"):
@@ -34,14 +35,24 @@ def load_mapping(form_id, forms_root="forms"):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_writer(form_id, case_data, forms_root="forms"):
+def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
     """Return a ``pypdf.PdfWriter`` for ``form_id`` filled with ``case_data``.
 
     The shared work behind :func:`fill` and :func:`fill_to_stream`. The official
     PDF on disk is never modified.
+
+    Before reading the blank, the on-disk PDF is checked against the SHA-256 in
+    ``catalog/pdf_manifest.json`` — the revision the mapping was enriched
+    against. ``verify_blank`` is ``"warn"`` (default; mismatch emits a
+    :class:`engine.verify.BlankRevisionWarning` and still fills), ``"strict"``
+    (mismatch raises :class:`engine.verify.BlankRevisionError`), or ``"off"``.
+    The default can be set with the ``MCF_VERIFY_BLANK`` environment variable.
     """
     mapping = load_mapping(form_id, forms_root)
     pdf_path = Path(forms_root) / form_id / f"{form_id}.pdf"
+
+    mode = verify_blank or os.environ.get("MCF_VERIFY_BLANK", "warn")
+    verify.guard_blank(form_id, forms_root, mode=mode)
 
     reader = pypdf.PdfReader(str(pdf_path))
     writer = pypdf.PdfWriter()
@@ -129,12 +140,12 @@ def build_writer(form_id, case_data, forms_root="forms"):
     return writer
 
 
-def fill(form_id, case_data, out_path, forms_root="forms"):
+def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None):
     """Fill ``form_id`` with ``case_data`` and write to ``out_path``.
 
-    Returns the output ``Path``.
+    Returns the output ``Path``. See :func:`build_writer` for ``verify_blank``.
     """
-    writer = build_writer(form_id, case_data, forms_root)
+    writer = build_writer(form_id, case_data, forms_root, verify_blank=verify_blank)
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "wb") as fh:
@@ -142,12 +153,13 @@ def fill(form_id, case_data, out_path, forms_root="forms"):
     return out
 
 
-def fill_to_stream(form_id, case_data, stream, forms_root="forms"):
+def fill_to_stream(form_id, case_data, stream, forms_root="forms", verify_blank=None):
     """Fill ``form_id`` and write the PDF bytes to a binary ``stream``.
 
     Useful for serving a filled PDF without a temp file (see tools/api_server.py).
+    See :func:`build_writer` for ``verify_blank``.
     """
-    writer = build_writer(form_id, case_data, forms_root)
+    writer = build_writer(form_id, case_data, forms_root, verify_blank=verify_blank)
     writer.write(stream)
     return stream
 
