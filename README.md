@@ -23,11 +23,15 @@ This is the corporate-filings sibling of
 the same per-form contract, a different subject (entity formation, amendment,
 merger, dissolution, agent changes, marks).
 
-> **Not legal advice.** Blank forms are public records of the Maine Secretary of
-> State. The surrounding metadata, schemas, mappings, and skills are
-> community-maintained and AI-derived (see [`PROVENANCE.md`](PROVENANCE.md)), and
-> may lag form revisions. Verify against the official form, and against current
-> Maine law, before filing.
+> ⚠️ **Not legal advice — for professional use only.** This is software that
+> produces *draft* forms. It is meant to be used solely as one component of a
+> broader workflow that is implemented, supervised, and reviewed by a licensed
+> attorney — not as a do-it-yourself substitute for legal representation. Blank
+> forms are public records of the Maine Secretary of State; the surrounding
+> metadata, schemas, mappings, and skills are community-maintained and AI-derived
+> (see [`PROVENANCE.md`](PROVENANCE.md)), and may lag form revisions. Verify
+> against the official form and current Maine law before filing. See
+> [**DISCLAIMER**](DISCLAIMER.md).
 
 ## Scope — 156 forms across 7 entity types
 
