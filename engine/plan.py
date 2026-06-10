@@ -11,7 +11,8 @@ Each ``forms/<ID>/mapping.json`` field is sorted into:
 - ``resolved``   — the canonical key resolves to a non-empty value.
 - ``unresolved`` — the key has no value in the case (a missing fact to collect).
                    Flagged ``required`` when a ``rubric.yaml`` check of
-                   ``severity: required`` depends on it.
+                   ``severity: required`` depends on it — except booleans,
+                   whose absence is a valid "false", never a blocking gap.
 - ``skipped``    — the field's ``when`` condition is definitively false for this
                    case (e.g. a commercial-agent CRA number when the agent is
                    noncommercial), so it is not applicable.
@@ -157,8 +158,14 @@ def build_plan(form_id, case, forms_root="forms"):
             continue
         value = canonical.get(case, ckey)
         if _is_empty(value):
+            # "Referenced by a required rubric check" is not the same as
+            # "required input": an absent boolean is a valid false (e.g.
+            # entity.is_low_profit_llc on a plain LLC formation), so a
+            # checkbox is never flagged as a blocking missing fact.
+            is_boolean = spec.get("field_type") in ("checkbox", "boolean")
             unresolved.append({"key": ckey, "label": label,
-                               "required": ckey in required})
+                               "required": ckey in required
+                               and not is_boolean})
         else:
             resolved[key] = value
             # A resolved enum value that maps to no option would be silently

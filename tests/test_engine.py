@@ -61,6 +61,19 @@ def test_mllc6_signer_key_is_canonical():
     assert "filing.signer.printed_name_and_capacity" in p["resolved"]
 
 
+def test_plan_absent_boolean_is_not_required_missing():
+    # entity.is_low_profit_llc is referenced by required rubric checks, but a
+    # clean MLLC-6 case that omits it just means "not an L3C" — it must not be
+    # reported as a blocking missing fact.
+    case = _case("llc_mllc-6.case.json")
+    assert "is_low_profit_llc" not in case["entity"]
+    p = plan.build_plan("LLC_MLLC-6", case, str(ROOT / "forms"))
+    flagged = {u["key"] for u in p["unresolved"] if u["required"]}
+    assert "entity.is_low_profit_llc" not in flagged
+    # it is still listed as unresolved (an optional fact), just not blocking
+    assert "entity.is_low_profit_llc" in {u["key"] for u in p["unresolved"]}
+
+
 def test_plan_surfaces_unmapped_enum_values():
     case = _case("llc_mllc-6.case.json")
     case["registered_agent"]["type"] = "hybrid"  # not a mapped option
