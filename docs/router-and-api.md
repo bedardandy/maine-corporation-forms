@@ -46,7 +46,11 @@ python3 tools/api_server.py --port 8080
 ## 3. Agent (MCP) server & Codex plugin
 
 `tools/agent_server.py` is an MCP server (stdio, FastMCP) exposing
-`find_forms` / `get_form` / `plan_fill` / `fill_form`.
+`find_forms` / `get_form` / `plan_fill` / `fill_form`, plus this repo's extra
+tools `preflight` and `fill_form_draft` (the preflight-bypass escape). It is
+built on the shared `maine-forms-engine` MCP scaffold: standardized parameter
+names (`query`, `case`, `out_dir`) and one error shape (failures are always
+`{"ok": false, "error": ..., "error_type": ...}`).
 
 ```bash
 claude mcp add maine-corporation-forms -- python3 tools/agent_server.py

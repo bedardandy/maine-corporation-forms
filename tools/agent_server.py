@@ -1,20 +1,32 @@
 #!/usr/bin/env python3
 """MCP server exposing the Maine SoS corporation-forms library to agents.
 
+Built on the shared ``maine-forms-engine`` MCP scaffold
+(``maine_forms_engine.mcp``): this module supplies the repo backend (routing,
+enriched payloads, the pypdf fill path); the scaffold supplies the
+standardized tool surface and the one error shape (every failure is
+``{"ok": False, "error": ..., "error_type": ...}``, never a raised
+exception).
+
 Tools (stdio, FastMCP):
-  find_forms(situation, top_k=5)        -> candidate forms (router), each
+  find_forms(query, top_k=5)            -> candidate forms (router), each
                                            annotated with workflow membership
   get_form(form_id)                     -> metadata + trust summary (per-field
                                            confidence), printed filing fee,
                                            workflows, SKILL.md excerpt
   plan_fill(form_id, case)              -> coverage plan (resolved/unresolved/skipped)
-  fill_form(form_id, case, out_path)    -> write a filled PDF, return {ok, path}
+  preflight(form_id, case)              -> every check at once (schema + rubric +
+                                           signer rules + plan)         [extra tool]
+  fill_form(form_id, case, out_dir)     -> preflight-gated fill, returns
+                                           {ok, path, report}
+  fill_form_draft(form_id, case, out_dir) -> the old no_preflight=true escape:
+                                           fill a partial draft anyway  [extra tool]
 
 Run:      python3 tools/agent_server.py
 Register: claude mcp add maine-corporation-forms -- python3 tools/agent_server.py
 
-Requires ``mcp`` (pip install mcp). The import is lazy so the module documents
-itself even without the dependency installed.
+Requires ``mcp`` (pip install 'maine-forms-engine[mcp]'). The import is lazy
+so the module documents itself even without the dependency installed.
 """
 from __future__ import annotations
 
@@ -23,6 +35,9 @@ import json
 import pathlib
 import re
 import sys
+
+from maine_forms_engine.mcp import UnknownFormError
+from maine_forms_engine.mcp.server import main as _scaffold_main
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -133,26 +148,38 @@ def find_forms_payload(situation: str, top_k: int = 5) -> list:
     return results
 
 
-def _build():
-    from mcp.server.fastmcp import FastMCP
-
+def _fill(form_id: str, case: dict, out_dir: str, preflight) -> dict:
+    """The repo fill path behind both fill tools (PreflightError keeps its
+    machine-readable result instead of collapsing into the generic shape)."""
     from engine import fill as fill_engine
-    from engine import plan as plan_engine
     from engine import preflight as preflight_engine
 
-    mcp = FastMCP("maine-corporation-forms")
+    out_path = pathlib.Path(out_dir) / f"{form_id}.filled.pdf"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        report: dict = {}
+        out = fill_engine.fill(form_id, case, str(out_path), _FORMS_ROOT,
+                               report=report, preflight=preflight)
+        return {"ok": True, "path": str(out), "report": report}
+    except preflight_engine.PreflightError as e:
+        return {"ok": False, "error": "preflight blocked the fill",
+                "preflight": e.result}
 
-    @mcp.tool()
-    def find_forms(situation: str, top_k: int = 5) -> list:
+
+class Backend:
+    """maine_forms_engine.mcp.FormsBackend for this repo."""
+
+    name = "maine-corporation-forms"
+
+    def find_forms(self, query: str, top_k: int = 5) -> list:
         """Route a free-text situation to candidate Maine SoS entity forms.
 
         Each candidate carries its ``workflows`` (multi-form bundle ids from
         catalog/workflows.json) so companion filings are not missed.
         """
-        return find_forms_payload(situation, top_k)
+        return find_forms_payload(query, top_k)
 
-    @mcp.tool()
-    def get_form(form_id: str) -> dict:
+    def get_form(self, form_id: str) -> dict:
         """Return a form's metadata, trust/fee/workflow context, and hints.
 
         Includes the mapping trust summary (per-field confidence mix and the
@@ -162,58 +189,52 @@ def _build():
         forms that must or may accompany this filing), a when-to-use excerpt
         from the form's SKILL.md, and preflight availability.
         """
-        return get_form_payload(form_id)
+        payload = get_form_payload(form_id)
+        if "error" in payload:
+            raise UnknownFormError(form_id)
+        return payload
 
-    @mcp.tool()
-    def plan_fill(form_id: str, case: dict) -> dict:
+    def plan_fill(self, form_id: str, case: dict) -> dict:
         """Resolve a case object into the coverage plan (buckets)."""
+        from engine import plan as plan_engine
         return plan_engine.build_plan(form_id, case, _FORMS_ROOT)
 
-    @mcp.tool()
-    def preflight(form_id: str, case: dict) -> dict:
-        """Run every check (schema + rubric + signer rules + plan) at once.
-
-        Returns one machine-readable issue list: {ok, issues, summary,
-        coverage}. severity=error blocks fill_form by default;
-        severity=manual entries are rubric checks that need human review.
-        """
-        return preflight_engine.preflight(form_id, case, _FORMS_ROOT)
-
-    @mcp.tool()
-    def fill_form(form_id: str, case: dict, out_path: str,
-                  no_preflight: bool = False) -> dict:
+    def fill_form(self, form_id: str, case: dict, out_dir: str) -> dict:
         """Fill the form and write a PDF; returns {ok, path, report}.
 
-        Preflight runs first and refuses on error-severity issues (set
-        ``no_preflight=true`` to fill a partial draft anyway). ``report``
+        Preflight runs first and refuses on error-severity issues (use the
+        ``fill_form_draft`` tool to fill a partial draft anyway). ``report``
         carries the fill diagnostics: preflight result, written,
         skipped_when, dropped_enums (enum values no option binding can
         place), and ignored_case_keys.
         """
-        try:
-            report: dict = {}
-            out = fill_engine.fill(form_id, case, out_path, _FORMS_ROOT,
-                                   report=report,
-                                   preflight="off" if no_preflight
-                                   else None)
-            return {"ok": True, "path": str(out), "report": report}
-        except preflight_engine.PreflightError as e:
-            return {"ok": False, "error": "preflight blocked the fill",
-                    "preflight": e.result}
-        except Exception as e:
-            return {"ok": False, "error": f"{type(e).__name__}: {e}"}
+        return _fill(form_id, case, out_dir, preflight=None)
 
-    return mcp
+
+def preflight(form_id: str, case: dict) -> dict:
+    """Run every check (schema + rubric + signer rules + plan) at once.
+
+    Returns one machine-readable issue list: {ok, issues, summary,
+    coverage}. severity=error blocks fill_form by default;
+    severity=manual entries are rubric checks that need human review.
+    """
+    from engine import preflight as preflight_engine
+    return preflight_engine.preflight(form_id, case, _FORMS_ROOT)
+
+
+def fill_form_draft(form_id: str, case: dict, out_dir: str) -> dict:
+    """Fill WITHOUT the preflight gate (the old ``no_preflight=true``):
+    writes a partial draft even when error-severity issues exist. Returns
+    {ok, path, report}; the draft still needs every unresolved issue fixed
+    before filing."""
+    return _fill(form_id, case, out_dir, preflight="off")
+
+
+EXTRA_TOOLS = (preflight, fill_form_draft)
 
 
 def main():
-    try:
-        mcp = _build()
-    except ImportError:
-        print("mcp not installed: pip install mcp", file=sys.stderr)
-        return 1
-    mcp.run()  # stdio transport
-    return 0
+    return _scaffold_main(Backend(), extra_tools=EXTRA_TOOLS)
 
 
 if __name__ == "__main__":

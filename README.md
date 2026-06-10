@@ -54,8 +54,10 @@ Point an agent at the repo and say *"use this project to prepare: \<your
 filing\>"*. There are two on-ramps:
 
 - **MCP server (recommended).** `tools/agent_server.py` exposes `find_forms` /
-  `get_form` / `plan_fill` / `preflight` / `fill_form`, so the agent calls tools
-  instead of reading docs. It is pre-registered via **`.mcp.json`**, or add it manually:
+  `get_form` / `plan_fill` / `preflight` / `fill_form` (+ `fill_form_draft`, the
+  preflight-bypass escape), so the agent calls tools instead of reading docs.
+  It is built on the shared `maine-forms-engine` MCP scaffold (standard
+  `query`/`case`/`out_dir` parameters, one error shape). It is pre-registered via **`.mcp.json`**, or add it manually:
   ```bash
   claude mcp add maine-corporation-forms -- python3 tools/agent_server.py
   ```
