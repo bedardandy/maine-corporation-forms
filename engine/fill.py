@@ -28,6 +28,7 @@ import pypdf
 from pypdf.generic import NameObject, TextStringObject
 
 from . import canonical, verify
+from .plan import eval_when
 
 
 def load_mapping(form_id, forms_root="forms"):
@@ -72,6 +73,14 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
     enum_text_select = []  # (chosen_widget_or_None, [all_widgets], mark)
 
     for key, spec in mapping["fields"].items():
+        # Honor the same `when` gates as engine.plan: a field whose condition is
+        # definitively false for this case is not applicable and must not be
+        # written, even if the case carries a value for it. An unknown
+        # controller (eval_when -> None) leaves the field fillable — the same
+        # conservative default plan uses.
+        when = spec.get("when")
+        if when is not None and eval_when(when, case_data) is False:
+            continue
         value = canonical.get(case_data, key)
         if value is None:
             continue
