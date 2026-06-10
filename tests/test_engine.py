@@ -61,6 +61,14 @@ def test_mllc6_signer_key_is_canonical():
     assert "filing.signer.printed_name_and_capacity" in p["resolved"]
 
 
+def test_plan_surfaces_unmapped_enum_values():
+    case = _case("llc_mllc-6.case.json")
+    case["registered_agent"]["type"] = "hybrid"  # not a mapped option
+    p = plan.build_plan("LLC_MLLC-6", case, str(ROOT / "forms"))
+    assert {"key": "registered_agent.type", "value": "hybrid",
+            "allowed": ["commercial", "noncommercial"]} in p["unmapped_enums"]
+
+
 def test_plan_rejects_non_object_case():
     p = plan.build_plan("CORP_MBCA-6", ["not", "a", "dict"], str(ROOT / "forms"))
     assert p["ok"] is False

@@ -145,6 +145,7 @@ def build_plan(form_id, case, forms_root="forms"):
     required = _required_keys(form_id, forms_root)
 
     resolved, unresolved, skipped = {}, [], []
+    unmapped_enums = []
     for key, spec in fields.items():
         label = spec.get("label", key)
         # An entry may resolve a different canonical key than its dict key
@@ -160,6 +161,14 @@ def build_plan(form_id, case, forms_root="forms"):
                                "required": ckey in required})
         else:
             resolved[key] = value
+            # A resolved enum value that maps to no option would be silently
+            # undeliverable at fill time — surface it here too.
+            if spec.get("field_type") in ("radio", "enum_select",
+                                          "enum_text_select"):
+                options = spec.get("options") or {}
+                if options and str(value) not in options:
+                    unmapped_enums.append({"key": key, "value": str(value),
+                                           "allowed": sorted(options)})
 
     return {
         "ok": True,
@@ -168,6 +177,7 @@ def build_plan(form_id, case, forms_root="forms"):
         "resolved": resolved,
         "unresolved": unresolved,
         "skipped": skipped,
+        "unmapped_enums": unmapped_enums,
         "coverage": {
             "resolved": len(resolved),
             "unresolved": len(unresolved),
@@ -177,7 +187,8 @@ def build_plan(form_id, case, forms_root="forms"):
         "note": ("Not legal advice. `unresolved` are missing facts to collect "
                  "(`required: true` are blocking per the rubric); `skipped` "
                  "fields are gated off by a `when` condition and not applicable "
-                 "to this case. Write the filled PDF with engine.fill."),
+                 "to this case; `unmapped_enums` are enum values no option "
+                 "binding can place. Write the filled PDF with engine.fill."),
     }
 
 
@@ -209,6 +220,9 @@ def _cli(argv):
             print(f"  MISSING (required): {u['key']}")
     for s in plan["skipped"]:
         print(f"  skipped: {s['key']} (when {s['when']})")
+    for u in plan["unmapped_enums"]:
+        print(f"  UNMAPPED ENUM: {u['key']} = {u['value']!r} "
+              f"(allowed: {', '.join(u['allowed'])})")
     return 0
 
 

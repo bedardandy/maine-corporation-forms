@@ -27,6 +27,7 @@ actually resolved against the case.
 """
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -42,7 +43,8 @@ def load_mapping(form_id, forms_root="forms"):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
+def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
+                 report=None):
     """Return a ``pypdf.PdfWriter`` for ``form_id`` filled with ``case_data``.
 
     The shared work behind :func:`fill` and :func:`fill_to_stream`. The official
@@ -54,6 +56,15 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
     :class:`engine.verify.BlankRevisionWarning` and still fills), ``"strict"``
     (mismatch raises :class:`engine.verify.BlankRevisionError`), or ``"off"``.
     The default can be set with the ``MCF_VERIFY_BLANK`` environment variable.
+
+    ``report``, if a dict, is populated with fill diagnostics:
+
+    - ``written``          — mapping entries whose value was written.
+    - ``skipped_when``     — entries gated off by a false ``when`` condition.
+    - ``dropped_enums``    — enum/radio values with no option mapping; the
+                             field is left untouched instead of silently
+                             no-opping or blanking the group.
+    - ``ignored_case_keys`` — case leaf keys no mapping entry consumes.
     """
     mapping = load_mapping(form_id, forms_root)
     pdf_path = Path(forms_root) / form_id / f"{form_id}.pdf"
@@ -72,30 +83,50 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
     # their promoted names, e.g. ``Check Box15__p4``.
     split_shared_fields(writer)
 
+    diag = report if isinstance(report, dict) else {}
+    diag["written"] = []
+    diag["skipped_when"] = []
+    diag["dropped_enums"] = []
+    diag["ignored_case_keys"] = []
+
     text_values = {}
     checkbox_widgets = []
     radio_selections = []
     enum_checkbox_select = []  # (chosen_widget_or_None, [all_sibling_widgets])
     enum_text_select = []  # (chosen_widget_or_None, [all_widgets], mark)
 
+    consumed_keys = set()
     for key, spec in mapping["fields"].items():
+        ckey = spec.get("canonical_key", key)
+        consumed_keys.add(ckey)
         # Honor the same `when` gates as engine.plan: a field whose condition is
         # definitively false for this case is not applicable and must not be
         # written, even if the case carries a value for it. An unknown
         # controller (eval_when -> None) leaves the field fillable — the same
         # conservative default plan uses.
         when = spec.get("when")
-        if when is not None and eval_when(when, case_data) is False:
-            continue
-        value = canonical.get(case_data, spec.get("canonical_key", key))
+        if when is not None:
+            m = re.match(r"\s*([A-Za-z0-9_.\[\]]+)", when)
+            if m:
+                consumed_keys.add(m.group(1))  # the gate's controller key
+            if eval_when(when, case_data) is False:
+                diag["skipped_when"].append({"key": key, "when": when})
+                continue
+        value = canonical.get(case_data, ckey)
         if value is None:
             continue
         field_type = spec.get("field_type", "text")
 
         if field_type == "radio":
-            on_state = (spec.get("options") or {}).get(str(value))
+            options = spec.get("options") or {}
+            on_state = options.get(str(value))
             if on_state:
                 radio_selections.append((spec["widget_id"], on_state))
+                diag["written"].append(key)
+            else:
+                diag["dropped_enums"].append(
+                    {"key": key, "value": str(value),
+                     "allowed": sorted(options)})
             continue
 
         if field_type == "enum_text_select":
@@ -103,22 +134,36 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
             # checkboxes (no real checkbox exists). Write a mark into the chosen
             # widget and blank the others, so a "choose one" text field can never
             # show two marks. ``options`` maps each enum value to its widget.
+            # An unmapped value leaves the group untouched and is reported.
             options = spec.get("options") or {}
             mark = spec.get("mark", "X")
             chosen = options.get(str(value))
+            if chosen is None:
+                diag["dropped_enums"].append(
+                    {"key": key, "value": str(value),
+                     "allowed": sorted(options)})
+                continue
             for wname in options.values():
                 text_values[wname] = mark if wname == chosen else ""
+            diag["written"].append(key)
             continue
 
         if field_type == "enum_select":
             # A single choice among N independent checkbox widgets. ``options``
             # maps each enum value to the widget that should be checked. Mark the
             # chosen widget ON and force every sibling OFF so a "choose one" field
-            # can never render with two boxes marked.
+            # can never render with two boxes marked. An unmapped value leaves
+            # the group untouched and is reported.
             options = spec.get("options") or {}
             siblings = list(options.values())
             chosen = options.get(str(value))
+            if chosen is None:
+                diag["dropped_enums"].append(
+                    {"key": key, "value": str(value),
+                     "allowed": sorted(options)})
+                continue
             enum_checkbox_select.append((chosen, siblings))
+            diag["written"].append(key)
             continue
 
         widget = spec["widget_id"]
@@ -128,6 +173,10 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
                 checkbox_widgets.append((wname, bool(value)))
             else:
                 text_values[wname] = str(value)
+        diag["written"].append(key)
+
+    diag["ignored_case_keys"] = sorted(
+        set(_leaf_keys(case_data)) - consumed_keys)
 
     if text_values:
         for page in writer.pages:
@@ -155,12 +204,15 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
     return writer
 
 
-def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None):
+def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None,
+         report=None):
     """Fill ``form_id`` with ``case_data`` and write to ``out_path``.
 
-    Returns the output ``Path``. See :func:`build_writer` for ``verify_blank``.
+    Returns the output ``Path``. See :func:`build_writer` for ``verify_blank``
+    and the ``report`` diagnostics dict.
     """
-    writer = build_writer(form_id, case_data, forms_root, verify_blank=verify_blank)
+    writer = build_writer(form_id, case_data, forms_root,
+                          verify_blank=verify_blank, report=report)
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "wb") as fh:
@@ -168,15 +220,32 @@ def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None):
     return out
 
 
-def fill_to_stream(form_id, case_data, stream, forms_root="forms", verify_blank=None):
+def fill_to_stream(form_id, case_data, stream, forms_root="forms",
+                   verify_blank=None, report=None):
     """Fill ``form_id`` and write the PDF bytes to a binary ``stream``.
 
     Useful for serving a filled PDF without a temp file (see tools/api_server.py).
-    See :func:`build_writer` for ``verify_blank``.
+    See :func:`build_writer` for ``verify_blank`` and the ``report``
+    diagnostics dict.
     """
-    writer = build_writer(form_id, case_data, forms_root, verify_blank=verify_blank)
+    writer = build_writer(form_id, case_data, forms_root,
+                          verify_blank=verify_blank, report=report)
     writer.write(stream)
     return stream
+
+
+def _leaf_keys(obj, prefix=""):
+    """Yield dotted canonical leaf paths present in a nested case object."""
+    if isinstance(obj, dict) and obj:
+        for k, v in obj.items():
+            sub = f"{prefix}.{k}" if prefix else str(k)
+            yield from _leaf_keys(v, sub)
+    elif (isinstance(obj, list)
+          and any(isinstance(x, (dict, list)) for x in obj)):
+        for i, v in enumerate(obj):
+            yield from _leaf_keys(v, f"{prefix}[{i}]")
+    elif prefix:
+        yield prefix
 
 
 def _page_index_map(writer):
@@ -391,8 +460,13 @@ def _cli(argv):
     case_data = json.loads(Path(argv[2]).read_text(encoding="utf-8"))
     out_path = argv[3]
     forms_root = argv[4] if len(argv) > 4 else "forms"
-    out = fill(form_id, case_data, out_path, forms_root)
-    print(f"wrote {out}")
+    report = {}
+    out = fill(form_id, case_data, out_path, forms_root, report=report)
+    print(f"wrote {out} ({len(report['written'])} fields written, "
+          f"{len(report['skipped_when'])} gated off)")
+    for d in report["dropped_enums"]:
+        print(f"  UNMAPPED ENUM (not written): {d['key']} = {d['value']!r} "
+              f"(allowed: {', '.join(d['allowed'])})")
     return 0
 
 

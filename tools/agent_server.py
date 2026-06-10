@@ -67,10 +67,17 @@ def _build():
 
     @mcp.tool()
     def fill_form(form_id: str, case: dict, out_path: str) -> dict:
-        """Fill the form and write a PDF; returns {ok, path}."""
+        """Fill the form and write a PDF; returns {ok, path, report}.
+
+        ``report`` carries the fill diagnostics: written, skipped_when,
+        dropped_enums (enum values no option binding can place), and
+        ignored_case_keys.
+        """
         try:
-            out = fill_engine.fill(form_id, case, out_path, _FORMS_ROOT)
-            return {"ok": True, "path": str(out)}
+            report: dict = {}
+            out = fill_engine.fill(form_id, case, out_path, _FORMS_ROOT,
+                                   report=report)
+            return {"ok": True, "path": str(out), "report": report}
         except Exception as e:
             return {"ok": False, "error": f"{type(e).__name__}: {e}"}
 

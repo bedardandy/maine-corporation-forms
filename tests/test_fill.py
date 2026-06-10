@@ -140,6 +140,58 @@ def test_fill_canonical_key_split_entries(tmp_path):
     assert values.get("Text13") == "Penobscot Agent Services"
 
 
+def test_fill_report_diagnostics(tmp_path):
+    forms_root = _form_root(tmp_path)
+    case = {
+        "entity": {"name": "Acme, LLC", "stray_fact": "unused"},
+        "registered_agent": {
+            "type": "noncommercial",
+            "commercial_name": "MUST NOT APPEAR",
+            "noncommercial_name": "Jane Agent",
+        },
+    }
+    report = {}
+    buf = io.BytesIO()
+    fill.fill_to_stream(FORM_ID, case, buf, forms_root,
+                        verify_blank="off", report=report)
+    assert sorted(report["written"]) == [
+        "entity.name", "registered_agent.noncommercial_name"]
+    assert report["skipped_when"] == [
+        {"key": "registered_agent.commercial_name",
+         "when": "registered_agent.type == 'commercial'"}]
+    assert report["dropped_enums"] == []
+    assert "entity.stray_fact" in report["ignored_case_keys"]
+    # the when controller is consumed by the gate, not ignored
+    assert "registered_agent.type" not in report["ignored_case_keys"]
+
+
+def test_fill_reports_dropped_enum_value(tmp_path):
+    d = tmp_path / FORM_ID
+    d.mkdir()
+    _make_blank(d / f"{FORM_ID}.pdf", ["OptA", "OptB"])
+    mapping = {
+        "form_id": FORM_ID,
+        "fields": {
+            "entity.choice": {
+                "field_type": "enum_text_select",
+                "options": {"alpha": "OptA", "beta": "OptB"},
+            },
+        },
+    }
+    (d / "mapping.json").write_text(json.dumps(mapping))
+    report = {}
+    buf = io.BytesIO()
+    fill.fill_to_stream(FORM_ID, {"entity": {"choice": "gamma"}}, buf,
+                        str(tmp_path), verify_blank="off", report=report)
+    assert report["dropped_enums"] == [
+        {"key": "entity.choice", "value": "gamma",
+         "allowed": ["alpha", "beta"]}]
+    assert report["written"] == []
+    buf.seek(0)
+    values = pypdf.PdfReader(buf).get_form_text_fields()
+    assert not values.get("OptA") and not values.get("OptB")
+
+
 def test_fill_keeps_field_when_controller_unknown(tmp_path):
     # Conservative gating, same as engine.plan: when the controller is absent
     # the condition is unknown (None, not False) and the field still fills.
