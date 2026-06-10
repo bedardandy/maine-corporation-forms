@@ -1,0 +1,318 @@
+{
+  "_meta": {
+    "description": "Multi-form filing bundles (intra-repo only). Each workflow groups forms that are filed together or in sequence. Steps are derived from language printed on the blank forms themselves ('must accompany', 'attach form X', 'to accompany the following') plus obvious entity-lifecycle groupings of forms in this catalog. A step carries \"inferred\": true when the grouping or the specific form-id mapping is an editorial inference rather than literally printed on a form; its note says what is printed and what is inferred. Hand-maintained; every form_id must exist in catalog/forms_index.json (test-enforced).",
+    "not_legal_advice": "Workflow membership is a navigation aid, not filing advice. Verify requirements against the official forms and 13-B/13-C/31 M.R.S. before filing."
+  },
+  "workflows": [
+    {
+      "id": "corp_formation",
+      "title": "Form a Maine business corporation",
+      "when": "Creating a new domestic business corporation under 13-C M.R.S.",
+      "steps": [
+        {"form_id": "CORP_MBCA-1", "required": false, "inferred": true, "note": "Optionally reserve the corporate name before filing articles (lifecycle grouping; not printed on either form)."},
+        {"form_id": "CORP_MBCA-6", "required": true, "note": "Articles of Incorporation — the formation instrument."},
+        {"form_id": "CORP_ASUM-5", "required": false, "inferred": true, "note": "Only if the corporation will do business under an assumed name (lifecycle grouping)."}
+      ]
+    },
+    {
+      "id": "np_formation",
+      "title": "Form a Maine nonprofit corporation",
+      "when": "Creating a new domestic nonprofit corporation under 13-B M.R.S.",
+      "steps": [
+        {"form_id": "NP_MNPCA-1", "required": false, "inferred": true, "note": "Optionally reserve the corporate name first (lifecycle grouping)."},
+        {"form_id": "NP_MNPCA-6", "required": true, "note": "Articles of Incorporation (Nonprofit) — the formation instrument."}
+      ]
+    },
+    {
+      "id": "llc_formation",
+      "title": "Form a Maine limited liability company",
+      "when": "Creating a new domestic LLC under 31 M.R.S. c. 21.",
+      "steps": [
+        {"form_id": "LLC_MLLC-1", "required": false, "inferred": true, "note": "Optionally reserve the LLC name first (lifecycle grouping)."},
+        {"form_id": "LLC_MLLC-6", "required": true, "note": "Certificate of Formation — the formation instrument."}
+      ]
+    },
+    {
+      "id": "llp_formation",
+      "title": "Register a Maine limited liability partnership",
+      "when": "Registering a new domestic LLP under 31 M.R.S.",
+      "steps": [
+        {"form_id": "LLP_MLLP-1", "required": false, "inferred": true, "note": "Optionally reserve the LLP name first (lifecycle grouping)."},
+        {"form_id": "LLP_MLLP-6", "required": true, "note": "Certificate of Limited Liability Partnership — the registration instrument."}
+      ]
+    },
+    {
+      "id": "lp_formation",
+      "title": "Form a Maine limited partnership",
+      "when": "Creating a new domestic limited partnership under 31 M.R.S. c. 19.",
+      "steps": [
+        {"form_id": "LP_MLPA-1", "required": false, "inferred": true, "note": "Optionally reserve the LP name first (lifecycle grouping)."},
+        {"form_id": "LP_MLPA-6", "required": true, "note": "Certificate of Limited Partnership — the formation instrument."}
+      ]
+    },
+    {
+      "id": "corp_restated_articles",
+      "title": "Restate the articles of a Maine business corporation",
+      "when": "Filing Restated Articles of Incorporation (13-C M.R.S. §1007).",
+      "steps": [
+        {"form_id": "CORP_MBCA-6A", "required": true, "note": "Restated Articles of Incorporation."},
+        {"form_id": "CORP_MBCA-6-1", "required": true, "note": "Printed on MBCA-6A: 'Form MBCA-6-1 MUST accompany this filing.' MBCA-6-1's own checkbox list includes Restated Articles of Incorporation (13-C MRSA §1007)."}
+      ]
+    },
+    {
+      "id": "np_restated_articles",
+      "title": "Restate the articles of a Maine nonprofit corporation",
+      "when": "Filing Restated Articles of Incorporation (13-B M.R.S. §805).",
+      "steps": [
+        {"form_id": "NP_MNPCA-6A_0", "required": true, "note": "Restated Articles of Incorporation (Domestic Nonprofit Corporation)."},
+        {"form_id": "NP_MNPCA-6-1", "required": true, "note": "Printed on MNPCA-6A: 'Form MNPCA-6-1 MUST accompany this filing.' MNPCA-6-1's checkbox list includes Restated Articles of Incorporation (13-B MRSA §805)."}
+      ]
+    },
+    {
+      "id": "corp_merger_share_exchange",
+      "title": "Merger or share exchange where the survivor is a corporation",
+      "when": "Filing Articles of Merger or Share Exchange (13-C M.R.S. §§1106, 1107).",
+      "steps": [
+        {"form_id": "CORP_MBCA-10", "required": true, "note": "Articles of Merger or Share Exchange."},
+        {"form_id": "CORP_MBCA-6-1", "required": false, "note": "Printed on MBCA-10: if the merger or share exchange creates a new corporation, 'Attach form MBCA-6-1, for a domestic business corporation.'"}
+      ]
+    },
+    {
+      "id": "corp_domestication",
+      "title": "Domestication of a foreign business corporation into Maine",
+      "when": "Filing Articles of Domestication (13-C M.R.S. §923).",
+      "steps": [
+        {"form_id": "CORP_MBCA-19", "required": true, "note": "Articles of Domestication."},
+        {"form_id": "CORP_MBCA-6-1", "required": true, "note": "Printed on MBCA-19: 'All the statements required to be set forth in Articles of Incorporation (Form MBCA-6-1) are attached as Exhibit ___.'"}
+      ]
+    },
+    {
+      "id": "np_domestication_and_conversion",
+      "title": "Domestication and conversion of a foreign nonprofit into a Maine business corporation",
+      "when": "Filing Articles of Domestication and Conversion (13-C M.R.S. §942) — the resulting entity is a domestic business corporation.",
+      "steps": [
+        {"form_id": "NP_MNPCA-19", "required": true, "note": "Articles of Domestication and Conversion."},
+        {"form_id": "CORP_MBCA-6-1", "required": true, "note": "Printed on MNPCA-19: 'All the statements required to be set forth in Articles of Incorporation (Form MBCA-6-1) are attached as Exhibit ___.' MBCA-6-1's checkbox list includes Articles of Domestication and Conversion (13-C MRSA §942)."}
+      ]
+    },
+    {
+      "id": "corp_nonprofit_conversion",
+      "title": "Convert a Maine business corporation to a nonprofit corporation",
+      "when": "Filing Articles of Nonprofit Conversion (13-C M.R.S. §933).",
+      "steps": [
+        {"form_id": "CORP_MBCA-20", "required": true, "note": "Articles of Nonprofit Conversion."},
+        {"form_id": "NP_MNPCA-6-1", "required": true, "note": "Printed on MBCA-20: 'All the statements required to be set forth in Articles of Incorporation (Form MNPCA-6-1) are attached as Exhibit ___.' MNPCA-6-1's checkbox list includes Articles of Nonprofit Conversion (13-C MRSA §933)."}
+      ]
+    },
+    {
+      "id": "corp_entity_conversion_to_corp",
+      "title": "Convert an unincorporated entity into a Maine business corporation",
+      "when": "Filing Articles of Entity Conversion (13-C M.R.S. §955.2 or §955.3).",
+      "steps": [
+        {"form_id": "CORP_MBCA-21A", "required": true, "note": "Articles of Entity Conversion (unincorporated entity to Maine business corporation)."},
+        {"form_id": "CORP_MBCA-6-1", "required": true, "note": "Printed on MBCA-21A: 'All the statements required to be set forth in Articles of Incorporation (Form MBCA-6-1) are attached as Exhibit ___.'"}
+      ]
+    },
+    {
+      "id": "corp_entity_conversion_from_corp",
+      "title": "Convert a Maine business corporation into another entity type",
+      "when": "Filing Articles of Entity Conversion by a domestic business corporation (13-C M.R.S. §955.1). Attach the organizing document of the resulting entity.",
+      "steps": [
+        {"form_id": "CORP_MBCA-21", "required": true, "note": "Articles of Entity Conversion by Domestic Business Corporation."},
+        {"form_id": "LLC_MLLC-6", "required": false, "note": "Printed on MBCA-21: 'For a Domestic Limited Liability Company, attach form MLLC-6.'"},
+        {"form_id": "LP_MLPA-6-1", "required": false, "note": "Printed on MBCA-21: 'For a Domestic Limited Partnership, attach form MLPA-6-1.'"},
+        {"form_id": "LLP_MLLP-6-1", "required": false, "note": "Printed on MLLP-6-1's checkbox list: it accompanies Articles of Entity Conversion (13-C MRSA §955.1) — use when the resulting entity is a Maine LLP."}
+      ]
+    },
+    {
+      "id": "gp_conversion_of_partnership",
+      "title": "Convert a general partnership into another entity type",
+      "when": "Filing Articles of Conversion of Partnership (31 M.R.S. §1093). One organizing-document form for the resulting entity must be attached.",
+      "steps": [
+        {"form_id": "GP_CONV-PARTNER", "required": true, "note": "Articles of Conversion of Partnership. Printed on the form: 'The appropriate form (MLPA-6-1 ...); (MLLC-6 ...) or (MBCA-6-1 ...) must be attached.'"},
+        {"form_id": "LP_MLPA-6-1", "required": false, "note": "Printed on GP_CONV-PARTNER: attach MLPA-6-1 when the resulting entity is a limited partnership."},
+        {"form_id": "LLC_MLLC-6", "required": false, "note": "Printed on GP_CONV-PARTNER: attach MLLC-6 when the resulting entity is a limited liability company."},
+        {"form_id": "CORP_MBCA-6-1", "required": false, "note": "Printed on GP_CONV-PARTNER: attach MBCA-6-1 when the resulting entity is a business corporation. MBCA-6-1's checkbox list includes Articles of Conversion of Partnership (31 MRSA §1093)."},
+        {"form_id": "LLP_MLLP-6-1", "required": false, "note": "Printed on MLLP-6-1's checkbox list: it accompanies Articles of Conversion of Partnership (31 MRSA §1093) — use when the resulting entity is a Maine LLP."}
+      ]
+    },
+    {
+      "id": "llc_statement_of_conversion",
+      "title": "Convert a Maine LLC into another organization type",
+      "when": "Filing a Statement of Conversion (31 M.R.S. §1645). The organizing document for the resulting organization must be attached as an exhibit (printed on the form).",
+      "steps": [
+        {"form_id": "LLC_MLLCCONV", "required": true, "note": "Statement of Conversion. Printed on the form: 'The organizing document for the converted (resulting) organization is attached as Exhibit ___.'"},
+        {"form_id": "NP_MNPCA-6-1", "required": false, "note": "Printed on MNPCA-6-1's checkbox list: it accompanies a Statement of Conversion (31 MRSA §1645) — use when the resulting entity is a Maine nonprofit corporation."}
+      ]
+    },
+    {
+      "id": "lp_articles_of_conversion",
+      "title": "Convert a Maine limited partnership into another organization type",
+      "when": "Filing Articles of Conversion (31 M.R.S. §1432). The organizing document for the resulting organization must be attached as an exhibit (printed on the form).",
+      "steps": [
+        {"form_id": "LP_MLPACONV", "required": true, "note": "Articles of Conversion (Maine LP to other organization type)."},
+        {"form_id": "LLP_MLLP-6-1", "required": false, "note": "Printed on MLLP-6-1's checkbox list: it accompanies Articles/Certificate of Conversion (31 MRSA §746, 31 MRSA §1432) — use when the resulting entity is a Maine LLP."}
+      ]
+    },
+    {
+      "id": "corp_transfer_of_authority",
+      "title": "Transfer a foreign business corporation's authority to another entity type",
+      "when": "Filing an Application for Transfer of Authority (foreign business corporation). Attach the authority application matching the resulting entity type (one of the optional steps).",
+      "steps": [
+        {"form_id": "CORP_MBCA-12C", "required": true, "note": "Application for Transfer of Authority. Printed on the form: 'All the statements required to be set forth in an Application for Authority are attached.'"},
+        {"form_id": "NP_MNPCA-12", "required": false, "note": "Printed on MBCA-12C: 'For a Foreign Nonprofit Corporation, attach form MNPCA-12.'"},
+        {"form_id": "NP_MNPCA-12-1", "required": false, "note": "Printed on MNPCA-12-1: it is the sub-form 'to accompany Application for Transfer of Authority' (MBCA-12C is the only Application for Transfer of Authority in this catalog)."},
+        {"form_id": "LP_MLPA-12", "required": false, "note": "Printed on MBCA-12C: 'For a Foreign Limited Partnership, attach form MLPA-12.'"},
+        {"form_id": "LP_MLPA-12-1", "required": false, "note": "Printed on MLPA-12-1: it is the sub-form 'to accompany Application for Transfer of Authority' (MBCA-12C is the only Application for Transfer of Authority in this catalog)."},
+        {"form_id": "LLC_MLLC-12", "required": false, "note": "Printed on MBCA-12C: 'For a Foreign Limited Liability Company, attach form MLLC-12.'"},
+        {"form_id": "LLP_MLLP-12", "required": false, "note": "Printed on MBCA-12C: 'For a Foreign Limited Liability Partnership, attach form MLLP-12.'"},
+        {"form_id": "LLP_MLLP-12-1", "required": false, "note": "Printed on MLLP-12-1: it is the sub-form 'to accompany Application for Transfer of Authority' (MBCA-12C is the only Application for Transfer of Authority in this catalog)."}
+      ]
+    },
+    {
+      "id": "corp_foreign_qualification",
+      "title": "Qualify a foreign business corporation to do business in Maine",
+      "when": "Filing an Application for Authority to do Business (13-C M.R.S.). A certificate of existence (made within 90 days) must accompany the application — that is an external document, not a catalog form.",
+      "steps": [
+        {"form_id": "CORP_MBCA-12", "required": true, "note": "Application for Authority to do Business."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MBCA-12: 'Form FICT-4 accompanies this application.' Only when the corporation's real name is unavailable and it adopts a fictitious name (13-C MRSA §401)."}
+      ]
+    },
+    {
+      "id": "corp_amended_foreign_authority",
+      "title": "Amend a foreign business corporation's authority",
+      "when": "Filing an Amended Application for Authority to Do Business.",
+      "steps": [
+        {"form_id": "CORP_MBCA-12A", "required": true, "note": "Amended Application for Authority to Do Business."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MBCA-12A: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name because the real name is unavailable."}
+      ]
+    },
+    {
+      "id": "np_foreign_qualification",
+      "title": "Qualify a foreign nonprofit corporation to carry on activities in Maine",
+      "when": "Filing an Application for Authority to Carry on Activities (13-B M.R.S.). A certificate of existence (made within 90 days) must accompany the application — an external document, not a catalog form.",
+      "steps": [
+        {"form_id": "NP_MNPCA-12", "required": true, "note": "Application for Authority to Carry on Activities."},
+        {"form_id": "NP_FICT-4", "required": false, "note": "Printed on MNPCA-12: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name because the real name is unavailable (13-B MRSA §301-A)."}
+      ]
+    },
+    {
+      "id": "np_amended_foreign_authority",
+      "title": "Amend a foreign nonprofit corporation's authority",
+      "when": "Filing an Amended Application for Authority to Carry on Activities.",
+      "steps": [
+        {"form_id": "NP_MNPCA-12A", "required": true, "note": "Amended Application for Authority to Carry on Activities."},
+        {"form_id": "NP_FICT-4", "required": false, "note": "Printed on MNPCA-12A: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name because the real name is unavailable."}
+      ]
+    },
+    {
+      "id": "llc_foreign_qualification",
+      "title": "Qualify a foreign LLC to conduct activities in Maine",
+      "when": "Filing a Statement of Foreign Qualification (31 M.R.S.). A certificate of existence must accompany the statement — an external document, not a catalog form.",
+      "steps": [
+        {"form_id": "LLC_MLLC-12", "required": true, "note": "Statement of Foreign Qualification."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLLC-12: 'Form FICT-4 accompanies this application. (See 31 MRSA §1624.1)' Only when adopting a fictitious name; CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "llc_change_foreign_qualification",
+      "title": "Change a foreign LLC's qualification",
+      "when": "Filing a Statement of Change of Foreign Qualification.",
+      "steps": [
+        {"form_id": "LLC_MLLC-12A", "required": true, "note": "Statement of Change of Foreign Qualification."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLLC-12A: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name (31 MRSA §1508); CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "llp_foreign_qualification",
+      "title": "Qualify a foreign LLP to do business in Maine",
+      "when": "Filing an Application for Authority to Do Business (foreign LLP). A certificate of existence (or certified copy of the registration) must accompany the application — an external document, not a catalog form.",
+      "steps": [
+        {"form_id": "LLP_MLLP-12", "required": true, "note": "Application for Authority to Do Business (Foreign LLP)."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLLP-12: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name (31 MRSA §803-A); CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "llp_amended_foreign_authority",
+      "title": "Amend a foreign LLP's authority",
+      "when": "Filing an Amended Application for Authority to Do Business (foreign LLP).",
+      "steps": [
+        {"form_id": "LLP_MLLP-12A", "required": true, "note": "Amended Application for Authority to Do Business (Foreign LLP)."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLLP-12A: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name; CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "lp_foreign_qualification",
+      "title": "Qualify a foreign limited partnership to transact business in Maine",
+      "when": "Filing an Application for Certificate of Authority to Transact Business. A certificate of existence must accompany the application — an external document, not a catalog form.",
+      "steps": [
+        {"form_id": "LP_MLPA-12", "required": true, "note": "Application for Certificate of Authority to Transact Business (Foreign LP)."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLPA-12: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name (31 MRSA §1415.1); CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "lp_amended_foreign_authority",
+      "title": "Amend a foreign limited partnership's certificate of authority",
+      "when": "Filing an Application for Amended Certificate of Authority to Transact Business.",
+      "steps": [
+        {"form_id": "LP_MLPA-12A", "required": true, "note": "Application for Amended Certificate of Authority (Foreign LP)."},
+        {"form_id": "CORP_FICT-4", "required": false, "note": "Printed on MLPA-12A: 'Form FICT-4 accompanies this application.' Only when adopting a fictitious name; CORP_FICT-4 is this catalog's for-profit FICT-4."}
+      ]
+    },
+    {
+      "id": "indistinguishable_name_corp",
+      "title": "Use an indistinguishable name (business corporation)",
+      "when": "Filing an Application for the Use of an Indistinguishable Name together with the name-change filing it requires.",
+      "steps": [
+        {"form_id": "CORP_MBCA-15", "required": true, "note": "Printed on MBCA-15: 'This application must be accompanied by the applicable form to change its name as provided in Item Third.'"},
+        {"form_id": "CORP_MBCA-9", "required": true, "inferred": true, "note": "The accompaniment is printed on MBCA-15, but the specific form is not named; for a domestic business corporation changing its name, the applicable form is inferred to be MBCA-9 (Articles of Amendment)."}
+      ]
+    },
+    {
+      "id": "indistinguishable_name_llc",
+      "title": "Use an indistinguishable name (LLC)",
+      "when": "Filing an Application for the Use of an Indistinguishable Name together with the name-change filing it requires.",
+      "steps": [
+        {"form_id": "LLC_MLLC-15", "required": true, "note": "Printed on MLLC-15: 'This application must be accompanied by the applicable form to change the name as provided in Item Third.'"},
+        {"form_id": "LLC_MLLC-9", "required": true, "inferred": true, "note": "The accompaniment is printed on MLLC-15, but the specific form is not named; for a Maine LLC changing its name, the applicable form is inferred to be MLLC-9 (Certificate of Amendment)."}
+      ]
+    },
+    {
+      "id": "indistinguishable_name_llp",
+      "title": "Use an indistinguishable name (LLP)",
+      "when": "Filing an Application for the Use of an Indistinguishable Name together with the name-change filing it requires.",
+      "steps": [
+        {"form_id": "LLP_MLLP-15", "required": true, "note": "Printed on MLLP-15: the application must be accompanied by the applicable form to change the name."},
+        {"form_id": "LLP_MLLP-9", "required": true, "inferred": true, "note": "The accompaniment is printed on MLLP-15, but the specific form is not named; for a domestic LLP changing its name, the applicable form is inferred to be MLLP-9 (Certificate of Amendment)."}
+      ]
+    },
+    {
+      "id": "indistinguishable_name_lp",
+      "title": "Use an indistinguishable name (limited partnership)",
+      "when": "Filing an Application for the Use of an Indistinguishable Name together with the name-change filing it requires.",
+      "steps": [
+        {"form_id": "LP_MLPA-15", "required": true, "note": "Printed on MLPA-15: 'This application must be accompanied by the applicable form to change its name as provided in Item Third.'"},
+        {"form_id": "LP_MLPA-9", "required": true, "inferred": true, "note": "The accompaniment is printed on MLPA-15, but the specific form is not named; for a domestic LP changing its name, the applicable form is inferred to be MLPA-9 (Certificate of Amendment)."}
+      ]
+    },
+    {
+      "id": "indistinguishable_name_np",
+      "title": "Use an indistinguishable name (nonprofit corporation)",
+      "when": "Filing an Application for the Use of an Indistinguishable Name together with the name-change filing it requires.",
+      "steps": [
+        {"form_id": "NP_MNPCA-15", "required": true, "note": "Printed on MNPCA-15: 'This application must be accompanied by the applicable form to change its name as provided in Item Third.'"},
+        {"form_id": "NP_MNPCA-9", "required": true, "inferred": true, "note": "The accompaniment is printed on MNPCA-15, but the specific form is not named; for a domestic nonprofit corporation changing its name, the applicable form is inferred to be MNPCA-9 (Articles of Amendment)."}
+      ]
+    },
+    {
+      "id": "np_voluntary_dissolution",
+      "title": "Voluntarily dissolve a Maine nonprofit corporation",
+      "when": "Two-step dissolution: file a Statement of Intent to Dissolve, then Articles of Dissolution.",
+      "steps": [
+        {"form_id": "NP_MNPCA-11", "required": true, "note": "Statement of Intent to Dissolve. Use NP_MNPCA-11A instead when the dissolution is authorized by a vote of members or directors."},
+        {"form_id": "NP_MNPCA-11A", "required": false, "note": "Alternative intent statement (vote of members or directors variant) — file this or MNPCA-11, not both."},
+        {"form_id": "NP_MNPCA-11D", "required": true, "note": "Articles of Dissolution. Printed on MNPCA-11D: 'A statement of intent to dissolve the corporation was filed with the Secretary of State on ___' — file after the intent statement."}
+      ]
+    }
+  ]
+}

@@ -11,7 +11,13 @@ follow this protocol:
    forms over `catalog/router_catalog.json` (one LLM call when an endpoint is
    configured, with a built-in lexical fallback so it always works offline).
    Or read `catalog/by_entity.json` to scope by entity type
-   (`CORP_`/`NP_`/`LLC_`/`LP_`/`LLP_`/`GP_`/`MARK_`).
+   (`CORP_`/`NP_`/`LLC_`/`LP_`/`LLP_`/`GP_`/`MARK_`). Many filings are
+   **multi-form bundles** (e.g. Restated Articles MUST be accompanied by
+   MBCA-6-1; foreign qualifications may need FICT-4): check
+   `catalog/workflows.json` for the form's workflow membership and its
+   required/optional companion forms. Steps marked `"inferred": true` are
+   editorial lifecycle groupings; every other step quotes language printed
+   on the form itself.
 2. **Understand:** read `forms/<ID>/SKILL.md` (when to use + key fields +
    example) and `forms/<ID>/form.yaml` (entity type, statute, counts). Check the
    per-field `confidence` in `mapping.json` — low-confidence fields are
