@@ -2,8 +2,11 @@
 """MCP server exposing the Maine SoS corporation-forms library to agents.
 
 Tools (stdio, FastMCP):
-  find_forms(situation, top_k=5)        -> candidate forms (router)
-  get_form(form_id)                     -> metadata + field summary
+  find_forms(situation, top_k=5)        -> candidate forms (router), each
+                                           annotated with workflow membership
+  get_form(form_id)                     -> metadata + trust summary (per-field
+                                           confidence), printed filing fee,
+                                           workflows, SKILL.md excerpt
   plan_fill(form_id, case)              -> coverage plan (resolved/unresolved/skipped)
   fill_form(form_id, case, out_path)    -> write a filled PDF, return {ok, path}
 
@@ -15,8 +18,10 @@ itself even without the dependency installed.
 """
 from __future__ import annotations
 
+import functools
 import json
 import pathlib
+import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -24,12 +29,113 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 _FORMS_ROOT = str(ROOT / "forms")
+_MAX_UNVERIFIED = 15  # cap field lists so get_form stays compact
+
+
+@functools.lru_cache(maxsize=None)
+def _catalog(name: str) -> dict:
+    path = ROOT / "catalog" / name
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+@functools.lru_cache(maxsize=None)
+def _workflow_membership() -> dict:
+    """form_id -> [{id, title, required}] from catalog/workflows.json."""
+    member: dict = {}
+    for wf in _catalog("workflows.json").get("workflows", []):
+        for step in wf["steps"]:
+            member.setdefault(step["form_id"], []).append({
+                "id": wf["id"], "title": wf["title"],
+                "required": step["required"],
+            })
+    return member
+
+
+def _skill_when_to_use(form_dir: pathlib.Path) -> str | None:
+    skill = form_dir / "SKILL.md"
+    if not skill.exists():
+        return None
+    m = re.search(r"\*\*When to use:\*\*\s*(.+)",
+                  skill.read_text(encoding="utf-8"))
+    if not m:
+        return None
+    text = m.group(1).strip()
+    return text[:397] + "..." if len(text) > 400 else text
+
+
+def get_form_payload(form_id: str) -> dict:
+    """Build the enriched, bounded (<~4KB) get_form response."""
+    d = ROOT / "forms" / form_id
+    if not (d / "mapping.json").exists():
+        return {"error": f"unknown form {form_id!r}"}
+    mapping = json.loads((d / "mapping.json").read_text(encoding="utf-8"))
+    fields = mapping.get("fields", {})
+
+    meta = {}
+    meta_path = d / "form.yaml"
+    if meta_path.exists():
+        try:
+            import yaml
+            meta = yaml.safe_load(meta_path.read_text(encoding="utf-8")) or {}
+        except Exception:
+            meta = {}
+
+    confidence: dict = {}
+    unverified = []
+    for key, spec in fields.items():
+        level = spec.get("confidence") or "unknown"
+        confidence[level] = confidence.get(level, 0) + 1
+        if level != "high":
+            unverified.append(key)
+    unverified.sort()
+
+    payload = {
+        "form_id": form_id,
+        "title": meta.get("title", form_id),
+        "entity_type": meta.get("entity_type"),
+        "statute": meta.get("statute"),
+        "num_pages": meta.get("num_pages"),
+        "when_to_use": _skill_when_to_use(d),
+        "n_fields": len(fields),
+        "trust": {
+            "total_widgets": meta.get("num_fields"),
+            "mapped_fields": meta.get("mapped_fields"),
+            "confidence": confidence,
+            "unverified_fields": unverified[:_MAX_UNVERIFIED],
+            "note": ("fields below high confidence are unverified — tell "
+                     "the user to check their placement"),
+        },
+        "fee": _catalog("fees.json").get("fees", {}).get(form_id),
+        "workflows": _workflow_membership().get(form_id, []),
+        "preflight": {
+            "available": True,
+            "hint": ("run the preflight tool (schema + rubric + signer "
+                     "rules + coverage plan) before fill_form"),
+        },
+        "not_legal_advice": ("filled output is a draft; verify against the "
+                             "official form before filing"),
+    }
+    if len(unverified) > _MAX_UNVERIFIED:
+        payload["trust"]["unverified_fields_truncated"] = (
+            len(unverified) - _MAX_UNVERIFIED)
+    return payload
+
+
+def find_forms_payload(situation: str, top_k: int = 5) -> list:
+    """Route a situation, annotating each candidate with its workflows."""
+    import route_form
+    results, _ = route_form.route(situation, top_k)
+    member = _workflow_membership()
+    for r in results:
+        r["workflows"] = [m["id"] for m in member.get(r.get("form_id"), [])]
+    return results
 
 
 def _build():
     from mcp.server.fastmcp import FastMCP
 
-    import route_form
     from engine import fill as fill_engine
     from engine import plan as plan_engine
     from engine import preflight as preflight_engine
@@ -38,28 +144,25 @@ def _build():
 
     @mcp.tool()
     def find_forms(situation: str, top_k: int = 5) -> list:
-        """Route a free-text situation to candidate Maine SoS entity forms."""
-        results, _ = route_form.route(situation, top_k)
-        return results
+        """Route a free-text situation to candidate Maine SoS entity forms.
+
+        Each candidate carries its ``workflows`` (multi-form bundle ids from
+        catalog/workflows.json) so companion filings are not missed.
+        """
+        return find_forms_payload(situation, top_k)
 
     @mcp.tool()
     def get_form(form_id: str) -> dict:
-        """Return a form's metadata and a compact field summary."""
-        d = ROOT / "forms" / form_id
-        if not (d / "mapping.json").exists():
-            return {"error": f"unknown form {form_id!r}"}
-        mapping = json.loads((d / "mapping.json").read_text())
-        title = form_id
-        meta = d / "form.yaml"
-        if meta.exists():
-            try:
-                import yaml
-                title = (yaml.safe_load(meta.read_text()) or {}).get(
-                    "title", form_id)
-            except Exception:
-                pass
-        return {"form_id": form_id, "title": title,
-                "n_fields": len(mapping.get("fields", {}))}
+        """Return a form's metadata, trust/fee/workflow context, and hints.
+
+        Includes the mapping trust summary (per-field confidence mix and the
+        unverified below-high-confidence fields), the printed filing fee from
+        catalog/fees.json (amount only when literally printed on the blank;
+        null means see the SoS fee schedule), workflow membership (companion
+        forms that must or may accompany this filing), a when-to-use excerpt
+        from the form's SKILL.md, and preflight availability.
+        """
+        return get_form_payload(form_id)
 
     @mcp.tool()
     def plan_fill(form_id: str, case: dict) -> dict:
