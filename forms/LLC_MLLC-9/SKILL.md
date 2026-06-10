@@ -42,7 +42,7 @@ _Showing 12 of 30 canonical keys — the full set is in mapping.json._
 ```json
 {
   "entity": {
-    "name": "Wabanaki Widgets, Inc.",
+    "name": "Wabanaki Widgets, LLC",
     "initial_filing_date": "2026-01-15",
     "is_low_profit_llc": true,
     "is_professional_llc": true,
@@ -56,6 +56,10 @@ _Showing 12 of 30 canonical keys — the full set is in mapping.json._
   },
   "registered_agent": {
     "type": "Sample Value"
+  },
+  "authorized_person_1": {},
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

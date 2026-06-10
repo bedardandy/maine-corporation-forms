@@ -41,7 +41,7 @@ _Showing 12 of 48 canonical keys — the full set is in mapping.json._
 {
   "entity": {
     "name": "Wabanaki Widgets, Inc.",
-    "nonprofit_type": "Sample Value",
+    "nonprofit_type": "public_benefit",
     "public_benefit_purpose": "Sample Value",
     "mutual_benefit_purpose": "Sample Value"
   },
@@ -50,6 +50,7 @@ _Showing 12 of 48 canonical keys — the full set is in mapping.json._
     "cra_public_number": "P99999",
     "name": "Sample Value",
     "physical_address": "Sample Value"
-  }
+  },
+  "incorporator_entity_1": {}
 }
 ```

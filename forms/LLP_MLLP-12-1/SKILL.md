@@ -45,7 +45,7 @@ _Showing 12 of 19 canonical keys — the full set is in mapping.json._
   "entity": {
     "home_jurisdiction_name": "Wabanaki Widgets, Inc.",
     "is_professional_llp": true,
-    "professional_services_description": true,
+    "professional_services_description": "Sample Value",
     "maine_fictitious_name": "Wabanaki Widgets, Inc.",
     "professional_partners_licensed_statement": "Sample Value",
     "formation_date_in_home_jurisdiction": "2026-01-15",
@@ -53,6 +53,7 @@ _Showing 12 of 19 canonical keys — the full set is in mapping.json._
   },
   "filing": {
     "fict4_accompanies": "Sample Value"
-  }
+  },
+  "registered_agent": {}
 }
 ```

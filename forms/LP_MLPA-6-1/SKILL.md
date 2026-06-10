@@ -41,7 +41,7 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
 ```json
 {
   "filing": {
-    "accompanying_transaction_type": "Sample Value"
+    "accompanying_transaction_type": "entity_conversion_13c"
   },
   "entity": {
     "name": "Wabanaki Widgets, Inc.",

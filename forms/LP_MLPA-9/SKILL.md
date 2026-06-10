@@ -54,6 +54,10 @@ _Showing 12 of 69 canonical keys — the full set is in mapping.json._
   },
   "new_general_partner_2": {
     "name": "Sample Value"
+  },
+  "amendment": {},
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

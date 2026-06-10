@@ -44,7 +44,7 @@ _Showing 12 of 23 canonical keys — the full set is in mapping.json._
   },
   "restatement": {
     "text_exhibit_letter": "Sample Value",
-    "type": "Sample Value",
+    "type": "consolidation_only",
     "future_effective_date": "2026-01-15"
   },
   "amendment": {

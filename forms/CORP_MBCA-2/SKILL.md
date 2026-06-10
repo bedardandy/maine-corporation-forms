@@ -51,7 +51,7 @@ _Showing 12 of 23 canonical keys — the full set is in mapping.json._
     "business_purpose": "Sample Value"
   },
   "filing": {
-    "application_type": "Sample Value",
+    "application_type": "new",
     "date_signed": "2026-01-15"
   }
 }

@@ -62,6 +62,11 @@ _Showing 12 of 38 canonical keys — the full set is in mapping.json._
   },
   "director_3": {
     "name": "Sample Value"
-  }
+  },
+  "dissolution": {},
+  "filing": {
+    "date_signed": "2026-01-15"
+  },
+  "registered_office": {}
 }
 ```

@@ -43,11 +43,14 @@ _Showing 12 of 25 canonical keys — the full set is in mapping.json._
   "amendment": {
     "adoption_date": "2026-01-15",
     "text_exhibit_letter": "Sample Value",
-    "approval_method": "Sample Value",
-    "benefit_corp_change": "Sample Value",
+    "approval_method": "incorporators",
+    "benefit_corp_change": "become",
     "benefit_corp_public_benefit_exhibit_letter": "Sample Value",
     "share_exchange_exhibit_letter": "Sample Value",
     "share_exchange_inline_text": "Sample Value"
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

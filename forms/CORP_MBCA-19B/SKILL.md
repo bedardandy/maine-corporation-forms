@@ -56,7 +56,7 @@ _Showing 12 of 19 canonical keys — the full set is in mapping.json._
     "entities[1]": {
       "name": "Sample Value"
     },
-    "expedited_service": "Sample Value"
+    "expedited_service": {}
   }
 }
 ```

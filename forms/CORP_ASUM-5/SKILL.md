@@ -46,7 +46,7 @@ _Showing 12 of 24 canonical keys — the full set is in mapping.json._
   "assumed_name": {
     "name": "Sample Value",
     "locations": "Sample Value",
-    "additional_locations_exhibit": "Sample Value"
+    "additional_locations_exhibit": true
   },
   "filing": {
     "date_signed": "2026-01-15",

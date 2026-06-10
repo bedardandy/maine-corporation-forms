@@ -50,7 +50,7 @@ _Showing 12 of 62 canonical keys — the full set is in mapping.json._
     "maine_fictitious_name": "Wabanaki Widgets, Inc."
   },
   "filing": {
-    "fict4_accompanies": "Sample Value"
+    "fict4_accompanies": true
   },
   "new_general_partner_1": {
     "name": "Sample Value"

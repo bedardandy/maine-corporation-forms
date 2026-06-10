@@ -40,7 +40,7 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
 ```json
 {
   "entity": {
-    "name": "Wabanaki Widgets, Inc."
+    "name": "Wabanaki Widgets, LLC"
   },
   "name_consent": {
     "indistinguishable_name": "Sample Value",

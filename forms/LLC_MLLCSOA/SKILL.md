@@ -38,7 +38,7 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
 ```json
 {
   "entity": {
-    "name": "Wabanaki Widgets, Inc."
+    "name": "Wabanaki Widgets, LLC"
   },
   "authority_1": {
     "person_or_position": "Sample Value",
@@ -50,6 +50,9 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
   "authority_2": {
     "person_or_position": "Sample Value",
     "authority_text_line_1": "Sample Value"
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

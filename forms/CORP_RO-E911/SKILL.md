@@ -48,7 +48,7 @@ _Showing 12 of 22 canonical keys — the full set is in mapping.json._
     "old_address": "Sample Value",
     "new_physical_address": "Sample Value",
     "new_mailing_address": "Sample Value",
-    "address_change_authorized_by": "Sample Value"
+    "address_change_authorized_by": "town_municipality"
   },
   "filing": {
     "date_signed": "2026-01-15",

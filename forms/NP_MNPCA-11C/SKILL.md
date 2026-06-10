@@ -55,6 +55,11 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
   },
   "officer_clerk": {
     "name": "Sample Value"
-  }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
+  },
+  "registered_office": {},
+  "revocation": {}
 }
 ```

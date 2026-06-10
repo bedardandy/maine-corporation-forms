@@ -44,7 +44,7 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
 ```json
 {
   "mark": {
-    "charter_number": "P99999",
+    "charter_number": 99999,
     "text_words": {
       "line1": "Sample Value",
       "line2": "Sample Value"

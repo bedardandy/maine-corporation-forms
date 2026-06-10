@@ -41,7 +41,7 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
 {
   "entity": {
     "name": "Wabanaki Widgets, Inc.",
-    "nonprofit_type": true
+    "nonprofit_type": "public_benefit"
   },
   "amendment": {
     "nature_and_text": {
@@ -52,6 +52,9 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
       "line5": "Sample Value",
       "line6": "Sample Value"
     }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

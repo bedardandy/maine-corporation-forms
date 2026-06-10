@@ -55,6 +55,10 @@ _Showing 12 of 31 canonical keys — the full set is in mapping.json._
       "governing_statute_jurisdiction": "Sample Value",
       "formation_date": "2026-01-15"
     }
-  }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
+  },
+  "general_partner_1": {}
 }
 ```

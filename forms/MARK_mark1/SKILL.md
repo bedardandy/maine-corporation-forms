@@ -56,7 +56,7 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
       "line1": "Sample Value",
       "line2": "Sample Value"
     },
-    "type_and_class_number": "P99999"
+    "type_and_class_number": 99999
   }
 }
 ```

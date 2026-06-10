@@ -51,10 +51,11 @@ _Showing 12 of 33 canonical keys — the full set is in mapping.json._
     "formation_date_in_home_jurisdiction": "2026-01-15",
     "home_purpose_description_line1": "Sample Value",
     "home_purpose_description_line2": "Sample Value",
-    "maine_activities_scope": "Sample Value"
+    "maine_activities_scope": "all"
   },
   "filing": {
-    "fict4_accompanies": "Sample Value"
-  }
+    "fict4_accompanies": true
+  },
+  "registered_agent": {}
 }
 ```

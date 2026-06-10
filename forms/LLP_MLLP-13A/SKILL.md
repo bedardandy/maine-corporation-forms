@@ -53,6 +53,9 @@ _Showing 12 of 27 canonical keys — the full set is in mapping.json._
       "line4": "Sample Value",
       "line5": "Sample Value"
     }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

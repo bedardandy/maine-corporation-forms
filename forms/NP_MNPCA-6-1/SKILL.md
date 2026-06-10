@@ -40,7 +40,7 @@ _Showing 12 of 17 canonical keys — the full set is in mapping.json._
 ```json
 {
   "filing": {
-    "accompanying_document_type": "Sample Value"
+    "accompanying_document_type": "articles_of_nonprofit_conversion"
   },
   "entity": {
     "name": "Wabanaki Widgets, Inc.",

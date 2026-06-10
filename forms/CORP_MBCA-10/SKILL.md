@@ -53,7 +53,7 @@ _Showing 12 of 45 canonical keys — the full set is in mapping.json._
     "parties[3]": {
       "recital": "Sample Value"
     },
-    "additional_parties_attached": "Sample Value",
+    "additional_parties_attached": true,
     "additional_parties_exhibit_letter": "Sample Value",
     "surviving_entity": {
       "name_and_jurisdiction": "Sample Value",

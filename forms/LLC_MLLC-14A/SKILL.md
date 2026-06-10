@@ -36,7 +36,7 @@ _Showing 12 of 17 canonical keys — the full set is in mapping.json._
 ```json
 {
   "entity": {
-    "name": "Wabanaki Widgets, Inc."
+    "name": "Wabanaki Widgets, LLC"
   },
   "filing": {
     "date_signed": "2026-01-15",
@@ -49,7 +49,7 @@ _Showing 12 of 17 canonical keys — the full set is in mapping.json._
     "entities[1]": {
       "name": "Sample Value"
     },
-    "expedited_service": "Sample Value",
+    "expedited_service": {},
     "total_fees_dollars": "Sample Value",
     "contact": {
       "name": "Sample Value"

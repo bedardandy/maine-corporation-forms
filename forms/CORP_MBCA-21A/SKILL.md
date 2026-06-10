@@ -48,7 +48,7 @@ _Showing 12 of 23 canonical keys — the full set is in mapping.json._
     "new_entity": {
       "name": "Sample Value"
     },
-    "approval_type": "Sample Value",
+    "approval_type": "domestic",
     "new_entity_provisions_exhibit_letter": "Sample Value",
     "future_effective_date": "2026-01-15"
   },

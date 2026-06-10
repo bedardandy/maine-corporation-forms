@@ -43,7 +43,7 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
 ```json
 {
   "mark": {
-    "charter_number": "P99999",
+    "charter_number": 99999,
     "text_words": {
       "line1": "Sample Value",
       "line2": "Sample Value"
@@ -53,10 +53,13 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
       "line2": "Sample Value"
     },
     "type": "Sample Value",
-    "type_amended": "Sample Value",
+    "type_amended": true,
     "class_changes[0]": {
-      "class_number": "P99999"
+      "class_number": 99999
     }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

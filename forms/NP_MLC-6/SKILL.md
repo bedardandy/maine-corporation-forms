@@ -56,6 +56,7 @@ _Showing 12 of 40 canonical keys — the full set is in mapping.json._
       "street": "Sample Value",
       "city_state_zip": "Sample Value"
     }
-  }
+  },
+  "treasurer": {}
 }
 ```

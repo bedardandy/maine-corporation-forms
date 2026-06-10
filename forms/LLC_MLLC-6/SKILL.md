@@ -40,15 +40,15 @@ _Showing 12 of 28 canonical keys — the full set is in mapping.json._
 ```json
 {
   "entity": {
-    "name": "Wabanaki Widgets, Inc.",
-    "formation_effective_date_choice": "2026-01-15",
+    "name": "Wabanaki Widgets, LLC",
+    "formation_effective_date_choice": "on_filing",
     "formation_effective_date": "2026-01-15",
     "is_low_profit_llc": true,
     "is_professional_llc": true,
     "professional_services_description": "Sample Value"
   },
   "registered_agent": {
-    "type": "Sample Value",
+    "type": "commercial",
     "cra_public_number": "P99999"
   }
 }

@@ -44,7 +44,7 @@ _Showing 12 of 24 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "contact_change": {
-    "action_type": "Sample Value",
+    "action_type": "change_of_address",
     "current_name": "Sample Value",
     "current_address": "Sample Value",
     "new_name": "Sample Value",

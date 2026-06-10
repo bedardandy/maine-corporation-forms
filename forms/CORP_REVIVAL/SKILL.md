@@ -44,7 +44,7 @@ _Showing 12 of 32 canonical keys — the full set is in mapping.json._
     "original_filing_date": "2026-01-15"
   },
   "revival": {
-    "entity_type": "Sample Value",
+    "entity_type": "domestic_nonprofit_corp",
     "clerk_at_dissolution": {
       "name": "Sample Value",
       "address": "Sample Value"
@@ -54,6 +54,9 @@ _Showing 12 of 32 canonical keys — the full set is in mapping.json._
   },
   "requesting_party_1": {
     "printed_name": "Sample Value"
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

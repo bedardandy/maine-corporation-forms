@@ -56,6 +56,10 @@ _Showing 12 of 46 canonical keys — the full set is in mapping.json._
         "name": "Wabanaki Widgets, Inc."
       }
     }
+  },
+  "director_1": {},
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

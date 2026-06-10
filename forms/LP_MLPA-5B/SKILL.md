@@ -49,13 +49,16 @@ _Showing 12 of 28 canonical keys — the full set is in mapping.json._
     "current_location": "Sample Value"
   },
   "assumed_name_change": {
-    "change_locations": "Sample Value",
-    "add_locations": "Sample Value",
-    "delete_locations": "Sample Value",
+    "change_locations": true,
+    "add_locations": true,
+    "delete_locations": true,
     "description": {
       "line1": "Sample Value",
       "line2": "Sample Value"
     }
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

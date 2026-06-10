@@ -54,6 +54,9 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
     "name": "Sample Value",
     "physical_address": "Sample Value",
     "mailing_address": "Sample Value"
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

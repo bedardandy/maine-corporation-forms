@@ -43,13 +43,16 @@ _Showing 12 of 30 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "clerk_change": {
-    "action_type": "Sample Value",
-    "modify_subtype": "Sample Value",
+    "action_type": "new_appointment",
+    "modify_subtype": "address",
     "current_clerk_or_agent_name": "Sample Value",
     "new_noncommercial_name": "Sample Value",
     "new_noncommercial_physical_address": "Sample Value",
     "new_noncommercial_mailing_address": "Sample Value",
     "new_commercial_cra_public_number": "P99999"
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

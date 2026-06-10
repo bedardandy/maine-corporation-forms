@@ -44,7 +44,7 @@ _Showing 12 of 20 canonical keys — the full set is in mapping.json._
   "revocation": {
     "original_dissolution_date": "2026-01-15",
     "authorization_date": "2026-01-15",
-    "authority_type": "Sample Value"
+    "authority_type": "incorporators"
   },
   "filing": {
     "date_signed": "2026-01-15",

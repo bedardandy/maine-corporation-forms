@@ -51,7 +51,7 @@ _Showing 12 of 20 canonical keys — the full set is in mapping.json._
     }
   },
   "entity": {
-    "name": "Wabanaki Widgets, Inc."
+    "name": "Wabanaki Widgets, LLC"
   },
   "applicant": {
     "name": "Sample Value",

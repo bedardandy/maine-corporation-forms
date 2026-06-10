@@ -42,16 +42,19 @@ _Showing 12 of 34 canonical keys — the full set is in mapping.json._
 ```json
 {
   "mark": {
-    "charter_number": "P99999",
-    "text_elements": "Sample Value",
-    "design_description": "Sample Value",
+    "charter_number": 99999,
+    "text_elements": {},
+    "design_description": {},
     "type": "Sample Value",
-    "original_type_if_changed": true,
-    "type_change_explanation": true,
-    "type_changed": "Sample Value"
+    "original_type_if_changed": "Sample Value",
+    "type_change_explanation": "Sample Value",
+    "type_changed": "no"
   },
   "amendment": {
-    "class_number": "P99999"
+    "class_number": 99999
+  },
+  "filing": {
+    "date_signed": "2026-01-15"
   }
 }
 ```

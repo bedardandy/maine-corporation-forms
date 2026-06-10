@@ -50,7 +50,7 @@ _Showing 12 of 23 canonical keys — the full set is in mapping.json._
     "maine_authorization_date": "2026-01-15"
   },
   "filing": {
-    "authorized_by": "Sample Value",
+    "authorized_by": "town_municipality",
     "date_signed": "2026-01-15"
   }
 }
