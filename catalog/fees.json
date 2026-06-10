@@ -1,0 +1,1908 @@
+{
+  "_meta": {
+    "tool": "tools/extract_fees.py",
+    "method": "deterministic scan of each SHA-verified blank PDF's text (union of pypdf + PyMuPDF extraction) for printed filing-fee language; amounts are stored only when literally printed as an unconditional base fee",
+    "currency": "USD",
+    "note": "amount=null means the form prints no single unconditional fee — read printed_lines and verify against the Maine SoS fee schedule; never guess",
+    "coverage": {
+      "printed_unconditional": 117,
+      "printed_no_fee": 3,
+      "printed_conditional": 23,
+      "none_printed": 13
+    }
+  },
+  "fees": {
+    "CORP_ASUM-5": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "F or-profit Entity Filing Fee $125.00",
+        "Nonprofit Corporation Filing Fee $25.00",
+        "For-profit Entity Filing Fee $125.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_CLKRA-3": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "For-Profit Entity Filing Fee $35.00",
+        "Nonprofit Corporation Filing Fee $15.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_FICT-4": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "F or-profit Entity Filing Fee $40.00",
+        "Nonprofit Corporation Filing Fee $25.00",
+        "For-profit Entity Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_HO-E911": {
+      "amount": 0.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "form states no filing fee",
+      "printed_lines": [
+        "No Filing Fee"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-1": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-10": {
+      "amount": 100.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $100.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-10A": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-11": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "3/17/2009",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-11A": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-11I": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-12": {
+      "amount": 250.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $250.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/23",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-12A": {
+      "amount": 70.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "(If amending ONLY Item FOURTH filing fee $35.00)",
+        "Filing Fee $70.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/22/2019",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-12B": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-12C": {
+      "amount": 70.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $70.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "10/31/2012",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-12E-NCRA": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-13A": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $85.00 for domestic; $150.00 for foreign"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "10/25/2012",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-14": {
+      "amount": 40.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-14A": {
+      "amount": 100.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $100.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-15": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-17": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "11/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-19": {
+      "amount": 145.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $145.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-19A": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-19B": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-1A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $20.00 per month. Renewal Fee $200.00."
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-20": {
+      "amount": 145.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $145.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-20A": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-20B": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-21": {
+      "amount": 145.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $145.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/13/2013",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-21A": {
+      "amount": 145.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $145.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-21B": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-21C": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-2A": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-3A-NCRA": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-5A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_MBCA-6": {
+      "amount": 145.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $145.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/19/2019",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-6-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "9/19/2019"
+    },
+    "CORP_MBCA-6A": {
+      "amount": 80.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $80.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-9": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/19/2019",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MBCA-9A": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "CORP_MERGFOR": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing fees: Surviving Entity:",
+        "Filing fees:"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_REVIVAL": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Business Entity Filing Fee $150.00",
+        "Nonprofit Corporation Filing Fee $25.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_RO-E911": {
+      "amount": 0.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "form states no filing fee",
+      "printed_lines": [
+        "No Filing Fee"
+      ],
+      "revision": "6/26/2024"
+    },
+    "CORP_SOPAPPT": {
+      "amount": 100.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $100.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "GP_CONV-PARTNER": {
+      "amount": 150.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $150.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "GP_MPA-1": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "GP_MPA-2": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MERGFOR": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing fees: Surviving Entity:",
+        "Filing fees:"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-1": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "1/31/2017",
+        "6/26/2024"
+      ]
+    },
+    "LLC_MLLC-10": {
+      "amount": 150.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $150.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-11C": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-12": {
+      "amount": 250.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $250.00 FOREIGN",
+        "Filing Fee $250.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-12A": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $90.00",
+        "(If changing ONLY Item FIFTH filing fee $35.00)"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "1/30/2013",
+        "6/26/2024"
+      ]
+    },
+    "LLC_MLLC-12B": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-13A": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $85.00 for Maine; $150.00 for Foreign"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-14": {
+      "amount": 40.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-14A": {
+      "amount": 100.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $100.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-15": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-17": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-1A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $20.00 per month. Renewal Fee $200.00."
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-3A-NCRA": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-5A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-6": {
+      "amount": 175.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $175.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-6A": {
+      "amount": 80.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $80.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLC-9": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLCACSOA": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLCCONV": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "*Filing Fee and Exhibit Requirements: Select the required exhibit below by clicking the converted (resulting) organization type:",
+        "Domestic Business Corporation Foreign Business Corporation Filing fee is $145",
+        "Domestic Nonprofit Corporation Foreign Nonprofit Corporation Filing fee is $40",
+        "Domestic Limited Partnership Foreign Limited Partnership Filing fee is $175",
+        "Domestic Limited Liability Company Foreign Limited Liability Company Filing fee is $175",
+        "Domestic Limited Liability Partnership Foreign Limited Liability Partnership Filing fee is $175",
+        "Domestic Partnership Foreign Partnership Filing fee is $175",
+        "Filing fee is $145",
+        "Filing fee is $40",
+        "Filing fee is $175"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLCDENIAL": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLC_MLLCSOA": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLP_MLLP-1": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLP_MLLP-11R": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-12": {
+      "amount": 250.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $250.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/23",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-12-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "7/1/2008"
+    },
+    "LLP_MLLP-12A": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $90.00 - (If amending ONLY Item FOURTH",
+        "and/or Item FIFTH the filing fee is $35.00.)"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-12B": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-13A": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $85.00 for domestic; $150.00 for foreign"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLP_MLLP-15": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-17": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "11/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-17A": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "11/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-1A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLP_MLLP-2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $20.00 per month. Renewal Fee $200.00."
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/4/2015",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-3A-NCRA": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LLP_MLLP-5A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2003",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-6": {
+      "amount": 175.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $175.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-6-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": null
+    },
+    "LLP_MLLP-6A": {
+      "amount": 80.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $80.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "LLP_MLLP-9": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $50.00 - (If amending ONLY Item SECOND the",
+        "filing fee is $20.00.)"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-1": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "1/31/2017",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-10": {
+      "amount": 150.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $150.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LP_MLPA-11C": {
+      "amount": 75.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $75.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-12": {
+      "amount": 250.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $250.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/23",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-12-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": null
+    },
+    "LP_MLPA-12A": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $90.00",
+        "(If amending ONLY Items Sixth – Ninth Filing Fee $35.00)"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-12B": {
+      "amount": 90.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $90.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-13A": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $85.00 for domestic; $150.00 for foreign"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "10/25/2012",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-15": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-17": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $50.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "5/21/2009",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-1A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $20.00 per month. Renewal Fee $200.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-3A-NCRA": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LP_MLPA-5A": {
+      "amount": 20.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $20.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-5B": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "LP_MLPA-6": {
+      "amount": 175.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $175.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2008",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-6-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "7/1/2008"
+    },
+    "LP_MLPA-6A": {
+      "amount": 80.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $80.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "10/17/2018",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-9": {
+      "amount": 50.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $50.00",
+        "(If amending ONLY Items Tenth and/or Eleventh, Filing fee $20.00)"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-9A": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPA-9B": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2007",
+        "6/26/2024"
+      ]
+    },
+    "LP_MLPACONV": {
+      "amount": 150.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "additional fee provisions are printed on the form; see printed_lines",
+      "printed_lines": [
+        "Filing Fee $150.00 STATE OF MAINE",
+        "Filing Fee $150.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "MARK_mark1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $60 for one class, plus $10 for each additional class"
+      ],
+      "revision": "9/97",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024",
+        "9/97"
+      ]
+    },
+    "MARK_mark1a": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "10/29/2008"
+    },
+    "MARK_mark2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $60.00, plus $10.00 for each class affected"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "MARK_mark3": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $10.00 for each class affected"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "4/16/2001",
+        "6/26/2024"
+      ]
+    },
+    "MARK_mark4": {
+      "amount": 40.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "4/16/2001",
+        "6/26/2024"
+      ]
+    },
+    "MARK_mark5": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": null
+    },
+    "MARK_mark6": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_CLKRA-3": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "For-Profit Entity Filing Fee $35.00",
+        "Nonprofit Corporation Filing Fee $15.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_FICT-4": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "F or-profit Entity Filing Fee $40.00",
+        "Nonprofit Corporation Filing Fee $25.00",
+        "For-profit Entity Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MLC-3_0": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MLC-6": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "$5.00 Filing Fee"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "5/29/2019",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNP-3": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNP-6": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "6/13/2018",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNP-9": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNP-981A": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/30/2004",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-1": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-10": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/23/2006",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-10A": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "6/26/2024",
+      "revisions": [
+        "6/1/2009",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-10C": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/23/2006",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-10E": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/23/2006",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "1/23/2018",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11A": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "1/23/2018",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11B": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11C": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11D": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-11E": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/1/2004",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-12": {
+      "amount": 45.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $45.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "12/23",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-12-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "7/1/2008"
+    },
+    "NP_MNPCA-12A": {
+      "amount": 15.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $15.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "4/1/2009",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-12B": {
+      "amount": 15.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $15.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "3/16/2010",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-13A": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-14": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "4/16/2001",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-14A": {
+      "amount": 25.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $25.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-15": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-16": {
+      "amount": 0.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": "form states no filing fee",
+      "printed_lines": [
+        "No Fee Required"
+      ],
+      "revision": "6/27/2011"
+    },
+    "NP_MNPCA-17": {
+      "amount": 10.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $10.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "8/10/2009",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-19": {
+      "amount": 125.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $125.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-19A": {
+      "amount": 35.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $35.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-1A": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "7/1/2003",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-2": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Filing Fee $5.00 per month. Renewal Fee $50.00."
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-3A-NCRA": {
+      "amount": 15.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $15.00"
+      ],
+      "revision": "6/26/2024"
+    },
+    "NP_MNPCA-5A": {
+      "amount": 5.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $5.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-6": {
+      "amount": 40.0,
+      "currency": "USD",
+      "source": "printed on form",
+      "note": null,
+      "printed_lines": [
+        "Filing Fee $40.00"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/6/2018",
+        "6/26/2024"
+      ]
+    },
+    "NP_MNPCA-6-1": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "no filing fee amount printed on the form; see the SoS fee schedule",
+      "printed_lines": [],
+      "revision": "2/1/2018"
+    },
+    "NP_MNPCA-6A_0": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Minimum Filing Fee $10.00. An additional $10 filing fee if changing purpose"
+      ],
+      "revision": "2/2/2018"
+    },
+    "NP_MNPCA-9": {
+      "amount": null,
+      "currency": null,
+      "source": null,
+      "note": "fee is conditional or tiered as printed on the form (see printed_lines); verify against the SoS fee schedule",
+      "printed_lines": [
+        "Minimum Filing Fee $10.00. An addi tional $10 filing fee if",
+        "Minimum Filing Fee $10.00. An additional $10 filing fee if"
+      ],
+      "revision": "6/26/2024",
+      "revisions": [
+        "9/16/2005",
+        "6/26/2024"
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Maine Corporation Forms — developer entry points.
 # Most targets are PDF-free and offline; `fetch` and `fill` need the blank PDF.
-.PHONY: help test validate coverage status sync-schema rebuild-fields route plan fill fetch check-upstream mcp serve
+.PHONY: help test validate coverage status sync-schema rebuild-fields fees route plan fill fetch check-upstream mcp serve
 
 help:
 	@echo "make test                       run the deterministic test suite (the CI gate)"
@@ -9,6 +9,7 @@ help:
 	@echo "make status                     regenerate docs/STATUS.md from the form data"
 	@echo "make sync-schema FORM=..        extend schema.json to cover all mapping keys"
 	@echo "make rebuild-fields FORM=..     refetch the blank + regenerate fields.csv inventory"
+	@echo "make fees                       regenerate catalog/fees.json from the verified blanks"
 	@echo "make route Q='convert an LLC'   route an intent to candidate forms"
 	@echo "make plan FORM=.. CASE=..       coverage of a case against a form (no PDF)"
 	@echo "make fill FORM=.. CASE=.. OUT=..  fill the blank PDF from a case (needs the PDF)"
@@ -36,6 +37,9 @@ sync-schema:
 rebuild-fields:
 	python3 tools/fetch_pdfs.py --forms $(FORM)
 	python3 tools/rebuild_fields_csv.py $(FORM)
+
+fees:
+	python3 tools/extract_fees.py $(FORM)
 
 route:
 	python3 -m engine.route "$(Q)"

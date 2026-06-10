@@ -21,7 +21,12 @@ follow this protocol:
 2. **Understand:** read `forms/<ID>/SKILL.md` (when to use + key fields +
    example) and `forms/<ID>/form.yaml` (entity type, statute, counts). Check the
    per-field `confidence` in `mapping.json` — low-confidence fields are
-   unverified.
+   unverified. For the filing fee, read `catalog/fees.json`: an `amount` is
+   present only when it is literally printed on the blank form
+   (`tools/extract_fees.py` regenerates it from the SHA-verified blanks);
+   `amount: null` means the fee is conditional/tiered or not printed — quote
+   `printed_lines` if any and point the user at the SoS fee schedule. Never
+   guess a fee.
 3. **Build the case data:** assemble the nested case-data object (spec in
    `docs/data-model.md`) — top-level `entity.*`, `clerk.*` /
    `registered_agent.*`, `filing.*`, and roster groups (`incorporator_1.*`,
