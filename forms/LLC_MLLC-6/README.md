@@ -30,9 +30,9 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `entity.formation_effective_date_choice` maps to 2 widgets; all receive the same value.
 - `registered_agent.type` maps to 2 widgets; all receive the same value.
-- `registered_agent.name` maps to 2 widgets; all receive the same value.
+- `registered_agent.name` feeds two when-gated entries: Text11 when `registered_agent.type = 'commercial'`, Text13 when `'noncommercial'` — only the line matching the selected type is filled.
 - `filing.expedited_service` maps to 4 widgets; all receive the same value.
 - 1 low-confidence mapping(s) need human review: `filing.expedited_service`
 - Open question: The cover-letter expedite section has 4 widgets in the manifest (Check Box14, Check Box15, Check Box16, IMM) but only 3 visible options on the page. Is 'Check Box16' a renamed/orphaned widget left over from an earlier template revision, and should fill logic ignore it?
 - Open question: SEVENTH section has an OPTIONAL prefatory checkbox visible on the page but I don't see a corresponding checkbox widget in the manifest — it appears only the inline 'Exhibit __' text field (Text17) was extracted. Is the opt-in checkbox missing from the AcroForm, or merged with the Exhibit field?
-- Open question: Like MBCA-6, the form has separate 'Name of commercial registered agent' (Text11) and 'Name of noncommercial registered agent' (Text13) lines but logically only one is filled at a time. Confirm whether the PDF is expected to mirror these or use only the row matching the selected type.
+- Resolved: the separate 'Name of commercial registered agent' (Text11) and 'Name of noncommercial registered agent' (Text13) lines are when-gated on `registered_agent.type`, so only the row matching the selected type is filled.

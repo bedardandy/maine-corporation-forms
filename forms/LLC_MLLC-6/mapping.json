@@ -68,15 +68,23 @@
       "label": "CRA Public Number",
       "when": "registered_agent.type == 'commercial'"
     },
-    "registered_agent.name": {
-      "widget_id": [
-        "Text11",
-        "Text13"
-      ],
+    "registered_agent.name__commercial": {
+      "canonical_key": "registered_agent.name",
+      "widget_id": "Text11",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(Name of commercial registered agent)"
+      "label": "(Name of commercial registered agent)",
+      "when": "registered_agent.type == 'commercial'"
+    },
+    "registered_agent.name__noncommercial": {
+      "canonical_key": "registered_agent.name",
+      "widget_id": "Text13",
+      "field_type": "text",
+      "page": 1,
+      "confidence": "high",
+      "label": "(Name of noncommercial registered agent)",
+      "when": "registered_agent.type == 'noncommercial'"
     },
     "registered_agent.physical_address": {
       "widget_id": "Text14",
@@ -106,7 +114,7 @@
       "confidence": "high",
       "label": "Dated ___"
     },
-    "filing.signer.printed_name_and_title": {
+    "filing.signer.printed_name_and_capacity": {
       "widget_id": "Text19",
       "field_type": "text",
       "page": 1,

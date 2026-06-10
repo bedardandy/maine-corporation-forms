@@ -89,6 +89,9 @@ def sync_one(form_dir):
     for key, spec in (mapping.get("fields") or {}).items():
         if not isinstance(spec, dict):
             continue
+        # An entry may resolve a different canonical key than its dict key
+        # (two when-gated entries feeding one key; see engine.fill docstring).
+        key = spec.get("canonical_key", key)
         _ensure(schema, key.split("."), _leaf(spec), changed)
     if changed[0]:
         schema_path.write_text(json.dumps(schema, indent=2) + "\n", encoding="utf-8")

@@ -18,6 +18,12 @@ Field types in ``mapping.json``:
   field name and ``options`` maps each canonical enum value to that option's
   export (on-state) name. The selected kid's appearance is turned on and all
   siblings are set to ``/Off``.
+
+A field entry normally resolves the case value at its own dict key. When one
+canonical key must feed *different* widgets under different ``when`` gates
+(e.g. separate commercial / noncommercial agent-name lines), the mapping uses
+two uniquely named entries that each carry ``canonical_key`` — the dotted key
+actually resolved against the case.
 """
 import json
 import os
@@ -81,7 +87,7 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None):
         when = spec.get("when")
         if when is not None and eval_when(when, case_data) is False:
             continue
-        value = canonical.get(case_data, key)
+        value = canonical.get(case_data, spec.get("canonical_key", key))
         if value is None:
             continue
         field_type = spec.get("field_type", "text")

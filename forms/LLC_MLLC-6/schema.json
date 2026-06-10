@@ -77,9 +77,9 @@
         "signer": {
           "type": "object",
           "properties": {
-            "printed_name_and_title": {
+            "printed_name_and_capacity": {
               "type": "string",
-              "description": "Printed name and title of the authorized person who signed (e.g., 'Member', 'Manager', 'Authorized Person')."
+              "description": "Printed name and capacity of the authorized person who signed (e.g., 'Member', 'Manager', 'Authorized Person')."
             }
           }
         },

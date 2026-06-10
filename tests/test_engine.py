@@ -41,6 +41,26 @@ def test_plan_buckets_partition_fields(fid, case_file):
     assert c["resolved"] > 0
 
 
+def test_mllc6_agent_name_gated_by_type():
+    # The MLLC-6 agent-name line is split: Text11 (commercial) and Text13
+    # (noncommercial) are separate when-gated entries over one canonical key,
+    # so only the row matching registered_agent.type fills.
+    case = _case("llc_mllc-6.case.json")
+    assert case["registered_agent"]["type"] == "noncommercial"
+    p = plan.build_plan("LLC_MLLC-6", case, str(ROOT / "forms"))
+    assert "registered_agent.name__noncommercial" in p["resolved"]
+    assert "registered_agent.name__commercial" in {
+        s["key"] for s in p["skipped"]}
+
+
+def test_mllc6_signer_key_is_canonical():
+    # Guards the printed_name_and_capacity rename (was *_and_title, which a
+    # conforming case never sets, leaving the signer line blank).
+    case = _case("llc_mllc-6.case.json")
+    p = plan.build_plan("LLC_MLLC-6", case, str(ROOT / "forms"))
+    assert "filing.signer.printed_name_and_capacity" in p["resolved"]
+
+
 def test_plan_rejects_non_object_case():
     p = plan.build_plan("CORP_MBCA-6", ["not", "a", "dict"], str(ROOT / "forms"))
     assert p["ok"] is False

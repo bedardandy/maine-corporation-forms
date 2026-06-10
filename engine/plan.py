@@ -147,14 +147,17 @@ def build_plan(form_id, case, forms_root="forms"):
     resolved, unresolved, skipped = {}, [], []
     for key, spec in fields.items():
         label = spec.get("label", key)
+        # An entry may resolve a different canonical key than its dict key
+        # (two when-gated entries feeding one key; see engine.fill docstring).
+        ckey = spec.get("canonical_key", key)
         when = spec.get("when")
         if when is not None and eval_when(when, case) is False:
             skipped.append({"key": key, "label": label, "when": when})
             continue
-        value = canonical.get(case, key)
+        value = canonical.get(case, ckey)
         if _is_empty(value):
-            unresolved.append({"key": key, "label": label,
-                               "required": key in required})
+            unresolved.append({"key": ckey, "label": label,
+                               "required": ckey in required})
         else:
             resolved[key] = value
 

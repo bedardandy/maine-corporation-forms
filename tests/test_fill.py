@@ -111,6 +111,35 @@ def test_fill_writes_when_gate_true(tmp_path):
     assert not values.get("TextNoncom")
 
 
+def test_fill_canonical_key_split_entries(tmp_path):
+    # Two uniquely named entries resolving the same canonical key, each gated
+    # to its own widget (the commercial/noncommercial agent-name pattern).
+    d = tmp_path / FORM_ID
+    d.mkdir()
+    _make_blank(d / f"{FORM_ID}.pdf", ["Text11", "Text13"])
+    mapping = {
+        "form_id": FORM_ID,
+        "fields": {
+            "registered_agent.name__commercial": {
+                "canonical_key": "registered_agent.name",
+                "widget_id": "Text11", "field_type": "text",
+                "when": "registered_agent.type == 'commercial'",
+            },
+            "registered_agent.name__noncommercial": {
+                "canonical_key": "registered_agent.name",
+                "widget_id": "Text13", "field_type": "text",
+                "when": "registered_agent.type == 'noncommercial'",
+            },
+        },
+    }
+    (d / "mapping.json").write_text(json.dumps(mapping))
+    case = {"registered_agent": {"type": "noncommercial",
+                                 "name": "Penobscot Agent Services"}}
+    values = _filled_values(str(tmp_path), case)
+    assert not values.get("Text11"), "commercial line filled for a noncommercial agent"
+    assert values.get("Text13") == "Penobscot Agent Services"
+
+
 def test_fill_keeps_field_when_controller_unknown(tmp_path):
     # Conservative gating, same as engine.plan: when the controller is absent
     # the condition is unknown (None, not False) and the field still fills.

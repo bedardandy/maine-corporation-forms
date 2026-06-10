@@ -15,10 +15,13 @@
     "total_fees_dollars": "175",
     "signer": {
       "printed_name": "Marguerite Example",
-      "capacity": "Authorized Member"
+      "capacity": "Authorized Member",
+      "printed_name_and_capacity": "Marguerite Example, Authorized Member"
     },
     "entities": [
-      {"name": "Casco Bay Ventures, LLC"}
+      {
+        "name": "Casco Bay Ventures, LLC"
+      }
     ],
     "contact": {
       "name": "Marguerite Example",
