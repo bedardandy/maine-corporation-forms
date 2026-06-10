@@ -21,6 +21,8 @@
 | `filing.contact.phone` | text | high | (Daytime telephone number) |
 | `filing.date_signed` | text | high | DATED |
 
+_Showing 12 of 19 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (the name to be reserved) is non-empty. (depends on `entity.name`)

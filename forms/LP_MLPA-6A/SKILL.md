@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.name` | text | high | (Name of attested copy recipient) |
 | `filing.contact.email` | text | high | (Contact email address for this filing) |
 
+_Showing 12 of 42 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - Both entity.name (current name as on SOS record) and entity.new_name are non-empty. If filer intends no name change, entity.new_name should equal entity.name OR contain a 'no change' marker. (depends on `entity.name`, `entity.new_name`)

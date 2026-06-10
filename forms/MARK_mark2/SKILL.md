@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 36 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - mark.applicant.entity_name is non-empty (mark owner's identity). (depends on `mark.applicant.entity_name`)

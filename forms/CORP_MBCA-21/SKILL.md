@@ -21,6 +21,8 @@
 | `filing.contact.email` | text | high | Contact email address for this filing |
 | `filing.contact.name` | text | high | Name of contact person |
 
+_Showing 12 of 21 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (pre-conversion corporate name) is non-empty. (depends on `entity.name`)

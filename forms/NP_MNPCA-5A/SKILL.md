@@ -21,6 +21,8 @@
 | `filing.date_signed` | text | high | DATED ___ (left side, y≈320-341) |
 | `filing.entities[0].name` | text | high | Name of entity(s) on the submitted filings [1] |
 
+_Showing 12 of 21 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (real corporate name) is non-empty. (depends on `entity.name`)

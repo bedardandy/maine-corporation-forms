@@ -21,6 +21,8 @@
 | `filing.contact.phone` | text | high | (Daytime telephone number) |
 | `filing.date_signed` | text | high | Dated ___ |
 
+_Showing 12 of 23 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

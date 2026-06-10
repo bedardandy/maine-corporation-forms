@@ -21,6 +21,8 @@
 | `entity.home_jurisdiction` | text | high | Jurisdiction of organization |
 | `entity.home_jurisdiction_name` | text | high | (Name of Limited Partnership in Jurisdiction of Organization) |
 
+_Showing 12 of 62 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty (the LP's existing Maine record). (depends on `entity.home_jurisdiction_name`)

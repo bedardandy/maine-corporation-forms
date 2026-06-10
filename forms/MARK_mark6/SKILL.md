@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 21 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - At least one of mark.charter_number, mark.text_words.line1, or mark.design_features.line1 is non-empty (the mark must be identifiable for cancellation). (depends on `mark.charter_number`, `mark.text_words.line1`, `mark.design_features.line1`)

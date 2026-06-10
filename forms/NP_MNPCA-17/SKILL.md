@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.name` | text | high | Name of attested copy recipient |
 | `filing.contact.email` | text | high | Contact email address for this filing |
 
+_Showing 12 of 24 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

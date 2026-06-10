@@ -21,6 +21,8 @@
 | `registered_agent.name` | text | high | SECOND: (name of commercial registered agent) (fills multiple widgets) |
 | `registered_agent.physical_address` | text | high | SECOND: (physical location, not P.O. Box – street, city, state and zip code) |
 
+_Showing 12 of 13 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - Exactly one filing.underlying_filing_type enum value is selected (one of five page-0 checkboxes). (depends on `filing.underlying_filing_type`)

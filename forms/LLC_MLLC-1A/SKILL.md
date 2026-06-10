@@ -21,6 +21,8 @@
 | `filing.entities[1].name` | text | high | Name of entity(s) on the submitted filings [2] |
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 
+_Showing 12 of 20 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.reserved_name is non-empty. (depends on `entity.reserved_name`)

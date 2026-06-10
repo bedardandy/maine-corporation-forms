@@ -21,6 +21,8 @@
 | `entity.name` | text | high | (Real Name of Limited Partnership) |
 | `filing.attested_copy_recipient.firm` | text | high | (Firm or Company) |
 
+_Showing 12 of 28 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (the LP's real name) is non-empty. (depends on `entity.name`)

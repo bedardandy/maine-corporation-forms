@@ -21,6 +21,8 @@
 | `filing.entities[0].name` | text | high | Name of entity(s) on the submitted filings [1] |
 | `filing.entities[1].name` | text | high | Name of entity [2] |
 
+_Showing 12 of 17 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty (this is a foreign-only form per the FOREIGN NONPROFIT CORPORATION page-0 heading). (depends on `entity.home_jurisdiction_name`)

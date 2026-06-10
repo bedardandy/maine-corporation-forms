@@ -21,6 +21,8 @@
 | `consolidation.parties[1].signature_block.signer_2.printed_name_and_capacity` | text | high | *By (signature) ___ / (type or print name and capacity) [second signature block, signer 2] |
 | `consolidation.parties[1].vote_method` | text | high | Block 2 option 1: By the members at a meeting on (date)... (fills multiple widgets) |
 
+_Showing 12 of 32 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (the new corporation resulting from consolidation) is non-empty and matches across fields 3, 4, and 24. (depends on `entity.name`)

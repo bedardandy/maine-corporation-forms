@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 20 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - name_reservation.name_to_reserve is non-empty. (depends on `name_reservation.name_to_reserve`)

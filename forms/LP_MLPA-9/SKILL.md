@@ -21,6 +21,8 @@
 | `entity.initial_certificate_filing_date` | text | high | FIRST: The date of filing of the limited partnership's initial certificate is ___ (date) |
 | `entity.is_dissolved` | checkbox | high | NINTH: The limited partnership is dissolved. |
 
+_Showing 12 of 69 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

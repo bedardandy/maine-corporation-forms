@@ -21,6 +21,8 @@
 | `cancellation.description_4` | text | high | Description of authority that is being cancelled: (line 4) |
 | `entity.annual_report_reminder_email` | text | high | Email address to use for annual report reminders |
 
+_Showing 12 of 31 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

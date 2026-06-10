@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.mailing_address.city_state_zip` | text | high | City, State & Zip |
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | Mailing Address |
 
+_Showing 12 of 28 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name_on_record is non-empty (top-of-form recital used to identify the existing SOS record). (depends on `entity.home_jurisdiction_name_on_record`)

@@ -21,6 +21,8 @@
 | `entity.home_jurisdiction` | text | high | FIRST: The jurisdiction of its organization is |
 | `entity.name` | text | high | (Name of Limited Partnership) |
 
+_Showing 12 of 30 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

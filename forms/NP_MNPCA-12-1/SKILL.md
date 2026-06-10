@@ -21,6 +21,8 @@
 | `registered_agent.cra_public_number` | text | high | SIXTH: CRA Public Number: |
 | `registered_agent.mailing_address` | text | high | SIXTH: (mailing address if different from above) |
 
+_Showing 12 of 15 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

@@ -21,6 +21,8 @@
 | `entity.form_type` | text | high | The form of the converting organization: |
 | `entity.home_jurisdiction` | text | high | The jurisdiction of the converting organization prior to filing this certificate: |
 
+_Showing 12 of 32 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name (the converting/predecessor organization's name) is non-empty. (depends on `entity.name`)

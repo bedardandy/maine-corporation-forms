@@ -21,6 +21,8 @@
 | `entity.maine_fictitious_name` | text | high | SECOND: ...the fictitious name under which it proposes to apply for authority to do business in the State of Maine is |
 | `entity.principal_office.mailing_address` | text | high | FOURTH: (mailing address if different from above) |
 
+_Showing 12 of 38 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

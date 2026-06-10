@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 35 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - mark.dates_of_first_use.anywhere is non-empty. (depends on `mark.dates_of_first_use.anywhere`)

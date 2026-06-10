@@ -21,6 +21,8 @@
 | `filing.contact.name` | text | high | (Name of contact person) |
 | `filing.contact.phone` | text | high | (Daytime telephone number) |
 
+_Showing 12 of 34 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - mark.applicant.entity_name is non-empty (mark owner identity, refreshed on amendment). (depends on `mark.applicant.entity_name`)

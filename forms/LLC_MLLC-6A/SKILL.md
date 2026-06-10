@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.firm` | text | high | (Firm or Company) |
 | `filing.attested_copy_recipient.mailing_address.city_state_zip` | text | high | (City, State & Zip) |
 
+_Showing 12 of 29 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty (the LLC's current SOS-record name; for synth fills the same value goes into both 'name' and 'new name' widgets unless a name change is being effected). (depends on `entity.name`)

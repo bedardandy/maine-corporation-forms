@@ -21,6 +21,8 @@
 | `entity.name` | text | high | FIRST: The name of the corporation is |
 | `entity.nonprofit_type` | text | high | THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes: (fills multiple widgets) |
 
+_Showing 12 of 46 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

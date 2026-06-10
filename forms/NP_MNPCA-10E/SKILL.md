@@ -21,6 +21,8 @@
 | `consolidation.parties[0].registered_office_address_line2` | text | high | FIFTH (domestic): ___ (street, city, state and zip code) |
 | `consolidation.parties[0].signature_block.corporation_name` | text | high | (name of corporation) — signature block 1, right column |
 
+_Showing 12 of 39 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - At least two consolidation.parties[N].name are non-empty (consolidation requires ≥2 participating corporations). (depends on `consolidation.parties[0].name`, `consolidation.parties[1].name`)

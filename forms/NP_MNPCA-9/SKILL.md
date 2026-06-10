@@ -21,6 +21,8 @@
 | `amendment.nature_and_text.line3` | text | high | SECOND: amendment text (line 3) |
 | `amendment.nature_and_text.line4` | text | high | SECOND: amendment text (line 4) |
 
+_Showing 12 of 38 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty (header) and matches filing.entities[0].name (cover-letter row 1). (depends on `entity.name`, `filing.entities[0].name`)

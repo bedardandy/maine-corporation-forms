@@ -21,6 +21,8 @@
 | `entity.principal_office.physical_address_line1` | text | high | FIFTH: Address of the registered or principal office, wherever located, is ___ (inline trailing blank, line 1) |
 | `entity.principal_office.physical_address_line2` | text | high | FIFTH: ___ (street, city, state and zip code) — wide labeled line |
 
+_Showing 12 of 33 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

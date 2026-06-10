@@ -21,6 +21,8 @@
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 | `merger.additional_parties_attached` | text | high | Names, type of entity, jurisdiction and effective date of the additional parties to the merger or share exchange are attached as Exhibit ___, and made a part hereof. |
 
+_Showing 12 of 45 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - merger.parties[] has at least 2 entries (a merger requires at least 2 constituent parties). (depends on `merger.parties[0].recital`, `merger.parties[1].recital`)

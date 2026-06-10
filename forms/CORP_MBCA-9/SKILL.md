@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | Mailing Address |
 | `filing.attested_copy_recipient.name` | text | high | Name of attested copy recipient |
 
+_Showing 12 of 25 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name on the form matches the corporation's existing name of record at the SOS (case-insensitive trim). (depends on `entity.name`)

@@ -21,6 +21,8 @@
 | `entity.principal_office.physical_address` | text | high | Address of the principal office, wherever located: (physical location - street, city, state, zip and country) |
 | `entity.professional_services_description` | text | high | (type of professional services) |
 
+_Showing 12 of 42 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

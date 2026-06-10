@@ -21,6 +21,8 @@
 | `entity.home_jurisdiction` | text | high | SEVENTH (Foreign Entities Only): Jurisdiction of incorporation or organization |
 | `entity.maine_authorization_date` | text | high | Date authorized to transact business in the State of Maine |
 
+_Showing 12 of 30 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

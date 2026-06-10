@@ -21,6 +21,8 @@
 | `entity.name_history[1].name` | text | high | THIRD: row 2 — New Name |
 | `entity.name_history[2].date` | text | high | THIRD: row 3 — Date of Change |
 
+_Showing 12 of 47 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty (SECOND recital). (depends on `entity.name`)

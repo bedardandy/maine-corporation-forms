@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 36 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - merger.merging_corporations_recital is non-empty. (depends on `merger.merging_corporations_recital`)

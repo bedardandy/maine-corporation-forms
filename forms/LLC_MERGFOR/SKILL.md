@@ -21,6 +21,8 @@
 | `filing.expedited_service` | text | high | Hold attested copy for pick up (fills multiple widgets) |
 | `filing.total_fees_dollars` | text | high | Total fee(s) enclosed: $ |
 
+_Showing 12 of 21 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - merger.surviving_entity.home_jurisdiction_name is non-empty. (depends on `merger.surviving_entity.home_jurisdiction_name`)

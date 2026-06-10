@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | (Mailing Address) |
 | `filing.attested_copy_recipient.name` | text | high | (Name of attested copy recipient) |
 
+_Showing 12 of 32 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty (header recital identifying the foreign LLC by its home-jurisdiction name). (depends on `entity.home_jurisdiction_name`)

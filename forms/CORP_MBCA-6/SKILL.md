@@ -21,6 +21,8 @@
 | `entity.directors_max_count` | text | high | nor more than __ directors |
 | `entity.directors_min_count` | text | high | not fewer than __ nor more than |
 
+_Showing 12 of 36 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty and matches the printed name on the form. (depends on `entity.name`)

@@ -21,6 +21,8 @@
 | `entity.required_office.mailing_address` | text | high | SIXTH: (mailing address if different from above) |
 | `entity.required_office.physical_address` | text | high | SIXTH: The street and mailing address of the foreign limited partnership's required office is: (physical location, street – not P.O. Box, city, state and zip code) |
 
+_Showing 12 of 26 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.maine_assumed_name_for_suffix is non-empty (FIRST). (depends on `entity.maine_assumed_name_for_suffix`)

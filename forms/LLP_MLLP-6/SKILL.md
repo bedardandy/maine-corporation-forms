@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.name` | text | high | (Name of attested copy recipient) |
 | `filing.contact.email` | text | high | (Contact email address for this filing) |
 
+_Showing 12 of 36 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty and contains a statutory LLP suffix ('Limited Liability Partnership', 'L.L.P.', or 'LLP') per 31 MRSA §803-A. (depends on `entity.name`)

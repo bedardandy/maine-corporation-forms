@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.name` | text | high | Name of attested copy recipient |
 | `filing.contact.email` | text | high | Contact email address for this filing |
 
+_Showing 12 of 28 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name ends with one of the statutory suffixes: 'Limited Liability Company', 'Limited Company', 'L.L.C.', 'LLC', 'L.C.', 'LC', or (if low-profit) 'L3C' or 'l3c' (case-insensitive substring match per 31 MRSA §1508). (depends on `entity.name`, `entity.is_low_profit_llc`)

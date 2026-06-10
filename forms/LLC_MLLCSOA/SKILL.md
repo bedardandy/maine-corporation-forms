@@ -21,6 +21,8 @@
 | `authority_2.person_or_position` | text | high | (name of person or position) |
 | `authority_3.authority_text_line_1` | text | high | Authority granted or limitations: (line 1) |
 
+_Showing 12 of 35 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

@@ -21,6 +21,8 @@
 | `general_partner_1.address` | text | high | FIFTH: Address (general partner row 1) |
 | `general_partner_1.name` | text | high | FIFTH: Name (general partner row 1) |
 
+_Showing 12 of 21 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - Exactly one of the five top-of-form transaction-type checkboxes is selected ('X one box only'). (depends on `filing.accompanying_transaction_type`)

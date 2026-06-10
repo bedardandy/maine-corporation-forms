@@ -21,6 +21,8 @@
 | `entity.directors_max_count` | text | high | nor more than ___ directors |
 | `entity.directors_min_count` | text | high | not fewer than ___ |
 
+_Showing 12 of 23 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - Exactly one of the six top-of-page filing-purpose checkboxes is selected (filing.accompanying_filing_type is one of the 6 enum values, not null and not multiple). (depends on `filing.accompanying_filing_type`)

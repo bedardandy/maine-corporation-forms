@@ -21,6 +21,8 @@
 | `entity.principal_office.physical_address` | text | high | FIFTH: Address of the registered or principal office, wherever located, is: (physical location - street (not P.O. Box), city, state and zip code) |
 | `entity.professional_services_description` | checkbox | high | SECOND: (used only when checkbox 18 is set) provide the following professional services: |
 
+_Showing 12 of 19 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

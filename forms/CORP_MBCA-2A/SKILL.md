@@ -21,6 +21,8 @@
 | `filing.contact.phone` | text | high | (Daytime telephone number) |
 | `filing.date_signed` | text | high | DATED |
 
+_Showing 12 of 20 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

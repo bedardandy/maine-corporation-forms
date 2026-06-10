@@ -21,6 +21,8 @@
 | `entity.professional_services_description.line1` | text | high | (provide the following professional services: ...) line 1 |
 | `entity.professional_services_description.line2` | text | high | (provide the following professional services: ...) line 2 |
 
+_Showing 12 of 45 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.home_jurisdiction_name is non-empty. (depends on `entity.home_jurisdiction_name`)

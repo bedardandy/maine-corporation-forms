@@ -21,6 +21,8 @@
 | `entity.public_benefit_purpose` | text | high | (public benefit purposes description) |
 | `filing.accompanying_document_type` | text | high | Articles of Nonprofit Conversion (13-C MRSA §933) (fills multiple widgets) |
 
+_Showing 12 of 17 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - Exactly one of the three accompanying-document-type checkboxes is selected. (depends on `filing.accompanying_document_type`)

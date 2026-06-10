@@ -21,6 +21,8 @@
 | `filing.enclosed_filing_types.line2` | text | high | List type of filing(s) enclosed [line 2] |
 | `filing.entities[0].name` | text | high | Name of Entity (s) [line 1] |
 
+_Showing 12 of 25 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

@@ -21,6 +21,8 @@
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | Mailing Address |
 | `filing.attested_copy_recipient.name` | text | high | Name of attested copy recipient |
 
+_Showing 12 of 44 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - If entity.is_lllp is false: name contains 'Limited Partnership', 'L.P.' or 'LP'. If entity.is_lllp is true (and is_professional_lllp false): name contains 'L.L.L.P.', 'LLLP', or 'Limited Liability Limited Partnership' (no 'L.P.'/'LP'). If entity.is_professional_lllp is true: name contains 'PLLLP', 'P.L.L.L.P.', or 'S.L.L.L.P.'. (depends on `entity.name`, `entity.is_lllp`, `entity.is_professional_lllp`)

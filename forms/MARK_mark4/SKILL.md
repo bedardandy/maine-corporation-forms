@@ -21,6 +21,8 @@
 | `mark.assignee.date_of_organization` | text | high | E.2: ...and the date of incorporation/organization is |
 | `mark.assignee.date_signed` | text | high | E.3: Dated |
 
+_Showing 12 of 35 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - At least one of mark.charter_number, mark.text_words.line1, or mark.design_features.line1 is non-empty (the assigned mark must be identifiable). Mirrors MARK_mark6's mark-identifier check. (depends on `mark.charter_number`, `mark.text_words.line1`, `mark.design_features.line1`)

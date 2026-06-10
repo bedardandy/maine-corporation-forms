@@ -21,6 +21,8 @@
 | `entity.professional_services_description.line2` | text | high | FOURTH: (type of professional services) line 2 |
 | `filing.attested_copy_recipient.firm` | text | high | (Firm or Company) |
 
+_Showing 12 of 30 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name is non-empty. (depends on `entity.name`)

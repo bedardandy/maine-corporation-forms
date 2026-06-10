@@ -21,6 +21,8 @@
 | `filing.entities[0].name` | text | high | Name of entity(s) on the submitted filings [1] |
 | `filing.entities[1].name` | text | high | Name of entity(s) on the submitted filings [2] |
 
+_Showing 12 of 20 canonical keys — the full set is in mapping.json._
+
 ## Conditional logic
 
 - entity.name matches the corporation's name of record at the SOS (the entity must currently exist in dissolved status). (depends on `entity.name`)
