@@ -32,8 +32,8 @@ def _category(review):
 
 def main():
     forms = sorted(d.name for d in (ROOT / "forms").iterdir() if d.is_dir())
-    manifest = {p["form_id"]: p for p in json.loads(
-        (ROOT / "catalog" / "pdf_manifest.json").read_text())["pdfs"]}
+    manifest = json.loads(
+        (ROOT / "catalog" / "pdf_manifest.json").read_text())["forms"]
     index = {f["form_id"]: f for f in json.loads(
         (ROOT / "catalog" / "forms_index.json").read_text())["forms"]}
 

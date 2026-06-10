@@ -57,13 +57,13 @@ def test_meta_coverage_adds_up():
 
 def test_extraction_is_idempotent_when_blanks_present():
     manifest = json.loads(
-        (ROOT / "catalog" / "pdf_manifest.json").read_text())["pdfs"]
-    for p in manifest:
-        pdf = ROOT / "forms" / p["form_id"] / p["filename"]
+        (ROOT / "catalog" / "pdf_manifest.json").read_text())["forms"]
+    for fid, p in manifest.items():
+        pdf = ROOT / "forms" / fid / p["filename"]
         if not pdf.exists():
             pytest.skip("blank PDFs not fetched (CI is PDF-free)")
         if hashlib.sha256(pdf.read_bytes()).hexdigest() != p["sha256"]:
-            pytest.skip(f"{p['form_id']} blank drifted from the manifest")
+            pytest.skip(f"{fid} blank drifted from the manifest")
     try:
         import fitz  # noqa: F401  (PyMuPDF)
         import pypdf  # noqa: F401

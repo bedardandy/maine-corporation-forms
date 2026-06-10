@@ -29,11 +29,8 @@ def test_empty_forms_are_non_acroform():
     # A form may have zero mapped fields only if it carries no AcroForm (a flat
     # reference document). An AcroForm form with zero fields is an unmapped gap.
     import json
-    manifest = {
-        p["form_id"]: p
-        for p in json.loads(
-            (ROOT / "catalog" / "pdf_manifest.json").read_text())["pdfs"]
-    }
+    manifest = json.loads(
+        (ROOT / "catalog" / "pdf_manifest.json").read_text())["forms"]
     for fid in FORM_IDS:
         if validate_form.validate_form(fid)["stats"]["fields"] == 0:
             assert manifest[fid].get("has_acroform") is False, \

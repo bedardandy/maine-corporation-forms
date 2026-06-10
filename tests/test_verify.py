@@ -19,11 +19,11 @@ def _sha(b):
 
 
 def _manifest(blank: bytes):
-    return {"pdfs": [{
-        "form_id": "TEST_X", "filename": "TEST_X.pdf",
+    return {"forms": {"TEST_X": {
+        "filename": "TEST_X.pdf",
         "sha256": _sha(blank), "bytes": len(blank),
         "url": "https://example.test/TEST_X.pdf", "fetch": True,
-    }]}
+    }}}
 
 
 # ---- verify_blank / guard_blank (fill-time, on-disk) -----------------------
@@ -125,8 +125,17 @@ def test_check_upstream_classifies(monkeypatch):
 
 def test_real_manifest_every_entry_anchored():
     man = verify.load_manifest()
-    assert man["pdfs"], "manifest is empty"
-    for e in man["pdfs"]:
-        assert e.get("sha256") and len(e["sha256"]) == 64, e["form_id"]
-        assert e.get("bytes"), e["form_id"]
-        assert e.get("url", "").startswith("https://"), e["form_id"]
+    assert man["forms"], "manifest is empty"
+    for fid, e in man["forms"].items():
+        assert e.get("sha256") and len(e["sha256"]) == 64, fid
+        assert e.get("bytes"), fid
+        assert e.get("url", "").startswith("https://"), fid
+
+
+def test_real_manifest_validates_against_shared_schema():
+    """The converged manifest must satisfy the shared dialect's JSON Schema
+    (shipped with maine-forms-engine), so the drift tooling stays pointable
+    at all four sibling catalogs."""
+    jsonschema = pytest.importorskip("jsonschema")
+    from maine_forms_engine.specs import pdf_manifest_schema
+    jsonschema.validate(verify.load_manifest(), pdf_manifest_schema())

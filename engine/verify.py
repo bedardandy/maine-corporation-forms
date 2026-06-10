@@ -41,12 +41,15 @@ def load_manifest(manifest_path=None) -> dict:
 
 
 def manifest_entry(form_id: str, manifest=None):
-    """Return the manifest record for ``form_id`` (or ``None``)."""
+    """Return the manifest record for ``form_id`` (or ``None``).
+
+    The manifest is the shared ``{"forms": {form_id: {...}}}`` dialect
+    (``maine_forms_engine.specs.pdf_manifest_schema()``) — converged from
+    this repo's historical ``{"pdfs": [...]}`` fork by
+    ``tools/convert_pdf_manifest.py``.
+    """
     man = manifest if manifest is not None else load_manifest()
-    for rec in man.get("pdfs", []):
-        if rec.get("form_id") == form_id:
-            return rec
-    return None
+    return man.get("forms", {}).get(form_id)
 
 
 def verify_blank(form_id, forms_root="forms", manifest=None):

@@ -42,11 +42,11 @@ def test_by_entity_covers_every_form():
 
 
 def test_pdf_manifest_is_fetch_on_demand():
-    manifest = json.loads((ROOT / "catalog" / "pdf_manifest.json").read_text())["pdfs"]
-    assert {p["form_id"] for p in manifest} == set(_form_dirs())
+    manifest = json.loads((ROOT / "catalog" / "pdf_manifest.json").read_text())["forms"]
+    assert set(manifest) == set(_form_dirs())
     # Every blank is fetched on demand; none is redistributed in-repo.
-    assert all(p.get("fetch") for p in manifest)
-    assert all(p.get("url", "").startswith("https://") for p in manifest)
+    assert all(p.get("fetch") for p in manifest.values())
+    assert all(p.get("url", "").startswith("https://") for p in manifest.values())
 
 
 def test_no_pdfs_committed():

@@ -161,8 +161,7 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
 
-    manifest = {p["form_id"]: p
-                for p in json.loads(MANIFEST.read_text())["pdfs"]}
+    manifest = json.loads(MANIFEST.read_text())["forms"]
     targets = args.forms or sorted(manifest)
     unknown = [f for f in targets if f not in manifest]
     if unknown:

@@ -53,6 +53,18 @@ follow this protocol:
    trust level (per-field confidence), any unresolved/missing facts and
    manual-review rubric checks, and that it must be verified before filing.
 
+## Shared engine
+
+The drift tools (`tools/{check_upstream,fetch_pdfs}.py`) are thin shims over
+the [`maine-forms-engine`](https://github.com/bedardandy/maine-forms-engine)
+package (in `requirements.txt`; **required**), configured with this repo's
+policy (fetch-flag probe set, transient-vs-GONE download classification), and
+`tools/agent_server.py` builds on its MCP scaffold. `catalog/pdf_manifest.json`
+uses the shared `{"forms": {...}}` dialect (JSON Schema ships with the
+package; `tools/convert_pdf_manifest.py` performed the one-time conversion).
+The pypdf fill engine (`engine/`) and the inverted mapping direction stay
+local to this repo.
+
 ## Rules
 - **Not legal advice.** Filled output is a draft; it must be verified against the
   official form before filing. Always say so.

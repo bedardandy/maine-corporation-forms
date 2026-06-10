@@ -612,7 +612,7 @@ def build(pdf_dir, pass1_dir, repo_root, overwrite_hand_maintained=False):
     pdfs = sorted(p for p in pdf_dir.glob("*.pdf"))
     hand_maintained = load_hand_maintained()
     forms_index = []
-    pdf_manifest = []
+    pdf_manifest = {}
     by_entity = defaultdict(list)
     status_rows = []
     mismatch_report = []
@@ -728,14 +728,13 @@ def build(pdf_dir, pass1_dir, repo_root, overwrite_hand_maintained=False):
             "mapped_fields": mapped_count,
             "path": f"forms/{form_id}",
         })
-        pdf_manifest.append({
-            "form_id": form_id,
+        pdf_manifest[form_id] = {
             "filename": f"{form_id}.pdf",
             "sha256": sha256_of(form_dir / f"{form_id}.pdf"),
             "bytes": (form_dir / f"{form_id}.pdf").stat().st_size,
             "num_pages": num_pages,
             "has_acroform": bool(has_acro),
-        })
+        }
         by_entity[entity_label].append(form_id)
         status_rows.append({
             "form_id": form_id,
@@ -748,11 +747,24 @@ def build(pdf_dir, pass1_dir, repo_root, overwrite_hand_maintained=False):
 
     # ---- catalog files ----
     forms_index.sort(key=lambda e: e["form_id"])
-    pdf_manifest.sort(key=lambda e: e["form_id"])
     (catalog_root / "forms_index.json").write_text(
         json.dumps({"forms": forms_index}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (catalog_root / "pdf_manifest.json").write_text(
-        json.dumps({"pdfs": pdf_manifest}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # Shared {"forms": {...}} manifest dialect (maine_forms_engine.specs
+    # schema). The source URL + fetch flag are not derivable from the PDFs
+    # themselves, so a regeneration carries them over from the existing
+    # manifest instead of clobbering them.
+    manifest_path = catalog_root / "pdf_manifest.json"
+    prior = {}
+    if manifest_path.exists():
+        prior = json.loads(manifest_path.read_text(encoding="utf-8")).get("forms", {})
+    for fid, entry in pdf_manifest.items():
+        for carry in ("url", "fetch"):
+            if carry in prior.get(fid, {}):
+                entry[carry] = prior[fid][carry]
+    manifest_path.write_text(
+        json.dumps({"count": len(pdf_manifest),
+                    "forms": {k: pdf_manifest[k] for k in sorted(pdf_manifest)}},
+                   indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     by_entity_out = {
         "by_entity_type": {
             et: {"count": len(ids), "form_ids": sorted(ids)}

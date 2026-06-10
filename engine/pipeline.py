@@ -85,10 +85,7 @@ def _manifest_sha(form_id: str) -> Optional[str]:
         man = json.loads((_ROOT / "catalog" / "pdf_manifest.json").read_text())
     except Exception:
         return None
-    for rec in man.get("pdfs", []):
-        if rec.get("form_id") == form_id:
-            return rec.get("sha256")
-    return None
+    return (man.get("forms", {}).get(form_id) or {}).get("sha256")
 
 
 def _step_source_fetch(ctx: Context) -> None:
