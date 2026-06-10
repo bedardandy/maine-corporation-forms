@@ -166,6 +166,14 @@ surface as `severity=manual` instead of being dropped), signer rules, and the
 against the blank and writes the filled AcroForm. `engine.plan` remains
 available on its own for the resolved/unresolved/skipped coverage view.
 
+Checkbox-paradox ("yellow light") note: the sibling repos (court / tax) ship
+this class as a warnings-only `forms/<ID>/constraints.json` evaluated by the
+shared `maine_forms_engine.constraints` layer. In this repo the same class
+already lives in `rubric.yaml` — "X and Y cannot both be true", "exactly one
+... is selected", and mutually-exclusive signer blocks compile to executable
+checks in `engine.rubric` and surface through `engine.preflight` with the
+rubric's own severities — so no `constraints.json` bridge is added here.
+
 ## Trust & provenance
 
 The blank PDFs are State of Maine public records. The field mappings were

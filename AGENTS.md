@@ -76,5 +76,11 @@ local to this repo.
   number required when the clerk is commercial). `engine.preflight` /
   `engine.rubric` execute the machine-checkable ones; checks it reports as
   `severity=manual` still need your judgment — honor them.
+- **Yellow light: paradoxical selections.** Warnings list selections the
+  printed form cannot carry at once (mutually-exclusive booleans, exactly-one
+  enums, exclusive signer blocks). In this repo they come from `rubric.yaml`
+  via `engine.rubric`/`engine.preflight` — the equivalent of the sibling
+  repos' `constraints.json` layer — and warning-severity findings never block
+  a fill (only error-severity preflight issues do).
 - Keep filled PDFs and run artifacts out of git (see `.gitignore`).
 - Licensed Apache-2.0 (`LICENSE`).
