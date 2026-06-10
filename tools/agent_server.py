@@ -32,6 +32,7 @@ def _build():
     import route_form
     from engine import fill as fill_engine
     from engine import plan as plan_engine
+    from engine import preflight as preflight_engine
 
     mcp = FastMCP("maine-corporation-forms")
 
@@ -66,18 +67,36 @@ def _build():
         return plan_engine.build_plan(form_id, case, _FORMS_ROOT)
 
     @mcp.tool()
-    def fill_form(form_id: str, case: dict, out_path: str) -> dict:
+    def preflight(form_id: str, case: dict) -> dict:
+        """Run every check (schema + rubric + signer rules + plan) at once.
+
+        Returns one machine-readable issue list: {ok, issues, summary,
+        coverage}. severity=error blocks fill_form by default;
+        severity=manual entries are rubric checks that need human review.
+        """
+        return preflight_engine.preflight(form_id, case, _FORMS_ROOT)
+
+    @mcp.tool()
+    def fill_form(form_id: str, case: dict, out_path: str,
+                  no_preflight: bool = False) -> dict:
         """Fill the form and write a PDF; returns {ok, path, report}.
 
-        ``report`` carries the fill diagnostics: written, skipped_when,
-        dropped_enums (enum values no option binding can place), and
-        ignored_case_keys.
+        Preflight runs first and refuses on error-severity issues (set
+        ``no_preflight=true`` to fill a partial draft anyway). ``report``
+        carries the fill diagnostics: preflight result, written,
+        skipped_when, dropped_enums (enum values no option binding can
+        place), and ignored_case_keys.
         """
         try:
             report: dict = {}
             out = fill_engine.fill(form_id, case, out_path, _FORMS_ROOT,
-                                   report=report)
+                                   report=report,
+                                   preflight="off" if no_preflight
+                                   else None)
             return {"ok": True, "path": str(out), "report": report}
+        except preflight_engine.PreflightError as e:
+            return {"ok": False, "error": "preflight blocked the fill",
+                    "preflight": e.result}
         except Exception as e:
             return {"ok": False, "error": f"{type(e).__name__}: {e}"}
 

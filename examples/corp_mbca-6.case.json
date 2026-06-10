@@ -3,8 +3,10 @@
     "name": "Wabanaki Widgets, Inc.",
     "is_professional_corporation": false,
     "is_close_corporation": false,
+    "share_structure": "single_class",
     "authorized_shares_total": 1000,
     "share_class_name": "Common",
+    "has_board_of_directors": true,
     "director_liability_limited": true,
     "preemptive_rights_elected": false,
     "annual_report_reminder_email": "reminders@example.com"

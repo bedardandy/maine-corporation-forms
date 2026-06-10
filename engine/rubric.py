@@ -507,7 +507,9 @@ def _strip_parens(text):
         prev = out
         out = re.sub(r"\(([^()]*)\)", repl, out)
     out = re.sub(r"\s+", " ", out)
-    out = re.sub(r"\s+([.,;])", r"\1", out)
+    # tighten dangling space before sentence punctuation, but never glue a
+    # relative ".key" fragment onto the previous word ("street and .city")
+    out = re.sub(r"\s+([.,;])(?=\s|$)", r"\1", out)
     return out.strip()
 
 

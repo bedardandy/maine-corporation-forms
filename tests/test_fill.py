@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 import pypdf
+import pytest
 from pypdf.generic import (
     ArrayObject,
     DictionaryObject,
@@ -179,10 +180,17 @@ def test_fill_reports_dropped_enum_value(tmp_path):
         },
     }
     (d / "mapping.json").write_text(json.dumps(mapping))
+    # preflight (on by default) refuses the undeliverable enum outright...
+    from engine.preflight import PreflightError
+    with pytest.raises(PreflightError):
+        fill.fill_to_stream(FORM_ID, {"entity": {"choice": "gamma"}},
+                            io.BytesIO(), str(tmp_path), verify_blank="off")
+    # ...and with the gate off, the fill layer still reports the drop
     report = {}
     buf = io.BytesIO()
     fill.fill_to_stream(FORM_ID, {"entity": {"choice": "gamma"}}, buf,
-                        str(tmp_path), verify_blank="off", report=report)
+                        str(tmp_path), verify_blank="off", report=report,
+                        preflight="off")
     assert report["dropped_enums"] == [
         {"key": "entity.choice", "value": "gamma",
          "allowed": ["alpha", "beta"]}]

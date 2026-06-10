@@ -21,18 +21,26 @@ follow this protocol:
    `registered_agent.*`, `filing.*`, and roster groups (`incorporator_1.*`,
    `officer.*`, `member.*`, `general_partner_1.*`, ...). Don't invent values;
    omit unknowns.
-4. **Validate (optional):** `engine.schema.validate(form_id, case_data)` checks
-   types, enums, and required keys against `forms/<ID>/schema.json`.
-5. **Plan (recommended):** `python3 -m engine.plan <ID> case.json` reports
-   coverage *without* writing a PDF — which canonical keys are **resolved**,
-   which are **unresolved** (missing facts; `required: true` are blocking per
-   the rubric), and which are **skipped** because a `when` condition gates them
-   off (e.g. a commercial-agent CRA number when the agent is noncommercial).
-   Use it to collect missing facts before filling.
-6. **Fill:** `python3 -m engine.fill <ID> case.json out.pdf`.
+4. **Preflight (recommended):** `python3 -m engine.preflight <ID> case.json`
+   runs *every* check at once — JSON-Schema validation, the executable
+   `rubric.yaml` checks (`engine.rubric`: name suffixes, P.O. Box bans,
+   conditional requirements, date sanity, fee totals, ...), signer rules, and
+   the coverage plan — and returns one machine-readable issue list
+   (`{ok, issues, summary, coverage}`). `severity=error` blocks `fill` by
+   default; `severity=manual` entries are rubric checks that need human
+   judgment — review them, don't ignore them. (`--json` for the full list.)
+5. **Plan (optional, finer-grained):** `python3 -m engine.plan <ID> case.json`
+   reports coverage *without* writing a PDF — which canonical keys are
+   **resolved**, which are **unresolved** (missing facts), and which are
+   **skipped** because a `when` condition gates them off (e.g. a
+   commercial-agent CRA number when the agent is noncommercial). Preflight
+   already includes this.
+6. **Fill:** `python3 -m engine.fill <ID> case.json out.pdf`. Preflight runs
+   automatically and the fill **refuses on error-severity issues**; pass
+   `--no-preflight` (API: `preflight="off"`) to write a partial draft anyway.
 7. **Verify & report:** open `out.pdf`, read back field values, and surface the
-   trust level (per-field confidence), any unresolved/missing facts, and that it
-   must be verified before filing.
+   trust level (per-field confidence), any unresolved/missing facts and
+   manual-review rubric checks, and that it must be verified before filing.
 
 ## Rules
 - **Not legal advice.** Filled output is a draft; it must be verified against the
@@ -42,6 +50,8 @@ follow this protocol:
 - **Reuse canonical keys.** The naming conventions are in `docs/field-schema.md`
   and the model in `docs/data-model.md`; don't invent ad-hoc keys.
 - **Conditional logic.** `rubric.yaml` encodes required-when rules (e.g. CRA
-  number required when the clerk is commercial). Honor them.
+  number required when the clerk is commercial). `engine.preflight` /
+  `engine.rubric` execute the machine-checkable ones; checks it reports as
+  `severity=manual` still need your judgment — honor them.
 - Keep filled PDFs and run artifacts out of git (see `.gitignore`).
 - Licensed Apache-2.0 (`LICENSE`).

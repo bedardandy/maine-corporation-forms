@@ -54,16 +54,16 @@ Point an agent at the repo and say *"use this project to prepare: \<your
 filing\>"*. There are two on-ramps:
 
 - **MCP server (recommended).** `tools/agent_server.py` exposes `find_forms` /
-  `get_form` / `plan_fill` / `fill_form`, so the agent calls tools instead of
-  reading docs. It is pre-registered via **`.mcp.json`**, or add it manually:
+  `get_form` / `plan_fill` / `preflight` / `fill_form`, so the agent calls tools
+  instead of reading docs. It is pre-registered via **`.mcp.json`**, or add it manually:
   ```bash
   claude mcp add maine-corporation-forms -- python3 tools/agent_server.py
   ```
   A **`.codex-plugin/`** manifest and a top-level **`skills/corp-route-and-fill/`**
   skill ship for harnesses that consume those.
 - **Plain CLI / HTTP.** Route (`tools/route_form.py`) → read the form's `SKILL.md` and
-  per-field confidence → build a canonical case object → plan coverage
-  (`engine.plan`) → fetch the blank (`tools/fetch_pdfs.py`) → fill
+  per-field confidence → build a canonical case object → preflight every check
+  (`engine.preflight`) → fetch the blank (`tools/fetch_pdfs.py`) → fill
   (`engine.fill`). The protocol is in **[`AGENTS.md`](AGENTS.md)**. A
   dependency-free HTTP API (`tools/api_server.py`, `make serve`) exposes the same
   `/route` `/plan` `/fill` steps and serves the browser review UI (`web/`) at its
@@ -90,6 +90,8 @@ catalog/
   caselaw.json          experimental case-law background (propose-and-flag)
 engine/                 deterministic fill engine (stdlib + pypdf)
   fill.py  plan.py  route.py  schema.py  canonical.py  printcopy.py
+  preflight.py         one merged issue list: schema + rubric + signer + plan
+  rubric.py            executes the machine-checkable rubric.yaml checks
   verify.py            pin each blank to its manifest SHA-256 (fill-time guard)
 docs/                   architecture, data model, field schema, integrations,
                         router/API, templating, print-and-sign, STATUS
@@ -148,15 +150,19 @@ silently swapped on disk cannot be filled without notice.
 ```bash
 pip install -r requirements.txt                # pypdf, PyYAML
 python3 tools/fetch_pdfs.py --forms CORP_MBCA-6 # download the blank, SHA-verified
-python3 -m engine.plan CORP_MBCA-6 examples/corp_mbca-6.case.json   # coverage, no PDF
+python3 -m engine.preflight CORP_MBCA-6 examples/corp_mbca-6.case.json  # all checks, no PDF
 python3 -m engine.fill CORP_MBCA-6 examples/corp_mbca-6.case.json out.pdf
 ```
 
-`engine.plan` reports which canonical keys a case **resolves**, which are
-**unresolved** (missing facts to collect; `required` ones block per the rubric),
-and which are **skipped** because a `when` condition gates them off (e.g. a
-commercial-agent CRA number when the agent is noncommercial). `engine.fill`
-resolves the mapping against the blank and writes the filled AcroForm.
+`engine.preflight` is the one-stop validation: it merges JSON-Schema checks,
+the executable `rubric.yaml` checks (`engine.rubric` — name suffixes, P.O. Box
+bans, conditional requirements, date sanity, fee totals; prose-only checks
+surface as `severity=manual` instead of being dropped), signer rules, and the
+`engine.plan` coverage buckets into a single machine-readable issue list.
+`engine.fill` runs it automatically and **refuses on error-severity issues**
+(`--no-preflight` writes a partial draft anyway), then resolves the mapping
+against the blank and writes the filled AcroForm. `engine.plan` remains
+available on its own for the resolved/unresolved/skipped coverage view.
 
 ## Trust & provenance
 

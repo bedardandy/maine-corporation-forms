@@ -43,6 +43,33 @@ def load_mapping(form_id, forms_root="forms"):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _preflight_mode(preflight):
+    mode = preflight or os.environ.get("MCORP_PREFLIGHT", "error")
+    if mode not in ("error", "off"):
+        raise ValueError(f"preflight must be 'error' or 'off', got {mode!r}")
+    return mode
+
+
+def _run_preflight_gate(form_id, case_data, forms_root, preflight, report):
+    """Refuse to fill when preflight finds error-severity issues.
+
+    ``preflight`` is ``"error"`` (default; raise
+    :class:`engine.preflight.PreflightError` on any error-severity issue) or
+    ``"off"`` (skip the gate — filling a partial draft is legitimate). The
+    default can be changed with the ``MCORP_PREFLIGHT`` environment variable.
+    When a ``report`` dict is passed, the full preflight result is stored in
+    ``report["preflight"]``.
+    """
+    if _preflight_mode(preflight) == "off":
+        return
+    from . import preflight as preflight_engine
+    result = preflight_engine.preflight(form_id, case_data, forms_root)
+    if isinstance(report, dict):
+        report["preflight"] = result
+    if not result["ok"]:
+        raise preflight_engine.PreflightError(result)
+
+
 def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
                  report=None):
     """Return a ``pypdf.PdfWriter`` for ``form_id`` filled with ``case_data``.
@@ -208,12 +235,16 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
 
 
 def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None,
-         report=None):
+         report=None, preflight=None):
     """Fill ``form_id`` with ``case_data`` and write to ``out_path``.
 
-    Returns the output ``Path``. See :func:`build_writer` for ``verify_blank``
-    and the ``report`` diagnostics dict.
+    Runs :mod:`engine.preflight` first and raises
+    :class:`engine.preflight.PreflightError` on error-severity issues unless
+    ``preflight="off"`` (see :func:`_run_preflight_gate`). Returns the output
+    ``Path``. See :func:`build_writer` for ``verify_blank`` and the
+    ``report`` diagnostics dict.
     """
+    _run_preflight_gate(form_id, case_data, forms_root, preflight, report)
     writer = build_writer(form_id, case_data, forms_root,
                           verify_blank=verify_blank, report=report)
     out = Path(out_path)
@@ -224,13 +255,14 @@ def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None,
 
 
 def fill_to_stream(form_id, case_data, stream, forms_root="forms",
-                   verify_blank=None, report=None):
+                   verify_blank=None, report=None, preflight=None):
     """Fill ``form_id`` and write the PDF bytes to a binary ``stream``.
 
     Useful for serving a filled PDF without a temp file (see tools/api_server.py).
-    See :func:`build_writer` for ``verify_blank`` and the ``report``
-    diagnostics dict.
+    Runs the same preflight gate as :func:`fill`. See :func:`build_writer`
+    for ``verify_blank`` and the ``report`` diagnostics dict.
     """
+    _run_preflight_gate(form_id, case_data, forms_root, preflight, report)
     writer = build_writer(form_id, case_data, forms_root,
                           verify_blank=verify_blank, report=report)
     writer.write(stream)
@@ -460,18 +492,34 @@ def _set_radio(writer, group_name, on_state):
 
 
 def _cli(argv):
+    no_preflight = "--no-preflight" in argv
+    argv = [a for a in argv if a != "--no-preflight"]
     if len(argv) < 4:
         print("usage: python -m engine.fill <FORM_ID> <case_data.json> <out.pdf> "
-              "[forms_root]")
+              "[forms_root] [--no-preflight]")
         return 1
     form_id = argv[1]
     case_data = json.loads(Path(argv[2]).read_text(encoding="utf-8"))
     out_path = argv[3]
     forms_root = argv[4] if len(argv) > 4 else "forms"
     report = {}
-    out = fill(form_id, case_data, out_path, forms_root, report=report)
+    try:
+        out = fill(form_id, case_data, out_path, forms_root, report=report,
+                   preflight="off" if no_preflight else None)
+    except Exception as e:
+        from . import preflight as preflight_engine
+        if isinstance(e, preflight_engine.PreflightError):
+            print(e)
+            return 1
+        raise
     print(f"wrote {out} ({len(report['written'])} fields written, "
           f"{len(report['skipped_when'])} gated off)")
+    pf = report.get("preflight")
+    if pf:
+        s = pf["summary"]
+        print(f"  preflight: {s['warning']} warning(s), {s['manual']} "
+              "manual-review rubric check(s) — see python -m "
+              f"engine.preflight {form_id} <case.json>")
     for d in report["dropped_enums"]:
         print(f"  UNMAPPED ENUM (not written): {d['key']} = {d['value']!r} "
               f"(allowed: {', '.join(d['allowed'])})")
