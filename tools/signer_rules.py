@@ -25,6 +25,7 @@ designated text fields.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 # Entity class -> default signer rules, keyed by the form-id prefix (which is
@@ -102,10 +103,17 @@ _CAPACITY_SYNONYMS = {
     "owner": "applicant",
 }
 
+# Tokens too generic (or too abbreviated) to trust inside a longer phrase:
+# they canonicalize only on an exact match. "managing agent" is not a
+# registered agent; "inc" must not fire inside an entity-name tail.
+_EXACT_ONLY = {"inc", "agent", "vp", "gp"}
 
-def entity_class(form_id: str) -> str:
+
+def entity_class(form_id: str):
+    """Return the entity class for a form id, or ``None`` if the prefix is
+    not one of the known classes (callers must not assume a corporation)."""
     prefix = form_id.split("_", 1)[0].upper()
-    return prefix if prefix in _DEFAULTS else "CORP"
+    return prefix if prefix in _DEFAULTS else None
 
 
 def _forms_root(forms_root: str) -> Path:
@@ -134,10 +142,15 @@ def normalize_capacity(value: str) -> str:
         v = v[4:].strip()
     if v in _CAPACITY_SYNONYMS:
         return _CAPACITY_SYNONYMS[v]
-    # Substring match (e.g. "sole incorporator", "managing member").
-    for token, canon in _CAPACITY_SYNONYMS.items():
-        if token in v:
-            return canon
+    # Word-boundary fallback (e.g. "sole incorporator", "managing member"),
+    # longest token first so "general partner" wins over "partner". A bare
+    # substring scan is wrong here: "principal" contains "inc" and
+    # "managing agent" contains "agent", which would mis-canonicalize.
+    for token in sorted(_CAPACITY_SYNONYMS, key=len, reverse=True):
+        if token in _EXACT_ONLY:
+            continue
+        if re.search(r"(?<![a-z])" + re.escape(token) + r"(?![a-z])", v):
+            return _CAPACITY_SYNONYMS[token]
     return v
 
 
@@ -155,22 +168,26 @@ def rules_for(form_id: str, forms_root: str = "forms") -> dict:
 
     meta = _read_form_meta(form_id, forms_root)
     cls = entity_class(form_id)
-    spec = _DEFAULTS[cls]
+    known_class = cls is not None
+    spec = _DEFAULTS[cls] if known_class else _DEFAULTS["CORP"]
     category = (meta.get("category") or "").lower()
     title_l = (meta.get("title") or "").lower()
     # ``category`` is absent on many form.yaml files, so also detect a formation
     # filing from its title (Articles of Incorporation / Organization,
-    # Certificate of Formation / Limited Partnership, ...).
+    # Certificate of Formation / Limited Partnership, ...). Match whole
+    # phrases only: a bare "registration"/"qualification" token would sweep in
+    # foreign NAME-registration forms ("Application for Registration of Name",
+    # "Consent Terminating Name Registration"), which are signed by an
+    # officer/authorized person of the existing entity, not an incorporator.
     _FORMATION_TITLES = (
         "articles of incorporation",
         "articles of organization",
         "certificate of formation",
         "certificate of limited partnership",
-        "registration",
-        "qualification",
         "statement of qualification",
+        "statement of foreign qualification",
     )
-    is_formation = category in {"formation", "registration", "qualification"} or any(
+    is_formation = category == "formation" or any(
         t in title_l for t in _FORMATION_TITLES
     )
     allowed = list(spec["formation"] if is_formation else spec["other"])
@@ -193,16 +210,36 @@ def rules_for(form_id: str, forms_root: str = "forms") -> dict:
             "filings. Verify the form's printed signature block for the "
             "authoritative signer."
         ),
-        "source": "default",
+        "source": "default" if known_class
+        else "default (unrecognized form-id prefix; corporation capacities "
+             "assumed — verify the printed signature block)",
     }
+
+
+def _block_capacity(block: dict) -> str:
+    """Pull the raw capacity text out of one signer block.
+
+    Accepts an explicit ``capacity``/``title``, or falls back to the combined
+    ``printed_name_and_capacity`` line the canonical data model uses
+    ("Jane Doe, Manager" -> "Manager").
+    """
+    cap = block.get("capacity") or block.get("title")
+    if cap:
+        return cap
+    combined = (block.get("printed_name_and_capacity")
+                or block.get("printed_name_and_title") or "")
+    if "," in combined:
+        return combined.rsplit(",", 1)[1].strip()
+    return ""
 
 
 def validate(form_id: str, case: dict, forms_root: str = "forms") -> list:
     """Check a case's declared signer capacity against the form's rules.
 
-    Looks for ``case['signature']['capacity']`` (and any
-    ``case['signatures'][*]['capacity']``). Returns a list of issue dicts;
-    empty means no signer problems were found. Absence of a signature block is
+    Looks for the canonical ``case['filing']['signer']`` block
+    (docs/data-model.md), plus the legacy ``case['signature']`` and
+    ``case['signatures'][*]`` shapes. Returns a list of issue dicts; empty
+    means no signer problems were found. Absence of a signature block is
     reported as a ``warning`` (not a hard error) so partial drafts still pass.
     """
     rules = rules_for(form_id, forms_root)
@@ -210,6 +247,9 @@ def validate(form_id: str, case: dict, forms_root: str = "forms") -> list:
     issues: list = []
 
     blocks = []
+    signer = ((case or {}).get("filing") or {}).get("signer")
+    if isinstance(signer, dict):
+        blocks.append(signer)
     sig = (case or {}).get("signature")
     if isinstance(sig, dict):
         blocks.append(sig)
@@ -228,7 +268,7 @@ def validate(form_id: str, case: dict, forms_root: str = "forms") -> list:
         return issues
 
     for i, b in enumerate(blocks):
-        cap_raw = b.get("capacity") or b.get("title") or ""
+        cap_raw = _block_capacity(b)
         cap = normalize_capacity(cap_raw)
         if not cap:
             issues.append(

@@ -339,7 +339,9 @@
   },
   "CORP_MBCA-2": {
     "allowed_signer_capacities": [
-      "incorporator"
+      "officer",
+      "incorporator",
+      "director"
     ],
     "category": null,
     "entity": "Business Corporation (13-C M.R.S.)",
@@ -449,7 +451,9 @@
   },
   "CORP_MBCA-2A": {
     "allowed_signer_capacities": [
-      "incorporator"
+      "officer",
+      "incorporator",
+      "director"
     ],
     "category": null,
     "entity": "Business Corporation (13-C M.R.S.)",
@@ -2016,6 +2020,8 @@
   },
   "NP_MNPCA-2": {
     "allowed_signer_capacities": [
+      "officer",
+      "director",
       "incorporator"
     ],
     "category": null,
