@@ -35,6 +35,13 @@ def test_curated_corp_example_passes_clean():
                      if i["severity"] == "error"]
 
 
+def test_curated_np_example_passes_clean():
+    r = preflight.preflight("NP_MNP-981A", _case("np_mnp-981a.case.json"),
+                            str(ROOT / "forms"))
+    assert r["ok"], [i["message"] for i in r["issues"]
+                     if i["severity"] == "error"]
+
+
 def test_issue_shape_and_sources():
     case = _case("llc_mllc-6.case.json")
     case["entity"]["name"] = "Wabanaki Widgets"  # drop the LLC suffix

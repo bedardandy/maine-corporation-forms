@@ -100,15 +100,13 @@
         "principal_office": {
           "type": "object",
           "properties": {
-            "address_line{1,2}": {
+            "address_line1": {
               "type": "string",
               "description": "Two-line principal-office address layout \u2014 line 1 (wide) and line 2 (wide, labeled 'street, city, state and zip code'). Mirrors the registered_office.address_line{1,2} convention (NP_MNPCA-11/11A/11C) but scoped to entity.principal_office.* because the foreign corp's principal office is its home-jurisdiction principal place of business, not a Maine registered office. Distinct from CORP_MBCA-12A's single-line entity.principal_office.physical_address (which has only one widget)."
             },
-            "address_line1": {
-              "type": "string"
-            },
             "address_line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line principal-office address layout \u2014 line 1 (wide) and line 2 (wide, labeled 'street, city, state and zip code'). Mirrors the registered_office.address_line{1,2} convention (NP_MNPCA-11/11A/11C) but scoped to entity.principal_office.* because the foreign corp's principal office is its home-jurisdiction principal place of business, not a Maine registered office. Distinct from CORP_MBCA-12A's single-line entity.principal_office.physical_address (which has only one widget)."
             }
           }
         },

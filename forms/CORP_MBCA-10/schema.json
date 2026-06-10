@@ -7,37 +7,6 @@
     "merger": {
       "type": "object",
       "properties": {
-        "parties[N]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string",
-              "description": "Combined name | type of entity | jurisdiction | effective date for one party to a merger or share exchange (FIRST recital block on MBCA-10). Free-form string \u2014 form does not provide separate column widgets despite the four-column header label."
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "name_and_type": {
-                  "type": "string",
-                  "description": "Combined party name + type of entity at the head of a per-party signature block on page 2."
-                },
-                "date_signed": {
-                  "type": "string",
-                  "description": "Date a specific party to the merger signed."
-                },
-                "signer_M": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string",
-                      "description": "Printed name + capacity of one of (typically two) authorized signers for a party. Two signer slots per party because some entity types under 13-C \u00a71106.8 require two officer/manager signatures."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "additional_parties_attached": {
           "type": "boolean",
           "description": "Boolean opt-in indicating additional merger parties are attached on an exhibit (used when there are >4 parties)."
@@ -128,119 +97,6 @@
             }
           }
         },
-        "parties[0]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "name_and_type": {
-                  "type": "string"
-                },
-                "date_signed": {
-                  "type": "string"
-                },
-                "signer_1": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "signer_2": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parties[1]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "name_and_type": {
-                  "type": "string"
-                },
-                "date_signed": {
-                  "type": "string"
-                },
-                "signer_1": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "signer_2": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parties[2]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "name_and_type": {
-                  "type": "string"
-                },
-                "date_signed": {
-                  "type": "string"
-                },
-                "signer_1": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "signer_2": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parties[3]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            }
-          }
-        },
         "parties": {
           "type": "array",
           "items": {
@@ -276,6 +132,15 @@
                       "printed_name_and_capacity": {
                         "type": "string",
                         "description": "First Party: signer 2"
+                      }
+                    }
+                  },
+                  "signer_M": {
+                    "type": "object",
+                    "properties": {
+                      "printed_name_and_capacity": {
+                        "type": "string",
+                        "description": "Printed name + capacity of one of (typically two) authorized signers for a party. Two signer slots per party because some entity types under 13-C \u00a71106.8 require two officer/manager signatures."
                       }
                     }
                   }

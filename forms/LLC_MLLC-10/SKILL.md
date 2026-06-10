@@ -40,24 +40,26 @@ _Showing 12 of 47 canonical keys — the full set is in mapping.json._
 ```json
 {
   "merger": {
-    "parties[0]": {
-      "recital": "Sample Value"
-    },
-    "parties[1]": {
-      "recital": "Sample Value"
-    },
-    "parties[2]": {
-      "recital": "Sample Value"
-    },
-    "parties[3]": {
-      "recital": "Sample Value"
-    },
     "additional_parties_attached": "Sample Value",
     "additional_parties_exhibit_letter": "Sample Value",
     "surviving_entity": {
       "name": "Sample Value",
       "form": "Sample Value"
-    }
+    },
+    "parties": [
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      }
+    ]
   }
 }
 ```

@@ -10,15 +10,13 @@
         "post_cancellation_service_address": {
           "type": "object",
           "properties": {
-            "{line1,line2}": {
+            "line1": {
               "type": "string",
               "description": "Two-line mailing address to which Maine SOS may forward service of process after a foreign LLC's qualification has been cancelled (per 31 MRSA \u00a71662, when the entity is not maintaining a registered agent in Maine). Distinct from registered_agent.* (no agent post-cancellation), entity.principal_office.* (the entity's actual operating address), and the \u00a7981-A-style SOS-as-agent appointment on merger filings (`merger.foreign_survivor.service_of_process_mailing_address`). Two physical widgets on the form, both labeled '(Principal office address)' \u2014 line1 typically holds the street, line2 typically holds city/state/zip."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line mailing address to which Maine SOS may forward service of process after a foreign LLC's qualification has been cancelled (per 31 MRSA \u00a71662, when the entity is not maintaining a registered agent in Maine). Distinct from registered_agent.* (no agent post-cancellation), entity.principal_office.* (the entity's actual operating address), and the \u00a7981-A-style SOS-as-agent appointment on merger filings (`merger.foreign_survivor.service_of_process_mailing_address`). Two physical widgets on the form, both labeled '(Principal office address)' \u2014 line1 typically holds the street, line2 typically holds city/state/zip."
             }
           }
         },

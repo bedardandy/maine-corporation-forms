@@ -22,6 +22,27 @@ sys.path.insert(0, str(ROOT))
 from engine import schema as eschema  # noqa: E402
 
 _EXAMPLE_RE = re.compile(r"## Example case data\n\n```json\n(.*?)```", re.S)
+_ARTIFACT_KEY_RE = re.compile(r"[\[\]{}<>]")
+
+
+def artifact_keys(obj, path=""):
+    """Dict keys carrying index/placeholder notation (``"entities[0]"``).
+
+    Such literal keys are a generator artifact: ``engine.canonical`` resolves
+    ``entities[0].name`` as array indexing, so a literal ``"entities[0]"``
+    key silently fills nothing. Examples must use real JSON arrays.
+    """
+    found = []
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if _ARTIFACT_KEY_RE.search(str(k)):
+                found.append(f"{path}{k}")
+            found.extend(artifact_keys(v, f"{path}{k}."))
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            found.extend(artifact_keys(v, f"{path}[{i}]."))
+    return found
+
 
 
 def extract_example(skill_text: str):
@@ -53,6 +74,10 @@ def lint(form_ids=None, forms_root=None) -> dict:
         if case is None:
             continue
         errors = eschema.validate(d.name, case, str(root))
+        errors.extend(
+            f"{k}: literal bracketed/braced key — use a real JSON array "
+            "(generator artifact; fills nothing)"
+            for k in artifact_keys(case))
         if errors:
             failures[d.name] = errors
     return failures

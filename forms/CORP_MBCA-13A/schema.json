@@ -96,10 +96,6 @@
         "changes_description": {
           "type": "object",
           "properties": {
-            "line{N}": {
-              "type": "string",
-              "description": "Multi-line text describing the substantive changes to the annual report. 4 inline widgets on MBCA-13A (line1\u2013line4); same shape primitive as LP_MLPA-13A (8 lines) and upstream amendment.nature_and_text.lineN (NP_MNP-9). For overflow beyond 4 lines, the * footnote permits an attached additional page."
-            },
             "line1": {
               "type": "string"
             },
@@ -111,6 +107,10 @@
             },
             "line4": {
               "type": "string"
+            },
+            "lineN": {
+              "type": "string",
+              "description": "Multi-line text describing the substantive changes to the annual report. 4 inline widgets on MBCA-13A (line1\u2013line4); same shape primitive as LP_MLPA-13A (8 lines) and upstream amendment.nature_and_text.lineN (NP_MNP-9). For overflow beyond 4 lines, the * footnote permits an attached additional page."
             }
           }
         },

@@ -19,28 +19,6 @@
           "type": "boolean",
           "description": "Boolean indicating whether the recited mark.type represents an amendment from the original registration (TYPE may be amended at renewal; TEXT and FEATURES may not)."
         },
-        "class_changes[N]": {
-          "type": "object",
-          "properties": {
-            "class_number": {
-              "type": "integer",
-              "description": "Class number being added or deleted at renewal. Indexed list \u2014 form supports 1 inline row plus overflow on attached pages."
-            },
-            "action": {
-              "type": "string",
-              "description": "Mutually-exclusive enum: 'added' or 'deleted'."
-            },
-            "description": {
-              "type": "object",
-              "properties": {
-                "line{1,2}": {
-                  "type": "string",
-                  "description": "Two-line free-form description of goods/services for the class being added (or originally covered, for deletions)."
-                }
-              }
-            }
-          }
-        },
         "text_words": {
           "type": "object",
           "properties": {
@@ -60,28 +38,6 @@
             },
             "line2": {
               "type": "string"
-            }
-          }
-        },
-        "class_changes[0]": {
-          "type": "object",
-          "properties": {
-            "class_number": {
-              "type": "integer"
-            },
-            "action": {
-              "type": "string"
-            },
-            "description": {
-              "type": "object",
-              "properties": {
-                "line1": {
-                  "type": "string"
-                },
-                "line2": {
-                  "type": "string"
-                }
-              }
             }
           }
         },

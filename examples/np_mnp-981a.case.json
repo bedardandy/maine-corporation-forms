@@ -1,11 +1,40 @@
 {
   "entity": {
     "name": "Downeast Trails Alliance",
+    "original_name": "Machias Valley Trail Society",
+    "original_organization_address": {
+      "street": "3 Example Ridge Rd",
+      "city": "Machias"
+    },
+    "original_organization_date": {
+      "day": "12",
+      "month": "June",
+      "year": "1968"
+    },
     "nonprofit_type": "public_benefit",
     "public_benefit_purpose": "To build and maintain public recreational trails in Washington County, Maine, and to promote conservation of trail corridors for community use.",
+    "management_structure": "directors",
+    "current_address": {
+      "street": "3 Example Ridge Rd",
+      "city": "Machias",
+      "county": "Washington"
+    },
+    "officer_count": 4,
     "directors_count": "5",
     "incorporator_name": "Aroostook Q. Example",
     "incorporator_address": "3 Example Ridge Rd, Machias, ME 04654"
+  },
+  "officer_president": {
+    "name": "Aroostook Q. Example"
+  },
+  "officer_vice_president": {
+    "name": "Katahdin J. Sample"
+  },
+  "officer_secretary": {
+    "name": "Penobscot R. Placeholder"
+  },
+  "officer_treasurer": {
+    "name": "Kennebec T. Specimen"
   },
   "registered_agent": {
     "type": "noncommercial",
@@ -14,6 +43,17 @@
     "mailing_address": "PO Box 9, Machias, ME 04654"
   },
   "filing": {
-    "date_signed": "2026-03-11"
+    "date_signed": "2026-03-11",
+    "signer_president": {
+      "printed_name": "Aroostook Q. Example"
+    },
+    "signer_secretary": {
+      "printed_name": "Penobscot R. Placeholder"
+    },
+    "contact": {
+      "name": "Aroostook Q. Example",
+      "phone": "207-555-0199",
+      "email": "trails@example.org"
+    }
   }
 }

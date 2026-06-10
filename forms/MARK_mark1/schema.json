@@ -27,30 +27,26 @@
         "text_words": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Word(s) of the mark to be registered (two-line free-form input)."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Word(s) of the mark to be registered (two-line free-form input)."
             }
           }
         },
         "design_features": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Description of the design features (logo, stylization) of the mark (two-line free-form input). 'If none, so indicate.'"
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Description of the design features (logo, stylization) of the mark (two-line free-form input). 'If none, so indicate.'"
             }
           }
         },
@@ -61,30 +57,26 @@
         "goods_or_services_description": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Description of the goods manufactured or sold and/or services provided under the mark (two-line free-form input)."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Description of the goods manufactured or sold and/or services provided under the mark (two-line free-form input)."
             }
           }
         },
         "usage_description": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Description of how the mark is used (applied to goods, used to promote sale, used in connection with services)."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Description of how the mark is used (applied to goods, used to promote sale, used in connection with services)."
             }
           }
         },

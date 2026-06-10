@@ -56,10 +56,12 @@ _Showing 12 of 47 canonical keys — the full set is in mapping.json._
       "year": "Sample Value"
     },
     "name": "Wabanaki Widgets, Inc.",
-    "name_history[0]": {
-      "name": "Wabanaki Widgets, Inc.",
-      "date": "2026-01-15"
-    }
+    "name_history": [
+      {
+        "name": "Wabanaki Widgets, Inc.",
+        "date": "2026-01-15"
+      }
+    ]
   },
   "filing": {
     "date_signed": "2026-01-15"

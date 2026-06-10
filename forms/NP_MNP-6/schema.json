@@ -15,7 +15,7 @@
               "description": "Maine municipality where a domestic nonprofit corporation is located, per 13 MRSA \u00a7903 FOURTH recital. Used on older 'MNP-' forms that pre-date the registered-agent regime \u2014 modern 13-B MRSA forms (NP_MNPCA-6) capture location indirectly via registered_agent.physical_address."
             },
             "county": {
-              "type": "integer",
+              "type": "string",
               "description": "Maine county where a domestic nonprofit corporation is located. Paired with entity.location.municipality on older MNP- forms."
             }
           }
@@ -26,15 +26,6 @@
             "count": {
               "type": "integer",
               "description": "Number of initial officers declared on a formation filing (typically 4: President, VP, Secretary/Clerk, Treasurer). Captured as a free-text numeric field."
-            },
-            "<role>": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "Name of an inline named-role officer slot on a formation filing. Roles observed on this form: 'president', 'vice_president', 'secretary_or_clerk', 'treasurer'. DISTINCT from MBCA-12's officer_N.* indexed-roster pattern (which is for foreign-qualification listings where roles are not pre-labeled). Use entity.officers.<role>.* when the form pre-defines named officer slots inline; use officer_N.* when the form provides an arbitrary indexed roster."
-                }
-              }
             },
             "president": {
               "type": "object",

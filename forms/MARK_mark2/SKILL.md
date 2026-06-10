@@ -54,9 +54,11 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
     },
     "type": "Sample Value",
     "type_amended": true,
-    "class_changes[0]": {
-      "class_number": 99999
-    }
+    "class_changes": [
+      {
+        "class_number": "99999"
+      }
+    ]
   },
   "filing": {
     "date_signed": "2026-01-15"

@@ -14,24 +14,25 @@
         "changes_description": {
           "type": "object",
           "properties": {
-            "line{1,2,3,4,5}": {
+            "line1": {
               "type": "string",
               "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
             },
             "line3": {
-              "type": "string"
+              "type": "string",
+              "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
             },
             "line4": {
-              "type": "string"
+              "type": "string",
+              "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
             },
             "line5": {
-              "type": "string"
+              "type": "string",
+              "description": "Five-line free-text description of the substantive changes being filed by an amended annual report (THIRD recital on MLLP-13A; analogous narrative blocks may exist on MBCA-9 / MLLC-9 amended-annual-report siblings). Mirrors MARK1's `mark.text_words.line{1,2}` widget-fidelity convention: each physical AcroForm line gets its own .lineN suffix; synth/filler populates distinct widgets sequentially without collapsing."
             }
           }
         },

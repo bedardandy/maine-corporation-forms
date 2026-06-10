@@ -10,10 +10,6 @@
         "nature_and_text": {
           "type": "object",
           "properties": {
-            "line{N}": {
-              "type": "string",
-              "description": "Per-line free-text capture of the nature-of-change description and text of the amendment on a Certificate of Amendment for a Maine domestic nonprofit (13-B MRSA \u00a7934). Form provides 15 inline lines (N=1..15) with overflow via attached pages. Distinct from CORP_MBCA-9's amendment.text_exhibit_letter (BC amendments use exhibit reference; nonprofit amendments use inline text directly on the form). Per-line indexing follows MARK1's mark.text_words.line{N} precedent for inline multi-line widgets."
-            },
             "line1": {
               "type": "string"
             },
@@ -58,6 +54,10 @@
             },
             "line15": {
               "type": "string"
+            },
+            "lineN": {
+              "type": "string",
+              "description": "Per-line free-text capture of the nature-of-change description and text of the amendment on a Certificate of Amendment for a Maine domestic nonprofit (13-B MRSA \u00a7934). Form provides 15 inline lines (N=1..15) with overflow via attached pages. Distinct from CORP_MBCA-9's amendment.text_exhibit_letter (BC amendments use exhibit reference; nonprofit amendments use inline text directly on the form). Per-line indexing follows MARK1's mark.text_words.line{N} precedent for inline multi-line widgets."
             }
           }
         },

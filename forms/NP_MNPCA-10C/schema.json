@@ -18,15 +18,13 @@
               "type": "string",
               "description": "Home jurisdiction (state or country) of the merging (disappearing) corporation. New on NP_MNPCA-10C \u2014 the prior NP_MNPCA-10 (Maine/Maine merger) doesn't need this because both parties are Maine."
             },
-            "registered_office_address_line{1,2}": {
+            "registered_office_address_line1": {
               "type": "string",
               "description": "Two-line registered-office address of the merging corporation in Maine (SIXTH paragraph 2). Same Maine-or-elsewhere caveat applies."
             },
-            "registered_office_address_line1": {
-              "type": "string"
-            },
             "registered_office_address_line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line registered-office address of the merging corporation in Maine (SIXTH paragraph 2). Same Maine-or-elsewhere caveat applies."
             },
             "signature_block": {
               "type": "object",
@@ -72,18 +70,16 @@
               "type": "string",
               "description": "Address to which the Maine Secretary of State will mail copies of any process directed to the surviving corp. Only required when the surviving corp is foreign (the corp irrevocably appoints the Maine SOS as agent for service per the THIRD paragraph). Single-line combined address."
             },
-            "registered_office_address_line{1,2}": {
-              "type": "string",
-              "description": "Two-line registered-office address of the surviving corporation in Maine (SIXTH paragraph 1). Mirrors NP_MNPCA-10. Note: only required when the surviving corp HAS a Maine registered office; if foreign, the page-1 footnote indicates the address blank may stay empty (per the asterisked note: 'Must provide address of registered office in Maine. If the corporation does not have a registered office in Maine, the address given should be the principal or registered office of the corporation wherever located.')."
-            },
             "name": {
               "type": "string"
             },
             "registered_office_address_line1": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line registered-office address of the surviving corporation in Maine (SIXTH paragraph 1). Mirrors NP_MNPCA-10. Note: only required when the surviving corp HAS a Maine registered office; if foreign, the page-1 footnote indicates the address blank may stay empty (per the asterisked note: 'Must provide address of registered office in Maine. If the corporation does not have a registered office in Maine, the address given should be the principal or registered office of the corporation wherever located.')."
             },
             "registered_office_address_line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line registered-office address of the surviving corporation in Maine (SIXTH paragraph 1). Mirrors NP_MNPCA-10. Note: only required when the surviving corp HAS a Maine registered office; if foreign, the page-1 footnote indicates the address blank may stay empty (per the asterisked note: 'Must provide address of registered office in Maine. If the corporation does not have a registered office in Maine, the address given should be the principal or registered office of the corporation wherever located.')."
             },
             "signature_block": {
               "type": "object",
@@ -132,25 +128,6 @@
             "vote_method_date": {
               "type": "string",
               "description": "Date associated with the selected vote_method (meeting date, written consent date, or board meeting date). All four FIFTH date widgets bind to this one canonical key \u2014 only the date for the selected option is filled."
-            }
-          }
-        },
-        "{surviving_corp,merging_corp}": {
-          "type": "object",
-          "properties": {
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "{date_signed,corporation_name,signer_{1,2}": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity}": {
-                      "type": "string",
-                      "description": "Per-corporation signature block. Each block has: a DATED widget (date_signed), a corp-name underline ((surviving corporation)/(merged corporation) labels, restating the corp name), and two signer slots (Shape D \u2014 printed name + capacity combined). Exactly mirrors NP_MNPCA-10's signature_block shape."
-                    }
-                  }
-                }
-              }
             }
           }
         },

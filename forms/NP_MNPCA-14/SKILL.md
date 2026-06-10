@@ -45,14 +45,16 @@ _Showing 12 of 18 canonical keys — the full set is in mapping.json._
       "printed_name": "Sample Value"
     },
     "date_signed": "2026-01-15",
-    "entities[0]": {
-      "name": "Sample Value"
-    },
-    "entities[1]": {
-      "name": "Sample Value"
-    },
     "expedited_service": {},
-    "total_fees_dollars": "Sample Value"
+    "total_fees_dollars": "Sample Value",
+    "entities": [
+      {
+        "name": "Sample Value"
+      },
+      {
+        "name": "Sample Value"
+      }
+    ]
   }
 }
 ```

@@ -15,6 +15,17 @@ and idempotent for leaves (an existing leaf is never retyped), and it upgrades a
 wrong-typed *intermediate* (e.g. a ``string`` where the mapping needs nested
 keys) to the object/array it must be. This subsumes the older cover-block fix.
 
+It also **repairs generator artifacts**: an earlier schema generation leaked
+index/placeholder notation into literal property names (``"parties[0]"``,
+``"class_changes[N]"``, ``"line{1,2}"``, ``"{street,city,county}"``,
+``"officer_<role>"``). Such properties are not addressable by
+``engine.canonical`` dotted paths and shadow the real array/sibling
+properties. The cleanup migrates their descriptions onto the real properties
+(filling gaps only — nothing existing is overwritten) and removes the
+artifact, and it retypes the one known bad inference (``county`` typed
+``integer`` because "count" substring-matched inside "county"; see the
+fixed heuristic in ``tools/build_from_pass1.py``).
+
     python3 tools/sync_schema.py            # all forms
     python3 tools/sync_schema.py CORP_MBCA-10 LLC_MLLC-10
 """
@@ -25,6 +36,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "forms"
 _ARRAY_SEG = re.compile(r"^(.+?)\[\d+\]$")
+_ARTIFACT = re.compile(r"[\[\]{}<>]")
+_ARRAY_LITERAL = re.compile(r"^(\w+)\[(?:\d+|N|\*)\]$")
+_BRACE_GROUP = re.compile(r"^(\w*)\{([\w\s,]+)\}(\w*)$")
 
 
 def _leaf(spec):
@@ -79,6 +93,117 @@ def _ensure(node, segments, leaf, changed):
         _ensure(child, segments[1:], leaf, changed)
 
 
+def _merge_into(src, dst, changed):
+    """Copy ``src`` schema-node content into ``dst``, filling gaps only.
+
+    Missing descriptions and missing (sub)properties are added; existing
+    types, enums, and descriptions are never overwritten.
+    """
+    if not isinstance(src, dict) or not isinstance(dst, dict):
+        return
+    if src.get("description") and not dst.get("description"):
+        dst["description"] = src["description"]
+        changed[0] = True
+    if isinstance(src.get("items"), dict) and isinstance(dst.get("items"),
+                                                         dict):
+        _merge_into(src["items"], dst["items"], changed)
+    src_props = src.get("properties")
+    if not isinstance(src_props, dict):
+        return
+    dst_props = dst.setdefault("properties", {})
+    for k, v in src_props.items():
+        if _ARTIFACT.search(k):
+            continue  # never copy an artifact name forward
+        if k in dst_props:
+            _merge_into(v, dst_props[k], changed)
+        else:
+            dst_props[k] = v
+            changed[0] = True
+
+
+def _artifact_targets(name, props, changed):
+    """Real sibling properties an artifact-named property describes.
+
+    Missing counterparts are created (the artifact is the only carrier of
+    that part of the data model) so its content is migrated, not dropped.
+    """
+    m = _ARRAY_LITERAL.match(name)
+    if m:
+        base = m.group(1)
+        node = props.get(base)
+        if not (isinstance(node, dict) and node.get("type") == "array"):
+            node = {"type": "array",
+                    "items": {"type": "object", "properties": {}}}
+            props[base] = node
+            changed[0] = True
+        items = node.setdefault("items", {"type": "object",
+                                          "properties": {}})
+        return [items]
+    m = _BRACE_GROUP.match(name)
+    if m and "{" not in m.group(2):
+        prefix, parts, suffix = m.group(1), m.group(2), m.group(3)
+        names = [f"{prefix}{p.strip()}{suffix}" for p in parts.split(",")
+                 if p.strip()]
+        src_type = (props[name].get("type", "string")
+                    if isinstance(props.get(name), dict) else "string")
+        targets = []
+        for n in names:
+            if n not in props:
+                props[n] = ({"type": "object", "properties": {}}
+                            if src_type == "object"
+                            else {"type": src_type})
+                changed[0] = True
+            targets.append(props[n])
+        return targets
+    # fuzzy placeholder ("line{N}", "officer_<role>", "director_N",
+    # malformed nested braces): siblings sharing the literal prefix
+    prefix = re.split(r"[\[\]{}<>]", name)[0].rstrip("._")
+    if prefix:
+        return [v for k, v in props.items()
+                if k != name and not _ARTIFACT.search(k)
+                and k.startswith(prefix)]
+    return []
+
+
+def _clean_artifacts(node, changed):
+    """Remove placeholder-named properties after migrating their content.
+
+    Depth-first: an artifact's own subtree is cleaned before it is merged,
+    so nested artifacts (``parties[N].signature_block.signer_{1,2}``) are
+    resolved inside the subtree and nothing is dropped.
+    """
+    props = node.get("properties")
+    if isinstance(props, dict):
+        for v in list(props.values()):
+            if isinstance(v, dict):
+                _clean_artifacts(v, changed)
+        for name in [k for k in props if _ARTIFACT.search(k)]:
+            src = props[name]
+            for target in _artifact_targets(name, props, changed):
+                _merge_into(src, target, changed)
+            del props[name]
+            changed[0] = True
+    items = node.get("items")
+    if isinstance(items, dict):
+        _clean_artifacts(items, changed)
+
+
+def _fix_county_type(node, changed):
+    """Retype ``county`` leaves wrongly inferred as integer (substring bug)."""
+    props = node.get("properties")
+    if isinstance(props, dict):
+        for k, v in props.items():
+            if not isinstance(v, dict):
+                continue
+            if k == "county" and v.get("type") == "integer":
+                v["type"] = "string"
+                changed[0] = True
+            _fix_county_type(v, changed)
+    items = node.get("items")
+    if isinstance(items, dict):
+        _fix_county_type(items, changed)
+
+
 def sync_one(form_dir):
     schema_path = form_dir / "schema.json"
     mapping = json.loads((form_dir / "mapping.json").read_text(encoding="utf-8"))
@@ -86,6 +211,8 @@ def sync_one(form_dir):
     if schema.get("type") != "object":
         return False
     changed = [False]
+    _clean_artifacts(schema, changed)
+    _fix_county_type(schema, changed)
     for key, spec in (mapping.get("fields") or {}).items():
         if not isinstance(spec, dict):
             continue

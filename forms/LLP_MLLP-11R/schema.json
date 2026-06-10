@@ -25,10 +25,6 @@
         "reason": {
           "type": "object",
           "properties": {
-            "line{N}": {
-              "type": "string",
-              "description": "Free-text reason for filing the certificate of renunciation. Multi-line shape (lines 1\u20133 inline on MLLP-11R); same indexed-line primitive as upstream amendment.nature_and_text.lineN."
-            },
             "line1": {
               "type": "string"
             },
@@ -37,6 +33,10 @@
             },
             "line3": {
               "type": "string"
+            },
+            "lineN": {
+              "type": "string",
+              "description": "Free-text reason for filing the certificate of renunciation. Multi-line shape (lines 1\u20133 inline on MLLP-11R); same indexed-line primitive as upstream amendment.nature_and_text.lineN."
             }
           }
         },

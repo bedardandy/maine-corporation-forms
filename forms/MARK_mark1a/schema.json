@@ -10,15 +10,13 @@
         "disclaimed_portion_description": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Two-line description of the portion of a mark (text words or design features) for which the applicant disclaims exclusive rights. Used on MARK_mark1a (Mark Disclaimer); the disclaimer form is filed alongside a registration to carve out elements (e.g., generic terms or descriptive features) from the exclusive scope while still allowing registration of the broader mark."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line description of the portion of a mark (text words or design features) for which the applicant disclaims exclusive rights. Used on MARK_mark1a (Mark Disclaimer); the disclaimer form is filed alongside a registration to carve out elements (e.g., generic terms or descriptive features) from the exclusive scope while still allowing registration of the broader mark."
             }
           }
         }

@@ -49,9 +49,11 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
       "printed_name": "Sample Value",
       "title": "Sample Value"
     },
-    "entities[0]": {
-      "name": "Sample Value"
-    }
+    "entities": [
+      {
+        "name": "Sample Value"
+      }
+    ]
   }
 }
 ```

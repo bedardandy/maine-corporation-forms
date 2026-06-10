@@ -39,17 +39,19 @@ _Showing 12 of 32 canonical keys — the full set is in mapping.json._
 ```json
 {
   "consolidation": {
-    "parties[0]": {
-      "name": "Sample Value",
-      "vote_method": "Sample Value",
-      "vote_method_date": "2026-01-15"
-    },
-    "parties[1]": {
-      "name": "Sample Value",
-      "vote_method": "Sample Value",
-      "vote_method_date": "2026-01-15"
-    },
-    "plan_exhibit_letter": "Sample Value"
+    "plan_exhibit_letter": "Sample Value",
+    "parties": [
+      {
+        "name": "Sample Value",
+        "vote_method": "Sample Value",
+        "vote_method_date": "2026-01-15"
+      },
+      {
+        "name": "Sample Value",
+        "vote_method": "Sample Value",
+        "vote_method_date": "2026-01-15"
+      }
+    ]
   },
   "entity": {
     "name": "Wabanaki Widgets, Inc."

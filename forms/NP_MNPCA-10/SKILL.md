@@ -41,15 +41,17 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
     "merging_corporations_recital": "Sample Value",
     "surviving_corporation_name": "Sample Value",
     "plan_exhibit_letter": "Sample Value",
-    "parties[0]": {
-      "name": "Sample Value",
-      "vote_method": "Sample Value",
-      "vote_method_date": "2026-01-15"
-    },
-    "parties[1]": {
-      "name": "Sample Value",
-      "vote_method": "Sample Value"
-    }
+    "parties": [
+      {
+        "name": "Sample Value",
+        "vote_method": "Sample Value",
+        "vote_method_date": "2026-01-15"
+      },
+      {
+        "name": "Sample Value",
+        "vote_method": "Sample Value"
+      }
+    ]
   }
 }
 ```

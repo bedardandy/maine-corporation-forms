@@ -52,9 +52,11 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
     }
   },
   "filing": {
-    "entities[0]": {
-      "name": "Sample Value"
-    }
+    "entities": [
+      {
+        "name": "Sample Value"
+      }
+    ]
   }
 }
 ```

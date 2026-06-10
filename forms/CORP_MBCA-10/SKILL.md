@@ -41,18 +41,6 @@ _Showing 12 of 45 canonical keys — the full set is in mapping.json._
 ```json
 {
   "merger": {
-    "parties[0]": {
-      "recital": "Sample Value"
-    },
-    "parties[1]": {
-      "recital": "Sample Value"
-    },
-    "parties[2]": {
-      "recital": "Sample Value"
-    },
-    "parties[3]": {
-      "recital": "Sample Value"
-    },
     "additional_parties_attached": true,
     "additional_parties_exhibit_letter": "Sample Value",
     "surviving_entity": {
@@ -60,7 +48,21 @@ _Showing 12 of 45 canonical keys — the full set is in mapping.json._
       "principal_office": {
         "physical_address": "Sample Value"
       }
-    }
+    },
+    "parties": [
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      }
+    ]
   }
 }
 ```

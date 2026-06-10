@@ -47,14 +47,16 @@ _Showing 12 of 18 canonical keys — the full set is in mapping.json._
     "signer": {
       "printed_name_and_capacity": "Sample Value"
     },
-    "entities[0]": {
-      "name": "Sample Value"
-    },
-    "entities[1]": {
-      "name": "Sample Value"
-    },
     "expedited_service": {},
-    "total_fees_dollars": "Sample Value"
+    "total_fees_dollars": "Sample Value",
+    "entities": [
+      {
+        "name": "Sample Value"
+      },
+      {
+        "name": "Sample Value"
+      }
+    ]
   }
 }
 ```

@@ -41,27 +41,31 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "merger": {
-    "parties[0]": {
-      "recital": "Sample Value"
-    },
-    "parties[1]": {
-      "recital": "Sample Value"
-    },
-    "parties[2]": {
-      "recital": "Sample Value"
-    },
-    "parties[3]": {
-      "recital": "Sample Value"
-    }
+    "parties": [
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      },
+      {
+        "recital": "Sample Value"
+      }
+    ]
   },
   "filing": {
     "date_signed": "2026-01-15",
     "signer": {
       "printed_name_and_capacity": "Sample Value"
     },
-    "entities[0]": {
-      "name": "Sample Value"
-    }
+    "entities": [
+      {
+        "name": "Sample Value"
+      }
+    ]
   }
 }
 ```

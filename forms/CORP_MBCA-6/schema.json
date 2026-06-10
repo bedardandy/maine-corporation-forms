@@ -125,15 +125,6 @@
           "type": "string",
           "description": "Date the filing was signed."
         },
-        "entities[*]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "List of entities included in this multi-form bundled filing (cover-letter rows 1 and 2)."
-            }
-          }
-        },
         "expedited_service": {
           "type": "object",
           "description": "Cover-letter expedited-service options (independent checkboxes).",
@@ -203,7 +194,8 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "List of entities included in this multi-form bundled filing (cover-letter rows 1 and 2)."
               }
             }
           }

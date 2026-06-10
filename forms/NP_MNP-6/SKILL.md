@@ -48,7 +48,7 @@ _Showing 12 of 46 canonical keys — the full set is in mapping.json._
     "mutual_benefit_purpose": "Sample Value",
     "location": {
       "municipality": "Sample Value",
-      "county": 100
+      "county": "Sample Value"
     },
     "officers": {
       "count": 100,

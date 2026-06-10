@@ -96,40 +96,68 @@
         "changes_description": {
           "type": "object",
           "properties": {
-            "line{1": {
-              "type": "object",
+            "line1": {
+              "type": "string",
               "properties": {
                 "": {
                   "type": "object",
-                  "properties": {
-                    "7}": {
-                      "type": "string",
-                      "description": "Free-text description of what changed in the amended annual report, split across up to 7 inline lines. Overflow attaches as additional pages (no opt-in checkbox or exhibit-letter widget \u2014 informal attachment). Same .line{N} convention as mark.text_words / mark.usage_description."
-                    }
-                  }
+                  "properties": {}
                 }
               }
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             },
             "line3": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             },
             "line4": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             },
             "line5": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             },
             "line6": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             },
             "line7": {
-              "type": "string"
+              "type": "string",
+              "properties": {
+                "": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
             }
           }
         },

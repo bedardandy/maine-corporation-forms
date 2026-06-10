@@ -41,20 +41,22 @@ _Showing 12 of 39 canonical keys — the full set is in mapping.json._
 ```json
 {
   "consolidation": {
-    "parties[0]": {
-      "name": "Sample Value",
-      "descriptor": "Sample Value"
-    },
-    "parties[1]": {
-      "name": "Sample Value",
-      "descriptor": "Sample Value"
-    },
     "new_entity": {
       "name": "Sample Value",
       "descriptor": "Sample Value",
       "governing_law_state": "Sample Value"
     },
-    "foreign_jurisdictions": "Sample Value"
+    "foreign_jurisdictions": "Sample Value",
+    "parties": [
+      {
+        "name": "Sample Value",
+        "descriptor": "Sample Value"
+      },
+      {
+        "name": "Sample Value",
+        "descriptor": "Sample Value"
+      }
+    ]
   },
   "filing": {}
 }

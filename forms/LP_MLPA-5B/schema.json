@@ -35,15 +35,15 @@
         "description": {
           "type": "object",
           "properties": {
-            "line{N}": {
-              "type": "string",
-              "description": "Multi-line free-text description of the change/addition/deletion. 2 inline lines on MLPA-5B (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) \u2014 synth concatenates non-empty lines. If more space is needed the form provides an exhibit-letter blank (see assumed_name_change.additional_locations_exhibit_letter)."
-            },
             "line1": {
               "type": "string"
             },
             "line2": {
               "type": "string"
+            },
+            "lineN": {
+              "type": "string",
+              "description": "Multi-line free-text description of the change/addition/deletion. 2 inline lines on MLPA-5B (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) \u2014 synth concatenates non-empty lines. If more space is needed the form provides an exhibit-letter blank (see assumed_name_change.additional_locations_exhibit_letter)."
             }
           }
         },

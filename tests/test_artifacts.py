@@ -38,3 +38,31 @@ def test_json_and_yaml_parse(fid):
 def test_mapping_form_id_matches_folder(fid):
     mapping = json.loads((FORMS / fid / "mapping.json").read_text())
     assert mapping["form_id"] == fid
+
+
+@pytest.mark.parametrize("fid", FORM_IDS)
+def test_schema_property_names_are_addressable(fid):
+    """No literal index/placeholder notation in schema property names.
+
+    An earlier generator leaked pass-1 shorthand into literal property names
+    ("parties[0]", "class_changes[N]", "line{1,2}", "officer_<role>") —
+    unaddressable by engine.canonical dotted paths and shadowing the real
+    array/sibling properties. tools/sync_schema.py repairs these; this pins
+    the repair.
+    """
+    import re
+    schema = json.loads((FORMS / fid / "schema.json").read_text())
+    artifact = re.compile(r"[\[\]{}<>]")
+    bad = []
+
+    def walk(node, path):
+        for k, v in (node.get("properties") or {}).items():
+            if artifact.search(k):
+                bad.append(f"{path}{k}")
+            if isinstance(v, dict):
+                walk(v, f"{path}{k}.")
+                if isinstance(v.get("items"), dict):
+                    walk(v["items"], f"{path}{k}[].")
+
+    walk(schema, "")
+    assert not bad, f"{fid}: artifact property names in schema.json: {bad}"

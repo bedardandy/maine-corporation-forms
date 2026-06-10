@@ -10,15 +10,15 @@
         "professional_services_description": {
           "type": "object",
           "properties": {
-            "line{N}": {
-              "type": "string",
-              "description": "Multi-line free-text description of professional services provided by a PLLLP (per the FOURTH paragraph footnote). 2 inline widgets on MLPA-12-1 (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) — synth concatenates lines for the whole description; either may be empty."
-            },
             "line1": {
               "type": "string"
             },
             "line2": {
               "type": "string"
+            },
+            "lineN": {
+              "type": "string",
+              "description": "Multi-line free-text description of professional services provided by a PLLLP (per the FOURTH paragraph footnote). 2 inline widgets on MLPA-12-1 (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) \u2014 synth concatenates lines for the whole description; either may be empty."
             }
           }
         },

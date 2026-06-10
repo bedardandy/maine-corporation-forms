@@ -160,11 +160,15 @@ def infer_type(key, description):
         or "boolean" in desc
     ):
         return "boolean", None
-    # integers: counts and share quantities (but not phone numbers / public numbers)
+    # integers: counts and share quantities (but not phone numbers / public
+    # numbers). Token-bounded so "count" never matches inside "county" — a
+    # bare substring test used to type county fields as integers.
     if (
-        "count" in last
+        re.search(r"(?:^|_)count(?:$|_)", last)
         or "shares" in last
-        or ("number" in last and "phone" not in last and "public" not in last and "cra" not in last)
+        or (re.search(r"(?:^|_)number(?:$|_)", last)
+            and "phone" not in last and "public" not in last
+            and "cra" not in last)
     ):
         return "integer", None
     return "string", None
@@ -173,6 +177,35 @@ def infer_type(key, description):
 # ---------------------------------------------------------------------------
 # Nested schema construction from dotted keys
 # ---------------------------------------------------------------------------
+_ARRAY_SEG_RE = re.compile(r"^(\w+)\[(?:\d+|N|n|\*)?\]$")
+_BRACE_GROUP_RE = re.compile(r"^(\w*)\{([\w\s,]+)\}(\w*)$")
+
+
+def expand_key_notation(dotted_key):
+    """Expand pass-1 shorthand into one or more plain dotted keys.
+
+    Pass-1 ``proposed_key`` values use index and brace notation —
+    ``parties[0].name``, ``class_changes[N]``, ``line{1,2}``,
+    ``address.{street,city}``. Brace groups multiply into one key per
+    member; index segments are normalized to ``name[]`` so
+    :func:`set_nested_property` builds an array (every index shares one
+    item schema). Returning these as *literal property names* was the bug
+    that produced schema properties like ``"class_changes[0]"``.
+    """
+    keys = [""]
+    for raw in dotted_key.split("."):
+        m = _BRACE_GROUP_RE.match(raw)
+        if m:
+            prefix, parts, suffix = m.group(1), m.group(2), m.group(3)
+            variants = [f"{prefix}{p.strip()}{suffix}"
+                        for p in parts.split(",") if p.strip()]
+        else:
+            m = _ARRAY_SEG_RE.match(raw)
+            variants = [f"{m.group(1)}[]"] if m else [raw]
+        keys = [f"{k}.{v}" if k else v for k in keys for v in variants]
+    return keys
+
+
 def set_nested_property(root_props, dotted_key, leaf_schema):
     """Insert leaf_schema at the dotted path inside a JSON-Schema properties tree.
 
@@ -223,14 +256,18 @@ def build_schema(form_id, schema_gaps, mapping_keys, rubric_checks):
 
     for key in all_keys:
         desc = gap_index.get(key, "")
-        jtype, enum = infer_type(key, desc)
-        leaf = {"type": jtype}
-        if desc:
-            leaf["description"] = desc
-        if enum:
-            leaf["enum"] = enum
-        set_nested_property(properties, key, leaf)
-        described[key] = leaf
+        # pass-1 keys may carry index/brace shorthand ("parties[0].name",
+        # "line{1,2}") — expand before insertion so notation never leaks
+        # into literal property names.
+        for expanded in expand_key_notation(key):
+            jtype, enum = infer_type(expanded, desc)
+            leaf = {"type": jtype}
+            if desc:
+                leaf["description"] = desc
+            if enum:
+                leaf["enum"] = enum
+            set_nested_property(properties, expanded, leaf)
+            described[expanded] = leaf
 
     # Required: only keys whose rubric check is severity=required AND that is a
     # single-key presence check (keep required minimal and safe).

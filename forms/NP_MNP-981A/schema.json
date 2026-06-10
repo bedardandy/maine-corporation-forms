@@ -10,42 +10,30 @@
         "original_organization_address": {
           "type": "object",
           "properties": {
-            "{street,city}": {
+            "street": {
               "type": "string",
               "description": "Place where the corporation was originally organized \u2014 used by \u00a7981-A re-recital filings to certify historical organization. State is implicit ('State of Maine' is hardcoded text on the form). Distinct from entity.current_address (current location) and entity.principal_office.* (modern formation address)."
             },
-            "street": {
-              "type": "string"
-            },
             "city": {
-              "type": "string"
+              "type": "string",
+              "description": "Place where the corporation was originally organized \u2014 used by \u00a7981-A re-recital filings to certify historical organization. State is implicit ('State of Maine' is hardcoded text on the form). Distinct from entity.current_address (current location) and entity.principal_office.* (modern formation address)."
             }
           }
         },
         "original_organization_date": {
           "type": "object",
           "properties": {
-            "{day,month,year}": {
+            "day": {
               "type": "string",
               "description": "Date of original organization, split into three widgets (day/month/year) rather than a single ISO date because the form composes the recital sentence with three separate blanks ('on the X day of Y, Z')."
             },
-            "day": {
-              "type": "string"
-            },
             "month": {
-              "type": "string"
+              "type": "string",
+              "description": "Date of original organization, split into three widgets (day/month/year) rather than a single ISO date because the form composes the recital sentence with three separate blanks ('on the X day of Y, Z')."
             },
             "year": {
-              "type": "string"
-            }
-          }
-        },
-        "name_history[N]": {
-          "type": "object",
-          "properties": {
-            "{name,date}": {
               "type": "string",
-              "description": "Chronological list of prior names of the corporation, with the date of each name change. Up to 5 inline rows on MNP-981A (overflow via attached page). N is 0-indexed; row 0 is the oldest prior name."
+              "description": "Date of original organization, split into three widgets (day/month/year) rather than a single ISO date because the form composes the recital sentence with three separate blanks ('on the X day of Y, Z')."
             }
           }
         },
@@ -64,18 +52,17 @@
         "current_address": {
           "type": "object",
           "properties": {
-            "{street,city,county}": {
-              "type": "integer",
+            "street": {
+              "type": "string",
               "description": "Where the existing corporation is now located. Includes county (atypical for modern address blocks \u2014 county is required by the \u00a7981-A recital text). State is implicit ('State of Maine' hardcoded). Distinct from registered_office and principal_office addresses on formation forms."
             },
-            "street": {
-              "type": "string"
-            },
             "city": {
-              "type": "string"
+              "type": "string",
+              "description": "Where the existing corporation is now located. Includes county (atypical for modern address blocks \u2014 county is required by the \u00a7981-A recital text). State is implicit ('State of Maine' hardcoded). Distinct from registered_office and principal_office addresses on formation forms."
             },
             "county": {
-              "type": "integer"
+              "type": "string",
+              "description": "Where the existing corporation is now located. Includes county (atypical for modern address blocks \u2014 county is required by the \u00a7981-A recital text). State is implicit ('State of Maine' hardcoded). Distinct from registered_office and principal_office addresses on formation forms."
             }
           }
         },
@@ -85,61 +72,6 @@
         },
         "name": {
           "type": "string"
-        },
-        "name_history[0]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string"
-            }
-          }
-        },
-        "name_history[1]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string"
-            }
-          }
-        },
-        "name_history[2]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string"
-            }
-          }
-        },
-        "name_history[3]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string"
-            }
-          }
-        },
-        "name_history[4]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string"
-            }
-          }
         },
         "nonprofit_type": {
           "type": "string"
@@ -183,7 +115,10 @@
     "filing": {
       "type": "object",
       "properties": {
-        "signer_<role>": {
+        "date_signed": {
+          "type": "string"
+        },
+        "signer_president": {
           "type": "object",
           "properties": {
             "printed_name": {
@@ -192,22 +127,12 @@
             }
           }
         },
-        "date_signed": {
-          "type": "string"
-        },
-        "signer_president": {
-          "type": "object",
-          "properties": {
-            "printed_name": {
-              "type": "string"
-            }
-          }
-        },
         "signer_secretary": {
           "type": "object",
           "properties": {
             "printed_name": {
-              "type": "string"
+              "type": "string",
+              "description": "Per-role signer pattern for forms with two fixed-role signature slots (e.g., President + Secretary/Clerk on MNP-981A). Distinct from filing.signer.* (single abstract filer) and from merger/consolidation.parties[N].signature_block.signer_{1,2}.* (per-party in merger filings). Roles observed: filing.signer_president.printed_name, filing.signer_secretary.printed_name. Combine with the existing officer_<role>.* roster to identify which sitting officers are also signers."
             }
           }
         },

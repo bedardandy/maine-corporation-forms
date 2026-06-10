@@ -7,47 +7,6 @@
     "merger": {
       "type": "object",
       "properties": {
-        "parties[N]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string",
-              "description": "Combined name | type of entity | jurisdiction recital for one party to the abandoned merger or share exchange. Free-form string \u2014 form provides three column headers but only one underlined blank per row (same combined-recital pattern as CORP_MBCA-10's FIRST block, where the recital additionally includes effective date). Already proposed in CORP_MBCA-10.json; this form reuses it (without the date column)."
-            }
-          }
-        },
-        "parties[0]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            }
-          }
-        },
-        "parties[1]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            }
-          }
-        },
-        "parties[2]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            }
-          }
-        },
-        "parties[3]": {
-          "type": "object",
-          "properties": {
-            "recital": {
-              "type": "string"
-            }
-          }
-        },
         "parties": {
           "type": "array",
           "items": {

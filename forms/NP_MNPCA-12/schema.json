@@ -93,10 +93,6 @@
     "entity": {
       "type": "object",
       "properties": {
-        "home_purpose_description_line{1,2}": {
-          "type": "string",
-          "description": "Two-line free-text description of the purposes the foreign nonprofit is authorized to carry on under the laws of its home jurisdiction. _line1/_line2 split mirrors registered_office.address_line{1,2} convention."
-        },
         "maine_activities_scope": {
           "type": "string",
           "description": "Whether the foreign nonprofit seeks authority for ALL activities authorized in its home jurisdiction (Maine-allowed) or only a SPECIFIC subset. Enum: 'all' (FOURTH Yes) | 'specific' (FOURTH No, with subset detailed in entity.maine_specific_activities_line{1,2}).",
@@ -105,22 +101,16 @@
             "specific"
           ]
         },
-        "maine_specific_activities_line{1,2}": {
-          "type": "string",
-          "description": "Two-line free-text description of the specific subset of activities for which Maine authority is sought, used when entity.maine_activities_scope='specific'."
-        },
         "principal_office": {
           "type": "object",
           "properties": {
-            "physical_address_line{1,2}": {
+            "physical_address_line1": {
               "type": "string",
               "description": "Two-line single-concept physical address of the principal/registered office (combined street/city/state/zip). Distinct from the physical+mailing pair pattern on MBCA-12 \u2014 NP_MNPCA-12 uses two widgets for one address concept rather than physical-plus-optional-mailing."
             },
-            "physical_address_line1": {
-              "type": "string"
-            },
             "physical_address_line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line single-concept physical address of the principal/registered office (combined street/city/state/zip). Distinct from the physical+mailing pair pattern on MBCA-12 \u2014 NP_MNPCA-12 uses two widgets for one address concept rather than physical-plus-optional-mailing."
             }
           }
         },
@@ -137,16 +127,20 @@
           "type": "string"
         },
         "home_purpose_description_line1": {
-          "type": "string"
+          "type": "string",
+          "description": "Two-line free-text description of the purposes the foreign nonprofit is authorized to carry on under the laws of its home jurisdiction. _line1/_line2 split mirrors registered_office.address_line{1,2} convention."
         },
         "home_purpose_description_line2": {
-          "type": "string"
+          "type": "string",
+          "description": "Two-line free-text description of the purposes the foreign nonprofit is authorized to carry on under the laws of its home jurisdiction. _line1/_line2 split mirrors registered_office.address_line{1,2} convention."
         },
         "maine_specific_activities_line1": {
-          "type": "string"
+          "type": "string",
+          "description": "Two-line free-text description of the specific subset of activities for which Maine authority is sought, used when entity.maine_activities_scope='specific'."
         },
         "maine_specific_activities_line2": {
-          "type": "string"
+          "type": "string",
+          "description": "Two-line free-text description of the specific subset of activities for which Maine authority is sought, used when entity.maine_activities_scope='specific'."
         },
         "annual_report_reminder_email": {
           "type": "string"

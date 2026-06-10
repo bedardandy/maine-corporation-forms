@@ -15,36 +15,6 @@
           "type": "string",
           "description": "Name of the surviving Maine corporation in a Maine/Maine nonprofit merger."
         },
-        "parties[N]": {
-          "type": "object",
-          "properties": {
-            "vote_method": {
-              "type": "string",
-              "description": "Mutually-exclusive enum capturing how a participating corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote' (the last when there are no voting members)."
-            },
-            "vote_method_date": {
-              "type": "string",
-              "description": "Date associated with the selected vote_method (meeting date, written consent date, or board meeting date depending on which option was chosen)."
-            },
-            "name": {
-              "type": "string",
-              "description": "Name of one party to the merger (THIRD voting block recital). Repeats the names from the top-of-page recital for per-corp voting attestation."
-            },
-            "clerk_certification": {
-              "type": "object",
-              "properties": {
-                "corporation_name": {
-                  "type": "string",
-                  "description": "Name of the corporation in the inset member-vote clerk certification block (re-states the corp name to scope the certification)."
-                },
-                "signer_printed_name_and_title": {
-                  "type": "string",
-                  "description": "Printed name and title of the clerk/secretary/assistant secretary who certifies that minutes show the member-vote action. Required when vote_method is one of the member-vote variants (not required when vote_method='board_of_directors_majority_vote')."
-                }
-              }
-            }
-          }
-        },
         "plan_exhibit_letter": {
           "type": "string",
           "description": "Letter of the exhibit containing the plan of merger (SECOND)."
@@ -52,112 +22,26 @@
         "surviving_corp": {
           "type": "object",
           "properties": {
-            "registered_office_address_line{1,2}": {
+            "registered_office_address_line1": {
               "type": "string",
               "description": "Two-line registered office address of the surviving corporation in Maine (FOURTH paragraph 1)."
             },
-            "registered_office_address_line1": {
-              "type": "string"
-            },
             "registered_office_address_line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line registered office address of the surviving corporation in Maine (FOURTH paragraph 1)."
             }
           }
         },
         "merging_corp": {
           "type": "object",
           "properties": {
-            "registered_office_address_line{1,2}": {
+            "registered_office_address_line1": {
               "type": "string",
               "description": "Two-line registered office address of the merged corporation in Maine (FOURTH paragraph 2)."
             },
-            "registered_office_address_line1": {
-              "type": "string"
-            },
             "registered_office_address_line2": {
-              "type": "string"
-            }
-          }
-        },
-        "parties[0]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "vote_method": {
-              "type": "string"
-            },
-            "vote_method_date": {
-              "type": "string"
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "date_signed": {
-                  "type": "string"
-                },
-                "corporation_name": {
-                  "type": "string"
-                },
-                "signer_1": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "signer_2": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "clerk_certification": {
-              "type": "object",
-              "properties": {
-                "corporation_name": {
-                  "type": "string"
-                },
-                "signer_printed_name_and_title": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "parties[1]": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "vote_method": {
-              "type": "string"
-            },
-            "vote_method_date": {
-              "type": "string"
-            },
-            "signature_block": {
-              "type": "object",
-              "properties": {
-                "date_signed": {
-                  "type": "string"
-                },
-                "signer_1": {
-                  "type": "object",
-                  "properties": {
-                    "printed_name_and_capacity": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "type": "string",
+              "description": "Two-line registered office address of the merged corporation in Maine (FOURTH paragraph 2)."
             }
           }
         },

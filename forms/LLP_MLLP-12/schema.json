@@ -26,15 +26,13 @@
         "professional_services_description": {
           "type": "object",
           "properties": {
-            "line{1,2}": {
+            "line1": {
               "type": "string",
               "description": "Two-line free-form description of professional services provided when entity.is_professional_llp=true. Two-line variant of MLLC-12's single-widget entity.professional_services_description; this LLP form has two underlined blanks instead of one, so the canonical key is split into .line1/.line2 to preserve widget fidelity."
             },
-            "line1": {
-              "type": "string"
-            },
             "line2": {
-              "type": "string"
+              "type": "string",
+              "description": "Two-line free-form description of professional services provided when entity.is_professional_llp=true. Two-line variant of MLLC-12's single-widget entity.professional_services_description; this LLP form has two underlined blanks instead of one, so the canonical key is split into .line1/.line2 to preserve widget fidelity."
             }
           }
         },
