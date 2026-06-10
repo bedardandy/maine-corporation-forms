@@ -62,6 +62,10 @@ python3 tools/harvest_when.py --dry-run  # report only
 python3 -m engine.route "form a new business corporation"
 ```
 
+(`engine.route` is the minimal offline lexical scorer; the standard
+router used by the skill, MCP server, and HTTP API is
+`tools/route_form.py`, which subsumes it.)
+
 ## Programmatic use
 
 ```python

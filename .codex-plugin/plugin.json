@@ -8,5 +8,5 @@
       "args": ["tools/agent_server.py"]
     }
   },
-  "skills": ["skills/route-and-fill/SKILL.md"]
+  "skills": ["skills/corp-route-and-fill/SKILL.md"]
 }

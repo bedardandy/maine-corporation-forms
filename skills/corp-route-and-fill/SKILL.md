@@ -1,5 +1,5 @@
 ---
-name: route-and-fill
+name: corp-route-and-fill
 description: Fill a Maine Secretary of State business-entity filing form from a plain-language situation. Use when the user wants to prepare/file a corporation, LLC, LP, LLP, partnership, nonprofit, or trademark filing.
 ---
 

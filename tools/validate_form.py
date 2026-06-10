@@ -132,14 +132,16 @@ def validate_form(form_id):
             for w in widget_refs:
                 if w is None or inventory is None:
                     continue
-                base = re.sub(r"__p\d+$", "", str(w))  # runtime page-split suffix
+                # runtime page-split suffix, incl. same-page duplicates (__p4_1)
+                base = re.sub(r"__p\d+(_\d+)?$", "", str(w))
                 if base not in inventory and str(w) not in inventory:
                     reviews.append(
                         f"widget not in fields.csv inventory: {key} -> {w!r} "
                         f"(fields.csv may lag a revised blank)"
                     )
 
-            if schema is not None and not _schema_has(schema, key):
+            if schema is not None and not _schema_has(
+                    schema, spec.get("canonical_key", key)):
                 reviews.append(f"key not in schema.json: {key}")
 
     return {"form_id": form_id, "errors": errors, "reviews": reviews, "stats": stats}

@@ -7,9 +7,10 @@ structured case-data object**.
 When the user says *"use this project to file/prepare \<entity action\>"*,
 follow this protocol:
 
-1. **Route:** `python3 -m engine.route "<the situation>"` ranks candidate forms
-   by lexical overlap over `catalog/forms_index.json` (title + code + entity
-   type). Or read `catalog/by_entity.json` to scope by entity type
+1. **Route:** `python3 tools/route_form.py "<the situation>"` ranks candidate
+   forms over `catalog/router_catalog.json` (one LLM call when an endpoint is
+   configured, with a built-in lexical fallback so it always works offline).
+   Or read `catalog/by_entity.json` to scope by entity type
    (`CORP_`/`NP_`/`LLC_`/`LP_`/`LLP_`/`GP_`/`MARK_`).
 2. **Understand:** read `forms/<ID>/SKILL.md` (when to use + key fields +
    example) and `forms/<ID>/form.yaml` (entity type, statute, counts). Check the

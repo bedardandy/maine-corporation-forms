@@ -53,7 +53,7 @@ claude mcp add maine-corporation-forms -- python3 tools/agent_server.py
 ```
 
 `.mcp.json` wires the same server for any MCP client. The `.codex-plugin/`
-bundle (`plugin.json` + `.mcp.json` + `skills/route-and-fill/SKILL.md`) packages
+bundle (`plugin.json` + `.mcp.json` + `skills/corp-route-and-fill/SKILL.md`) packages
 the server with a directive route→plan→fill workflow skill; install via the
 marketplace at `.agents/plugins/marketplace.json`. Requires `mcp`
 (`pip install mcp`); the import is lazy so the module is inspectable without it.

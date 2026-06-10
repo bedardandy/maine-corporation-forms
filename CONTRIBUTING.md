@@ -41,6 +41,8 @@ verified mapping plus a worked example in `examples/` is the gold standard.
 
 ## Mapping quality bar
 
+- `form.yaml` is the source of truth; catalogs and per-form `README.md` /
+  `SKILL.md` are generated views — regenerate, don't hand-edit.
 - `confidence: low` means auto-derived and **not** trusted.
 - Cross-check every `widget_id` against the real AcroForm field names.
 - Reuse canonical keys from `docs/field-schema.md` / `docs/data-model.md` so

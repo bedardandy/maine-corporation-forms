@@ -3,6 +3,11 @@
 Given a free-text intent, returns candidate ``form_id`` values ranked by a
 simple token-overlap score against each form's title, code, and entity type.
 No network, no embeddings.
+
+The standard router — used by the skill, MCP server, and HTTP API — is
+``tools/route_form.py``, whose lexical fallback subsumes this module. This
+minimal scorer is kept as a zero-dependency offline fallback (and for the
+Makefile ``route`` target); prefer ``route_form`` in new integrations.
 """
 import json
 import re

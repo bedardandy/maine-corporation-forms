@@ -59,9 +59,9 @@ filing\>"*. There are two on-ramps:
   ```bash
   claude mcp add maine-corporation-forms -- python3 tools/agent_server.py
   ```
-  A **`.codex-plugin/`** manifest and a top-level **`skills/route-and-fill/`**
+  A **`.codex-plugin/`** manifest and a top-level **`skills/corp-route-and-fill/`**
   skill ship for harnesses that consume those.
-- **Plain CLI / HTTP.** Route (`engine.route`) → read the form's `SKILL.md` and
+- **Plain CLI / HTTP.** Route (`tools/route_form.py`) → read the form's `SKILL.md` and
   per-field confidence → build a canonical case object → plan coverage
   (`engine.plan`) → fetch the blank (`tools/fetch_pdfs.py`) → fill
   (`engine.fill`). The protocol is in **[`AGENTS.md`](AGENTS.md)**. A
@@ -140,7 +140,7 @@ re-run enrichment for that form, then `--update-manifest` to adopt the new hash.
 
 At **fill time**, `engine.fill` checks the on-disk blank against the manifest
 before filling. A mismatch warns by default (the fill still runs); set
-`MCF_VERIFY_BLANK=strict` to refuse, or `=off` to skip. So a blank that was
+`MCORP_VERIFY_BLANK=strict` to refuse, or `=off` to skip (`MCF_VERIFY_BLANK` works as a legacy fallback). So a blank that was
 silently swapped on disk cannot be filled without notice.
 
 ## Quickstart — fill a form

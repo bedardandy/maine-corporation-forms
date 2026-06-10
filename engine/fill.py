@@ -55,7 +55,8 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
     against. ``verify_blank`` is ``"warn"`` (default; mismatch emits a
     :class:`engine.verify.BlankRevisionWarning` and still fills), ``"strict"``
     (mismatch raises :class:`engine.verify.BlankRevisionError`), or ``"off"``.
-    The default can be set with the ``MCF_VERIFY_BLANK`` environment variable.
+    The default can be set with the ``MCORP_VERIFY_BLANK`` environment
+    variable (``MCF_VERIFY_BLANK`` is honored as a legacy fallback).
 
     ``report``, if a dict, is populated with fill diagnostics:
 
@@ -69,7 +70,9 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
     mapping = load_mapping(form_id, forms_root)
     pdf_path = Path(forms_root) / form_id / f"{form_id}.pdf"
 
-    mode = verify_blank or os.environ.get("MCF_VERIFY_BLANK", "warn")
+    mode = (verify_blank
+            or os.environ.get("MCORP_VERIFY_BLANK")
+            or os.environ.get("MCF_VERIFY_BLANK", "warn"))
     verify.guard_blank(form_id, forms_root, mode=mode)
 
     reader = pypdf.PdfReader(str(pdf_path))
@@ -316,6 +319,11 @@ def split_shared_fields(writer):
             continue
         pages = [_kid_page(writer, k, page_index) for k in kids]
         if len({p for p in pages if p is not None}) < 2:
+            continue
+        if None in pages:
+            # A kid whose page cannot be resolved would get a bogus
+            # ``<T>__pNone`` name; leave the field unsplit rather than emit
+            # unaddressable widgets.
             continue
         name = str(obj.get("/T"))
         ff = obj.get("/Ff")
