@@ -82,29 +82,43 @@ def test_guard_off_skips(tmp_path):
 # ---- check_upstream classification (re-download vs manifest) ----------------
 
 def test_check_upstream_classifies(monkeypatch):
+    import urllib.error
+
     import tools.check_upstream as cu
     # Whatever the URL, the "server" returns these bytes for every form.
     upstream = b"%PDF-1.7 what the portal serves today\n"
 
     def fake_download(url, timeout, retries):
         if "gone" in url:
-            raise OSError("404 Not Found")
+            raise urllib.error.HTTPError(url, 404, "Not Found", None, None)
+        if "flake" in url:
+            raise TimeoutError("timed out")
+        if "outage" in url:
+            raise urllib.error.HTTPError(url, 503, "Service Unavailable",
+                                         None, None)
+        if "maintenance" in url:
+            return b"<html>We'll be back soon</html>"
         return upstream
 
     monkeypatch.setattr(cu, "_download", fake_download)
 
+    def status(form_id, url, pinned):
+        return cu.check_one(
+            {"form_id": form_id, "url": url, "sha256": _sha(pinned),
+             "bytes": len(pinned)}, timeout=1, retries=0)["status"]
+
     # ok: manifest hash equals what the portal serves.
-    assert cu.check_one(
-        {"form_id": "A", "url": "u", "sha256": _sha(upstream), "bytes": len(upstream)},
-        timeout=1, retries=0)["status"] == "ok"
+    assert status("A", "u", upstream) == "ok"
     # CHANGED: manifest pins an older hash than the portal now serves.
-    assert cu.check_one(
-        {"form_id": "B", "url": "u", "sha256": _sha(b"older revision"), "bytes": 14},
-        timeout=1, retries=0)["status"] == "CHANGED"
-    # GONE: the URL no longer resolves.
-    assert cu.check_one(
-        {"form_id": "C", "url": "gone", "sha256": _sha(b"x"), "bytes": 1},
-        timeout=1, retries=0)["status"] == "GONE"
+    assert status("B", "u", b"older revision") == "CHANGED"
+    # GONE: a definitive HTTP 404.
+    assert status("C", "gone", b"x") == "GONE"
+    # GONE: the URL serves an HTML error/maintenance page, not a PDF —
+    # never hash and report it as an adoptable revision.
+    assert status("D", "maintenance", b"x") == "GONE"
+    # ERROR: transient failures (timeout, 5xx) must not read as GONE.
+    assert status("E", "flake", b"x") == "ERROR"
+    assert status("F", "outage", b"x") == "ERROR"
 
 
 # ---- the real manifest is internally consistent ----------------------------
