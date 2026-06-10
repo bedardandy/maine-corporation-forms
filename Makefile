@@ -1,6 +1,6 @@
 # Maine Corporation Forms — developer entry points.
 # Most targets are PDF-free and offline; `fetch` and `fill` need the blank PDF.
-.PHONY: help test validate coverage status sync-schema route plan fill fetch check-upstream mcp serve
+.PHONY: help test validate coverage status sync-schema rebuild-fields route plan fill fetch check-upstream mcp serve
 
 help:
 	@echo "make test                       run the deterministic test suite (the CI gate)"

@@ -3,3 +3,9 @@
 # Deterministic fill engine (engine/) + generator (tools/build_from_pass1.py):
 pypdf>=4.0         # read AcroForm field names + write filled AcroForm values
 PyYAML>=6.0        # reading form.yaml / rubric.yaml in downstream tooling
+
+# Optional extras — install only what you use:
+# pymupdf>=1.24    # print-copy rendering (engine/printcopy.py) and the
+#                  # fields.csv inventory rebuild (tools/rebuild_fields_csv.py)
+# mcp>=1.0         # the agent MCP server (tools/agent_server.py / `make mcp`)
+# pytest>=7.0      # the test suite (`make test`)
