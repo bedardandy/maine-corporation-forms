@@ -82,5 +82,13 @@ local to this repo.
   via `engine.rubric`/`engine.preflight` — the equivalent of the sibling
   repos' `constraints.json` layer — and warning-severity findings never block
   a fill (only error-severity preflight issues do).
+- **Computed fields live in the rubric here too.** The sibling repos'
+  `computations.json` layer (arithmetic printed verbatim on the form;
+  engine computes an omitted total, warns on a supplied contradiction) has
+  no per-form files in this repo: the cover-sheet "Total fee(s) enclosed"
+  is a printed base fee plus expedite checkboxes, not field arithmetic, and
+  `engine/rubric.py`'s fee checks (base + expedite premium via
+  `catalog/fees.json`) already cover it at preflight. The rubric only
+  checks a supplied total — it never fills one in.
 - Keep filled PDFs and run artifacts out of git (see `.gitignore`).
 - Licensed Apache-2.0 (`LICENSE`).

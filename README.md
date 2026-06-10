@@ -174,6 +174,19 @@ already lives in `rubric.yaml` — "X and Y cannot both be true", "exactly one
 checks in `engine.rubric` and surface through `engine.preflight` with the
 rubric's own severities — so no `constraints.json` bridge is added here.
 
+Computed-fields ("printed arithmetic") note, same shape: the sibling repos
+ship a warnings-only `forms/<ID>/computations.json` (line math printed
+verbatim on the form, evaluated by `maine_forms_engine.computations` — an
+omitted total is computed and filled, a supplied contradiction warns). This
+repo's only filer-facing arithmetic is the cover-sheet **"Total fee(s)
+enclosed: $"**, which is not field arithmetic — it is a printed base fee
+plus the expedite-service checkboxes ($50 / $100 printed on the cover
+sheet), and that exact class already lives in `engine/rubric.py`'s fee
+checks (`a_fee`: base + expedite premium, fed by `catalog/fees.json`,
+surfaced through `engine.preflight`). The rubric checks a supplied total and
+warns on a mismatch; it deliberately does not invent one when the case is
+silent — so no `computations.json` bridge is added here either.
+
 ## Trust & provenance
 
 The blank PDFs are State of Maine public records. The field mappings were

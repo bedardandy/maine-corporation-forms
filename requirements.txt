@@ -1,7 +1,7 @@
 # Runtime dependencies for the corporation-forms library.
 #
 # Deterministic fill engine (engine/) + generator (tools/build_from_pass1.py):
-maine-forms-engine @ git+https://github.com/bedardandy/maine-forms-engine@v0.1.0
+maine-forms-engine @ git+https://github.com/bedardandy/maine-forms-engine@v0.3.0
                    # shared drift guard (tools/{check_upstream,fetch_pdfs}.py
                    # are shims over it) + the MCP scaffold tools/agent_server.py
                    # builds on; ships the pdf_manifest JSON Schema
