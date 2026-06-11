@@ -5,10 +5,10 @@ Check Box14,0,text,Certificate of Inter-Entity Consolidation (31 MRSA §744) [op
 Check Box15,0,text,"Articles/Certificate of Conversion (31 MRSA §746, 31 MRSA §1432) [option 4]",filing.underlying_filing_type,high,Enum value 'articles_of_conversion'.
 Check Box16,0,text,Articles of Conversion of Partnership (31 MRSA §1093) [option 5],filing.underlying_filing_type,high,Enum value 'conversion_of_partnership'.
 Text1,0,text,"FIRST: The name of the registered limited liability partnership is — must contain 'Limited Liability Partnership', 'L.L.P.' or 'LLP' (per 31 MRSA §803-A)",entity.name,high,Top-of-form LLP name. Domestic Maine filing — uses entity.name (not entity.home_jurisdiction_name). Must contain LLP suffix per 31 MRSA §803-A.
-Check Box17,0,text,SECOND: Commercial Registered Agent,registered_agent.type,high,"Radio option for Commercial Registered Agent. Enum value 'commercial'. Same key family as MLLP-6A, MLLP-12, FICT-4."
+Check Box17,0,checkbox,SECOND: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'commercial'.
 Text2,0,text,SECOND: CRA Public Number (alongside Commercial Registered Agent radio),registered_agent.cra_public_number,high,"CRA Public Number, required when registered_agent.type = 'commercial'."
 Text3,0,text,SECOND: (name of commercial registered agent),registered_agent.name,high,Name of the commercial registered agent. Synth fills exactly one of Text3 / Text4 based on registered_agent.type.
-Check Box18,0,text,SECOND: Noncommercial Registered Agent,registered_agent.type,high,Radio option for Noncommercial Registered Agent. Enum value 'noncommercial'.
+Check Box18,0,checkbox,SECOND: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'noncommercial'.
 Text4,0,text,SECOND: (name of noncommercial registered agent),registered_agent.name,high,Name of the noncommercial registered agent (alternative slot to Text3). Same canonical key — exactly one is filled per registered_agent.type.
 Text5,0,text,"SECOND: (physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,"Physical address of the registered agent in Maine (single-line: street, city, state, zip; not P.O. Box)."
 Text6,0,text,SECOND: (mailing address if different from above),registered_agent.mailing_address,high,Mailing address of the registered agent (when different from physical).

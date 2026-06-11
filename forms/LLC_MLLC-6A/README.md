@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `entity.name` maps to 2 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Both 'name' (top, current SOS-record name) and 'new name' (FIRST blank) bind to entity.name. For synth fills with no name change, populate both with the same value; for actual name-change filings, the 'new name' value would diverge from the SOS record. An optional entity.name_changed boolean could disambiguate at the rubric level — deferred until a synth demo for name-change scenarios is added.

@@ -7,10 +7,10 @@ Check Box23,0,checkbox,Articles of Entity Conversion (13-C MRSA §955.1),filing.
 Text1,0,text,FIRST: The name of the limited partnership is,entity.name,high,"LP legal name; must contain 'Limited Partnership', 'L.P.', or 'LP' (or LLLP/PLLLP variants per 31 MRSA §1308.1.A). Same key as LP_MLPA-6."
 Text2,0,text,"SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street – not P.O. Box, city, state and zip code)",entity.designated_office.physical_address,high,Single-line physical address of the designated office in Maine. Same key as LP_MLPA-6.
 Text3,0,text,(mailing address if different from above),entity.designated_office.mailing_address,high,Optional mailing address of the designated office. Same key as LP_MLPA-6.
-Check Box24,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,"Mutually-exclusive option for 'commercial' registered agent. Same key family as MLPA-6, MLPA-12-1, CLKRA-3."
+Check Box24,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'commercial'.
 Text4,0,text,CRA Public Number,registered_agent.cra_public_number,high,"Maine SOS CRA Public Number, required when registered_agent.type='commercial'."
 Text5,0,text,(name of commercial registered agent),registered_agent.name,high,Name slot for commercial RA. Synth fills exactly one of Text5/Text6 based on registered_agent.type.
-Check Box25,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive option for 'noncommercial' registered agent.
+Check Box25,0,checkbox,THIRD: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'noncommercial'.
 Text6,0,text,(name of commercial registered agent),registered_agent.name,high,Name slot for noncommercial RA. Alternative to Text5 — synth fills exactly one based on registered_agent.type.
 Text7,0,text,"(physical location, not P.O. Box – street, city, state and zip code) [registered agent]",registered_agent.physical_address,high,Single-line physical address of the registered agent in Maine. Same key as MLPA-6.
 Text8,0,text,(mailing address if different from above) [registered agent],registered_agent.mailing_address,high,Optional mailing address of the registered agent.

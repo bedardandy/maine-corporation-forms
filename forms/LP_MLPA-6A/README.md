@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `entity.professional_services_description` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.

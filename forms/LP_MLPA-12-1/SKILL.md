@@ -57,6 +57,9 @@ _Showing 12 of 26 canonical keys — the full set is in mapping.json._
   "filing": {
     "fict4_accompanies": "Sample Value"
   },
-  "registered_agent": {}
+  "registered_agent": {
+    "type": "commercial",
+    "cra_public_number": "P99999"
+  }
 }
 ```

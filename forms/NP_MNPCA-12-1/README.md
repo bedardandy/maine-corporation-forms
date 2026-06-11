@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `filing.seeks_full_authority` maps to 2 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - Open question: This sub-form (NP_MNPCA-12-1) lives inside the parent NP_MNPCA-12 (Application for Transfer of Authority) packet. The cover-letter primitive (filing.contact.*, filing.expedited_service, etc.) is presumed to live on the parent form, not on this sub-form's 2 pages. Confirm by inspecting NP_MNPCA-12 separately.
 - Open question: No filer signature widget exists on this sub-form. The signature is presumably captured on the parent NP_MNPCA-12 — verify when reviewing that form. If the sub-form is ever filed independently, a filing.signer.* block would need to be added (template would need amendment).

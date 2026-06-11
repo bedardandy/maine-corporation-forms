@@ -19,8 +19,8 @@ Text13,1,text,"SIXTH: (physical location, not P.O. Box – street, city, state a
 Text14,1,text,SIXTH: (mailing address if different from above) ___,registered_agent.mailing_address,high,Optional mailing address.
 Text15,1,text,Dated ___,filing.date_signed,high,Date of signature (left of EIGHTH-block area).
 Text16,1,text,*By ___ (signature of any duly authorized individual) / (type or print name and capacity),filing.signer.printed_name_and_capacity,high,"Combined name+capacity widget, Shape D (matches MBCA-11, MLLC-12, MBCA-12, MBCA-12B, MNPCA-12B). Wet-ink signature line above has no widget."
-Check Box20,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial' option for the SIXTH registered-agent block. Enum value: 'commercial'.
-Check Box21,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial' option. Enum value: 'noncommercial'.
+Check Box20,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'commercial'.
+Check Box21,1,checkbox,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'noncommercial'.
 Name of entity,2,text,Name of entity(s) on the submitted filings [1],filing.entities[0].name,high,Cover-letter row 1.
 Name of entitys on the submitted filings 2,2,text,Name of entity [2],filing.entities[1].name,high,Cover-letter row 2.
 Check Box14,2,checkbox,Hold attested copy for pick up,filing.expedited_service.hold_for_pickup,high,Expedite tier 'hold_for_pickup'.

@@ -51,17 +51,18 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether the registered agent is a Commercial Registered Agent (CRA) or a Noncommercial Registered Agent. Enum: 'commercial' | 'noncommercial'.",
+          "enum": [
+            "commercial",
+            "noncommercial"
+          ]
         },
         "physical_address": {
           "type": "string"
         },
         "mailing_address": {
           "type": "string"
-        },
-        "commercial": {
-          "type": "boolean",
-          "description": "Commercial Registered Agent"
         }
       }
     },

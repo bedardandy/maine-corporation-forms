@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - Open question: **Template anomaly: no signature block widgets.** All 21 widgets are on pages 0–1 (body). The template lacks the (DATED, *By, signature, capacity) widgets that appear on the parent MLLP-12 and most other Maine SOS body forms. The '-1' suffix and the absence of signature widgets together suggest this is a partial/companion form intended to be bundled with another primary filing whose signature governs both. Synth fills can populate the body but cannot bind a body-side filing.signer.* — that key is undefined for this form. Recommend confirming with the parent MLLP-12 whether MLLP-12-1 is always bundled or if filers ever submit it standalone.
 - Open question: **Template anomaly: no cover-letter widgets.** No page-2 cover letter exists on this template. Filings of MLLP-12-1 inherit the cover-letter primitive from the bundled primary filing (mirroring CORP_MBCA-6-1's bundled-with-merger pattern). The cover-letter canonical keys (filing.entities, filing.contact.*, filing.expedited_service, filing.attested_copy_recipient.*) are unbound for this form.

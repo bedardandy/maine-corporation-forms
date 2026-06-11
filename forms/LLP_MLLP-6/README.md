@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FOURTH section provides BOTH an inline combined widget (Text8) and split Name/Address columns (Text9/Text10). Likely a redundant template layout — synth should populate the split widgets (matching MLLP-6A's contact_partner.name / contact_partner.address convention) and either leave Text8 empty or derive it. Confirm whether the filler engine mirrors split→combined automatically or treats Text8 as an independent field.

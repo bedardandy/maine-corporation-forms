@@ -30,7 +30,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `filing.accompanying_document_type` maps to 3 widgets; all receive the same value.
 - `entity.nonprofit_type` maps to 2 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `entity.has_members` maps to 2 widgets; all receive the same value.
 - Open question: This attachment-form variant lacks both the incorporator signature block (page 1 of MNPCA-6) AND the cover-letter block (page 3 of MNPCA-6). Both are presumed to live on the accompanying primary form (Conversion / Restatement). When synth/rubric runs against MNPCA-6-1, those keys should NOT be required here.

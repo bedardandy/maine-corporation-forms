@@ -55,6 +55,7 @@ _Showing 12 of 32 canonical keys — the full set is in mapping.json._
     }
   },
   "registered_agent": {
+    "type": "commercial",
     "cra_public_number": "P99999"
   },
   "filing": {

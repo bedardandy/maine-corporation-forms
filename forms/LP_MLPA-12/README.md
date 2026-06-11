@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Page 2 signer block fixed in this review: drafter mapped Text25→general_partner_1.printed_name and Text26/Text27→general_partner_entity_1.* (per-officer pattern). Corrected to filing.signer.* / filing.signer_entity.* — the per-officer signer pattern is reserved for FORMATION filings (LP_MLPA-6 articles of LP) where there is no pre-existing entity. MLPA-12 is a foreign-qualification of an existing LP, so the signer is a 'filer-of-the-existing-entity' (Shape-B individual + entity-block parallel), matching LLP_MLLP-17 / LLP_MLLP-17A / GP_MPA-1.

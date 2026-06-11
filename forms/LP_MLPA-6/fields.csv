@@ -2,10 +2,10 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 Text1,0,text,FIRST: The name of the limited partnership is,entity.name,high,"LP legal name; must contain 'Limited Partnership', 'L.P.' or 'LP' (or LLLP variants) per 31 MRSA §1308.1.A."
 Text2,0,text,"SECOND: (physical location - street (not P.O. Box), city, state and zip code) of designated office",entity.designated_office.physical_address,high,Single-line physical address of LP's designated office in Maine.
 Text3,0,text,(mailing address if different from above),entity.designated_office.mailing_address,high,Optional mailing address of designated office.
-Check Box29,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'commercial'.
+Check Box29,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'commercial'.
 Text4,0,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number.
 Text5,0,text,(name of commercial registered agent),registered_agent.name,high,Name (commercial path).
-Check Box30,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive 'noncommercial'.
+Check Box30,0,checkbox,THIRD: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'noncommercial'.
 Text6,0,text,(name of commercial registered agent),registered_agent.name,high,Name (noncommercial path).
 Text7,0,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Physical address.
 Text8,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Mailing address.

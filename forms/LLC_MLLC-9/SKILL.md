@@ -55,7 +55,7 @@ _Showing 12 of 30 canonical keys — the full set is in mapping.json._
     "new_name": "Sample Value"
   },
   "registered_agent": {
-    "type": "Sample Value"
+    "type": "commercial"
   },
   "authorized_person_1": {},
   "filing": {

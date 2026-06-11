@@ -53,7 +53,7 @@ _Showing 12 of 33 canonical keys — the full set is in mapping.json._
     "new_entity_name": "Sample Value"
   },
   "registered_agent": {
-    "type": "Sample Value",
+    "type": "commercial",
     "cra_public_number": "P99999",
     "name": "Sample Value",
     "physical_address": "Sample Value"

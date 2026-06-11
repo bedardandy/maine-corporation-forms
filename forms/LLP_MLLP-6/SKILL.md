@@ -50,7 +50,7 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
   },
   "registered_agent": {
     "cra_public_number": "P99999",
-    "type": "Sample Value",
+    "type": "commercial",
     "name": "Sample Value",
     "physical_address": "Sample Value",
     "mailing_address": "Sample Value"

@@ -5,8 +5,8 @@ Check Box8,0,checkbox,Articles of Nonprofit Conversion (13-C MRSA §933),filing.
 Text9,0,text,FIRST: The name of the corporation is,entity.name,high,Nonprofit corporation name.
 Check Box10,0,checkbox,SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Checkbox for SECOND public-benefit option. Enum value: 'public_benefit'. Naming follows NP_MNPCA-6 convention.
 Check Box11,0,checkbox,SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes,entity.nonprofit_type,high,Checkbox for SECOND mutual-benefit option. Enum value: 'mutual_benefit'.
-Check Box12,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,Checkbox for commercial-registered-agent path. Enum: 'commercial'.
-Check Box13,0,checkbox,THIRD: Commercial Registered Agent,registered_agent.type,high,Checkbox for noncommercial-registered-agent path. Enum: 'noncommercial'.
+Check Box12,0,checkbox,THIRD: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'commercial'.
+Check Box13,0,checkbox,THIRD: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'noncommercial'.
 Text19,0,text,(mutual benefit purposes description),entity.mutual_benefit_purpose,high,Free-text mutual-benefit purpose statement (only if not 'all purposes permitted').
 Text21,0,text,(name of commercial registered agent),registered_agent.name,high,Name (commercial path).
 Text22,0,text,CRA Public Number,registered_agent.cra_public_number,high,CRA Public Number (commercial path).

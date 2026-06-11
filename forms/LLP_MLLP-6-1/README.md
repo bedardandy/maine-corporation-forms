@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `filing.underlying_filing_type` maps to 5 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - Open question: MLLP-6-1 has only 19 widgets (2 pages) — there is no cover-letter primitive on this form and no signature/signer widget. The form is filed as an attachment to one of five underlying entity-action filings (selected by Check Box 12-16), each of which carries its own cover letter and signature block. Synth must populate the parent filing's cover letter and signer, not this one.
 - Open question: Form ID has a '-1' suffix (cf. LP_MLPA-12-1, LLP_MLLP-12-1) — same accompaniment pattern: a 2-page widget-only form with no cover letter or signer.

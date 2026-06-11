@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FIRST instructs the filer to write 'no change' literally if the name is not being amended (same convention as MLLP-9). Synth must emit either 'no change' or a valid suffix-bearing name.

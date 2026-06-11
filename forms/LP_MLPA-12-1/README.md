@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - Open question: MLPA-12-1 has only 28 widgets (2 pages) — there is no cover-letter primitive on this form and no signature/signer widget. The form is filed as an attachment to an Application for Transfer of Authority, which carries the cover letter and signature block. Synth must populate the parent form's cover letter, not this one.
 - Open question: FIRST captures the Maine-use name (with required statutory suffix) but the form does not separately capture the home-jurisdiction name — the certificate of existence required by TENTH attests to the home name. Mapped FIRST to entity.maine_assumed_name_for_suffix per the schema-gap convention, but a future cleanup may want to alias to entity.name when the home and Maine names are identical.

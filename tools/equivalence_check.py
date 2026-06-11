@@ -31,22 +31,36 @@ not case validity.
 Exits non-zero when any form diverges; the report lists every differing field
 with both values.
 
-Known, intentional divergences (verified 2026-06-11, 154/156 identical):
+Known, intentional divergences (verified 2026-06-11 after the
+registered_agent.type checkbox-fan sweep; 136/156 identical):
 
-- ``NP_MNPCA-6`` ``cra`` and ``LLC_MLLC-12`` ``Check Box15``/``16`` — on both
-  forms ``registered_agent.type`` *was* a text-typed binding fanned onto
-  checkbox widgets; the old pypdf filler wrote the literal type string into
-  the button ``/V`` (an invalid state no viewer renders, so the box stayed
-  unchecked either way). The working tree has since re-bound the key from the
-  printed labels ("Commercial Registered Agent" / "Noncommercial Registered
-  Agent"): ``NP_MNPCA-6`` as the radio group ``cra`` (kid on-states ``Yes`` /
-  ``cra2``) and ``LLC_MLLC-12`` as an ``enum_select`` over the independent
-  ``Check Box15``/``Check Box16``. These two forms therefore diverge from the
-  frozen baseline *by design* — the baseline writes the literal string, the
-  new engine actually selects the box (``cra`` old ``'commercial'`` vs new
-  ``'Yes'``; ``Check Box16`` old ``'commercial'`` vs new ``'Off'``; the stray
-  X-mark text widgets the old fan-out also hit now stay blank). Every other
-  form remains identical.
+- 20 forms re-bound ``registered_agent.type`` as a real selection. The
+  migration-era mappings carried the key as a *text*-typed binding fanned
+  onto checkbox widgets; the old pypdf filler wrote the literal type string
+  into the button ``/V`` (an invalid state no viewer renders, so the box
+  stayed unchecked either way). The working tree binds the key from the
+  blanks' printed labels ("Commercial Registered Agent" / "Noncommercial
+  Registered Agent"): ``NP_MNPCA-6`` as the radio group ``cra`` (kid
+  on-states ``Yes`` / ``cra2``); the other 19 as ``enum_select`` over
+  independent on-state-``Yes`` checkboxes — ``CORP_MBCA-12``,
+  ``LLC_MLLC-6A``, ``LLC_MLLC-9``, ``LLC_MLLC-12``, ``LLC_MLLC-12A``,
+  ``LLP_MLLP-6``, ``LLP_MLLP-6-1``, ``LLP_MLLP-6A``, ``LLP_MLLP-12``,
+  ``LLP_MLLP-12-1``, ``LP_MLPA-6``, ``LP_MLPA-6-1``, ``LP_MLPA-6A``,
+  ``LP_MLPA-12``, ``LP_MLPA-12-1``, ``NP_MNPCA-6-1``, ``NP_MNPCA-12``,
+  ``NP_MNPCA-12-1``, ``NP_MNPCA-6A_0``. These forms diverge from the frozen
+  baseline *by design* — the baseline writes the literal string, the new
+  engine actually selects the chosen box and forces the sibling off.
+  (``LLC_MLLC-6`` was already an ``enum_select`` before the baseline and
+  stays identical.)
+- ``NP_MNPCA-6A_0`` additionally corrects an off-by-one-widget defect the
+  sweep exposed: ``Check Box8`` is the fourth ``restatement.adoption_method``
+  box (board-majority line, above the SECOND heading), and ``Check Box9`` /
+  ``Check Box10`` are the commercial/noncommercial boxes — the baseline
+  mapping had Check Box8/Check Box10 swapped between the two groups.
+- ``LLC_MLLC-12A`` additionally absorbs the boolean
+  ``registered_agent.commercial`` binding (``Check Box16__p1``) into the
+  ``registered_agent.type`` enum_select, so the SIXTH pair can never show
+  two marks.
 """
 import argparse
 import json

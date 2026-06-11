@@ -53,6 +53,9 @@ _Showing 12 of 15 canonical keys — the full set is in mapping.json._
     "fict4_accompanies": "Sample Value",
     "seeks_full_authority": true
   },
-  "registered_agent": {}
+  "registered_agent": {
+    "type": "commercial",
+    "cra_public_number": "P99999"
+  }
 }
 ```

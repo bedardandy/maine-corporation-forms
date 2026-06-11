@@ -15,5 +15,5 @@ Text13,0,text,SIXTH: (mailing address if different from above),registered_agent.
 Check Box1,0,checkbox,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,Boolean indicating Form FICT-4 (fictitious name registration) is bundled. Matches MLLC-12 Check Box4.
 Check Box2,0,checkbox,FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes,filing.seeks_full_authority,high,Mutually-exclusive radio option 'Yes' (true) for full-scope authority.
 Check Box3,0,checkbox,FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes,filing.seeks_full_authority,high,"Mutually-exclusive radio option 'No' (false). When false, entity.maine_limited_activities must be filled."
-Check Box4,0,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'commercial'. Pairs with Text9 (CRA Public Number) and Text10 (CRA name).
-Check Box5,0,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio: enum value 'noncommercial'. Pairs with Text11 (NCRA name).
+Check Box4,0,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'commercial'.
+Check Box5,0,checkbox,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0; enum_select value 'noncommercial'.

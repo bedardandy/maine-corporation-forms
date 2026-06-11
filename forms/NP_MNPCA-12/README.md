@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `entity.maine_activities_scope` maps to 2 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: This form does NOT include an officer roster (despite 2026-04-30-officer-roster-pattern.md anticipating one for MNPCA-12). Page 1 contains only SIXTH (registered agent), SEVENTH (5 MRSA §1105.2 RA-consent recital), and EIGHTH (certificate-of-existence recital + signature block) — there are no name/address widgets for current officers/directors. The roster pattern's anticipated key family (officer_N.*) does not apply here; foreign-nonprofit qualification under 13-B MRSA §1202 is structurally simpler than its corporate counterpart (CORP_MBCA-12), which DOES include a 3-row officer roster with overflow.

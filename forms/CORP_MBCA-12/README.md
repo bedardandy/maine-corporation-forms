@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FOURTH paragraph (For professional corporations only) is conditional text that recites the §22-A §730 ownership/licensure requirements but introduces no fillable widgets. entity.is_professional_corporation triggers it; no further fields to capture. Confirm no widget was missed by pdftk/pypdf.

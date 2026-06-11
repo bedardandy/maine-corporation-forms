@@ -68,13 +68,6 @@
       "confidence": "high",
       "label": "(Name of commercial registered agent)"
     },
-    "Check Box18": {
-      "key": "registered_agent.type",
-      "field_type": "text",
-      "page": 1,
-      "confidence": "high",
-      "label": "Noncommercial Registered Agent"
-    },
     "Text10": {
       "key": "registered_agent.physical_address",
       "field_type": "text",
@@ -203,12 +196,17 @@
       "label": "Form FICT-4 accompanies this application"
     },
     "Check Box16__p1": {
-      "key": "registered_agent.commercial",
-      "field_type": "checkbox",
+      "key": "registered_agent.type",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged.",
-      "label": "Commercial Registered Agent"
+      "label": "SIXTH: The Registered Agent is a: (select either a Commercial or Noncommercial Registered Agent)",
+      "options": {
+        "commercial": "Check Box16__p1",
+        "noncommercial": "Check Box18"
+      },
+      "split_note": "Check Box16 is a shared /Btn with one widget per page; the runtime field-split (engine.fill.split_shared_fields) promotes the page-1 instance to 'Check Box16__p1' so it is independently addressable. The official PDF is unchanged.",
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box16__p1 y=65.6 = 'Commercial Registered Agent'; Check Box18 y=126.0 = 'Noncommercial Registered Agent'. Replaces the migration-era pair of a boolean registered_agent.commercial checkbox plus a text binding that wrote the literal type string into Check Box18 (registered_agent.type checkbox-fan sweep; see tools/equivalence_check.py)."
     },
     "Check Box14": {
       "key": "filing.expedited_service.hold_for_pickup",

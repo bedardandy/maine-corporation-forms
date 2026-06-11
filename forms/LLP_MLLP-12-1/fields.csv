@@ -18,5 +18,5 @@ Text14,1,text,Noncommercial path: (mailing address if different from above),regi
 Text15,1,text,NINTH: NAME (contact partner),contact_partner.name,high,Name of the contact partner — distinct from the registered agent (the contact partner is internal to the LLP; the registered agent is the agent for service of process). New key family for LLP filings.
 Text16,1,text,NINTH: ADDRESS (contact partner),contact_partner.address,high,"Business, residence, or mailing address of the contact partner."
 Text17,1,text,"TENTH: The date on which the foreign limited liability partnership first did, or intends to do, business in the State of Maine is",entity.maine_activities_start_date,high,Date the foreign LLP commenced or expects to commence Maine activities. New key for foreign-qualification filings; would also apply to MLLP-12 (parent form).
-Check Box20,1,checkbox,SEVENTH: [X] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive option: enum value 'commercial'. Same key as CORP_MBCA-12 / NCRA forms.
-Check Box21,1,checkbox,SEVENTH: [X] Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive option: enum value 'noncommercial'.
+Check Box20,1,checkbox,SEVENTH: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'commercial'.
+Check Box21,1,checkbox,SEVENTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'noncommercial'.

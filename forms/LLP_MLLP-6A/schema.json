@@ -59,7 +59,12 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether the registered agent is a Commercial Registered Agent (CRA) or a Noncommercial Registered Agent. Enum: 'commercial' | 'noncommercial'.",
+          "enum": [
+            "commercial",
+            "noncommercial"
+          ]
         },
         "cra_public_number": {
           "type": "string"

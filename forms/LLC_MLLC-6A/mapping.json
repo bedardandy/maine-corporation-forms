@@ -43,14 +43,15 @@
     },
     "Check Box7": {
       "key": "registered_agent.type",
-      "widgets": [
-        "Check Box7",
-        "Check Box8"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "FIFTH: The Registered Agent is a: [ ] Commercial Registered Agent"
+      "label": "FIFTH: The Registered Agent is a: (select either a Commercial or Noncommercial Registered Agent)",
+      "options": {
+        "commercial": "Check Box7",
+        "noncommercial": "Check Box8"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box7 y=66.3 = 'Commercial Registered Agent'; Check Box8 y=127.3 = 'Noncommercial Registered Agent'. Replaces the migration-era text binding that fanned the literal type string onto both boxes (registered_agent.type checkbox-fan sweep; see tools/equivalence_check.py)."
     },
     "cra number": {
       "key": "registered_agent.cra_public_number",

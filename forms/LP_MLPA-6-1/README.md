@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `filing.accompanying_transaction_type` maps to 5 widgets; all receive the same value.
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `entity.professional_services_description` maps to 2 widgets; all receive the same value.
 - Open question: MLPA-6-1 has only 28 widgets (2 pages) — no cover-letter primitive, no signature block, no date_signed widget. The form is filed as the formation sheet inside a transaction bundle (the accompanying Articles of Conversion / Merger / Consolidation), which carries the cover letter, signature, and date. Synth must populate the parent transaction form's cover letter, not this one. Same bundled-sheet pattern as LP_MLPA-12-1 and LLP_MLLP-12-1.

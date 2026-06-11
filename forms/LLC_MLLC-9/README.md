@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FIFTH section header reads 'Complete only if there is a change to the registered agent information' — there is NO opt-in checkbox indicating an agent change. Synth/rubric infers presence from the populated keys. A future cleanup might add an `entity.registered_agent_change` boolean alongside, but no widget exists today.

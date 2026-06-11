@@ -9,10 +9,10 @@ POADD,0,text,FOURTH: The street and mailing address of the foreign limited partn
 POMAIL,0,text,FOURTH: (mailing address if different from above),entity.principal_office.mailing_address,high,Optional mailing address of the principal office.
 POADD2,0,text,FIFTH: The street and mailing address of the foreign limited partnership's required office is: (physical location...),entity.required_office.physical_address,high,Physical address of the required office in the home jurisdiction (only when home law requires the LP to maintain a required office).
 POADD2CITY,0,text,FIFTH: (mailing address if different from above),entity.required_office.mailing_address,high,"Optional mailing address of the required office. (Field name 'POADD2CITY' is misleading — its rect and position match the FIFTH-block 'mailing address if different' line, not a separate city component.)"
-Check Box29,1,text,SIXTH: Commercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio for Commercial Registered Agent. Enum value 'commercial'.
+Check Box29,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'commercial'.
 Text10,1,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number; required when registered_agent.type='commercial'.
 Text11,1,text,(name of commercial registered agent),registered_agent.name,high,Name of the commercial registered agent (one of two name slots). Synth fills exactly one of Text11/Text12 based on registered_agent.type.
-Check Box30,1,text,SIXTH: Noncommercial Registered Agent,registered_agent.type,high,Mutually-exclusive radio for Noncommercial Registered Agent. Enum value 'noncommercial'.
+Check Box30,1,checkbox,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'noncommercial'.
 Text12,1,text,(name of noncommercial registered agent),registered_agent.name,high,Name of the noncommercial registered agent (alternative slot to Text11).
 Text13,1,text,"(physical location, not P.O. Box – street, city, state and zip code)",registered_agent.physical_address,high,Physical address of the registered agent in Maine (NOT a P.O. Box).
 Text14,1,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address of the registered agent.

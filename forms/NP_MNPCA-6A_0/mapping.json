@@ -28,23 +28,25 @@
         "Check Box4",
         "Check Box5",
         "Check Box6",
-        "Check Box10"
+        "Check Box8"
       ],
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "By the members at a meeting at which a quorum was present and the restatement received at least a majority of the votes which members were entitled to cast."
+      "label": "By the members at a meeting at which a quorum was present and the restatement received at least a majority of the votes which members were entitled to cast.",
+      "binding_source": "fourth widget corrected from Check Box10 to Check Box8 by geometry+text: Check Box8 (y=502.2) sits on the '(If no members, or none entitled to vote thereon.) By majority vote of the board of directors.' line, directly below Check Box6; Check Box10 (y=611.6) is the SECOND noncommercial registered-agent box."
     },
-    "Check Box8": {
+    "Check Box9": {
       "key": "registered_agent.type",
-      "widgets": [
-        "Check Box8",
-        "Check Box9"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: [ ] Commercial Registered Agent"
+      "label": "SECOND: The Registered Agent is a: (select either a Commercial or Noncommercial Registered Agent)",
+      "options": {
+        "commercial": "Check Box9",
+        "noncommercial": "Check Box10"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box9 y=549.8 = 'Commercial Registered Agent'; Check Box10 y=611.6 = 'Noncommercial Registered Agent'. Replaces the migration-era text binding that fanned the literal type string onto both boxes (registered_agent.type checkbox-fan sweep; see tools/equivalence_check.py). The migration-era binding was also off by one widget: Check Box8 (y=502.2) is the fourth restatement.adoption_method box ('(If no members, or none entitled to vote thereon.) By majority vote of the board of directors.'), sitting above the SECOND heading - it is not a registered-agent box."
     },
     "Text7": {
       "key": "registered_agent.cra_public_number",

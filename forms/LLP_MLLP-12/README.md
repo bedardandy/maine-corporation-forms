@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: TENTH 'Check only if applicable' checkbox for is_professional_llp is visible on the rendered form but is NOT extracted as an AcroForm widget — same template-level upstream issue as MNPCA-10 / MBCA-10 (see schema-gaps/2026-04-30-phase2-summary.md). Filler engine must either bind by rect or accept the boolean as a synth/data-side flag with no widget. is_professional_llp is still listed as a schema_gap so synth/rubric can reason about it.
