@@ -55,7 +55,13 @@
               },
               "adoption_method": {
                 "type": "string",
-                "description": "FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+                "description": "Mutually-exclusive enum capturing how the party adopted the plan of consolidation (FOURTH, '\"X\" one box only'): 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote'. Same printed options as the NP_MNPCA-10/10A vote_method blocks.",
+                "enum": [
+                  "majority_member_vote",
+                  "supermajority_member_vote",
+                  "written_consent_of_members",
+                  "board_of_directors_majority_vote"
+                ]
               },
               "adoption_date": {
                 "type": "string",

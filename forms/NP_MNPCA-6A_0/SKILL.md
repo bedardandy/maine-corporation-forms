@@ -28,7 +28,7 @@ _Showing 12 of 25 canonical keys — the full set is in mapping.json._
 - entity.name is non-empty. (depends on `entity.name`)
 - restatement.text_exhibit_letter is non-empty (the form footnote requires Form MNPCA-6-1 with the full restated text accompany this filing). (depends on `restatement.text_exhibit_letter`)
 - restatement.adoption_date is non-empty and parses as a date on or before filing.date_signed. (depends on `restatement.adoption_date`, `filing.date_signed`)
-- Exactly one of Check Box4/5/6/10 is selected (restatement.adoption_method set to a single enum value). (depends on `restatement.adoption_method`)
+- Exactly one of Check Box4/5/6/8 is selected (restatement.adoption_method set to a single enum value). (depends on `restatement.adoption_method`)
 - Exactly one of Commercial or Noncommercial Registered Agent is selected. (depends on `registered_agent.type`)
 - registered_agent.name is non-empty. (depends on `registered_agent.name`)
 - registered_agent.physical_address is non-empty and is not a P.O. Box. (depends on `registered_agent.physical_address`)
@@ -48,7 +48,7 @@ _Showing 12 of 25 canonical keys — the full set is in mapping.json._
   "restatement": {
     "text_exhibit_letter": "Sample Value",
     "adoption_date": "2026-01-15",
-    "adoption_method": "Sample Value"
+    "adoption_method": "members_majority_at_meeting"
   },
   "registered_agent": {
     "type": "commercial",

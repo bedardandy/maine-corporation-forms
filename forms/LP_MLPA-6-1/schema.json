@@ -112,7 +112,8 @@
       "type": "object",
       "properties": {
         "additional_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional GPs are listed on a separate exhibit."
         },
         "additional_exhibit_letter": {
           "type": "string"

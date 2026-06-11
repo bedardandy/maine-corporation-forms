@@ -31,7 +31,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 - `consolidation.parties[0].name` maps to 3 widgets; all receive the same value.
 - `consolidation.parties[1].name` maps to 2 widgets; all receive the same value.
 - `consolidation.new_entity.name` maps to 2 widgets; all receive the same value.
-- `consolidation.parties[0].adoption_method` maps to 4 widgets; all receive the same value.
 - `consolidation.parties[0].adoption_date` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - 2 low-confidence mapping(s) need human review: `consolidation.parties[0].signature_block.signature`, `consolidation.parties[1].signature_block.signature`

@@ -43,7 +43,13 @@
           "type": "string"
         },
         "approval_method": {
-          "type": "string"
+          "type": "string",
+          "description": "How the new amendment included in the restated articles was approved (select-one under the FOURTH 'If a new amendment is included' block). Enum: 'incorporators' | 'board_of_directors' | 'shareholders' \u2014 verbatim printed options 'by the incorporators \u2013 shareholder approval was not required', 'by the board of directors \u2013 shareholder approval was not required', 'by the shareholders in the manner required by this Act and by the articles of incorporation'.",
+          "enum": [
+            "incorporators",
+            "board_of_directors",
+            "shareholders"
+          ]
         },
         "share_exchange_exhibit_letter": {
           "type": "string"

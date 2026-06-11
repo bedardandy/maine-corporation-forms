@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `merger.third_election` maps to 2 widgets; all receive the same value.
-- `merger.third_subelection` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FIRST recital widgets (Text1–Text4) are single underlined blanks despite the form's 4-column header (Name | Form of Organization | Jurisdiction | Date of Organization). Synth must produce a combined recital string per row; rubric must accept either pipe-separated or whitespace-separated formats. Same pattern as CORP_MBCA-10 and LP_MLPA-10.
 - Open question: Page 1 widget IDs are scrambled across the three signature blocks: party 1 uses Text20 (date), Text21–22 (signers), and Text24 (name); party 2 uses Text23 (name) and Text25–27 (date + signers); party 3 uses Text28–31 in order. Drafter initially mapped Text23 to party 1 and Text24 to party 2 — reviewer corrected based on y-coordinate ordering (Text24 y≈462 is higher on page 1 than Text23 y≈295). AcroForm naming reflects PDF authoring quirks rather than logical order — same as LP_MLPA-10.

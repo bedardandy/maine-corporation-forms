@@ -39,7 +39,8 @@
       "type": "object",
       "properties": {
         "fict4_accompanies": {
-          "type": "string"
+          "type": "boolean",
+          "description": "True when Form FICT-4 (fictitious name) accompanies this application — a single yes/this-applies checkbox, not an enum."
         },
         "other_amendments_exhibit_letter": {
           "type": "string"

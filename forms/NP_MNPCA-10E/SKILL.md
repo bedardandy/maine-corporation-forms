@@ -15,7 +15,7 @@
 | `consolidation.new_entity.name` | text | high | (A ___ Corporation) FORMING — new consolidated corp name (fills multiple widgets) |
 | `consolidation.new_entity.service_address` | text | high | SECOND: ...the address to which the Secretary of State shall mail a copy of any process in such proceeding is ___ |
 | `consolidation.parties[0].adoption_date` | text | high | FOURTH option 1 date: ...at a meeting on (date) ___ (fills multiple widgets) |
-| `consolidation.parties[0].adoption_method` | text | high | FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast. (fills multiple widgets) |
+| `consolidation.parties[0].adoption_method` | enum_select | high | FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast. |
 | `consolidation.parties[0].descriptor` | text | high | (A ___ Corporation) — first participating corp descriptor |
 | `consolidation.parties[0].name` | text | high | (A ___ Corporation) — first participating corp name (top recital) (fills multiple widgets) |
 | `consolidation.parties[0].registered_office_address_line2` | text | high | FIFTH (domestic): ___ (street, city, state and zip code) |

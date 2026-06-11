@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `transfer.new_entity_type` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FOURTH recital ('All the statements required... are attached. For a Foreign Nonprofit Corporation, attach form MNPCA-12...') has no widget — it's a fixed text block. The bundled form is implicit from transfer.new_entity_type. No `transfer.attached_authority_form_type` key needed since it would be redundant with the existing enum; rubric should infer the expected attached form from new_entity_type.
 - Open question: Page-0 widgets have unusual field names — some bear the label text verbatim ('The current jurisdiction of its incorporation is', 'DATED', 'type or print name and capacity'), others use 'undefined_N' fallback. Likely a quirk of the upstream PDF authoring tool. Filler must accept these literal names; no normalization needed at this layer.

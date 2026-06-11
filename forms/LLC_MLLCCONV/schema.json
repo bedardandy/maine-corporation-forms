@@ -75,7 +75,11 @@
         },
         "organizing_document_disposition": {
           "type": "string",
-          "description": "Enum identifying the SEVENTH-recital select-one for the resulting entity's organizing document: 'attached_as_exhibit' (Check Box3, paired with conversion.new_entity_provisions_exhibit_letter) | 'not_filing_with_sos' (Check Box5, applies when the resulting entity does not file organic documents with the Maine SOS, e.g., a general partnership or out-of-state entity). Mutually exclusive \u2014 exactly one is selected per the form's 'Select One' instruction."
+          "description": "Enum identifying the SEVENTH-recital select-one for the resulting entity's organizing document: 'attached_as_exhibit' (Check Box3, paired with conversion.new_entity_provisions_exhibit_letter) | 'not_filing_with_sos' (Check Box5, applies when the resulting entity does not file organic documents with the Maine SOS, e.g., a general partnership or out-of-state entity). Mutually exclusive \u2014 exactly one is selected per the form's 'Select One' instruction.",
+          "enum": [
+            "attached_as_exhibit",
+            "not_filing_with_sos"
+          ]
         },
         "signature_block": {
           "type": "object",

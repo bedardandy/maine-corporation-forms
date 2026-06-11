@@ -133,14 +133,15 @@
     },
     "Check Box4": {
       "key": "entity.nonprofit_type",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "SIXTH: [ ] The corporation is organized as a public benefit corporation for the following purpose or purposes:"
+      "label": "[ ] The corporation is organized as a public benefit corporation for the following purpose or purposes: / [ ] The corporation is organized as a mutual benefit corporation for the following purpose or purposes or, if not for all such purposes, then for all purposes permitted under 13-B MRSA",
+      "options": {
+        "public_benefit": "Check Box4",
+        "mutual_benefit": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box4 y=266.9 = 'The corporation is organized as a public benefit corporation for the following p'; Check Box5 y=400.7 = 'The corporation is organized as a mutual benefit corporation for the following p'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "981a21": {
       "key": "entity.public_benefit_purpose",
@@ -159,14 +160,15 @@
     },
     "Check Box6": {
       "key": "entity.management_structure",
-      "widgets": [
-        "Check Box6",
-        "Check Box7"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "SEVENTH: [ ] Directors (including trustees, governors, managers, etc.), or if no Directors,"
+      "label": "[ ] Directors (including trustees, governors, managers, etc.), or if no Directors, / [ ] Members.",
+      "options": {
+        "directors": "Check Box6",
+        "members": "Check Box7"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box6 y=567.5 = 'Directors (including trustees, governors, managers, etc.), or if no Directors,'; Check Box7 y=592.5 = 'Members.'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "981a26": {
       "key": "entity.current_address.street",

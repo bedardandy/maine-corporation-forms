@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `resumption.method` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Form has 8 body widgets on page 0 (entity name, two FIRST checkboxes, meeting date, meeting location, THIRD effective date, DATED, signer name+capacity). The '*By' signature line on the bottom row is visible on the rendered form but is NOT AcroForm-bound — wet-ink only. Confirmed against widgets.json: only widgets at y=231/190/156, no signature widget at y≈190 right side.
 - Open question: Cover-letter widgets use template-specific field-id aliases ('hold', '24', 'imm') instead of the more-common 'Check Box14/15/16'. Same convention as LLC_MLLC-12. Filler engine should already handle these via the field-id alias map documented in schema-gaps/2026-04-30-cover-letter-primitive.md.

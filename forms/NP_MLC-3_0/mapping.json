@@ -10,16 +10,17 @@
     },
     "Check Box1": {
       "key": "clerk_change.change_type",
-      "widgets": [
-        "Check Box1",
-        "Check Box3",
-        "Check Box2",
-        "Check Box4"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST A. [ ] change of address"
+      "label": "[ ] A. change of address / [ ] B. change of clerk and address / [ ] C. change of clerk / [ ] D. change in name of current clerk",
+      "options": {
+        "address": "Check Box1",
+        "clerk_and_address": "Check Box3",
+        "clerk": "Check Box2",
+        "clerk_name": "Check Box4"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box1 y=329.0 = 'A. change of address'; Check Box3 y=329.0 = 'B. change of clerk and address'; Check Box2 y=353.8 = 'C. change of clerk'; Check Box4 y=352.9 = 'D. change in name of current clerk'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text6": {
       "key": "clerk_change.current_clerk_or_agent_name",

@@ -75,7 +75,8 @@
       "type": "object",
       "properties": {
         "fict4_accompanies": {
-          "type": "string"
+          "type": "boolean",
+          "description": "True when Form FICT-4 (fictitious name) accompanies this application \u2014 a single yes/this-applies checkbox, not an enum."
         },
         "date_signed": {
           "type": "string"
@@ -229,7 +230,8 @@
       "type": "object",
       "properties": {
         "additional_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional GPs are listed on a separate exhibit."
         },
         "additional_exhibit_letter": {
           "type": "string"

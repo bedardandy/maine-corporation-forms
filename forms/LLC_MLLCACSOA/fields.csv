@@ -1,13 +1,13 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 name,0,text,(Name of Limited Liability Company),entity.name,high,Domestic-LLC name at the top of the form (the LLC whose Statement of Authority is being amended/cancelled). entity.name per the entity-name-vs-home-jurisdiction convention since this is a Maine-record filing.
 file date,0,text,FIRST: The Statement of Authority was originally filed on:,authority.original_filing_date,high,"Date the original Statement of Authority was filed with the SOS. Novel key — distinct from entity.original_articles_filing_date (which references the entity's formation/qualification filing, not a subordinate Statement of Authority)."
-Check Box3,0,text,SECOND: [ ] Amendment of Statement of Authority,filing.action_type,high,Mutually-exclusive radio option for filing.action_type='amendment'.
+Check Box3,0,checkbox,[ ] Amendment of Statement of Authority:,filing.action_type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0 (y=366.4); enum_select value 'amendment'.
 person affected,0,text,Person or position the amendment affects:,amendment.affected_person_or_position,high,Identifies the person or position whose authority is being amended.
 amend1,0,text,Description of amendment: (line 1),amendment.description_1,high,First of four description lines for the amendment. Indexed line shape (description_1..description_4) preserves the form's literal four-line layout — synth concatenates from a single logical description string at fill time.
 amend2,0,text,Description of amendment: (line 2),amendment.description_2,high,Second description line.
 amend3,0,text,Description of amendment: (line 3),amendment.description_3,high,Third description line.
 amend4,0,text,Description of amendment: (line 4),amendment.description_4,high,Fourth description line.
-Check Box9,0,text,[ ] Cancellation of Statement of Authority,filing.action_type,high,Mutually-exclusive radio option for filing.action_type='cancellation' (paired with Check Box3 above; only one of the two should be checked).
+Check Box9,0,checkbox,[ ] Cancellation of Statement of Authority:,filing.action_type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0 (y=543.1); enum_select value 'cancellation'.
 affected,0,text,Person or position the cancellation affects:,cancellation.affected_person_or_position,high,Identifies the person or position whose authority is being cancelled. Parallel to amendment.affected_person_or_position but scoped under cancellation.* because the form provides separate widgets per action.
 cancel1,0,text,Description of authority that is being cancelled: (line 1),cancellation.description_1,high,First of four description lines for the cancellation.
 cancel2,0,text,Description of authority that is being cancelled: (line 2),cancellation.description_2,high,Second cancellation description line.

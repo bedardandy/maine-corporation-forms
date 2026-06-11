@@ -24,7 +24,12 @@
           "description": "Number of votes cast against dissolution."
         },
         "consent_class": {
-          "type": "string"
+          "type": "string",
+          "description": "Enum capturing which class of constituents adopted the resolution attached as Exhibit A: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND, \"'X' one box only\").",
+          "enum": [
+            "members",
+            "directors_when_no_voting_members"
+          ]
         }
       }
     },

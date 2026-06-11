@@ -9,11 +9,15 @@
       "properties": {
         "adopting_body": {
           "type": "string",
-          "description": "The corporate body that ADOPTED the certificate of resumption. Mutually-exclusive enum: 'members' | 'directors'. 13-B nonprofit-specific (vs CORP_MBCA-14A which only has shareholders); whether members or directors is the legally-correct adopting body depends on the entity's bylaws and whether the corporation has voting members."
+          "description": "The corporate body that ADOPTED the certificate of resumption. Mutually-exclusive enum: 'members' | 'directors'. 13-B nonprofit-specific (vs CORP_MBCA-14A which only has shareholders); whether members or directors is the legally-correct adopting body depends on the entity's bylaws and whether the corporation has voting members.",
+          "enum": [
+            "members",
+            "directors"
+          ]
         },
         "adoption_date": {
           "type": "string",
-          "description": "Date the FIRST adoption action occurred (whether at a meeting or by written consent). Form-scoped naming consistent with resumption.adopting_body / resumption.method. Distinct from CORP_MBCA-14A.resumption.meeting_date which is only meaningful for the meeting branch \u2014 on the nonprofit template the date label sits BEFORE the meeting/consent split."
+          "description": "Date the FIRST adoption action occurred (whether at a meeting or by written consent). Form-scoped naming consistent with resumption.adopting_body / resumption.method. Distinct from CORP_MBCA-14A.resumption.meeting_date which is only meaningful for the meeting branch — on the nonprofit template the date label sits BEFORE the meeting/consent split."
         },
         "adoption_location": {
           "type": "string",
@@ -21,10 +25,19 @@
         },
         "voting_body": {
           "type": "string",
-          "description": "The corporate body that VOTED to resume activities (SECOND certification). Mutually-exclusive enum: 'members' | 'directors'. Should match resumption.adopting_body in normal cases \u2014 distinct widget retained because the form has separate checkboxes that could in theory be filled inconsistently; rubric cross-checks the two."
+          "description": "The corporate body that VOTED to resume activities (SECOND certification). Mutually-exclusive enum: 'members' | 'directors'. Should match resumption.adopting_body in normal cases — distinct widget retained because the form has separate checkboxes that could in theory be filled inconsistently; rubric cross-checks the two.",
+          "enum": [
+            "members",
+            "directors"
+          ]
         },
         "method": {
-          "type": "string"
+          "type": "string",
+          "description": "Method by which the certificate of resumption was adopted (FIRST, '\"X\" one box only'): 'meeting' (printed 'at a meeting legally called and held') | 'written_consent' (printed 'by unanimous written consent'). Shares CORP_MBCA-14A's resumption.method enum.",
+          "enum": [
+            "meeting",
+            "written_consent"
+          ]
         }
       }
     },
@@ -36,7 +49,7 @@
           "properties": {
             "line1": {
               "type": "string",
-              "description": "First (inline) line of the corporation's Maine registered-office address as stated on the form. Two-widget free-text per the MARK1 .line{1,2} convention; the label '(street, city, state and zip code)' is shared. Distinct from registered_agent.physical_address \u2014 registered_office.address is the corporation's own registered office, NOT the registered agent's address."
+              "description": "First (inline) line of the corporation's Maine registered-office address as stated on the form. Two-widget free-text per the MARK1 .line{1,2} convention; the label '(street, city, state and zip code)' is shared. Distinct from registered_agent.physical_address — registered_office.address is the corporation's own registered office, NOT the registered agent's address."
             },
             "line2": {
               "type": "string",
@@ -53,7 +66,12 @@
           "type": "string"
         },
         "nonprofit_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether the nonprofit is organized as a public-benefit corporation or a mutual-benefit corporation under 13-B MRSA. Enum: 'public_benefit' | 'mutual_benefit'.",
+          "enum": [
+            "public_benefit",
+            "mutual_benefit"
+          ]
         },
         "annual_report_reminder_email": {
           "type": "string"

@@ -55,7 +55,7 @@ _Showing 12 of 26 canonical keys — the full set is in mapping.json._
     "formation_date_in_home_jurisdiction": "2026-01-15"
   },
   "filing": {
-    "fict4_accompanies": "Sample Value"
+    "fict4_accompanies": true
   },
   "registered_agent": {
     "type": "commercial",

@@ -47,7 +47,11 @@
         },
         "management_structure": {
           "type": "string",
-          "description": "13-B MRSA management-structure enum: 'directors' (including trustees, governors, managers, etc.) or 'members'. Single canonical key backed by two physical checkboxes in a one-of-N radio group (SEVENTH on MNP-981A)."
+          "description": "13-B MRSA management-structure enum: 'directors' (including trustees, governors, managers, etc.) or 'members'. Single canonical key backed by two physical checkboxes in a one-of-N radio group (SEVENTH on MNP-981A).",
+          "enum": [
+            "directors",
+            "members"
+          ]
         },
         "current_address": {
           "type": "object",
@@ -74,7 +78,12 @@
           "type": "string"
         },
         "nonprofit_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether the nonprofit is organized as a public-benefit corporation or a mutual-benefit corporation under 13-B MRSA. Enum: 'public_benefit' | 'mutual_benefit'.",
+          "enum": [
+            "public_benefit",
+            "mutual_benefit"
+          ]
         },
         "public_benefit_purpose": {
           "type": "string"

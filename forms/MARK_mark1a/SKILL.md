@@ -15,7 +15,7 @@
 | `mark.design_features.line2` | text | high | B.2. FEATURES (continuation) — line 2 |
 | `mark.text_words.line1` | text | high | B.1. TEXT - list word(s) to be protected, if any (if none, so indicate) — line 1 |
 | `mark.text_words.line2` | text | high | B.1. TEXT (continuation) — line 2 |
-| `mark.type` | text | high | C. TYPE OF MARK: Trademark - a mark applied to goods applicant manufactures or sells (fills multiple widgets) |
+| `mark.type` | enum_select | high | C. TYPE OF MARK: Trademark - a mark applied to goods applicant manufactures or sells |
 
 ## Conditional logic
 
@@ -43,7 +43,7 @@
       "line1": "Sample Value",
       "line2": "Sample Value"
     },
-    "type": "Sample Value"
+    "type": "trademark"
   },
   "filing": {
     "date_signed": "2026-01-15"

@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `revocation.consent_class` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Page 1 inset 'MUST BE COMPLETED FOR VOTE OF MEMBERS' clerk-certification box has a visible signature line for 'signature of clerk, secretary or asst. secretary' but NO AcroForm widget binds to it — only widgets 20 (DATED), 21 (signer_1), and 22 (signer_2) exist on page 1. This is a template-level upstream issue: when revocation.consent_class='members', the user must wet-ink-sign the clerk-cert line, which the filler engine cannot pre-populate. Same primitive family as sister NP_MNPCA-11's certification.clerk_signature_printed_name, but here unbound.
 - Open question: FIRST roster has 3 inline director rows; additional directors must go on the 'reverse side' (no AcroForm widget) — overflow handled out-of-band.

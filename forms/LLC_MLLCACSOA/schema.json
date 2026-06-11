@@ -18,7 +18,11 @@
       "properties": {
         "action_type": {
           "type": "string",
-          "description": "Enum identifying which action a multi-action form is performing on a single filing. On MLLCACSOA: 'amendment' | 'cancellation' (mutually exclusive \u2014 exactly one of the two SECOND checkboxes is selected). Generic enough to be reused on future amend/cancel/restate-style forms that radio-select between alternative outcomes."
+          "description": "Enum identifying which action a multi-action form is performing on a single filing. On MLLCACSOA: 'amendment' | 'cancellation' (mutually exclusive \u2014 exactly one of the two SECOND checkboxes is selected). Generic enough to be reused on future amend/cancel/restate-style forms that radio-select between alternative outcomes.",
+          "enum": [
+            "amendment",
+            "cancellation"
+          ]
         },
         "additional_information_exhibit_letter": {
           "type": "string",

@@ -31,9 +31,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 - `consolidation.parties[0].name` maps to 2 widgets; all receive the same value.
 - `consolidation.parties[1].name` maps to 2 widgets; all receive the same value.
 - `entity.name` maps to 3 widgets; all receive the same value.
-- `consolidation.parties[0].vote_method` maps to 4 widgets; all receive the same value.
 - `consolidation.parties[0].vote_method_date` maps to 4 widgets; all receive the same value.
-- `consolidation.parties[1].vote_method` maps to 4 widgets; all receive the same value.
 - `consolidation.parties[1].vote_method_date` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: The 'MUST BE COMPLETED FOR VOTE OF MEMBERS' boxes on page 1 (one inset under each DATED row) have NO matching widgets in the AcroForm — only the outer signature widgets ('29'-'36') are bound. Visually each inset has a (name of corporation) line and a (signature of clerk, secretary or asst. secretary) line. These parallel the merger pattern's clerk_certification.* keys but are unbindable on this template. Likely a 2003-revision template bug analogous to the missing widgets on NP_MNPCA-10. Recommend an upstream pdftk dump_data_fields pass or a normalize_fields step to add the missing widgets; until then, a synth fill cannot populate the clerk-certification block via AcroForm.

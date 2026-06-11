@@ -10,25 +10,27 @@
     },
     "Check Box1": {
       "key": "clerk_change.action_type",
-      "widgets": [
-        "Check Box1",
-        "Check Box2"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: [ ] A new clerk or registered agent"
+      "label": "[ ] A new clerk or registered agent (*see signature requirements on second page) or / [ ] A change to the existing clerk or registered agent information (**see signature requirements on second page)",
+      "options": {
+        "new_appointment": "Check Box1",
+        "modify_existing": "Check Box2"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box1 y=337.5 = 'A new clerk or registered agent (*see signature requirements on second page) or'; Check Box2 y=361.6 = 'A change to the existing clerk or registered agent information (**see signature '. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box3": {
       "key": "clerk_change.modify_subtype",
-      "widgets": [
-        "Check Box3",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST sub: [ ] Change of address"
+      "label": "[ ] Change of address / [ ] Change in name of current clerk or registered agent",
+      "options": {
+        "address": "Check Box3",
+        "name": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box3 y=385.7 = 'Change of address'; Check Box5 y=398.1 = 'Change in name of current clerk or registered agent'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text6": {
       "key": "clerk_change.current_clerk_or_agent_name",
@@ -75,14 +77,15 @@
     },
     "Check Box12": {
       "key": "clerk_change.bc_authorization",
-      "widgets": [
-        "Check Box12",
-        "Check Box13"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors"
+      "label": "[ ] The change of commercial or noncommercial clerk was duly authorized by the board of directors of the corporation and the power to appoint … is not reserved to the shareholders / [ ] The change of commercial or noncommercial clerk was duly authorized by the shareholders of the corporation.",
+      "options": {
+        "board_of_directors": "Check Box12",
+        "shareholders": "Check Box13"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box12 y=64.3 = 'The change of commercial or noncommercial clerk was duly authorized by the board'; Check Box13 y=103.9 = 'The change of commercial or noncommercial clerk was duly authorized by the share'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text14": {
       "key": "entity.home_jurisdiction",

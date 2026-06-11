@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.action_type` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: The two SECOND-recital checkboxes (Check Box3 amendment, Check Box9 cancellation) are mapped to a single filing.action_type enum — same convention as the GP_CONV-PARTNER 4-way new-entity-type radio. Synth fills exactly one; filler engine writes the other as unchecked.
 - Open question: The form's amendment-block (Check Box3 + person affected + 4 description lines) and cancellation-block (Check Box9 + affected + 4 description lines) are physically separate inline widgets — synth must populate exactly one block based on filing.action_type and leave the other empty (rubric enforces XOR via amendment-block-required-when-amendment / cancellation-block-required-when-cancellation).

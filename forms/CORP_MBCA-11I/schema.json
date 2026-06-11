@@ -9,7 +9,11 @@
       "properties": {
         "early_dissolution_basis": {
           "type": "string",
-          "description": "Enum identifying the statutory basis for dissolution under 13-C MRSA \u00a71401 (incorporator/initial-director dissolution): 'no_shares_issued' (\u00a71401.1) | 'not_commenced_business' (\u00a71401.2). Distinct from MBCA-11's dissolution.shareholder_approval_obtained (which records \u00a71404 shareholder-approved dissolution). Mutually exclusive \u2014 exactly one of the two FOURTH-recital checkboxes is selected per the form's 'X one box only' instruction."
+          "description": "Enum identifying the statutory basis for dissolution under 13-C MRSA \u00a71401 (incorporator/initial-director dissolution): 'no_shares_issued' (\u00a71401.1) | 'not_commenced_business' (\u00a71401.2). Distinct from MBCA-11's dissolution.shareholder_approval_obtained (which records \u00a71404 shareholder-approved dissolution). Mutually exclusive \u2014 exactly one of the two FOURTH-recital checkboxes is selected per the form's 'X one box only' instruction.",
+          "enum": [
+            "no_shares_issued",
+            "not_commenced_business"
+          ]
         },
         "authorization_date": {
           "type": "string"

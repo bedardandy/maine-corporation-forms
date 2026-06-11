@@ -28,8 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `merger.fifth_election` maps to 2 widgets; all receive the same value.
-- `merger.fifth_subelection` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FIRST recital widgets (Text1–4) are single underlined blanks despite the form's 3-column header (Name | Form of organization | Jurisdiction). Synth must produce a combined recital string per row; rubric must accept either pipe-separated or whitespace-separated formats. Same pattern as CORP_MBCA-10 (which has a 4-column header).
 - Open question: THIRD (Check Box20) and FIFTH option 1 (Check Box21) both declare 'survivor created by the merger'. They appear to be parallel statements and should always agree. Rubric `third-fifth-consistency` enforces this — synth should populate them in lock-step.

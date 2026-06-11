@@ -22,7 +22,11 @@
       "properties": {
         "consent_class": {
           "type": "string",
-          "description": "Enum capturing which class of constituents executed the written consent attached as Exhibit A: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND)."
+          "description": "Enum capturing which class of constituents executed the written consent attached as Exhibit A: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND).",
+          "enum": [
+            "members",
+            "directors_when_no_voting_members"
+          ]
         }
       }
     },

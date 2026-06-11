@@ -28,9 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `clerk_change.action_type` maps to 2 widgets; all receive the same value.
-- `clerk_change.modify_subtype` maps to 2 widgets; all receive the same value.
-- `clerk_change.bc_authorization` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: This is the same form template as CORP_CLKRA-3 (and presumably LLC_CLKRA-3, LP_CLKRA-3 etc.) — the SOS publishes one PDF used across categories with conditional sections (SIXTH: BC-only, SEVENTH: foreign-only, EIGHTH: LP/LLP-only). The NP_ form_id namespaces by the entity category that consumes it; the canonical-key shape is identical to CORP_CLKRA-3 by design.
 - Open question: For nonprofits specifically, the form has no nonprofit-only authorization recital (unlike SIXTH for BCs). Authorization is implicit in the filer being an officer/director per 13-B MRSA.

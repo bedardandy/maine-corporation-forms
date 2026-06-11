@@ -31,14 +31,15 @@
     },
     "Check Box4": {
       "key": "dissolution.early_dissolution_basis",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FOURTH: [ ] None of the corporation's shares have been issued."
+      "label": "[ ] None of the corporation’s shares have been issued. / [ ] The corporation has not commenced business.",
+      "options": {
+        "no_shares_issued": "Check Box4",
+        "not_commenced_business": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=422.1 = 'None of the corporation’s shares have been issued.'; Check Box5 y=447.1 = 'The corporation has not commenced business.'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "11l7": {
       "key": "filing.date_signed",

@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `abandonment.path` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: DUAL-MODE entity-name slot: this form is filed in either direction (domestic or foreign), so the meaning of widget 19b1 depends on FIRST. For abandonment.path='domestic', 19b1 holds the Maine domestic name (entity.name). For abandonment.path='foreign', 19b1 holds the foreign home-jurisdiction name (semantically entity.home_jurisdiction_name on single-mode foreign forms like CORP_FICT-4 / LLC_MLLC-12 / CORP_MBCA-19). Mapped to entity.name uniformly per the CORP_CLKRA-3 dual-mode precedent. Synth and rubrics that need 'the entity's name' should reference filing.entities[0].name (the universal handle) rather than entity.name directly.
 - Open question: The (signature of an officer or other duly authorized representative) line above 19b6 is wet-ink only — no AcroForm widget. Consistent with CORP_MBCA-19 / CORP_MBCA-19A / CORP_MBCA-11.

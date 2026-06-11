@@ -9,7 +9,11 @@
       "properties": {
         "method": {
           "type": "string",
-          "description": "Method by which shareholders authorized the resumption of business under 13-C MRSA \u00a71621.5. Mutually-exclusive enum: 'meeting' (vote at a duly-called meeting) | 'written_consent' (written consent of shareholders)."
+          "description": "Method by which shareholders authorized the resumption of business under 13-C MRSA \u00a71621.5. Mutually-exclusive enum: 'meeting' (vote at a duly-called meeting) | 'written_consent' (written consent of shareholders).",
+          "enum": [
+            "meeting",
+            "written_consent"
+          ]
         },
         "meeting_date": {
           "type": "string",

@@ -42,7 +42,7 @@ _Showing 12 of 38 canonical keys — the full set is in mapping.json._
 {
   "entity": {
     "name": "Wabanaki Widgets, Inc.",
-    "nonprofit_type": "Sample Value"
+    "nonprofit_type": "public_benefit"
   },
   "amendment": {
     "nature_and_text": {

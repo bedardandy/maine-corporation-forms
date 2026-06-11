@@ -14,7 +14,7 @@
 | `entity.home_jurisdiction` | text | high | SECOND: The state or other jurisdiction under the laws of which it is organized is |
 | `entity.home_jurisdiction_name` | text | high | (Name of Foreign Limited Liability Company) |
 | `entity.principal_office.physical_address` | text | high | and the address of its principal office is located at: (line 1) (fills multiple widgets) |
-| `filing.application_type` | text | high | FIRST: ('X' one box only.) This application is for a [ ] new (fills multiple widgets) |
+| `filing.application_type` | enum_select | high | FIRST: ('X' one box only.) This application is for a [ ] new |
 | `filing.attested_copy_recipient.firm` | text | high | (Firm or Company) |
 | `filing.attested_copy_recipient.mailing_address.city_state_zip` | text | high | (City, State & Zip) |
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | (Mailing Address) |
@@ -50,7 +50,7 @@ _Showing 12 of 22 canonical keys — the full set is in mapping.json._
     "business_purpose": "Sample Value"
   },
   "filing": {
-    "application_type": "Sample Value",
+    "application_type": "new",
     "date_signed": "2026-01-15",
     "signer": {
       "printed_name_and_capacity": "Sample Value"

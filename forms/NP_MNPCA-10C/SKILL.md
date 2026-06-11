@@ -55,7 +55,7 @@ _Showing 12 of 38 canonical keys — the full set is in mapping.json._
     "surviving_corp": {
       "name": "Sample Value",
       "home_jurisdiction": "Sample Value",
-      "benefit_type": "Sample Value",
+      "benefit_type": "public_benefit",
       "service_of_process_address": "Sample Value"
     },
     "foreign_corp_states": "Sample Value",

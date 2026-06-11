@@ -41,7 +41,7 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "resumption": {
-    "method": "Sample Value",
+    "method": "meeting",
     "meeting_date": "2026-01-15",
     "meeting_location": "Sample Value",
     "effective_date": "2026-01-15"

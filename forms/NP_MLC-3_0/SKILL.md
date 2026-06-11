@@ -8,7 +8,7 @@
 
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
-| `clerk_change.change_type` | text | high | FIRST A. [ ] change of address (fills multiple widgets) |
+| `clerk_change.change_type` | enum_select | high | FIRST A. [ ] change of address |
 | `clerk_change.current_clerk_or_agent_address` | text | high | SECOND: (street, city, state and zip code) of current clerk |
 | `clerk_change.current_clerk_or_agent_name` | text | high | SECOND: (name of current clerk) |
 | `clerk_change.new_noncommercial_mailing_address` | text | high | THIRD: (mailing address if different from above) |
@@ -44,7 +44,7 @@ _Showing 12 of 24 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "clerk_change": {
-    "change_type": "Sample Value",
+    "change_type": "address",
     "current_clerk_or_agent_name": "Sample Value",
     "current_clerk_or_agent_address": "Sample Value",
     "new_noncommercial_name": "Sample Value",

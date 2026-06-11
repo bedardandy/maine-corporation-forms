@@ -9,7 +9,13 @@
       "properties": {
         "new_entity_type": {
           "type": "string",
-          "description": "Enum identifying the destination entity type after a \u00a71524 transfer of authority. Values: 'foreign_nonprofit_corporation' | 'foreign_limited_partnership' | 'foreign_limited_liability_company' | 'foreign_limited_liability_partnership'. Drives which Application for Authority form must be bundled (MNPCA-12 / MLPA-12 / MLLC-12 / MLLP-12 respectively)."
+          "description": "Enum identifying the destination entity type after a \u00a71524 transfer of authority. Values: 'foreign_nonprofit_corporation' | 'foreign_limited_partnership' | 'foreign_limited_liability_company' | 'foreign_limited_liability_partnership'. Drives which Application for Authority form must be bundled (MNPCA-12 / MLPA-12 / MLLC-12 / MLLP-12 respectively).",
+          "enum": [
+            "foreign_nonprofit_corporation",
+            "foreign_limited_partnership",
+            "foreign_limited_liability_company",
+            "foreign_limited_liability_partnership"
+          ]
         },
         "new_governing_jurisdiction": {
           "type": "string",

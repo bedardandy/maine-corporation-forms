@@ -14,7 +14,7 @@
 | `director_2.name` | text | high | FIRST: Directors — Name (row 2) |
 | `director_3.address` | text | high | FIRST: Directors — Address (row 3) |
 | `director_3.name` | text | high | FIRST: Directors — Name (row 3) |
-| `dissolution.consent_class` | text | high | SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote. (fills multiple widgets) |
+| `dissolution.consent_class` | enum_select | high | SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote. |
 | `dissolution.total_voters` | text | high | THIRD: Number of Members/Directors and Entitled to Vote (wide blank below column header, y≈541-562) |
 | `entity.annual_report_reminder_email` | text | high | Email address to use for annual report reminders |
 | `entity.name` | text | high | (Name of Corporation) |

@@ -54,21 +54,22 @@
       "confidence": "high",
       "label": "D.1: Assignor Name and Address (line 1)"
     },
-    "Check Box9": {
+    "Check Box4": {
       "key": "mark.assignor.entity_type",
-      "widgets": [
-        "Check Box9",
-        "Check Box10",
-        "Check Box4",
-        "Check Box5",
-        "Check Box6",
-        "Check Box7",
-        "Check Box8"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "D.2: Assignor is a (an): [ ] individual"
+      "label": "D.2. Assignor is a (an): [ ] individual / [ ] general partnership / [ ] limited partnership / [ ] corporation / [ ] association / [ ] union / [ ] other ___ (Explain)",
+      "options": {
+        "individual": "Check Box4",
+        "general_partnership": "Check Box5",
+        "limited_partnership": "Check Box6",
+        "corporation": "Check Box7",
+        "association": "Check Box8",
+        "union": "Check Box9",
+        "other": "Check Box10"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box4 y=111.2 = 'individual'; Check Box5 y=110.7 = 'general partnership'; Check Box6 y=111.2 = 'limited partnership'; Check Box7 y=110.7 = 'corporation'; Check Box8 y=133.4 = 'association'; Check Box9 y=133.4 = 'union'; Check Box10 y=132.5 = 'other ___ (Explain)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "mark4Sixteen": {
       "key": "mark.assignor.entity_type_other_explanation",
@@ -110,18 +111,22 @@
       "confidence": "high",
       "label": "E.1: Assignee Name and Address (line 1)"
     },
-    "Check Box17": {
+    "Check Box11": {
       "key": "mark.assignee.entity_type",
-      "widgets": [
-        "Check Box17",
-        "Check Box11",
-        "Check Box12",
-        "Check Box13"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "E.2: [ ] general partnership"
+      "label": "E.2. Assignee is a (an): [ ] individual / [ ] general partnership / [ ] limited partnership / [ ] corporation / [ ] association / [ ] union / [ ] other ___ (Explain)",
+      "options": {
+        "individual": "Check Box11",
+        "general_partnership": "Check Box12",
+        "limited_partnership": "Check Box13",
+        "corporation": "Check Box14__p1",
+        "association": "Check Box15__p1",
+        "union": "Check Box16__p1",
+        "other": "Check Box17"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box11 y=467.9 = 'individual'; Check Box12 y=468.4 = 'general partnership'; Check Box13 y=468.4 = 'limited partnership'; Check Box14__p1 y=467.0 = 'corporation'; Check Box15__p1 y=491.5 = 'association'; Check Box16__p1 y=492.0 = 'union'; Check Box17 y=491.5 = 'other ___ (Explain)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py). Check Box14/15/16 are shared /Btn names with the page-2 cover delivery boxes; the binding addresses the promoted page-1 kids (engine.field_split). The migration-era fan-out dropped all three (corporation/association/union were unfillable)."
     },
     "mark4Thirtytwo": {
       "key": "mark.assignee.entity_type_other_explanation",

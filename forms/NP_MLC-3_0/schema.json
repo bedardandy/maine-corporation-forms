@@ -9,7 +9,13 @@
       "properties": {
         "change_type": {
           "type": "string",
-          "description": "Enum naming the kind of change made on a \u00a73025 (church/nonprofit) Change-of-Clerk filing. Values: 'address' (FIRST A \u2014 change physical/mailing address only), 'clerk_and_address' (FIRST B \u2014 both new clerk and new address), 'clerk' (FIRST C \u2014 new clerk, address unchanged), 'clerk_name' (FIRST D \u2014 current clerk renames themselves). MLC-3-specific; distinct from CLKRA-3's two-way clerk_change.action_type ('new_appointment'|'modify_existing') because \u00a73025 carves out a narrower set of changes specific to small church/nonprofit corporations."
+          "description": "Enum naming the kind of change made on a \u00a73025 (church/nonprofit) Change-of-Clerk filing. Values: 'address' (FIRST A \u2014 change physical/mailing address only), 'clerk_and_address' (FIRST B \u2014 both new clerk and new address), 'clerk' (FIRST C \u2014 new clerk, address unchanged), 'clerk_name' (FIRST D \u2014 current clerk renames themselves). MLC-3-specific; distinct from CLKRA-3's two-way clerk_change.action_type ('new_appointment'|'modify_existing') because \u00a73025 carves out a narrower set of changes specific to small church/nonprofit corporations.",
+          "enum": [
+            "address",
+            "clerk_and_address",
+            "clerk",
+            "clerk_name"
+          ]
         },
         "current_clerk_or_agent_address": {
           "type": "string",

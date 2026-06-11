@@ -44,7 +44,12 @@
       "type": "object",
       "properties": {
         "application_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether this is a new registration or a renewal (FIRST: [ ] New OR [ ] Renewal, '\"X\" one box only.'). Enum: 'new' | 'renewal'.",
+          "enum": [
+            "new",
+            "renewal"
+          ]
         },
         "date_signed": {
           "type": "string"

@@ -1,7 +1,7 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 1,0,text,(Name of Corporation),entity.name,high,Domestic nonprofit corporation name at top of page 0. Domestic — uses entity.name (not entity.home_jurisdiction_name).
-Check Box4,0,text,FIRST: ('X' one box only.) [ ] public benefit corporation,entity.nonprofit_type,high,Mutually-exclusive checkbox 1 of 2 in FIRST. Enum value 'public_benefit'. Same canonical key family as NP_MNPCA-6 / NP_MNP-6 / NP_MNP-9.
-Check Box5,0,text,FIRST: [ ] mutual benefit corporation,entity.nonprofit_type,high,Mutually-exclusive checkbox 2 of 2 in FIRST. Enum value 'mutual_benefit'.
+Check Box4,0,checkbox,"FIRST: (""X"" one box only.): [ ] public benefit corporation",entity.nonprofit_type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0 (y=322.9); enum_select value 'public_benefit'.
+Check Box5,0,checkbox,"FIRST: (""X"" one box only.): [ ] mutual benefit corporation",entity.nonprofit_type,high,Independent checkbox (on-state Yes) verified by geometry+text on page 0 (y=322.4); enum_select value 'mutual_benefit'.
 4,0,text,SECOND: NATURE OF CHANGE / TEXT of amendment (line 1 — top),amendment.nature_and_text.line1,high,Top of the 15-line amendment text block. Per-line indexing follows sister NP_MNP-9's amendment.nature_and_text.line{N} convention (and MARK1's mark.text_words.line{N} precedent for inline multi-line widgets).
 5,0,text,SECOND: amendment text (line 2),amendment.nature_and_text.line2,high,Second line.
 6,0,text,SECOND: amendment text (line 3),amendment.nature_and_text.line3,high,Third line.

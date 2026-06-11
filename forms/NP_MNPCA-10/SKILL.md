@@ -44,12 +44,12 @@ _Showing 12 of 36 canonical keys — the full set is in mapping.json._
     "parties": [
       {
         "name": "Sample Value",
-        "vote_method": "Sample Value",
+        "vote_method": "majority_member_vote",
         "vote_method_date": "2026-01-15"
       },
       {
         "name": "Sample Value",
-        "vote_method": "Sample Value"
+        "vote_method": "majority_member_vote"
       }
     ]
   }

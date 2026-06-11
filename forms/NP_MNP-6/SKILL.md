@@ -19,7 +19,7 @@
 | `entity.location.municipality` | text | high | FOURTH: It is located in ___ (municipality) |
 | `entity.mutual_benefit_purpose` | text | high | THIRD: ...purpose or purposes: (Mutual Benefit free-text block) |
 | `entity.name` | text | high | FIRST: The name of the corporation is |
-| `entity.nonprofit_type` | text | high | THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes: (fills multiple widgets) |
+| `entity.nonprofit_type` | enum_select | high | THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes: |
 
 _Showing 12 of 46 canonical keys — the full set is in mapping.json._
 
@@ -43,7 +43,7 @@ _Showing 12 of 46 canonical keys — the full set is in mapping.json._
 {
   "entity": {
     "name": "Wabanaki Widgets, Inc.",
-    "nonprofit_type": "Sample Value",
+    "nonprofit_type": "public_benefit",
     "public_benefit_purpose": "Sample Value",
     "mutual_benefit_purpose": "Sample Value",
     "location": {

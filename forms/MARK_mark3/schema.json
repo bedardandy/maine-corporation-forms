@@ -75,7 +75,17 @@
               "type": "string"
             },
             "entity_type": {
-              "type": "string"
+              "type": "string",
+              "description": "Mutually-exclusive enum of applicant's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation). Mirrors mark.applicant.entity_type on MARK_mark1.",
+              "enum": [
+                "individual",
+                "general_partnership",
+                "limited_partnership",
+                "corporation",
+                "association",
+                "union",
+                "other"
+              ]
             },
             "entity_type_other_explanation": {
               "type": "string"
@@ -99,7 +109,11 @@
         },
         "class_action": {
           "type": "string",
-          "description": "Mutually-exclusive enum identifying whether the class is being 'added' or 'deleted'."
+          "description": "Mutually-exclusive enum identifying whether the class is being 'added' or 'deleted'.",
+          "enum": [
+            "added",
+            "deleted"
+          ]
         },
         "new_class_description": {
           "type": "string",

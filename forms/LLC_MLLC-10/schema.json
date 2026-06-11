@@ -42,7 +42,11 @@
         },
         "third_subelection": {
           "type": "string",
-          "description": "When merger.third_election='preexisted', a mutually-exclusive enum for sub-options under THIRD option 2: 'amendments_attached' (Check Box14) or 'organizational_docs_unchanged' (Check Box15). Parallel to LP_MLPA-10's merger.fifth_subelection."
+          "description": "When merger.third_election='preexisted', a mutually-exclusive enum for sub-options under THIRD option 2: 'amendments_attached' (Check Box14) or 'organizational_docs_unchanged' (Check Box15). Parallel to LP_MLPA-10's merger.fifth_subelection.",
+          "enum": [
+            "amendments_attached",
+            "organizational_docs_unchanged"
+          ]
         },
         "foreign_survivor": {
           "type": "object",
@@ -62,7 +66,8 @@
           "description": "Letter of the exhibit containing additional information required by the governing statute of any constituent organization (SEVENTH on LLC_MLLC-10). Same key as LP_MLPA-10."
         },
         "additional_parties_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional constituent organizations are listed on a separate exhibit."
         },
         "additional_parties_exhibit_letter": {
           "type": "string"

@@ -9,7 +9,7 @@
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
 | `amendment.additional_pages_attached` | text | high | [ ] Attach additional pages, if necessary. |
-| `amendment.class_action` | text | high | [ ] Deleted (fills multiple widgets) |
+| `amendment.class_action` | enum_select | high | [ ] Deleted |
 | `amendment.class_number` | text | high | CLASS NUMBER: |
 | `amendment.manner_of_use` | text | high | DESCRIBE manner in which mark is applied to the goods or used to promote their sale and/or the manner in which the mark is used in connection with the service — line 1 (fills multiple widgets) |
 | `amendment.new_class_description` | text | high | DESCRIBE goods manufactured or sold and/or the service that is provided |

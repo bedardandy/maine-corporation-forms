@@ -9,7 +9,7 @@
       "properties": {
         "certificate_of_existence_attached": {
           "type": "boolean",
-          "description": "Boolean: whether a certificate of existence (or document of similar import) from the home jurisdiction, dated within 90 days, is physically attached to the filing. The page-0 FIFTH recital makes this mandatory but no AcroForm widget binds it \u2014 tracked as out-of-form metadata. Same gap as MLLP-2/MBCA-2."
+          "description": "Boolean: whether a certificate of existence (or document of similar import) from the home jurisdiction, dated within 90 days, is physically attached to the filing. The page-0 FIFTH recital makes this mandatory but no AcroForm widget binds it — tracked as out-of-form metadata. Same gap as MLLP-2/MBCA-2."
         },
         "home_jurisdiction_name": {
           "type": "string"
@@ -40,7 +40,12 @@
       "type": "object",
       "properties": {
         "application_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether this is a new registration or a renewal (FIRST: \"'X' one box only.\" — 'This application is for a [ ] new OR [ ] renewal of a registration of limited liability company name.'). Enum: 'new' | 'renewal'.",
+          "enum": [
+            "new",
+            "renewal"
+          ]
         },
         "date_signed": {
           "type": "string"

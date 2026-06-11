@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.application_type` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Page-0 SECOND has two address widgets (Text5 and Text6) for the principal office, with the '(street, city, state and zip code)' label below line 2. Reviewer split into entity.principal_office.physical_address.{street, city_state_zip} per MBCA-2 precedent (the corp analog of this LP form). Drafter initially mapped both to a single key — corrected.
 - Open question: FOURTH ('A brief statement of the nature of the limited partnership's business') is keyed to the unscoped entity.business_purpose, NOT entity.maine_business_purpose. The page-1 footer ('The filing of this application does not authorize a limited partnership to do business in Maine') confirms the question is about the entity's general business, not a Maine-specific purpose. Drafter initially mapped to entity.maine_business_purpose — corrected.

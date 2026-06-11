@@ -23,14 +23,15 @@
     },
     "Check Box10": {
       "key": "entity.nonprofit_type",
-      "widgets": [
-        "Check Box10",
-        "Check Box11"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes"
+      "label": "SECOND: [ ] The corporation is organized as a public benefit corporation for the following purpose or purposes: / [ ] The corporation is organized as a mutual benefit corporation for the following purpose or purposes or, if not for all such purposes, then for all purposes permitted",
+      "options": {
+        "public_benefit": "Check Box10",
+        "mutual_benefit": "Check Box11"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box10 y=261.8 = 'The corporation is organized as a public benefit corporation for the following p'; Check Box11 y=356.7 = 'The corporation is organized as a mutual benefit corporation for the following p'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text30": {
       "key": "entity.public_benefit_purpose",
@@ -129,10 +130,11 @@
     },
     "Check Box16": {
       "key": "entity.no_political_activities_clause",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
-      "label": "SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ..."
+      "label": "[ ] SEVENTH: (Optional) [ ] (Check if this article is to apply.) No substantial part of the activities of the corporation shall be the carrying on of propaganda ...",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 1; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box17": {
       "key": "entity.has_501c_exhibit",

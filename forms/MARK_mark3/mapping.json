@@ -17,14 +17,15 @@
     },
     "Check Box6": {
       "key": "amendment.class_action",
-      "widgets": [
-        "Check Box6",
-        "Check Box7"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "[ ] Deleted"
+      "label": "[ ] Added / [ ] Deleted",
+      "options": {
+        "added": "Check Box6",
+        "deleted": "Check Box7"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box6 y=550.4 = 'Added'; Check Box7 y=549.9 = 'Deleted'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "mark3Twelve": {
       "key": "amendment.new_class_description",
@@ -76,18 +77,20 @@
     },
     "Check Box9": {
       "key": "mark.applicant.entity_type",
-      "widgets": [
-        "Check Box9",
-        "Check Box10",
-        "Check Box11",
-        "Check Box12",
-        "Check Box13",
-        "Check Box17"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "F: Applicant is a (an): [ ] individual"
+      "label": "F. Applicant is a (an): [ ] individual / [ ] general partnership / [ ] limited partnership / [ ] corporation / [ ] association / [ ] union / [ ] other ___ (Explain)",
+      "options": {
+        "individual": "Check Box9",
+        "general_partnership": "Check Box10",
+        "limited_partnership": "Check Box11",
+        "corporation": "Check Box12",
+        "association": "Check Box16__p1",
+        "union": "Check Box13",
+        "other": "Check Box17"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box9 y=218.2 = 'individual'; Check Box10 y=218.2 = 'general partnership'; Check Box11 y=217.7 = 'limited partnership'; Check Box12 y=217.7 = 'corporation'; Check Box16__p1 y=241.4 = 'association'; Check Box13 y=240.0 = 'union'; Check Box17 y=240.9 = 'other ___ (Explain)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py). Check Box16 is a shared /Btn name with the page-2 cover 'Immediate expedited filing' box; the binding addresses the promoted page-1 kid (engine.field_split). The migration-era fan-out dropped it (association was unfillable)."
     },
     "mark3Twentyseven": {
       "key": "mark.applicant.entity_type_other_explanation",

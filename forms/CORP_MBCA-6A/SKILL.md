@@ -9,7 +9,7 @@
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
 | `amendment.adoption_date` | text | high | The text of the new amendment was adopted on (date) ___ |
-| `amendment.approval_method` | text | high | by the incorporators – shareholder approval was not required (fills multiple widgets) |
+| `amendment.approval_method` | enum_select | high | by the incorporators – shareholder approval was not required |
 | `amendment.share_exchange_exhibit_letter` | text | high | THIRD: ...are set forth in Exhibit ___ or as follows |
 | `entity.annual_report_reminder_email` | text | high | Email address to use for annual report reminders |
 | `entity.name` | text | high | (Name of Corporation) |
@@ -49,7 +49,7 @@ _Showing 12 of 23 canonical keys — the full set is in mapping.json._
   },
   "amendment": {
     "adoption_date": "2026-01-15",
-    "approval_method": "Sample Value",
+    "approval_method": "board_of_directors",
     "share_exchange_exhibit_letter": "Sample Value"
   },
   "filing": {

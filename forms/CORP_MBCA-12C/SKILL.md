@@ -45,7 +45,7 @@ _Showing 12 of 21 canonical keys — the full set is in mapping.json._
     "maine_authorization_date": "2026-01-15"
   },
   "transfer": {
-    "new_entity_type": "Sample Value",
+    "new_entity_type": "foreign_limited_liability_company",
     "new_governing_jurisdiction": "Sample Value"
   },
   "filing": {

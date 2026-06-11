@@ -12,7 +12,7 @@
 | `entity.current_address.city` | text | high | EIGHTH: ...in the town of [town] |
 | `entity.current_address.county` | text | high | EIGHTH: ...County of [county] |
 | `entity.current_address.street` | text | high | EIGHTH: Said corporation is now located at [street] |
-| `entity.management_structure` | text | high | SEVENTH: [ ] Directors (including trustees, governors, managers, etc.), or if no Directors, (fills multiple widgets) |
+| `entity.management_structure` | enum_select | high | SEVENTH: [ ] Directors (including trustees, governors, managers, etc.), or if no Directors, |
 | `entity.mutual_benefit_purpose` | text | high | SIXTH (mutual benefit): purpose description |
 | `entity.name` | text | high | SECOND: The name of said corporation is now |
 | `entity.name_history[0].date` | text | high | THIRD: row 1 — Date of Change |

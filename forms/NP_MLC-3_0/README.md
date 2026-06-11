@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `clerk_change.change_type` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Drafter initially proposed clerk_current.* and clerk_new.* namespaces; corrected during review to reuse the existing clerk_change.* namespace per NP_CLKRA-3 / CORP_CLKRA-3 precedent. Two new keys added to clerk_change.* (clerk_change.change_type and clerk_change.current_clerk_or_agent_address) — the former because MLC-3's enum differs from CLKRA-3's, the latter because MLC-3 captures the current clerk's address (which CLKRA-3 doesn't).
 - Open question: FIRST caption reads ('X all boxes that apply') but the four options are semantically mutually exclusive (option B already covers the union of A and C). Synth/rubric treat the four checkboxes as a single radio-style enum. If a real filing checks multiple, the SOS likely treats the most-inclusive option (B) as canonical.

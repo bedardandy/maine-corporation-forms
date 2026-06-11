@@ -11,7 +11,7 @@
 | `clerk_change.action_type` | text | high | FIRST: [ ] A new clerk or registered agent (fills multiple widgets) |
 | `clerk_change.bc_authorization` | text | high | SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors of the corporation and the power to appoint ... is not reserved to the shareholders (fills multiple widgets) |
 | `clerk_change.current_clerk_or_agent_name` | text | high | SECOND: (name of current clerk or registered agent) |
-| `clerk_change.modify_subtype` | text | high | FIRST sub: [ ] Change of address (fills multiple widgets) |
+| `clerk_change.modify_subtype` | enum_select | high | FIRST sub: [ ] Change of address |
 | `clerk_change.new_commercial_cra_public_number` | text | high | FOURTH: The new CRA's CRA Public number is |
 | `clerk_change.new_commercial_name` | text | high | (name of new CRA) |
 | `clerk_change.new_noncommercial_mailing_address` | text | high | (mailing address if different from above) |

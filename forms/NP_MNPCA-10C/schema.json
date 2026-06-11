@@ -64,7 +64,11 @@
             },
             "benefit_type": {
               "type": "string",
-              "description": "Mutually-exclusive enum: 'public_benefit' | 'mutual_benefit'. Conditional \u2014 only filled when the surviving corp is a Maine nonprofit (per FIRST). 13-B MRSA \u00a7202 classifies all Maine nonprofits as one of these two types."
+              "description": "Mutually-exclusive enum: 'public_benefit' | 'mutual_benefit'. Conditional \u2014 only filled when the surviving corp is a Maine nonprofit (per FIRST). 13-B MRSA \u00a7202 classifies all Maine nonprofits as one of these two types.",
+              "enum": [
+                "public_benefit",
+                "mutual_benefit"
+              ]
             },
             "service_of_process_address": {
               "type": "string",
@@ -123,7 +127,13 @@
             },
             "vote_method": {
               "type": "string",
-              "description": "Mutually-exclusive enum capturing how the domestic (Maine) corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote'. Mirrors NP_MNPCA-10's merger.parties[N].vote_method but scoped to the single domestic party (foreign party's adoption is governed by foreign law, not recorded here)."
+              "description": "Mutually-exclusive enum capturing how the domestic (Maine) corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote'. Mirrors NP_MNPCA-10's merger.parties[N].vote_method but scoped to the single domestic party (foreign party's adoption is governed by foreign law, not recorded here).",
+              "enum": [
+                "majority_member_vote",
+                "supermajority_member_vote",
+                "written_consent_of_members",
+                "board_of_directors_majority_vote"
+              ]
             },
             "vote_method_date": {
               "type": "string",

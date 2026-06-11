@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `dissolution.early_dissolution_basis` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Form provides only TWO inline signer slots (11l8, 11l9) but the footer requires 'a majority of the incorporators or initial directors'. If there are 3+ originators (e.g., 5 incorporators requiring a majority of 3), the form has no widget for the third signer. Likely captured via attached exhibit, but no exhibit-letter widget is bound on this form (unlike MBCA-6 which has entity.additional_incorporators_exhibit_letter for >5-incorporator overflow). Confirm whether §1401 contemplates this or whether the form is structurally limited to 2-signer scenarios.
 - Open question: Could not locate a dedicated AcroForm signature widget on either signer line — only the printed-name-and-capacity widgets (11l8, 11l9) are bound. Signatures are wet-ink/image overlays, consistent with MBCA-11 / MLLP-6A.

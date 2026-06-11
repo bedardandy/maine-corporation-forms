@@ -29,8 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `entity.original_name` maps to 2 widgets; all receive the same value.
-- `entity.nonprofit_type` maps to 2 widgets; all receive the same value.
-- `entity.management_structure` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FOURTH original-name has two widget lines (981a17 short, 981a18 wider continuation). Both bind entity.original_name. Synth/filler must split a long name across the two; short names should leave 981a18 empty. Open whether to introduce a `entity.original_name_line2` convention or rely on a line-wrap helper.
 - Open question: Page-2 signature block: each (President) and (Secretary/Clerk) row has two horizontal lines — one for wet-ink signature and one labeled '(type or print name)'. Only the printed-name line has an AcroForm widget (981a35, 981a36). Signature lines are not bindable.

@@ -2,7 +2,7 @@ widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 LPNAME,0,text,(Name of Limited Partnership in Jurisdiction of Organization),entity.home_jurisdiction_name,high,"Foreign LP's legal name in its home jurisdiction. Same key family as LP_MLPA-12-1, LP_MLPA-12A (foreign-LP), LLC_MLLC-12, FICT-4."
 MELPNAME,0,text,FIRST: The proposed limited partnership name* to be used in this State,entity.maine_assumed_name_for_suffix,high,"Alternate Maine-use name that contains the required statutory suffix (per 31 MRSA §1308.1.A.2 must contain 'Limited Partnership', 'L.P.', or 'LP'). Same key as LP_MLPA-12-1, LP_MLPA-12A."
 FICTNAME,0,text,SECOND: ...the fictitious name under which it proposes to apply for authority,entity.maine_fictitious_name,high,Fictitious Maine name under 31 MRSA §1415.1 when the home name is unavailable in Maine. Same key as LP_MLPA-12-1.
-Check Box4,0,text,Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,"Boolean indicating Form FICT-4 (fictitious-name registration) is bundled. Same key as LP_MLPA-12-1, LP_MLPA-9."
+Check Box4,0,checkbox,[ ] Form FICT-4 accompanies this application.,filing.fict4_accompanies,high,"Single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 0; boolean binding. Boolean indicating Form FICT-4 (fictitious-name registration) is bundled. Same key as LP_MLPA-12-1, LP_MLPA-9."
 DATEOFORG,0,text,THIRD: Date of organization,entity.formation_date_in_home_jurisdiction,high,"Date the LP was originally organized in its home jurisdiction. Same key as LP_MLPA-12-1, CORP_MBCA-12."
 JURI,0,text,Jurisdiction of organization,entity.home_jurisdiction,high,State or country where the LP was organized.
 POADD,0,text,FOURTH: The street and mailing address of the foreign limited partnership's principal office is: (physical location...),entity.principal_office.physical_address,high,"Physical address of the principal office (single-line: street, city, state, zip)."
@@ -22,7 +22,7 @@ Text17,1,text,EIGHTH: Name (general partner row 2),general_partner_2.name,high,S
 Text18,1,text,EIGHTH: Address (general partner row 2),general_partner_2.address,high,Second general partner's address.
 Text19,1,text,EIGHTH: Name (general partner row 3),general_partner_3.name,high,Third general partner's name.
 Text20,1,text,EIGHTH: Address (general partner row 3),general_partner_3.address,high,Third general partner's address.
-Check Box31,1,text,Names and addresses of additional general partners are attached as Exhibit ___,general_partner.additional_attached,high,Boolean opt-in for an exhibit listing additional general partners (4+).
+Check Box31,1,checkbox,"[ ] Names and addresses of additional general partners are attached as Exhibit ____, and made a part hereof.",general_partner.additional_attached,high,Single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 1; boolean binding. Boolean opt-in for an exhibit listing additional general partners (4+).
 Text21,1,text,Exhibit ___,general_partner.additional_exhibit_letter,high,Letter of the exhibit containing additional general partners.
 Check Box32,1,checkbox,NINTH: The foreign limited partnership is a limited liability limited partnership.,entity.is_lllp,high,"Boolean elect-in for LLLP status. Same key as LP_MLPA-12-1, LP_MLPA-9."
 Check Box33,1,checkbox,TENTH: This is a professional limited liability limited partnership...,entity.is_plllp,high,"Boolean elect-in for PLLLP status. Same key as LP_MLPA-12-1, LP_MLPA-9."

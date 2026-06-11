@@ -49,3 +49,34 @@ mappings against the manifest-pinned blanks. The one exception:
 - **Action here:** none — stamping it would be a blind back-fill.
 - **Re-check trigger:** if a future drift pass finds the SoS publishing a
   fillable revision, map it through the standard pipeline and stamp it then.
+
+## Shared checkbox field names across pages (template defect class)
+
+**Status: worked around in this repo; an upstream fix means re-issued blanks
+with unique field names.** Several SoS templates reuse one AcroForm `/Btn`
+field name for two unrelated checkboxes on different pages, so toggling one
+box toggles the other in any standards-compliant viewer. This repo's fill
+path splits each kid into its own `<T>__p<page>` field at fill time
+(`engine/field_split.py`) and the mappings address the promoted names.
+
+Instances confirmed by the 2026-06-11 non-boolean-key /Btn sweep (geometry +
+printed-label probe of every blank), in addition to the previously recorded
+`NP_MNPCA-11` (`Check Box16`: page-0 SECOND "members" box vs page-2 cover
+"Immediate expedited filing" box) and `LLC_MLLC-12A` (`Check Box16`):
+
+- **LLC_MLLC-10** — `Check Box14` / `Check Box15`: page-0 THIRD-option-2
+  sub-options vs page-3 cover "Hold attested copy" / "24-hour expedited"
+  boxes.
+- **MARK_mark2** — `Check Box15` / `Check Box16`: page-1 applicant-type
+  "corporation" / "association" boxes vs page-2 cover "24-hour" /
+  "Immediate" boxes.
+- **MARK_mark3** — `Check Box16`: page-1 applicant-type "association" box vs
+  page-2 cover "Immediate expedited filing" box.
+- **MARK_mark4** — `Check Box14` / `Check Box15` / `Check Box16`: page-1
+  assignee-type "corporation" / "association" / "union" boxes vs page-2
+  cover delivery boxes.
+
+Until the sweep, the affected substantive boxes were not independently
+fillable at all (the migration-era mappings listed only one kid per name);
+filers using the official blanks in a stock viewer still hit the
+both-boxes-toggle behavior.

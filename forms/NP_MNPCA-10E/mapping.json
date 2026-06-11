@@ -86,16 +86,17 @@
     },
     "Check Box8": {
       "key": "consolidation.parties[0].adoption_method",
-      "widgets": [
-        "Check Box8",
-        "Check Box9",
-        "Check Box11",
-        "Check Box13"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FOURTH option 1: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+      "label": "FOURTH: [ ] By the members at a meeting on (date) ___, at which a quorum / [ ] If the Articles of Incorporation require more than a majorit / [ ] By the written consent of all members entitled to vote with  / [ ] There being no members, or no members entitled to vote there",
+      "options": {
+        "majority_member_vote": "Check Box8",
+        "supermajority_member_vote": "Check Box9",
+        "written_consent_of_members": "Check Box11",
+        "board_of_directors_majority_vote": "Check Box13"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box8 y=569.8 = 'By the members at a meeting on (date) ___, at which a quorum was present and suc'; Check Box9 y=605.1 = 'If the Articles of Incorporation require more than a majority vote, by the membe'; Check Box11 y=653.7 = 'By the written consent of all members entitled to vote with respect thereto, dat'; Check Box13 y=691.2 = 'There being no members, or no members entitled to vote thereon, the plan was ado'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "14": {
       "key": "consolidation.parties[0].adoption_date",

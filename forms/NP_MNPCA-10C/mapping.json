@@ -39,14 +39,15 @@
     },
     "Check Box4": {
       "key": "merger.surviving_corp.benefit_type",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: If the surviving corporation is a Maine corporation, complete the following: [ ] public benefit corporation"
+      "label": "FIRST: (\"X\" one box only.) If the surviving corporation is a Maine corporation: [ ] public benefit corporation / [ ] mutual benefit corporation",
+      "options": {
+        "public_benefit": "Check Box4",
+        "mutual_benefit": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=293.3 = 'public benefit corporation'; Check Box5 y=293.7 = 'mutual benefit corporation'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "7": {
       "key": "merger.foreign_corp_states",
@@ -78,16 +79,17 @@
     },
     "Check Box8": {
       "key": "merger.domestic_corp.vote_method",
-      "widgets": [
-        "Check Box8",
-        "Check Box9",
-        "Check Box10",
-        "Check Box11"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIFTH: [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+      "label": "FIFTH: [ ] By the members at a meeting on (date) ___, at which a quorum / [ ] If the Articles of Incorporation require more than a majorit / [ ] By the written consent of all members entitled to vote with  / [ ] There being no members, or no members entitled to vote there",
+      "options": {
+        "majority_member_vote": "Check Box8",
+        "supermajority_member_vote": "Check Box9",
+        "written_consent_of_members": "Check Box10",
+        "board_of_directors_majority_vote": "Check Box11"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box8 y=568.9 = 'By the members at a meeting on (date) ___, at which a quorum was present and suc'; Check Box9 y=606.0 = 'If the Articles of Incorporation require more than a majority vote, by the membe'; Check Box10 y=652.3 = 'By the written consent of all members entitled to vote with respect thereto, dat'; Check Box11 y=688.9 = 'There being no members, or no members entitled to vote thereon, the plan was ado'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "14": {
       "key": "merger.domestic_corp.vote_method_date",

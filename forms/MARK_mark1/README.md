@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `mark.applicant.entity_type` maps to 7 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: MARK1 has 7 pages total per pypdf, but only pages 0, 1, 2 contain AcroForm widgets. Pages 3-6 are likely pre-filled instructions, fee schedule, MARK-5 class number reference, or mark-specimen attachment templates. Confirm by visual inspection — no canonical keys needed for non-fillable pages.
 - Open question: Form references 'three (3) samples of the mark and/or design with this application' (page 1 footer) — the mark specimen attachments are physical/scanned documents, not form fields. No canonical key needed; rubric just checks filing.notes mentions specimen submission.

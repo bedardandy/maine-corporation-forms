@@ -56,7 +56,7 @@ _Showing 12 of 35 canonical keys — the full set is in mapping.json._
     "type": "Sample Value",
     "assignor": {
       "name_and_address": "Sample Value",
-      "entity_type": "Sample Value"
+      "entity_type": "individual"
     }
   }
 }

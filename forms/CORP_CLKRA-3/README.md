@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `clerk_change.action_type` maps to 2 widgets; all receive the same value.
-- `clerk_change.modify_subtype` maps to 2 widgets; all receive the same value.
 - `clerk_change.bc_authorization` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: This form serves multiple entity types (BC, NP, LLC, LP, LLP, foreign variants). Should fill logic require an explicit entity_type input, or infer from which fields are populated (BC fields, foreign fields, LP fields)?

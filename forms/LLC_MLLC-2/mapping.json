@@ -10,14 +10,15 @@
     },
     "Check Box2": {
       "key": "filing.application_type",
-      "widgets": [
-        "Check Box2",
-        "Check Box3"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: ('X' one box only.) This application is for a [ ] new"
+      "label": "[ ] new / [ ] renewal",
+      "options": {
+        "new": "Check Box2",
+        "renewal": "Check Box3"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box2 y=336.5 = 'new'; Check Box3 y=335.9 = 'renewal'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text4": {
       "key": "entity.home_jurisdiction",

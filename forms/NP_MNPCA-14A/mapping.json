@@ -10,14 +10,15 @@
     },
     "Check Box4": {
       "key": "resumption.adopting_body",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: This certificate was adopted by a majority of the (\"X\" one box only) [ ] members"
+      "label": "FIRST: This certificate was adopted by a majority of the (\"X\" one box only): [ ] members / [ ] directors",
+      "options": {
+        "members": "Check Box4",
+        "directors": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=346.5 = 'members'; Check Box5 y=346.1 = 'directors'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "4": {
       "key": "resumption.adoption_date",
@@ -36,25 +37,27 @@
     },
     "Check Box6": {
       "key": "resumption.method",
-      "widgets": [
-        "Check Box6",
-        "Check Box7"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: (\"X\" one box only) [ ] at a meeting legally called and held"
+      "label": "FIRST: (\"X\" one box only): [ ] at a meeting legally called and held / [ ] by unanimous written consent",
+      "options": {
+        "meeting": "Check Box6",
+        "written_consent": "Check Box7"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box6 y=394.3 = 'at a meeting legally called and held'; Check Box7 y=394.3 = 'by unanimous written consent'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box8": {
       "key": "resumption.voting_body",
-      "widgets": [
-        "Check Box8",
-        "Check Box9"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: It is hereby certified that a majority of the (\"X\" one box only) [ ] members have voted to resume carrying on activities."
+      "label": "SECOND: It is hereby certified that a majority of the (\"X\" one box only) ... have voted to resume carrying on activities: [ ] members / [ ] directors",
+      "options": {
+        "members": "Check Box8",
+        "directors": "Check Box9"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box8 y=443.4 = 'members'; Check Box9 y=442.9 = 'directors'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "10": {
       "key": "registered_office.address.line1",
@@ -72,14 +75,15 @@
     },
     "Check Box10": {
       "key": "entity.nonprofit_type",
-      "widgets": [
-        "Check Box10",
-        "Check Box11"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FOURTH: (\"X\" one box only) [ ] public benefit corporation"
+      "label": "FOURTH: (\"X\" one box only): [ ] public benefit corporation / [ ] mutual benefit corporation",
+      "options": {
+        "public_benefit": "Check Box10",
+        "mutual_benefit": "Check Box11"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box10 y=583.7 = 'public benefit corporation'; Check Box11 y=585.1 = 'mutual benefit corporation'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "14": {
       "key": "filing.date_signed",

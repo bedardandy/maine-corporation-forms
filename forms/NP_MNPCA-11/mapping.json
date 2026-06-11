@@ -108,15 +108,15 @@
     },
     "Check Box16__p0": {
       "key": "dissolution.consent_class",
-      "widgets": [
-        "Check Box16__p0",
-        "Check Box17"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: All members of the corporation entitled to vote",
-      "split_note": "Independently addressable via runtime field-split of the shared /Btn 'Check Box16' (see engine.fill.split_shared_fields); the official PDF is unchanged."
+      "label": "SECOND: [ ] All members of the corporation entitled to vote. / [ ] All directors of the corporation, there being no members or no members entitled to vote.",
+      "options": {
+        "members": "Check Box16__p0",
+        "directors_when_no_voting_members": "Check Box17"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box16__p0 y=580.6 = 'All members of the corporation entitled to vote.'; Check Box17 y=604.1 = 'All directors of the corporation, there being no members or no members entitled '. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py). Check Box16 is a shared /Btn name with the page-2 cover 'Immediate expedited filing' box (upstream template defect already recorded in fields.csv); the binding addresses the promoted page-0 kid (engine.field_split)."
     },
     "Text19": {
       "key": "registered_office.address_line1",

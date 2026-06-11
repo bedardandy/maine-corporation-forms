@@ -27,7 +27,14 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Mutually-exclusive enum classifying the mark: 'trademark' | 'service_mark' | 'combined_service_trademark' | 'certification_mark' | 'collective_mark'. Distinct from mark.type_and_class_number on MARK_mark1, which combines type and class number into a single free-text field. mark.type is the structured form of the type-only concept and appears on forms (like MARK_mark1a) that decompose the categories into checkboxes. Rubric for the mark family should treat mark.type as derivable from mark.type_and_class_number when only the latter is set, and vice-versa."
+          "description": "Mutually-exclusive enum classifying the mark: 'trademark' | 'service_mark' | 'combined_service_trademark' | 'certification_mark' | 'collective_mark'. Distinct from mark.type_and_class_number on MARK_mark1, which combines type and class number into a single free-text field. mark.type is the structured form of the type-only concept and appears on forms (like MARK_mark1a) that decompose the categories into checkboxes. Rubric for the mark family should treat mark.type as derivable from mark.type_and_class_number when only the latter is set, and vice-versa.",
+          "enum": [
+            "trademark",
+            "service_mark",
+            "combined_service_trademark",
+            "certification_mark",
+            "collective_mark"
+          ]
         },
         "text_words": {
           "type": "object",

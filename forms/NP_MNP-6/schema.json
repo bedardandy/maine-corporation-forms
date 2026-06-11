@@ -82,7 +82,12 @@
           "type": "string"
         },
         "nonprofit_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Whether the nonprofit is organized as a public-benefit corporation or a mutual-benefit corporation under 13-B MRSA. Enum: 'public_benefit' | 'mutual_benefit'.",
+          "enum": [
+            "public_benefit",
+            "mutual_benefit"
+          ]
         },
         "public_benefit_purpose": {
           "type": "string"

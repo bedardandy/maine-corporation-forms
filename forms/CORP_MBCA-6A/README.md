@@ -29,7 +29,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `restatement.type` maps to 2 widgets; all receive the same value.
-- `amendment.approval_method` maps to 3 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Per the form footnote, Form MBCA-6-1 (the body-text exhibit) MUST accompany this filing. Synth/assemble must bundle MBCA-6A with MBCA-6-1 and use the same restatement.text_exhibit_letter on both. Should `filing.bundled_forms[]` be added to track these dependencies?
 - Open question: THIRD says 'set forth in Exhibit ___ or as follows:' but only the exhibit-letter widget (Text7) is bound — no inline-text widget. MBCA-9 has both `amendment.share_exchange_exhibit_letter` AND `amendment.share_exchange_inline_text` for the same conditional, but MBCA-6A omits the inline-text widget. This is likely an upstream template difference rather than a schema gap.

@@ -95,14 +95,15 @@
     },
     "Check Box3": {
       "key": "conversion.organizing_document_disposition",
-      "widgets": [
-        "Check Box3",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "SEVENTH (option 1): [ ] *The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof"
+      "label": "[ ] *The organizing document for the converted (resulting) organization is attached as Exhibit_ , and made a part hereof; or / [ ] The converted (resulting) is an organization not filing with the Maine Secretary of State’s office.",
+      "options": {
+        "attached_as_exhibit": "Check Box3",
+        "not_filing_with_sos": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box3 y=56.5 = '*The organizing document for the converted (resulting) organization is attached '; Check Box5 y=91.3 = 'The converted (resulting) is an organization not filing with the Maine Secretary'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "name and form of converting organization": {
       "key": "conversion.signature_block.converting_entity_name_and_form",

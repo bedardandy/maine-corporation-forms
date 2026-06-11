@@ -18,10 +18,11 @@
     },
     "Check Box23": {
       "key": "filing.fict4_accompanies",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "Form FICT-4 accompanies this application."
+      "label": "[ ] Form FICT-4 accompanies this application.",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 0; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box24": {
       "key": "entity.is_lllp",
@@ -182,10 +183,11 @@
     },
     "Check Box28": {
       "key": "general_partner.additional_attached",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
-      "label": "NINTH: Names and addresses of additional general partners are attached as Exhibit ___"
+      "label": "[ ] Names and addresses of additional general partners are attached as Exhibit _____, and made a part hereof.",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 1; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text22": {
       "key": "general_partner.additional_exhibit_letter",

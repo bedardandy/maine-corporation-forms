@@ -8,10 +8,10 @@
 
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
-| `clerk_change.action_type` | text | high | FIRST: [ ] A new clerk or registered agent (fills multiple widgets) |
-| `clerk_change.bc_authorization` | text | high | SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors (fills multiple widgets) |
+| `clerk_change.action_type` | enum_select | high | FIRST: [ ] A new clerk or registered agent |
+| `clerk_change.bc_authorization` | enum_select | high | SIXTH (DOMESTIC BUSINESS CORPORATIONS ONLY): [ ] The change ... was duly authorized by the board of directors |
 | `clerk_change.current_clerk_or_agent_name` | text | high | SECOND: (name of current clerk or registered agent) |
-| `clerk_change.modify_subtype` | text | high | FIRST sub: [ ] Change of address (fills multiple widgets) |
+| `clerk_change.modify_subtype` | enum_select | high | FIRST sub: [ ] Change of address |
 | `clerk_change.new_commercial_cra_public_number` | text | high | FOURTH: The new CRA Public number is |
 | `clerk_change.new_commercial_name` | text | high | FOURTH: The name of the new CRA is |
 | `clerk_change.new_noncommercial_mailing_address` | text | high | (mailing address if different from above) |
@@ -43,8 +43,8 @@ _Showing 12 of 30 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "clerk_change": {
-    "action_type": "Sample Value",
-    "modify_subtype": "Sample Value",
+    "action_type": "new_appointment",
+    "modify_subtype": "address",
     "current_clerk_or_agent_name": "Sample Value",
     "new_noncommercial_name": "Sample Value",
     "new_noncommercial_physical_address": "Sample Value",

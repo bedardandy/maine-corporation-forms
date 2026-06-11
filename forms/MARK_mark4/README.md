@@ -29,10 +29,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `mark.assignor.name_and_address` maps to 2 widgets; all receive the same value.
-- `mark.assignor.entity_type` maps to 7 widgets; all receive the same value.
 - `mark.assignor.printed_name_and_capacity` maps to 2 widgets; all receive the same value.
 - `mark.assignee.name_and_address` maps to 2 widgets; all receive the same value.
-- `mark.assignee.entity_type` maps to 4 widgets; all receive the same value.
 - Open question: mark4Twenty (rect 109.2-574.2 × 524.5-541.2 on page 1) is mapped as mark.assignment.date_of_transfer, but its width (465pt) is unusually large for a date widget. Visual inspection suggests the form text reads 'transferred on (date) ___, the entire right...' — a date interpretation. However, a '("Myself", Firm, or Corporate Name)' caption appears in the same area, hinting the widget might instead be an assignor-entity-name recital. Synth should fill with a date string and visual review at first rollout will resolve.
 - Open question: Form has 6 unnamed AcroForm widgets: 3 page-1 assignee entity-type checkboxes ('individual' at y≈283.8, 'union' at y≈308.9, 'other' at y≈284.3) and 3 page-2 cover-letter expedite checkboxes (at y≈630.9 / 607.2 / 585.8). All bound by rect — filler engine must support rect-based binding for this template (same upstream issue as MARK_mark2, MBCA-10, MNPCA-10 noted in schema-gaps/2026-04-30-phase2-summary.md).
 - Open question: Assignee section (E) lacks a 'Whereas, I, ___ believe' recital and lacks both a Print/Type Name and Capacity widget AND a Signature widget — only the Dated field (mark4Thirtyfive) is fillable. The assignee's signature line is wet-ink-only, and there is no separate canonical key for assignee-signer printed-name-and-capacity. This asymmetry between assignor (5 signer-related widgets) and assignee (1 date widget) is consistent with the form's role: the assignor warrants ownership and transfers; the assignee merely dates receipt.

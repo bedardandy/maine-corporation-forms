@@ -10,14 +10,15 @@
     },
     "Check Box4": {
       "key": "entity.nonprofit_type",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: ('X' one box only.) [ ] public benefit corporation"
+      "label": "FIRST: (\"X\" one box only.): [ ] public benefit corporation / [ ] mutual benefit corporation",
+      "options": {
+        "public_benefit": "Check Box4",
+        "mutual_benefit": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=322.9 = 'public benefit corporation'; Check Box5 y=322.4 = 'mutual benefit corporation'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "4": {
       "key": "amendment.nature_and_text.line1",

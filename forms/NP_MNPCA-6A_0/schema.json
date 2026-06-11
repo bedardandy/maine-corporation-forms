@@ -9,7 +9,13 @@
       "properties": {
         "adoption_method": {
           "type": "string",
-          "description": "13-B nonprofit-specific enum for how the restated articles were adopted. Values: 'members_majority_at_meeting' | 'members_supermajority_at_meeting' (when articles require more than majority) | 'members_written_consent' | 'board_majority' (only when entity has no members or none entitled to vote). Distinct from amendment.approval_method on MBCA-6A (which uses 13-C corporate values: incorporators / board_of_directors / shareholders)."
+          "description": "13-B nonprofit-specific enum for how the restated articles were adopted. Values: 'members_majority_at_meeting' | 'members_supermajority_at_meeting' (when articles require more than majority) | 'members_written_consent' | 'board_majority' (only when entity has no members or none entitled to vote). Distinct from amendment.approval_method on MBCA-6A (which uses 13-C corporate values: incorporators / board_of_directors / shareholders).",
+          "enum": [
+            "members_majority_at_meeting",
+            "members_supermajority_at_meeting",
+            "members_written_consent",
+            "board_majority"
+          ]
         },
         "adoption_date": {
           "type": "string",
@@ -55,7 +61,19 @@
           }
         },
         "expedited_service": {
-          "type": "string"
+          "type": "object",
+          "description": "Cover-letter expedited-service options (independent checkboxes).",
+          "properties": {
+            "hold_for_pickup": {
+              "type": "boolean"
+            },
+            "expedite_24h": {
+              "type": "boolean"
+            },
+            "immediate": {
+              "type": "boolean"
+            }
+          }
         },
         "total_fees_dollars": {
           "type": "string"

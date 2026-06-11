@@ -8,7 +8,7 @@
 
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
-| `abandonment.path` | text | high | FIRST: [ ] (Domestic Business) The domestication is abandoned after articles of charter surrender have been filed in accordance with the laws of the foreign jurisdiction after articles of domestication have been filed with the Secretary of State but before the domestication has become effective on ___. (fills multiple widgets) |
+| `abandonment.path` | enum_select | high | FIRST: [ ] (Domestic Business) The domestication is abandoned after articles of charter surrender have been filed in accordance with the laws of the foreign jurisdiction after articles of domestication have been filed with the Secretary of State but before the domestication has become effective on ___. |
 | `abandonment.would_be_effective_date` | text | high | ...but before the domestication has become effective on ___ |
 | `entity.annual_report_reminder_email` | text | high | (Email address to use for annual report reminders) |
 | `filing.attested_copy_recipient.firm` | text | high | (Firm or Company) |
@@ -42,7 +42,7 @@ _Showing 12 of 19 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "abandonment": {
-    "path": "Sample Value",
+    "path": "domestic",
     "would_be_effective_date": "2026-01-15"
   },
   "filing": {

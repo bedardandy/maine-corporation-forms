@@ -47,7 +47,7 @@ _Showing 12 of 31 canonical keys — the full set is in mapping.json._
     "original_filing_date": "2026-01-15"
   },
   "filing": {
-    "action_type": "Sample Value"
+    "action_type": "amendment"
   },
   "amendment": {
     "affected_person_or_position": "Sample Value",

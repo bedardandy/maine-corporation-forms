@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `dissolution.consent_class` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Page-1 THIRD vote-tally table has 4 widgets (Text31, Text32, Text33, Text34) but only 3 conceptual values in 13-B MRSA §1101 (entitled-to-vote, voted-for, voted-against). The most likely interpretation is that the form provides a per-class breakdown row (Text33 'Voted For' + Text34 'Voted Against') AND a totals row (Text31 'entitled to vote total' + Text32 'voted-for total'), with a missing 'voted-against total' widget. Confirm by re-rendering the PDF or by inspecting widget labels in the original template.
 - Open question: Page-1 FIFTH registered-office address: Text36 (wide line below) has rect x≈327-571 (right portion only) rather than spanning the visible full-width underline. Either the bound widget covers only the right portion of a decoratively wider line, or there's a paired left-side widget that did not surface in widgets.json. Filler should populate Text36 with the full street/city/state/zip string and visually verify alignment.

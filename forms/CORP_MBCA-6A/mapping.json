@@ -36,15 +36,16 @@
     },
     "Check Box10": {
       "key": "amendment.approval_method",
-      "widgets": [
-        "Check Box10",
-        "Check Box11",
-        "Check Box13"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "by the incorporators – shareholder approval was not required"
+      "label": "[ ] by the incorporators – shareholder approval was not required / [ ] by the board of directors – shareholder approval was not required / [ ] by the shareholders in the manner required by this Act and by the articles of incorporation.",
+      "options": {
+        "incorporators": "Check Box10",
+        "board_of_directors": "Check Box11",
+        "shareholders": "Check Box13"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box10 y=451.5 = 'by the incorporators – shareholder approval was not required'; Check Box11 y=464.5 = 'by the board of directors – shareholder approval was not required'; Check Box13 y=478.2 = 'by the shareholders in the manner required by this Act and by the articles of in'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text7": {
       "key": "amendment.share_exchange_exhibit_letter",

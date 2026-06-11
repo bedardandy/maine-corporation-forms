@@ -16,7 +16,7 @@
 | `conversion.new_entity.principal_office_address` | text | high | SECOND (continued): The address of its principal office is: |
 | `conversion.new_entity.type` | text | high | The form of the converted (resulting) organization: |
 | `conversion.new_entity_provisions_exhibit_letter` | text | high | SEVENTH: Result of Conversion (Select One) — *The organizing document for the converted (resulting) organization is attached as Exhibit ___ |
-| `conversion.organizing_document_disposition` | text | high | SEVENTH (option 1): [ ] *The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof (fills multiple widgets) |
+| `conversion.organizing_document_disposition` | enum_select | high | SEVENTH (option 1): [ ] *The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof |
 | `conversion.signature_block.converting_entity_name_and_form` | text | high | Must Be Completed by the Converting Organization — (name and form of converting organization) |
 | `entity.form_type` | text | high | The form of the converting organization: |
 | `entity.home_jurisdiction` | text | high | The jurisdiction of the converting organization prior to filing this certificate: |

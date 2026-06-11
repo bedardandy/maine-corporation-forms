@@ -20,17 +20,17 @@
       },
       "binding_source": "geometry_verified + opus_vision_alignment (high)"
     },
-    "Check Box5": {
+    "Check Box3": {
       "key": "clerk_change.modify_subtype",
       "field_type": "enum_select",
       "page": 0,
-      "confidence": "medium",
-      "label": "FIRST sub: [ ] Change of address",
+      "confidence": "high",
+      "label": "[ ] Change of address / [ ] Change in name of current clerk or registered agent",
       "options": {
-        "address": "Check Box5",
-        "name": "Check Box3"
+        "address": "Check Box3",
+        "name": "Check Box5"
       },
-      "binding_source": "geometry_verified + opus_vision_alignment (high)"
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box3 y=385.7 = 'Change of address'; Check Box5 y=398.1 = 'Change in name of current clerk or registered agent'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py). DEFECT FIX: the prior enum_select had address/name swapped (address pointed at Check Box5). Check Box3 (y=385.7) sits on the printed 'Change of address' line; Check Box5 (y=398.1) on 'Change in name of current clerk or registered agent'."
     },
     "Text6": {
       "key": "clerk_change.current_clerk_or_agent_name",

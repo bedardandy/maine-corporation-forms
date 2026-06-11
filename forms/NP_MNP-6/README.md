@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `entity.nonprofit_type` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - 1 low-confidence mapping(s) need human review: `incorporator_7.address.street`
 - Open question: WIDGET-COUNT MISMATCH ON PAGE 1 INCORPORATOR BLOCK: widget data shows 20 widgets in 10 evenly-spaced rows (y=445, 411, 377, 343, 311, 275, 243, 209, 175, 141), each row having both a left-column and right-column widget. The visual form layout shows 6 incorporator slots × 2 lines each (signature wet-ink + print name on left; Street + city/state/zip on right) = 12 rows × ~3 widgets per incorporator = 18 widgets, plus Dated = 19 widgets. The drafter's interpretation maps Text19 (Dated) plus 6 incorporators (Text20-Text37 as 6 × 3 widgets) plus Text38 as a possible 7th-slot Street. Pass-2 visual-fill testing needed to confirm the row pairing — synth should populate 6 incorporators and verify which fields render where. The medium-confidence rationales on Text20-Text38 reflect this open question.

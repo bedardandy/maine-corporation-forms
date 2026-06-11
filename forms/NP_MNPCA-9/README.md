@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `entity.nonprofit_type` maps to 2 widgets; all receive the same value.
 - `amendment.adoption_method` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Page 1 has a 'MUST BE COMPLETED FOR VOTE OF MEMBERS' clerk-certification box ('I certify that I have custody of the minutes showing the above action by the members. (signature of clerk, secretary or asst. secretary)') with NO bound /Tx widget in the AcroForm — widgets.json shows nothing in that page-1 left-middle region. Same upstream-template glitch class as sister NP_MNPCA-11 (which DOES bind a widget for the same certification block, Text23). Filler must either skip the certification fill or treat it as wet-ink overlay. Same primitive family as MNPCA-11's certification.clerk_signature_printed_name.

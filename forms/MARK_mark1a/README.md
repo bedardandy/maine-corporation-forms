@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `mark.type` maps to 5 widgets; all receive the same value.
 - Open question: MARK_mark1a is a single-page form with no cover letter (the cover letter lives on MARK_mark1, the parent registration). No filing.entities[*], filing.contact.*, filing.expedited_service, filing.total_fees_dollars, or filing.attested_copy_recipient.* keys appear on this form — they're on the parent.
 - Open question: The form's 'D' paragraph ('I understand that I may not prevent another from using the disclaimed portion...') is informational/affirmation prose, not a fillable field. No canonical key needed.
 - Open question: There is a wet-ink signature line labeled '(applicant's signature)' but no AcroForm widget for the printed name on this form. The signer's printed name and capacity are captured on MARK_mark1's mark.signer.printed_name_and_capacity. If the disclaimer is ever filed standalone (rare), the signer identity would have to be inferred from context.

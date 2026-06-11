@@ -24,17 +24,17 @@
     },
     "Check Box4": {
       "key": "restatement.adoption_method",
-      "widgets": [
-        "Check Box4",
-        "Check Box5",
-        "Check Box6",
-        "Check Box8"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "By the members at a meeting at which a quorum was present and the restatement received at least a majority of the votes which members were entitled to cast.",
-      "binding_source": "fourth widget corrected from Check Box10 to Check Box8 by geometry+text: Check Box8 (y=502.2) sits on the '(If no members, or none entitled to vote thereon.) By majority vote of the board of directors.' line, directly below Check Box6; Check Box10 (y=611.6) is the SECOND noncommercial registered-agent box."
+      "label": "FIRST: [ ] By the members at a meeting at which a quorum was present an / [ ] (If the Articles require more than a majority vote / [ ] By the written consent of all members entitled to vote with  / [ ] (If no members, or none entitled to vote thereon",
+      "options": {
+        "members_majority_at_meeting": "Check Box4",
+        "members_supermajority_at_meeting": "Check Box5",
+        "members_written_consent": "Check Box6",
+        "board_majority": "Check Box8"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=407.4 = 'By the members at a meeting at which a quorum was present and the restatement re'; Check Box5 y=442.5 = '(If the Articles require more than a majority vote.) By the members at a meeting'; Check Box6 y=478.1 = 'By the written consent of all members entitled to vote with respect thereto.'; Check Box8 y=502.2 = '(If no members, or none entitled to vote thereon.) By majority vote of the board'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box9": {
       "key": "registered_agent.type",
@@ -131,16 +131,28 @@
       "label": "List type of filing(s) enclosed [line 2]"
     },
     "Check Box20": {
-      "key": "filing.expedited_service",
-      "widgets": [
-        "Check Box20",
-        "Check Box21",
-        "Check Box22"
-      ],
-      "field_type": "text",
+      "key": "filing.expedited_service.hold_for_pickup",
+      "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
-      "label": "Hold for pick up"
+      "label": "[ ] Hold for pick up",
+      "binding_source": "independent cover-letter checkbox (on-state Yes) at y=403.5 on page 2, verified by geometry+text; replaces the migration-era text binding that fanned a single filing.expedited_service string onto all three delivery boxes (non-boolean-key /Btn sweep). Same three boolean keys as every other cover sheet in the repo."
+    },
+    "Check Box21": {
+      "key": "filing.expedited_service.expedite_24h",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "[ ] Expedited filing - 24 hour service ($50 additional filing fee per entity, per service)",
+      "binding_source": "independent cover-letter checkbox (on-state Yes) at y=417.1 on page 2, verified by geometry+text; replaces the migration-era text binding that fanned a single filing.expedited_service string onto all three delivery boxes (non-boolean-key /Btn sweep). Same three boolean keys as every other cover sheet in the repo."
+    },
+    "Check Box22": {
+      "key": "filing.expedited_service.immediate",
+      "field_type": "checkbox",
+      "page": 2,
+      "confidence": "high",
+      "label": "[ ] Expedited filing - Immediate service ($100 additional filing fee per entity, per service)",
+      "binding_source": "independent cover-letter checkbox (on-state Yes) at y=430.7 on page 2, verified by geometry+text; replaces the migration-era text binding that fanned a single filing.expedited_service string onto all three delivery boxes (non-boolean-key /Btn sweep). Same three boolean keys as every other cover sheet in the repo."
     },
     "C5": {
       "key": "filing.total_fees_dollars",

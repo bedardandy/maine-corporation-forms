@@ -15,7 +15,7 @@
 | `director_2.name` | text | high | FIRST: Directors — Name (row 2) |
 | `director_3.address` | text | high | FIRST: Directors — Address (row 3) |
 | `director_3.name` | text | high | FIRST: Directors — Name (row 3) |
-| `dissolution.consent_class` | text | high | SECOND: All members of the corporation entitled to vote (fills multiple widgets) |
+| `dissolution.consent_class` | enum_select | high | SECOND: All members of the corporation entitled to vote |
 | `entity.annual_report_reminder_email` | text | high | Email address to use for annual report reminders |
 | `entity.name` | text | high | (Name of Corporation) |
 | `filing.attested_copy_recipient.firm` | text | high | Firm or Company |

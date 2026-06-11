@@ -24,16 +24,17 @@
     },
     "Check Box1": {
       "key": "transfer.new_entity_type",
-      "widgets": [
-        "Check Box1",
-        "Check Box2",
-        "Check Box3",
-        "Check Box4"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: Foreign Nonprofit Corporation"
+      "label": "[ ] Foreign Nonprofit Corporation / [ ] Foreign Limited Partnership / [ ] Foreign Limited Liability Company / [ ] Foreign Limited Liability Partnership",
+      "options": {
+        "foreign_nonprofit_corporation": "Check Box1",
+        "foreign_limited_partnership": "Check Box2",
+        "foreign_limited_liability_company": "Check Box3",
+        "foreign_limited_liability_partnership": "Check Box4"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box1 y=364.5 = 'Foreign Nonprofit Corporation'; Check Box2 y=389.2 = 'Foreign Limited Partnership'; Check Box3 y=413.2 = 'Foreign Limited Liability Company'; Check Box4 y=436.6 = 'Foreign Limited Liability Partnership'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "undefined_6": {
       "key": "transfer.new_governing_jurisdiction",

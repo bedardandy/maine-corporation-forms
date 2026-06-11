@@ -30,8 +30,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `merger.surviving_corp.name` maps to 2 widgets; all receive the same value.
 - `merger.surviving_corp.home_jurisdiction` maps to 2 widgets; all receive the same value.
-- `merger.surviving_corp.benefit_type` maps to 2 widgets; all receive the same value.
-- `merger.domestic_corp.vote_method` maps to 4 widgets; all receive the same value.
 - `merger.domestic_corp.vote_method_date` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: The 'MUST BE COMPLETED FOR VOTE OF MEMBERS' inset blocks (one under each DATED row on page 1) have NO matching widgets in the AcroForm — visually each inset has a (name of corporation) line and a (signature of clerk, secretary or asst. secretary) line. These mirror NP_MNPCA-10's clerk_certification.* keys but are unbindable on this template (same upstream template gap as NP_MNPCA-10). Recommend an upstream pdftk/normalize_fields pass to add the missing widgets; until then, synth fill cannot populate the clerk-certification block via AcroForm.

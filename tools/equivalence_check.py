@@ -32,7 +32,9 @@ Exits non-zero when any form diverges; the report lists every differing field
 with both values.
 
 Known, intentional divergences (verified 2026-06-11 after the
-registered_agent.type checkbox-fan sweep; 136/156 identical):
+registered_agent.type checkbox-fan sweep and the repo-wide non-boolean-key
+/Btn sweep that finished it; 104/156 identical, 52 diverged — every
+divergence is a newly-functional selection):
 
 - 20 forms re-bound ``registered_agent.type`` as a real selection. The
   migration-era mappings carried the key as a *text*-typed binding fanned
@@ -61,6 +63,30 @@ registered_agent.type checkbox-fan sweep; 136/156 identical):
   ``registered_agent.commercial`` binding (``Check Box16__p1``) into the
   ``registered_agent.type`` enum_select, so the SIXTH pair can never show
   two marks.
+- The non-boolean-key /Btn sweep re-bound every remaining text-typed fact
+  key that sat on button widgets (same defect class: the baseline writes the
+  literal enum string into ``/V`` and the box never renders checked; the
+  working tree selects the geometry-verified box, or checks/leaves a real
+  boolean). 32 more forms diverge by design — ``CORP_CLKRA-3`` (also fixes
+  the swapped ``clerk_change.modify_subtype`` options: ``Check Box3`` is the
+  printed 'Change of address' line), ``CORP_MBCA-11I``, ``CORP_MBCA-12A``,
+  ``CORP_MBCA-12C``, ``CORP_MBCA-14A``, ``CORP_MBCA-19B``, ``CORP_MBCA-6A``,
+  ``LLC_MLLC-10``, ``LLC_MLLC-2``, ``LLC_MLLCACSOA``, ``LLC_MLLCCONV``,
+  ``LLP_MLLP-12A``, ``LP_MLPA-10``, ``LP_MLPA-2``, ``MARK_mark1``,
+  ``MARK_mark1a``, ``MARK_mark2``, ``MARK_mark3``, ``MARK_mark4``,
+  ``NP_CLKRA-3``, ``NP_MLC-3_0``, ``NP_MNP-6``, ``NP_MNP-981A``,
+  ``NP_MNPCA-10``, ``NP_MNPCA-10A``, ``NP_MNPCA-10C``, ``NP_MNPCA-10E``,
+  ``NP_MNPCA-11``, ``NP_MNPCA-11A``, ``NP_MNPCA-11C``, ``NP_MNPCA-14A``,
+  ``NP_MNPCA-9`` — and the 10 sweep forms already in the
+  registered_agent.type list above pick up additional differing fields for
+  the same reason (``LLP_MLLP-12``, ``LLP_MLLP-12-1``, ``LLP_MLLP-6-1``,
+  ``LP_MLPA-12``, ``LP_MLPA-12-1``, ``LP_MLPA-6-1``, ``LP_MLPA-6A``,
+  ``NP_MNPCA-12-1``, ``NP_MNPCA-6-1``, ``NP_MNPCA-6A_0``). The promoted
+  shared-/Btn kids the migration-era fan-outs dropped (``MARK_mark2``
+  corporation/association, ``MARK_mark3`` association, ``MARK_mark4``
+  assignee corporation/association/union, ``LLC_MLLC-10``
+  ``Check Box14__p0``/``Check Box15__p0``) appear only on the new side —
+  the old filler could not address them at all.
 """
 import argparse
 import json

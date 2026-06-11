@@ -3,17 +3,18 @@
   "map": {
     "Check Box12": {
       "key": "filing.underlying_filing_type",
-      "widgets": [
-        "Check Box12",
-        "Check Box13",
-        "Check Box14",
-        "Check Box15",
-        "Check Box16"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "Articles of Entity Conversion (13-C MRSA §955.1) [option 1]"
+      "label": "[ ] Articles of Entity Conversion (13-C MRSA §955 / [ ] Articles/Certificate of Merger or Share Exchange (13-C MRSA  / [ ] Certificate of Inter-Entity Consolidation (31 MRSA §744) / [ ] Articles/Certificate of Inter-Entity Conversion (31 MRSA §74 / [ ] Articles of Conversion of Partnership (31 MRSA §1093)",
+      "options": {
+        "articles_of_entity_conversion": "Check Box12",
+        "merger_or_share_exchange": "Check Box13",
+        "inter_entity_consolidation": "Check Box14",
+        "articles_of_conversion": "Check Box15",
+        "conversion_of_partnership": "Check Box16"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box12 y=103.4 = 'Articles of Entity Conversion (13-C MRSA §955.1)'; Check Box13 y=118.1 = 'Articles/Certificate of Merger or Share Exchange (13-C MRSA §1106, 31 MRSA §744,'; Check Box14 y=132.8 = 'Certificate of Inter-Entity Consolidation (31 MRSA §744)'; Check Box15 y=145.7 = 'Articles/Certificate of Inter-Entity Conversion (31 MRSA §746, 31 MRSA §1432)'; Check Box16 y=160.3 = 'Articles of Conversion of Partnership (31 MRSA §1093)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text1": {
       "key": "entity.name",

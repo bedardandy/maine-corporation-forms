@@ -108,14 +108,15 @@
     },
     "Check Box6": {
       "key": "revocation.consent_class",
-      "widgets": [
-        "Check Box6",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote."
+      "label": "SECOND: ('X' one box only): [ ] The members of the corporation entitled to vote. / [ ] The directors of the corporation, there being no members or no members entitled to vote.",
+      "options": {
+        "members": "Check Box6",
+        "directors_when_no_voting_members": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box6 y=574.0 = 'The members of the corporation entitled to vote.'; Check Box5 y=596.7 = 'The directors of the corporation, there being no members or no members entitled '. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "18": {
       "key": "registered_office.address_line1",

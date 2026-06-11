@@ -51,7 +51,8 @@
           "description": "Boolean Yes/No election for whether the foreign nonprofit seeks authority for ALL activities authorized in its home jurisdiction and allowed by Maine law. When false, entity.maine_limited_activities must enumerate the limited scope. Specific to 13-B MRSA §1202 nonprofit foreign-authority filings; MLLC-12 (the LLC analogue under 31 MRSA) does not have a parallel election."
         },
         "fict4_accompanies": {
-          "type": "string"
+          "type": "boolean",
+          "description": "True when Form FICT-4 (fictitious name) accompanies this application — a single yes/this-applies checkbox, not an enum."
         }
       }
     },

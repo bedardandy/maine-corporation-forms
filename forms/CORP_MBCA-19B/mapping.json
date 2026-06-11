@@ -10,14 +10,15 @@
     },
     "Check Box4": {
       "key": "abandonment.path",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: [ ] (Domestic Business) The domestication is abandoned after articles of charter surrender have been filed in accordance with the laws of the foreign jurisdiction after articles of domestication have been filed with the Secretary of State but before the domestication has become effective on ___."
+      "label": "[ ] (Domestic Business) The domestication is abandoned after articles of charter surrender have been filed / [ ] (Foreign Business) The domestication of this foreign business corporation in this State is abandoned",
+      "options": {
+        "domestic": "Check Box4",
+        "foreign": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=370.6 = '(Domestic Business) The domestication is abandoned after articles of charter sur'; Check Box5 y=417.9 = '(Foreign Business) The domestication of this foreign business corporation in thi'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "19b3": {
       "key": "abandonment.would_be_effective_date",

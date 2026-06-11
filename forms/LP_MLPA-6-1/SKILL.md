@@ -16,7 +16,7 @@
 | `entity.name` | text | high | FIRST: The name of the limited partnership is |
 | `entity.professional_services_description` | text | high | (provide the following professional services) — line 1 (fills multiple widgets) |
 | `filing.accompanying_transaction_type` | text | high | Articles of Entity Conversion (13-C MRSA §955.1) (fills multiple widgets) |
-| `general_partner.additional_attached` | text | high | Names and addresses of additional general partners are attached as Exhibit ___ and made a part hereof |
+| `general_partner.additional_attached` | checkbox | high | Names and addresses of additional general partners are attached as Exhibit ___ and made a part hereof |
 | `general_partner.additional_exhibit_letter` | text | high | Exhibit ___ [additional general partners] |
 | `general_partner_1.address` | text | high | FIFTH: Address (general partner row 1) |
 | `general_partner_1.name` | text | high | FIFTH: Name (general partner row 1) |

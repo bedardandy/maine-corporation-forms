@@ -10,14 +10,15 @@
     },
     "Check Box4": {
       "key": "resumption.method",
-      "widgets": [
-        "Check Box4",
-        "Check Box5"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: [ ] A meeting was duly called and held at which a majority of shareholders voted to resume transacting business."
+      "label": "[ ] A meeting was duly called and held at which a majority of shareholders voted to resume transacting business. / [ ] The vote to resume transacting business was duly authorized by written consent of the shareholders.",
+      "options": {
+        "meeting": "Check Box4",
+        "written_consent": "Check Box5"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box4 y=346.5 = 'A meeting was duly called and held at which a majority of shareholders voted to '; Check Box5 y=430.4 = 'The vote to resume transacting business was duly authorized by written consent o'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "14a3": {
       "key": "resumption.meeting_date",

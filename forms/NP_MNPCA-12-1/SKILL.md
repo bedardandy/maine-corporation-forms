@@ -16,7 +16,7 @@
 | `entity.maine_fictitious_name` | text | high | SECOND: ...the fictitious name under which it proposes to apply for authority to carry on activities in the State of Maine is: |
 | `entity.maine_limited_activities.line1` | text | high | FIFTH: If no, specify activity (activities) for which authority is sought. (inline blank) |
 | `entity.maine_limited_activities.line2` | text | high | FIFTH: ...continuation line below |
-| `filing.fict4_accompanies` | text | high | Form FICT-4 accompanies this application. |
+| `filing.fict4_accompanies` | checkbox | high | Form FICT-4 accompanies this application. |
 | `filing.seeks_full_authority` | text | high | FIFTH: Does it seek authority to engage in all activities authorized in its jurisdiction and allowed by Maine Law? Yes (fills multiple widgets) |
 | `registered_agent.cra_public_number` | text | high | SIXTH: CRA Public Number: |
 | `registered_agent.mailing_address` | text | high | SIXTH: (mailing address if different from above) |
@@ -50,7 +50,7 @@ _Showing 12 of 15 canonical keys — the full set is in mapping.json._
     }
   },
   "filing": {
-    "fict4_accompanies": "Sample Value",
+    "fict4_accompanies": true,
     "seeks_full_authority": true
   },
   "registered_agent": {

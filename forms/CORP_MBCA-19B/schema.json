@@ -9,11 +9,15 @@
       "properties": {
         "path": {
           "type": "string",
-          "description": "Mutually-exclusive enum capturing which direction of domestication is being abandoned: 'domestic' (the corp is currently Maine and is abandoning an outbound charter surrender pairing CORP_MBCA-19A) | 'foreign' (the corp is currently foreign and is abandoning an inbound articles-of-domestication pairing CORP_MBCA-19). Determines whether abandonment.would_be_effective_date is required."
+          "description": "Mutually-exclusive enum capturing which direction of domestication is being abandoned: 'domestic' (the corp is currently Maine and is abandoning an outbound charter surrender pairing CORP_MBCA-19A) | 'foreign' (the corp is currently foreign and is abandoning an inbound articles-of-domestication pairing CORP_MBCA-19). Determines whether abandonment.would_be_effective_date is required.",
+          "enum": [
+            "domestic",
+            "foreign"
+          ]
         },
         "would_be_effective_date": {
           "type": "string",
-          "description": "Date the underlying domestication would have become effective, absent this abandonment. Required when abandonment.path='domestic' (the SOS needs to know which pending charter-surrender is being abandoned). Distinct from domestication.effective_date on CORP_MBCA-19A \u2014 that key represents the actual effective date of a completed surrender; this key represents the would-have-been date of an abandoned one."
+          "description": "Date the underlying domestication would have become effective, absent this abandonment. Required when abandonment.path='domestic' (the SOS needs to know which pending charter-surrender is being abandoned). Distinct from domestication.effective_date on CORP_MBCA-19A — that key represents the actual effective date of a completed surrender; this key represents the would-have-been date of an abandoned one."
         }
       }
     },

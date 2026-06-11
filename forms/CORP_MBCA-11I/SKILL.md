@@ -9,7 +9,7 @@
 | Key | Type | Confidence | Notes |
 |-----|------|-----------|-------|
 | `dissolution.authorization_date` | text | high | SECOND: The date that the dissolution was authorized is |
-| `dissolution.early_dissolution_basis` | text | high | FOURTH: [ ] None of the corporation's shares have been issued. (fills multiple widgets) |
+| `dissolution.early_dissolution_basis` | enum_select | high | FOURTH: [ ] None of the corporation's shares have been issued. |
 | `dissolution.effective_date` | text | high | THIRD: The effective date of the articles of dissolution (if other than the date of filing of the articles of dissolution) is |
 | `entity.name` | text | high | (Name of Corporation) |
 | `entity.original_articles_filing_date` | text | high | FIRST: The date of incorporation is |
@@ -47,7 +47,7 @@ _Showing 12 of 22 canonical keys — the full set is in mapping.json._
   "dissolution": {
     "authorization_date": "2026-01-15",
     "effective_date": "2026-01-15",
-    "early_dissolution_basis": "Sample Value"
+    "early_dissolution_basis": "no_shares_issued"
   },
   "filing": {
     "date_signed": "2026-01-15",

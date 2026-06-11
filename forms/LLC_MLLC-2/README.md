@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.application_type` maps to 2 widgets; all receive the same value.
 - `entity.principal_office.physical_address` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Drafter originally hypothesized Text8 as a certificate-of-existence date field, but FIFTH only describes the attached certificate (no fillable). Reviewer remapped the page-0 widgets to align with MLLP-2/MBCA-2/MLPA-2 conventions: Text5+Text6 = address (two-line single-key), Text7 = formation date, Text8 = business purpose. Confidence on the geometric remap is high but a single render-time visual check would confirm the underline-to-widget alignment.

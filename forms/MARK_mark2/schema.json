@@ -13,7 +13,7 @@
         },
         "type": {
           "type": "string",
-          "description": "Free-text type-of-mark string (e.g., 'Trademark', 'Service Mark', 'Collective Mark', 'Combined'). Distinct from MARK_mark1's combined mark.type_and_class_number \u2014 this renewal form has separate TYPE (C) and CLASS (D) widgets."
+          "description": "Free-text type-of-mark string (e.g., 'Trademark', 'Service Mark', 'Collective Mark', 'Combined'). Distinct from MARK_mark1's combined mark.type_and_class_number — this renewal form has separate TYPE (C) and CLASS (D) widgets."
         },
         "type_amended": {
           "type": "boolean",
@@ -53,7 +53,8 @@
           }
         },
         "additional_pages_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in for any of the multi-line fields' overflow ('Attach additional pages, if necessary.')."
         },
         "signer": {
           "type": "object",
@@ -73,7 +74,17 @@
               "type": "string"
             },
             "entity_type": {
-              "type": "string"
+              "type": "string",
+              "description": "Mutually-exclusive enum of applicant's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation). Mirrors mark.applicant.entity_type on MARK_mark1.",
+              "enum": [
+                "individual",
+                "general_partnership",
+                "limited_partnership",
+                "corporation",
+                "association",
+                "union",
+                "other"
+              ]
             },
             "entity_type_other_explanation": {
               "type": "string"
@@ -97,7 +108,11 @@
               },
               "action": {
                 "type": "string",
-                "description": "D: For each NEW class added"
+                "description": "Whether the class row is being added or deleted (D: 'CLASS NUMBER: __ [ ] Added or [ ] Deleted (Complete for each class affected.)'). Enum: 'added' | 'deleted'.",
+                "enum": [
+                  "added",
+                  "deleted"
+                ]
               },
               "description": {
                 "type": "object",

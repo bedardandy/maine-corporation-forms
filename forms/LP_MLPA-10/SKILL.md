@@ -42,7 +42,7 @@ _Showing 12 of 46 canonical keys — the full set is in mapping.json._
 ```json
 {
   "merger": {
-    "additional_parties_attached": "Sample Value",
+    "additional_parties_attached": true,
     "additional_parties_exhibit_letter": "Sample Value",
     "surviving_entity": {
       "name": "Sample Value",

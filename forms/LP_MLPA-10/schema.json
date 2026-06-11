@@ -34,11 +34,19 @@
         },
         "fifth_election": {
           "type": "string",
-          "description": "Mutually-exclusive enum for FIFTH paragraph on LP_MLPA-10: 'created_by_merger' (option 1, requires the new survivor's organizational document attached) or 'preexisted' (option 2, requires merger.fifth_subelection)."
+          "description": "Mutually-exclusive enum for FIFTH paragraph on LP_MLPA-10: 'created_by_merger' (option 1, requires the new survivor's organizational document attached) or 'preexisted' (option 2, requires merger.fifth_subelection).",
+          "enum": [
+            "created_by_merger",
+            "preexisted"
+          ]
         },
         "fifth_subelection": {
           "type": "string",
-          "description": "When merger.fifth_election='preexisted', a mutually-exclusive enum for sub-options under FIFTH option 2: 'amendments_attached' (Check Box23) or 'organizational_docs_unchanged' (Check Box24)."
+          "description": "When merger.fifth_election='preexisted', a mutually-exclusive enum for sub-options under FIFTH option 2: 'amendments_attached' (Check Box23) or 'organizational_docs_unchanged' (Check Box24).",
+          "enum": [
+            "amendments_attached",
+            "organizational_docs_unchanged"
+          ]
         },
         "foreign_survivor": {
           "type": "object",
@@ -57,7 +65,8 @@
           "description": "Letter of the exhibit containing additional information required by the governing statute of any constituent organization (EIGHTH on LP_MLPA-10)."
         },
         "additional_parties_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional constituent organizations are listed on a separate exhibit."
         },
         "additional_parties_exhibit_letter": {
           "type": "string"

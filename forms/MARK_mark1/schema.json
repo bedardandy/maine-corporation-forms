@@ -98,7 +98,7 @@
           "properties": {
             "entity_name": {
               "type": "string",
-              "description": "Applicant's identity as it should appear on the registered mark \u2014 'Myself' for individuals, or firm/association/corporate name for entities."
+              "description": "Applicant's identity as it should appear on the registered mark — 'Myself' for individuals, or firm/association/corporate name for entities."
             },
             "mailing_address": {
               "type": "string",
@@ -106,7 +106,16 @@
             },
             "entity_type": {
               "type": "string",
-              "description": "Mutually-exclusive enum of applicant's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation)."
+              "description": "Mutually-exclusive enum of applicant's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation).",
+              "enum": [
+                "individual",
+                "general_partnership",
+                "limited_partnership",
+                "corporation",
+                "association",
+                "union",
+                "other"
+              ]
             },
             "entity_type_other_explanation": {
               "type": "string",

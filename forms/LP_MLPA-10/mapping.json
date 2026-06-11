@@ -31,10 +31,11 @@
     },
     "Check Box19": {
       "key": "merger.additional_parties_attached",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Name, form, and jurisdiction of additional constituent organizations are attached as Exhibit ___"
+      "label": "[ ] Name, form, and jurisdiction of additional constituent organizations are attached as Exhibit ____, and made a part hereof.",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 0; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text26": {
       "key": "merger.additional_parties_exhibit_letter",
@@ -80,25 +81,27 @@
     },
     "Check Box21": {
       "key": "merger.fifth_election",
-      "widgets": [
-        "Check Box21",
-        "Check Box22"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "FIFTH: The surviving organization is created by this merger. The organizational document that creates this surviving organization is attached."
+      "label": "[ ] The surviving organization is created by this merger. The organizational document that creates this surviving organization is attached; or / [ ] The surviving organization existed before the merger. (Check only one box below)",
+      "options": {
+        "created_by_merger": "Check Box21",
+        "preexisted": "Check Box22"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box21 y=54.6 = 'The surviving organization is created by this merger. The organizational documen'; Check Box22 y=89.7 = 'The surviving organization existed before the merger. (Check only one box below)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Check Box23": {
       "key": "merger.fifth_subelection",
-      "widgets": [
-        "Check Box23",
-        "Check Box24"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "FIFTH option 2 sub-option: Amendments provided for in the plan of merger to the organizational document that created the surviving organization are attached, included or attached, or not attached…"
+      "label": "[ ] Amendments provided for in the plan of merger for the organizational document that created the surviving organization that are in the public record are attached; or / [ ] The organizational documents remain unchanged.",
+      "options": {
+        "amendments_attached": "Check Box23",
+        "organizational_docs_unchanged": "Check Box24"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box23 y=113.7 = 'Amendments provided for in the plan of merger for the organizational document th'; Check Box24 y=149.4 = 'The organizational documents remain unchanged.'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text9": {
       "key": "merger.foreign_survivor.service_of_process_physical_address",

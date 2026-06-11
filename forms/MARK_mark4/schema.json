@@ -16,7 +16,16 @@
             },
             "entity_type": {
               "type": "string",
-              "description": "Mutually-exclusive enum of the assignor's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation). Mirrors mark.applicant.entity_type from MARK_mark1."
+              "description": "Mutually-exclusive enum of the assignor's legal form: 'individual' | 'general_partnership' | 'limited_partnership' | 'corporation' | 'association' | 'union' | 'other' (with explanation). Mirrors mark.applicant.entity_type from MARK_mark1.",
+              "enum": [
+                "individual",
+                "general_partnership",
+                "limited_partnership",
+                "corporation",
+                "association",
+                "union",
+                "other"
+              ]
             },
             "entity_type_other_explanation": {
               "type": "string",
@@ -32,7 +41,7 @@
             },
             "printed_name_and_capacity": {
               "type": "string",
-              "description": "Printed name and capacity of the natural person signing for the assignor. Bound to two widgets \u2014 the Whereas-clause recital (mark4Nineteen) and the Signature-line (mark4Twentytwo) \u2014 both filled with the same value."
+              "description": "Printed name and capacity of the natural person signing for the assignor. Bound to two widgets — the Whereas-clause recital (mark4Nineteen) and the Signature-line (mark4Twentytwo) — both filled with the same value."
             },
             "date_signed": {
               "type": "string",
@@ -62,7 +71,16 @@
             },
             "entity_type": {
               "type": "string",
-              "description": "Mutually-exclusive enum of the assignee's legal form (same enum values as mark.assignor.entity_type)."
+              "description": "Mutually-exclusive enum of the assignee's legal form (same enum values as mark.assignor.entity_type).",
+              "enum": [
+                "individual",
+                "general_partnership",
+                "limited_partnership",
+                "corporation",
+                "association",
+                "union",
+                "other"
+              ]
             },
             "entity_type_other_explanation": {
               "type": "string",

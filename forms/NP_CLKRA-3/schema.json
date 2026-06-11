@@ -25,10 +25,20 @@
       "type": "object",
       "properties": {
         "action_type": {
-          "type": "string"
+          "type": "string",
+          "description": "Type of clerk/RA change being filed. Enum: 'new_appointment' (replacing existing) | 'modify_existing' (updating address or name).",
+          "enum": [
+            "new_appointment",
+            "modify_existing"
+          ]
         },
         "modify_subtype": {
-          "type": "string"
+          "type": "string",
+          "description": "Sub-type of modify-existing change. Enum: 'address' | 'name'.",
+          "enum": [
+            "address",
+            "name"
+          ]
         },
         "current_clerk_or_agent_name": {
           "type": "string"
@@ -49,7 +59,12 @@
           "type": "string"
         },
         "bc_authorization": {
-          "type": "string"
+          "type": "string",
+          "description": "For Maine domestic business corporations only: who authorized the change. Enum: 'board_of_directors' (and power not reserved to shareholders) | 'shareholders'.",
+          "enum": [
+            "board_of_directors",
+            "shareholders"
+          ]
         }
       }
     },

@@ -17,10 +17,11 @@
     },
     "Check Box1": {
       "key": "filing.fict4_accompanies",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "Form FICT-4 accompanies this application."
+      "label": "[ ] Form FICT-4 accompanies this application.",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 0; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text3": {
       "key": "entity.home_jurisdiction",

@@ -115,19 +115,20 @@
     },
     "Check Box23": {
       "key": "mark.applicant.entity_type",
-      "widgets": [
-        "Check Box23",
-        "Check Box32",
-        "Check Box25",
-        "Check Box26",
-        "Check Box27",
-        "Check Box28",
-        "Check Box31"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 1,
       "confidence": "high",
-      "label": "F: Applicant is a (an): [ ] individual"
+      "label": "F. Applicant is a (an): [ ] individual / [ ] general partnership / [ ] limited partnership / [ ] corporation / [ ] association / [ ] union / [ ] other ___ (Explain)",
+      "options": {
+        "individual": "Check Box23",
+        "general_partnership": "Check Box32",
+        "limited_partnership": "Check Box25",
+        "corporation": "Check Box26",
+        "association": "Check Box27",
+        "union": "Check Box28",
+        "other": "Check Box31"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 1: Check Box23 y=293.6 = 'individual'; Check Box32 y=294.3 = 'general partnership'; Check Box25 y=294.5 = 'limited partnership'; Check Box26 y=294.5 = 'corporation'; Check Box27 y=320.2 = 'association'; Check Box28 y=321.0 = 'union'; Check Box31 y=320.3 = 'other ___ (Explain)'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text16": {
       "key": "mark.applicant.entity_type_other_explanation",

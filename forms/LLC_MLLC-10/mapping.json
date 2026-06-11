@@ -31,10 +31,11 @@
     },
     "Check Box10": {
       "key": "merger.additional_parties_attached",
-      "field_type": "text",
+      "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Name, form, jurisdiction and date of organization of additional limited liability companies or other constituent organizations are attached as Exhibit ___, and made a part hereof."
+      "label": "[ ] Name, form, jurisdiction and date of organization of additional limited liability companies or other constituent organizations are attached as Exhibit ___, and made a part hereof.",
+      "binding_source": "single yes/this-applies checkbox (on-state Yes) verified by geometry+text on page 0; retyped from the migration-era text binding (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text5": {
       "key": "merger.additional_parties_exhibit_letter",
@@ -90,16 +91,17 @@
         "existed_before": "Check Box12"
       }
     },
-    "Check Box14": {
+    "Check Box14__p0": {
       "key": "merger.third_subelection",
-      "widgets": [
-        "Check Box14",
-        "Check Box15"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD option 2 sub-option: Amendments provided for in the plan of merger to the organizational document that created the surviving organization are attached."
+      "label": "[ ] Amendments provided for in the plan of merger for the organizational document that created the surviving organization that are in the public record are attached; or / [ ] The organizational documents remain unchanged.",
+      "options": {
+        "amendments_attached": "Check Box14__p0",
+        "organizational_docs_unchanged": "Check Box15__p0"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box14__p0 y=689.3 = 'Amendments provided for in the plan of merger for the organizational document th'; Check Box15__p0 y=724.4 = 'The organizational documents remain unchanged.'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py). Check Box14/Check Box15 are shared /Btn names with the page-3 cover delivery boxes; the binding addresses the promoted page-0 kids (engine.field_split)."
     },
     "Text16": {
       "key": "merger.effective_date",

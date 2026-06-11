@@ -15,7 +15,7 @@
 | `entity.name` | text | high | FIRST: The name of the registered limited liability partnership is — must contain 'Limited Liability Partnership', 'L.L.P.' or 'LLP' (per 31 MRSA §803-A) |
 | `entity.professional_services_description.line1` | text | high | FOURTH: (type of professional services) line 1 |
 | `entity.professional_services_description.line2` | text | high | FOURTH: (type of professional services) line 2 |
-| `filing.underlying_filing_type` | text | high | Articles of Entity Conversion (13-C MRSA §955.1) [option 1] (fills multiple widgets) |
+| `filing.underlying_filing_type` | enum_select | high | Articles of Entity Conversion (13-C MRSA §955.1) [option 1] |
 | `registered_agent.cra_public_number` | text | high | SECOND: CRA Public Number (alongside Commercial Registered Agent radio) |
 | `registered_agent.mailing_address` | text | high | SECOND: (mailing address if different from above) |
 | `registered_agent.name` | text | high | SECOND: (name of commercial registered agent) (fills multiple widgets) |
@@ -40,7 +40,7 @@ _Showing 12 of 13 canonical keys — the full set is in mapping.json._
 ```json
 {
   "filing": {
-    "underlying_filing_type": "Sample Value"
+    "underlying_filing_type": "articles_of_entity_conversion"
   },
   "entity": {
     "name": "Wabanaki Widgets, Inc.",

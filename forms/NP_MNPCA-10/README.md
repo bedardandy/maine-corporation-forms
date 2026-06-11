@@ -28,9 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `merger.parties[0].vote_method` maps to 4 widgets; all receive the same value.
 - `merger.parties[0].vote_method_date` maps to 4 widgets; all receive the same value.
-- `merger.parties[1].vote_method` maps to 4 widgets; all receive the same value.
 - `merger.parties[1].vote_method_date` maps to 4 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Template-level naming inconsistency: most text widgets on this form use bare digit names ('1', '2', '5', '6', '8', '11'-'37') instead of the 'TextN' prefix used on newer forms. Filler engine should accept both naming styles. Consider an upstream normalize_fields pass to migrate to a consistent prefix.

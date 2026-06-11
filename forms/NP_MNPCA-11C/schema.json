@@ -9,7 +9,11 @@
       "properties": {
         "consent_class": {
           "type": "string",
-          "description": "Enum capturing which class of constituents adopted the resolution to revoke voluntary dissolution proceedings: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND). Parallel to dissolution.consent_class on sister NP_MNPCA-11/NP_MNPCA-11A; namespaced separately because this filing reverses (rather than initiates) dissolution proceedings."
+          "description": "Enum capturing which class of constituents adopted the resolution to revoke voluntary dissolution proceedings: 'members' (when the corporation has voting members) or 'directors_when_no_voting_members' (when there are no members or no members entitled to vote). Mutually exclusive (SECOND). Parallel to dissolution.consent_class on sister NP_MNPCA-11/NP_MNPCA-11A; namespaced separately because this filing reverses (rather than initiates) dissolution proceedings.",
+          "enum": [
+            "members",
+            "directors_when_no_voting_members"
+          ]
         }
       }
     },

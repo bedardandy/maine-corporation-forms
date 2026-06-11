@@ -18,7 +18,7 @@
             },
             "lineN": {
               "type": "string",
-              "description": "Multi-line free-text description of professional services provided by a PLLLP (per the FOURTH paragraph footnote). 2 inline widgets on MLPA-12-1 (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) \u2014 synth concatenates lines for the whole description; either may be empty."
+              "description": "Multi-line free-text description of professional services provided by a PLLLP (per the FOURTH paragraph footnote). 2 inline widgets on MLPA-12-1 (line1, line2). Same multi-line shape primitive as amendment.changes_description.lineN (MLPA-13A) — synth concatenates lines for the whole description; either may be empty."
             }
           }
         },
@@ -68,7 +68,8 @@
       "type": "object",
       "properties": {
         "fict4_accompanies": {
-          "type": "string"
+          "type": "boolean",
+          "description": "True when Form FICT-4 (fictitious name) accompanies this application — a single yes/this-applies checkbox, not an enum."
         }
       }
     },
@@ -134,7 +135,8 @@
       "type": "object",
       "properties": {
         "additional_attached": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Boolean opt-in indicating additional GPs are listed on a separate exhibit."
         },
         "additional_exhibit_letter": {
           "type": "string"

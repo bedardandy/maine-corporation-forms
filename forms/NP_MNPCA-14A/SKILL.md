@@ -10,7 +10,7 @@
 |-----|------|-----------|-------|
 | `entity.annual_report_reminder_email` | text | high | Email address to use for annual report reminders |
 | `entity.name` | text | high | (Name of Corporation) |
-| `entity.nonprofit_type` | text | high | FOURTH: ("X" one box only) [ ] public benefit corporation (fills multiple widgets) |
+| `entity.nonprofit_type` | enum_select | high | FOURTH: ("X" one box only) [ ] public benefit corporation |
 | `filing.attested_copy_recipient.firm` | text | high | Firm or Company |
 | `filing.attested_copy_recipient.mailing_address.city_state_zip` | text | high | City, State & Zip |
 | `filing.attested_copy_recipient.mailing_address.street` | text | high | Mailing Address |
@@ -45,11 +45,11 @@ _Showing 12 of 26 canonical keys — the full set is in mapping.json._
     "name": "Wabanaki Widgets, Inc."
   },
   "resumption": {
-    "adopting_body": "Sample Value",
+    "adopting_body": "members",
     "adoption_date": "2026-01-15",
     "adoption_location": "Sample Value",
-    "method": "Sample Value",
-    "voting_body": "Sample Value"
+    "method": "meeting",
+    "voting_body": "members"
   },
   "registered_office": {
     "address": {

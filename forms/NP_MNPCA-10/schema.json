@@ -9,7 +9,7 @@
       "properties": {
         "merging_corporations_recital": {
           "type": "string",
-          "description": "Free-text recital of one or more merging Maine corporation names (the parties that merge into the survivor). For Maine/Maine nonprofit mergers this is a single combined widget \u2014 multi-corp scenarios use comma-separated or multi-line input."
+          "description": "Free-text recital of one or more merging Maine corporation names (the parties that merge into the survivor). For Maine/Maine nonprofit mergers this is a single combined widget — multi-corp scenarios use comma-separated or multi-line input."
         },
         "surviving_corporation_name": {
           "type": "string",
@@ -59,7 +59,13 @@
               },
               "vote_method": {
                 "type": "string",
-                "description": "[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+                "description": "Mutually-exclusive enum capturing how this constituent corporation adopted the plan of merger: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote' (block 1 / block 2 print the same four options).",
+                "enum": [
+                  "majority_member_vote",
+                  "supermajority_member_vote",
+                  "written_consent_of_members",
+                  "board_of_directors_majority_vote"
+                ]
               },
               "vote_method_date": {
                 "type": "string",
@@ -74,14 +80,14 @@
                   },
                   "corporation_name": {
                     "type": "string",
-                    "description": "(surviving corporation) \u2014 corp-name underline next to DATED"
+                    "description": "(surviving corporation) — corp-name underline next to DATED"
                   },
                   "signer_1": {
                     "type": "object",
                     "properties": {
                       "printed_name_and_capacity": {
                         "type": "string",
-                        "description": "*By (signature) ___ / (type or print name and capacity) \u2014 surviving corp signer 1"
+                        "description": "*By (signature) ___ / (type or print name and capacity) — surviving corp signer 1"
                       }
                     }
                   },
@@ -90,7 +96,7 @@
                     "properties": {
                       "printed_name_and_capacity": {
                         "type": "string",
-                        "description": "*By (signature) ___ / (type or print name and capacity) \u2014 surviving corp signer 2"
+                        "description": "*By (signature) ___ / (type or print name and capacity) — surviving corp signer 2"
                       }
                     }
                   }
@@ -101,11 +107,11 @@
                 "properties": {
                   "corporation_name": {
                     "type": "string",
-                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (name of corporation)"
+                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS — (name of corporation)"
                   },
                   "signer_printed_name_and_title": {
                     "type": "string",
-                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS \u2014 (signature of clerk, secretary or asst. secretary)"
+                    "description": "MUST BE COMPLETED FOR VOTE OF MEMBERS — (signature of clerk, secretary or asst. secretary)"
                   }
                 }
               }

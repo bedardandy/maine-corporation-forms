@@ -26,7 +26,13 @@
               },
               "vote_method": {
                 "type": "string",
-                "description": "[ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast."
+                "description": "Mutually-exclusive enum capturing how this constituent corporation adopted the plan of consolidation: 'majority_member_vote' | 'supermajority_member_vote' | 'written_consent_of_members' | 'board_of_directors_majority_vote' (block 1 / block 2 print the same four options; same option set as NP_MNPCA-10's vote_method).",
+                "enum": [
+                  "majority_member_vote",
+                  "supermajority_member_vote",
+                  "written_consent_of_members",
+                  "board_of_directors_majority_vote"
+                ]
               },
               "vote_method_date": {
                 "type": "string",

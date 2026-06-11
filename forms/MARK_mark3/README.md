@@ -29,9 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `mark.type_changed` maps to 2 widgets; all receive the same value.
-- `amendment.class_action` maps to 2 widgets; all receive the same value.
 - `amendment.manner_of_use` maps to 3 widgets; all receive the same value.
-- `mark.applicant.entity_type` maps to 6 widgets; all receive the same value.
 - `filing.expedited_service` maps to 2 widgets; all receive the same value.
 - 1 low-confidence mapping(s) need human review: `mark.type_change_explanation`
 - Open question: Reviewer corrected three classes of drafter errors: (a) drafter put applicant identity fields under the entity.* namespace (entity.name, entity.mailing_address, entity.type, entity.home_jurisdiction, entity.formation_date) — corrected to mark.applicant.* per the MARK-1 precedent (mark owners are not necessarily registered Maine entities, and 10 MRSA Title 10 marks are intentionally namespaced separately from 13-C/31 MRSA entity-formation forms); (b) drafter mapped the signer to filing.signer.printed_name_and_capacity — corrected to mark.signer.printed_name_and_capacity per MARK-1; (c) drafter omitted mark3Six (rect 165.8, 298.7, 296.7, 317.0) — added with provisional key mark.type_change_explanation and confidence='low' pending visual confirmation.

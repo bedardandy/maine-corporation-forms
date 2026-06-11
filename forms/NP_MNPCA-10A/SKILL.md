@@ -13,13 +13,13 @@
 | `consolidation.parties[0].signature_block.date_signed` | text | high | DATED ___ [first signature block date] |
 | `consolidation.parties[0].signature_block.signer_1.printed_name_and_capacity` | text | high | *By (signature) ___ / (type or print name and capacity) [first signature block, signer 1] |
 | `consolidation.parties[0].signature_block.signer_2.printed_name_and_capacity` | text | high | *By (signature) ___ / (type or print name and capacity) [first signature block, signer 2] |
-| `consolidation.parties[0].vote_method` | text | high | [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast. (fills multiple widgets) |
+| `consolidation.parties[0].vote_method` | enum_select | high | [ ] By the members at a meeting on (date) ___ at which a quorum was present and such plan received at least a majority of the votes which members were entitled to cast. |
 | `consolidation.parties[0].vote_method_date` | text | high | By the members at a meeting on (date) ___ [block 1 option 1 date] (fills multiple widgets) |
 | `consolidation.parties[1].name` | text | high | AND / (A Maine Corporation) [second participating corporation name line] (fills multiple widgets) |
 | `consolidation.parties[1].signature_block.date_signed` | text | high | DATED ___ [second signature block date] |
 | `consolidation.parties[1].signature_block.signer_1.printed_name_and_capacity` | text | high | *By (signature) ___ / (type or print name and capacity) [second signature block, signer 1] |
 | `consolidation.parties[1].signature_block.signer_2.printed_name_and_capacity` | text | high | *By (signature) ___ / (type or print name and capacity) [second signature block, signer 2] |
-| `consolidation.parties[1].vote_method` | text | high | Block 2 option 1: By the members at a meeting on (date)... (fills multiple widgets) |
+| `consolidation.parties[1].vote_method` | enum_select | high | Block 2 option 1: By the members at a meeting on (date)... |
 
 _Showing 12 of 32 canonical keys — the full set is in mapping.json._
 
@@ -43,12 +43,12 @@ _Showing 12 of 32 canonical keys — the full set is in mapping.json._
     "parties": [
       {
         "name": "Sample Value",
-        "vote_method": "Sample Value",
+        "vote_method": "majority_member_vote",
         "vote_method_date": "2026-01-15"
       },
       {
         "name": "Sample Value",
-        "vote_method": "Sample Value",
+        "vote_method": "majority_member_vote",
         "vote_method_date": "2026-01-15"
       }
     ]

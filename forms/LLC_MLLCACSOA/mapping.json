@@ -17,14 +17,15 @@
     },
     "Check Box3": {
       "key": "filing.action_type",
-      "widgets": [
-        "Check Box3",
-        "Check Box9"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: [ ] Amendment of Statement of Authority"
+      "label": "[ ] Amendment of Statement of Authority: / [ ] Cancellation of Statement of Authority:",
+      "options": {
+        "amendment": "Check Box3",
+        "cancellation": "Check Box9"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box3 y=366.4 = 'Amendment of Statement of Authority:'; Check Box9 y=543.1 = 'Cancellation of Statement of Authority:'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "person affected": {
       "key": "amendment.affected_person_or_position",

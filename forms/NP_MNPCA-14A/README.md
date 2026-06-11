@@ -28,10 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `resumption.adopting_body` maps to 2 widgets; all receive the same value.
-- `resumption.method` maps to 2 widgets; all receive the same value.
-- `resumption.voting_body` maps to 2 widgets; all receive the same value.
-- `entity.nonprofit_type` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: FIRST paragraph layout: the form reads 'This certificate was adopted by a majority of the [members][directors] on (date) at (location). [meeting][written consent]' — i.e., the meeting/written-consent radio appears AFTER the date/location line. On the meeting branch, location is clearly the meeting location. On the written-consent branch, the (location) blank is conventionally filled with the place of execution OR left blank — either is accepted by SOS in practice. Synth should leave adoption_location blank when method='written_consent'; rubric treats it as required only when method='meeting'.
 - Open question: SECOND paragraph duplicates the members/directors selection from FIRST. The form does not enforce equality, but in normal practice the same body adopts and votes — captured as an advisory rubric check (adopting-and-voting-bodies-match).

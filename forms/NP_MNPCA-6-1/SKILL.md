@@ -16,8 +16,8 @@
 | `entity.initial_directors_count` | text | high | FIFTH: ...the initial board of directors of the corporation, if the number has been determined ... is ___ |
 | `entity.mutual_benefit_purpose` | text | high | (mutual benefit purposes description) |
 | `entity.name` | text | high | FIRST: The name of the corporation is |
-| `entity.no_political_activities_clause` | text | high | SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ... |
-| `entity.nonprofit_type` | text | high | SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes (fills multiple widgets) |
+| `entity.no_political_activities_clause` | checkbox | high | SEVENTH: (Optional) ... No substantial part of the activities ... shall be the carrying on of propaganda ... |
+| `entity.nonprofit_type` | enum_select | high | SECOND: The corporation is organized as a public benefit corporation for the following purpose or purposes |
 | `entity.public_benefit_purpose` | text | high | (public benefit purposes description) |
 | `filing.accompanying_document_type` | text | high | Articles of Nonprofit Conversion (13-C MRSA §933) (fills multiple widgets) |
 
@@ -44,7 +44,7 @@ _Showing 12 of 17 canonical keys — the full set is in mapping.json._
   },
   "entity": {
     "name": "Wabanaki Widgets, Inc.",
-    "nonprofit_type": "Sample Value",
+    "nonprofit_type": "public_benefit",
     "public_benefit_purpose": "Sample Value",
     "mutual_benefit_purpose": "Sample Value"
   },

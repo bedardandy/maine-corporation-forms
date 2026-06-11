@@ -51,7 +51,7 @@ _Showing 12 of 28 canonical keys — the full set is in mapping.json._
     }
   },
   "filing": {
-    "fict4_accompanies": "Sample Value"
+    "fict4_accompanies": true
   },
   "contact_partner": {
     "name": "Sample Value"

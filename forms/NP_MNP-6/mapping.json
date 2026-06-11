@@ -10,14 +10,15 @@
     },
     "Check Box2": {
       "key": "entity.nonprofit_type",
-      "widgets": [
-        "Check Box2",
-        "Check Box3"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes:"
+      "label": "[ ] The corporation is organized as a public benefit corporation for the following purpose or purposes: / [ ] The corporation is organized as a mutual benefit corporation for the following purpose or purposes:",
+      "options": {
+        "public_benefit": "Check Box2",
+        "mutual_benefit": "Check Box3"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box2 y=386.2 = 'The corporation is organized as a public benefit corporation for the following p'; Check Box3 y=470.0 = 'The corporation is organized as a mutual benefit corporation for the following p'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text4": {
       "key": "entity.public_benefit_purpose",

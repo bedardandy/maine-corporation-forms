@@ -45,17 +45,18 @@
     },
     "Check Box9": {
       "key": "mark.type",
-      "widgets": [
-        "Check Box9",
-        "Check Box10",
-        "Check Box11",
-        "Check Box12",
-        "Check Box13"
-      ],
-      "field_type": "text",
+      "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "C. TYPE OF MARK: Trademark - a mark applied to goods applicant manufactures or sells"
+      "label": "C. TYPE OF MARK: [ ] Trademark - a mark applied to goods applicant manufactures o / [ ] Service Mark - a mark used in connection with services appli / [ ] Combined Service/Trademark - a mark applied to goods and use / [ ] Certification Mark - a mark used by an organization to certi / [ ] Collective Mark - a mark used by members of a collective org",
+      "options": {
+        "trademark": "Check Box9",
+        "service_mark": "Check Box10",
+        "combined_service_trademark": "Check Box11",
+        "certification_mark": "Check Box12",
+        "collective_mark": "Check Box13"
+      },
+      "binding_source": "independent checkboxes (each on-state Yes) by geometry+text on page 0: Check Box9 y=425.0 = 'Trademark - a mark applied to goods applicant manufactures or sells.'; Check Box10 y=448.3 = 'Service Mark - a mark used in connection with services applicant provides.'; Check Box11 y=473.3 = 'Combined Service/Trademark - a mark applied to goods and used in connection with'; Check Box12 y=497.4 = 'Certification Mark - a mark used by an organization to certify the characteristi'; Check Box13 y=521.6 = 'Collective Mark - a mark used by members of a collective organization in connect'. Replaces the migration-era text binding that fanned the literal enum string onto every box (non-boolean-key /Btn sweep; see tools/equivalence_check.py)."
     },
     "Text8": {
       "key": "filing.date_signed",

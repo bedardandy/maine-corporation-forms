@@ -28,7 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `conversion.organizing_document_disposition` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: Reviewer restructured the namespace from drafter's parallel conversion.converting_entity.* / conversion.resulting_entity.* (which would conflict with the existing convention from MBCA-21 / GP_CONV-PARTNER) to entity.* (converting/predecessor) + conversion.new_entity.* (resulting) — matching the established post-conversion namespace and reusing existing keys (entity.name, entity.home_jurisdiction, entity.original_articles_filing_date, conversion.new_entity.name, conversion.new_entity.type, conversion.new_entity_provisions_exhibit_letter).
 - Open question: Page-1 has TWO 'type or print name and capacity' widgets (Text 'type or print name and capacity' + Text 'type or print name and capacity_2'). Drafter mapped the first to filing.signer.printed_name_and_capacity and the second to filing.signer_2.* — reviewer corrected to filing.signer_1.* / filing.signer_2.* for multi-slot consistency with MLLC-5A / MLLCACSOA. Form does not specify the 1st-vs-2nd slot semantics — likely two parallel authorized signers per the converting entity's organic law (§1647 doesn't constrain).

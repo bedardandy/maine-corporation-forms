@@ -9,7 +9,14 @@
       "properties": {
         "underlying_filing_type": {
           "type": "string",
-          "description": "Enum identifying which underlying entity-action filing this Certificate of Limited Liability Partnership accompanies. Values: 'articles_of_entity_conversion' (13-C MRSA §955.1), 'merger_or_share_exchange' (13-C MRSA §1106 / 31 MRSA §744 / §1436), 'inter_entity_consolidation' (31 MRSA §744), 'articles_of_conversion' (31 MRSA §746 / §1432), 'conversion_of_partnership' (31 MRSA §1093). Exactly one is selected per filing — the 5 page-0 checkboxes are mutually exclusive radio options. New canonical key for the '-1' accompaniment-form pattern; analogous future forms (e.g., LP_MLPA-12-1, LLP_MLLP-12-1) may carry different underlying-filing-type enums."
+          "description": "Enum identifying which underlying entity-action filing this Certificate of Limited Liability Partnership accompanies. Values: 'articles_of_entity_conversion' (13-C MRSA §955.1), 'merger_or_share_exchange' (13-C MRSA §1106 / 31 MRSA §744 / §1436), 'inter_entity_consolidation' (31 MRSA §744), 'articles_of_conversion' (31 MRSA §746 / §1432), 'conversion_of_partnership' (31 MRSA §1093). Exactly one is selected per filing — the 5 page-0 checkboxes are mutually exclusive radio options. New canonical key for the '-1' accompaniment-form pattern; analogous future forms (e.g., LP_MLPA-12-1, LLP_MLLP-12-1) may carry different underlying-filing-type enums.",
+          "enum": [
+            "articles_of_entity_conversion",
+            "merger_or_share_exchange",
+            "inter_entity_consolidation",
+            "articles_of_conversion",
+            "conversion_of_partnership"
+          ]
         }
       }
     },
