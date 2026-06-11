@@ -1,5 +1,10 @@
 """Pin each blank PDF to the exact revision the mappings were built against.
 
+Shim over the shared ``maine-forms-engine`` blank-revision guard
+(``maine_forms_engine.fill.verify``) — the check logic lives in the package;
+this module only re-anchors the default manifest location to this repo's
+``catalog/pdf_manifest.json`` (the package default is cwd-relative).
+
 ``catalog/pdf_manifest.json`` records a SHA-256 (plus byte size) for every blank
 Maine SoS form. That hash is the anchor: the mapping.json widget ids, the
 schema, and the field rationale were all enriched against *that* revision of the
@@ -15,32 +20,25 @@ Two checks live here:
   re-downloads from the official URL to detect upstream drift before it ever
   reaches disk.
 """
-import hashlib
-import json
 from pathlib import Path
+
+from maine_forms_engine.fill import verify as _pkg
+from maine_forms_engine.fill.verify import (  # noqa: F401  (re-exports)
+    BlankRevisionError,
+    BlankRevisionWarning,
+    sha256_bytes,
+)
 
 _ROOT = Path(__file__).resolve().parent.parent
 _MANIFEST = _ROOT / "catalog" / "pdf_manifest.json"
 
 
-class BlankRevisionWarning(UserWarning):
-    """The on-disk blank does not match the manifest hash (non-fatal)."""
-
-
-class BlankRevisionError(RuntimeError):
-    """The on-disk blank does not match the manifest hash (strict mode)."""
-
-
-def sha256_bytes(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
-
-
 def load_manifest(manifest_path=None) -> dict:
-    path = Path(manifest_path) if manifest_path else _MANIFEST
-    return json.loads(path.read_text(encoding="utf-8"))
+    """Load the manifest (default: this repo's ``catalog/pdf_manifest.json``)."""
+    return _pkg.load_manifest(manifest_path or _MANIFEST)
 
 
-def manifest_entry(form_id: str, manifest=None):
+def manifest_entry(form_id, manifest=None):
     """Return the manifest record for ``form_id`` (or ``None``).
 
     The manifest is the shared ``{"forms": {form_id: {...}}}`` dialect
@@ -49,7 +47,7 @@ def manifest_entry(form_id: str, manifest=None):
     ``tools/convert_pdf_manifest.py``.
     """
     man = manifest if manifest is not None else load_manifest()
-    return man.get("forms", {}).get(form_id)
+    return _pkg.manifest_entry(form_id, man)
 
 
 def verify_blank(form_id, forms_root="forms", manifest=None):
@@ -60,26 +58,8 @@ def verify_blank(form_id, forms_root="forms", manifest=None):
     file, a missing manifest hash, or a size/hash mismatch returns ``False`` with
     a human-readable reason.
     """
-    entry = manifest_entry(form_id, manifest)
-    if entry is None:
-        return False, f"{form_id}: not in manifest"
-    expected = entry.get("sha256")
-    if not expected:
-        return False, f"{form_id}: manifest has no sha256 to verify against"
-    pdf = Path(forms_root) / form_id / f"{form_id}.pdf"
-    if not pdf.exists():
-        return False, f"{form_id}: blank not present ({pdf}); run tools/fetch_pdfs.py"
-    data = pdf.read_bytes()
-    if entry.get("bytes") is not None and len(data) != entry["bytes"]:
-        return False, (f"{form_id}: size {len(data)} != manifest {entry['bytes']} — "
-                       "on-disk blank is not the revision the mapping was built against")
-    got = sha256_bytes(data)
-    if got != expected:
-        return False, (f"{form_id}: SHA-256 mismatch — on-disk blank is not the "
-                       f"revision the mapping was built against "
-                       f"(got {got[:12]}…, manifest {expected[:12]}…); "
-                       "re-run enrichment for this form")
-    return True, f"{form_id}: verified against manifest"
+    man = manifest if manifest is not None else load_manifest()
+    return _pkg.verify_blank(form_id, forms_root=forms_root, manifest=man)
 
 
 def guard_blank(form_id, forms_root="forms", mode="warn", manifest=None) -> bool:
@@ -92,13 +72,8 @@ def guard_blank(form_id, forms_root="forms", mode="warn", manifest=None) -> bool
     A clean verify always returns ``True``. The mismatch reason is the warning /
     exception message so the caller can surface it to the user.
     """
-    if mode == "off":
+    if mode == "off":  # no manifest read when the check is skipped
         return True
-    ok, detail = verify_blank(form_id, forms_root, manifest)
-    if ok:
-        return True
-    if mode == "strict":
-        raise BlankRevisionError(detail)
-    import warnings
-    warnings.warn(detail, BlankRevisionWarning, stacklevel=3)
-    return False
+    man = manifest if manifest is not None else load_manifest()
+    return _pkg.guard_blank(form_id, forms_root=forms_root, mode=mode,
+                            manifest=man)

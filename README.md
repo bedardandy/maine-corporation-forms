@@ -90,7 +90,8 @@ catalog/
   by_entity.json        forms grouped by entity type
   pdf_manifest.json     per-form source URL + size + SHA-256 for fetching blanks
   caselaw.json          experimental case-law background (propose-and-flag)
-engine/                 deterministic fill engine (stdlib + pypdf)
+engine/                 deterministic fill engine (shim over the shared
+                        maine-forms-engine PyMuPDF fill core + repo policy)
   fill.py  plan.py  route.py  schema.py  canonical.py  printcopy.py
   preflight.py         one merged issue list: schema + rubric + signer + plan
   rubric.py            executes the machine-checkable rubric.yaml checks
@@ -150,7 +151,7 @@ silently swapped on disk cannot be filled without notice.
 ## Quickstart — fill a form
 
 ```bash
-pip install -r requirements.txt                # pypdf, PyYAML
+pip install -r requirements.txt                # maine-forms-engine, pypdf, PyYAML
 python3 tools/fetch_pdfs.py --forms CORP_MBCA-6 # download the blank, SHA-verified
 python3 -m engine.preflight CORP_MBCA-6 examples/corp_mbca-6.case.json  # all checks, no PDF
 python3 -m engine.fill CORP_MBCA-6 examples/corp_mbca-6.case.json out.pdf

@@ -1,9 +1,13 @@
 # Reference fill engine
 
-A dependency-light (standard library + `pypdf`) reference consumer of the
-per-form folders. It is **optional** — the per-form `forms/<ID>/` contract is
-the portable substrate; this engine is how the project fills and verifies a
-form. No network and no LLM at fill time: filling is fully deterministic.
+A reference consumer of the per-form folders. PDF writing goes through the
+shared [`maine-forms-engine`](https://github.com/bedardandy/maine-forms-engine)
+fill core (PyMuPDF) — `engine/fill.py` is a shim over it that applies this
+repo's policy (when-gates, preflight refusal, enum/radio option writes, the
+shared-field runtime split). The engine is **optional** — the per-form
+`forms/<ID>/` contract is the portable substrate; this engine is how the
+project fills and verifies a form. No network and no LLM at fill time: filling
+is fully deterministic.
 
 ## Modules
 
@@ -12,14 +16,16 @@ form. No network and no LLM at fill time: filling is fully deterministic.
 | `canonical.py` | resolve a dotted canonical key (with list indexing, `items[0].name`) against a nested case-data dict |
 | `mapping.py` | the canonical-direction `mapping.json` dialect (PDF-field-keyed `map`, shared with the sibling repos): loader, `entries()` consumer view, lossless direction converter core |
 | `schema.py` | lightweight validation of case data against a form's `schema.json` (types, enums, required) |
-| `fill.py` | load `mapping.json` + the blank PDF, resolve each key, write AcroForm values, save the filled PDF |
+| `fill.py` | shim over the shared fill core: resolve each mapping binding under this repo's policy, write AcroForm values via `maine_forms_engine.fill`, post-write radio selections |
+| `field_split.py` | runtime split of shared multi-page checkbox fields (repo policy; pypdf) |
+| `verify.py` | shim over the shared blank-revision guard, anchored on this repo's manifest |
 | `plan.py` | report coverage for a case *without* a PDF — resolved / unresolved (missing facts) / skipped (gated off by `when`) |
 | `route.py` | rank candidate forms for a free-text intent over `catalog/forms_index.json` (lexical, no embeddings) |
 
 ## Fill a form
 
 ```bash
-pip install -r ../requirements.txt        # pypdf, PyYAML
+pip install -r ../requirements.txt        # maine-forms-engine, pypdf, PyYAML
 python3 -m engine.fill CORP_MBCA-6 examples/corp_mbca-6.case.json out.pdf
 ```
 
@@ -102,24 +108,25 @@ Each entry's `field_type` is one of:
 
 For a field typed `checkbox` (or `boolean`), a truthy value sets the widget to
 its **on-state** — the appearance-dictionary key that is not `/Off` (commonly
-`/Yes`). A falsy value leaves the box unchecked. Text fields receive the
-stringified value.
-
-The engine resolves the field by its parent `/T` name and sets the parent `/V`
-plus the `/AS` of **every kid annotation** (falling back to the field's own
-`/AS` when it has no kids). This renders checkboxes whose widget is split
-across multiple kid annotations on different pages — a quirk of some SoS forms.
-Note: when a single `/Btn` parent drives two boxes on **different pages** (a
-shared-field collision in some SoS PDFs), the engine splits them first (see
-"Shared multi-page checkbox repair" below) so each box is set independently.
+`/Yes`). A falsy value leaves the box untouched. Text fields receive the
+stringified value. The shared core writes the field `/V` and the widget `/AS`
+so the box renders checked in any viewer; checkboxes split across multiple
+same-page kid annotations are set per kid. When a single `/Btn` parent drives
+two boxes on **different pages** (a shared-field collision in some SoS PDFs),
+the engine splits them first (see "Shared multi-page checkbox repair" below)
+so each box is set independently.
 
 ## Radio handling
 
 A field typed `radio` targets a `/Btn` group by its parent `/T` name
 (`widget_id`). The resolved value is looked up in the entry's `options` map
-(`{enum_value: on_state_export_name}`) to find the on-state export name; the
-engine sets the parent `/V` and the matching kid widget's `/AS` to that
-on-state and forces every sibling kid to `/Off`. Two distinct groups may
+(`{enum_value: on_state_export_name}`) to find the on-state export name. The
+shared fill core itself **never writes radio groups** (its soft-lock safety
+net against landing on the wrong option); because this repo's `options` were
+extracted from the PDF and name the exact on-state per enum value, the
+selection is deterministic, so `engine.fill` writes it in a policy post-pass:
+the group field's `/V` is set to the selected on-state and every kid widget's
+`/AS` is aligned (`/Off` for non-matching kids). Two distinct groups may
 legitimately reuse the same export names (e.g. `bene`/`bene1`) as long as
 their parent group names differ.
 
@@ -134,15 +141,25 @@ row of the form).
 Some SoS PDFs reuse one `/Btn` field name for two unrelated checkboxes on
 different pages (e.g. a substantive certificate box and the cover-letter
 "expedited filing" box) — toggling the field would check both. Before filling,
-`split_shared_fields()` promotes each such kid widget into its own terminal
-field named `<T>__p<page>` (0-based page index) **in the in-memory writer
-only**; the source PDF on disk is never modified. Mappings for the affected
+`engine/field_split.py` promotes each such kid widget into its own terminal
+field named `<T>__p<page>` (0-based page index) **on a temporary working
+copy**; the source PDF on disk is never modified. Mappings for the affected
 forms address the boxes by their promoted names (e.g. `Check Box15__p4`). Radio
 groups are left untouched. Affected forms are listed in
 `tools/HAND_MAINTAINED.txt`.
 
 ## Not included
 
-This engine does not render, flatten, or visually audit the output, and it does
-not auto-fit overflowing text. Those are integrator concerns. Validate the
-output by opening the filled PDF (or reading field values back with `pypdf`).
+This engine does not render, flatten, or visually audit the output (the shared
+core does shrink a single-line value's font to fit its box rather than clip
+it). Print-ready rendering is `engine/printcopy.py`; visual audit is an
+integrator concern. Validate the output by opening the filled PDF (or reading
+field values back with `pypdf`).
+
+## Equivalence with the pre-migration pypdf filler
+
+`tools/equivalence_check.py` fills every form through the pre-migration pypdf
+filler (from git history) and this shim, and compares the resulting field
+values; see its docstring for the two known, intentional divergences (invalid
+`/V` strings the old filler wrote into button fields are now refused or
+normalized to `/Off` — rendered output is identical).

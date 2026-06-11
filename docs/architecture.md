@@ -53,7 +53,10 @@ is documented in `data-model.md`; the naming taxonomy in `field-schema.md`.
 
 ## Deterministic engine
 
-`engine/` is stdlib + pypdf only. No network, no LLM at fill time:
+`engine/` writes PDFs through the shared `maine-forms-engine` fill core
+(PyMuPDF) with this repo's policy layered on top (pypdf remains only for the
+shared-field runtime split and offline tooling). No network, no LLM at fill
+time:
 
 - `canonical.py` — resolve a dotted key (with list indexing) against the case data.
 - `schema.py` — lightweight type/enum/required validation against `schema.json`.

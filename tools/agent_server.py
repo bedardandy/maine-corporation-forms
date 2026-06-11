@@ -3,7 +3,7 @@
 
 Built on the shared ``maine-forms-engine`` MCP scaffold
 (``maine_forms_engine.mcp``): this module supplies the repo backend (routing,
-enriched payloads, the pypdf fill path); the scaffold supplies the
+enriched payloads, the shared-core fill path); the scaffold supplies the
 standardized tool surface and the one error shape (every failure is
 ``{"ok": False, "error": ..., "error_type": ...}``, never a raised
 exception).

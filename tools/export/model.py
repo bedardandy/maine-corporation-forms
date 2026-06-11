@@ -10,7 +10,7 @@ Unlike the probate sibling, these forms are **AcroForm-native**: each canonical
 key already binds to one or more real PDF field names (``widget_id``). The model
 exposes both — ``field_id`` (the canonical input key, the data contract) and
 ``acroform_names`` (the real PDF field names, the import handle). The runtime
-field-split (see ``engine.fill.split_shared_fields``) renames a shared widget to
+field-split (see ``engine.field_split``) renames a shared widget to
 ``<T>__p<page>`` at fill time only; the official PDF keeps the base name, so the
 de-promoted base name is what an XFDF/e-sign template must reference. ``_acroform_name``
 strips the ``__p<page>`` suffix for that reason.

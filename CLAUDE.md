@@ -62,8 +62,12 @@ policy (fetch-flag probe set, transient-vs-GONE download classification), and
 `tools/agent_server.py` builds on its MCP scaffold. `catalog/pdf_manifest.json`
 uses the shared `{"forms": {...}}` dialect (JSON Schema ships with the
 package; `tools/convert_pdf_manifest.py` performed the one-time conversion).
-The pypdf fill engine (`engine/`) and the inverted mapping direction stay
-local to this repo.
+The fill path is converged too: `engine/fill.py` is a shim over the
+package's PyMuPDF fill core, and `mapping.json` uses the shared field-id-keyed
+direction (`engine/mapping.py`). What stays local to this repo is policy:
+when-gates, the preflight fill-refusal, signer rules, rubric evaluation,
+enum/radio option writes, and the shared-field runtime split
+(`engine/field_split.py`).
 
 ## Rules
 - **Not legal advice.** Filled output is a draft; it must be verified against the

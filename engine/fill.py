@@ -1,40 +1,59 @@
 """Fill a Maine Secretary of State entity-form PDF from canonical case data.
 
-Reads ``forms/<FORM_ID>/mapping.json`` and the form's blank AcroForm PDF,
-resolves each canonical key from a nested case-data dict, and writes the
-values back into the PDF's form fields with pypdf.
+Shim over the shared ``maine-forms-engine`` PDF fill core
+(``maine_forms_engine.fill.form_filler.fill_form``, PyMuPDF), with this repo's
+policy applied around it — the same convergence pattern as the sibling repos'
+``engine/*.py`` shims. The engine package stays repo-agnostic; everything
+Maine-SoS-specific lives here:
 
-The engine is deterministic: no network access and no LLM at fill time.
+1. **Preflight gate** — :mod:`engine.preflight` runs first and error-severity
+   issues refuse the fill (``--no-preflight`` / ``preflight="off"`` /
+   ``MCORP_PREFLIGHT`` skip the gate; partial drafts are legitimate).
+2. **Blank-revision guard** — :mod:`engine.verify` checks the on-disk blank
+   against ``catalog/pdf_manifest.json`` (``MCORP_VERIFY_BLANK``, legacy
+   ``MCF_VERIFY_BLANK``).
+3. **Resolution policy** — ``mapping.json`` bindings (via
+   ``engine.mapping.entries``) are resolved with :mod:`engine.canonical`
+   (dotted keys with list indexing) under the same ``when`` gates as
+   ``engine.plan``; ``canonical_key`` overrides, multi-widget fan-outs and the
+   corp field types are honored here, before the core ever sees a widget name.
+4. **Shared-field runtime split** — multi-page shared checkbox ``/Btn``
+   defects are split on a working copy first (:mod:`engine.field_split`), so
+   mappings can address the promoted ``<T>__p<page>`` names.
+5. **Radio writes** — the shared core deliberately never writes radio groups
+   (its soft-lock safety net). This repo's ``radio`` bindings carry the
+   per-option on-state export names extracted from the PDF, so selecting one
+   is deterministic; a post-pass here sets the group ``/V`` and aligns every
+   kid's ``/AS`` exactly like the pre-migration pypdf filler.
 
-Field types in ``mapping.json``:
+Field types in ``mapping.json`` (see ``engine/mapping.py`` for the dialect;
+the semantics below are unchanged from the pypdf reference filler):
 
 - ``text`` (default) — a text widget, or a list of text widgets that all
   receive the same string value.
 - ``checkbox`` / ``boolean`` — a button field set to its on-state when the
-  resolved value is truthy. Parent fields whose checkboxes are split into
-  multiple kid widgets (a quirk of some SoS forms) are handled by setting the
-  parent ``/V`` and every kid's ``/AS``.
-- ``radio`` — a mutually-exclusive button *group*. ``widget_id`` is the group
-  field name and ``options`` maps each canonical enum value to that option's
-  export (on-state) name. The selected kid's appearance is turned on and all
-  siblings are set to ``/Off``.
+  resolved value is truthy; a falsy value leaves the box untouched.
+- ``radio`` — a mutually-exclusive button *group*; ``options`` maps each
+  canonical enum value to that option's export (on-state) name.
+- ``enum_select`` — one choice among N independent checkboxes; ``options``
+  maps each enum value to the widget that is checked, every sibling is forced
+  off so a "choose one" field can never show two marks.
+- ``enum_text_select`` — like ``enum_select`` but the "boxes" are text
+  widgets; the chosen one receives ``mark`` (default ``"X"``), the rest ``""``.
 
-A field entry normally resolves the case value at its own dict key. When one
-canonical key must feed *different* widgets under different ``when`` gates
-(e.g. separate commercial / noncommercial agent-name lines), the mapping uses
-two uniquely named entries that each carry ``canonical_key`` — the dotted key
-actually resolved against the case.
+The engine is deterministic: no network access and no LLM at fill time. The
+official blank on disk is never modified.
 """
 import json
 import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
-import pypdf
-from pypdf.generic import NameObject, TextStringObject
+from maine_forms_engine.fill.form_filler import fill_form as _core_fill_form
 
-from . import canonical, verify
+from . import canonical, field_split, verify
 from .mapping import entries as mapping_entries
 from .mapping import load_mapping  # noqa: F401  (re-export; callers use fill.load_mapping)
 from .plan import eval_when
@@ -67,24 +86,39 @@ def _run_preflight_gate(form_id, case_data, forms_root, preflight, report):
         raise preflight_engine.PreflightError(result)
 
 
-def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
-                 report=None):
-    """Return a ``pypdf.PdfWriter`` for ``form_id`` filled with ``case_data``.
+def _leaf_keys(obj, prefix=""):
+    """Yield dotted canonical leaf paths present in a nested case object."""
+    if isinstance(obj, dict) and obj:
+        for k, v in obj.items():
+            sub = f"{prefix}.{k}" if prefix else str(k)
+            yield from _leaf_keys(v, sub)
+    elif (isinstance(obj, list)
+          and any(isinstance(x, (dict, list)) for x in obj)):
+        for i, v in enumerate(obj):
+            yield from _leaf_keys(v, f"{prefix}[{i}]")
+    elif prefix:
+        yield prefix
 
-    The shared work behind :func:`fill` and :func:`fill_to_stream`. The official
-    PDF on disk is never modified.
 
-    Before reading the blank, the on-disk PDF is checked against the SHA-256 in
-    ``catalog/pdf_manifest.json`` — the revision the mapping was enriched
-    against. ``verify_blank`` is ``"warn"`` (default; mismatch emits a
-    :class:`engine.verify.BlankRevisionWarning` and still fills), ``"strict"``
-    (mismatch raises :class:`engine.verify.BlankRevisionError`), or ``"off"``.
-    The default can be set with the ``MCORP_VERIFY_BLANK`` environment
-    variable (``MCF_VERIFY_BLANK`` is honored as a legacy fallback).
+# The token the shared core's checkbox path treats as affirmative; the core
+# resolves it to the widget's real on-state at write time.
+_CHECK = "Yes"
+
+
+def resolve_fill(form_id, case_data, forms_root="forms", report=None):
+    """Resolve a form's mapping against ``case_data`` into a write plan.
+
+    Pure (no PDF): returns ``{"field_data": {widget_name: str},
+    "radio_selections": [(group_name, on_state), ...]}``. ``field_data`` is
+    what the shared fill core writes (text values, ``enum_text_select``
+    marks, and checkbox/enum-select tokens — :data:`_CHECK` for on, ``""``
+    for explicitly-off siblings). Radio groups are returned separately for
+    the policy post-pass, because the shared core never writes them.
 
     ``report``, if a dict, is populated with fill diagnostics:
 
-    - ``written``          — mapping entries whose value was written.
+    - ``written``          — mapping entries whose value was resolved for
+                             writing.
     - ``skipped_when``     — entries gated off by a false ``when`` condition.
     - ``dropped_enums``    — enum/radio values with no option mapping; the
                              field is left untouched instead of silently
@@ -92,23 +126,6 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
     - ``ignored_case_keys`` — case leaf keys no mapping entry consumes.
     """
     mapping = load_mapping(form_id, forms_root)
-    pdf_path = Path(forms_root) / form_id / f"{form_id}.pdf"
-
-    mode = (verify_blank
-            or os.environ.get("MCORP_VERIFY_BLANK")
-            or os.environ.get("MCF_VERIFY_BLANK", "warn"))
-    verify.guard_blank(form_id, forms_root, mode=mode)
-
-    reader = pypdf.PdfReader(str(pdf_path))
-    writer = pypdf.PdfWriter()
-    writer.append(reader)
-
-    # Repair shared multi-page checkbox fields (a defect in some SoS PDFs where
-    # one /Btn drives two unrelated boxes on different pages) so each box is
-    # independently settable. Only the in-memory writer is changed; the official
-    # PDF on disk stays byte-faithful. Mappings address the resulting fields by
-    # their promoted names, e.g. ``Check Box15__p4``.
-    split_shared_fields(writer)
 
     diag = report if isinstance(report, dict) else {}
     diag["written"] = []
@@ -116,11 +133,8 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
     diag["dropped_enums"] = []
     diag["ignored_case_keys"] = []
 
-    text_values = {}
-    checkbox_widgets = []
+    field_data = {}
     radio_selections = []
-    enum_checkbox_select = []  # (chosen_widget_or_None, [all_sibling_widgets])
-    enum_text_select = []  # (chosen_widget_or_None, [all_widgets], mark)
 
     consumed_keys = set()
     for key, spec in mapping_entries(mapping).items():
@@ -171,7 +185,7 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
                      "allowed": sorted(options)})
                 continue
             for wname in options.values():
-                text_values[wname] = mark if wname == chosen else ""
+                field_data[wname] = mark if wname == chosen else ""
             diag["written"].append(key)
             continue
 
@@ -182,53 +196,159 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
             # can never render with two boxes marked. An unmapped value leaves
             # the group untouched and is reported.
             options = spec.get("options") or {}
-            siblings = list(options.values())
             chosen = options.get(str(value))
             if chosen is None:
                 diag["dropped_enums"].append(
                     {"key": key, "value": str(value),
                      "allowed": sorted(options)})
                 continue
-            enum_checkbox_select.append((chosen, siblings))
+            for wname in options.values():
+                field_data[wname] = _CHECK if wname == chosen else ""
             diag["written"].append(key)
             continue
 
         widget = spec["widget_id"]
         widgets = widget if isinstance(widget, list) else [widget]
+        wrote = False
         for wname in widgets:
             if field_type in ("checkbox", "boolean"):
-                checkbox_widgets.append((wname, bool(value)))
+                # Truthiness matches the pypdf reference filler: any non-empty
+                # value checks the box; a falsy value leaves it untouched
+                # (never an explicit uncheck).
+                if bool(value):
+                    field_data[wname] = _CHECK
+                wrote = True
             else:
-                text_values[wname] = str(value)
-        diag["written"].append(key)
+                field_data[wname] = str(value)
+                wrote = True
+        if wrote:
+            diag["written"].append(key)
 
     diag["ignored_case_keys"] = sorted(
         set(_leaf_keys(case_data)) - consumed_keys)
 
-    if text_values:
-        for page in writer.pages:
-            try:
-                writer.update_page_form_field_values(page, text_values)
-            except Exception:
-                # update_page_form_field_values raises if a page has no fields
-                # in older pypdf; ignore and continue.
-                pass
+    return {"field_data": field_data, "radio_selections": radio_selections}
 
-    for wname, on in checkbox_widgets:
+
+def _widget_on_state(widget):
+    """A button widget's on-state name (the /AP key that isn't Off)."""
+    try:
+        on = widget.on_state()
         if on:
-            _set_checkbox(writer, wname)
+            return on
+    except Exception:
+        pass
+    try:
+        states = (widget.button_states() or {}).get("normal") or []
+        on = [s for s in states if s != "Off"]
+        return on[0] if on else None
+    except Exception:
+        return None
 
-    for group_name, on_state in radio_selections:
-        _set_radio(writer, group_name, on_state)
 
-    for chosen, siblings in enum_checkbox_select:
-        for wname in siblings:
-            if wname == chosen:
-                _set_checkbox(writer, wname)
-            else:
-                _set_checkbox_off(writer, wname)
+def _apply_radio_selections(pdf_path, selections):
+    """Select radio-group options on a filled PDF (policy post-pass).
 
-    return writer
+    The shared fill core soft-locks radio groups (it can only *suggest*); this
+    repo's ``radio`` bindings carry the exact on-state export name per enum
+    value, so the selection is deterministic. For each ``(group_name,
+    on_state)``: every widget of the group gets ``/AS`` set to the on-state it
+    renders (or ``/Off``), and the group field's ``/V`` is set to the
+    selection — the same end state the pre-migration pypdf filler produced.
+    """
+    if not selections:
+        return
+    import fitz
+
+    doc = fitz.open(str(pdf_path))
+    try:
+        for group_name, on_state in selections:
+            target = f"/{on_state}"
+            parent_xrefs = set()
+            terminal_xrefs = []
+            for page in doc:
+                for w in page.widgets() or []:
+                    if w.field_name != group_name:
+                        continue
+                    state = _widget_on_state(w)
+                    doc.xref_set_key(
+                        w.xref, "AS", target if state == on_state else "/Off")
+                    ptype, pval = doc.xref_get_key(w.xref, "Parent")
+                    if ptype == "xref":
+                        parent_xrefs.add(int(pval.split()[0]))
+                    else:
+                        terminal_xrefs.append(w.xref)
+            for xref in parent_xrefs or terminal_xrefs:
+                doc.xref_set_key(xref, "V", target)
+        doc.saveIncr()
+    finally:
+        doc.close()
+
+
+def fill_pdf_bytes(form_id, case_data, forms_root="forms", verify_blank=None,
+                   report=None):
+    """Fill ``form_id`` with ``case_data`` and return the PDF bytes.
+
+    The shared work behind :func:`fill` and :func:`fill_to_stream` (no
+    preflight here — the public entry points gate first). The official PDF on
+    disk is never modified.
+
+    Before reading the blank, the on-disk PDF is checked against the SHA-256 in
+    ``catalog/pdf_manifest.json`` — the revision the mapping was enriched
+    against. ``verify_blank`` is ``"warn"`` (default; mismatch emits a
+    :class:`engine.verify.BlankRevisionWarning` and still fills), ``"strict"``
+    (mismatch raises :class:`engine.verify.BlankRevisionError`), or ``"off"``.
+    The default can be set with the ``MCORP_VERIFY_BLANK`` environment
+    variable (``MCF_VERIFY_BLANK`` is honored as a legacy fallback).
+
+    ``report``, if a dict, receives the :func:`resolve_fill` diagnostics plus
+    the shared core's write report: ``missing_widgets`` (mapped names absent
+    from the PDF — a stale-mapping signal), ``overflowed`` (values that did
+    not fit), and ``radio_groups_skipped`` (the core's yellow light; entries
+    this repo's radio post-pass then writes are removed from it).
+    """
+    pdf_path = Path(forms_root) / form_id / f"{form_id}.pdf"
+
+    mode = (verify_blank
+            or os.environ.get("MCORP_VERIFY_BLANK")
+            or os.environ.get("MCF_VERIFY_BLANK", "warn"))
+    verify.guard_blank(form_id, forms_root, mode=mode)
+    if not pdf_path.exists():
+        raise FileNotFoundError(
+            f"{pdf_path} not on disk; run tools/fetch_pdfs.py --forms {form_id}")
+
+    diag = report if isinstance(report, dict) else {}
+    plan = resolve_fill(form_id, case_data, forms_root, report=diag)
+
+    with tempfile.TemporaryDirectory(prefix=f"mcorp_fill_{form_id}_") as td:
+        tmp = Path(td)
+        src = pdf_path
+        # Repair shared multi-page checkbox fields (a defect in some SoS PDFs
+        # where one /Btn drives two unrelated boxes on different pages) on a
+        # working copy, so each box is independently settable under its
+        # promoted name (e.g. ``Check Box15__p4``). The official PDF on disk
+        # stays byte-faithful.
+        split_map = field_split.split_to_copy(pdf_path, tmp / "split.pdf")
+        if split_map:
+            src = tmp / "split.pdf"
+        out_pdf = tmp / "filled.pdf"
+        core = _core_fill_form(
+            str(src), dict(plan["field_data"]), str(out_pdf),
+            form_id=form_id, addendum_policy="none",
+            supported_policies=frozenset({"none"}), return_report=True)
+        # Policy post-pass: deterministic radio selection (see module doc).
+        _apply_radio_selections(out_pdf, plan["radio_selections"])
+        data = out_pdf.read_bytes()
+
+    diag["missing_widgets"] = core["missing_fields"]
+    diag["overflowed"] = core["overflowed"]
+    written_groups = {g for g, _ in plan["radio_selections"]}
+    diag["radio_groups_skipped"] = [
+        e for e in core.get("radio_groups_skipped") or []
+        if e["field_id"] not in written_groups]
+    if split_map:
+        diag["fields_split"] = split_map
+    return data
 
 
 def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None,
@@ -238,16 +358,15 @@ def fill(form_id, case_data, out_path, forms_root="forms", verify_blank=None,
     Runs :mod:`engine.preflight` first and raises
     :class:`engine.preflight.PreflightError` on error-severity issues unless
     ``preflight="off"`` (see :func:`_run_preflight_gate`). Returns the output
-    ``Path``. See :func:`build_writer` for ``verify_blank`` and the
+    ``Path``. See :func:`fill_pdf_bytes` for ``verify_blank`` and the
     ``report`` diagnostics dict.
     """
     _run_preflight_gate(form_id, case_data, forms_root, preflight, report)
-    writer = build_writer(form_id, case_data, forms_root,
+    data = fill_pdf_bytes(form_id, case_data, forms_root,
                           verify_blank=verify_blank, report=report)
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
-    with open(out, "wb") as fh:
-        writer.write(fh)
+    out.write_bytes(data)
     return out
 
 
@@ -256,236 +375,14 @@ def fill_to_stream(form_id, case_data, stream, forms_root="forms",
     """Fill ``form_id`` and write the PDF bytes to a binary ``stream``.
 
     Useful for serving a filled PDF without a temp file (see tools/api_server.py).
-    Runs the same preflight gate as :func:`fill`. See :func:`build_writer`
+    Runs the same preflight gate as :func:`fill`. See :func:`fill_pdf_bytes`
     for ``verify_blank`` and the ``report`` diagnostics dict.
     """
     _run_preflight_gate(form_id, case_data, forms_root, preflight, report)
-    writer = build_writer(form_id, case_data, forms_root,
+    data = fill_pdf_bytes(form_id, case_data, forms_root,
                           verify_blank=verify_blank, report=report)
-    writer.write(stream)
+    stream.write(data)
     return stream
-
-
-def _leaf_keys(obj, prefix=""):
-    """Yield dotted canonical leaf paths present in a nested case object."""
-    if isinstance(obj, dict) and obj:
-        for k, v in obj.items():
-            sub = f"{prefix}.{k}" if prefix else str(k)
-            yield from _leaf_keys(v, sub)
-    elif (isinstance(obj, list)
-          and any(isinstance(x, (dict, list)) for x in obj)):
-        for i, v in enumerate(obj):
-            yield from _leaf_keys(v, f"{prefix}[{i}]")
-    elif prefix:
-        yield prefix
-
-
-def _page_index_map(writer):
-    idx = {}
-    for i, page in enumerate(writer.pages):
-        try:
-            idx[page.indirect_reference.idnum] = i
-        except Exception:
-            pass
-    return idx
-
-
-def _kid_page(writer, kref, page_index):
-    """Return the 0-based page index a kid widget lives on, or ``None``."""
-    kid = kref.get_object()
-    parent_page = kid.get("/P")
-    if parent_page is not None:
-        try:
-            return page_index.get(parent_page.get_object().indirect_reference.idnum)
-        except Exception:
-            pass
-    for i, page in enumerate(writer.pages):
-        for annot in page.get("/Annots") or []:
-            try:
-                if annot.indirect_reference.idnum == kref.indirect_reference.idnum:
-                    return i
-            except Exception:
-                pass
-    return None
-
-
-def _is_radio(obj):
-    ff = obj.get("/Ff")
-    try:
-        return bool(int(ff) & (1 << 15)) if ff is not None else False
-    except Exception:
-        return False
-
-
-def split_shared_fields(writer):
-    """Split shared multi-page checkbox ``/Btn`` fields into independent fields.
-
-    Some Maine SoS PDFs reuse one ``/Btn`` field name for two unrelated
-    checkboxes on different pages (e.g. a substantive certificate box and the
-    cover-letter "expedited filing" box). Toggling the field then checks both
-    boxes. This promotes each kid widget into its own terminal field named
-    ``<T>__p<page>`` (0-based page index; a same-page duplicate gets a ``_N``
-    suffix) so each box is addressable on its own.
-
-    Radio groups (whose kids share a page and carry the radio flag) are left
-    untouched. Only the in-memory ``writer`` is mutated. Returns a mapping of
-    ``{original_field_name: [new_field_name, ...]}``.
-    """
-    acro = writer._root_object.get("/AcroForm")
-    if not acro:
-        return {}
-    fields = acro.get_object().get("/Fields")
-    if not fields:
-        return {}
-    page_index = _page_index_map(writer)
-    result = {}
-    for ref in list(fields):
-        obj = ref.get_object()
-        if obj.get("/FT") != "/Btn" or _is_radio(obj):
-            continue
-        kids = obj.get("/Kids")
-        if not kids or len(kids) < 2:
-            continue
-        pages = [_kid_page(writer, k, page_index) for k in kids]
-        if len({p for p in pages if p is not None}) < 2:
-            continue
-        if None in pages:
-            # A kid whose page cannot be resolved would get a bogus
-            # ``<T>__pNone`` name; leave the field unsplit rather than emit
-            # unaddressable widgets.
-            continue
-        name = str(obj.get("/T"))
-        ff = obj.get("/Ff")
-        used = {}
-        new_names = []
-        for kref, page in zip(list(kids), pages):
-            kid = kref.get_object()
-            base = f"{name}__p{page}"
-            seen = used.get(base, 0)
-            used[base] = seen + 1
-            new_name = base if seen == 0 else f"{base}_{seen}"
-            kid[NameObject("/T")] = TextStringObject(new_name)
-            kid[NameObject("/FT")] = NameObject("/Btn")
-            if ff is not None:
-                kid[NameObject("/Ff")] = ff
-            if "/Parent" in kid:
-                del kid[NameObject("/Parent")]
-            kid[NameObject("/AS")] = NameObject("/Off")
-            fields.append(kref)
-            new_names.append(new_name)
-        try:
-            fields.remove(ref)
-        except Exception:
-            for i, fr in enumerate(list(fields)):
-                if fr.get_object() is obj:
-                    del fields[i]
-                    break
-        result[name] = new_names
-    return result
-
-
-def _acroform_fields(writer):
-    root = writer._root_object
-    acro = root.get("/AcroForm")
-    if not acro:
-        return []
-    return acro.get_object().get("/Fields") or []
-
-
-def _find_field(fields, name):
-    """Depth-first search of the AcroForm field tree for a field named ``name``."""
-    for ref in fields:
-        obj = ref.get_object()
-        if obj.get("/T") == name:
-            return obj
-        kids = obj.get("/Kids")
-        if kids:
-            found = _find_field(kids, name)
-            if found is not None:
-                return found
-    return None
-
-
-def _ap_on_states(obj):
-    """Return the set of non-/Off appearance-state names (without the slash)."""
-    ap = obj.get("/AP")
-    if not ap:
-        return set()
-    normal = ap.get_object().get("/N")
-    if not normal:
-        return set()
-    return {str(k).lstrip("/") for k in normal.get_object().keys() if str(k) != "/Off"}
-
-
-def _set_checkbox(writer, widget_name):
-    """Turn on a checkbox field, including parent fields split across kid widgets.
-
-    Some SoS forms model one logical checkbox as a parent ``/Btn`` whose kid
-    widgets carry the appearance and live on different pages. Setting the
-    parent ``/V`` and each kid's ``/AS`` makes the box render checked.
-    """
-    field = _find_field(_acroform_fields(writer), widget_name)
-    if field is None:
-        return
-    kids = field.get("/Kids")
-    on_state = None
-    if kids:
-        for kref in kids:
-            states = _ap_on_states(kref.get_object())
-            if states:
-                on_state = next(iter(states))
-                break
-    else:
-        states = _ap_on_states(field)
-        on_state = next(iter(states)) if states else None
-    if not on_state:
-        return
-    on = NameObject("/" + on_state)
-    field[NameObject("/V")] = on
-    if kids:
-        for kref in kids:
-            kid = kref.get_object()
-            kid[NameObject("/AS")] = on if on_state in _ap_on_states(kid) \
-                else NameObject("/Off")
-    else:
-        field[NameObject("/AS")] = on
-
-
-def _set_checkbox_off(writer, widget_name):
-    """Force a checkbox field (and any kid widgets) to the /Off state.
-
-    The companion to :func:`_set_checkbox`. Used by ``enum_select`` to guarantee
-    every non-chosen option in a "choose one" group renders unmarked, even if a
-    prior value or default appearance had set it on.
-    """
-    field = _find_field(_acroform_fields(writer), widget_name)
-    if field is None:
-        return
-    off = NameObject("/Off")
-    field[NameObject("/V")] = off
-    kids = field.get("/Kids")
-    if kids:
-        for kref in kids:
-            kref.get_object()[NameObject("/AS")] = off
-    else:
-        field[NameObject("/AS")] = off
-
-
-def _set_radio(writer, group_name, on_state):
-    """Select one option of a radio ``/Btn`` group by its export (on-state) name."""
-    field = _find_field(_acroform_fields(writer), group_name)
-    if field is None:
-        return
-    on = NameObject("/" + on_state)
-    field[NameObject("/V")] = on
-    kids = field.get("/Kids")
-    if kids:
-        for kref in kids:
-            kid = kref.get_object()
-            kid[NameObject("/AS")] = on if on_state in _ap_on_states(kid) \
-                else NameObject("/Off")
-    else:
-        field[NameObject("/AS")] = on
 
 
 def _cli(argv):
