@@ -28,10 +28,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `registered_agent.type` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `filing.expedited_service` maps to 3 widgets; all receive the same value.
 - Open question: The EIGHTH 'Exhibit ___' inline blank for additional managers does not appear to be extracted as an AcroForm widget — the field that fills that role may be missing. Confirm with pdftk dump_data_fields.
 - Open question: Text24 (y=250) is interpreted as the NINTH commencement-date blank, but it could alternatively be the EIGHTH Exhibit letter blank. The y-coordinate gap below the EIGHTH checkbox row suggests NINTH is correct, but this needs confirmation by filling the form and visually checking placement.
-- Open question: SIXTH commercial/noncommercial radio is represented by two page-null checkboxes (Check Box15, Check Box16) — pypdf could not page-locate them. Are these separate widgets or a single radio group with shared name?
-- Open question: Cover-letter expedite checkboxes are split: Check Box14 (page 3) is paired with two renamed widgets 'exp24' and 'imm' (page 3), plus two page-null Check Box15/16 leftovers. Confirm Check Box15/16 are orphaned and should be ignored at fill time.
+- Resolved: the SIXTH commercial/noncommercial choice is two independently named checkboxes on page 1 (Check Box15 next to "Commercial Registered Agent", Check Box16 next to "Noncommercial Registered Agent", each with on-state Yes — verified by geometry+text). `registered_agent.type` binds them as an enum_select so exactly one box is ever marked; they are not cover-letter leftovers (the page-3 expedite boxes are 'exp24' and 'imm').

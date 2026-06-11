@@ -13,8 +13,8 @@ Text11,1,text,(name of commercial registered agent),registered_agent.name,high,N
 Text12,1,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Maine physical address of the registered agent.
 Text13,1,text,(mailing address if different from above),registered_agent.mailing_address,high,Optional mailing address.
 Text14,1,text,CRA Public Number,registered_agent.cra_public_number,high,Maine SOS CRA Public Number (commercial path only).
-Check Box15,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred from missing SIXTH commercial radio. Enum value 'commercial'.
-Check Box16,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox; inferred 'noncommercial' radio.
+Check Box15,1,checkbox,SIXTH: [ ] Commercial Registered Agent,registered_agent.type,medium,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'commercial'.
+Check Box16,1,checkbox,SIXTH: [ ] Noncommercial Registered Agent,registered_agent.type,medium,Independent checkbox (on-state Yes) verified by geometry+text on page 1; enum_select value 'noncommercial'.
 Text17,1,text,EIGHTH: NAME (row 1),manager_1.name,high,First manager name (3-row table). Index suffix supports up to 3 inline managers; further go on Exhibit per Check Box23.
 Text18,1,text,EIGHTH: NAME (row 2),manager_2.name,high,Second manager name.
 Text19,1,text,EIGHTH: NAME (row 3),manager_3.name,high,Third manager name.

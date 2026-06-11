@@ -34,15 +34,19 @@ with both values.
 Known, intentional divergences (verified 2026-06-11, 154/156 identical):
 
 - ``NP_MNPCA-6`` ``cra`` and ``LLC_MLLC-12`` ``Check Box15``/``16`` — on both
-  forms ``registered_agent.type`` is a *text*-typed binding fanned onto
-  checkbox widgets. The old pypdf filler wrote the literal type string into
-  the button ``/V`` — an invalid state no viewer renders (the box stays
-  unchecked) but corrupted value data. The shared core refuses the
-  radio-encoded pair (``cra``, soft-locked with a yellow-light report entry)
-  and normalizes the plain checkboxes to a clean explicit ``/Off``; rendered
-  output is identical, the stored values are now valid. Re-binding
-  ``registered_agent.type`` as enum options on these two forms is mapping
-  enrichment, tracked separately from the engine migration.
+  forms ``registered_agent.type`` *was* a text-typed binding fanned onto
+  checkbox widgets; the old pypdf filler wrote the literal type string into
+  the button ``/V`` (an invalid state no viewer renders, so the box stayed
+  unchecked either way). The working tree has since re-bound the key from the
+  printed labels ("Commercial Registered Agent" / "Noncommercial Registered
+  Agent"): ``NP_MNPCA-6`` as the radio group ``cra`` (kid on-states ``Yes`` /
+  ``cra2``) and ``LLC_MLLC-12`` as an ``enum_select`` over the independent
+  ``Check Box15``/``Check Box16``. These two forms therefore diverge from the
+  frozen baseline *by design* — the baseline writes the literal string, the
+  new engine actually selects the box (``cra`` old ``'commercial'`` vs new
+  ``'Yes'``; ``Check Box16`` old ``'commercial'`` vs new ``'Off'``; the stray
+  X-mark text widgets the old fan-out also hit now stay blank). Every other
+  form remains identical.
 """
 import argparse
 import json

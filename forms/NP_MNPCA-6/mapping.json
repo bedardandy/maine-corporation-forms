@@ -34,17 +34,17 @@
       "confidence": "high",
       "label": "(mutual benefit purposes description)"
     },
-    "The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent": {
+    "cra": {
       "key": "registered_agent.type",
-      "widgets": [
-        "The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent",
-        "undefined_3",
-        "cra"
-      ],
-      "field_type": "text",
+      "field_type": "radio",
       "page": 0,
       "confidence": "medium",
-      "label": "THIRD: [X] Commercial Registered Agent"
+      "label": "THIRD: The Registered Agent is a: (select either a Commercial or Noncommercial Registered Agent)",
+      "options": {
+        "commercial": "Yes",
+        "noncommercial": "cra2"
+      },
+      "binding_source": "radio group 'cra'; kid on-states by geometry+text: y=520.3 on-state Yes = 'Commercial Registered Agent'; y=581.0 on-state cra2 = 'Noncommercial Registered Agent'. Replaces the migration-era text binding that fanned the literal type string onto the stray X-mark text widgets + this button group (tools/equivalence_check.py finding)."
     },
     "Text8": {
       "key": "registered_agent.cra_public_number",

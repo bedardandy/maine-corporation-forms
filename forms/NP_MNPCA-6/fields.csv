@@ -1,8 +1,8 @@
 widget_id,page,field_type,label_verbatim,canonical_key,confidence,rationale
 X one box only  Attach additional pages if necessary,0,text,SECOND: [X] The corporation is organized as a public benefit corporation for the following purpose or purposes,,,Tiny X-mark text widget functioning as a checkbox (template uses text 'X' marks rather than AcroForm checkboxes for the SECOND radio). Enum value: 'public_benefit'.
 undefined_2,0,text,"SECOND: [X] The corporation is organized as a mutual benefit corporation for all purposes permitted under Title 13-B or, if not for all such purposes, then for the following purpose or purposes",,,Tiny X-mark text widget for 'mutual_benefit' option.
-The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent,0,text,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,X-mark text widget for THIRD commercial path.
-undefined_3,0,text,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,X-mark text widget for noncommercial path.
+The Registered Agent is a  select either a Commercial or Noncommercial Registered Agent,0,text,THIRD: [X] Commercial Registered Agent,,,Tiny X-mark text widget overlaying the 'cra' group's commercial kid; unmapped — selection goes through the 'cra' radio binding.
+undefined_3,0,text,THIRD: [X] Noncommercial Registered Agent,,,Tiny X-mark text widget overlaying the 'cra' group's noncommercial kid; unmapped.
 bene,0,checkbox,The corporation is organized as a (check one): public benefit corporation / mutual benefit corporation,entity.nonprofit_type,medium,Page-null checkbox inferred to back the SECOND radio. Enum: 'public_benefit' | 'mutual_benefit'.
 Text6,0,text,(public benefit purposes description),entity.public_benefit_purpose,high,Free-text public-benefit purpose statement.
 Text7,0,text,(mutual benefit purposes description),entity.mutual_benefit_purpose,high,Free-text mutual-benefit purpose statement (only if not 'all purposes permitted').
@@ -12,7 +12,7 @@ Text10,0,text,(name of commercial registered agent),registered_agent.name,high,N
 Text11,0,text,"(physical location, not P.O. Box - street, city, state and zip code)",registered_agent.physical_address,high,Physical address.
 Text12,0,text,(mailing address if different from above),registered_agent.mailing_address,high,Mailing address.
 Text20,0,text,FIRST: The name of the corporation is,entity.name,high,Nonprofit corporation name.
-cra,0,checkbox,THIRD: [X] Commercial Registered Agent,registered_agent.type,medium,Page-null checkbox inferred to back the THIRD registered-agent radio.
+cra,0,checkbox,The Registered Agent is a: (select either a Commercial or Noncommercial Registered Agent),registered_agent.type,medium,Button group backing the THIRD registered-agent radio; kid on-states verified by geometry+text (Yes = Commercial Registered Agent / cra2 = Noncommercial Registered Agent). Enum: 'commercial' | 'noncommercial'.
 Members  X one box only,1,text,SIXTH: [X] There shall be no members,,,X-mark widget for 'no members' option (boolean false).
 undefined_6,1,text,SIXTH: [X] There shall be no members,,,X-mark for 'has members' option (boolean true).
 Optional,1,text,SEVENTH: (Optional) [X] Check if this article is to apply (no political activities),,,X-mark widget for SEVENTH (501(c)(3) political-activities limitation clause).
