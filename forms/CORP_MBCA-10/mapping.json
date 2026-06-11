@@ -333,5 +333,6 @@
       "confidence": "high",
       "label": "City, State & Zip"
     }
-  }
+  },
+  "built_against_sha256": "a1c49ea79004b5ed43ee60e783ba2e9d5fb482109bdc36c39b22c529d02f692c"
 }

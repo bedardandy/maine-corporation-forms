@@ -169,5 +169,6 @@
       "confidence": "high",
       "label": "filing.entities[1].name"
     }
-  }
+  },
+  "built_against_sha256": "054697efb0847e5b6a386d70703e526072d82b741e67b619e06e80602dfc53ca"
 }

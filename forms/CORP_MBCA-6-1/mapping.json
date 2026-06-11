@@ -195,5 +195,6 @@
       "label": "EIGHTH: ...set forth in Exhibit ___ attached hereto",
       "when": "entity.additional_provisions_present == true"
     }
-  }
+  },
+  "built_against_sha256": "3119b2811ec1cf983e5f9bf1d3c218f7fc939c2c83f1ac98072506c9094a80c3"
 }

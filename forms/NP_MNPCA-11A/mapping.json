@@ -271,5 +271,6 @@
       "confidence": "high",
       "label": "MUST BE COMPLETED FOR VOTE OF MEMBERS - (signature of clerk, secretary or asst. secretary)"
     }
-  }
+  },
+  "built_against_sha256": "3a345f3b45c3ea6d6c6af37b215e9c92638f7034608770f6cf30a8a7f4d5c8df"
 }

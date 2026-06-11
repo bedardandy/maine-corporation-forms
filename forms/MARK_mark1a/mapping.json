@@ -64,5 +64,6 @@
       "confidence": "high",
       "label": "Dated:"
     }
-  }
+  },
+  "built_against_sha256": "53573783cb218cf2911da1e7496888fd61fb5966a0e0ed9f8906fcfc7cd993a2"
 }

@@ -148,5 +148,6 @@
       "confidence": "high",
       "label": "Immediate expedited filing ($100)"
     }
-  }
+  },
+  "built_against_sha256": "1111ede6b5da8de6911f0157534b259faf62a1ccabfa6b7ca4b43387736bd941"
 }

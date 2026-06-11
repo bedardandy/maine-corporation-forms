@@ -277,5 +277,6 @@
       "confidence": "high",
       "label": "*By (signature) / (type or print name and capacity) - signer 2"
     }
-  }
+  },
+  "built_against_sha256": "bbbb0c0f03d243d4c8d65ed29c0dbb4427adfc53b016a6a88398c3631d59d258"
 }

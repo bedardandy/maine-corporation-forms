@@ -124,5 +124,6 @@
       "confidence": "high",
       "label": "SIXTH: (mailing address if different from above)"
     }
-  }
+  },
+  "built_against_sha256": "738a0ac9f4354962c3b4361d8a73ec332306c02d590e5ab19c8345db9bd57462"
 }

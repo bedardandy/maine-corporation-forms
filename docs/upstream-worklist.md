@@ -32,3 +32,20 @@ checked and when, so the next drift pass can re-verify cheaply.
   MNPCA-18 (listing entry or live `inline-files/mnpca18.pdf`), carry it
   through the standard form-by-form pipeline (manifest entry with sha256 +
   source URL, schema/mapping extracted from the PDF, SKILL + tests).
+
+## MARK_mark5 — reference guide, no fillable blank to verify a mapping against
+
+**Status: intentionally unmapped, therefore unstamped.** The
+`built_against_sha256` re-verification pass (2026-06-11,
+`tools/verify_mapping_fields.py`) verified and stamped **155 of 156**
+mappings against the manifest-pinned blanks. The one exception:
+
+- **MARK_mark5** (*Class Numbers for Marks*, the trademark class-number
+  reference guide) ships **without an AcroForm** (`has_acroform: false` in
+  `catalog/pdf_manifest.json`), so its `mapping.json` carries an empty `map`
+  by design — there are no widgets to survive, hence nothing to verify and
+  no stamp to carry. The verifier reports it as
+  `empty map (recipe pointer) — nothing to verify`.
+- **Action here:** none — stamping it would be a blind back-fill.
+- **Re-check trigger:** if a future drift pass finds the SoS publishing a
+  fillable revision, map it through the standard pipeline and stamp it then.

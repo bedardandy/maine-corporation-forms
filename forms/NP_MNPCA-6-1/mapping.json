@@ -148,5 +148,6 @@
       "label": "Exhibit ___ attached hereto",
       "when": "entity.has_501c_exhibit == true"
     }
-  }
+  },
+  "built_against_sha256": "ee5df549f309196406d0186227e97d06e34020d1a05ad310334863ad2e76712b"
 }
