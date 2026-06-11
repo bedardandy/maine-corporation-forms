@@ -1,14 +1,15 @@
 # Runtime dependencies for the corporation-forms library.
 #
 # Deterministic fill engine (engine/) + generator (tools/build_from_pass1.py):
-maine-forms-engine @ git+https://github.com/bedardandy/maine-forms-engine@v0.3.0
+maine-forms-engine @ git+https://github.com/bedardandy/maine-forms-engine@v0.4.0
                    # the shared PDF fill core (engine/fill.py is a shim over
                    # maine_forms_engine.fill, PyMuPDF) + blank-revision guard
                    # (engine/verify.py) + drift tools
                    # (tools/{check_upstream,fetch_pdfs}.py) + the MCP scaffold
                    # tools/agent_server.py builds on; ships the pdf_manifest
-                   # JSON Schema. Pulls PyMuPDF (also used by
-                   # engine/printcopy.py and tools/rebuild_fields_csv.py).
+                   # JSON Schema and the mapping-staleness verifier behind
+                   # tools/verify_mapping_fields.py. Pulls PyMuPDF (also used
+                   # by engine/printcopy.py and tools/rebuild_fields_csv.py).
 pypdf>=4.0         # NOT the fill path anymore: the shared-field runtime split
                    # (engine/field_split.py), the AcroForm reads in the
                    # generator (tools/build_from_pass1.py), accessibility /TU
