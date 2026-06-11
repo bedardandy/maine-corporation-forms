@@ -34,6 +34,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from engine.mapping import entries as mapping_entries  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent / "forms"
 _ARRAY_SEG = re.compile(r"^(.+?)\[\d+\]$")
 _ARTIFACT = re.compile(r"[\[\]{}<>]")
@@ -213,7 +216,7 @@ def sync_one(form_dir):
     changed = [False]
     _clean_artifacts(schema, changed)
     _fix_county_type(schema, changed)
-    for key, spec in (mapping.get("fields") or {}).items():
+    for key, spec in mapping_entries(mapping).items():
         if not isinstance(spec, dict):
             continue
         # An entry may resolve a different canonical key than its dict key

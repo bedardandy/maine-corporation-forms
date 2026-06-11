@@ -140,20 +140,22 @@ def apply_to_mapping(form_dir: str, when_by_key: dict, dry_run: bool):
         return 0, 0
     with open(mapping_path, encoding="utf-8") as fh:
         mapping = json.load(fh)
-    fields = mapping.get("fields") or {}
+    # canonical (field-id-keyed) direction: each binding carries its case key
+    bindings = mapping.get("map") or {}
     n_set = n_cleared = 0
     changed = False
-    for key, spec in fields.items():
+    for binding in bindings.values():
+        key = binding.get("key")
         desired = when_by_key.get(key)
-        current = spec.get("when")
+        current = binding.get("when")
         if desired is not None:
             if current != desired:
-                spec["when"] = desired
+                binding["when"] = desired
                 changed = True
             n_set += 1
         elif current is not None:
             # Stale when from a previous run whose rubric no longer supports it.
-            del spec["when"]
+            del binding["when"]
             changed = True
             n_cleared += 1
     if changed and not dry_run:
@@ -186,7 +188,8 @@ def main() -> int:
         if when_by_key:
             mp = os.path.join(form_dir, "mapping.json")
             if os.path.exists(mp):
-                mk = set(json.load(open(mp, encoding="utf-8")).get("fields", {}))
+                mk = {b.get("key") for b in json.load(
+                    open(mp, encoding="utf-8")).get("map", {}).values()}
                 for k in when_by_key:
                     if k not in mk:
                         unmatched_targets.append(

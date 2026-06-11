@@ -1,169 +1,169 @@
 {
   "form_id": "CORP_ASUM-5",
-  "fields": {
-    "entity.name": {
-      "widget_id": "Name of Entity",
+  "map": {
+    "Name of Entity": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Exact Legal Name of Entity on the records of the Secretary of State)"
     },
-    "assumed_name.name": {
-      "widget_id": "assumed name",
+    "assumed name": {
+      "key": "assumed_name.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The entity intends to transact business under the assumed name of:"
     },
-    "assumed_name.locations": {
-      "widget_id": "location",
+    "location": {
+      "key": "assumed_name.locations",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: If the assumed name is not to be used at all the places of business in Maine, the location(s) where it will be used is (are):"
     },
-    "assumed_name.additional_locations_exhibit": {
-      "widget_id": "Check Box1",
+    "Check Box1": {
+      "key": "assumed_name.additional_locations_exhibit",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "Additional locations are attached hereto as Exhibit ___ and made a part hereof."
     },
-    "entity.home_jurisdiction": {
-      "widget_id": "jurisdiction",
+    "jurisdiction": {
+      "key": "entity.home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: (Foreign Entities Only) Jurisdiction of incorporation/organization"
     },
-    "entity.maine_authorization_date": {
-      "widget_id": "date authorized ro transact business in maine",
+    "date authorized ro transact business in maine": {
+      "key": "entity.maine_authorization_date",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "and the date on which the entity was authorized to transact business in Maine"
     },
-    "filing.date_signed": {
-      "widget_id": "DATED",
+    "DATED": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "DATED ___"
     },
-    "filing.signer.printed_name": {
-      "widget_id": "type or print name",
+    "type or print name": {
+      "key": "filing.signer.printed_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(type or print name)"
     },
-    "filing.signer.title": {
-      "widget_id": "title of signer",
+    "title of signer": {
+      "key": "filing.signer.title",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(title of signer)"
     },
-    "filing.signer_partner_entity_name": {
-      "widget_id": "If signing partner or general partner is an entity name of entity 1",
+    "If signing partner or general partner is an entity name of entity 1": {
+      "key": "filing.signer_partner_entity_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "LIMITED PARTNERSHIPS AND LIMITED LIABILITY PARTNERSHIPS (only if applicable) If signing partner or general partner is an entity, name of entity:"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.entities[0].name"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.total_fees_dollars"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.name"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.phone"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.email"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "entity.annual_report_reminder_email"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.name"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.firm"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.street"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Immediate expedited filing ($100)"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",

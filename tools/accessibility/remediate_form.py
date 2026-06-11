@@ -40,8 +40,14 @@ def _labels_by_acroform_name(mapping):
     Handles list ``widget_id`` and split-shared promoted names (``Check Box15``
     and ``Check Box15__p4`` both resolve to their field's label).
     """
+    import pathlib as _pl
+    import sys as _sys
+    _repo = str(_pl.Path(__file__).resolve().parent.parent.parent)
+    if _repo not in _sys.path:
+        _sys.path.insert(0, _repo)
+    from engine.mapping import entries as mapping_entries
     out = {}
-    for key, spec in (mapping.get("fields") or {}).items():
+    for key, spec in mapping_entries(mapping).items():
         label = spec.get("label") or key
         wid = spec.get("widget_id")
         for w in (wid if isinstance(wid, list) else [wid]):

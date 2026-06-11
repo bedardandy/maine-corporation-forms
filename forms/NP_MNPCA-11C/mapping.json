@@ -1,113 +1,114 @@
 {
   "form_id": "NP_MNPCA-11C",
-  "fields": {
-    "entity.name": {
-      "widget_id": "1",
+  "map": {
+    "1": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Name of Corporation)"
     },
-    "officer_president.name": {
-      "widget_id": "2",
+    "2": {
+      "key": "officer_president.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: President \u2014 Name"
+      "label": "FIRST: President — Name"
     },
-    "officer_president.address": {
-      "widget_id": "3",
+    "3": {
+      "key": "officer_president.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: President \u2014 Address"
+      "label": "FIRST: President — Address"
     },
-    "officer_treasurer.name": {
-      "widget_id": "4",
+    "4": {
+      "key": "officer_treasurer.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Treasurer \u2014 Name"
+      "label": "FIRST: Treasurer — Name"
     },
-    "officer_treasurer.address": {
-      "widget_id": "5",
+    "5": {
+      "key": "officer_treasurer.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Treasurer \u2014 Address"
+      "label": "FIRST: Treasurer — Address"
     },
-    "officer_secretary.name": {
-      "widget_id": "6",
+    "6": {
+      "key": "officer_secretary.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Secretary \u2014 Name"
+      "label": "FIRST: Secretary — Name"
     },
-    "officer_secretary.address": {
-      "widget_id": "7",
+    "7": {
+      "key": "officer_secretary.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Secretary \u2014 Address"
+      "label": "FIRST: Secretary — Address"
     },
-    "officer_clerk.name": {
-      "widget_id": "8",
+    "8": {
+      "key": "officer_clerk.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Clerk \u2014 Name"
+      "label": "FIRST: Clerk — Name"
     },
-    "officer_clerk.address": {
-      "widget_id": "9",
+    "9": {
+      "key": "officer_clerk.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Clerk \u2014 Address"
+      "label": "FIRST: Clerk — Address"
     },
-    "director_1.name": {
-      "widget_id": "10",
+    "10": {
+      "key": "director_1.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Name (row 1)"
+      "label": "FIRST: Directors — Name (row 1)"
     },
-    "director_1.address": {
-      "widget_id": "11",
+    "11": {
+      "key": "director_1.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Address (row 1)"
+      "label": "FIRST: Directors — Address (row 1)"
     },
-    "director_2.name": {
-      "widget_id": "12",
+    "12": {
+      "key": "director_2.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Name (row 2)"
+      "label": "FIRST: Directors — Name (row 2)"
     },
-    "director_2.address": {
-      "widget_id": "13",
+    "13": {
+      "key": "director_2.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Address (row 2)"
+      "label": "FIRST: Directors — Address (row 2)"
     },
-    "director_3.name": {
-      "widget_id": "14",
+    "14": {
+      "key": "director_3.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Name (row 3)"
+      "label": "FIRST: Directors — Name (row 3)"
     },
-    "director_3.address": {
-      "widget_id": "15",
+    "15": {
+      "key": "director_3.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "FIRST: Directors \u2014 Address (row 3)"
+      "label": "FIRST: Directors — Address (row 3)"
     },
-    "revocation.consent_class": {
-      "widget_id": [
+    "Check Box6": {
+      "key": "revocation.consent_class",
+      "widgets": [
         "Check Box6",
         "Check Box5"
       ],
@@ -116,134 +117,134 @@
       "confidence": "high",
       "label": "SECOND: ('X' one box only) Exhibit A attached hereto is a copy of the resolution adopted by: The members of the corporation entitled to vote."
     },
-    "registered_office.address_line1": {
-      "widget_id": "18",
+    "18": {
+      "key": "registered_office.address_line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: The address of the registered office of the corporation in the State of Maine is ___ (inline trailing blank, y\u2248160-177, right side)"
+      "label": "THIRD: The address of the registered office of the corporation in the State of Maine is ___ (inline trailing blank, y≈160-177, right side)"
     },
-    "registered_office.address_line2": {
-      "widget_id": "19",
+    "19": {
+      "key": "registered_office.address_line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "THIRD: ___ (street, city, state and zip code) (wide line, y\u2248135-152)"
+      "label": "THIRD: ___ (street, city, state and zip code) (wide line, y≈135-152)"
     },
-    "filing.date_signed": {
-      "widget_id": "20",
+    "20": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "DATED ___ (top-left, y\u2248734-752)"
+      "label": "DATED ___ (top-left, y≈734-752)"
     },
-    "filing.signer_1.printed_name_and_capacity": {
-      "widget_id": "21",
+    "21": {
+      "key": "filing.signer_1.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "*By ___ (signature) / (type or print name and capacity) \u2014 first signer (top-right, y\u2248700-716)"
+      "label": "*By ___ (signature) / (type or print name and capacity) — first signer (top-right, y≈700-716)"
     },
-    "filing.signer_2.printed_name_and_capacity": {
-      "widget_id": "22",
+    "22": {
+      "key": "filing.signer_2.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "*By ___ (signature) / (type or print name and capacity) \u2014 second signer (right, y\u2248634-650)"
+      "label": "*By ___ (signature) / (type or print name and capacity) — second signer (right, y≈634-650)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of contact person"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Daytime telephone number"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Contact email address for this filing"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Email address to use for annual report reminders"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of attested copy recipient"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Firm or Company"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Mailing Address"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "City, State & Zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",

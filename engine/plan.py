@@ -33,6 +33,7 @@ import sys
 from pathlib import Path
 
 from . import canonical
+from .mapping import entries as mapping_entries
 
 _TRUTHY = {"yes", "true", "1", "on", "y", "checked"}
 _FALSY = {"no", "false", "0", "off", "n", "", "none", "unchecked"}
@@ -142,7 +143,7 @@ def build_plan(form_id, case, forms_root="forms"):
         return {"ok": False, "error": f"unknown form {form_id!r} "
                 f"(no {mapping_path})"}
     mapping = json.loads(mapping_path.read_text(encoding="utf-8"))
-    fields = mapping.get("fields") or {}
+    fields = mapping_entries(mapping)
     required = _required_keys(form_id, forms_root)
 
     resolved, unresolved, skipped = {}, [], []

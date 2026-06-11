@@ -1,56 +1,57 @@
 {
   "form_id": "NP_MNPCA-12-1",
-  "fields": {
-    "entity.home_jurisdiction_name": {
-      "widget_id": "Text1",
+  "map": {
+    "Text1": {
+      "key": "entity.home_jurisdiction_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The name of the corporation is:"
     },
-    "entity.maine_fictitious_name": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "entity.maine_fictitious_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: ...the fictitious name under which it proposes to apply for authority to carry on activities in the State of Maine is:"
     },
-    "filing.fict4_accompanies": {
-      "widget_id": "Check Box1",
+    "Check Box1": {
+      "key": "filing.fict4_accompanies",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Form FICT-4 accompanies this application."
     },
-    "entity.home_jurisdiction": {
-      "widget_id": "Text3",
+    "Text3": {
+      "key": "entity.home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: Its jurisdiction of incorporation is"
     },
-    "entity.formation_date_in_home_jurisdiction": {
-      "widget_id": "Text4",
+    "Text4": {
+      "key": "entity.formation_date_in_home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: ...and the date of incorporation is"
     },
-    "entity.home_purpose.line1": {
-      "widget_id": "Text5",
+    "Text5": {
+      "key": "entity.home_purpose.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: Purpose(s) it is authorized to do under the laws of its jurisdiction of incorporation: (inline blank)"
     },
-    "entity.home_purpose.line2": {
-      "widget_id": "Text6",
+    "Text6": {
+      "key": "entity.home_purpose.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: ...continuation line below the purpose statement"
     },
-    "filing.seeks_full_authority": {
+    "Check Box2": {
+      "key": "filing.seeks_full_authority",
       "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
@@ -64,23 +65,24 @@
         "no": "Check Box3"
       }
     },
-    "entity.maine_limited_activities.line1": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "entity.maine_limited_activities.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIFTH: If no, specify activity (activities) for which authority is sought. (inline blank)",
       "when": "filing.seeks_full_authority == false"
     },
-    "entity.maine_limited_activities.line2": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "entity.maine_limited_activities.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIFTH: ...continuation line below"
     },
-    "registered_agent.type": {
-      "widget_id": [
+    "Check Box4": {
+      "key": "registered_agent.type",
+      "widgets": [
         "Check Box4",
         "Check Box5"
       ],
@@ -89,16 +91,17 @@
       "confidence": "high",
       "label": "SIXTH: [ ] Commercial Registered Agent"
     },
-    "registered_agent.cra_public_number": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "registered_agent.cra_public_number",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SIXTH: CRA Public Number:",
       "when": "registered_agent.type == 'commercial'"
     },
-    "registered_agent.name": {
-      "widget_id": [
+    "Text10": {
+      "key": "registered_agent.name",
+      "widgets": [
         "Text10",
         "Text11"
       ],
@@ -107,15 +110,15 @@
       "confidence": "high",
       "label": "SIXTH: (name of commercial registered agent)"
     },
-    "registered_agent.physical_address": {
-      "widget_id": "Text12",
+    "Text12": {
+      "key": "registered_agent.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "SIXTH: (physical location, not P.O. Box \u2013 street, city, state and zip code)"
+      "label": "SIXTH: (physical location, not P.O. Box – street, city, state and zip code)"
     },
-    "registered_agent.mailing_address": {
-      "widget_id": "Text13",
+    "Text13": {
+      "key": "registered_agent.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",

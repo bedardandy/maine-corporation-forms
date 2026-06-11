@@ -68,9 +68,15 @@ import json, pathlib
 form = pathlib.Path("forms/CORP_MBCA-6")
 mapping = json.loads((form / "mapping.json").read_text())
 schema_ = json.loads((form / "schema.json").read_text())
-for key, spec in mapping["fields"].items():
-    print(key, "->", spec["widget_id"], spec["confidence"])
+# mapping["map"] is keyed by the PDF AcroForm field (the direction shared
+# with the sibling forms repos); each binding carries its canonical case key.
+for field_id, binding in mapping["map"].items():
+    print(field_id, "<-", binding["key"], binding["confidence"])
 ```
+
+(`engine.mapping.entries(mapping)` presents the same data keyed by canonical
+case key, with `widget_id` / `options` reconstructed, if your integration
+prefers the case-side view.)
 
 A docassemble interview, a LangChain tool, a PandaDoc sync, or a custom backend
 can each consume `mapping.json` + `schema.json` directly and use its own PDF

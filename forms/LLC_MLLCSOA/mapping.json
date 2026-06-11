@@ -1,246 +1,246 @@
 {
   "form_id": "LLC_MLLCSOA",
-  "fields": {
-    "entity.name": {
-      "widget_id": "name",
+  "map": {
+    "name": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Name of Limited Liability Company)"
     },
-    "authority_1.person_or_position": {
-      "widget_id": "person1",
+    "person1": {
+      "key": "authority_1.person_or_position",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(name of person or position)"
     },
-    "authority_1.authority_text_line_1": {
-      "widget_id": "authority1",
+    "authority1": {
+      "key": "authority_1.authority_text_line_1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 1)"
     },
-    "authority_1.authority_text_line_2": {
-      "widget_id": "authority2",
+    "authority2": {
+      "key": "authority_1.authority_text_line_2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 2)"
     },
-    "authority_1.authority_text_line_3": {
-      "widget_id": "authority3",
+    "authority3": {
+      "key": "authority_1.authority_text_line_3",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 3)"
     },
-    "authority_1.authority_text_line_4": {
-      "widget_id": "authority4",
+    "authority4": {
+      "key": "authority_1.authority_text_line_4",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 4)"
     },
-    "authority_2.person_or_position": {
-      "widget_id": "person2",
+    "person2": {
+      "key": "authority_2.person_or_position",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(name of person or position)"
     },
-    "authority_2.authority_text_line_1": {
-      "widget_id": "authority5",
+    "authority5": {
+      "key": "authority_2.authority_text_line_1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 1)"
     },
-    "authority_2.authority_text_line_2": {
-      "widget_id": "authority6",
+    "authority6": {
+      "key": "authority_2.authority_text_line_2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 2)"
     },
-    "authority_2.authority_text_line_3": {
-      "widget_id": "authority7",
+    "authority7": {
+      "key": "authority_2.authority_text_line_3",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 3)"
     },
-    "authority_2.authority_text_line_4": {
-      "widget_id": "authority8",
+    "authority8": {
+      "key": "authority_2.authority_text_line_4",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 4)"
     },
-    "authority_3.person_or_position": {
-      "widget_id": "person3",
+    "person3": {
+      "key": "authority_3.person_or_position",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "(name of person or position)"
     },
-    "authority_3.authority_text_line_1": {
-      "widget_id": "authority9",
+    "authority9": {
+      "key": "authority_3.authority_text_line_1",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 1)"
     },
-    "authority_3.authority_text_line_2": {
-      "widget_id": "authority10",
+    "authority10": {
+      "key": "authority_3.authority_text_line_2",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 2)"
     },
-    "authority_3.authority_text_line_3": {
-      "widget_id": "authority11",
+    "authority11": {
+      "key": "authority_3.authority_text_line_3",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 3)"
     },
-    "authority_3.authority_text_line_4": {
-      "widget_id": "authority12",
+    "authority12": {
+      "key": "authority_3.authority_text_line_4",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Authority granted or limitations: (line 4)"
     },
-    "authority.additional_exhibit_letter": {
-      "widget_id": "exhibit",
+    "exhibit": {
+      "key": "authority.additional_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Additional information is set forth in the attached Exhibit ____, and made a part hereof."
     },
-    "filing.date_signed": {
-      "widget_id": "dated",
+    "dated": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "DATED ____"
     },
-    "filing.signer_1.printed_name_and_capacity": {
-      "widget_id": "name and capacity1",
+    "name and capacity1": {
+      "key": "filing.signer_1.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(authorized signature) / (type or print name and capacity) \u2014 signer 1"
+      "label": "(authorized signature) / (type or print name and capacity) — signer 1"
     },
-    "filing.signer_2.printed_name_and_capacity": {
-      "widget_id": "name and capacity2",
+    "name and capacity2": {
+      "key": "filing.signer_2.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(authorized signature) / (type or print name and capacity) \u2014 signer 2"
+      "label": "(authorized signature) / (type or print name and capacity) — signer 2"
     },
-    "filing.signer_3.printed_name_and_capacity": {
-      "widget_id": "name and capacity3",
+    "name and capacity3": {
+      "key": "filing.signer_3.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(authorized signature) / (type or print name and capacity) \u2014 signer 3"
+      "label": "(authorized signature) / (type or print name and capacity) — signer 3"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Name of contact person)"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Daytime telephone number)"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Contact email address for this filing)"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Email address to use for annual report reminders)"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Name of attested copy recipient)"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Firm or Company)"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Mailing Address)"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(City, State & Zip)"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",

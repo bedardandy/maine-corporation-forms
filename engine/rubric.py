@@ -41,6 +41,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from . import canonical
+from .mapping import entries as mapping_entries
 
 # --------------------------------------------------------------------------
 # severities
@@ -1054,9 +1055,10 @@ def _schema_enums(form_id, forms_root):
     if mpath.exists():
         try:
             mapping = json.loads(mpath.read_text(encoding="utf-8"))
+            fields = mapping_entries(mapping)
         except Exception:
-            mapping = {}
-        for key, spec in (mapping.get("fields") or {}).items():
+            fields = {}
+        for key, spec in fields.items():
             if not isinstance(spec, dict):
                 continue
             if spec.get("field_type") in ("radio", "enum_select",

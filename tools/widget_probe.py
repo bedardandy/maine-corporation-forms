@@ -120,7 +120,12 @@ def probe_mapping_field(form_id: str, key: str, forms_root: str = "forms") -> di
     if not root.is_absolute():
         root = _repo_root() / forms_root
     mapping = json.loads((root / form_id / "mapping.json").read_text())
-    spec = (mapping.get("fields") or {}).get(key)
+    import sys
+    repo = str(_repo_root())
+    if repo not in sys.path:
+        sys.path.insert(0, repo)
+    from engine.mapping import entries as mapping_entries
+    spec = mapping_entries(mapping).get(key)
     if not spec:
         return {"error": f"{key} not in {form_id} mapping"}
     res = probe_field(form_id, spec.get("widget_id"), forms_root)

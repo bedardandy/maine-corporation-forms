@@ -1,15 +1,16 @@
 {
   "form_id": "CORP_MBCA-19B",
-  "fields": {
-    "entity.name": {
-      "widget_id": "19b1",
+  "map": {
+    "19b1": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "medium",
       "label": "(Name of Corporation)"
     },
-    "abandonment.path": {
-      "widget_id": [
+    "Check Box4": {
+      "key": "abandonment.path",
+      "widgets": [
         "Check Box4",
         "Check Box5"
       ],
@@ -18,121 +19,121 @@
       "confidence": "high",
       "label": "FIRST: [ ] (Domestic Business) The domestication is abandoned after articles of charter surrender have been filed in accordance with the laws of the foreign jurisdiction after articles of domestication have been filed with the Secretary of State but before the domestication has become effective on ___."
     },
-    "abandonment.would_be_effective_date": {
-      "widget_id": "19b3",
+    "19b3": {
+      "key": "abandonment.would_be_effective_date",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "...but before the domestication has become effective on ___",
       "when": "abandonment.path == 'domestic'"
     },
-    "filing.date_signed": {
-      "widget_id": "19b5",
+    "19b5": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "DATED"
     },
-    "filing.signer.printed_name_and_capacity": {
-      "widget_id": "19b6",
+    "19b6": {
+      "key": "filing.signer.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "*By (signature of an officer or other duly authorized representative) / (type or print name and capacity)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.entities[0].name"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.entities[1].name"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.total_fees_dollars"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.name"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.phone"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.contact.email"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "entity.annual_report_reminder_email"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.name"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.firm"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.street"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",

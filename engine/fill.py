@@ -35,12 +35,9 @@ import pypdf
 from pypdf.generic import NameObject, TextStringObject
 
 from . import canonical, verify
+from .mapping import entries as mapping_entries
+from .mapping import load_mapping  # noqa: F401  (re-export; callers use fill.load_mapping)
 from .plan import eval_when
-
-
-def load_mapping(form_id, forms_root="forms"):
-    path = Path(forms_root) / form_id / "mapping.json"
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _preflight_mode(preflight):
@@ -126,7 +123,7 @@ def build_writer(form_id, case_data, forms_root="forms", verify_blank=None,
     enum_text_select = []  # (chosen_widget_or_None, [all_widgets], mark)
 
     consumed_keys = set()
-    for key, spec in mapping["fields"].items():
+    for key, spec in mapping_entries(mapping).items():
         ckey = spec.get("canonical_key", key)
         consumed_keys.add(ckey)
         # Honor the same `when` gates as engine.plan: a field whose condition is

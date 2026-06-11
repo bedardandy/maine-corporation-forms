@@ -39,6 +39,7 @@ except Exception as exc:  # pragma: no cover - import guard
     ) from exc
 
 from . import fill as _fill
+from .mapping import entries as _mapping_entries
 
 # PDF text-field flag bits (PDF 32000-1, Table 226).
 _FF_MULTILINE = 1 << 12  # 4096
@@ -69,7 +70,7 @@ class Overflow:
 def _labels_by_widget_name(mapping: dict) -> dict:
     """Map AcroForm widget name -> human label from a form's mapping.json."""
     out: dict = {}
-    for spec in (mapping.get("fields") or {}).values():
+    for spec in _mapping_entries(mapping).values():
         label = spec.get("label") or ""
         wid = spec.get("widget_id")
         names = wid if isinstance(wid, list) else ([wid] if wid else [])

@@ -38,6 +38,9 @@ from pathlib import Path
 
 import pypdf
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from engine import mapping as mapping_mod  # noqa: E402
+
 # ---------------------------------------------------------------------------
 # Hand-maintained forms: these have been reconciled by hand after pass-1 and
 # must NOT be clobbered by a regen. Skipped by default; pass --force to
@@ -691,8 +694,12 @@ def build(pdf_dir, pass1_dir, repo_root, overwrite_hand_maintained=False):
 
         # write artifacts
         (form_dir / "form.yaml").write_text(emit_form_yaml(meta), encoding="utf-8")
+        # mapping.json ships in the canonical (field-id-keyed) direction
+        # shared with the sibling repos; the generator's internal shape is
+        # converted losslessly at the boundary (engine/mapping.py).
         (form_dir / "mapping.json").write_text(
-            json.dumps(mapping, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            json.dumps(mapping_mod.invert(mapping), indent=2,
+                       ensure_ascii=False) + "\n", encoding="utf-8")
         schema = build_schema(form_id, schema_gaps,
                               list(mapping["fields"].keys()), rubric_checks)
         (form_dir / "schema.json").write_text(

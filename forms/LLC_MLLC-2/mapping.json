@@ -1,15 +1,16 @@
 {
   "form_id": "LLC_MLLC-2",
-  "fields": {
-    "entity.home_jurisdiction_name": {
-      "widget_id": "Text1",
+  "map": {
+    "Text1": {
+      "key": "entity.home_jurisdiction_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Name of Foreign Limited Liability Company)"
     },
-    "filing.application_type": {
-      "widget_id": [
+    "Check Box2": {
+      "key": "filing.application_type",
+      "widgets": [
         "Check Box2",
         "Check Box3"
       ],
@@ -18,15 +19,16 @@
       "confidence": "high",
       "label": "FIRST: ('X' one box only.) This application is for a [ ] new"
     },
-    "entity.home_jurisdiction": {
-      "widget_id": "Text4",
+    "Text4": {
+      "key": "entity.home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: The state or other jurisdiction under the laws of which it is organized is"
     },
-    "entity.principal_office.physical_address": {
-      "widget_id": [
+    "Text5": {
+      "key": "entity.principal_office.physical_address",
+      "widgets": [
         "Text5",
         "Text6"
       ],
@@ -35,128 +37,128 @@
       "confidence": "high",
       "label": "and the address of its principal office is located at: (line 1)"
     },
-    "entity.formation_date_in_home_jurisdiction": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "entity.formation_date_in_home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: The date of its organization is"
     },
-    "entity.business_purpose": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "entity.business_purpose",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: A brief statement of the nature of the limited liability company's business:"
     },
-    "filing.date_signed": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "DATED",
       "when": "filing.application_type == 'renewal'"
     },
-    "filing.signer.printed_name_and_capacity": {
-      "widget_id": "Text3",
+    "Text3": {
+      "key": "filing.signer.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "*By ___ (signature of authorized person) / (type or print name and capacity)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Name of contact person)"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Daytime telephone number)"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Contact email address for this filing)"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Email address to use for annual report reminders)"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Name of attested copy recipient)"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Firm or Company)"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(Mailing Address)"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "(City, State & Zip)"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",

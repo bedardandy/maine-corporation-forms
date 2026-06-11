@@ -1,134 +1,134 @@
 {
   "form_id": "CORP_MBCA-1",
-  "fields": {
-    "name_reservation.name_to_reserve": {
-      "widget_id": "1One",
+  "map": {
+    "1One": {
+      "key": "name_reservation.name_to_reserve",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Name to be reserved)"
     },
-    "name_reservation.applicant.name": {
-      "widget_id": "1two",
+    "1two": {
+      "key": "name_reservation.applicant.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name of applicant"
     },
-    "name_reservation.applicant.address": {
-      "widget_id": "1three",
+    "1three": {
+      "key": "name_reservation.applicant.address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Address of applicant"
     },
-    "filing.date_signed": {
-      "widget_id": "1four",
+    "1four": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "DATED ___"
     },
-    "name_reservation.applicant.printed_name_and_capacity": {
-      "widget_id": "1five",
+    "1five": {
+      "key": "name_reservation.applicant.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(type or print name and capacity)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Name of contact person"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Daytime telephone number"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Contact email address for this filing"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 1,
       "confidence": "medium",
       "label": "Email address to use for annual report reminders"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Name of attested copy recipient"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Firm or Company"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Mailing Address"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "City, State & Zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",

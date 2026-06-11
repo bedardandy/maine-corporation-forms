@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from engine import preflight  # noqa: E402
 from engine.preflight import PreflightError  # noqa: E402
+from engine import mapping as mapping_mod  # noqa: E402
 
 FORM_ID = "LLC_MLLC-6"
 
@@ -97,10 +98,10 @@ def test_plan_required_flag_is_warning_not_error(tmp_path):
     # block a case the (conditional-aware) rubric accepts
     d = tmp_path / "T1"
     d.mkdir()
-    (d / "mapping.json").write_text(json.dumps({"fields": {
+    (d / "mapping.json").write_text(json.dumps(mapping_mod.invert({"fields": {
         "a.flag": {"field_type": "checkbox", "widget_id": "F"},
         "a.detail": {"field_type": "text", "widget_id": "D"},
-    }}))
+    }})))
     (d / "rubric.yaml").write_text(yaml.safe_dump({"checks": [{
         "id": "detail-when-flagged", "severity": "required",
         "description": "If a.flag is true, a.detail must be non-empty.",
@@ -120,9 +121,9 @@ def test_fill_gate_blocks_on_error_and_no_preflight_overrides(tmp_path):
     d = tmp_path / "TGATE"
     d.mkdir()
     _make_blank(d / "TGATE.pdf", ["NameField"])
-    (d / "mapping.json").write_text(json.dumps({"fields": {
+    (d / "mapping.json").write_text(json.dumps(mapping_mod.invert({"fields": {
         "entity.name": {"field_type": "text", "widget_id": "NameField"},
-    }}))
+    }})))
     (d / "rubric.yaml").write_text(yaml.safe_dump({"checks": [{
         "id": "name-required", "severity": "required",
         "description": "entity.name is non-empty.",

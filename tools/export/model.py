@@ -168,7 +168,11 @@ def _acroform_names(widget_id):
 def build_model(form_id, repo_root):
     """Build a :class:`FormModel` for ``form_id`` from its mapping + schema."""
     import pathlib
+    import sys
     repo_root = pathlib.Path(repo_root)
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))  # for engine.mapping
+    from engine.mapping import entries as mapping_entries
     form_dir = repo_root / "forms" / form_id
     mapping = json.loads((form_dir / "mapping.json").read_text(encoding="utf-8"))
     schema = {}
@@ -182,7 +186,7 @@ def build_model(form_id, repo_root):
     required = _required_keys(form_dir)
 
     fields = []
-    for key, spec in (mapping.get("fields") or {}).items():
+    for key, spec in mapping_entries(mapping).items():
         leaf = _schema_leaf(schema, key) if schema else None
         dt = _data_type(spec, leaf, key)
         enum = (leaf or {}).get("enum")

@@ -21,6 +21,7 @@ from pathlib import Path
 
 from . import synthetic as syn
 from .. import signer_rules
+from engine.mapping import entries as mapping_entries
 
 
 def _repo_root() -> Path:
@@ -134,7 +135,7 @@ def base_case(form_id: str, seed: int = 1) -> dict:
 
     _set_dotted(case, "entity.name", syn.entity_name(prefix, seed))
 
-    for key in (mapping.get("fields") or {}):
+    for key in mapping_entries(mapping):
         if key == "entity.name":
             continue
         node = _schema_node(schema, key)
@@ -161,7 +162,7 @@ def variants(form_id: str, seed: int = 1) -> dict:
     overflow = json.loads(json.dumps(typical))
     overflow.setdefault("entity", {})["name"] = syn.long_purpose(seed)
     mapping, _, _ = _load(form_id)
-    for key in (mapping.get("fields") or {}):
+    for key in mapping_entries(mapping):
         if "purpose" in key.lower() or "description" in key.lower():
             _set_dotted(overflow, key, syn.long_purpose(seed + 2))
 
@@ -199,7 +200,7 @@ def enrich_with_qwen(form_id: str, case: dict) -> dict:
         return case
     mapping, schema, _ = _load(form_id)
     asks = {}
-    for key in (mapping.get("fields") or {}):
+    for key in mapping_entries(mapping):
         node = _schema_node(schema, key)
         enum = node.get("enum") if isinstance(node, dict) else None
         if enum:

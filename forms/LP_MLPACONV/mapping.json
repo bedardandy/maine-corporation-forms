@@ -1,120 +1,121 @@
 {
   "form_id": "LP_MLPACONV",
-  "fields": {
-    "entity.name": {
-      "widget_id": "The name of the converting organization",
+  "map": {
+    "The name of the converting organization": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The name of the converting organization:"
     },
-    "entity.organization_type": {
-      "widget_id": "The form of the converting organization",
+    "The form of the converting organization": {
+      "key": "entity.organization_type",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The form of the converting organization:"
     },
-    "entity.governing_statute_jurisdiction": {
-      "widget_id": "The jurisdiction of the converting organizations governing statute",
+    "The jurisdiction of the converting organizations governing statute": {
+      "key": "entity.governing_statute_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The jurisdiction of the converting organization's governing statute:"
     },
-    "entity.formation_date": {
-      "widget_id": "The date of its organization",
+    "The date of its organization": {
+      "key": "entity.formation_date",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The date of its organization:"
     },
-    "conversion.new_entity.name": {
-      "widget_id": "The name of the converted resulting organization",
+    "The name of the converted resulting organization": {
+      "key": "conversion.new_entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: The name of the converted (resulting) organization:"
     },
-    "conversion.new_entity.type": {
-      "widget_id": "The form of the converted resulting organization",
+    "The form of the converted resulting organization": {
+      "key": "conversion.new_entity.type",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The form of the converted (resulting) organization:"
     },
-    "conversion.new_entity.governing_statute_jurisdiction": {
-      "widget_id": "The jurisdiction of the converted resulting organizations governing statute",
+    "The jurisdiction of the converted resulting organizations governing statute": {
+      "key": "conversion.new_entity.governing_statute_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The jurisdiction of the converted (resulting) organization's governing statute:"
     },
-    "conversion.new_entity.formation_date": {
-      "widget_id": "The date of its organization_2",
+    "The date of its organization_2": {
+      "key": "conversion.new_entity.formation_date",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The date of its organization (resulting org):"
     },
-    "conversion.new_entity.principal_office.physical_address": {
-      "widget_id": "The address of its principal office is",
+    "The address of its principal office is": {
+      "key": "conversion.new_entity.principal_office.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The address of its principal office is:"
     },
-    "conversion.effective_date": {
-      "widget_id": "The date the conversion is effective under the governing statute of the converted organization",
+    "The date the conversion is effective under the governing statute of the converted organization": {
+      "key": "conversion.effective_date",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: The date the conversion is effective under the governing statute of the converted organization:"
     },
-    "conversion.new_entity.foreign_service_of_process_mailing_address.line1": {
-      "widget_id": "The street and mailing address of an office that may be used for service of process under 1435 is 1",
+    "The street and mailing address of an office that may be used for service of process under 1435 is 1": {
+      "key": "conversion.new_entity.foreign_service_of_process_mailing_address.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "SIXTH: (Foreign Converted Organization Not Authorized to Transact Business in this State Only) The street and mailing address of an office that may be used for service of process under \u00a71435 is:"
+      "label": "SIXTH: (Foreign Converted Organization Not Authorized to Transact Business in this State Only) The street and mailing address of an office that may be used for service of process under §1435 is:"
     },
-    "conversion.new_entity.foreign_service_of_process_mailing_address.line2": {
-      "widget_id": "The street and mailing address of an office that may be used for service of process under 1435 is 2",
+    "The street and mailing address of an office that may be used for service of process under 1435 is 2": {
+      "key": "conversion.new_entity.foreign_service_of_process_mailing_address.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(continuation line)"
     },
-    "conversion.new_entity_organizing_document_exhibit_letter": {
-      "widget_id": "The organizing document for the converted resulting organization is attached as Exhibit",
+    "The organizing document for the converted resulting organization is attached as Exhibit": {
+      "key": "conversion.new_entity_organizing_document_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "SEVENTH: The organizing document for the converted (resulting) organization is attached as Exhibit ___, and made a part hereof",
       "when": "conversion.result_type == 'filing_required'"
     },
-    "filing.date_signed": {
-      "widget_id": "Dated",
+    "Dated": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Dated ___"
     },
-    "general_partner_1.printed_name_and_capacity": {
-      "widget_id": "type or print name and capacity",
+    "type or print name and capacity": {
+      "key": "general_partner_1.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(authorized signature) / (type or print name and capacity) \u2014 first signature row"
+      "label": "(authorized signature) / (type or print name and capacity) — first signature row"
     },
-    "general_partner_2.printed_name_and_capacity": {
-      "widget_id": "type or print name and capacity_2",
+    "type or print name and capacity_2": {
+      "key": "general_partner_2.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(authorized signature) / (type or print name and capacity) \u2014 second signature row"
+      "label": "(authorized signature) / (type or print name and capacity) — second signature row"
     },
-    "conversion.result_type": {
+    "Check Box1": {
+      "key": "conversion.result_type",
       "field_type": "enum_select",
       "page": 1,
       "confidence": "medium",
@@ -125,99 +126,99 @@
       },
       "binding_source": "geometry_verified + opus_vision_alignment (high)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.entities[0].name"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.entities[1].name"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.total_fees_dollars"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.contact.name"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.contact.phone"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.contact.email"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "entity.annual_report_reminder_email"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.name"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.firm"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.street"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "filing.attested_copy_recipient.mailing_address.city_state_zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",

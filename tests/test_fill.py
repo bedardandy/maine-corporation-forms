@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from engine import fill  # noqa: E402
+from engine import mapping as mapping_mod  # noqa: E402
 
 FORM_ID = "TEST_WHEN"
 
@@ -72,7 +73,8 @@ def _form_root(tmp_path):
             },
         },
     }
-    (d / "mapping.json").write_text(json.dumps(mapping))
+    # mappings ship in the canonical (field-id-keyed) direction
+    (d / "mapping.json").write_text(json.dumps(mapping_mod.invert(mapping)))
     return str(tmp_path)
 
 
@@ -133,7 +135,8 @@ def test_fill_canonical_key_split_entries(tmp_path):
             },
         },
     }
-    (d / "mapping.json").write_text(json.dumps(mapping))
+    # mappings ship in the canonical (field-id-keyed) direction
+    (d / "mapping.json").write_text(json.dumps(mapping_mod.invert(mapping)))
     case = {"registered_agent": {"type": "noncommercial",
                                  "name": "Penobscot Agent Services"}}
     values = _filled_values(str(tmp_path), case)
@@ -179,7 +182,8 @@ def test_fill_reports_dropped_enum_value(tmp_path):
             },
         },
     }
-    (d / "mapping.json").write_text(json.dumps(mapping))
+    # mappings ship in the canonical (field-id-keyed) direction
+    (d / "mapping.json").write_text(json.dumps(mapping_mod.invert(mapping)))
     # preflight (on by default) refuses the undeliverable enum outright...
     from engine.preflight import PreflightError
     with pytest.raises(PreflightError):

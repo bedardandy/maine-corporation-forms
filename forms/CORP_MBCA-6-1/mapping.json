@@ -1,8 +1,8 @@
 {
   "form_id": "CORP_MBCA-6-1",
-  "fields": {
-    "filing.accompanying_filing_type": {
-      "widget_id": "arti",
+  "map": {
+    "arti": {
+      "key": "filing.accompanying_filing_type",
       "field_type": "radio",
       "page": 0,
       "confidence": "high",
@@ -16,15 +16,16 @@
         "restated_articles": "arti6"
       }
     },
-    "entity.is_professional_corporation": {
-      "widget_id": "Check Box31",
+    "Check Box31": {
+      "key": "entity.is_professional_corporation",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "(Check only if applicable) [ ] This is a professional corporation* formed pursuant to 13 MRSA Chapter 22-A to provide the following professional services:"
     },
-    "entity.professional_services_description": {
-      "widget_id": [
+    "Text1": {
+      "key": "entity.professional_services_description",
+      "widgets": [
         "Text1",
         "Text2"
       ],
@@ -34,30 +35,30 @@
       "label": "(type of professional services) — line 1",
       "when": "entity.is_professional_corporation == true"
     },
-    "entity.is_benefit_corporation": {
-      "widget_id": "Check Box30",
+    "Check Box30": {
+      "key": "entity.is_benefit_corporation",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "(Check only if applicable) [ ] This is a benefit corporation formed pursuant to 13-C MRSA §1803. This election has been adopted by at least the minimum status vote as defined in 13-C MRSA §1802.7."
     },
-    "entity.name": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The name of the corporation is"
     },
-    "clerk.cra_public_number": {
-      "widget_id": "Text10",
+    "Text10": {
+      "key": "clerk.cra_public_number",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: [ ] Commercial Clerk    CRA Public Number: ___",
       "when": "clerk.type == 'commercial'"
     },
-    "clerk.type": {
-      "widget_id": "clerk",
+    "clerk": {
+      "key": "clerk.type",
       "field_type": "radio",
       "page": 0,
       "confidence": "high",
@@ -67,8 +68,9 @@
         "noncommercial": "clerk2"
       }
     },
-    "clerk.name": {
-      "widget_id": [
+    "Text3": {
+      "key": "clerk.name",
+      "widgets": [
         "Text3",
         "Text4"
       ],
@@ -77,22 +79,22 @@
       "confidence": "high",
       "label": "(name of commercial clerk) / (name of noncommercial clerk)"
     },
-    "clerk.physical_address": {
-      "widget_id": "Text5",
+    "Text5": {
+      "key": "clerk.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(physical location, not P.O. Box – street, city, state and zip code)"
     },
-    "clerk.mailing_address": {
-      "widget_id": "Text6",
+    "Text6": {
+      "key": "clerk.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(mailing address if different from above)"
     },
-    "entity.share_structure": {
-      "widget_id": "class",
+    "class": {
+      "key": "entity.share_structure",
       "field_type": "radio",
       "page": 1,
       "confidence": "high",
@@ -102,31 +104,31 @@
         "multi_class": "class2"
       }
     },
-    "entity.authorized_shares_total": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "entity.authorized_shares_total",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FOURTH: ...The number of authorized shares is ___",
       "when": "entity.share_structure == 'single_class'"
     },
-    "entity.share_class_name": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "entity.share_class_name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "(Optional) Name of class:"
     },
-    "entity.multi_class_exhibit_letter": {
-      "widget_id": "Text11",
+    "Text11": {
+      "key": "entity.multi_class_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FOURTH (multi-class): ...is set forth in Exhibit ___ attached hereto",
       "when": "entity.share_structure == 'multi_class'"
     },
-    "entity.has_board_of_directors": {
-      "widget_id": "fifth",
+    "fifth": {
+      "key": "entity.has_board_of_directors",
       "field_type": "radio",
       "page": 1,
       "confidence": "high",
@@ -136,57 +138,57 @@
         "false": "fifth2"
       }
     },
-    "entity.directors_count_limited": {
-      "widget_id": "Check Box23",
+    "Check Box23": {
+      "key": "entity.directors_count_limited",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SIXTH: [ ] The number of directors is limited as follows: not fewer than ___ nor more than ___ directors. (13-C MRSA §803)"
     },
-    "entity.directors_min_count": {
-      "widget_id": "Text12",
+    "Text12": {
+      "key": "entity.directors_min_count",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "not fewer than ___"
     },
-    "entity.directors_max_count": {
-      "widget_id": "Text13",
+    "Text13": {
+      "key": "entity.directors_max_count",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "nor more than ___ directors"
     },
-    "entity.director_liability_limited": {
-      "widget_id": "Check Box22",
+    "Check Box22": {
+      "key": "entity.director_liability_limited",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SIXTH: [ ] To the fullest extent permitted by 13-C MRSA §202.2.D, a director shall have no liability to the Corporation or its shareholders for money damages for an action taken or a failure to take action as a director."
     },
-    "entity.mandatory_indemnification": {
-      "widget_id": "Check Box21",
+    "Check Box21": {
+      "key": "entity.mandatory_indemnification",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SIXTH: [ ] Except as otherwise specified by contract or in its bylaws, the Corporation shall in all cases provide indemnification for its directors and officers to the fullest extent permitted by law (13-C MRSA §§202, 857, 859)."
     },
-    "entity.preemptive_rights_elected": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "entity.preemptive_rights_elected",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SEVENTH: (Check only if applicable) [ ] The Corporation elects to have preemptive rights as defined in 13-C MRSA §641."
     },
-    "entity.additional_provisions_present": {
-      "widget_id": "Check Box20",
+    "Check Box20": {
+      "key": "entity.additional_provisions_present",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: (Check only if applicable) [ ] Additional provisions of these Articles of Incorporation are set forth in Exhibit ___ attached hereto and made a part hereof. (13-C MRSA §202)"
     },
-    "entity.additional_provisions_exhibit_letter": {
-      "widget_id": "Text14",
+    "Text14": {
+      "key": "entity.additional_provisions_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",

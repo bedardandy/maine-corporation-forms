@@ -31,16 +31,17 @@ per-form artifacts. The engine only *reads* them.
 |------|------|
 | `<ID>.pdf` | the blank Maine SoS form (public record) |
 | `form.yaml` | metadata: code, title, entity type, statute, page/field counts |
-| `mapping.json` | `canonical_key -> {widget_id, field_type, page, confidence, label}` |
+| `mapping.json` | `map: {field_id -> {key, field_type, page, confidence, label, ...}}` (PDF-field-keyed, the direction shared with the sibling repos; `engine/mapping.py` documents the dialect) |
 | `schema.json` | draft-2020-12 JSON Schema for the case-data object |
 | `fields.csv` | flat field inventory (widget, page, type, label, key, confidence) |
 | `rubric.yaml` | validation checks with `depends_on_keys` + severity |
 | `README.md` | purpose, statute, filer role, known ambiguities |
 | `SKILL.md` | agent fill-guide: when to use, key fields, conditional logic, example |
 
-A `widget_id` may be a **list** when one canonical key drives several widgets
-(e.g. a clerk name that appears on both the commercial and noncommercial rows);
-the engine writes the same value to all of them.
+A binding may carry a `widgets` **list** when one canonical key drives several
+widgets (e.g. a clerk name that appears on both the commercial and
+noncommercial rows); the binding anchors on the first widget and the engine
+writes the same value to all of them.
 
 ## The canonical model
 

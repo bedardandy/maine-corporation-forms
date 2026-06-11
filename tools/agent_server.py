@@ -86,7 +86,8 @@ def get_form_payload(form_id: str) -> dict:
     if not (d / "mapping.json").exists():
         return {"error": f"unknown form {form_id!r}"}
     mapping = json.loads((d / "mapping.json").read_text(encoding="utf-8"))
-    fields = mapping.get("fields", {})
+    from engine.mapping import entries as mapping_entries
+    fields = mapping_entries(mapping)
 
     meta = {}
     meta_path = d / "form.yaml"

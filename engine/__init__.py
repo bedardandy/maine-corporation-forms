@@ -1,7 +1,7 @@
 """maine-corporation-forms fill engine."""
-from . import canonical, fill, plan, route, schema, verify  # noqa: F401
+from . import canonical, fill, mapping, plan, route, schema, verify  # noqa: F401
 
-__all__ = ["canonical", "fill", "plan", "route", "schema", "verify"]
+__all__ = ["canonical", "fill", "mapping", "plan", "route", "schema", "verify"]
 
 # Optional: print-ready copies (bake appearances, spill overflow to schedules,
 # flatten). Depends on PyMuPDF; keep optional so the core engine imports without

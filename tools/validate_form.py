@@ -27,6 +27,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from engine.mapping import entries as mapping_entries  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 FORMS = ROOT / "forms"
 
@@ -93,7 +96,12 @@ def validate_form(form_id):
 
     stats = {"fields": 0, "high": 0, "medium": 0, "low": 0, "when_gated": 0}
     if mapping is not None:
-        fields = mapping.get("fields") or {}
+        try:
+            fields = mapping_entries(mapping)
+        except ValueError as exc:
+            # e.g. a legacy canonical-key-keyed mapping.json — direction drift
+            errors.append(f"mapping.json: {exc}")
+            fields = {}
         stats["fields"] = len(fields)
         if not fields:
             reviews.append("no mapped fields (flat / reference document, or "

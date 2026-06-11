@@ -1,11 +1,12 @@
 {
   "form_id": "LP_MLPA-6-1",
-  "fields": {
-    "filing.accompanying_transaction_type": {
+  "map": {
+    "Check Box19": {
+      "key": "filing.accompanying_transaction_type",
       "field_type": "enum_select",
       "page": 0,
       "confidence": "high",
-      "label": "Articles of Entity Conversion (13-C MRSA \u00a7955.1)",
+      "label": "Articles of Entity Conversion (13-C MRSA §955.1)",
       "options": {
         "entity_conversion_13c": "Check Box19",
         "merger_or_share_exchange_13c": "Check Box20",
@@ -14,29 +15,30 @@
         "partnership_conversion_31": "Check Box23"
       }
     },
-    "entity.name": {
-      "widget_id": "Text1",
+    "Text1": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The name of the limited partnership is"
     },
-    "entity.designated_office.physical_address": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "entity.designated_office.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street \u2013 not P.O. Box, city, state and zip code)"
+      "label": "SECOND: The street and mailing address of the limited partnership's designated office shall be (physical location, street – not P.O. Box, city, state and zip code)"
     },
-    "entity.designated_office.mailing_address": {
-      "widget_id": "Text3",
+    "Text3": {
+      "key": "entity.designated_office.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(mailing address if different from above)"
     },
-    "registered_agent.type": {
-      "widget_id": [
+    "Check Box24": {
+      "key": "registered_agent.type",
+      "widgets": [
         "Check Box24",
         "Check Box25"
       ],
@@ -45,16 +47,17 @@
       "confidence": "high",
       "label": "THIRD: Commercial Registered Agent"
     },
-    "registered_agent.cra_public_number": {
-      "widget_id": "Text4",
+    "Text4": {
+      "key": "registered_agent.cra_public_number",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "CRA Public Number",
       "when": "registered_agent.type == 'commercial'"
     },
-    "registered_agent.name": {
-      "widget_id": [
+    "Text5": {
+      "key": "registered_agent.name",
+      "widgets": [
         "Text5",
         "Text6"
       ],
@@ -63,104 +66,105 @@
       "confidence": "high",
       "label": "(name of commercial registered agent)"
     },
-    "registered_agent.physical_address": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "registered_agent.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
-      "label": "(physical location, not P.O. Box \u2013 street, city, state and zip code) [registered agent]"
+      "label": "(physical location, not P.O. Box – street, city, state and zip code) [registered agent]"
     },
-    "registered_agent.mailing_address": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "registered_agent.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(mailing address if different from above) [registered agent]"
     },
-    "general_partner_1.name": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "general_partner_1.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Name (general partner row 1)"
     },
-    "general_partner_1.address": {
-      "widget_id": "Text10",
+    "Text10": {
+      "key": "general_partner_1.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Address (general partner row 1)"
     },
-    "general_partner_2.name": {
-      "widget_id": "Text11",
+    "Text11": {
+      "key": "general_partner_2.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Name (general partner row 2)"
     },
-    "general_partner_2.address": {
-      "widget_id": "Text12",
+    "Text12": {
+      "key": "general_partner_2.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Address (general partner row 2)"
     },
-    "general_partner_3.name": {
-      "widget_id": "Text13",
+    "Text13": {
+      "key": "general_partner_3.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Name (general partner row 3)"
     },
-    "general_partner_3.address": {
-      "widget_id": "Text14",
+    "Text14": {
+      "key": "general_partner_3.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: Address (general partner row 3)"
     },
-    "general_partner.additional_attached": {
-      "widget_id": "Check Box26",
+    "Check Box26": {
+      "key": "general_partner.additional_attached",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Names and addresses of additional general partners are attached as Exhibit ___ and made a part hereof"
     },
-    "general_partner.additional_exhibit_letter": {
-      "widget_id": "Text18",
+    "Text18": {
+      "key": "general_partner.additional_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "Exhibit ___ [additional general partners]"
     },
-    "entity.is_lllp": {
-      "widget_id": "Check Box27",
+    "Check Box27": {
+      "key": "entity.is_lllp",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "SIXTH: The limited partnership is a limited liability limited partnership",
       "when": "entity.is_professional_lllp == true"
     },
-    "entity.is_professional_lllp": {
-      "widget_id": "Check Box28",
+    "Check Box28": {
+      "key": "entity.is_professional_lllp",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
-      "label": "SEVENTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA \u00a71354.4"
+      "label": "SEVENTH: This is a professional limited liability limited partnership formed pursuant to 31 MRSA §1354.4"
     },
-    "entity.professional_services_description": {
-      "widget_id": [
+    "Text15": {
+      "key": "entity.professional_services_description",
+      "widgets": [
         "Text15",
         "Text16"
       ],
       "field_type": "text",
       "page": 1,
       "confidence": "high",
-      "label": "(provide the following professional services) \u2014 line 1",
+      "label": "(provide the following professional services) — line 1",
       "when": "entity.is_professional_lllp == true"
     },
-    "entity.additional_provisions_exhibit_letter": {
-      "widget_id": "Text17",
+    "Text17": {
+      "key": "entity.additional_provisions_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",

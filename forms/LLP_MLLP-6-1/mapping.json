@@ -1,8 +1,9 @@
 {
   "form_id": "LLP_MLLP-6-1",
-  "fields": {
-    "filing.underlying_filing_type": {
-      "widget_id": [
+  "map": {
+    "Check Box12": {
+      "key": "filing.underlying_filing_type",
+      "widgets": [
         "Check Box12",
         "Check Box13",
         "Check Box14",
@@ -14,15 +15,16 @@
       "confidence": "high",
       "label": "Articles of Entity Conversion (13-C MRSA §955.1) [option 1]"
     },
-    "entity.name": {
-      "widget_id": "Text1",
+    "Text1": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: The name of the registered limited liability partnership is — must contain 'Limited Liability Partnership', 'L.L.P.' or 'LLP' (per 31 MRSA §803-A)"
     },
-    "registered_agent.type": {
-      "widget_id": [
+    "Check Box17": {
+      "key": "registered_agent.type",
+      "widgets": [
         "Check Box17",
         "Check Box18"
       ],
@@ -31,16 +33,17 @@
       "confidence": "high",
       "label": "SECOND: Commercial Registered Agent"
     },
-    "registered_agent.cra_public_number": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "registered_agent.cra_public_number",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: CRA Public Number (alongside Commercial Registered Agent radio)",
       "when": "registered_agent.type == 'commercial'"
     },
-    "registered_agent.name": {
-      "widget_id": [
+    "Text3": {
+      "key": "registered_agent.name",
+      "widgets": [
         "Text3",
         "Text4"
       ],
@@ -49,57 +52,57 @@
       "confidence": "high",
       "label": "SECOND: (name of commercial registered agent)"
     },
-    "registered_agent.physical_address": {
-      "widget_id": "Text5",
+    "Text5": {
+      "key": "registered_agent.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: (physical location, not P.O. Box – street, city, state and zip code)"
     },
-    "registered_agent.mailing_address": {
-      "widget_id": "Text6",
+    "Text6": {
+      "key": "registered_agent.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: (mailing address if different from above)"
     },
-    "entity.is_professional_llp": {
-      "widget_id": "Check Box19",
+    "Check Box19": {
+      "key": "entity.is_professional_llp",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: This is a professional limited liability partnership* formed pursuant to 13 MRSA, chapter 22-A to provide the following professional services"
     },
-    "entity.professional_services_description.line1": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "entity.professional_services_description.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: (type of professional services) line 1"
     },
-    "entity.professional_services_description.line2": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "entity.professional_services_description.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FOURTH: (type of professional services) line 2"
     },
-    "contact_partner.name": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "contact_partner.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: The name and business, residence or mailing address of the contact partner is: Name"
     },
-    "contact_partner.address": {
-      "widget_id": "Text10",
+    "Text10": {
+      "key": "contact_partner.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "FIFTH: ... Address"
     },
-    "entity.additional_provisions_exhibit_letter": {
-      "widget_id": "Text11",
+    "Text11": {
+      "key": "entity.additional_provisions_exhibit_letter",
       "field_type": "text",
       "page": 1,
       "confidence": "high",

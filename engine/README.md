@@ -10,6 +10,7 @@ form. No network and no LLM at fill time: filling is fully deterministic.
 | File | Role |
 |------|------|
 | `canonical.py` | resolve a dotted canonical key (with list indexing, `items[0].name`) against a nested case-data dict |
+| `mapping.py` | the canonical-direction `mapping.json` dialect (PDF-field-keyed `map`, shared with the sibling repos): loader, `entries()` consumer view, lossless direction converter core |
 | `schema.py` | lightweight validation of case data against a form's `schema.json` (types, enums, required) |
 | `fill.py` | load `mapping.json` + the blank PDF, resolve each key, write AcroForm values, save the filled PDF |
 | `plan.py` | report coverage for a case *without* a PDF — resolved / unresolved (missing facts) / skipped (gated off by `when`) |
@@ -76,6 +77,18 @@ fill.fill("CORP_MBCA-6", case_data, "out.pdf")
 canonical.get(case_data, "filing.entities[0].name")
 route.route("change of registered agent")
 ```
+
+## `mapping.json` direction
+
+`mapping.json` is keyed by the **PDF AcroForm field** (`map: {field_id:
+{key, ...}}`), the direction shared with the sibling forms repos; see
+`engine/mapping.py` for the dialect (multi-widget fan-outs anchor on their
+first widget and keep the ordered list under `widgets`; `enum_select` /
+`enum_text_select` groups anchor on their first option widget). Engine and
+tooling consume bindings through `engine.mapping.entries(mapping)`, the
+case-key-keyed view with `widget_id` / `options` reconstructed — every
+description of "entries" below refers to that view.
+`tools/convert_mapping_direction.py` converts (and `--check`s) the files.
 
 ## Field types in `mapping.json`
 

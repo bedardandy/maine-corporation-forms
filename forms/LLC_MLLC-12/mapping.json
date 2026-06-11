@@ -1,71 +1,72 @@
 {
   "form_id": "LLC_MLLC-12",
-  "fields": {
-    "entity.home_jurisdiction_name": {
-      "widget_id": "Text1",
+  "map": {
+    "Text1": {
+      "key": "entity.home_jurisdiction_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(Name of Limited Liability Company in Jurisdiction of Organization)"
     },
-    "entity.maine_assumed_name_for_suffix": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "entity.maine_assumed_name_for_suffix",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIRST: ...the proposed name to be used in this State in compliance with this requirement is"
     },
-    "entity.maine_fictitious_name": {
-      "widget_id": "Text3",
+    "Text3": {
+      "key": "entity.maine_fictitious_name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "SECOND: ...the fictitious name under which it seeks authority to conduct activities in the State of Maine is"
     },
-    "filing.fict4_accompanies": {
-      "widget_id": "Check Box4",
+    "Check Box4": {
+      "key": "filing.fict4_accompanies",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
-      "label": "Form FICT-4 accompanies this application. (See 31 MRSA \u00a71624.1)"
+      "label": "Form FICT-4 accompanies this application. (See 31 MRSA §1624.1)"
     },
-    "entity.formation_date_in_home_jurisdiction": {
-      "widget_id": "Text5",
+    "Text5": {
+      "key": "entity.formation_date_in_home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "THIRD: Date of formation"
     },
-    "entity.home_jurisdiction": {
-      "widget_id": "Text6",
+    "Text6": {
+      "key": "entity.home_jurisdiction",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Jurisdiction where formed"
     },
-    "entity.principal_office.physical_address": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "entity.principal_office.physical_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Address of the principal office, wherever located: (physical location - street, city, state, zip and country)"
     },
-    "entity.principal_office.mailing_address": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "entity.principal_office.mailing_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "(mailing address if different from above)"
     },
-    "entity.maine_business_purpose": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "entity.maine_business_purpose",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "FIFTH: The nature of the business or purpose(s) to be conducted or promoted in the State of Maine is"
     },
-    "registered_agent.type": {
-      "widget_id": [
+    "Check Box15": {
+      "key": "registered_agent.type",
+      "widgets": [
         "Check Box15",
         "Check Box16"
       ],
@@ -74,15 +75,16 @@
       "confidence": "medium",
       "label": "SIXTH: [ ] Commercial Registered Agent"
     },
-    "registered_agent.cra_public_number": {
-      "widget_id": "Text14",
+    "Text14": {
+      "key": "registered_agent.cra_public_number",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "CRA Public Number"
     },
-    "registered_agent.name": {
-      "widget_id": [
+    "Text10": {
+      "key": "registered_agent.name",
+      "widgets": [
         "Text10",
         "Text11"
       ],
@@ -91,213 +93,213 @@
       "confidence": "high",
       "label": "(name of commercial registered agent)"
     },
-    "registered_agent.physical_address": {
-      "widget_id": "Text12",
+    "Text12": {
+      "key": "registered_agent.physical_address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "(physical location, not P.O. Box - street, city, state and zip code)"
     },
-    "registered_agent.mailing_address": {
-      "widget_id": "Text13",
+    "Text13": {
+      "key": "registered_agent.mailing_address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "(mailing address if different from above)"
     },
-    "manager_1.name": {
-      "widget_id": "Text17",
+    "Text17": {
+      "key": "manager_1.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: NAME (row 1)"
     },
-    "manager_1.address": {
-      "widget_id": "Text20",
+    "Text20": {
+      "key": "manager_1.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: ADDRESS (row 1)"
     },
-    "manager_2.name": {
-      "widget_id": "Text18",
+    "Text18": {
+      "key": "manager_2.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: NAME (row 2)"
     },
-    "manager_2.address": {
-      "widget_id": "Text21",
+    "Text21": {
+      "key": "manager_2.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: ADDRESS (row 2)"
     },
-    "manager_3.name": {
-      "widget_id": "Text19",
+    "Text19": {
+      "key": "manager_3.name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: NAME (row 3)"
     },
-    "manager_3.address": {
-      "widget_id": "Text22",
+    "Text22": {
+      "key": "manager_3.address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "EIGHTH: ADDRESS (row 3)"
     },
-    "manager.additional_attached": {
-      "widget_id": "Check Box23",
+    "Check Box23": {
+      "key": "manager.additional_attached",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "[ ] Names and addresses of additional managers are attached as Exhibit ___, and made a part hereof"
     },
-    "entity.maine_activities_start_date": {
-      "widget_id": "Text24",
+    "Text24": {
+      "key": "entity.maine_activities_start_date",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "NINTH: ...commenced or expects to commence conducting activities in the State of Maine is ___"
     },
-    "entity.is_professional_llc": {
-      "widget_id": "Check Box25",
+    "Check Box25": {
+      "key": "entity.is_professional_llc",
       "field_type": "checkbox",
       "page": 1,
       "confidence": "high",
       "label": "TENTH: [ ] This is a professional limited liability company qualified pursuant to 13 MRSA Chapter 22-A"
     },
-    "entity.professional_services_description": {
-      "widget_id": "Text26",
+    "Text26": {
+      "key": "entity.professional_services_description",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "(type of professional services)",
       "when": "entity.is_professional_llc == true"
     },
-    "entity.is_series_llc": {
-      "widget_id": "Check Box27",
+    "Check Box27": {
+      "key": "entity.is_series_llc",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "ELEVENTH: (Check if applicable) [ ] The foreign limited liability company is governed by an agreement that establishes ... designated series ..."
     },
-    "entity.series_llc_exhibit_letter": {
-      "widget_id": "Text28",
+    "Text28": {
+      "key": "entity.series_llc_exhibit_letter",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "ELEVENTH: ...attached hereto as Exhibit ___, and made a part hereof",
       "when": "entity.is_series_llc == true"
     },
-    "filing.date_signed": {
-      "widget_id": "Text29",
+    "Text29": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Dated ___"
     },
-    "filing.signer.printed_name_and_capacity": {
-      "widget_id": "Text30",
+    "Text30": {
+      "key": "filing.signer.printed_name_and_capacity",
       "field_type": "text",
       "page": 2,
       "confidence": "medium",
       "label": "(Authorized Signature**) / (Type or print name and capacity)"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Name of contact person"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Daytime telephone number"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Contact email address for this filing"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Email address to use for annual report reminders"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Name of attested copy recipient"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Firm or Company"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "Mailing Address"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 3,
       "confidence": "high",
       "label": "City, State & Zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 3,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "exp24",
+    "exp24": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 3,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "imm",
+    "imm": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 3,
       "confidence": "high",

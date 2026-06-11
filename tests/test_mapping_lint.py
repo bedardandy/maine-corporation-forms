@@ -13,6 +13,10 @@ import difflib
 import json
 import re
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from engine.mapping import entries as mapping_entries  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 FORMS = ROOT / "forms"
@@ -39,7 +43,7 @@ def _canonical_keys():
         if not d.is_dir() or not mp.exists():
             continue
         mapping = json.loads(mp.read_text())
-        for key, spec in (mapping.get("fields") or {}).items():
+        for key, spec in mapping_entries(mapping).items():
             ckey = spec.get("canonical_key", key) if isinstance(spec, dict) else key
             yield mapping["form_id"], re.sub(r"\[\d+\]", "[]", ckey)
 

@@ -1,79 +1,79 @@
 {
   "form_id": "NP_MNPCA-16",
-  "fields": {
-    "municipality.name": {
-      "widget_id": "municipality",
+  "map": {
+    "municipality": {
+      "key": "municipality.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The municipal officers of ___ have, by majority vote, authorized the formation of a Local Development Corporation"
     },
-    "entity.name": {
-      "widget_id": "name",
+    "name": {
+      "key": "entity.name",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "The name of the corporation is intended to be ___"
     },
-    "municipal_officer_1.printed_name_and_capacity": {
-      "widget_id": "name and capacity 1",
+    "name and capacity 1": {
+      "key": "municipal_officer_1.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name and Capacity (signature row 1)"
     },
-    "municipal_officer_2.printed_name_and_capacity": {
-      "widget_id": "name and capacity 2",
+    "name and capacity 2": {
+      "key": "municipal_officer_2.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name and Capacity (signature row 2)"
     },
-    "municipal_officer_3.printed_name_and_capacity": {
-      "widget_id": "name and capacity 3",
+    "name and capacity 3": {
+      "key": "municipal_officer_3.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name and Capacity (signature row 3)"
     },
-    "municipal_officer_4.printed_name_and_capacity": {
-      "widget_id": "name and capacity 4",
+    "name and capacity 4": {
+      "key": "municipal_officer_4.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name and Capacity (signature row 4)"
     },
-    "municipal_officer_5.printed_name_and_capacity": {
-      "widget_id": "name and capacity 5",
+    "name and capacity 5": {
+      "key": "municipal_officer_5.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Name and Capacity (signature row 5)"
     },
-    "municipality.additional_officers_present": {
-      "widget_id": "Check Box9",
+    "Check Box9": {
+      "key": "municipality.additional_officers_present",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "[ ] Names, capacities and signatures of additional municipal officers attached hereto as Exhibit ___, and made a part hereof"
     },
-    "municipality.additional_officers_exhibit_letter": {
-      "widget_id": "exhibit",
+    "exhibit": {
+      "key": "municipality.additional_officers_exhibit_letter",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "...attached hereto as Exhibit ___",
       "when": "municipality.additional_officers_present == true"
     },
-    "municipal_clerk.printed_name_and_capacity": {
-      "widget_id": "print name and capacity",
+    "print name and capacity": {
+      "key": "municipal_clerk.printed_name_and_capacity",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "Attest: ___ (Signature of Municipal Clerk) / (type or print name and capacity)"
     },
-    "filing.date_signed": {
-      "widget_id": "dated",
+    "dated": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 0,
       "confidence": "high",

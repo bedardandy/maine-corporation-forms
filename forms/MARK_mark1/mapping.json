@@ -1,120 +1,121 @@
 {
   "form_id": "MARK_mark1",
-  "fields": {
-    "mark.dates_of_first_use.anywhere": {
-      "widget_id": "Text1",
+  "map": {
+    "Text1": {
+      "key": "mark.dates_of_first_use.anywhere",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "A.1: Date of first use anywhere"
     },
-    "mark.dates_of_first_use.in_maine": {
-      "widget_id": "Text2",
+    "Text2": {
+      "key": "mark.dates_of_first_use.in_maine",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "A.2: Date of first use in Maine by applicant or predecessor in business"
     },
-    "mark.predecessor_name_and_address": {
-      "widget_id": "Text3",
+    "Text3": {
+      "key": "mark.predecessor_name_and_address",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "If predecessor, list name and address under which mark was last used"
     },
-    "mark.text_words.line1": {
-      "widget_id": "Text4",
+    "Text4": {
+      "key": "mark.text_words.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "B.1: TEXT - list word(s) to be protected, if any (line 1)"
     },
-    "mark.text_words.line2": {
-      "widget_id": "Text5",
+    "Text5": {
+      "key": "mark.text_words.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "B.1: TEXT (line 2)"
     },
-    "mark.design_features.line1": {
-      "widget_id": "Text6",
+    "Text6": {
+      "key": "mark.design_features.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "B.2: FEATURES - describe in detail the design to be protected, if any (line 1)"
     },
-    "mark.design_features.line2": {
-      "widget_id": "Text7",
+    "Text7": {
+      "key": "mark.design_features.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "B.2: FEATURES (line 2)"
     },
-    "mark.type_and_class_number": {
-      "widget_id": "Text8",
+    "Text8": {
+      "key": "mark.type_and_class_number",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "C: TYPE OF MARK and CLASS NUMBER"
     },
-    "mark.goods_or_services_description.line1": {
-      "widget_id": "Text9",
+    "Text9": {
+      "key": "mark.goods_or_services_description.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "D: DESCRIBE goods manufactured or sold and/or the service that is provided (line 1)"
     },
-    "mark.goods_or_services_description.line2": {
-      "widget_id": "Text10",
+    "Text10": {
+      "key": "mark.goods_or_services_description.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "D: DESCRIBE goods/services (line 2)"
     },
-    "mark.usage_description.line1": {
-      "widget_id": "Text11",
+    "Text11": {
+      "key": "mark.usage_description.line1",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "DESCRIBE manner in which mark is applied to the goods or used to promote their sale and/or the manner in which the mark is used in connection with the service (line 1)"
     },
-    "mark.usage_description.line2": {
-      "widget_id": "Text12",
+    "Text12": {
+      "key": "mark.usage_description.line2",
       "field_type": "text",
       "page": 0,
       "confidence": "high",
       "label": "DESCRIBE manner of use (line 2)"
     },
-    "mark.additional_pages_attached": {
-      "widget_id": "Check Box30",
+    "Check Box30": {
+      "key": "mark.additional_pages_attached",
       "field_type": "checkbox",
       "page": 0,
       "confidence": "high",
       "label": "[ ] Attach additional pages, if necessary."
     },
-    "mark.signer.printed_name_and_capacity": {
-      "widget_id": "Text13",
+    "Text13": {
+      "key": "mark.signer.printed_name_and_capacity",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "E: I, ___ (Print/Type Name and Capacity), believe"
     },
-    "mark.applicant.entity_name": {
-      "widget_id": "Text14",
+    "Text14": {
+      "key": "mark.applicant.entity_name",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "E: ___ (Myself, Firm, Association or Corporate Name)"
     },
-    "mark.applicant.mailing_address": {
-      "widget_id": "Text15",
+    "Text15": {
+      "key": "mark.applicant.mailing_address",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "E: ___ (Mailing Address, City, State and Zip Code)"
     },
-    "mark.applicant.entity_type": {
-      "widget_id": [
+    "Check Box23": {
+      "key": "mark.applicant.entity_type",
+      "widgets": [
         "Check Box23",
         "Check Box32",
         "Check Box25",
@@ -128,128 +129,128 @@
       "confidence": "high",
       "label": "F: Applicant is a (an): [ ] individual"
     },
-    "mark.applicant.entity_type_other_explanation": {
-      "widget_id": "Text16",
+    "Text16": {
+      "key": "mark.applicant.entity_type_other_explanation",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "F: other ___ (Explain)",
       "when": "mark.applicant.entity_type == 'other'"
     },
-    "mark.applicant.jurisdiction_of_organization": {
-      "widget_id": "Text17",
+    "Text17": {
+      "key": "mark.applicant.jurisdiction_of_organization",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "F: If a corporation, limited liability company or limited liability partnership, the jurisdiction (state) of incorporation/organization is"
     },
-    "mark.applicant.date_of_organization": {
-      "widget_id": "Text18",
+    "Text18": {
+      "key": "mark.applicant.date_of_organization",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "F: ...and the date of incorporation/organization in its jurisdiction is"
     },
-    "filing.date_signed": {
-      "widget_id": "Text19",
+    "Text19": {
+      "key": "filing.date_signed",
       "field_type": "text",
       "page": 1,
       "confidence": "high",
       "label": "G: Date of this application"
     },
-    "filing.entities[0].name": {
-      "widget_id": "Name of entity",
+    "Name of entity": {
+      "key": "filing.entities[0].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity(s) on the submitted filings [1]"
     },
-    "filing.entities[1].name": {
-      "widget_id": "Name of entitys on the submitted filings 2",
+    "Name of entitys on the submitted filings 2": {
+      "key": "filing.entities[1].name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of entity [2]"
     },
-    "filing.total_fees_dollars": {
-      "widget_id": "Total fees enclosed",
+    "Total fees enclosed": {
+      "key": "filing.total_fees_dollars",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Total fee(s) enclosed: $"
     },
-    "filing.contact.name": {
-      "widget_id": "Name of contact person",
+    "Name of contact person": {
+      "key": "filing.contact.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of contact person"
     },
-    "filing.contact.phone": {
-      "widget_id": "Daytime telephone number",
+    "Daytime telephone number": {
+      "key": "filing.contact.phone",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Daytime telephone number"
     },
-    "filing.contact.email": {
-      "widget_id": "Contact email address for this filing",
+    "Contact email address for this filing": {
+      "key": "filing.contact.email",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Contact email address for this filing"
     },
-    "entity.annual_report_reminder_email": {
-      "widget_id": "Email address to use for annual report reminders",
+    "Email address to use for annual report reminders": {
+      "key": "entity.annual_report_reminder_email",
       "field_type": "text",
       "page": 2,
       "confidence": "medium",
       "label": "Email address to use for annual report reminders"
     },
-    "filing.attested_copy_recipient.name": {
-      "widget_id": "Name of attested copy recipient",
+    "Name of attested copy recipient": {
+      "key": "filing.attested_copy_recipient.name",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Name of attested copy recipient"
     },
-    "filing.attested_copy_recipient.firm": {
-      "widget_id": "Firm or Company",
+    "Firm or Company": {
+      "key": "filing.attested_copy_recipient.firm",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Firm or Company"
     },
-    "filing.attested_copy_recipient.mailing_address.street": {
-      "widget_id": "Mailing Address",
+    "Mailing Address": {
+      "key": "filing.attested_copy_recipient.mailing_address.street",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "Mailing Address"
     },
-    "filing.attested_copy_recipient.mailing_address.city_state_zip": {
-      "widget_id": "City State  Zip",
+    "City State  Zip": {
+      "key": "filing.attested_copy_recipient.mailing_address.city_state_zip",
       "field_type": "text",
       "page": 2,
       "confidence": "high",
       "label": "City, State & Zip"
     },
-    "filing.expedited_service.hold_for_pickup": {
-      "widget_id": "Check Box14",
+    "Check Box14": {
+      "key": "filing.expedited_service.hold_for_pickup",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "Hold attested copy for pick up"
     },
-    "filing.expedited_service.expedite_24h": {
-      "widget_id": "Check Box15",
+    "Check Box15": {
+      "key": "filing.expedited_service.expedite_24h",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",
       "label": "24-hour expedited filing ($50)"
     },
-    "filing.expedited_service.immediate": {
-      "widget_id": "Check Box16",
+    "Check Box16": {
+      "key": "filing.expedited_service.immediate",
       "field_type": "checkbox",
       "page": 2,
       "confidence": "high",

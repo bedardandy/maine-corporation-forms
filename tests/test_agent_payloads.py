@@ -43,7 +43,8 @@ def test_get_form_payload_keys_and_trust_summary():
     # below-high-confidence fields are surfaced, high-confidence ones aren't
     mapping = json.loads(
         (ROOT / "forms" / "CORP_MBCA-6A" / "mapping.json").read_text())
-    expect = sorted(k for k, s in mapping["fields"].items()
+    from engine.mapping import entries as mapping_entries
+    expect = sorted(k for k, s in mapping_entries(mapping).items()
                     if s.get("confidence") != "high")
     assert trust["unverified_fields"] == expect[:agent_server._MAX_UNVERIFIED]
 

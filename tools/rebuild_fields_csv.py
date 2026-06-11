@@ -25,6 +25,9 @@ from pathlib import Path
 
 import fitz  # PyMuPDF
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from engine.mapping import entries as mapping_entries  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent / "forms"
 COLUMNS = ["widget_id", "page", "field_type", "label_verbatim",
            "canonical_key", "confidence", "rationale"]
@@ -36,7 +39,7 @@ def _mapping_index(form_dir):
     """widget_id (base, no __pN) -> {keys:[..], confidence, label}."""
     mapping = json.loads((form_dir / "mapping.json").read_text(encoding="utf-8"))
     idx = {}
-    for key, spec in (mapping.get("fields") or {}).items():
+    for key, spec in mapping_entries(mapping).items():
         if not isinstance(spec, dict):
             continue
         wid = spec.get("widget_id")
