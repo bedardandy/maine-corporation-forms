@@ -11,7 +11,7 @@ added, reviewed, and shipped one at a time.
 
 ```
 blank SoS PDF ──► AcroForm field list ─┐
-                                       ├─► mapping.json  (canonical_key -> widget)
+                                       ├─► mapping.json  (field-id-keyed bindings)
 pass-1 field analysis ─────────────────┘   schema.json   (JSON Schema for fill data)
    (purpose, keys, types, rubric)          fields.csv    (flat inventory)
                                            rubric.yaml   (conditional rules)
