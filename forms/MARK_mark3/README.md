@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 5  
 **Fields:** 43  
-**Mapped fields:** 32  
+**Mapped fields:** 34  
 **Filer role:** owner of the mark (individual, or an officer/authorized signatory of the corporate/association/union/partnership owner) per 10 MRSA §1525-A
 
 ## Purpose
@@ -28,10 +28,9 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `mark.type_changed` maps to 2 widgets; all receive the same value.
+- `mark.type_changed` binds as a single enum_select selecting among 2 option widgets (accepted values: yes, no).
 - `amendment.manner_of_use` maps to 3 widgets; all receive the same value.
-- `filing.expedited_service` maps to 2 widgets; all receive the same value.
-- 1 low-confidence mapping(s) need human review: `mark.type_change_explanation`
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Reviewer corrected three classes of drafter errors: (a) drafter put applicant identity fields under the entity.* namespace (entity.name, entity.mailing_address, entity.type, entity.home_jurisdiction, entity.formation_date) — corrected to mark.applicant.* per the MARK-1 precedent (mark owners are not necessarily registered Maine entities, and 10 MRSA Title 10 marks are intentionally namespaced separately from 13-C/31 MRSA entity-formation forms); (b) drafter mapped the signer to filing.signer.printed_name_and_capacity — corrected to mark.signer.printed_name_and_capacity per MARK-1; (c) drafter omitted mark3Six (rect 165.8, 298.7, 296.7, 317.0) — added with provisional key mark.type_change_explanation and confidence='low' pending visual confirmation.
 - Open question: mark3Five and mark3Six are two text fields between TYPE OF MARK (mark3Four) and the yes/no checkbox pair. mark3Five (full-width) is interpreted as an 'original type, if changed' recital line; mark3Six (smaller, ~131x18pt) is interpreted as a sub-question/explanation prompt. Both interpretations are tentative — pass-1 leaves them as best-guess provisional keys; a pass-2 visual check or a single test fill will confirm whether they need different keys (e.g., mark3Five could be a free-form note line, and mark3Six could be unrelated to type-change).
 - Open question: amendment.manner_of_use is a 3-line widget primitive (Text13/14/15). MARK-1's analogous mark.usage_description is a 2-line primitive (line1/line2 sub-keys). The MARK-3 form gives 3 rows for the same concept; canonical key collapses all three into a single string with synth concatenating non-empty lines (consistent with MLPA-6's professional-services pattern), avoiding a per-line sub-key explosion.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 47  
-**Mapped fields:** 42  
+**Mapped fields:** 44  
 **Filer role:** all general partners listed in Item Fifth (certificate must be signed by all)
 
 ## Purpose
@@ -30,7 +30,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `entity.professional_services_description` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page 1 has 3 individual-signature lines and Page 2 has 3 entity-signature blocks. Is the intent that GPs are split between the two blocks based on whether they're individuals vs entities, or do all 6 slots stack additively when there are >3 GPs total?
 - Open question: Page 1 SEVENTH professional-services description is split across two text widgets (Text16, Text17) — fill logic should concatenate them, but confirm whether the form mirrors content automatically or treats them as independent lines.
 - Open question: Cover-letter widget for the Immediate expedite tier is named bare 'cover' (not 'cover5') — confirm this is intentional template naming and not a corruption.

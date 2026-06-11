@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 44  
-**Mapped fields:** 40  
+**Mapped fields:** 42  
 **Filer role:** authorized signatory of the foreign LLC (signs at bottom of page 2)
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The EIGHTH 'Exhibit ___' inline blank for additional managers does not appear to be extracted as an AcroForm widget — the field that fills that role may be missing. Confirm with pdftk dump_data_fields.
 - Open question: Text24 (y=250) is interpreted as the NINTH commencement-date blank, but it could alternatively be the EIGHTH Exhibit letter blank. The y-coordinate gap below the EIGHTH checkbox row suggests NINTH is correct, but this needs confirmation by filling the form and visually checking placement.
 - Resolved: the SIXTH commercial/noncommercial choice is two independently named checkboxes on page 1 (Check Box15 next to "Commercial Registered Agent", Check Box16 next to "Noncommercial Registered Agent", each with on-state Yes — verified by geometry+text). `registered_agent.type` binds them as an enum_select so exactly one box is ever marked; they are not cover-letter leftovers (the page-3 expedite boxes are 'exp24' and 'imm').

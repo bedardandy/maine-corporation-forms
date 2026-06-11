@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** at least one partner OR any duly authorized person of the LLP, signing under the page-1 footnote 'Certificate MUST be signed by (1) at least one partner OR (2) any duly authorized person.' Two parallel signature blocks: an individual block (Partner(s)*) and an entity block (For Partner(s) which are Entities) — exactly one is populated per filing.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form serves both domestic and foreign LLPs (FIRST captures jurisdiction, page-0 fee schedule lists $85 domestic / $150 foreign). entity.home_jurisdiction is the discriminator at fill time. No separate domestic/foreign opt-in flag needed.
 - Open question: THIRD provides 5 inline lines for the changes description plus instruction to 'attach additional pages, if necessary' for overflow. Attachments are physical-only (not bound to AcroForm widgets). Synth packs the description into lines 1..5 sequentially, leaving trailing lines empty.
 - Open question: Page-1 entity-signer block (12a13/12a14 in widgets, 'Name of Entity' and 'type or print name and capacity_2' field-ids) parallels MLLP-9 / MLLP-12A. Synth fills EITHER the individual block OR the entity block, not both; rubric flags double-fill as a likely error.

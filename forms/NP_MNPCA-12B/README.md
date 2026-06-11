@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** duly authorized individual of the foreign nonprofit corporation per 13-B MRSA §104.1.B (signs at top of page 1)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form has no widget for the signature line itself ('*By ___') — only Text7 for the printed name/capacity. Wet-ink overlay only; consistent with other Shape-D forms (MBCA-11 / MLLC-12 / CORP_MBCA-12B). Not a missing-widget bug.
 - Open question: THIRD and FOURTH paragraphs are declarative recitals (revoking RA authority and consenting that termination of authority becomes effective on filing) with no widgets — they are implicitly satisfied by the act of filing. No rubric check needed beyond the signature.
 - Open question: Unlike CORP_MBCA-12B, this form has no FOURTH conversion block (withdrawal.conversion.new_entity_type / governing_jurisdiction). 13-B MRSA §1208 does not provide for a withdrawal-upon-conversion path, so the conversion keys do not apply on the nonprofit surrender form.

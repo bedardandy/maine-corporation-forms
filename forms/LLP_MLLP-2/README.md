@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 23  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** a partner of the foreign LLP signing in their capacity as partner (per 31 MRSA §806-A and the page-1 footnote)
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `entity.principal_office.physical_address` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST checkboxes have empty AcroForm field-ids (both at y≈434–448, distinguishable only by x-rect). Filler must bind by index/rect — same template-bug class as MBCA-10's unnamed /Btn widgets.
 - Open question: Text3 and Text4 both bind to entity.principal_office.physical_address. Synth must split the address string across the two lines (or fill only Text3 if short). Rubric reads either widget.
 - Open question: Page-0 fee header reads 'Filing Fee $20.00 per month' for new applications — the registration takes effect through the end of the calendar year, so a registration filed in March pays $20×10 = $200, while one filed in November pays $20×2 = $40. The fee-by-application-type rubric check encodes this prorating roughly; precise validation requires the filing.date_signed month.

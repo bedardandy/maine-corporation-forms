@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 36  
-**Mapped fields:** 33  
+**Mapped fields:** 35  
 **Filer role:** any duly authorized officer of the corporation per 13-B MRSA §104.1.B (signs on page 1; up to two signature blocks); when adopted by member vote, the clerk/secretary or assistant secretary certifies custody of the minutes
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page 1 inset 'MUST BE COMPLETED FOR VOTE OF MEMBERS' clerk-certification box has a visible signature line for 'signature of clerk, secretary or asst. secretary' but NO AcroForm widget binds to it — only widgets 20 (DATED), 21 (signer_1), and 22 (signer_2) exist on page 1. This is a template-level upstream issue: when revocation.consent_class='members', the user must wet-ink-sign the clerk-cert line, which the filler engine cannot pre-populate. Same primitive family as sister NP_MNPCA-11's certification.clerk_signature_printed_name, but here unbound.
 - Open question: FIRST roster has 3 inline director rows; additional directors must go on the 'reverse side' (no AcroForm widget) — overflow handled out-of-band.
 - Open question: Cover-letter filing.entities[1].name has no obvious counterpart on this single-entity filing; same generic SOS cover-letter primitive as elsewhere — likely left blank.

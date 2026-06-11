@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 24  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** general partner of the foreign limited partnership (page-1 footer: 'Application MUST be signed by at least one general partner of the foreign limited partnership. (31 MRSA §1324.1.M)'). Single-signer Shape D — printed name and capacity combined in one widget.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page-0 SECOND has two address widgets (Text5 and Text6) for the principal office, with the '(street, city, state and zip code)' label below line 2. Reviewer split into entity.principal_office.physical_address.{street, city_state_zip} per MBCA-2 precedent (the corp analog of this LP form). Drafter initially mapped both to a single key — corrected.
 - Open question: FOURTH ('A brief statement of the nature of the limited partnership's business') is keyed to the unscoped entity.business_purpose, NOT entity.maine_business_purpose. The page-1 footer ('The filing of this application does not authorize a limited partnership to do business in Maine') confirms the question is about the entity's general business, not a Maine-specific purpose. Drafter initially mapped to entity.maine_business_purpose — corrected.
 - Open question: FIFTH (certificate of existence requirement) has no AcroForm widget — same upstream gap as MLLC-12 / MBCA-2. Tracking attachment-presence requires out-of-form metadata; rubric flags via filing.notes.

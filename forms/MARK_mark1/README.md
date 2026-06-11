@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 7  
 **Fields:** 41  
-**Mapped fields:** 33  
+**Mapped fields:** 35  
 **Filer role:** the applicant (individual) or an officer of the applicant entity per 10 MRSA §1522.2.D — the signatory must believe the applicant is the owner of the mark and have no knowledge of conflicting senior rights
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: MARK1 has 7 pages total per pypdf, but only pages 0, 1, 2 contain AcroForm widgets. Pages 3-6 are likely pre-filled instructions, fee schedule, MARK-5 class number reference, or mark-specimen attachment templates. Confirm by visual inspection — no canonical keys needed for non-fillable pages.
 - Open question: Form references 'three (3) samples of the mark and/or design with this application' (page 1 footer) — the mark specimen attachments are physical/scanned documents, not form fields. No canonical key needed; rubric just checks filing.notes mentions specimen submission.
 - Open question: Page 1 footer mentions 'Class D crime according to the Maine Criminal Code, 17-A MSEA §453, "Unsworn Falsification"' — informational only; signer affirms truthfulness implicitly.

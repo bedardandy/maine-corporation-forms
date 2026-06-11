@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 32  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** duly authorized officer of the nonprofit corporation, and (when adopted by member vote) the clerk/secretary certifying custody of the minutes
 
 ## Purpose

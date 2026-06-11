@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** an officer or other duly authorized representative of the foreign nonprofit corporation (signs the *By line at the bottom of page 0; widget captures '(type or print name and capacity)')
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page-0 header cites 'Pursuant to 13-C MRSA §942' but the page banner is FOREIGN NONPROFIT CORPORATION — 13-C is the Maine Business Corporation Act (for-profit), and nonprofit corporations are governed by 13-B MRSA. Same upstream template-text error pattern flagged on NP_MNPCA-19A: the template was likely forked from CORP_MBCA-19 without updating the statutory citation. Footer also cites '§942.1' for the signer requirement. Does not affect canonical-key mapping — flagged for upstream correction.
 - Open question: THIRD paragraph references attaching 'Articles of Incorporation (MBCA-6-1)' — but MBCA-6-1 is the BC articles form. For a nonprofit domestication, the attached articles would conventionally be MNPCA-6-1 (the nonprofit equivalent). Same template-text fork issue as the §942 citation. Synth/assemble layer should treat the bundled form as MNPCA-6-1 even though the template names MBCA-6-1; flagged for upstream correction.
 - Open question: filing.entities[1].name on the cover letter is likely populated with the bundled MNPCA-6-1 articles exhibit's entity for SOS routing. Cross-form bundling is also seen on NP_MNPCA-12 / CORP_MBCA-19 / CORP_MBCA-21 — a canonical filing.bundled_forms[] family is not yet defined.

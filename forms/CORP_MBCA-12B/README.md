@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 23  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** duly authorized officer of the foreign corporation per 13-C MRSA §121.5 (signs at bottom of page 0)
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `withdrawal.conversion.new_entity_type` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH wraps onto two lines: 12b4 is the inline trailing blank for 'converted is ____' on line 1; 12b5 is a narrow (~63pt) leading blank on line 2 that receives any overflow of the new-entity-type value; 12b6 is the wider trailing blank on line 2 for 'internal affairs is ____' (governing jurisdiction). Drafter originally collapsed 12b6/12b7 into withdrawal.service_of_process_mailing_address — fixed in this review. 12b7 is the standalone full-width FIFTH address line.
 - Open question: FOURTH has no opt-in checkbox — the filer fills both blanks (or leaves both empty) based on whether the withdrawal is upon conversion. Rubric enforces all-or-nothing rather than requiring an explicit boolean.
 - Open question: The (signature of duly authorized officer) line above 12b9 is wet-ink only and has no AcroForm widget — consistent with other Shape-D forms. Only the printed-name-and-capacity widget (12b9) is bound.

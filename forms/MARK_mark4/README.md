@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 5  
 **Fields:** 46  
-**Mapped fields:** 31  
+**Mapped fields:** 35  
 **Filer role:** the assignor (current registrant) signs in section 3-4; the assignee dates the receipt in section 3 of part E. Each may be an individual or any of seven entity types (individual / general partnership / limited partnership / corporation / association / union / other).
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `mark.assignor.name_and_address` maps to 2 widgets; all receive the same value.
-- `mark.assignor.printed_name_and_capacity` maps to 2 widgets; all receive the same value.
+- `mark.assignor.printed_name_and_capacity` maps to a single text widget (`mark4Nineteen`).
 - `mark.assignee.name_and_address` maps to 2 widgets; all receive the same value.
 - Open question: mark4Twenty (rect 109.2-574.2 × 524.5-541.2 on page 1) is mapped as mark.assignment.date_of_transfer, but its width (465pt) is unusually large for a date widget. Visual inspection suggests the form text reads 'transferred on (date) ___, the entire right...' — a date interpretation. However, a '("Myself", Firm, or Corporate Name)' caption appears in the same area, hinting the widget might instead be an assignor-entity-name recital. Synth should fill with a date string and visual review at first rollout will resolve.
 - Open question: Form has 6 unnamed AcroForm widgets: 3 page-1 assignee entity-type checkboxes ('individual' at y≈283.8, 'union' at y≈308.9, 'other' at y≈284.3) and 3 page-2 cover-letter expedite checkboxes (at y≈630.9 / 607.2 / 585.8). All bound by rect — filler engine must support rect-based binding for this template (same upstream issue as MARK_mark2, MBCA-10, MNPCA-10 noted in schema-gaps/2026-04-30-phase2-summary.md).

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 48  
-**Mapped fields:** 44  
+**Mapped fields:** 46  
 **Filer role:** for each preexisting constituent LP — all general partners listed in the Certificate of Limited Partnership; for each other preexisting constituent — an authorized representative (per page-2 footnote)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST recital widgets (Text1–4) are single underlined blanks despite the form's 3-column header (Name | Form of organization | Jurisdiction). Synth must produce a combined recital string per row; rubric must accept either pipe-separated or whitespace-separated formats. Same pattern as CORP_MBCA-10 (which has a 4-column header).
 - Open question: THIRD (Check Box20) and FIFTH option 1 (Check Box21) both declare 'survivor created by the merger'. They appear to be parallel statements and should always agree. Rubric `third-fifth-consistency` enforces this — synth should populate them in lock-step.
 - Open question: Page 2 footnote: 'Copy this page, and modify participant number, if more signature spaces are needed' — the form supports >4 parties via copied-page overflow. The schema's `merger.parties[N]` array is open-ended; the form's 4 inline slots are a UI convenience, not a hard cap.

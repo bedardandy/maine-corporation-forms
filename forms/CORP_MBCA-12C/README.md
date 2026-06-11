@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 24  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** officer or other duly authorized representative of the foreign corporation per §1524.1
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH recital ('All the statements required... are attached. For a Foreign Nonprofit Corporation, attach form MNPCA-12...') has no widget — it's a fixed text block. The bundled form is implicit from transfer.new_entity_type. No `transfer.attached_authority_form_type` key needed since it would be redundant with the existing enum; rubric should infer the expected attached form from new_entity_type.
 - Open question: Page-0 widgets have unusual field names — some bear the label text verbatim ('The current jurisdiction of its incorporation is', 'DATED', 'type or print name and capacity'), others use 'undefined_N' fallback. Likely a quirk of the upstream PDF authoring tool. Filler must accept these literal names; no normalization needed at this layer.
 - Open question: Page 0 has no entity-signer block (only one signer line, with capacity expected to identify whether signer is 'as authorized representative of [entity]'). This matches MBCA-2A and other corporate forms; only LLP/LP forms separate the entity-signer block.

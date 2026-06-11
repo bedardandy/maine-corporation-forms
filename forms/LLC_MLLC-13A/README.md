@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** person authorized by the LLC per 31 MRSA §1676.1B (page-1 footnote: 'this amended annual report MUST be signed by a person authorized by the limited liability company'). Form provides two parallel signer slots for cases where the LLC's operating agreement requires dual authorization; only one is statutorily mandated.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Drafter initially proposed entity.jurisdiction_of_organization, amendment.changes_description_N (with underscore), and amendment.effective_date_of_change; corrected during review to entity.home_jurisdiction, amendment.changes_description.lineN (dotted), and amendment.effective_date per existing CORP_MBCA-13A / LP_MLPA-13A precedent.
 - Open question: MLLC-13A has 6 inline change-description lines vs. CORP_MBCA-13A's 4 and LP_MLPA-13A's 8 — line counts differ but the canonical-key family (amendment.changes_description.lineN) is shared. Synth concatenates a longer description across however many lines the form provides.
 - Open question: The page-1 'By ___ (signature)' line itself has no AcroForm widget — only the 'type or print name and capacity' text widgets bind. Two parallel signer slots (filing.signer_1 and filing.signer_2) — the second is optional per §1676.1B.

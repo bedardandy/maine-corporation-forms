@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 36  
-**Mapped fields:** 31  
+**Mapped fields:** 33  
 **Filer role:** duly authorized individual of the foreign nonprofit per 13-B MRSA §104.1.B (signs in EIGHTH-block area on page 1)
 
 ## Purpose
@@ -28,9 +28,9 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `entity.maine_activities_scope` maps to 2 widgets; all receive the same value.
+- `entity.maine_activities_scope` binds as a single enum_select selecting among 2 option widgets (accepted values: all, specific).
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: This form does NOT include an officer roster (despite 2026-04-30-officer-roster-pattern.md anticipating one for MNPCA-12). Page 1 contains only SIXTH (registered agent), SEVENTH (5 MRSA §1105.2 RA-consent recital), and EIGHTH (certificate-of-existence recital + signature block) — there are no name/address widgets for current officers/directors. The roster pattern's anticipated key family (officer_N.*) does not apply here; foreign-nonprofit qualification under 13-B MRSA §1202 is structurally simpler than its corporate counterpart (CORP_MBCA-12), which DOES include a 3-row officer roster with overflow.
 - Open question: SEVENTH paragraph is a declarative recital that the listed registered agent has consented to serve under 5 MRSA §1105.2 — no widget. Implicitly satisfied by the act of filing. (Note: the form cites '5 MRSA §1105.2' but the MRSA §1105 series governs CRAs / public process under Title 5; this is the correct cite for the registered agent's statutory consent.)
 - Open question: Text11 (commercial-RA name) and Text12 (noncommercial-RA name) are physically distinct widgets but share the same canonical key registered_agent.name — only one is populated per filing based on registered_agent.type. The PDF logic does not mirror them automatically; synth must select the correct row by type.

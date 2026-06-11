@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 5  
 **Fields:** 42  
-**Mapped fields:** 34  
+**Mapped fields:** 36  
 **Filer role:** the registrant (individual) or an officer of the registrant entity per 10 MRSA §1524 — must be eligible to sign a renewal application on behalf of the mark owner
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `mark.type_amended` maps to 2 widgets; all receive the same value.
+- `mark.type_amended` binds as a single enum_select selecting among 2 option widgets (accepted values: True, true, yes, False, false, no).
 - Open question: Form has 4 unnamed AcroForm widgets: page-1 'corporation' and 'association' entity-type checkboxes, and page-2 cover-letter '24h' and 'immediate' expedite checkboxes. All bound by rect — filler engine must support rect-based binding for this template (same upstream issue as MBCA-10 and MNPCA-10 noted in schema-gaps/2026-04-30-phase2-summary.md).
 - Open question: Form has only one inline class-change row but instructs 'Complete for each class affected' — multi-class renewals must use mark.additional_pages_attached + an attachment listing further mark.class_changes[N] entries.
 - Open question: TYPE-OF-MARK amendment is permitted on renewal; TEXT and FEATURES amendments are NOT (per the page-0 'B' header). Synth and rubric should respect that text_words/design_features are recitals of the original registration on this form, not editable values.

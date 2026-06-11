@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 52  
-**Mapped fields:** 49  
+**Mapped fields:** 46  
 **Filer role:** incorporator(s) — natural persons. Per page-1 footnote ('Pursuant to 13 MRSA §901, at least 3 incorporators are required'), the form requires ≥3 incorporator signatures.
 
 ## Purpose
@@ -28,8 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
-- 1 low-confidence mapping(s) need human review: `incorporator_7.address.street`
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: WIDGET-COUNT MISMATCH ON PAGE 1 INCORPORATOR BLOCK: widget data shows 20 widgets in 10 evenly-spaced rows (y=445, 411, 377, 343, 311, 275, 243, 209, 175, 141), each row having both a left-column and right-column widget. The visual form layout shows 6 incorporator slots × 2 lines each (signature wet-ink + print name on left; Street + city/state/zip on right) = 12 rows × ~3 widgets per incorporator = 18 widgets, plus Dated = 19 widgets. The drafter's interpretation maps Text19 (Dated) plus 6 incorporators (Text20-Text37 as 6 × 3 widgets) plus Text38 as a possible 7th-slot Street. Pass-2 visual-fill testing needed to confirm the row pairing — synth should populate 6 incorporators and verify which fields render where. The medium-confidence rationales on Text20-Text38 reflect this open question.
 - Open question: Form pre-dates the registered-agent regime (13 MRSA §903 vs the modern 13-B MRSA §403). Synth and rubric for this form should NOT populate registered_agent.* keys; the location/agency function is satisfied by entity.location.* and entity.contact_person.*.
 - Open question: The 'MNP-' prefix coexists with the modern 'MNPCA-' prefix in the SOS template lineage (MNP-3, MNP-6, MNP-9 all under the older 13 MRSA; MNPCA-6, MNPCA-10, MNPCA-12 under modern 13-B MRSA). Document the dual-prefix lineage in synth so that filers picking 'nonprofit formation' get the right modern form (MNPCA-6) by default unless they specifically need the legacy MNP-6 version.

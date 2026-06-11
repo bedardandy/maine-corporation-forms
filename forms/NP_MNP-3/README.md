@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 22  
+**Mapped fields:** 24  
 **Filer role:** varies by FIRST selection per page-1 footnote: '*This change MUST be signed as follows: (1) if Item First, A or D was selected, then by the contact person OR (2) if Item First, B or C was selected, then by the secretary or clerk'
 
 ## Purpose
@@ -28,8 +28,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `contact_change.action_type` maps to 4 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `contact_change.action_type` binds as a single enum_select selecting among 4 option widgets (accepted values: change_of_address, change_of_contact_person_and_address, change_of_contact_person, change_in_name_of_current_contact_person).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST instructs the filer to 'X all boxes that apply' but the page-1 footnote and the THIRD instructions both treat the choice as mutually exclusive. Confirm whether the form's PDF logic enforces single-selection or whether the filer literally checks multiple boxes (e.g., A+C for both an address change and a person change, even though option B already covers both). Reviewer modeled as a flat 4-way enum following the THIRD instruction structure.
 - Open question: Reviewer corrected drafter's contact_person.current.* / contact_person.new.* nested namespace to a flat contact_change.{current_name, current_address, new_name, new_physical_address, new_mailing_address} pattern that mirrors CORP_CLKRA-3's clerk_change.* convention. This keeps the change-type-prefixed-flat-key convention consistent across analogous SOS change forms.
 - Open question: Page-1 signer footnote prescribes a specific title constraint by action_type. The signer-title-matches-action-type rubric check encodes this — but the form does not have separate widgets for 'Contact Person' vs 'Secretary or Clerk', so synth must populate filing.signer.title with a string that matches the prescribed role.

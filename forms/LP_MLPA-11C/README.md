@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 23  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** all general partners (individuals and/or authorized representatives of entity general partners) — § 1323 requires signature by all GPs
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The form has 3 inline rows for individual GPs (Text5–7) but only 1 entity-GP block (Text8–9). LP_MLPA-6 (formation) gave 3+3. Termination filings with >1 entity-GP presumably use Text3's 'additional information' exhibit, but the form has no explicit overflow checkbox — confirm whether multiple entity GPs are expected to attach a separate exhibit or stacked-signature page.
 - Open question: Text3 (additional-info exhibit letter) has no opt-in checkbox; it's a bare blank. Synth should leave it empty when no exhibit is attached (omitted is the default state).
 - Open question: Cover-letter immediate-tier widget is the bare name 'cover' rather than 'cover5' — same upstream naming quirk seen on LP_MLPA-6; preserved verbatim.

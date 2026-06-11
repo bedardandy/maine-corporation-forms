@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 25  
-**Mapped fields:** 23  
+**Mapped fields:** 25  
 **Filer role:** at least one general partner of the LP per 31 MRSA §1324.1.J (individual GP signs on the upper block; alternative entity-GP signs via the lower 'For General Partner(s) which are Entities' block)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: THIRD ('Said record contained false or erroneous information or was defectively signed.') and SIXTH (retroactive-effect recital) are fixed statutory recitals with no widgets — they don't require filer input.
 - Open question: SEVENTH is the foreign-LP-only block. Synth/rubric should branch on whether the form is being filed by a foreign LP; for domestic LPs both Text6 and Text7 should be left blank.
 - Open question: Text11 column header reads '(type or print name)' rather than '(type or print name and capacity)' as on MLPA-12A/12B — but the field still serves as the entity-GP authorized-signer slot per the per-officer-signer convention. Treat as a minor template-label inconsistency, not a different canonical primitive.

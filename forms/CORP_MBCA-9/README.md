@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 25  
-**Mapped fields:** 23  
+**Mapped fields:** 25  
 **Filer role:** duly authorized officer of the corporation (signs at bottom)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The page-null 'duly' and 'bc' checkboxes are inferred to back the FIRST and SECOND radio groups, but pdftk dump_data_fields would confirm whether each is a single radio or a checkbox set with shared name.
 - Open question: FIRST has a 3-option radio (incorporators / directors / shareholders) but only one logical 'duly' field; how does the PDF encode the 3 mutually-exclusive options? May need export-value lookup.

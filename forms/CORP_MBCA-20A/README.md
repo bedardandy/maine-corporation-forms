@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** officer or other duly authorized representative of the domestic business corporation (per the page-0 footnote and 13-C MRSA §934.1)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIFTH (chapter-13 appraisal-rights payment recital) has no widget — it is a representation by the corporation, not a captured field. No rubric check beyond signature.
 - Open question: SECOND (shareholder-approval recital) has no widget and no opt-in checkbox — implicit by virtue of the corporation filing. Same convention as MBCA-20 / MBCA-21.
 - Open question: Form has no widget for the actual signature line — only the typed-name-and-capacity widget. Wet-ink only (same convention as MBCA-13A and other Shape-D forms).

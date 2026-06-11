@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 32  
-**Mapped fields:** 29  
+**Mapped fields:** 31  
 **Filer role:** an authorized person of the LLC (page-1 footnote text accompanies the two '(type or print name and capacity)' signature widgets — the form's body does not constrain the role beyond 'authorized person', mirroring the MLLC-5A authorized-person pattern)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The two SECOND-recital checkboxes (Check Box3 amendment, Check Box9 cancellation) are mapped to a single filing.action_type enum — same convention as the GP_CONV-PARTNER 4-way new-entity-type radio. Synth fills exactly one; filler engine writes the other as unchecked.
 - Open question: The form's amendment-block (Check Box3 + person affected + 4 description lines) and cancellation-block (Check Box9 + affected + 4 description lines) are physically separate inline widgets — synth must populate exactly one block based on filing.action_type and leave the other empty (rubric enforces XOR via amendment-block-required-when-amendment / cancellation-block-required-when-cancellation).
 - Open question: Two inline signer slots (name and capacity1, name and capacity2) match the MLLC-5A pattern. Form footnote text is not extracted — assume same '*Statement MUST be signed by a person authorized by the LLC' constraint as MLLC-5A.

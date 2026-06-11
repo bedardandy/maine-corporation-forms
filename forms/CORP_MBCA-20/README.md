@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** an officer or other duly authorized representative per 13-C MRSA §933.1 (signs at bottom of page 0); shareholder approval is implicitly required by virtue of the corporation filing the articles
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form references attached Form MNPCA-6-1 (Articles of Incorporation for the resulting nonprofit). filing.entities[1].name on the cover letter is likely populated with the bundled-form's entity name for SOS routing. Cross-form bundling is also seen on MBCA-21 (MLLC-6 / MLPA-6 bundling), MLLC-12 (FICT-4 bundling), and GP_CONV-PARTNER (MLPA-6-1/MLLC-6/MBCA-6-1 bundling) — a canonical filing.bundled_forms[] family is not yet defined.
 - Open question: SECOND paragraph (shareholder-approval recital) has no widget and no opt-in checkbox — unlike MBCA-10 which provides explicit shareholder-approval options. MBCA-20 implicitly assumes shareholder approval by virtue of the corporation filing the articles. No rubric check needed beyond the form-level signature.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 33  
-**Mapped fields:** 28  
+**Mapped fields:** 30  
 **Filer role:** an officer or other authorized signer per the entity-type-specific footnotes; for nonprofits, an officer or director per 13-B MRSA
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: This is the same form template as CORP_CLKRA-3 (and presumably LLC_CLKRA-3, LP_CLKRA-3 etc.) — the SOS publishes one PDF used across categories with conditional sections (SIXTH: BC-only, SEVENTH: foreign-only, EIGHTH: LP/LLP-only). The NP_ form_id namespaces by the entity category that consumes it; the canonical-key shape is identical to CORP_CLKRA-3 by design.
 - Open question: For nonprofits specifically, the form has no nonprofit-only authorization recital (unlike SIXTH for BCs). Authorization is implicit in the filer being an officer/director per 13-B MRSA.
 - Open question: filing.signer.title for a nonprofit filing should be a nonprofit-officer title (President, Vice President, Director, Clerk, Treasurer) — not 'Manager' (LLC) or 'General Partner' (LP). Synth and rubric should branch on the entity-type input.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** the noncommercial registered agent who is resigning (signs the lower half of page 0 over the '(signature of noncommercial registered agent)' caption)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Drafter initially proposed resigning_agent.* and resignation_notice_recipient.* namespaces; corrected during review to reuse the existing registered_agent.* and resignation_notice.* keys per the NCRA family precedent (CORP_MBCA-3A-NCRA, CORP_MBCA-12E-NCRA, LLC_MLLC-3A-NCRA). The 5 MRSA §111 statute applies uniformly to corporate-clerk and registered-agent resignations across entity types.
 - Open question: Page 0 has no explicit signature-image widget separate from Text8. Text8 sits below the '(signature of noncommercial registered agent)' caption with its own '(type or print name)' caption, suggesting it captures only the typed/printed name; the actual signature is presumably handwritten or applied as an image after print, not via an AcroForm field. Same convention as the rest of the NCRA family.
 - Open question: The 'NCRA' suffix on the form_id is shared across the noncommercial-clerk/RA-resignation family. LP_MLPA-3A-NCRA differs from the BC variant only in (a) entity-type heading and (b) notice-recipient-title caption ('(title of person notified)' instead of '(title of corporate officer)'), permitting 'General Partner' as the typical recipient title.

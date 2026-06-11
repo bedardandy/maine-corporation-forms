@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 32  
-**Mapped fields:** 28  
+**Mapped fields:** 30  
 **Filer role:** authorized person(s) of the LLC per 31 MRSA §1676.1 — at least one signature required, two inline slots provided
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIFTH section header reads 'Complete only if there is a change to the registered agent information' — there is NO opt-in checkbox indicating an agent change. Synth/rubric infers presence from the populated keys. A future cleanup might add an `entity.registered_agent_change` boolean alongside, but no widget exists today.
 - Open question: Two name slots Text10 (commercial path) and Text11 (noncommercial path) both bind to registered_agent.name with the convention that exactly one is filled based on registered_agent.type. Identical pattern to LP_MLPA-12-1 Text12/Text13.
 - Open question: Text6 / Text7 both belong to entity.professional_services_description; split into .line1/.line2 to mirror the multi-line shape primitive (same as LP_MLPA-12-1 and amendment.changes_description.lineN on MLPA-13A).

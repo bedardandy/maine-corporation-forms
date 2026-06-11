@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 23  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** at least one partner OR any duly authorized person (per page-1 footnote)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: SECOND captures 'name and or business, residence or mailing address of contact partner' as two widgets (Name 93 / Address 94) but the address is a single combined widget — no street/city split. This is consistent with the contact_partner.address being a free-form combined string.
 - Open question: FIRST instructs the filer to write 'no change' literally if the name is not being amended; the schema treats this as a special-cased string sentinel for the rubric. Synth must emit either 'no change' or a valid suffix-bearing name.
 - Open question: MLLP-9 introduces filing.signer_entity.* as a non-formation parallel to the per-officer entity-signer pattern (Shape E). Documenting in a schema-gap doc would be useful once a third example arrives.

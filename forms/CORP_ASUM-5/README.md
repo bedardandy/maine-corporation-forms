@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 24  
-**Mapped fields:** 21  
+**Mapped fields:** 24  
 **Filer role:** an authorized officer/clerk/partner/manager/member of the entity per the entity-type-specific signature footnotes (BC §1121, NP §1121, LLC §1531, LP §108.3, LLP §1024). When the signing partner is itself an entity (LP/LLP only), the entity name goes in the LIMITED PARTNERSHIPS section; the natural person who signs on behalf of that entity uses the (type or print name) field above.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page 0 has a '*By _________' line above the (type or print name) widget that is the actual signature line on the form. No corresponding AcroForm widget exists for it (template gap). Synth fills printed_name + title only; the handwritten signature is applied post-print.
 - Open question: Two unnamed widgets exist (field_id ''): the Exhibit-letter inline blank on page 0 (rect [308.0, 396.1, 333.1, 417.8]) and the second cover-letter entity row on page 1 (rect [36.5, 675.1, 472.9, 697.6]). Fill engine matches these by rect/widget index. If the engine requires unique field_ids, upstream PDFs need patching.
 - Open question: Form serves all entity types (BC, NP, LLC, LP, LLP, foreign variants) — entity_type is not captured on the form itself. Fee validation and signer-title constraints depend on entity_type, which must be supplied externally (e.g., via the filing's metadata).

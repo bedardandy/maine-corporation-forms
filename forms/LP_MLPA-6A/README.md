@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 48  
-**Mapped fields:** 40  
+**Mapped fields:** 42  
 **Filer role:** all general partners listed in Item Sixth (certificate must be signed by all GPs); entity GPs sign through an authorized representative on page 2
 
 ## Purpose
@@ -30,7 +30,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
 - `entity.professional_services_description` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Three signature widgets on page 1 — Text22 (rect [35.5,173.3,288.6,193.9]), Text25 ([35.5,139.7,288.6,160.3]), Text27 ([36.5,107.1,289.5,127.7]) — are intentionally omitted from field_mappings: they are the left-column '(signature)' lines for GP rows 1-3, which are wet-ink-only per the MLPA-6 sibling convention. Synth fixtures should leave them blank; the filler does not populate signature widgets.
 - Open question: Template gap on page 1: the inline 'Exhibit ___' letter blank next to Check Box18 ('Names and addresses of additional general partners are attached as Exhibit ___') is visible on the page but missing from the AcroForm. Filer must write the exhibit letter by hand. Recommend upstream fix.
 - Open question: Template gap on page 1: the NINTH paragraph contains an inline 'Exhibit ___' blank ('Other provisions...are set forth in the attached Exhibit ___') that is also missing from the AcroForm. Text30 (the only candidate small-width blank in this page region) is the 'Dated ___' line, not the NINTH exhibit blank. Recommend upstream fix.

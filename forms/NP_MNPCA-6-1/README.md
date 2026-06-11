@@ -28,9 +28,9 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.accompanying_document_type` maps to 3 widgets; all receive the same value.
+- `filing.accompanying_document_type` binds as a single enum_select selecting among 3 option widgets (accepted values: articles_of_nonprofit_conversion, statement_of_conversion, restated_articles_of_incorporation).
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `entity.has_members` maps to 2 widgets; all receive the same value.
+- `entity.has_members` binds as a single enum_select selecting among 2 option widgets (accepted values: True, true, yes, False, false, no).
 - Open question: This attachment-form variant lacks both the incorporator signature block (page 1 of MNPCA-6) AND the cover-letter block (page 3 of MNPCA-6). Both are presumed to live on the accompanying primary form (Conversion / Restatement). When synth/rubric runs against MNPCA-6-1, those keys should NOT be required here.
 - Open question: MNPCA-6 uses parallel widget mechanisms for SEVENTH/EIGHTH (X-mark text widgets PLUS AcroForm checkboxes). MNPCA-6-1 uses ONLY AcroForm checkboxes (Check Box16, Check Box17) — cleaner. Should fill engine prefer this template's checkbox-only design for future template revisions of MNPCA-6?
 - Open question: FIFTH layout: Text27 is on the right side of the min/max line (y=703) and Text28 is on the left side of the next visual row (y=682). This mirrors NP_MNPCA-6's Text14 (right) / Text15 (left) where min sits on the right of the wrapped sentence and max wraps to the left — confirmed via rect comparison with NP_MNPCA-6.

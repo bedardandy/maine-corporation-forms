@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 18  
-**Mapped fields:** 16  
+**Mapped fields:** 18  
 **Filer role:** any duly authorized officer of the corporation OR the clerk (per 13-C MRSA §121.5 footnote on page 0)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Cover-letter widget naming on this 2003-revision template: 'Check Box1/2/3' (instead of 14/15/16) and 'Name of entitys on the submitted filings 1' (instead of 'Name of entity'). Filler should accept either field-id family. Same upstream-naming-inconsistency note applies as for NP_MNPCA-10 and NP_MNPCA-10A.
 - Open question: The original-registration form CORP_MBCA-5 is uninspected in this batch; its mapping for the assumed/fictitious-name widget should use the same canonical key (entity.assumed_or_fictitious_name) so that termination and registration share the concept. Verify when MBCA-5 is reviewed.
 - Open question: The signature line on the form ('signature of any duly authorized person') has no separate AcroForm widget — only Text 5aFour ('type or print name and capacity') is bound. Signature is collected as wet-ink/image overlay (consistent with sibling forms).

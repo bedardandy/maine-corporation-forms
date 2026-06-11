@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 30  
-**Mapped fields:** 28  
+**Mapped fields:** 30  
 **Filer role:** at least one general partner of the LP per 31 MRSA §1324.1.J (individual or authorized representative of an entity GP, signs on page 1)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Field IDs are mostly the literal label text (e.g., 'Name of Limited Partnership', 'Dated', 'type or print name') rather than 'TextN'. The two unlabeled date widgets and the jurisdiction widget got auto-named 'undefined_2', 'undefined_3', 'undefined_4' — preserved verbatim.
 - Open question: No filing-fee callout is visible in the page-0 header on this form (unlike most SOS forms which carry a 'Filing Fee $XX' box). The cover-letter still asks for total fees enclosed; rubric does not currently enforce a specific base fee for this form.
 - Open question: Page 1 has only one inline individual-signer slot — matches the §1324.1.J one-signer requirement and parallels MLPA-12A/12B/17.

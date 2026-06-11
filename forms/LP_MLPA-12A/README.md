@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 62  
-**Mapped fields:** 60  
+**Mapped fields:** 62  
 **Filer role:** at least one general partner of the foreign LP (individual or authorized representative of an entity GP) — §1324.1.M only requires one signer (cf. §1321 formation requirement of all GPs)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Two-tier fee structure ($90 full / $35 partial) is determined by which sections are populated — there's no explicit checkbox. Confirm SOS practice: presumably $35 applies when only Items SIXTH–NINTH are populated and $90 when any of SECOND–FIFTH (or any combination) is populated.
 - Open question: Page 0 widget naming skips Text8–13 (jumps Text7→Text14) and page 2 skips Text54. These are template artifacts, not missing widgets — preserved verbatim.
 - Open question: Page 2 has only one inline individual-signer slot (vs. 3 on LP_MLPA-6 formation). §1324.1.M requires only one GP signature, so this is intentional.

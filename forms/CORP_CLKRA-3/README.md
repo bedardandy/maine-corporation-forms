@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 33  
-**Mapped fields:** 28  
+**Mapped fields:** 30  
 **Filer role:** an officer or other authorized signer per the entity-type-specific footnotes; for domestic business corps, an officer or director; for nonprofits, an officer or director; for LPs/LLPs, a general partner or duly authorized partner
 
 ## Purpose
@@ -28,9 +28,9 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `clerk_change.action_type` maps to 2 widgets; all receive the same value.
-- `clerk_change.bc_authorization` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `clerk_change.action_type` binds as a single enum_select selecting among 2 option widgets (accepted values: new_appointment, modify_existing).
+- `clerk_change.bc_authorization` binds as a single enum_select selecting among 2 option widgets (accepted values: board_of_directors, shareholders).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: This form serves multiple entity types (BC, NP, LLC, LP, LLP, foreign variants). Should fill logic require an explicit entity_type input, or infer from which fields are populated (BC fields, foreign fields, LP fields)?
 - Open question: Should clerk_change.action_type and clerk_change.modify_subtype be modeled as a single hierarchical enum ('new' | 'modify.address' | 'modify.name') rather than two separate fields?
 - Open question: The 'cover' (vs 'cover5') widget naming pattern repeats from MLPA-6 — confirm with SOS that this is intentional naming convention for the Immediate-expedite tier widget.

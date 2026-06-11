@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 19  
-**Mapped fields:** 17  
+**Mapped fields:** 19  
 **Filer role:** applicant (any person reserving a name on behalf of an intended business corporation)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Is the 'signature of applicant' a separate signature widget that pypdf didn't extract, or is it expected to be filled outside the AcroForm (wet-ink/image overlay)?
 - Open question: On a name-reservation filing, the cover-letter 'annual report reminders email' field is meaningless (no entity is created). Should we still encourage filling it, or leave it blank? Possibly clarify with SOS.

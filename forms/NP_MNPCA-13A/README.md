@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** duly authorized officer of the nonprofit per 13-B MRSA §104.1.B (signs at the top of page 1)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The signature line itself (under '*By ___ (authorized signature)') has no AcroForm widget — wet-ink only. Same Shape-D convention as MBCA-11 / MLLC-12 / MBCA-12; the printed-name-and-capacity widget is the bound field.
 - Open question: If officer or director information is being changed (per the page-0 instructions), the amendment must include name, title, and complete physical address — but the form provides only 7 free-text lines for this. There is no structured officer_N.* roster on this form; the synth builder must inline that data into amendment.changes_description.line{1..7} as prose, and the rubric cannot validate it structurally.

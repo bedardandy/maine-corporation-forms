@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** any duly authorized officer OR the clerk (per 13-C MRSA §121.5)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH has only one checkbox ('approved by shareholders') — for corporations that haven't issued shares, dissolution is authorized differently (by incorporators or directors). Does the form rely on leaving the checkbox unchecked in that case, or is there a missing path?
 - Open question: Is the 'signature of any duly authorized officer' a separate signature widget that pypdf didn't extract, or expected to be added as an image/wet-ink overlay?

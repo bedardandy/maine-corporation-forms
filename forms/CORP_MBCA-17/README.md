@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 23  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** any duly authorized officer OR the clerk of the corporation (per 13-C MRSA §121.5; the page-2 footnote restates this requirement)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The (signature of any duly authorized person) line on page 1 is wet-ink only — no AcroForm widget. Synth fills should populate filing.signer.printed_name_and_capacity but cannot fill the signature line itself.
 - Open question: SIXTH paragraph (retroactive-effect recital) has no widgets — it is a fixed statutory recital and doesn't require filer input. Same shape as LLC_MLLC-17's FIFTH retroactive-effect recital.
 - Open question: THIRD paragraph also has no widgets — it is a fixed recital that lists the eligible types of defects (inaccurate record, defective execution, attestation, sealing, verification, acknowledgement, or electronic transmission). The selection of which defect applies is captured implicitly in correction.error_description rather than as a structured enum.

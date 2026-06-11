@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** the dissociating general partner (individual GP signs in own name; entity GP signs through an authorized representative)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The form has no explicit checkbox to elect the individual-vs-entity signature path. Pass-1 leaves selection implicit (whichever signer block is populated). Synth must populate exactly one path; rubric should treat populating both as an error.
 - Open question: Item 31 MRSA §1375.1.D is the substantive ground for filing; §1324.1.G governs WHO must sign. No form fields capture additional notice to other partners or creditors — that is an off-form statutory obligation, not a schema concern.

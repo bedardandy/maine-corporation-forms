@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 31  
-**Mapped fields:** 29  
+**Mapped fields:** 31  
 **Filer role:** per the * footnote on page 1: (1) if partners are winding up the LLP's affairs — by the contact partner OR a majority in interest of the partners; OR (2) if partners are not winding up — by all liquidating trustees; OR (3) any duly authorized person. The form provides three parallel individual-signer slots and three parallel entity-signer slots; the appropriate slot count depends on which authority tier applies.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Field IDs use the form-id-prefixed scheme '11r1'…'11r17' rather than 'TextN' — preserved verbatim. This is unusual for SOS forms (most use TextN); MLLP-11R is the first observed instance.
 - Open question: Three individual-signer slots and three entity-signer slots are parallel — the rubric treats them as additive (any signer block, individual or entity, can satisfy §825). Whether the SOS rejects mixed individual+entity signing in practice is unverified.
 - Open question: renunciation.* is a new namespace (renunciation of LLP status). Sibling forms in the broader inventory (MLLP-9 dissolution, similar partnership-status-change forms) may or may not reuse renunciation.* — revisit when those are inspected.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** duly authorized officer of the foreign corporation per 13-C MRSA §121.5 (page-1 footnote: '*This document MUST be signed by any duly authorized officer'). Single-signer Shape A — split widgets for printed name and title.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Drafter collapsed the on-record recitals (Text1 'Name of Corporation' top-of-form, Text2 'jurisdiction currently appearing on the record') and the new/effective values (Text4 THIRD new name, Text8 FIFTH new jurisdiction) into single keys (entity.home_jurisdiction_name, entity.home_jurisdiction). On amendment forms these are genuinely two distinct values — reviewer split them with new schema-gap keys entity.home_jurisdiction_name_on_record and entity.home_jurisdiction_on_record. Synth fills the on-record keys with current data and the canonical keys with post-amendment data.
 - Open question: Drafter swapped page-1 widget assignments: claimed Text9=DATED, Text10=printed_name, Text11=title. By widget rect, Text11 (left, y=748–768) is DATED, Text9 (right, y=716–736) is the printed-name line, and Text10 (right, y=684–703) is the title line. Reviewer corrected.
 - Open question: Form is a single-form amendment-of-authority — Shape A (split printed_name + title) per page-1 layout, distinct from the parent CORP_MBCA-12 which uses Shape D (combined printed_name_and_capacity). The two captions on MBCA-12A page 1 — '(type or print name)' and '(title of signer)' — confirm Shape A; same convention as CORP_FICT-4 and CORP_CLKRA-3.

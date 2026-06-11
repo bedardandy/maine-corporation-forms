@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 24  
-**Mapped fields:** 22  
+**Mapped fields:** 24  
 **Filer role:** duly authorized officer or the clerk of the corporation (per 13-C MRSA §121.5 and the page-1 footnote enumerating who may sign by entity-status). Sister-form LP_MLPA-13A uses the per-officer general_partner pattern; MBCA-13A instead uses the standard single filing.signer block (Shape D — combined name and capacity).
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Field IDs are mostly the literal label text or 'undefined_N' (e.g., 'Name of Corporation', 'DATED', 'undefined_2'/'undefined_3'/'undefined_4' for the three unlabeled date/jurisdiction widgets). Preserved verbatim.
 - Open question: MBCA-13A has 4 inline change-description lines vs. LP_MLPA-13A's 8 — the line count differs but the canonical-key family (amendment.changes_description.lineN) is shared.
 - Open question: The page-0 'By ___ (authorized signature)' line itself has no AcroForm widget — only the 'type or print name and capacity' text widget binds. This is consistent with most SOS forms (the visible signature line is for a wet signature; the printed-name widget is the canonical-key anchor).

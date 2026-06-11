@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** duly authorized officer per 13-B MRSA §104.1.B (form footnote permits any one authorized officer; the form provides two parallel signature blocks but the second is optional)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: SECOND, THIRD, FOURTH, and FIFTH paragraphs are declarative recitals about debt distribution / asset transfer / vote conditions / reports filed — no widgets, implicitly satisfied by the act of signing. No additional rubric checks needed beyond the signature.
 - Open question: Cover-letter checkbox names on this form are 'Check Box1/2/3' rather than the more common 'Check Box14/15/16' seen on most NP_MNPCA cover letters. This is a template-naming variation, not a semantic difference — same canonical key family (filing.expedited_service tiers).
 - Open question: Form has two parallel signature blocks (filing.signer_1 and filing.signer_2) on page 1 even though §104.1.B requires only one authorized officer. The second slot accommodates corporations whose bylaws require dual signatures or that prefer two-officer attestation; treat as optional, same as sister NP_MNPCA-11.

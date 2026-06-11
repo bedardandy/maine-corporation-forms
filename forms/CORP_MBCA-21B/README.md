@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** an officer or other duly authorized representative of the corporation per 13-C MRSA §956.1 (signs at bottom of page 0)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH paragraph asks for executive-office address only 'If the surviving entity is a nonfiling entity'. There is no checkbox to indicate filing vs nonfiling status, so the rubric must infer it from conversion.surviving_entity_jurisdiction plus an inferred surviving-entity type — the form does not capture the latter. A future schema-gap key conversion.surviving_entity_type (LLC/LP/GP/etc.) would let the rubric branch deterministically.
 - Open question: SECOND paragraph recites that the conversion was duly approved by the shareholders but has no widget — approval is implicit in the filing. Same pattern as MBCA-21's THIRD paragraph. No rubric check needed beyond the form-level signature.
 - Open question: SIXTH paragraph recites an undertaking to pay shareholders any amount they are entitled to under chapter 13, with no widget — implicit obligation, no rubric check.

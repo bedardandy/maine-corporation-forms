@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 19  
-**Mapped fields:** 17  
+**Mapped fields:** 19  
 **Filer role:** a person authorized by the LLC (per page-0 footnote: '*Pursuant to 31 MRSA §1676.1B, this statement MUST be signed by a person authorized by the limited liability company')
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form is for 'Maine or Foreign LLC' — entity.name is the Maine-record name (used here per termination-of-Maine-registration semantics), but for foreign LLCs the home-jurisdiction name (entity.home_jurisdiction_name) may also need to be referenced. Confirm whether the form expects only the Maine-record name or whether a foreign LLC must disclose both.
 - Open question: Form has TWO inline 'Authorized Person(s)*' signer slots (Text4, Text5) but no entity-signer block (unlike MLLP-5A which has both individual and entity slots). Reviewer mapped to filing.signer_N.* (multi-slot extension of filing.signer.*) rather than partner_N.* (role-specific) since LLC's 'authorized person' role is generic and doesn't fit the role-keyed multi-slot patterns used for LLP/LP forms.
 - Open question: Page-0 footnote cites 31 MRSA §1676.1B for signature authority. Confirm that no separate disclosure of the original Statement-of-Intention filing date is required by §1510.7.

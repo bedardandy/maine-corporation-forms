@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** registrant or assignee of record (signs at bottom of page 1)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form has no per-body 'applicant' / 'registrant' block — only the printed-name+capacity in Text7 and the cover-letter entity slot. Should mark6 carry a `mark.registrant.*` block analogous to MARK_mark1's `mark.applicant.*`, or is the registrant identity considered already-on-record (linked via charter_number) and the cover-letter row sufficient?
 - Open question: Text2/Text3 (text words) and Text4/Text5 (design features) split into line1/line2 mirrors MARK_mark1; consistent with the convention that two-line free-form widgets keep both lines as separate canonical keys with a synth/rubric concatenation step.
 - Open question: Mark cancellation can also be involuntary (e.g., SOS-initiated under 10 MRSA §1527.1.A); this form is the *voluntary* path only. A future mark6-involuntary form (if one exists) would have a different filer-role and likely different schema.

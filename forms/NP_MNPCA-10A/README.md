@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 48  
-**Mapped fields:** 30  
+**Mapped fields:** 32  
 **Filer role:** an authorized officer of each of the two participating corporations signs in that corporation's signature block on page 1 (per 13-B MRSA §904); a clerk/secretary additionally certifies the member-vote action when applicable. Note: this form is structurally the consolidation analog of NP_MNPCA-10 (merger), with the key difference that consolidation produces a new entity (entity.name) rather than designating a survivor.
 
 ## Purpose
@@ -33,7 +33,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 - `entity.name` maps to 3 widgets; all receive the same value.
 - `consolidation.parties[0].vote_method_date` maps to 4 widgets; all receive the same value.
 - `consolidation.parties[1].vote_method_date` maps to 4 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The 'MUST BE COMPLETED FOR VOTE OF MEMBERS' boxes on page 1 (one inset under each DATED row) have NO matching widgets in the AcroForm — only the outer signature widgets ('29'-'36') are bound. Visually each inset has a (name of corporation) line and a (signature of clerk, secretary or asst. secretary) line. These parallel the merger pattern's clerk_certification.* keys but are unbindable on this template. Likely a 2003-revision template bug analogous to the missing widgets on NP_MNPCA-10. Recommend an upstream pdftk dump_data_fields pass or a normalize_fields step to add the missing widgets; until then, a synth fill cannot populate the clerk-certification block via AcroForm.
 - Open question: Template-level naming: most text widgets on this form use bare digit names ('1'-'6', '8', '10'-'36') instead of the 'TextN' prefix used on newer forms. Filler engine should accept both naming styles (same caveat as NP_MNPCA-10).
 - Open question: FOURTH paragraph blank '24' is the new corp's name re-stated inline. Synth should populate it with the same value as entity.name to keep the recital consistent.

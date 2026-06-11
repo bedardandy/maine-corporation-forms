@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 18  
-**Mapped fields:** 16  
+**Mapped fields:** 18  
 **Filer role:** officer or other duly authorized representative of the corporation (per the page-0 footnote and 13-C MRSA §958.2)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST captures the future effective date of either the prior MBCA-21 (Articles of Entity Conversion) or the prior MBCA-20A (Articles of Charter Surrender). The form does not distinguish which prior filing is being abandoned — per §958.2, the SOS identifies the prior filing by entity name + filing date. Mapped to existing conversion.future_effective_date per MBCA-20B precedent.
 - Open question: SECOND (immediate-effect recital) has no widget — it is a representation by the corporation, not a captured field.
 - Open question: Form has no widget for the actual signature line — only the typed-name-and-capacity widget. Wet-ink only (same convention as MBCA-13A, MBCA-20B and other Shape-D forms).

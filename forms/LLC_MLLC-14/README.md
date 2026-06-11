@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 17  
-**Mapped fields:** 15  
+**Mapped fields:** 17  
 **Filer role:** a person authorized by the LLC to sign per 31 MRSA §1676.1.B (signs in the bottom signature block on page 0; the form footnote requires that the signer be 'a person authorized by the limited liability company.')
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST and SECOND on the body are purely declarative (no widgets) — FIRST recites the cessation-of-business election and SECOND recites the no-debt-to-State certification. Confirmed against widgets.json: only 3 body widgets present.
 - Open question: The signature block label reads '(type or print name and capacity)' — Shape D — even though the §1676.1.B authorization is broader than 'capacity'. Mapped to filing.signer.printed_name_and_capacity for consistency with MLLC-12, MLLC-14A, MBCA-11.
 - Open question: No widget exists for the actual signature line above the printed name; signature is wet-ink/image overlay (consistent with all other Maine SOS LLC forms).

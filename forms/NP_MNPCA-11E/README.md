@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** majority of the incorporators (page-1 footnote: '*This document MUST be signed by a majority of the incorporators'). Up to 3 incorporator slots inline; overflow not bound by AcroForm widgets.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The form provides 3 inline incorporator slots but the page-1 footnote requires a 'majority' of all incorporators to sign — for a corporation with more than 3 incorporators originally, the 3-slot limit is insufficient and overflow is not bound to any AcroForm widget. The §1101-A path is intended for never-activated corporations (typically with few incorporators), so this is unlikely to bind in practice — but rubric cannot fully verify majority without out-of-band knowledge of the total incorporator count from the original articles.
 - Open question: FIFTH paragraph requires that 'All required Annual Reports have been filed with the Secretary of State' — this is a recital with no widget. SOS staff verify against their own records. Not a rubric-actionable field but a precondition for filing.
 - Open question: FIRST widget (11e2) is narrow (rect width ≈110, x=308..418) — sized for a date string only. SECOND/THIRD/FOURTH/FIFTH paragraphs are pure recitations with no widgets. This is a 'recitation-with-minimal-blanks' pattern: incorporators attest by signing that all the statutory preconditions (no activities, no debts, majority consent, annual reports filed) are met.

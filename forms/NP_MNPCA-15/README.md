@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** any duly authorized officer of the consenting nonprofit corporation (per *footnote: 'This document MUST be signed by any duly authorized officer.' 13-B MRSA §104.1.B). Two *By signature slots provided; one is sufficient.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form footnote: '*This application must be accompanied by the applicable form to change its name as provided in Item Third.' Synth/rubric should track that a name-change filing (e.g., MNPCA-1A or similar) bundles with this consent — this consent alone is insufficient. Could be modeled as `filing.accompanying_name_change_form` boolean or similar; not surfaced as an AcroForm widget here.
 - Open question: Drafter pass had this form's body widgets off-by-one (mapped widget 2 as requestor instead of the indistinguishable name itself, etc.). Reviewer corrected via PyMuPDF text-block alignment with widget rects. Future drafter prompts should encourage matching widget rects to text-block y-coordinates explicitly to catch off-by-one errors before review.
 - Open question: Is the requestor entity always a Maine entity, or could it be a foreign entity seeking Maine qualification? Form text doesn't constrain — `indistinguishable_name.requestor_name` accepts any free-text name and synth need not validate jurisdiction.

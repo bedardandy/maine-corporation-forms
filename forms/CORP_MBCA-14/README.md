@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 18  
-**Mapped fields:** 16  
+**Mapped fields:** 18  
 **Filer role:** any duly authorized officer OR the clerk of the corporation per 13-C MRSA §121.5 (per the page-0 footnote: 'This document MUST be signed by any duly authorized officer OR the clerk'). Sister to MBCA-14A (Certificate of Resumption) and MLLC-14B-equivalent; uses Shape D signature block (printed name and capacity).
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST and SECOND paragraphs are declarative recitals (no AcroForm widgets bind to them) — confirmed against widgets.json which has only 4 page-0 /Tx widgets (141, 142, 143, 144) and zero page-0 /Btn widgets. The act of filing constitutes the certification of those recitals.
 - Open question: Page-0 has a '*By ___ (signature of any duly authorized person)' wet-ink signature line (right side at y≈311) that is NOT AcroForm-bound. Only the printed-name-and-capacity widget (144) is bindable. Same convention as MBCA-14A.
 - Open question: Cover-letter expedite checkboxes use field-ids 'Check Box1/2/3' rather than the more-common 'Check Box14/15/16' or the MLLC-12-style 'hold/24/imm' aliases — third observed aliasing variant. Filler engine field-id alias map should accept all three families.

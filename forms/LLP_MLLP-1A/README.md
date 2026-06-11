@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** the original applicant (transferor) or any duly authorized person signing on the transferor's behalf (per the page-0 'ORIGINAL APPLICANT (Transferor)' / '(signature of any duly authorized person)' label). Single-signer Shape D — printed name and capacity combined in one widget.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The transfer does NOT extend the 120-day reservation period (page-0 footnote: 'This transfer of reserved name will expire 120 days from the date of filing the original application.'). The form does not capture the original reservation's filing date — SOS tracks it via the filing record. No additional canonical key required.
 - Open question: Form has a wet-ink-only '(signature of any duly authorized person)' line on page 0 (left of the typed-name-and-capacity widget). No AcroForm /Tx widget binds to it — synth produces no value, and the rubric does not check for it. The typed name-and-capacity widget is the canonical signer evidence.
 - Open question: The transferee's consent is not collected on this form (no transferee signature widget). Practically the transferee submits their own subsequent formation paperwork; this form only memorializes the transferor's release. No additional canonical keys required.

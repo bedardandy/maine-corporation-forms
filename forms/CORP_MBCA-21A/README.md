@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 24  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** officer or other duly authorized representative of the unincorporated entity (signs at bottom of page 0 per 13-C MRSA §955.5)
 
 ## Purpose
@@ -28,8 +28,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `conversion.approval_type` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `conversion.approval_type` binds as a single enum_select selecting among 2 option widgets (accepted values: domestic, foreign).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: filing.entities[1].name on the cover letter is likely populated with the bundled MBCA-6-1 (Articles of Incorporation) entity name — analogous to MBCA-21 bundling MLLC-6/MLPA-6. A canonical filing.bundled_forms[] family is not yet defined; tracked via filing.entities[N].name conventionally.
 - Open question: Pre-conversion entity type (LLC vs LP vs LLLP vs GP) is not captured by any widget — only implied by THIRD's organic-law reference. A future schema-gap could propose entity.pre_conversion_type if downstream synth/validation needs it explicitly.
 - Open question: When converting a foreign unincorporated entity, entity.name (the form's 21a1 widget) may legitimately equal the home-jurisdiction name. There is no second 'home-jurisdiction-name' widget on this form (unlike MLLC-12). Synth should populate entity.name with the foreign-jurisdiction legal name in the foreign-conversion case.

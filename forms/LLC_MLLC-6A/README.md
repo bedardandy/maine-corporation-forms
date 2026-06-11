@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 32  
-**Mapped fields:** 27  
+**Mapped fields:** 29  
 **Filer role:** authorized person(s) of the LLC (per 31 MRSA §1676.1.B); up to three parallel signature slots are provided on page 1
 
 ## Purpose
@@ -30,7 +30,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 - `entity.name` maps to 2 widgets; all receive the same value.
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Both 'name' (top, current SOS-record name) and 'new name' (FIRST blank) bind to entity.name. For synth fills with no name change, populate both with the same value; for actual name-change filings, the 'new name' value would diverge from the SOS record. An optional entity.name_changed boolean could disambiguate at the rubric level — deferred until a synth demo for name-change scenarios is added.
 - Open question: Field-id 'name and capacity 3' (with internal space before the digit) differs from 'name and capacity1' / 'name and capacity2' (no space). Filler must preserve the literal field-id including whitespace.
 - Open question: Check Box4 (low-profit LLC) has no accompanying free-text description of charitable/educational purpose, unlike some other low-profit forms. The §1611 qualifications A–D are statutory and do not require an inline explanation on the form. No proposed schema gap needed.

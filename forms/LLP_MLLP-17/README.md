@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** partner OR duly authorized person OR a partner-entity's authorized signer (signs on page 1)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Template-level upstream bug: FIRST has TWO blanks visible on the rendered page — the date blank (Text2 widget) and the 'partnership entitled' document-type blank (NO widget). Only 4 widgets exist on page 0 (Text1=name, Text2=date, Text3=defect, Text4=corrected text), leaving the document-type blank unbindable. Cannot be filled at fill time without an upstream `normalize_fields` pass — same class of issue as MNPCA-10 missing FIRST checkboxes (Phase-2 summary). Tracked: correction.original_document_type schema gap is reserved but unbound on this form.
 - Open question: filing.signer_entity.* introduces a new namespace family — analogous to per-officer-signer-pattern's `<role>_entity_N.*` but unindexed and rooted at filing.signer.* rather than at a role key. This makes sense because MLLP-17 is not a formation form (no role-keyed originators); the filer is the entity itself, with one signer slot that may be either a natural-person partner or an entity-partner-with-natural-signer. If a future correction-style form has multiple entity-partner signers, the namespace should be indexed (filing.signer_entity_N.*).
 - Open question: Drafter's mapping originally swapped Text3 (large box) → 'partnership entitled' and Text4 (large box) → defect description. The rect heights (~118pt and ~114pt) make the swap clear: both are multi-line text boxes, not single-line widgets. Fixed in this review.

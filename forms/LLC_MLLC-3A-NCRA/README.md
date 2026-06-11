@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** the noncommercial registered agent who is resigning (signs the lower half of page 0 over the '(signature of resigning noncommercial registered agent)' caption)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page 0 has no explicit signature-image widget separate from Text8. Text8 sits below the '(signature of resigning noncommercial registered agent)' caption with its own '(type or print name)' caption, suggesting it captures only the typed/printed name; the actual signature is presumably handwritten or applied as an image after print, not via an AcroForm field. Same convention as MBCA-12E-NCRA.
 - Open question: The '5 MRSA §111' citation governs noncommercial-RA resignations across all entity types; this form is the LLC variant in a family that includes CORP_MBCA-12E-NCRA (foreign business corporation) and likely domestic-BC, LP, LLP, NP variants. The resignation_notice.* and registered_agent.* keys generalize cleanly across all entity types — the only per-form variation is entity.name vs entity.home_jurisdiction_name (here entity.name suffices because the form identifies the LLC by its on-record Maine name regardless of domestic/foreign domicile).
 - Open question: Drafter initially proposed resigning_agent.{name, physical_address, printed_name} and notification_recipient.{name, mailing_address, title} as new schema-gap namespaces; corrected during review to reuse the existing registered_agent.* and resignation_notice.* keys per MBCA-12E-NCRA precedent. No new schema gaps remain.

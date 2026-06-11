@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** an officer or other duly authorized representative of the corporation per 13-C §924.1 (signs the *By line at the bottom of page 0; widget captures '(type or print name and capacity)')
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page 0 widget IDs use the '19aN' naming pattern (form-id-prefixed) instead of generic 'TextN' / numbered widgets seen on other 13-C forms. Likely a template authoring convention; confirm fill-engine handles both schemes uniformly.
 - Open question: The *By signature line above 19a6 has no corresponding AcroForm widget on this form (template gap — page 0 has only 6 widgets total, all text). The actual signature is applied post-print as a handwritten/image signature.
 - Open question: SECOND and FIFTH paragraphs are pure recitations (shareholder-approval and pay-appraisal-amount obligations) — no fillable widgets, only legal commitments restated by signing the form. No canonical keys needed for these recitals.

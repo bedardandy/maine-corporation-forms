@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 31  
-**Mapped fields:** 28  
+**Mapped fields:** 31  
 **Filer role:** authorized signatory of the foreign LLC (signs at bottom of page 1). Single-signer Shape B — printed name only (no separate title field on this form).
 
 ## Purpose

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 38  
-**Mapped fields:** 34  
+**Mapped fields:** 36  
 **Filer role:** one or more partners who are authorized OR any duly authorized person (per the page-1 footnote: '**Certificate MUST be signed by: (1) one or more partners who are authorized OR (2) any duly authorized person'). Signer block uses the per-officer multi-slot pattern partner_N.* / partner_entity_N.* (mirrors MLLP-6A's restated-certificate signer block).
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH section provides BOTH an inline combined widget (Text8) and split Name/Address columns (Text9/Text10). Likely a redundant template layout — synth should populate the split widgets (matching MLLP-6A's contact_partner.name / contact_partner.address convention) and either leave Text8 empty or derive it. Confirm whether the filler engine mirrors split→combined automatically or treats Text8 as an independent field.
 - Open question: Page-1 footnote allows '(2) any duly authorized person' to sign — alternative to a partner. When such a non-partner signer fills Text12-14, partner_1.printed_name will hold a non-partner signer's name (no separate canonical key for 'duly authorized non-partner signer' on this multi-slot pattern; the rubric accepts this since the form does not distinguish the two paths via separate widgets).
 - Open question: Form provides 3 inline individual-partner slots and 3 inline entity-partner slots — same shape as MLPA-6 (LP formation) which uses general_partner_N.* / general_partner_entity_N.*. MLLP-6 uses partner_N.* / partner_entity_N.* (LLP terminology) per the schema-gap convention from MLLP-6A.

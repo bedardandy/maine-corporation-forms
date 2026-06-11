@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 28  
-**Mapped fields:** 26  
+**Mapped fields:** 28  
 **Filer role:** at least one partner OR any duly authorized person of the foreign LLP, signing under the bottom-of-page-1 footnote 'Certificate MUST be signed by (1) at least one partner OR (2) any duly authorized person.' Two parallel signature blocks: an individual block (Partner(s)*) and an entity block (For Partner(s) which are Entities) — exactly one is populated per filing.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Page-0 header annotation reads 'Filing Fee $90.00 — (If amending ONLY Item FOURTH and/or Item FIFTH the filing fee is $35.00.)'. The fee depends on which paragraphs were amended; a rubric helper would need to inspect which keys carry non-'No change' values to compute the correct base.
 - Open question: Pages-0/1 do not include a 'certificate of existence' (COE) attached checkbox like LLP_MLLP-1 / MLLC-12 do. Whether a COE is statutorily required for an amended LLP application under §855 is unclear — open question for upstream review (cf. CORP_MBCA-12A, which DOES require a COE when the home jurisdiction changes).
 - Open question: FIFTH provides only a single contact-partner row (Name + Address widgets). Unlike LLP_MLLP-1's EIGHTH paragraph, there is no overflow opt-in for additional contact partners. If a filer needs to update multiple contact partners, the only mechanism is the SIXTH 'other amendments' exhibit.

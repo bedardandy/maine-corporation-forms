@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 19  
-**Mapped fields:** 17  
+**Mapped fields:** 19  
 **Filer role:** any partner of the general partnership (individual or entity); see 31 MRSA §1005.3
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Signer block fixed in this review: drafter mapped Text3→partner_1.printed_name and Text4/Text5→partner_entity_1.* (per-officer pattern). Corrected to filing.signer.* / filing.signer_entity.* — the per-officer signer pattern is reserved for FORMATION filings (LP_MLPA-6, MNPCA-6, MBCA-6) where the signers are originators of a brand-new entity. GP_MPA-2 is a post-formation statement on an existing partnership, so the signer is a filer of the existing entity — same pattern as GP_MPA-1 (Statement of Dissociation sibling).
 - Open question: Text3's label is '(type or print name)' — Shape B (name only). filing.signer.printed_name is correct; collapsing to printed_name_and_capacity would falsify the widget shape.
 - Open question: Individual block (Text3) and entity block (Text4/Text5) are alternatives — the form layout makes them mutually exclusive but does not enforce it via a radio. Captured as an exactly-one rubric check.

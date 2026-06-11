@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 18  
-**Mapped fields:** 16  
+**Mapped fields:** 18  
 **Filer role:** officer or other duly authorized representative of the corporation (per the page-0 footnote and 13-C MRSA §936.2)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST captures the future effective date of the prior MBCA-20 (Articles of Nonprofit Conversion) filing. Mapped to existing conversion.future_effective_date — semantically the same date, just referenced from the abandonment perspective. An alternative name like conversion.abandoned_effective_date was considered but rejected in favor of reusing the existing key.
 - Open question: Form has no widget for the actual signature line — only the typed-name-and-capacity widget. Same convention as MBCA-13A and other Shape-D forms (signature is wet-ink, captured outside the AcroForm).
 - Open question: Field-id naming is mixed-case ('20bOne', '20BTwo', '20bThree', '20Bfour') — preserved verbatim. Filler engine must handle both.

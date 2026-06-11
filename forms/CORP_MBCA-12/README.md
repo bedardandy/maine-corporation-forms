@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 39  
-**Mapped fields:** 35  
+**Mapped fields:** 37  
 **Filer role:** an officer of the foreign corporation per 13-C MRSA §1121.5 (signs in EIGHTH signature block on page 2)
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH paragraph (For professional corporations only) is conditional text that recites the §22-A §730 ownership/licensure requirements but introduces no fillable widgets. entity.is_professional_corporation triggers it; no further fields to capture. Confirm no widget was missed by pdftk/pypdf.
 - Open question: Text20 label says 'type or print name and capacity/title' (with slash). Other 13-C MRSA forms use 'capacity' alone (MBCA-11) or 'title' alone (MBCA-9). Mapping to filing.signer.printed_name_and_capacity to match MBCA-11 / MLLC-12, but a filer might write a title here instead. Vision-judge should accept either.
 - Open question: SEVENTH section says '(Attach additional pages, if necessary.)' but provides no opt-in checkbox for 'additional officers attached'. Compare MBCA-6 entity.additional_incorporators_exhibit_letter and MLLC-12 manager.additional_attached — those forms do have explicit opt-ins. On MBCA-12 the attachment is expected to be informal; canonical key family does not need an additional_attached flag.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 19  
-**Mapped fields:** 17  
+**Mapped fields:** 19  
 **Filer role:** applicant (individual or authorized representative of the prospective entity)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Cross-form: CORP_ASUM-5 (business-corp reservation) likely uses the same applicant.* namespace. Confirm by inspection so the namespace is consistent across reservation forms (NPC, BC, LLC, LP variants if any).
 - Open question: The signature line ('signature of applicant', below APPLICANT) is not an AcroForm widget — only the printed name+capacity blank is. This matches the convention on all 15 prior pass-1 forms; signatures are wet-ink overlays on rendered output.

@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** an officer or other duly authorized representative per 13-C MRSA §955.1 (signs at bottom of page 1)
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Form references attached MLLC-6 or MLPA-6 (corresponding formation forms for the surviving entity). filing.entities[1].name on the cover letter is likely populated with the bundled-form's entity for SOS routing. Cross-form bundling is also seen on MBCA-10 (FOURTH option 2 references attached MBCA-6-1) and MLLC-12 (FICT-4 bundling) — a canonical filing.bundled_forms[] family is not yet defined.
 - Open question: THIRD paragraph (shareholder approval recital) has no widget and no opt-in checkbox — unlike MBCA-10 which provides explicit shareholder-approval options. MBCA-21 implicitly assumes shareholder approval by virtue of the corp filing the articles. No rubric check needed beyond the form-level signature.

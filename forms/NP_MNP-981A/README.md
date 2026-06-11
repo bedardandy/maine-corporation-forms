@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 50  
-**Mapped fields:** 45  
+**Mapped fields:** 47  
 **Filer role:** two officers of the existing nonprofit corporation: the President and the Secretary/Clerk (per the page-2 signature block, which provides exactly two signature slots labeled (President) and (Secretary/Clerk) — fixed, not variable).
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `entity.original_name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH original-name has two widget lines (981a17 short, 981a18 wider continuation). Both bind entity.original_name. Synth/filler must split a long name across the two; short names should leave 981a18 empty. Open whether to introduce a `entity.original_name_line2` convention or rely on a line-wrap helper.
 - Open question: Page-2 signature block: each (President) and (Secretary/Clerk) row has two horizontal lines — one for wet-ink signature and one labeled '(type or print name)'. Only the printed-name line has an AcroForm widget (981a35, 981a36). Signature lines are not bindable.
 - Open question: EIGHTH includes a county widget (981a28) — atypical for Maine SOS address blocks, which usually omit county. This is specific to the §981-A recital text and should not be generalized to other forms' entity.current_address.* keys.

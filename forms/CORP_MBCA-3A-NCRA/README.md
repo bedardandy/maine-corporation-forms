@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 22  
-**Mapped fields:** 20  
+**Mapped fields:** 22  
 **Filer role:** the noncommercial clerk who is resigning (signs the lower half of page 0 over the '(signature of noncommercial clerk)' caption)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Drafter initially proposed resigning_clerk.* and notice_recipient.* namespaces; corrected during review to reuse the existing registered_agent.* and resignation_notice.* keys per MBCA-12E-NCRA / MLLC-3A-NCRA precedent. The 5 MRSA §111 statute applies uniformly to corporate-clerk and registered-agent resignations across entity types — no need for entity-type-specific namespaces.
 - Open question: Page 0 has no explicit signature-image widget separate from Text8. Text8 sits below the '(signature of noncommercial clerk)' caption with its own '(type or print name)' caption, suggesting it captures only the typed/printed name; the actual signature is presumably handwritten or applied as an image after print, not via an AcroForm field. Same convention as MBCA-12E-NCRA / MLLC-3A-NCRA.
 - Open question: The 'NCRA' suffix on the form_id is a convention shared with MBCA-12E-NCRA and MLLC-3A-NCRA — synth/rubric should treat *_NCRA forms as the noncommercial-clerk/RA-resignation family, with body-structure variations confined to entity-type heading and signer-block caption.

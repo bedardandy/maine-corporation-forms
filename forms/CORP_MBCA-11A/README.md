@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 23  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** any duly authorized officer OR the clerk (per 13-C MRSA §121.5)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `revocation.authority_type` maps to 4 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `revocation.authority_type` binds as a single enum_select selecting among 4 option widgets (accepted values: incorporators, board_of_directors, board_with_shareholder_authorization, shareholders).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: The (signature) line on page 0 has no AcroForm widget — only widget 11a9 captures the printed name+capacity. Wet-ink signature expected at fill time, similar to MBCA-11 dissolution.
 - Open question: Form does not capture which BODY originally authorized the dissolution (only who is now revoking it). The 'board_with_shareholder_authorization' Box6 implicitly references that the prior dissolution was shareholder-approved, but the schema does not record the original authorization mode.

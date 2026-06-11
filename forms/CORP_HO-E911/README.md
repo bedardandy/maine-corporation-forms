@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 24  
-**Mapped fields:** 21  
+**Mapped fields:** 23  
 **Filer role:** municipal official or postmaster (per footnote 2, the document MUST be signed by the municipal official or postmaster who imposed the change — not by the entity itself)
 
 ## Purpose
@@ -28,8 +28,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.authorized_by` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.authorized_by` binds as a single enum_text_select selecting among 2 option widgets (accepted values: town_municipality, us_postal_service).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FOURTH section's two choices (Town/Municipality, U.S. Postal Service) are visually checkboxes but encoded upstream as /Tx widgets (Text7, Text8) rather than /Btn. Filler engine must treat them as mark-with-X-style text widgets, not booleans. Worth a normalize_fields pass to convert to /Btn or to alias the /Tx pair to a single boolean enum.
 - Open question: No AcroForm widget for the **By (signature) line — only printed-name-and-capacity (Text10) is captured. The signature is intended to be wet-ink only. Consistent with other SOS forms that omit signature widgets.
 - Open question: Header box reads 'No Filing Fee' for HO-E911 but the cover-letter still shows 'Total fee(s) enclosed' and three expedite checkboxes. Confirm whether the expedite tiers actually apply to a no-fee filing or whether they're vestigial cover-letter copy.

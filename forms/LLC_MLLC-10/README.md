@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 4  
 **Fields:** 49  
-**Mapped fields:** 45  
+**Mapped fields:** 47  
 **Filer role:** for each constituent organization, an authorized representative (per 31 MRSA §§1643.1 and 1676.1) signs the per-party signature block. The form provides two signer slots per constituent for entity types whose authorization rules require multiple signers; only one is required by statute.
 
 ## Purpose
@@ -28,8 +28,8 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `merger.third_election` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `merger.third_election` binds as a single enum_select selecting among 2 option widgets (accepted values: created, existed_before).
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST recital widgets (Text1–Text4) are single underlined blanks despite the form's 4-column header (Name | Form of Organization | Jurisdiction | Date of Organization). Synth must produce a combined recital string per row; rubric must accept either pipe-separated or whitespace-separated formats. Same pattern as CORP_MBCA-10 and LP_MLPA-10.
 - Open question: Page 1 widget IDs are scrambled across the three signature blocks: party 1 uses Text20 (date), Text21–22 (signers), and Text24 (name); party 2 uses Text23 (name) and Text25–27 (date + signers); party 3 uses Text28–31 in order. Drafter initially mapped Text23 to party 1 and Text24 to party 2 — reviewer corrected based on y-coordinate ordering (Text24 y≈462 is higher on page 1 than Text23 y≈295). AcroForm naming reflects PDF authoring quirks rather than logical order — same as LP_MLPA-10.
 - Open question: Page 2 inline note: 'Copy this page, and modify participant number, if more signature spaces are needed' — the form supports >4 parties via copied-page overflow. The schema's merger.parties[N] array is open-ended; the form's 4 inline slots are a UI convenience, not a hard cap.

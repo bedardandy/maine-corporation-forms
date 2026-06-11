@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 21  
-**Mapped fields:** 19  
+**Mapped fields:** 21  
 **Filer role:** Authorized representative of the foreign entities. The form has no AcroForm signature widget on the body — the certified-copy attachment from the home jurisdiction supplies the signature/authorization.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: This LLC-namespaced template uses sequential widget names (Text1..Text21, Check Box10..Check Box12) on the cover-letter page where the corp-namespaced sibling CORP_MERGFOR.pdf uses descriptive names ('Name of contact person', 'Check Box14', etc). Body and cover-letter mappings to canonical keys are identical between the two; only widget IDs differ. The filler engine binds by widget ID, so both templates must be tracked separately even though they represent the same form.
 - Open question: Form has no AcroForm signature widget on the body — authorization is supplied by the certified copy from the home jurisdiction. Synth fills can leave the body unsigned.
 - Open question: Only one inline slot for the nonsurviving entity. Multi-entity mergers (>1 nonsurviving) attach additional pages — the schema does not currently capture an exhibit-letter or list shape for them.

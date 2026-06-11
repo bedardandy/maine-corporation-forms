@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 2  
 **Fields:** 20  
-**Mapped fields:** 18  
+**Mapped fields:** 20  
 **Filer role:** any partner of the existing LLP per 31 MRSA §826.1.B and §860.1 (signs in the bottom signature block on page 0; the form footnote states 'this certificate MUST be signed by at least one partner').
 
 ## Purpose
@@ -28,6 +28,6 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Item 'Third' references a companion name-change form for the LLP. The corresponding LLP name-change filing in this corpus is likely MLLP-11R or another LLP amendment form — not enumerated as a canonical key on this form, but synth/rubric should flag that a companion filing is expected.
 - Open question: name_change.* is introduced here as a small new namespace shared with a future indistinguishable-name family (CORP, LLC, NP variants likely exist). If those forms appear later, they should reuse name_change.indistinguishable_name / requestor_name / new_name verbatim.

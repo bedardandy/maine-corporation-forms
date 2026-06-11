@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 30  
-**Mapped fields:** 22  
+**Mapped fields:** 24  
 **Filer role:** the clerk OR another duly authorized officer of the corporation (per the page-1 footnote: 'This document MUST be signed by the clerk or other duly authorized officer'). Form provides two parallel signer slots; only one is statutorily required.
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: Drafter initially proposed clerk_current.* and clerk_new.* namespaces; corrected during review to reuse the existing clerk_change.* namespace per NP_CLKRA-3 / CORP_CLKRA-3 precedent. Two new keys added to clerk_change.* (clerk_change.change_type and clerk_change.current_clerk_or_agent_address) — the former because MLC-3's enum differs from CLKRA-3's, the latter because MLC-3 captures the current clerk's address (which CLKRA-3 doesn't).
 - Open question: FIRST caption reads ('X all boxes that apply') but the four options are semantically mutually exclusive (option B already covers the union of A and C). Synth/rubric treat the four checkboxes as a single radio-style enum. If a real filing checks multiple, the SOS likely treats the most-inclusive option (B) as canonical.
 - Open question: Form_id has unusual '_0' suffix (NP_MLC-3_0). Believed to be a revision suffix for the first/canonical version of MLC-3; a future MLC-3_1 revision could appear if the form is amended. Preserve verbatim in DB and downstream tooling.

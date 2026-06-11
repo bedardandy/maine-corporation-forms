@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 27  
-**Mapped fields:** 25  
+**Mapped fields:** 27  
 **Filer role:** at least one general partner of the foreign LP (individual or authorized representative of an entity GP) per 31 MRSA §1324.1.M (cf. §1321 formation requirement of all GPs)
 
 ## Purpose
@@ -28,7 +28,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 
 ## Known ambiguities
 
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIFTH (required office) is conditional per the * footnote: 'Provided only if the laws of the jurisdiction under which the foreign limited partnership is organized require the foreign limited partnership to maintain an office in that jurisdiction.' There is no checkbox on the form to indicate applicability — the rubric treats it as optional and only enforces the not-P.O.-Box constraint when populated.
 - Open question: SIXTH (cancellation recital) and SEVENTH (statutory SOS-as-agent appointment) are fixed recitals with no widgets — they don't require filer input. SEVENTH is analogous to merger.foreign_survivor.service_of_process_mailing_address on MERGFOR but here the appointment is automatic and address-less (residual service goes to SOS forwarding to the last known principal office).
 - Open question: Page 1 has only one inline individual-signer slot (vs. 3 on LP_MLPA-6 formation). This matches the §1324.1.M one-signer requirement and parallels the LP_MLPA-12A (amendment) and LP_MLPA-17 (correction) signer block.

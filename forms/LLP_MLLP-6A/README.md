@@ -5,7 +5,7 @@
 **Source:** Maine Secretary of State  
 **Pages:** 3  
 **Fields:** 35  
-**Mapped fields:** 31  
+**Mapped fields:** 33  
 **Filer role:** at least one partner OR any duly authorized person (per page-1 footnote: '*Certificate MUST be signed by: (1) at least one partner OR (2) any duly authorized person')
 
 ## Purpose
@@ -29,7 +29,7 @@ This directory contains a machine-readable mapping between canonical data keys a
 ## Known ambiguities
 
 - `registered_agent.name` maps to 2 widgets; all receive the same value.
-- `filing.expedited_service` maps to 3 widgets; all receive the same value.
+- `filing.expedited_service.*` maps to 3 independent boolean checkboxes (hold_for_pickup, expedite_24h, immediate).
 - Open question: FIRST instructs the filer to write 'no change' literally if the name is not being amended (same convention as MLLP-9). Synth must emit either 'no change' or a valid suffix-bearing name.
 - Open question: Form has TWO inline individual-partner signature slots (Text14, Text15) and TWO inline entity-partner signature blocks (Text16/17, Text18/19). Drafter introduces partner_N.* and partner_entity_N.* (N=1..2) as a multi-slot pattern parallel to MLPA-6's general_partner_N.* — distinct from MLLP-9's single-signer filing.signer.*. Confirm whether overflow beyond slot 2 is anticipated (form does not have an opt-in 'additional partners attached' checkbox like MLLP-12's manager.additional_attached).
 - Open question: Page-0 SECOND has no 'no change' sentinel for entity.original_articles_filing_date or entity.original_name — these are mandatory disclosures on every restated certificate (the form's purpose is to restate, so the original filing details are always present).
