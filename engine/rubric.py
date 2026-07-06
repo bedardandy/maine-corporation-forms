@@ -319,12 +319,34 @@ def a_not_pobox(key, require_nonempty=False):
     return check
 
 
-def a_contains_one_of(key, substrings, extra=None, skip_values=()):
+def a_contains_one_of(key, substrings, extra=None, skip_values=(),
+                      anchored=False):
     """``key`` (when set) must contain one of ``substrings`` (case-insens.).
 
     ``extra``: (gate_key, more_substrings) — the extra suffixes also satisfy
     the check, but only when the gate key is truthy.
+
+    ``anchored``: when True, the match is anchored to the END of the value
+    (after stripping trailing whitespace/punctuation) rather than a
+    match-anywhere substring test. This is the correct semantics for
+    statutory entity-name *suffix* requirements: a plain substring test
+    false-positives on names that merely embed a 2-char token — e.g. "LC"
+    inside "Malcolm Holdings" or "Falcon Realty" would otherwise satisfy an
+    LLC-suffix check. End-anchoring rejects those while still accepting
+    "Acme LLC", "Acme L.L.C.", and "Acme, Inc.".
     """
+    def _matches(low, sub):
+        sub = sub.lower()
+        if not anchored:
+            return sub in low
+        # Anchor to the end of the name. Strip trailing whitespace and
+        # punctuation from the *name* so "Acme LLC." matches suffix "LLC",
+        # while the suffix keeps its own trailing '.' (e.g. "Inc.") so both
+        # "Acme, Inc." and "Acme Inc" are accepted.
+        tail = low.rstrip(" \t.,;")
+        sub_bare = sub.rstrip(" \t.,;")
+        return tail.endswith(sub) or tail.endswith(sub_bare)
+
     def check(case, ctx):
         val = canonical.get(case, key)
         if _is_empty(val):
@@ -337,10 +359,12 @@ def a_contains_one_of(key, substrings, extra=None, skip_values=()):
             gate_key, more = extra
             if _truthy(canonical.get(case, gate_key)):
                 allowed = allowed + list(more)
-        if any(s.lower() in low for s in allowed):
+        if any(_matches(low, s) for s in allowed):
             return []
         return [_v("NAME_AFFIX_REQUIRED", key,
-                   f"{key} = {val!r} must contain one of: "
+                   f"{key} = {val!r} must "
+                   + ("end with" if anchored else "contain")
+                   + " one of: "
                    + ", ".join(substrings)
                    + (f" (or, when {extra[0]} is true: "
                       + ", ".join(extra[1]) + ")" if extra else ""))]
@@ -650,7 +674,9 @@ def _parse_consequence(text, cond_key=None, carried_subject=None,
     if "must contain one of" in pred:
         quoted = _quoted(pred)
         if quoted:
-            return [a_contains_one_of(subject, quoted)], subject
+            # entity-name suffix requirement: anchor to end of name so a
+            # 2-char token ('LP', 'LC') doesn't match mid-name.
+            return [a_contains_one_of(subject, quoted, anchored=True)], subject
     m = re.match(rf"^must not equal '([^']+)'(?: or '([^']+)')?$", pred)
     if m:
         vals = {m.group(1).lower()}
@@ -779,8 +805,9 @@ def compile_check(check, schema_enums=None):
                 gate = next((k for k in keys if "low_profit" in k), None)
                 if gate and base_sufs and extra_sufs:
                     return [a_contains_one_of(key, base_sufs,
-                                              extra=(gate, extra_sufs))]
-            return [a_contains_one_of(key, _quoted(desc))]
+                                              extra=(gate, extra_sufs),
+                                              anchored=True)]
+            return [a_contains_one_of(key, _quoted(desc), anchored=True)]
         return None
 
     stripped = _strip_parens(desc)
@@ -799,7 +826,8 @@ def compile_check(check, schema_enums=None):
             quoted = _quoted(m.group(3))
             if quoted:
                 return [a_contains_one_of(m.group(1), quoted,
-                                          skip_values=[m.group(2)])]
+                                          skip_values=[m.group(2)],
+                                          anchored=True)]
         out = _compile_conditional(desc, schema_enums, keys)
         if out:
             return out

@@ -243,7 +243,7 @@ def test_mutually_exclusive_booleans(tmp_path):
 LLC_SUFFIX_DESC = (
     "entity.name ends with one of the statutory suffixes: 'Limited "
     "Liability Company', 'Limited Company', 'L.L.C.', 'LLC', 'L.C.', 'LC', "
-    "or (if low-profit) 'L3C' or 'l3c' (case-insensitive substring match "
+    "or (if low-profit) 'L3C' or 'l3c' (case-insensitive end-anchored match "
     "per 31 MRSA §1508)."
 )
 
@@ -262,6 +262,80 @@ def test_llc_suffix_requirement(tmp_path):
     lp = _eval(tmp_path, checks, {"entity": {"name": "Acme L3C",
                                              "is_low_profit_llc": True}})
     assert lp["ok"]
+
+
+def test_llc_suffix_not_matched_mid_name(tmp_path):
+    """Regression: a 2-char suffix token ('LC') embedded in a word must NOT
+    satisfy an end-anchored statutory-suffix check.
+
+    Before the fix, ``a_contains_one_of`` did a match-anywhere substring
+    test, so "Malcolm Holdings" (embeds 'lc') and "Falcon Realty"
+    (embeds 'lc') falsely passed an error-severity LLC-suffix requirement —
+    the engine would report these unsuffixed names as compliant.
+    """
+    checks = [{"id": "suffix", "severity": "required",
+               "description": LLC_SUFFIX_DESC,
+               "depends_on_keys": ["entity.name",
+                                   "entity.is_low_profit_llc"]}]
+    for bogus in ("Malcolm Holdings", "Falcon Realty", "Balco Industries",
+                  "Welch Company Group"):
+        res = _eval(tmp_path, checks, {"entity": {"name": bogus}})
+        assert _codes(res) == ["NAME_AFFIX_REQUIRED"], bogus
+        assert not res["ok"], bogus
+    # trailing punctuation / whitespace on a genuine suffix still passes
+    for good in ("Acme LLC", "Acme LLC.", "Acme, L.L.C. ",
+                 "Acme Limited Liability Company"):
+        assert _eval(tmp_path, checks, {"entity": {"name": good}})["ok"], good
+
+
+def test_llc_suffix_l3c_not_matched_mid_name(tmp_path):
+    """The gated 'L3C' extra suffix is also end-anchored: a low-profit name
+    that merely embeds 'l3c' mid-string must not pass."""
+    checks = [{"id": "suffix", "severity": "required",
+               "description": LLC_SUFFIX_DESC,
+               "depends_on_keys": ["entity.name",
+                                   "entity.is_low_profit_llc"]}]
+    res = _eval(tmp_path, checks,
+                {"entity": {"name": "Al3ce Holdings",
+                            "is_low_profit_llc": True}})
+    assert _codes(res) == ["NAME_AFFIX_REQUIRED"]
+
+
+def test_corp_suffix_not_matched_mid_name(tmp_path):
+    """The 'contains a statutory ... suffix' compile path is also anchored."""
+    checks = [{"id": "corp-suffix", "severity": "required",
+               "description": "conversion.new_entity.name contains a "
+                              "statutory corporate suffix per 13-C MRSA "
+                              "§401: 'Corp.', 'Corporation', 'Co.', "
+                              "'Company', 'Inc.', 'Incorporated', or "
+                              "'Limited'."}]
+    # "Cocoa Holdings" embeds 'co' — must not satisfy the corp-suffix check.
+    bad = _eval(tmp_path, checks,
+                {"conversion": {"new_entity": {"name": "Cocoa Holdings"}}})
+    assert _codes(bad) == ["NAME_AFFIX_REQUIRED"]
+    ok = _eval(tmp_path, checks,
+               {"conversion": {"new_entity": {"name": "Cocoa Holdings Co."}}})
+    assert ok["ok"]
+
+
+def test_conditional_suffix_when_changed_anchored(tmp_path):
+    """The 'If X is populated and not 'no change', it must contain one of ...'
+    conditional suffix path is end-anchored too (LLP name-change rule)."""
+    checks = [{"id": "llp-suffix", "severity": "required",
+               "description": "If amendment.new_entity_name is populated and "
+                              "not 'no change', it must contain one of "
+                              "'Limited Liability Partnership', 'L.L.P.', or "
+                              "'LLP' (per 31 MRSA §803-A)."}]
+    bad = _eval(tmp_path, checks,
+                {"amendment": {"new_entity_name": "Llped Ventures"}})
+    assert _codes(bad) == ["NAME_AFFIX_REQUIRED"]
+    ok = _eval(tmp_path, checks,
+               {"amendment": {"new_entity_name": "Acme LLP"}})
+    assert ok["ok"]
+    # the skip value is untouched
+    skip = _eval(tmp_path, checks,
+                 {"amendment": {"new_entity_name": "no change"}})
+    assert skip["ok"]
 
 
 def test_contains_statutory_suffix(tmp_path):
