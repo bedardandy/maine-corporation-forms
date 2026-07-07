@@ -30,6 +30,10 @@ def get(data, dotted_key, default=None):
 
 
 def has(data, dotted_key):
-    """Return True if the dotted key resolves to a non-None value."""
-    sentinel = object()
-    return get(data, dotted_key, sentinel) is not sentinel
+    """Return True if the dotted key resolves to a non-None value.
+
+    A key that is present but explicitly ``None`` returns ``False`` — a
+    present-but-null value is not a usable value, matching the docstring's
+    "non-None" contract.
+    """
+    return get(data, dotted_key, None) is not None
